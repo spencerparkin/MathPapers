@@ -1,0 +1,11 @@
+# Ignore intermediate latex files.
+*.dvi
+*.log
+*.aux
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.out
+*.snm
+*.toc
