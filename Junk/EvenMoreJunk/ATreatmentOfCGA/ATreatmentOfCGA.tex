@@ -1,0 +1,1025 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\prl}{\parallel}
+\newcommand{\prp}{\perp}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+\newcommand{\grade}{\mbox{grade}}
+
+%\swapnumbers
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\title{A Treatment of the Conformal Model\\of\\Geometric Algebra--(Draft)}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+This paper is an attempt to rigorously prove results of the conformal model
+of geometric algebra.  Specifically, those about the building up of geometries
+from existing geometries through intersection and union-like operations.
+We take a ground-up approach, assuming only a familiarity
+with linear algebra, geometric algebra and the non-Euclidean geometric algebra used
+by the conformal model.  We then go on to propose a method of
+representing geometries not native to the conformal model.  Set in the background of
+a developed model for geometry, we can properly screwtinize this new method of
+representing geometry in a context that raises the right questions about its
+practicality in geometric analysis.  Better models of geometry are contemplated.
+
+\section{Lemmas and Theorems}\label{sec_lmas_and_thms}
+
+For the remainder of this paper, we will let
+$\G$ denote our geometric algebra, and $\V$ denote the vector space generating
+$\G$.  We will let $\V^n$ denote the $n$-dimensional Euclidean vector sub-space
+of $\V$.  If $\{e_k\}_{k=1}^n$ is any set of $n$ linearly independent vectors
+taken from $\V^n$, then $\{\nvao,\nvai\}\cup\{e_k\}_{k=1}^n$ is a set of $n+2$
+basis vectors generating $\V$, where $\nvao$ and $\nvai$ are the null-vectors at
+origin and infinity, respectively.  I assume that the reader is already familiar
+with these vectors.  We will let $I$ denote the unit psuedo-scalar of $\G$.
+
+\subsection{Lemmas of Vector Algebra}\label{sec_thms_of_vec_alg}
+
+In the proofs to follow, it is important to realize the distinction made between
+position vectors and direction vectors.  As a position vector, a vector $v\in\V^n$
+represents the position in space at the head of the vector when its tail is placed
+at the origin.  As a direction vector, a vector $v\in\V^n$ represents a direction
+with respect to other direction vectors, and it doesn't matter where it's placed.
+Often direction vectors are placed with their tails in the same place so that their
+relative directions can be more easily compared.
+
+To further show the distinction between position and direction vectors, notice that
+three vectors taken from $\V^n$, as position vectors, are always co-planar.  That is,
+three points in space can always be contained within a single plane.
+As direction vectors, however, three vectors taken from $\V^n$ are not always co-planar.
+The co-planarity of three direction vectors is tested by placing their tails at
+the same point in space, and then testing to see if the four points comprised of their
+heads and common tail can be contained within a single plane.  Four points cannot
+always be contained within a single plane.
+
+As position vectors will play an important role in defining our geometries,
+we will, unless stated otherwise, always be thinking about vectors taken from
+$\V^n$ as position vectors.
+
+We also need to talk about the descriptions of geometry used in this paper.
+We will often make reference to $m$-dimensional hyper-spheres and $m$-dimensional hyper-planes.
+A 0-dimensional hyper-plane is a point in space.  A 1-dimensional hyper-plane is
+a line through space.  A 2-dimensional hyper-plane is what we would normally think of
+as a plane through space.  A 3-dimensional hyper-plane takes up all of what we normally
+think of as space, so hyper-planes of dimensions greater than 3 require a greater amount
+of imagination.  A 0-dimensional hyper-sphere is a point in space.  A 1-dimensional hyper-sphere
+can be thought of as a pair of points in space, both at a common distance to a center
+point.  This idea, of course, generalizes to higher dimensions.  A 2-dimensional hyper-sphere
+is a circle, which can be contained in a plane.  A 3-dimensional hyper-sphere is what
+we normally think of as a sphere.  4-dimensional spheres require a stretch of the imagination.
+
+All that said, we begin with an important definition that we will use quite often throughout
+the paper.
+
+\begin{definition}
+A given set of $m$ position vectors $\{v_k\}_{k=1}^m$ taken from $\V^n$, with
+$m\geq 2$, is said to be co-$(m-2)$-hyper-planar if for $m=2$, we have $v_1=v_2$;
+for $m=3$, the vectors in $\{v_k\}_{k=1}^m$ are co-linear; for $m=4$, the vectors
+in $\{v_k\}_{k=1}^m$ are co-planar; for $m=5$, the vectors $\{v_k\}_{k=1}^m$ are
+co-hyper-planar; etc.
+\end{definition}
+
+\begin{lemma}\label{lma_co_hyper_planar_characterization}
+If a set of $m$ distinct position vectors $\{v_k\}_{k=1}^m$ are co-$(m-2)$-hyper-planar,
+then there exists distinct integers $i,j\in[1,m]$ such that
+\begin{equation*}
+v_i\in\mbox{span}\{v_j-v_k\}_{k=1,k\neq i,k\neq j}^m.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Proof pending.
+\end{proof}
+
+\begin{lemma}\label{lma_mm3_imp_mm2}
+For any integer $m>2$, if a set of $m$ position vectors $\{v_k\}_{k=1}^m$
+taken from $\V^n$ is co-$(m-3)$-hyper-planer, then this set of position vectors is
+also co-$(m-2)$-hyper-planar.
+\end{lemma}
+\begin{proof}
+Clearly for any $(m-3)$-dimensional hyper-plane there exists an $(m-2)$-dimensional
+hyper-plane containing it.
+\end{proof}
+
+\begin{lemma}\label{lma_non_co_hyper_planar_imp_diff_set_lin_indep}
+If a set of position vectors $\{v_k\}_{k=1}^m$ are non-co-$(m-2)$-hyper-planar,
+then for any integer $w\in[1,m]$, the set of $m-1$ vectors $\{v_w-v_k\}_{k=1,k\neq w}^m$
+is a linearly independent set of vectors.
+\end{lemma}
+\begin{proof}
+We will prove the contrapositive.  If the set of $m-1$ vectors $\{v_w-v_k\}_{k=1,k\neq w}^m$
+are linearly dependent, then the $(m-1)$-dimensional hyper-volume of the $(m-1)$-dimensional
+parallel-piped determined by the $m-1$ vectors in $\{v_w-v_k\}_{k=1,k\neq w}^m$ is zero.
+Then, at most, this flattened paralle-piped has $(m-1)$-dimensional hyper-area, which is
+$(m-2)$-dimensional hyper-volume.  We can now see that if all directional vectors in
+$\{v_w-v_k\}_{k=1,k\neq w}^m$ are confined to an $(m-2)$-dimensional hyper-plane, then,
+as position vectors, the vectors in $\{v_k\}_{k=1}^m$ must all be co-$(m-2)$-hyper-planar.
+Notice that if our flattened
+parallel-piped has only volume in lower dimensions, or no volume in any dimension,
+then our lemma here still goes through by lemma $\eqref{lma_mm3_imp_mm2}$.
+\end{proof}
+
+\begin{lemma}\label{lma_lin_combo_hyper_planar}
+Let $m$ be an integer such that $m\geq 2$.
+Then, if $\{\alpha_k\}_{k=1}^m$ is a set of $m$ scalars, not all zero, taken from $\R$,
+and $\{v_k\}_{k=1}^m$ is a set of $m$ vectors taken from $\V^n$, such that
+\begin{equation*}
+\mbox{$0=\sum_{k=1}^m\alpha_k$ and $0=\sum_{k=1}^m\alpha_k v_k$,}
+\end{equation*}
+then the set of $m$ position vectors $\{v_k\}_{k=1}^m$ are co-$(m-2)$-hyper-planar.
+\end{lemma}
+\begin{proof}
+Let us first make the observation that if for all integers $k\in[1,m]$, we have
+$\alpha_k=0$, then we can come to no conclusion about the vectors in $\{v_k\}_{k=1}^m$.
+Therefore, we must require that the scalars in $\{\alpha_k\}_{k=1}^m$ are not
+all zero.
+
+We now make the observation that if there exists an integer $i\in[1,m]$ such that
+$\alpha_i\neq 0$, then there must exist an integer $j\in[1,m]$, where $i\neq j$, such
+that $\alpha_j\neq 0$ also.
+So without loss of generality, let $i=m$ so that $1\leq j<m$.
+It now follows that the sum
+\begin{equation*}
+0 = \sum_{k=1}^{m-1}\alpha_k v_k - \left(\sum_{k=1}^{m-1}\alpha_k\right)v_m
+ = \sum_{k=1}^{m-1}\alpha_k(v_k-v_m)
+\end{equation*}
+is a non-trivial linear combination of the vectors in $\{v_k-v_m\}_{k=1}^{m-1}$.
+It then follows that $\{v_m-v_k\}_{k=1}^{m-1}$ is a linearly dependent set of vectors.
+Therefore, by the contrapositive of lemma $\eqref{lma_non_co_hyper_planar_imp_diff_set_lin_indep}$,
+we see the set of $m$ position vectors $\{v_k\}_{k=1}^m$ are co-$(m-2)$-hyper-planar,
+which is what we wanted to show.
+\end{proof}
+
+Notice that the following lemma does not follow from the contrapositive of
+lemma $\eqref{lma_lin_combo_hyper_planar}$, and that it is a stronger result.
+The statement of lemma $\eqref{lma_lin_combo_hyper_planar}$, however, will make
+a proof given later on more clear.
+
+\begin{lemma}\label{lma_lin_indep_imp_non_co_hyper_planar}
+If a set of position vectors $\{v_k\}_{k=1}^m$ is linearly independent, then
+these vectors are also non-co-$(m-2)$-hyper-planar.
+\end{lemma}
+\begin{proof}
+We will prove the contrapositive.  Assuming the position vectors in $\{v_k\}_{k=1}^m$
+are co-$(m-2)$-hyper-planar, we see, by lemma $\eqref{lma_co_hyper_planar_characterization}$,
+that there exist distinct integers $i,j\in[1,m]$, such that $v_i$ is a linear combination
+of the vectors in the set $\{v_j-v_k\}_{k=1,k\neq i,\neq j}^m$.  It is now easy to see
+that $v_i$ is also a linear combination of the vectors in the set $\{v_k\}_{k=1,k\neq i}^m$.
+It follows that $\{v_k\}_{k=1}^m$ is a linearly dependent set of vectors.
+\end{proof}
+
+It is instructive to note that the converse of $\eqref{lma_lin_indep_imp_non_co_hyper_planar}$
+is not true.
+A simple counter example is given by two parallel vectors of different lengths.
+
+\begin{lemma}\label{lma_lin_indep_not_lin_combo_diff_vecs}
+Let $\{v_k\}_{k=1}^m$ be a set of $m$ linearly independent vectors taken from $\V^n$.
+Then for any integer $w\in[1,m]$, the vector $v_w$ cannot be written as a linear combination
+of the set of $m-1$ vectors in $\{v_w-v_k\}_{k=1,k\neq w}^m$.
+\end{lemma}
+\begin{proof}
+We give a proof here by contradiction.  Suppose there does exist such a linear combination.
+Then without loss of generality, choosing $w=m$, there exist $m-1$ scalars $\{\alpha_k\}_{k=1}^{m-1}$,
+not all zero, such that
+\begin{equation*}
+v_m = \sum_{k=1}^{m-1}\alpha_k(v_m-v_k).
+\end{equation*}
+Solving for $v_m$, we find that
+\begin{equation*}
+v_m\left(1+\sum_{k=1}^{m-1}\alpha_k\right) = \sum_{k=1}^{m-1}\alpha_k v_k.
+\end{equation*}
+Suppose now that $-1\neq\sum_{k=1}^{m-1}\alpha_k$.  Then $v_m$ is a
+linear combination of the vectors in $\{v_k\}_{k=1}^{m-1}$, which
+contracicts the fact that $\{v_k\}_{k=1}^m$ is a linearly independent set.
+If $-1=\sum_{k=1}^{m-1}\alpha_k$, then $0=\sum_{k=1}^{m-1}\alpha_k v_k$,
+showing that there is a linearly dependent subset of $\{v_k\}_{k=1}^m$,
+which also contradicts the fact that $\{v_k\}_{k=1}^m$ is a linearly
+independent set.
+\end{proof}
+
+\subsection{Lemmas and Theorems of Geometric Algebra}\label{sec_thms_of_geo_alg}
+
+\begin{lemma}\label{lma_psuedo_scalar_with_vec_commutativity}
+The commutativity in the geometric product of vectors $v$ taken from $\V$ with the
+unit psuedo-scalar $I$ is given by
+\begin{equation*}
+vI = -(-1)^nIv.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Let $v$ be a vector taken from $\V$.
+Then, by definition, we have
+\begin{equation*}
+vI=v\cdot I+v\wedge I=v\cdot I=\frac{1}{2}(vI-(-1)^nIv).
+\end{equation*}
+Solving for $-(-1)^nIv$ now gives us the desired result.
+\end{proof}
+
+\begin{lemma}\label{lma_dot_wedge_identity}
+For any $v\in\V$ and any blade $A\in\G$, we have
+\begin{equation*}
+(v\cdot A)I = v\wedge(AI).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Let $m=\grade(A)$.  Then, by application of lemma $\eqref{lma_psuedo_scalar_with_vec_commutativity}$,
+we see that
+\begin{align*}
+2(v\cdot A)I &= (vA-(-1)^mAv)I \\
+ &= vAI-(-1)^mAvI \\
+ &= vAI+(-1)^{n+m}AIv \\
+ &= vAI+(-1)^{n+2-m}AIv \\
+ &= 2(v\wedge(AI)).
+\end{align*}
+Notice that $n+2-m=\grade(AI)$.
+\end{proof}
+
+\begin{lemma}\label{lma_inner_iff_outer_blade_vs_dual_version1}
+For any vector $v\in\V$ and any blade $A\in\G$, we have
+\begin{equation*}
+v\cdot A=0 \iff v\wedge(AI)=0.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+By lemma $\eqref{lma_dot_wedge_identity}$, we see that
+\begin{equation*}
+v\cdot A=0 \iff (v\cdot A)I=0 \iff v\wedge(AI)=0.
+\end{equation*}
+\end{proof}
+
+\begin{lemma}\label{lma_inner_iff_outer_blade_vs_dual_version2}
+For any vector $v\in\V$ and any blade $A\in\G$, we have
+\begin{equation*}
+v\wedge A=0 \iff v\cdot(AI)=0.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+By lemma $\eqref{lma_inner_iff_outer_blade_vs_dual_version1}$, we see that
+\begin{equation*}
+v\wedge A=0 \iff -v\cdot(AI)=0 \iff v\cdot(AI)=0.
+\end{equation*}
+\end{proof}
+
+\begin{lemma}\label{lma_vec_blade_inner_zero}
+If $A\in\G$ is a non-zero blade and $v\in\V$ is a vector such that $v\cdot A=0$, then
+for all vectors $w\in\V$ such that $w\wedge A=0$, we have $v\cdot w=0$.
+\end{lemma}
+\begin{proof}
+We give a proof by induction.  The case when $A$ is a vector is easy to see.
+Suppose the lemma holds for blades $A$ of grade $m-1$.  We will then show that the
+lemma holds for blades $A$ of grade $m$.  Let $\{a_k\}_{k=1}^m$ be a set of $m$
+vectors such that $A=\bigwedge_{k=1}^m a_k$.  Let $w$ be a vector such that
+$w\wedge A=0$.  It follows that $w$ is a linear combination of the vectors in $\{a_k\}_{k=1}^m$.
+Let $v$ be a vector such that $v\cdot A=0$.
+\begin{equation*}
+0 = v\cdot A = v\cdot \bigwedge_{k=1}^m a_k
+ = \left(v\cdot\bigwedge_{k=1}^{m-1} a_k\right)\wedge b_m + (-1)^m(v\cdot b_m)\bigwedge_{k=1}^{m-1} b_k
+\end{equation*}
+From this we see that if $v\cdot A=0$, then $v\cdot\bigwedge_{k=1}^{m-1} a_k=0$ and $v\cdot a_m=0$.
+Now, by inductive hypothesis, it follows that for all integers $k\in[1,m-1]$, we have $v\cdot a_k=0$.
+Now since $w$ is a linear combination of the vectors in $\{a_k\}_{k=1}^m$, we see that $v\cdot w=0$.
+\end{proof}
+
+\begin{theorem}\label{thm_intersect}
+Given any $v\in\V$ and any two blades $A,B\in\G$ such that $A\wedge B\neq 0$,
+it follows that
+\begin{equation*}
+\mbox{$v\cdot A=0$ and $v\cdot B=0 \iff v\cdot(A\wedge B)=0$.}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Let $\{a_k\}_{k=1}^i$ be a set of $i$ vectors such that $A=\bigwedge_{k=1}^i a_k$.
+Similarly, let $\{b_k\}_{k=1}^i$ be a set of $j$ vectors such that
+$B=\bigwedge_{k=1}^j b_k$.  Then, using lemma $\eqref{lma_vec_blade_inner_zero}$ in both
+directions of the proof, we have
+$v\cdot A=0$ and $v\cdot B=0$ if and only if for all integers $k\in[1,i]$,
+we have $v\cdot a_k=0$, and for all integers $k\in[1,j]$, we have $v\cdot b_k=0$, which,
+in turn, is true if and only if $v\cdot(A\wedge B)=0$.  Notice that one direction of this
+proof fails if $A\wedge B=0$.
+\end{proof}
+
+\begin{theorem}\label{thm_union_and_more}
+Given any $v\in\V$ and any two blades $A,B\in\G$, we have
+\begin{equation*}
+\mbox{$v\cdot A=0$ or $v\cdot B=0\implies v\cdot C=0$,}
+\end{equation*}
+where $C=((AI)\wedge(BI))I$.
+\end{theorem}
+\begin{proof}
+It follows by lemma $\eqref{lma_inner_iff_outer_blade_vs_dual_version1}$ that $v\wedge(AI)=0$ or $v\wedge(BI)=0$.  In turn, this implies
+that $v\wedge(AI)\wedge(BI)=0$, which, by lemma $\eqref{lma_inner_iff_outer_blade_vs_dual_version2}$, implies that $v\cdot C=0$.
+\end{proof}
+
+It is instructive to note why the converse of theorem $\eqref{thm_union_and_more}$ does not hold.
+If $v\wedge(AI)\wedge(BI)=0$, then $v$ may be contained within a vector sub-space of the vector
+space represented by $(AI)\wedge(BI)$ that non-trivially intersects the vector sub-spaces represented
+by $AI$ and $BI$, in which case $v\wedge(AI)\neq 0$ and $v\wedge(BI)\neq 0$.
+
+\begin{theorem}\label{thm_reinterpret_outer}
+Let $A,B\in\G$ be blades.  Then, for all vectors $v\in\V$, we have
+\begin{equation*}
+v\wedge A=0 \iff v\wedge B=0,
+\end{equation*}
+if and only if there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
+\end{theorem}
+\begin{proof}
+This is easy to prove.  Do it here.
+\end{proof}
+
+\begin{theorem}\label{thm_reinterpert_inner}
+Let $A,B\in\G$ be blades.  Then, for all vectors $v\in\V$, we have
+\begin{equation*}
+v\cdot A=0 \iff v\cdot B=0,
+\end{equation*}
+if and only if there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
+\end{theorem}
+\begin{proof}
+This theorem follows directly from lemma $\eqref{lma_inner_iff_outer_blade_vs_dual_version1}$
+and theorem $\eqref{thm_reinterpret_outer}$.
+\end{proof}
+
+\begin{theorem}\label{thm_basis_for_blade}
+Let $\{v_k\}_{k=1}^m$ be a linearly independent set of vectors taken from $\V$ and
+let $A$ be an $m$-blade taken from $\G$.
+Then if for all integers $k\in[1,m]$, we have $v_k\wedge A=0$, then there
+exists a scalar $\lambda\in\R$ such that
+\begin{equation*}
+A = \lambda\bigwedge_{k=1}^m v_k.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+For a given integer $k\in[1,m]$, if $v_k\wedge A=0$, then $v_k$ is in the
+vector sub-space represented by $A$.  Then, since all such $v_k$ are in the
+vector sub-space represented by $A$, and since $\{v_k\}_{k=1}^m$ is a
+linearly independent set of vectors, it follows that $\{v_k\}_{k=1}^m$
+is also a set of basis vectors generating the vector sub-space represented by $A$.
+Therefore, $\bigwedge_{k=1}^m v_k$ represents the same vector sub-space, and is
+therefore a scalar multiple of $A$.
+\end{proof}
+
+Another way to think about theorem $\eqref{thm_basis_for_blade}$ is, after
+realizing that $A$ and $\bigwedge_{k=1}^m v_k$ represent the same vector sub-space,
+to realize that for all $v\in\V$, we have $v\wedge A=0$ if and only if
+$v\wedge\bigwedge_{k=1}^m v_k=0$.  Theorem $\eqref{thm_basis_for_blade}$ now follows from
+theorem $\eqref{thm_reinterpret_outer}$.
+
+\subsection{Theorems of Conformal Geometric Algebra}\label{thms_of_conf_geo_alg}
+
+\begin{definition}
+We define the function $p:\V^n\to\G$ as
+\begin{equation*}
+p(v) = \nvao + v + \frac{1}{2}v^2\nvai.
+\end{equation*}
+\end{definition}
+
+\begin{theorem}\label{thm_inf_lin_combo_hyper_planar}
+Given a set of $m$ position vectors $\{v_k\}_{k=1}^m$ taken from $\V^n$,
+if there exists a scalar $\lambda\in\R$ and a set of $m$ scalars
+$\{\alpha_k\}_{k=1}^m$, not all zero, taken from $\R$ such that
+\begin{equation*}
+\lambda\nvai = \sum_{k=1}^m\alpha_k p(v_k),
+\end{equation*}
+then the set of $m$ position vectors in $\{v_k\}_{k=1}^m$ are co-$(m-2)$-hyper-planar.
+\end{theorem}
+\begin{proof}
+By equating parts, it is easy to see that
+\begin{equation*}
+\mbox{$0 = \sum_{k=1}^m\alpha_k$ and $0=\sum_{k=1}^m\alpha_k v_k$.}
+\end{equation*}
+Our theorem now follows directly from lemma $\eqref{lma_lin_combo_hyper_planar}$.
+\end{proof}
+
+An important corollary of theorem $\eqref{thm_inf_lin_combo_hyper_planar}$ now follows.
+
+\begin{corollary}\label{cor_non_hyper_planar_lin_indep}
+If a given set of $m$ position vectors $\{v_k\}_{k=1}^m$ taken from $\V^n$
+are non-co-$(m-2)$-hyper-planar, then the set of vectors $\{p(v_k)\}_{k=1}^m$
+are linearly independent.
+\end{corollary}
+\begin{proof}
+By the contrapositive of theorem $\eqref{thm_inf_lin_combo_hyper_planar}$,
+there does not exist any scalar $\lambda\in\R$ nor set of scalars
+$\{\alpha_k\}_{k=1}^m$, not all zero, such that
+\begin{equation*}
+\lambda\nvai = \sum_{k=1}^m\alpha_k p(v_k).
+\end{equation*}
+This is therefore also true when $\lambda=0$.
+\end{proof}
+
+Note that the converse of this corollary is not true.  A counter-example is easy to find once we
+have developed the conformal geometries later on.
+
+For sake of interest, we give now another proof of corollary $\eqref{cor_non_hyper_planar_lin_indep}$
+that offers another perspective.
+
+\begin{proof}
+By lemma $\eqref{lma_non_co_hyper_planar_imp_diff_set_lin_indep}$, since
+the set of vectors in $\{v_k\}_{k=1}^m$ are non-co-$(m-2)$-hyper-planar, the set of $m-1$
+vectors in $\{v_m-v_k\}_{k=1}^{m-1}$ are linearly independent.  Then, by lemma
+$\eqref{lma_lin_indep_not_lin_combo_diff_vecs}$, we see that the vector
+$v_m-v_{m-1}$ cannot be written as a linear combination of the $m-2$ vectors in the
+set $\{(v_m-v_{m-1})-(v_m-v_k)\}_{k=1}^{m-2}=\{v_k-v_{m-1}\}_{k=1}^{m-2}$.
+
+We now prove the theorem by contradiction.  Suppose that $\{p(v_k)\}_{k=1}^m$
+is a linearly dependent set of vectors.  Then there exists a set of
+$m-1$ scalars $\{\alpha_k\}_{k=1}^{m-1}$ such that
+\begin{equation*}
+p(v_m)=\sum_{k=1}^{m-1}\alpha_k p(v_k).
+\end{equation*}
+By equating parts, we see that
+\begin{equation*}
+\mbox{$1 = \sum_{k=1}^{m-1}\alpha_k$ and $v_m = \sum_{k=1}^{m-1}\alpha_k v_k$.}
+\end{equation*}
+It now follows that
+\begin{align*}
+v_m-v_{m-1} &= -v_{m-1}+\sum_{k=1}^{m-1}\alpha_k v_k \\
+ &= (\alpha_{m-1}-1)v_{m-1} + \sum_{k=1}^{m-2}\alpha_k v_k \\
+ &= \left(\alpha_{m-1}-\sum_{k=1}^{m-1}\alpha_k\right)v_{m-1} + \sum_{k=1}^{m-2}\alpha_k v_k \\
+ &= \alpha_{m-1}v_{m-1} - \alpha_{m-1}v_{m-1} - \sum_{k=1}^{m-2}\alpha_k v_{m-1} + \sum_{k=1}^{m-2}\alpha_k v_k \\
+ &= -\sum_{k=1}^{m-2}\alpha_k(v_{m-1}-v_k),
+\end{align*}
+which is a contradiction to our earlier conclusion about the vector $v_m-v_{m-1}$.
+\end{proof}
+
+\begin{lemma}\label{lma_lin_dep_conf_vecs_imp_lin_dep_pos_vec}
+Let $\{v_k\}_{k=1}^m$ be a set of $m$ vectors taken from $\V^n$.
+Then if the set of vectors $\{p(v_k)\}_{k=1}^m$ is linearly dependent,
+then so is the set of vectors $\{v_k\}_{k=1}^m$.
+\end{lemma}
+\begin{proof}
+There must exist a set of $m-1$ scalars $\{\alpha_k\}_{k=1}^{m-1}$, such that
+\begin{equation*}
+p(v_m) = \sum_{k=1}^{m-1}\alpha_k p(v_k).
+\end{equation*}
+Then, by equating parts, it follows that
+\begin{equation*}
+v_m = \sum_{k=1}^{m-1}\alpha_k v_k,
+\end{equation*}
+showing that $\{v_k\}_{k=1}^m$ is a linearly dependent set of vectors.
+\end{proof}
+
+Alternatively, we could have proven lemma $\eqref{lma_lin_dep_conf_vecs_imp_lin_dep_pos_vec}$
+using lemma $\eqref{lma_lin_indep_imp_non_co_hyper_planar}$
+and corollary $\eqref{cor_non_hyper_planar_lin_indep}$.  It is worth mentioning this so that
+we gain an insight into the necessary and sufficient conditions upon which $\{p(v_k)\}_{k=1}^m$
+is a linearly independent set of vectors.
+
+Note that the converse of lemma $\eqref{lma_lin_dep_conf_vecs_imp_lin_dep_pos_vec}$ is
+not true.  Simply consider a unit-length vector $v\in\V^n$, and compare $p(v)$ to $p(2v)$.
+
+\section{Results of the Conformal Model}\label{sec_app_of_thms}
+
+We are now ready to develop the conformal model of geometric algebra.
+
+\subsection{Geometric Representation}
+
+\begin{definition}\label{def_norm_geo_rep}
+A blade $A\in\G$ normally represents a geometry as the set of a
+all position vectors $v\in\V^n$ such that $p(v)\cdot A=0$.
+\end{definition}
+
+\begin{definition}\label{def_dual_geo_rep}
+A blade $A\in\G$ dually represents a geometry as the set of all
+position vectors $v\in\V^n$ such that $p(v)\wedge A=0$.
+\end{definition}
+
+Our first result reveals the homogenous nature of our geometric representations.
+\begin{result}\label{rslt_homog_rep}
+If a blade $A\in\G$ normally represents a geometry, then so
+does $\lambda A$ for any non-zero scalar $\lambda\in\R$.  Similarly,
+if a blade $A\in\G$ dually represents a geometry, then so
+does $\lambda A$ for any non-zero scalar $\lambda\in\R$.
+\end{result}
+\begin{proof}
+This follows directly from definitions $\eqref{def_norm_geo_rep}$ and $\eqref{def_dual_geo_rep}$.
+\end{proof}
+
+It is important to realize that there is a dual relationship between the normal
+and dual representations of a given geometry.
+\begin{result}\label{rslt_dual_relationship}
+If an $m$-blade $A\in\G$ normally represents a geometry, then the
+$(n-m)$-blade $AI$ dually represents the same geometry.  Similarly,
+if $A$ dually represents a geometry, then $AI$ normally represents
+the same geometry.
+\end{result}
+\begin{proof}
+This result follows directly from lemmas $\eqref{lma_inner_iff_outer_blade_vs_dual_version1}$
+and $\eqref{lma_inner_iff_outer_blade_vs_dual_version2}$.
+\end{proof}
+
+\subsection{Generating all $m$-dimensional Hyper-Spheres of the Model}\label{sec_gen_all_spheres}
+
+Here we begin with a development of the $n$-dimensional hyper-sphere.
+All other lower-dimensional hyper-spheres can then be found by simply
+intersecting such spheres together.  It is interesting to note that
+even the intersection of two non-intersecting geometries gives a meaningful
+result in the conformal model.
+
+\begin{result}\label{rslt_sphere_def}
+Define $s:\V^n\times\R\to\G$ as the function
+\begin{equation*}
+s(v,r)=p(v) - \frac{1}{2}r^2\nvai.
+\end{equation*}
+Then $s(v,r)$ normally represents a sphere positioned at $v$ with radius $r$.
+\end{result}
+\begin{proof}
+Suppose $w\in\V^n$ is a vector such that $p(w)\cdot s(v,r)=0$.
+This gives us
+\begin{equation*}
+\left(\nvao+w+\frac{1}{2}w^2\nvai\right)\cdot\left(\nvao+v+\frac{1}{2}(v^2-r^2)\nvai\right)=0.
+\end{equation*}
+When expanded, we get
+\begin{equation*}
+-\frac{1}{2}v^2+w\cdot v-\frac{1}{2}w^2=-\frac{1}{2}r^2.
+\end{equation*}
+It is then not hard to see that this reduces to $(v-w)^2=r^2$.
+It follows that the set of all such vectors $w$ satisfying the
+equation $p(w)\cdot s(v,r)=0$ are exactly those at a distance $r$ from $v$.
+\end{proof}
+
+Notice that from this we can deduce a normal representation of a single
+point in space, and for any given position vector $v\in\V^n$, it is simply
+$p(v)$, a sphere with radius zero.
+
+\begin{result}\label{rslt_intersection}
+Let $A,B\in\G$ be blades normally representative of any two types of geometries.
+Then if $A\wedge B\neq 0$, then the blade $A\wedge B$ normally represents the
+intersection of the geometries represented by $A$ and $B$.
+\end{result}
+\begin{proof}
+This result follows directly from theorem $\eqref{thm_intersect}$.
+Notice that both directions of the theorem are needed.
+\end{proof}
+
+\begin{result}\label{rslt_sphere_is_outer_prod_of_spheres}
+If $\{s(v_k)\}_{k=1}^m$ is a set of $m$ vectors normally representative
+of $n$-dimensional hyper-spheres such that their combined
+intersection is non-trivial, (which is to say their intersection is some hyper-sphere of radius $r>0$),
+then this hyper-sphere is of dimension $n-m+1$.
+\end{result}
+\begin{proof}
+This follows from the fact that for any $m$-dimensional hyper sphere, with $1\leq m\leq n$,
+a non-trivial intersection of this hyper-sphere with one of dimension $n$ is a hyper-sphere of
+dimension $m-1$.
+\end{proof}
+
+There are two important take-home points about this section of the paper.
+The first is that we can build up all spheres of dimensions 0 through $n$ as outer
+products of vectors normally representative of $n$-dimensional hyper-spheres.
+The second is that any blade normally representative of a non-degenerate sphere, (one of radius $r>0$),
+can be thought of as an outer product of one or more vectors, each normally representative
+of an $n$-dimensional hyper-sphere.  For a given hyper-sphere, there are uncountably many
+such ways to characterize the sphere.  It is a powerful concept to be
+able to choose any one of many different ways of representing a single geometry in an outer product
+of elements representative of other geometries.
+On the other hand, it is also powerful for us to be able to solve for an element
+representative of a geometry that is the intersection, (or union
+or what have you), of a set of given geometries.  These two ideas will surface again later.
+
+\subsection{Generating all $m$-dimensional Hyper-Planes of the Model}\label{sec_gen_all_planes}
+
+Each $m$-dimensional hyper-sphere uniquely determines an $m$-dimensional hyper-plane.
+The main result of this section is to show how all $m$-dimensional hyper-planes
+of the conformal model can be generated as a function of all $m$-dimensional hyper-spheres
+of the model.  To do this, we begin with a result that,
+in and of itself, is a very useful feature of the conformal model.
+
+\begin{result}\label{rslt_sphere_factorization}
+If $A\in\G$ is an $m$-blade that is dually representive of an
+$(m-1)$-dimensional hyper-sphere of radius $r>0$, then
+there exists a factorization of $A$ of the form
+\begin{equation*}
+A = \lambda\bigwedge_{k=1}^m p(v_k),
+\end{equation*}
+where $\lambda\in\R$, and each position vector in $\{v_k\}_{k=1}^m$ is a
+point on the sphere represented by $A$.
+\end{result}
+\begin{proof}
+%In section $\eqref{sec_gen_all_spheres}$
+In the previous section
+we proved the existence of blades normally representative of hyper spheres
+of any of the dimensions 0 through $n$.  So, by result $\eqref{rslt_dual_relationship}$,
+we know that there exist blades dually representative of all such hyper spheres.
+We may therefore let the $m$-blade $A$ be such a blade.  The dimension of the
+hyper sphere represented by $A$ is therefore $n-(n+2-m)+1=m-1$.
+
+Now since $r>0$, there exists a set of $m$ distinct position vectors $\{v_k\}_{k=1}^m$, each being on the
+sphere represented by $A$.  Then, interestingly, for all $2\leq m<4$, this implies their
+non-co-$(m-2)$-hyper-planarity, but this does not follow for all $m\geq 4$.
+In any case, it shouldn't be hard to see that $m$ points can be found on an $(m-1)$-dimensional
+hyper-sphere of radius $r>0$ such that they are non-co-$(m-2)$-hyper-planar.
+
+Then, by corollary $\eqref{cor_non_hyper_planar_lin_indep}$,
+we see that $\{p(v_k)\}_{k=1}^m$ is a linearly independent set.
+Now since for each integer $k\in[1,m]$, we have $p(v_k)\wedge A=0$, it follows from
+theorem $\eqref{thm_basis_for_blade}$ that the scalar $\lambda\in\R$ above exists.
+\end{proof}
+
+There are at least two fascinating things about this result, and they're both important.
+The first is that any
+blade dually representative of a hyper-sphere can be thought of as any outer
+product of vectors normally representative of a finite subset of distinct points on
+that sphere that are also non-co-hyper-planar for a hyper-plane of the correct dimension.
+The second is that the outer product of a given set of vectors normally representative of
+points gives us a blade dually representative of the sphere containing
+those points, provided, again, that those points are non-co-hyper-planar for a hyper-plane
+of the right dimension.  This provides yet another way for us to generate all
+hyper-spheres of the model, this time building higher-dimensional spheres with
+blades of larger grade, as apposed to lower-dimensional spheres.
+
+\pagebreak
+\begin{result}\label{rslt_sphere_to_plane}
+Let $A\in\G$ be an $m$-blade that is dually representive of an
+$(m-1)$-dimensional hyper-sphere of radius $r>0$.
+Then the $(m+1)$-blade $A\wedge\nvai$ is dually representative
+of the $(m-1)$-dimensional hyper-plane containing the
+hyper-sphere represented by $A$.
+\end{result}
+\begin{proof}
+By result $\eqref{rslt_sphere_factorization}$, there exists a
+scalar $\lambda\in\R$ and a set of $m$ vectors $\{p(v_k)\}_{k=1}^m$,
+such that $A = \lambda\bigwedge_{k=1}^m p(v_k)$.
+Now since the position vectors $\{v_k\}_{k=1}^m$ are non-co-$(m-2)$-hyper-planar,
+we see that $\nvai$ is not any non-trivial linear combination of the
+$m$ vectors $\{p(v_k)\}_{k=1}^m$ by theorem $\eqref{thm_inf_lin_combo_hyper_planar}$,
+and therefore $A\wedge\nvai\neq 0$.
+
+Now consider the set of all
+vectors $v\in\V^n$ such that $p(v)\wedge A\wedge\nvai=0$.
+This implies that if $p(v)\wedge A\neq 0$, then there
+exists a set of $m+1$ scalars $\{\alpha_k\}_{k=1}^{m+1}$, not all zero,
+such that
+\begin{equation*}
+\nvai = \sum_{k=1}^m \alpha_k p(v_k) + \alpha_{m+1}p(v).
+\end{equation*}
+If such a non-trivial linear combination does not exist, then $p(v)\wedge A=0$,
+and so $v$ is on the hyper-sphere, which is in the desired hyper-plane.
+Therefore, what we need to show is that the remainder of the hyper-plane
+is given by the set of all position vectors $v\in\V^n$ for which this non-trivial linear
+combination does exist.  This follows directly from theorem $\eqref{thm_inf_lin_combo_hyper_planar}$.
+\end{proof}
+
+It is now clear that we can generate all the hyper-planes of the conformal
+model by simply taking all dual representatives of the hyper-spheres
+in the outer product with the null-vector at infinity.
+Notice, however, that result $\eqref{rslt_intersection}$ is not limited in its applicability
+to intersecting spheres, but can apply to any geometry normally represented in the model.
+The normal representation of a hyper-plane can be found using $\eqref{rslt_dual_relationship}$.
+Hyper-planes can then be intersected to generate lower dimensional hyper-planes, but notice
+that we cannot generate all $m$-dimensional hyper-planes of the model this way, because
+the interesection of two $n$-dimensional hyper-planes is always an $n$-dimensional hyper-plane.
+(This is because all $n$-dimensional hyper-planes are parallel.)
+At least one of the two hyper-planes intersected must be of dimension less than $n$.
+
+\begin{result}
+Let $A\in\G$ be an $m$-blade normally representative of an $(n-m+1)$-dimensional
+hyper-sphere.  Then $A\cdot\nvai$ is normally representative of the $(n-m+1)$-dimensional
+hyper-plane containing this hyper-sphere represented by $A$.
+\end{result}
+\begin{proof}
+Clearly $AI$ is an $(n+2-m)$-blade dually representative of the hyper-sphere.
+Then $(AI)\wedge\nvai$ is dually representative of the hyper-plane of lowest
+possible dimension that still contains this hyper-sphere.  Then
+$((AI)\wedge\nvai)(-I)=A\cdot\nvai$ is a normal representation of this hyper-plane.
+\end{proof}
+
+\begin{lemma}
+If $A\in\G$ is dually representative of an $(m-1)$-dimensional hyper-sphere, then for any
+point $v\in\V^n$ not on this sphere, but in the $(m-1)$-dimensional hyper-plane containing
+the sphere, the $(m+1)$-blade $A\wedge p(v)$ is dually representative of the $(m-1)$-dimensional
+hyper-plane containing the sphere.
+\end{lemma}
+\begin{proof}
+Proof pending.
+\end{proof}
+
+We'll later be able to show that if two blades represent the same plane in the same
+way, then they're scalar multiples of one another.  It will then follow that after
+formulating a plane in terms of 3 co-circular points (any 3 points that are non-co-linear)
+and $\nvai$, we can find a factorization
+of that plane in terms of any 4 co-planar points on that plane that are also non-co-circular.
+
+We will need the following lemma in a later section, but while we're on the
+subject of hyper-planes, it belongs in this section.
+\begin{lemma}\label{lma_planes_contain_nvai}
+If $A\in\G$ is a blade dually representative a hyper-plane of any dimension,
+then $A\wedge\nvai=0$.
+\end{lemma}
+\begin{proof}
+Proof pending.
+\end{proof}
+
+\subsection{Finding Fittings in the Conformal Model}
+
+Let $C$ be a blade in $\G$ normally representative of a circle and
+let $P$ in $\V$ be a vector normally representative of a point.
+From what we now know, the blade $S$ normally representative
+of the sphere, if any, containing the circle and point is given by
+\begin{equation*}
+S = (P\wedge(CI))(-I).
+\end{equation*}
+Here we have simply taken a dual of $C$ as $CI$, which we know is
+dually representative of the circle, and may be thought of as the
+outer product of any three distinct points on the circle.  Then, the
+point $P$, when taken in the outer product with $CI$, gives us a
+blade dually representative of the sphere containing the point and
+circle, provided $P\wedge(CI)\neq 0$.  We then take a final dual
+to formulate $S$ as a normal representative of the sphere.
+Interestingly, as the reader can check, this reduces nicely to
+the formula
+\begin{equation*}
+S = P\cdot C.
+\end{equation*}
+
+Now let $C$ be a blade in $\G$ dually representative of a circle and
+let $S$ be a sphere normally representative of a sphere.
+A blade $P$ dually representative of a pair of points is then
+given by
+\begin{equation*}
+P = (S\wedge(CI))(-I) = S\cdot C.
+\end{equation*}
+Taking a dual of $C$, we get a blade that may be thought of as
+the outer product of two blades normally representative of spheres.
+Then, by forming the outer product of three spheres, the blade
+$S\wedge(CI)$ is normally representative of a 1-dimensional sphere,
+which is a pair of points.  Taking a final dual, we get the
+dual representation of this point-pair, which may also be
+thought of as the outer product of the vectors normally representative
+of those points.
+
+\subsection{Geometric Analysis}
+
+As noted earlier, given a circle, there are uncountably many ways such a geometry
+can be formulated as the intersection between two spheres.  There is, howerver, up to scale,
+a unique representation of this circle in terms of the outer product between a blade
+representative of a plane, and a blade representative of a sphere centered on that plane.
+This latter presentation is easy to decompose, giving us the circle's characteristics,
+its center and radius.  These characteristics, however, are not so easily gleaned from
+the latter representation.  Therefore, if we wish to intersect two spheres, and then
+analyze the result to determine the resulting circle, it would be helpful to know
+what, if any, replationship their might be between this, (or any other), representation
+of the circle, and the unique representation we have found which
+lends itself easily to decomposition.
+
+\begin{lemma}\label{lma_equiv_dual_reps_of_spheres}
+If $A,B\in\G$ are blades dually representative of the same $m$-dimensional hyper-sphere,
+then there exists $\lambda\in\R$ such that $A=\lambda B$.
+\end{lemma}
+\begin{proof}
+By result $\eqref{rslt_sphere_factorization}$, let $\alpha\in\R$ be a scalar
+and $\{v_k\}_{k=1}^{m+1}$ be a set of $m+1$ vectors taken from $\V^n$ such that
+$A=\alpha\bigwedge_{k=1}^{m+1}p(v_k)$.  Now, since $B$ represents the same
+hyper-sphere, it follows that for all integers $k\in[1,m+1]$, we
+have $p(v_k)\wedge B=0$.  It follows then, by theorem $\eqref{thm_basis_for_blade}$, that
+there must exist $\beta\in\R$ such that $B=\beta\bigwedge_{k=1}^{m+1}p(v_k)$.
+We now see that $\lambda=\alpha/\beta$.
+\end{proof}
+
+\begin{lemma}\label{lma_equiv_norm_reps_of_spheres}
+If $A,B\in\G$ are blades normally representative of the same $m$-dimensional hyper-sphere,
+then there exists $\lambda\in\R$ such that $A=\lambda B$.
+\end{lemma}
+\begin{proof}
+Clearly $AI$ and $BI$ are dually representative of the same $m$-dimensional hyper-sphere.
+So it follows from lemma $\eqref{lma_equiv_dual_reps_of_spheres}$ that there exists $\lambda\in\R$
+such that $AI=-\lambda BI\implies A=\lambda B$.
+\end{proof}
+
+\begin{lemma}\label{lma_equiv_dual_reps_of_planes}
+If $A,B\in\G$ are blades dually representative of the same $m$-dimensional hyper-plane,
+then there exists $\lambda\in\R$ such that $A=\lambda B$.
+\end{lemma}
+\begin{proof}
+Choose any $m$-dimensional hyper-sphere contained within the $m$-dimensional hyper-plane.
+Then by result $\eqref{rslt_sphere_factorization}$, there exists a scalar $\alpha\in\R$
+and a set of $m+1$ vectors $\{v_k\}_{k=1}^{m+1}$ such that $\alpha\bigwedge_{k=1}^{m+1}p(v_k)$
+is dually representative of this $m$-dimensional hyper-sphere.  Furthermore, by
+result $\eqref{rslt_sphere_to_plane}$, $\alpha\nvai\wedge\bigwedge_{k=1}^{m+1}p(v_k)$ is dually representative
+of the $m$-dimensional hyper-plane.  By theorem $\eqref{thm_basis_for_blade}$, we need now only
+make the observation that we have
+found a common basis for the vector sub-spaces represented by $A$ and $B$, since
+for all integers $k\in[1,m+1]$, we have $p(v_k)\wedge A=p(v_k)\wedge B=0$, and, by lemma $\eqref{lma_planes_contain_nvai}$,
+we have $\nvai\wedge A=\nvai\wedge B=0$.
+\end{proof}
+
+\begin{lemma}\label{lma_equiv_norm_reps_of_planes}
+If $A,B\in\G$ are blades normally representative of the same $m$-dimensional hyper-plane,
+then there exists $\lambda\in\R$ such that $A=\lambda B$.
+\end{lemma}
+\begin{proof}
+This is easily proved from lemma $\eqref{lma_equiv_dual_reps_of_planes}$ just as
+we proved lemma $\eqref{lma_equiv_norm_reps_of_spheres}$ from lemma $\eqref{lma_equiv_dual_reps_of_spheres}$.
+\end{proof}
+
+We now come to the main result of this section.
+
+\begin{result}\label{rslt_reinterp}
+If $A,B\in\G$ are blades both normally or both dually representative of the same
+$m$-dimensional hyper-sphere or $m$-dimensional hyper-plane, then there exists
+a scalar $\lambda\in\R$ such that $A=\lambda B$.
+\end{result}
+\begin{proof}
+This follows directly from lemmas $\eqref{lma_equiv_dual_reps_of_spheres}$,
+$\eqref{lma_equiv_norm_reps_of_spheres}$, $\eqref{lma_equiv_dual_reps_of_planes}$ and
+$\eqref{lma_equiv_norm_reps_of_planes}$.
+\end{proof}
+
+The question now arrises, if we have two blades $A,B\in\G$ representative, in the same way,
+(both normally or both dually), of the same geometry, then does there exist a scalar
+$\lambda\in\R$ such that $A=\lambda B$?  Well, if spheres and planes of various dimensions
+are the only types of geometries representable by blades in the conformal model, then the
+answer is yes.  While it may be possible to show that blades in the geometric algebra of
+the conformal model are only dually or normally representative of spheres or planes,
+(or that perhaps this claim can be refuted with a counter-example), we will be content
+to end this section now with this as an open question, as the result shown above
+is sufficient to perform analyices of intersections and fittings taken in the
+conformal model between spheres and planes of various dimensions.
+
+\section{Standard Forms}
+
+Standard forms for planes, lines and circles are given here along
+with their decomposition formulas.
+
+\subsection{Planes}
+
+A standard form for the normal representation of a plane is given by
+\begin{equation*}
+\pi(n,c) = n+(c\cdot n)\nvai,
+\end{equation*}
+where $n$ is a unit-length vector taken from $\V^n$ and $c$ is a position vector taken from $\V^n$.
+As the reader can check, the set of all $v\in\V^n$ such that $p(v)\cdot\pi(n,c)=0$ forms a plane.
+To decompose this geometry, we have the following.
+\begin{align*}
+n &= \nvao\cdot(\nvai\wedge\pi(n,c)) \\
+c &= (\nvao\cdot\pi(n,c))n
+\end{align*}
+Notice that the position vector $c$ calculated here will always be the point on the plane
+closest to the origin.  If given a vector $v$ normally representative of a plane,
+calculating $w=\nvao\cdot(\nvai\wedge v)$ gives a vector orthogonal to the plane, but it
+may not be of unit length.  The decomposition formulas above, therefore, can be applied
+to the vector $v/|w|$.
+
+\subsection{Circles}
+
+A standard form for the normal representation of a circle may be given by
+\begin{equation*}
+C(n,c,r) = \pi(n,c)\wedge s(c,r),
+\end{equation*}
+where $n$ is a unit-length vector taken from $\V^n$, $c$ is a position vector taken from $\V^n$
+and $r$ is a scalar taken from $\R$.  Its decomposition formulas are as follows.
+\begin{align*}
+n &= (\nvai\wedge\nvao)\cdot(C(n,c,r)\wedge\nvai) \\
+c &= [(\nvao\wedge\nvai)\cdot[(\nvai\nvao)\wedge C(n,c,r)]]n \\
+r^2 &= 2[(\nvai\wedge\nvao)\cdot[C(n,c,r)\wedge\nvao]-(c\cdot n)c]n+c^2
+\end{align*}
+Again, for a given 2-blade normally representative of a circle, the vector $n$
+calculated above may not be of unit-length, in which case the 2-blade needs to
+be divided through by the length of $n$ before the rest of the decomposition
+formulas are applied.  In other words, these decomposition formulas apply to
+the homogenized version of the 2-blade.
+
+\subsection{Lines}
+
+\section{Representing Other Types of Geometry}
+
+So far we have seen that blades of the conformal model of geometric algebra
+may be representative of hyper-spheres and hyper-planes.  Here we investigate
+what other types of geometries are representable in the conformal model using
+blade-valued functions of vectors in $\V^n$.
+
+\begin{definition}
+A function $g:\V^n\to\G$ mapping vectors in $\V^n$ to blades in $\G$ is
+normally representative of some geometry as the set of all vectors $v\in\V^n$
+such that $p(v)\cdot g(v)=0$.  Similarly, this function is dually representative
+of some geometry as the set of all vector $v\in\V^n$ such that $p(v)\wedge g(v)=0$.
+\end{definition}
+We will refer to such functions $g$ as geometric functions.
+
+\subsection{Tubes}
+
+The Euclidean vector form of the equation for a tube is given by
+\begin{equation*}
+(v-c)^2-[(v-c)\cdot n]^2-r^2 = 0.
+\end{equation*}
+This geometry is normally represented by the geometric function
+\begin{equation*}
+g(v)=\nvao+f(v)+\frac{1}{2}[f^2(0)-r^2]\nvai,
+\end{equation*}
+where $f(v)=c+[(v/2-c)\cdot n]n$.
+
+\subsection{Right-Circular Conical Surfaces}
+
+The Euclidean vector form of the equation for the right-circular conical surface is given by
+\begin{equation*}
+(v-c)^2-2[(v-c)\cdot n]^2=0.
+\end{equation*}
+This geometry is normally represented by the geometric function
+\begin{equation*}
+g(v)=\nvao+f(v)+\frac{1}{2}[f^2(v)-2(c\cdot n)^2]\nvai,
+\end{equation*}
+where $f(v)=c+[(v-2c)\cdot n]n$.
+
+\subsection{The General Conical Surface}
+
+This geometry is normally represented by the geometric function
+\begin{equation*}
+g(v) = [1-f(v)]^2\nvao + [1-f(v)](c-f(v)e)+\frac{1}{2}[(c-f(v)e)^2-r^2]\nvai,
+\end{equation*}
+where $f(v)$ is defined as
+\begin{equation*}
+f(v) = \frac{(v-e)\cdot(v-c)}{(v-e)^2}.
+\end{equation*}
+Here, $e$ is the center of the geometry, $c$ is the center of a sphere aiding
+in the composition of the geometry, and $r$ is the radius of that sphere.
+
+Replacing $e$ with $e+\lambda n$, where $n$ is a unit-length vector in $\V^n$,
+taking the limit of $g(v)$ as $\lambda$ approaches infinity gives us a geometric
+for the tube as
+\begin{equation*}
+g(v) = \nvao + f(v) + \frac{1}{2}[f^2(v)-r^2]\nvai,
+\end{equation*}
+where $f(v)=c+[(v-c)\cdot n]n$.
+
+\subsection{Special-Case Ellipsoids}
+
+The Euclidean vector form of the equation for a special-case ellipsoid is given by
+\begin{equation*}
+(v-c)^2+[(v-c)\cdot a]^2-r^2=0.
+\end{equation*}
+This geometry is normally represented by the geometric function
+\begin{equation*}
+g(v) = \nvao + c + [(c-v/2)\cdot a]a + \frac{1}{2}[c^2+(c\cdot a)^2-r^2]\nvai.
+\end{equation*}
+
+Another special-case ellipsoid is given by the following equation involving
+Euclidean vectors and a Euclidean 2-blade $P$.
+\begin{equation*}
+(v-c)^2+[(v-c)\cdot P]^2-r^2 = 0.
+\end{equation*}
+A geometric function normally representative of this geometry is given by
+\begin{equation*}
+g(v) = \nvao+c+\frac{1}{2}[c^2-[(v-c)\cdot P]^2-r^2]\nvai.
+\end{equation*}
+
+\subsection{The General Ellipsoid}
+
+An equation for the general ellipsoid in $n$-dimensional space is given by
+\begin{equation*}
+\sum_{k=1}^n((v-c)\cdot a_k)^2 - r^2 = 0,
+\end{equation*}
+where $c$ is the center of the ellipsoid and each $a_k$ is a
+distortion axis.  The scalar $r$ is a radius for the special case of ellipsoids that
+are spheres.  This happens when the vectors in $\{a_k\}_{k=1}^n$ form an orthonormal
+basis, in which case, it is easy to see that our equation reduces to $(v-c)^2-r^2=0$.
+The vectors in $\{a_k\}_{k=1}^n$ need not be pair-wise orthogonal, but there is no
+loss in generality if we assume this requirement, and they do need to form a linearly
+independent set of vectors.  In the case that they are pair-wise orthogonal,
+it is easy to see how the lengths of these vectors
+determine the distortion of a sphere forming the desired ellipsoid, and to see
+how that ellipsoid is oriented in space.
+A geometric function normally representative of the ellipsoid is given by
+\begin{equation*}
+g(v) = \sum_{k=1}^n[(v-2c)\cdot a_k]a_k + \left[r^2-\sum_{k=1}^n(c\cdot a_k)^2\right]\nvai.
+\end{equation*}
+
+\section{Analyzing Geometric Functions}
+
+Yet new geometries can be represented when we take the inner and outer
+products of geometric functions.  The major problem, however, is that of
+relating one geometric function to another when they are known to represent
+the same geometry.  In other words, is there an equivilant to result
+$\eqref{rslt_reinterp}$ that applies to geometric functions?  This is an
+important question, because the taking of an intersection, for example,
+between two geometries becomes useless to us if we cannot decompose the result.
+Interesecting two ellipsoids, can we interpret this as the intersection between
+a plane and an ellipsoid centered on that plane?  The latter intersection may
+have a set of decomposition steps, while the former does not.
+
+\section{References}
+
+Give them here.
+
+\end{document}

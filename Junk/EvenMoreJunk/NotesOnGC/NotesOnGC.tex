@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Notes On Geometric Calculus}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\ob}{\overline}
+\newcommand{\ub}{\underline}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+This paper is a formal compilation of all my notes on geometric calculus.
+At the times when I finally make a breakthrough in understanding what's
+being said in a technical paper by Hestenes or anyone else, (which times,
+admittedly, are few and far between), I make note of it here and try to
+give a good explanation.  See the reference section for the list of
+sources from which I am pulling information to be reiterated in simpler
+terms here.
+\nocite{hestenes91}
+\nocite{macdonald12}
+
+\section{Outermorphism}
+
+Let $f:\A\to\B$ be a linear transformation from the vector space $\A$
+to the vector space $\B$.  Every such transformation $f$ can be
+extended to what we call an outermorphism $\ub{f}$ if for all
+vectors $a\in\A$, we have $\ub{f}(a)=f(a)$ and for all blades $A\in\G(\A)$,
+we define $\ub{f}$ for $A$ as preserving the outer product.
+Notice that by preserving the outer product, this does not necessarily
+mean that $\ub{f}$ preserves grade.
+For any $k$-blade $A\in\G(\A)$, letting $A=\bigwedge_{i=1}^k a_k$ with
+each $a_k\in\A$, we may write
+\begin{equation*}
+\ub{f}(A)=\ub{f}\left(\bigwedge_{i=1}^k a_k\right) = \bigwedge_{i=1}^k\ub{f}(a_k),
+\end{equation*}
+yet while $A\neq 0$, we may have $\ub{f}(A)=0$, showing that while $\{a_i\}_{k=1}^k$
+is a linearly independent set, $\{\ub{f}(a_i)\}_{i=1}^n$ may not be such a set.  As will become clear
+later on, if a given $\ub{f}$ is always grade preserving, then $\ub{f}^{-1}$ must exist.
+
+Of particular interest is how $\ub{f}$ maps the
+unit psuedo-scalar of $\G(\A)$, which we'll denote by $I_{\A}$.  Clearly this
+will be some scalar multiple of the unit psuedo-scalar of $\G(\B)$, which we'll
+denote by $I_{\B}$.  We define this scalar multiple as the determinant of $\ub{f}$
+and write
+\begin{equation*}
+\ub{f}(I_{\A}) = \left(\det\ub{f}\right)I_{\B}.
+\end{equation*}
+
+Associated with every outermorphism is a function $\ob{f}$ denoting what we call
+the adjoint of $\ub{f}$.  We define $\ob{f}:\A\to\B$ as an outermorphism
+with the property that for any pair of vectors $a,b\in\A$, we have
+\begin{equation*}
+a\cdot \ub{f}(b) = \ob{f}(a)\cdot b.
+\end{equation*}
+Using the $k$-blade $A$ given earlier, this leads to the following result.
+\begin{align*}
+a\cdot \ub{f}(A) &= -\sum_{i=1}^k(-1)^i(a\cdot\ub{f}(a_i))\bigwedge_{j=1,j\neq i}^k\ub{f}(a_j) \\
+ &= -\sum_{i=1}^k(-1)^i(\ob{f}(a)\cdot a_i)\bigwedge_{j=1,j\neq i}^k\ub{f}(a_j) \\
+ &= \ub{f}\left(-\sum_{i=1}^k(-1)^i(\ob{f}(a)\cdot a_i)\bigwedge_{j=1,j\neq i}^k a_j\right) \\
+ &= \ub{f}(\ob{f}(a)\cdot A)
+\end{align*}
+Now since $\ob{f}$ is an outermorphism, we may interchange underbars and overbars
+in the above equation.
+
+Letting $A,B\in\G(\A)$ be $i$ and $j$-blades, respectively, recall that if $i\leq j$, we
+have the identity
+\begin{equation*}
+A\cdot B = \left(\bigwedge_{k=1}^{i-1}a_k\right)\cdot(a_i\cdot B),
+\end{equation*}
+which is not hard to show.  Recursively applying this identity, we get
+\begin{equation*}
+A\cdot B = a_1\cdot\dots\cdot a_i\cdot B,
+\end{equation*}
+where here, right to left associativity of the inner product is understood.
+It then follows that
+\begin{equation}\label{equ_blade_inner_prod_adjoint}
+A\cdot\ub{f}(B) = \ub{f}\left(\ob{f}(a_1)\cdot\dots\cdot\ob{f}(a_i)\cdot B\right) = \ub{f}(\ob{f}(A)\cdot B),
+\end{equation}
+where here again we recursively applied the identity above.
+
+We can now use the
+result in equation $\eqref{equ_blade_inner_prod_adjoint}$ to show that $\ub{f}$ and $\ob{f}$
+have the same determinant in the case that $\A=\B$.  In the case that $\A=\B$, let $I$
+denote the unit psuedo-scalar of $\G(\A)=\G(\B)$.  
+Recalling that for any $k$-blade $A$, we have $\tilde{A}=(-1)^{k(k-1)/2}A$, it follows
+that $I^{-1}=\lambda I$, where $\lambda = \pm 1$, depending on the dimension of $\A$.
+We then see that
+\begin{align*}
+\det\ub{f} &= I^{-1}\cdot\ub{f}(I) \\
+ &= \ub{f}(\ob{f}(I^{-1})\cdot I) \\
+ &= \ub{f}(\ob{f}(\lambda I)\cdot I) \\
+ &= \ub{f}(\ob{f}(I)\cdot\lambda I) \\
+ &= \ub{f}(\ob{f}(I)\cdot I^{-1}) \\
+ &= \ub{f}(\det\ob{f}) \\
+ &= \det\ob{f}.
+\end{align*}
+
+We also have enough at this point to find a formula for the inverse of
+the outermorphism $\ub{f}$.  Letting $A$ be a blade in $\G(\A)$,
+we have
+\begin{equation*}
+(\det\ub{f})A\cdot I_{\B} = A\cdot\ub{f}(I_{\A}) = \ub{f}(\ob{f}(A)\cdot I_{\A}).
+\end{equation*}
+From this we get
+\begin{equation*}
+(\det\ub{f})\ub{f}^{-1}(A\cdot I_{\B}) = \ob{f}(A)\cdot I_{\A}.
+\end{equation*}
+We can then make the substitution $B=A\cdot I_{\B}$ to get
+\begin{equation}\label{equ_inv_of_outermorphism}
+\ub{f}^{-1}(B) = \frac{\ob{f}(B\cdot I^{-1}_{\B})\cdot I_{\A}}{\det\ub{f}}.
+\end{equation}
+We'll now show that $\ub{f}^{-1}$ is an outermorphism.  Do that here...
+
+Show that the outermorphism inverse is the inverse outermorphism.  Do that here...
+
+Using some calculus, we can find a formula for the adjoint $\ob{f}$ in terms of $\ub{f}$.  Do that here...
+
+\bibliographystyle{plain}
+\bibliography{NotesOnGC}
+
+\end{document}

@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Linear Algebra}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+Linear algebra is the study of linear functions defined on linear spaces.
+Linear spaces are more often refered to as vector spaces, suggesting
+to the mind a geometric interpretation of the elements of such spaces.
+Indeed, what we'll find here is that the study of linear algebra is facilitated
+by the use of geometric algebra.
+
+Talk about linear spaces and linear independence here.
+% at most m vectors can be found that are linearly indep of an m-dim vec space
+
+We now come to a formal definition of a linear function.
+\begin{definition}\label{def_linear_function}
+Let $\A$ and $\B$ denote any two vector spaces, not necessariliy unique, arbitrarily defined
+over the field of real numbers $\R$.  Then a
+linear function $f$ is a mapping from $\A$ to $\B$ that preserves both scalar-vector multiplication
+and vector addition.  That is, for any scalar $\lambda\in\R$ and any two vectors $x,y\in\A$,
+we have $f(\lambda x)=\lambda f(x)$ and $f(x+y)=f(x)+f(y)$.
+\end{definition}
+To simplify the remainder of this paper, we assume $\dim\A=\dim\B$.  It will
+be possible to show that $\dim f(\A)\leq\dim\B$, so this is okay.
+
+Given definition $\eqref{def_linear_function}$, it is natural to begin our study of such
+functions by seeing how much we can learn about
+them without looking at any one particular example.  Recall that if $\A$ is
+an $m$-dimensional vector space, then there exists $m$ linearly
+independent vectors $\{a_i\}_{k=1}^m\subset\A$ that form a basis for $\A$.
+Letting $x = \sum_{i=1}^m x_ia_i$, where each $x_i\in\R$, we see that
+\begin{equation}\label{equ_linear_transform}
+f(x) = \sum_{i=1}^m x_i f(a_i),
+\end{equation}
+showing that $f$ is entirely determined by how it transforms any set of basis
+vectors for $\A$.  This has immediate implications for the existance of $f^{-1}$
+when we recall the definition of a non-invertible function.
+\begin{definition}
+A function $f:\A\to\B$ is non-invertible if there exists an element $b\in f(\A)$
+along with at least two unique elements $x,y\in\A$ such that $f(x)=b$ and $f(y)=b$.
+\end{definition}
+This definition illustrates the non-invertibility of $f$ by the ambiguity we face in the construction
+of $f^{-1}$ when we consider how to map $f^{-1}(b)$.  Does this map to $x$ or $y$?
+
+Consider now the set $\{f(a_i)\}_{i=1}^m\subset\B$ and suppose for the moment that
+it is linearly dependent.  Then, without loss of generality, we can write $f(a_m)$
+as $f(a_m)=\sum_{i=1}^{m-1}\lambda_i f(a_i)$, where each $\lambda_i\in\R$.
+Now let $x_m=0$ and let $y\in\A$ be $y=\sum_{i=1}^m y_i a_i$, where $y_m\neq 0$,
+and for all $i<m$, we have $y_i=x_i-\lambda_i y_m$.  Clearly $x\neq y$, and we see that
+\begin{align*}
+f(x) &= \sum_{i=1}^{m-1} x_if(a_i)
+ = \sum_{i=1}^{m-1}(y_i+\lambda_i y_m)f(a_i) \\
+ &= \sum_{i=1}^{m-1}y_i f(a_i) + y_m\sum_{i=1}^{m-1}\lambda_i f(a_i)
+ = \sum_{i=1}^{m-1}y_i f(a_i) + y_m f(a_m)
+ = f(y),
+\end{align*}
+showing that $f$ is non-invertible.
+
+Considering now the set $\{f(a_i)\}_{i=1}^m\subset\B$ to be linearly independent, we
+see that...
+
+ It follows that $f$ is invertible if and only if $f$ preserves linear independence
+in the sense that if $\{a_i\}_{i=1}^m$ is a linearly independent set, then so is $\{f(a_i)\}_{i=1}^n$.
+
+Now knowing when $f^{-1}$ exists, how do we find $f^{-1}$?  Interestingly, geometric
+algebra gives us a means to answering this question.  We begin with the definition
+of an outermorphism.
+\begin{definition}
+A function $f:\A\to\B$ is an outermorphism if it is linear and perserves the outer product.  That is,
+$f$ is a linear function, and for any two vectors $x,y\in\A$, we have $f(x\wedge y)=f(x)\wedge f(y)$.
+\end{definition}
+Every linear function can be extended to an outermorphism if it does not already possess the
+defining characteristics of such a function.  (This may need some proof.)  As an extention of a linear function, an
+outermorphism preserves the original linear function so that if we find the inverse of
+an outermorphism, then we have also found the inverse of the original linear function.
+
+Taking the zero element of any geometric algebra as being without grade, we see already
+that an outermorphism $f$ is invertible if and only if it is grade perserving.  Indeed,
+if $f$ is invertible, then it must map $I_{\A}$ to some non-zero scalar multiple of $I_{\B}$,
+where each of these denote the unit psuedo-scalars of $\G(\A)$ and $\G(\B)$, respectively.
+In fact, we define the determinant of $f$ as being this scalar multiple.  Doing so, we may write
+\begin{equation*}
+f(I_{\A}) = (\det f)I_{\B}.
+\end{equation*}
+
+\begin{definition}
+The adjoint of an outermorphism $f$ is an outermorphism $\bar{f}$ with the property that
+for any two vectors $x\in\A$ and $y\in\B$, we have $f(x)\cdot y= x\cdot \bar{f}(y)$.
+\end{definition}
+(How do we know that this exists?)  An explicit 
+
+\begin{equation*}
+\bar{f}(x) = \sum_{i=1}^m a_i(\bar{f}(x)\cdot a_i) = \sum_{i=1}^m a_i(x\cdot f(a_i))
+\end{equation*}
+
+Looking back at equation $\eqref{equ_linear_transform}$, let us rewrite it as follows.
+\begin{equation*}
+f\left(\sum_{i=1}^m x_i a_i\right) = \sum_{i=1}^m x_i f(a_i)
+\end{equation*}
+This shows that all linear functions are simply change-of-basis transformations.
+
+\end{document}

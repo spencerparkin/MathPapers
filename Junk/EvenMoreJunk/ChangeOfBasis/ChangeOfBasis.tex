@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{In Search Of\\The Change Of Basis Transformation\\Using\\Geometric Algebra}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\C}{\mathbb{C}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+One failing of geometric algebra is its inability to
+represent the change of basis transformation as
+is represented by matrices by design.  Consequently,
+geometric algebra may not be the best tool for working with, applying and
+representing shear and non-uniform scale transformations.
+Two construction methods for performing the change of basis
+transformation in geometric algebra are presented in this paper and evaluated for
+their usefulness.  The main requirement for usefulness is the
+ease, if any, at which the construction lends itself to the problem
+of finding the inverse change of basis transformation.
+\end{abstract}
+
+Here we will consider only 2-dimensional change of basis transformations for two reasons.
+The first is that the generalizations of the constructions given here will be obvious enough.
+The second is that by considering the 2-dimensional case only we greatly unobfuscate the
+points being made.  That said, we will begin by defining the change of basis transformation.
+
+Letting $\A$ be a 2-dimensional Euclidean vector space, choose any two
+linearly independent vectors $x,y\in\A$.  Then for any vector $a\in\A$,
+the change of basis transformation of $a$ with respect to the set of
+basis vectors $\{x,y\}$ transforms $a$ written as $ (a\cdot e_0)e_0 + (a\cdot e_1)e_1$
+into $(a\cdot e_0)x + (a\cdot e_1)y$, where $\{e_0,e_1\}$ is any
+set of orthonormal basis vectors for $\A$.  Matrix multiplication performs this type
+of transformation by definition, but it is not so easily reproduced in geometric algebra.
+It is worth investigating, because this type of transformation allows us to represent
+shear and non-uniform scale transformations.  This paper concerns itself with
+finding a useful construction in geometric algebra that performs the change of basis
+transformation.
+
+Our first construction barrows from ideas set forth in $\cite{Hestenese1993}$.
+Letting $\B$ be a 2-dimensional Euclidean vector space disjoint from $\A$, we
+will work in the geometric algebra $\G(\A\cup\B)$ where $\{e_0,e_1\}$ and $\{e_2,e_3\}$
+are any sets of orthonormal basis vectors spanning $\A$ and $\B$, respectively.  We wish to find
+a function $f:\A\to\A$ that performs the change of basis transformation
+described earlier.  To that end, we define a function $R$ as follows.
+\begin{equation*}
+R(u,v) = \frac{\sqrt{2}}{2}\left(1 - uv\right),
+\end{equation*}
+where $u$ and $v$ are vectors.  When $u$ and $v$ are orthogonal, and each of unit-length, the element $R(u,v)$ is
+a rotor transforming $u$ into $v$, but leaving all unit vectors orthogonal to
+$u$ and $v$ invarient.  The reader can check that $R(u,v)u\tilde{R}(u,v)=v$
+and that for any unit vector $w$ orthognal to $u$ and $v$, we have $R(u,v)w\tilde{R}(u,v)=w$.
+Using this function, we can easily define an outermorphism $g$ between $\A$
+and $\B$ as $g(w)=Rw\tilde{R}$, where $R=R(e_1,e_3)R(e_0,e_2)$.  It now
+follows that a bivector of the form $M=e_2x+e_3y$ may be used to represent
+our change of basis transformation and that we may define $f$ as
+\begin{equation*}
+f(a) = g(a)\cdot M.
+\end{equation*}
+Now, by linear algebra, we know that $f^{-1}$ exists, because $x$ and $y$ are
+linearly independent vectors.  Unfortunately, however, this construction in
+geometric algebra is useless to us, because the inner product is not invertible.
+Furthermore, even if we were using the geometric product here, $M$ has no
+inverse with respect to the geometric product.  In fine, though there must exist
+a bivector $M'$ such that $f^{-1}(a) = g(a)\cdot M'$, geometric algebra, unlike
+matrix algebra, offers no obvious method for finding it.
+
+Leaving this construction as a dead end, we will now turn our attention to
+a similar construction that may prove more promising.  For this new construction,
+however, we will have to give up non-uniform scale directly.  This may be acceptable,
+because non-uniform scale can be performed indirectly as uniform-scale followed by shear followed by rotation.
+In any case, giving up non-uniform scale brings up the requirement that $|x|=|y|=1$.
+Shears are still possible, because we do not require that $x\cdot y=0$, only that $x\wedge y\neq 0$.
+
+We start by extending
+our geometric algebra to $\G(\A\cup\B\cup\C)$ where $\{e_4,e_5\}$ is any
+set of orthonormal basis vectors spaning the 2-dimensional Euclidean vector
+space $\C$, which we require to be disjoint from both $\A$ and $\B$.
+We now redefine the function $g$ as $g(w)=Rw\tilde{R}$, where
+\begin{equation*}
+R=R\left(e_1,y_{\C}\right)R\left(e_0,x_{\B}\right).
+\end{equation*}
+Here we are using the notation
+$x_{\B}$ to denote $Rx\tilde{R}$ where $R=R(e_1,e_3)R(e_0,e_2)$ and
+$y_{\C}$ to denote $Ry\tilde{R}$ where $R=R(e_1,e_5)R(e_0,e_4)$.
+It then follows that $R$, as it is defined for the function $g$, represents our
+change of basis transformation, and we can define $f$ as
+\begin{equation*}
+f(a) = g(a)C,
+\end{equation*}
+where $C$ is the constant bivector $e_2e_0+e_4e_0 + e_3e_1 + e_5e_1$.
+We appear to have made some progress!  Unfortunately, however, the
+inverse of $C$ does not exist.  The function that $C$ plays here as a multiplier,
+on the other hand, is an invertible function.
+
+% can we use reciprical basis stuff here?
+
+\bibliographystyle{plain}
+\bibliography{ChangeOfBasis}
+
+\end{document}

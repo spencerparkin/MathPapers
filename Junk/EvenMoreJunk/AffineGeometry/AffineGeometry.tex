@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{biblatex}
+
+\title{Notes on Affine Geometry}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\a}{\vec{a}}
+%\newcommand{\b}{\vec{b}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+Geometries are usually described either directly or indirectly
+as a set of points in a space.  The setting of affine geometry
+takes place in what is called an affine space.  So we must begin
+with a notion of what such a space is.
+
+Loosely speaking, an affine space is a set of points where
+the spacial relationships between these points is described
+by vectors in a vector space.  Notice that there is no need
+to designate any one point in an affine space as the origin so
+that we can realize the positions of all points in the space
+relative to it, such as we might in the usual interpretation
+of space using a vector space.
+In an affine space, position is a characteristic of a given point only in relation
+to some other point.  In this sense, we can forget about the origin.
+
+An affine space is therefore a set of points $P$ accompanied by
+a vector space $\V$ where for any point $a\in P$, we may find any
+other point $b\in P$ as $b=a+\vec{v}$, where $\vec{v}\in\V$ is
+a non-zero vector, and
+we have defined the addition of a point and a vector as
+another point.  By this it is tempting to define the subtraction
+of two points as a vector, but we have to be careful about
+how we take points in a linear combination if we wish such
+combinations to remain invariant under a change of origin.
+And we do wish this, because what we're trying to do is create a structure
+of space that is independent of origin, just as a structure of
+space modeled by a vector space is independent of what
+basis we choose to span that space.
+
+Realizing that the structure of $P$ must somehow depend upon the
+structure of $\V$, we procede to define the structure of $P$
+in terms of $\V$.  Linear combinations of vectors taken from
+$\V$ are well understood, as is the concept of linear independence.
+What then will it mean to take linear combinations of points in $P$?
+As stated earlier, our answer will be motived by a desire to make
+affine spaces independent of the concept of an origin.
+
+Let $\{a_k\}_{k=1}^m$ be a set of $m$ points taken from $P$.
+We then define
+\begin{equation}\label{equ_lin_combo_points_def}
+\sum_{k=1}^m \alpha_k a_k = o + \sum_{k=1}^m \alpha_k\vec{a}_k,
+\end{equation}
+where $o\in P$ is a common origin of all points in $\{a_k\}_{k=1}^m$,
+and therefore, for each integer $k\in[1,m]$, we have $a_k=o + \vec{a}_k$, where $\vec{a}_k\in\V$.
+Right away this definition imposes a restriction on the set of scalars $\{\alpha_k\}_{k=1}^n\subset\R$.
+To see why, let $p\in P$ be a point such for some non-zero vector $\vec{v}\in\V$, we have $p+\vec{v}=o$.
+Equation $\eqref{equ_lin_combo_points_def}$ then becomes
+\begin{equation}\label{equ_lin_combo_wrt_o}
+\sum_{k=1}^m \alpha_k(p+\vec{v}+\vec{a}_k) = p+\vec{v}+\sum_{k=1}^m\alpha_k\vec{a}_k.
+\end{equation}
+But by associativity, applying our definition $\eqref{equ_lin_combo_points_def}$ to this, we must have
+\begin{equation}\label{equ_lin_combo_wrt_p}
+\sum_{k=1}^n \alpha_k(p+\vec{v}+\vec{a}_k) = p+\sum_{k=1}^m \alpha_k(\vec{v}+\vec{a}_k).
+\end{equation}
+It follows that $\vec{v} = \sum_{k=1}^m\alpha_k\vec{v}$, and therefore
+\begin{equation}\label{equ_lin_combo_restrict}
+\sum_{k=1}^m\alpha_k = 1.
+\end{equation}
+Here, $o$ and $p$ were two different origins used to express the same
+set of points.  When we took a linear combination of those points in
+the context of one origin versus the other, we found that the resulting
+points in each context $\eqref{equ_lin_combo_wrt_o}$ and $\eqref{equ_lin_combo_wrt_p}$
+would differ, (making our definition $\eqref{equ_lin_combo_points_def}$
+inconsistent), unless we imposed the restriction $\eqref{equ_lin_combo_restrict}$.
+
+A 2-dimensional example helps to demonstrate this.  Let $o_1,o_2\in P$ be two
+distinct origins.  Let $a,b\in P$ be two distinct points such that
+\begin{align*}
+a&=o_1+\vec{a}_1=o_2+\vec{a}_2 \\
+b&=o_1+\vec{b}_1=o_2+\vec{b}_2,
+\end{align*}
+for vectors $\vec{a}_1,\vec{a}_2,\vec{b}_1,\vec{b}_2\in\V$.  If we were then to define $a+b$ as
+$o_1+\vec{a}_1+\vec{b}_1$,
+then we would reach a constradiction in the fact that $a+b$ is also
+$o_2+\vec{a}_2+\vec{b}_2$, yet $\vec{a}_1+\vec{b}_1\neq \vec{a}_2+\vec{b}_2$.
+Requiring the pattern in equation $\eqref{equ_lin_combo_points_def}$, we therefore see that it does not make
+sense to add points in $P$.  An acceptable linear combination of the points $a$ and $b$, however,
+can be found as a linear interpolation of these points.  That is, for any scalar $\lambda\in\R$,
+we may write
+\begin{equation*}
+\lambda a+(1-\lambda)b = o_1 + \lambda a_1+(1-\lambda)b_1 = o_2+\lambda a_2+(1-\lambda )b_2.
+\end{equation*}
+(Make a figure for this.)
+
+As for subtracting two points $a,b\in P$, we need to be careful with notation.
+If $a-b$ is short-hand for $(1)a+(-1)b$, then clearly this is unacceptable as $1-1\neq 1$.
+For any two points $a,b\in P$, however, there always exists a unique vector $\vec{v}\in\V$
+such that $a=b+\vec{v}$.  If we want to be lazy, then it may be acceptable to define
+$b-a=\vec{v}$, but I will refraign from doing this to avoid any confusion.
+
+Notice that there is no additive inverse of a point $a\in P$.
+
+\end{document}

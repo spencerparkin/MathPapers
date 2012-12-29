@@ -1,0 +1,321 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{accents}
+
+\title{Notes On Linear Algebra}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\uf}{\underaccent{\bar}{f}}
+\newcommand{\of}{\bar{f}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+This paper is a formal compilation of all my notes on linear algebra.
+It proceeds as a treatment of linear algebra guided by the material
+given in the reference section, but here in some places I go into greater detail so as
+to understand more fully what is being communicated in those sources.
+The paper $\cite{hestenes91}$ is studied in particular.
+\nocite{macdonald12}
+\nocite{hestenes85}
+
+\section{Enter Linear Functions}
+
+Linear algebra is the study of linear functions defined on linear spaces.
+Linear spaces are more often refered to as vector spaces, suggesting
+to the mind a geometric interpretation of the elements of such spaces.
+In fact, what we'll find is that geometric algebra facilitates the study
+of linear algebra.
+
+Holding the definitions of a vector space and linear independence as
+already known, we begin with a formal definition of a linear function.
+We arbitrarily define all vector spaces over the field of real numbers $\R$.
+\begin{definition}
+A function $f:\V\to\W$ is a mapping from a vector space $\V$ to
+a vector space $\W$ with the property of preserving both scalar-vector
+multiplication and vector addition.  That is, for any scalar $\lambda\in\R$,
+and any two vectors $x,y\in\A$, we have $f(\lambda x)=\lambda f(x)$ and
+$f(x+y)=f(x)+f(y)$.
+\end{definition}
+(Notice that the field of real numbers $\R$ is also a linear space.  Later on
+we'll study linear functions from $\V^n$ to $\R$.  It might be interesting
+to study which sets of blades form linear spaces.
+Remember that all $k$-blades are $k$-vectors, but not all $k$-vectors are $k$-blades.)
+
+It is not enitrely clear to me how much, if any, loss in generality we incur
+by restricting our study of such functions to those that map to and from
+the same vector space.  Nevertheless, since this is the class of linear
+functions for which I am most interested, we will proceed with this restriction.
+
+That said, let $f:\V^n\to\V^n$ be the linear function we will study, where $\V^n$
+denotes an $n$-dimensional vector space.  Then, for any $x\in\V^n$, right
+away we learn two interesting things about linear functions.  Letting $\{e_i\}_{i=1}^n\subset\V^n$
+be any set of $n$ linearly independent vectors taken from $\V^n$, we have
+\begin{equation}\label{equ_linear_transform}
+f(x) = f\left(\sum_{k=1}^n x_i e_i\right) = \sum_{k=1}^n x_i f(e_i),
+\end{equation}
+where $x_i = x\cdot e_i$.  The first thing this shows is that any linear function
+is determined entirely by how it transforms the set of basis vectors $\{e_i\}_{i=1}^n$,
+so that when we're faced with formulating a linear transformation, we need only
+consider how it transforms a basis of $\V^n$.  The second thing this shows is
+that every linear function is a change of basis transformation.  That is, the
+set of coordinates $\{x_i\}_{i=1}^n$ for a vector $x$ are preserved while
+the set of basis vectors $\{e_i\}_{i=1}^n$ are replaced with a new set
+of vectors $\{f(e_i)\}_{i=1}^n$.
+
+\section{Existance and Uniqueness of Linear Function Inverses}
+
+Equation $\eqref{equ_linear_transform}$ also brings to bair immediate
+implications on the invertibility of $f$.  That is, we have enough to
+prove at this point that $f$ is invertible if and only if $f$ preserves
+linear independence in the sense that if $\{e_i\}_{i=1}^n$ is a
+linearly independent set, then so is $\{f(e_i)\}_{i=1}^n$.  Many graphics
+transformations can be easily formulated this way.
+
+Recall that one direction of the statement $x=y\iff f(x)=f(y)$ is the
+requirement of a well defined function, while the other direction is optional,
+and is the condition upon which $f^{-1}$ exists.  Specifically, if there
+exist distinct vectors $x,y\in\V^n$ such that $f(x)=f(y)$, then
+$f^{-1}$ does not exist.  If $z=f(x)=f(y)$, then do we let $f^{-1}(z)=x$
+or $f^{-1}(z)=y$?
+
+Suppose for the moment that the set $\{f(e_i)\}_{i=1}^n$ is linearly dependent.
+Then, without loss of generality, we can write $f(e_n)$
+as $\sum_{i=1}^{n-1}\lambda_i f(e_i)$, where each $\lambda_i\in\R$.
+Now let $x_n=0$ and let $y\in\V^n$ be $\sum_{i=1}^n y_i e_i$, where $y_n\neq 0$,
+and for all $i<n$, let $y_i=x_i-\lambda_i y_n$.  Clearly $x\neq y$, and we see that
+\begin{align*}
+f(x) &= \sum_{i=1}^{n-1} x_if(e_i)
+ = \sum_{i=1}^{n-1}(y_i+\lambda_i y_n)f(e_i) \\
+ &= \sum_{i=1}^{n-1}y_i f(e_i) + y_n\sum_{i=1}^{n-1}\lambda_i f(e_i)
+ = \sum_{i=1}^{n-1}y_i f(e_i) + y_n f(e_n)
+ = f(y),
+\end{align*}
+showing that $f$ is non-invertible.
+
+Now suppose that $\{f(e_i)\}_{i=1}^n$ is linearly independent.  We must show
+that for any $x,y\in\V^n$, if $f(x)=f(y)$, then $x=y$.  This follows immediately
+from the equation
+\begin{equation*}
+0 = f(x)-f(y) = \sum_{i=1}^n(x_i-y_i)f(e_i),
+\end{equation*}
+because we must have for all integers $i\in[1,n]$, $x_i=y_i$ on the grounds
+that $\{f(e_i)\}_{i=1}^n$ is a linearly independent set.
+
+Having now established the conditions upon which $f^{-1}$ exists, let's quickly
+prove the uniqueness of $f^{-1}$.  Suppose the functions $g$ and $h$ are
+distinct inverses of $f$.  By distinct, this must mean that there exists $y\in f(\V^n)$
+such that $g(y)\neq h(y)$.  Let $x\in\V^n$ be such that $f(x)=y$.  We then
+have $x=g(f(x))=g(y)\neq h(y)=h(f(x))=x$, which is a contradiction.
+Inverses of functions in general are therefore unique.
+
+\section{Enter Outermorphic Functions}
+
+To this point we have satisfied the basic questions of existance and uniqueness
+for inverses of linear functions.  Given a linear function $f$, what we
+would now hope to be able to do is find $f^{-1}$.
+This is where geometric algebra comes into play.
+\begin{definition}
+A function $f$ is called an outermorphism if it preserves
+the outer product.  That is, for any two vectors $x,y\in\V^n$,
+we have $f(x\wedge y)=f(x)\wedge f(y)$.
+\end{definition}
+Every linear function $f$ can be extended to an outermorphism which
+we denote by $\uf$.  If $f$ does not already possess the defining
+characteristic of an outermorphism, (i.e., $f\neq\uf$), then it can be
+extended to an outermorphism by simply defining
+\begin{equation*}
+\uf(B) = \bigwedge_{i=1}^s f(b_i),
+\end{equation*}
+where $B$ is the $s$-blade $\bigwedge_{i=1}^s b_i$, and by defining for all
+scalars $\beta\in\R$, $\uf(\beta)=\beta$.  (If somehow $f$ preserved the outer
+product for some grades, but not all, our extension to $\uf$ could be selective
+by grade.  In $\cite{hestenes91}$ it is claimed that every linear function $f$ has a unique
+extension to $\uf$.  This needs further justification in my mind.)
+Clearly this extension of $f$ preserves the
+original function and is therefore both linear and outermorphic.  Furthermore, if
+we find $\uf^{-1}$, then we have also found $f^{-1}$.
+
+Taking zero as being a blade of any grade, it is clear that outermorphic functions are
+grade preserving.  From what we already know so far, it is clear that if a linear outermorphism
+also preserves non-zero blades as non-zero blades, then it must be invertible.
+
+\section{The Adjoint Outermorphism}
+
+Given a linear function $f$, of particular
+interest to us will be the function $\of$ implicity defined as
+\begin{equation*}
+x\cdot f(y) = \of(x)\cdot y,
+\end{equation*}
+where $x,y\in\V^n$.  I believe we call this the adjoint of $f$.
+An explicit definition of $\of$ is therefore given by
+\begin{equation*}
+\of(x) = \sum_{i=1}^n (\of(x)\cdot e_i)e_i = \sum_{i=1}^n (x\cdot f(e_i))e_i,
+\end{equation*}
+which deserves careful comparison to equation $\eqref{equ_linear_transform}$.  Interestingly,
+$f(e_i)$ and $e_i$ are simply swapped between these two equations.
+
+As one can check, $\of$ is clearly a linear function.  The extension of this
+function to an outermorphism, which we'll also denote by $\of$, is what
+I believe we call the adjoint outermorphism of $f$.  An interesting reformulation
+of the $\of$ is given by
+\begin{align*}
+\of(x) &= \sum_{i=1}^n e_i(x\cdot f(e_i)) \\
+ &= \sum_{i=1}^n e_i(x\cdot\partial_i f(y)) \\
+ &= \sum_{i=1}^n e_i\partial_i(x\cdot f(y)) \\
+ &= \nabla_y(x\cdot f(y)),
+\end{align*}
+where here we must be careful to note that $\nabla_y$ denotes the gradient of its operand
+with respect to $y$, not the directional derivative of its operand in the direction $y$.
+
+We will now proceed to uncover an important property of the outermorphic extenstion
+of $f$ and its adjoint outermorphism.  Letting $B$ be the $s$-blade $\bigwedge_{i=1}^s b_i$,
+we see that
+\begin{align*}
+x\cdot \uf(B) &= -\sum_{i=1}^s(-1)^i(x\cdot\uf(b_i))\bigwedge_{j=1,j\neq i}^s\uf(b_j) \\
+ &= -\sum_{i=1}^s(-1)^i(\of(x)\cdot b_i)\bigwedge_{j=1,j\neq i}^s\uf(b_j) \\
+ &= \uf\left(-\sum_{i=1}^s(-1)^i(\of(x)\cdot b_i)\bigwedge_{j=1,j\neq i}^s b_j\right) \\
+ &= \uf(\of(x)\cdot B).
+\end{align*}
+Now let $A$ be the $r$-blade $\bigwedge_{i=1}^r a_i$, where $r\leq s$, and recall
+that
+\begin{equation}\label{equ_dot_recursive}
+A\cdot B = \left(\bigwedge_{i=1}^{r-1} a_i\right)\cdot(a_r\cdot B).
+\end{equation}
+By repeated application of this identity, we get
+\begin{equation*}
+A\cdot B = a_1\cdot\dots\cdot a_r\cdot B,
+\end{equation*}
+where here it is understood that the inner product is meant to be right-to-left associative.
+Similarly, we may write
+\begin{equation*}
+A\cdot\uf(B) = \left(\bigwedge_{i=1}^{r-1}\of(a_i)\right)\cdot\uf(\of(a_r)\cdot B),
+\end{equation*}
+and again repeatedly apply the identity $\eqref{equ_dot_recursive}$ recursively
+to obtain
+\begin{equation*}
+A\cdot\uf(B) = \uf(\of(a_1)\cdot\dots\cdot\of(a_r)\cdot B) = \uf(\of(A)\cdot B),
+\end{equation*}
+where again the inner product here is understood to be right-to-left associative.
+
+\section{The Inverse Outermorphism}
+
+We're now ready to find the inverse of an outermorphism.  We begin by making the
+observation that
+\begin{equation*}
+\lambda AI = A\uf(I) = \uf(\of(A)I),
+\end{equation*}
+where here $\lambda\in\R$ and $I$ is the unit psuedo-scalar of $\G(\V^n)$.
+In fact, we define $\det f=\lambda = \uf(I)I^{-1}$.  It follows that
+\begin{equation*}
+(\det f)\uf^{-1}(AI) = \of(A)I.
+\end{equation*}
+Solving $\uf^{-1}(A)$, we get
+\begin{equation*}
+\uf^{-1}(A) = \frac{\of(AI^{-1})I}{\det f} = \frac{\of(AI)I}{\det f}(-1)^{n(n-1)/2} = \frac{\of(AI)I^{-1}}{\det f}.
+\end{equation*}
+When $A\in\V^n$, this gives us the inverse function $f^{-1}$!  That is, for all $x\in\V^n$,
+we have
+\begin{equation}\label{equ_inverse_formula}
+f^{-1}(x) = \frac{\of(xI)I^{-1}}{\det f}.
+\end{equation}
+It can be shown that $f^{-1}$ is outermorphic.
+A proof of this is given in $\cite{hestenes91}$ which siffices me, so I will
+not repeat it here.
+The implication of this is that the inverse of the outermorphic
+extension of $f$ is the outermorphic extension of the inverse of $f$.
+
+\section{An Application Of Linear Function Inverses}
+
+It is common to represent an invertible linear transformation as a set of basis vectors $\{a_i\}_{i=1}^n$ of $\V^n$.
+Matrices, for example, represent linear transformations this way, the basis vectors taking up the rows or
+columns of a matrix, and matrix multiplication is, by definition, a
+change of basis transformation.  Using what we now know about linear algebra, we see that
+the set of basis vectors $\{f^{-1}(e_i)\}_{i=1}^n$ must represent the inverse change of basis transformation
+where $f(x)=\sum_{i=1}^n (x\cdot e_i)a_i$.  Using equation $\eqref{equ_inverse_formula}$, we can find
+a formula for $f^{-1}(e_i)$.
+Attempting to do so, we get
+\begin{equation*}
+f^{-1}(e_i) = \frac{-(-1)^i}{\det f}\left(\bigwedge_{j=1,j\neq i}^n\sum_{k=1}^n (e_j\cdot a_k)e_k\right)I^{-1}.
+\end{equation*}
+Admittedly, this isn't as reduced as I would like to see it, but it is interesting to me none-the-less.  Geometric algebra
+has given us a formula for the inverse basis in terms of the original basis.
+
+\section{Eigen Blades}
+
+Geometric algebra naturally generalizes the idea of eigen vectors to eigen blades.  We have already
+seen one example of this.  The unit psuedo-scalar $I$ is an eigen blade of $\uf$ with eigen value $\det f$,
+provided $\uf$ is invertible.  This is because eigen values must be non-zero by definition.
+\begin{definition}
+A blade $B\in\G(\V^n)$ is an eigen blade of an outermorphism $\uf$ if there exists a non-zero scalar $\lambda\in\R$
+such that $\uf(B)=\lambda B$.  We call $\lambda$ the eigen value of the eigen balde $B$.
+\end{definition}
+If we allowed zero to be an eigen value, then only non-zero eigen blades with zero eigen values
+would arrise in non-invertible outermorphisms.  This is because we must have $\uf(0)=0$.
+
+Interestingly, we can show that if $B$ is an eigen blade of $\uf$, and $\uf$ is invertible, then $B$ also represents
+an invarient sub-space of $f$.  Indeed, for any vector $b\in B$, which is to say that $b\wedge B=0$, we have
+\begin{equation*}
+0 = \uf(b\wedge B) = f(b)\wedge\uf(B) = f(b)\wedge \lambda B,
+\end{equation*}
+showing that $f(b)\in B$ since $\lambda\neq 0$.  We can now conclude that if $\B$ denotes the sub-space represented
+by $B$, then the image $f(\B)\subseteq \B$.  Now since $\uf$ is invertible, we must have $f(\B)=\B$.
+To see this, let $B$ be the $m$-blade $\bigwedge_{i=1}^m b_i$.  Then for all $b_i\in B$, we
+must have $f(b_i)\in B$, and we know that $\{f(b_i)\}_{i=1}^m$ is a linearly independent set.
+
+Letting $\det\uf=\det f$, it makes sense to consider $\det\of$.  In fact, we find that
+\begin{align*}
+\det\of &= \uf(\det\of) = \uf(\of(I) I^{-1}) = \uf(\of(I)(-1)^{n(n-1)/2}I) \\
+ &= \uf(\of((-1)^{n(n-1)/2}I) I) = \uf(\of(I^{-1}) I) = I^{-1}\uf(I) = \det\uf.
+\end{align*}
+On the subject of eigen blades, $\cite{hestenes85}$ refers to eigen blades of $\of$ as right eigen blades.
+Similarly, we may call eigen blades of $\uf$ as left eigen blades.  A blade that is eigen in both senses
+is called a proper eigen blade.  Clearly $\uf$ is invertible if and only if $I$ is a proper eigen blade.
+
+There is much more to learn about eigen blades, such as the idea of factoring them into
+eigen blades that have no eigen blade factors.  Perhaps I'll study this when I'm more capable
+of following the disucssion in $\cite{hestenes85}$.
+
+\section{Dual Basis}
+
+% Research reciprocal basis.  What is it?  How does it fit into everything already studied?
+
+Associated with any basis of $\V^n$ is another basis of $\V^n$ refered to as its dual basis,
+or sometimes called reciprocal basis.
+\begin{definition}
+Given any set of basis vectors $\{b_i\}_{i=1}^n$ of $\V^n$, a set of $n$ vectors
+$\{\bar{b}_i\}_{i=1}^n$ is called its dual basis if for all $i\neq j$, we
+have $b_i\cdot\bar{b}_j=0$, and for all $i=j$, we have $b_i\cdot\bar{b}_j=1$.
+\end{definition}
+This can't be right.  Any basis is its own dual basis under this definition.
+
+\section{Dual Vector Spaces}
+
+As mentioned before, a vector space is just a linear space.  We don't have to interpret the
+elements of such spaces as geometry (as vectors).  Of note is a linear space consisting of
+linear functions.  This works by defining vector addition and scalar-vector multiplication as
+simply function addition and scalar-function multiplication.
+
+\bibliographystyle{plain}
+\bibliography{NotesOnLA}
+
+% Add ref for David C. Lay and the GA for CS book.
+% Add ref for wiki entry on dual vector spaces
+
+\end{document}

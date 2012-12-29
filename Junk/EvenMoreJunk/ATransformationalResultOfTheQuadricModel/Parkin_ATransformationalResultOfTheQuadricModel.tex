@@ -1,0 +1,268 @@
+\documentclass{birkjour}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ \theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ \theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \newtheorem*{ex}{Example}
+ \numberwithin{equation}{section}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Vb}{\mathbb{\overline{V}}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Alpha}{A}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\begin{document}
+
+\title{A Transformational Result Of The Quadric Model}
+
+\author{Spencer T. Parkin}
+\address{%
+2113 S. Claremont Dr.\\
+Bountiful, Utah  84010\\
+USA}
+\email{spencer.parkin@gmail.com}
+
+\numberwithin{equation}{section}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+\keywords{Quadric Surface, Geometric Algebra, Quadric Model}
+
+%\dedicatory{To Melinda and Naomi}
+
+\begin{abstract}
+An important feature of the conformal model is found
+to be possessed by the quadric model.  Specifically, it is
+shown in this paper that the action of a versor on a point
+reveals the action of this versor on any geometry of the model.
+This leads to a possible direction in which we might look for a better model of quadric surfaces.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+It is well known that, with the exceptoin of flat points, all geometries of
+the conformal model may be expressed directly as the outer product
+of one or more vectors representative of points.  It then immediately
+follows by the outermorphic property of versor conjugation, (see
+equation \eqref{equ_versor_identity_wedge} below), that the
+action of a versor on a conformal point reveals the action of this versor
+on any point on the surface of a conformal geometry, and therefore
+the conformal geometry itself.  This feature of the conformal model
+facilitates the search for versors performing desired actions, and the
+analysis of what action a given versor performs.  In this paper we
+will find that the quadric model possess its own version of this very feature.
+We'll also find that this feature may help point us in a direction of where
+we might look for a better model of quadric geometry.
+
+The definitions and results of \cite{Parkin12} will be assumed for
+the remainder of this paper so that no background will need be
+given before we can dive into the new material.
+
+\section{The Versor Identities Of Geometric Algebra}
+
+There are two well known identities in geometric algebra involving versors.
+For any two vectors $p,b\in\W$ and any versor $V\in\G$, we have
+\begin{equation}\label{equ_versor_identity_wedge}
+V(p\wedge b)V^{-1} = VpV^{-1}\wedge VbV^{-1},
+\end{equation}
+as well as
+\begin{equation}\label{equ_versor_identity_dot}
+p\cdot b = VpV^{-1}\cdot VbV^{-1}.
+\end{equation}
+Proofs of these identities may be found in \cite{Parkin12_intro}.
+A perhaps less known identity, however, is the following.
+\begin{equation}\label{equ_versor_identity}
+VpV^{-1}\cdot b = p\cdot V^{-1}bV
+\end{equation}
+Let us give a proof of it now.  We will proceed by induction.
+Letting $v\in\W$ be a vector, it is easy to see that
+\begin{equation}\label{equ_induction_start}
+vpv^{-1}\cdot b = \frac{2(v\cdot p)(v\cdot b)}{v^2} - p\cdot b = p\cdot v^{-1}bv.
+\end{equation}
+Assuming now that the identity \eqref{equ_versor_identity} holds for a versor
+composed as the geometric product of some fixed number of vectors, the proof of identity
+\eqref{equ_versor_identity} follows by induction with
+\begin{align}
+& vVp(vV)^{-1}\cdot b \\
+=\;& vVpV^{-1}v^{-1}\cdot b \\
+=\;& VpV^{-1}\cdot v^{-1}bv & \mbox{by equation \eqref{equ_induction_start},} \\
+=\;& p\cdot V^{-1}v^{-1}bvV & \mbox{by our inductive hypothesis,} \\
+=\;& p\cdot (vV)^{-1}bvV.
+\end{align}
+
+In the next section we'll make use of identity \eqref{equ_versor_identity} as well as
+\eqref{equ_versor_identity_wedge} to prove the main result.  The identity
+\eqref{equ_versor_identity_dot} has many use cases while working in $\G$
+of \cite{Parkin12}, but will not be needed to prove the main result.
+Looking back, however, it is not hard to see that \eqref{equ_versor_identity_dot}
+implies \eqref{equ_versor_identity} in an easier proof than what has just been given.
+
+\section{Relating The Action Of Versors On Quadrics To That Of Points}
+
+It was established in \cite{Parkin12} that quadrics $E\in\G$ are bivectors
+of the form
+\begin{equation}\label{equ_quadric_form}
+E = \sum_{i=1}^k a_i\wedge\overline{b_i}
+\end{equation}
+where for each integer $i\in[1,k]$, each of $a_i$ and $b_i$ are
+taken from $\V$.  Being a quadric, the set of all projective points
+$p\in\V$ on $E$ is given by the set of all projective points $p\in\V$
+such that
+\begin{equation}\label{equ_quadric_representation}
+0 = p\wedge\overline{p}\cdot E.
+\end{equation}
+Clearly now, if we can visualize the quadric $E$, and if we can understand the action
+of a versor $V$ on a projective point $p$, then our imaginations are likely able
+to visualize the geometry that is the set of all projective points $p\in\V$ such that
+\begin{equation}\label{equ_quadric_transformed}
+0 = VpV^{-1}\wedge\overline{VpV^{-1}}\cdot E.
+\end{equation}
+For example, if $V$ translates $p$ by a direction vector $t$, then $E$ must be
+translated by the direction vector $-t$.  Similarly, if $V$ rotates $p$ on
+an axis $a$ by an angle $\theta$, then $E$ must be rotated by an
+angle $-\theta$ about the axis $a$.  Of course, no
+claim is being made here that either of such versor exists.  (A translation
+versor is not known to exist, but it has been shown in \cite{Parkin12} that the
+rotation versor does exist.)  The idea, however,
+that the action of $V$ on $p$ translates into the inverse
+action of $V$ on $E$, should be well understood.
+
+We will now proceed to show that the geometry represented in
+equation \eqref{equ_quadric_transformed} is the very geometry
+represented by the quadric $(V\overline{V})^{-1}EV\overline{V}$,
+provided that $V$ has the property that for all vectors $v\in\V$,
+we have
+\begin{equation}\label{equ_versor_invariant_property}
+\begin{array}{cl}
+v=\overline{V}v\overline{V^{-1},} \\
+\overline{v}=V\overline{v}V^{-1}, & \mbox{(which follows from $v=\overline{V}v\overline{V^{-1}}$),} \\
+\end{array}
+\end{equation}
+as well as
+\begin{equation}\label{equ_versor_closure_property}
+\begin{array}{cl}
+VvV^{-1}\in\V, \\
+\overline{V}\overline{v}\overline{V^{-1}}\in\overline{\V}, & \mbox{(which follows from $VvV^{-1}\in\V$),}
+\end{array}
+\end{equation}
+which is to say that $V$ leaves vectors in $\overline{\V}$ invariant under versor
+conjugation as $\overline{V}$ leaves vectors in $\V$ invariant under versor conjugation,
+as well as that conjugation of a vector in $\V$ by the versor $V$ is an operation closed in $\V$.
+It will then immediately follow
+that if we understand the action of $V^{-1}$ on a projective point $p$, then
+we understand the action of $V$ on $E$ as
+\begin{equation}
+V\overline{V}E(V\overline{V})^{-1}.
+\end{equation}
+
+The proof is straight forward as it follows from the equality of \eqref{equ_start} with \eqref{equ_finish}.
+{\allowdisplaybreaks
+\begin{align}
+ & VpV^{-1}\wedge\overline{VpV^{-1}}\cdot E\label{equ_start} \\
+=\;& \sum_{i=1}^k VpV^{-1}\wedge\overline{VpV^{1}}\cdot a_i\wedge\overline{b_i}\label{equ_second} \\
+=\;& -\sum_{i=1}^k (VpV^{-1}\cdot a_i)(\overline{VpV^{-1}}\cdot\overline{b_i}) & \mbox{by property \eqref{equ_versor_closure_property},} \\
+=\;& -\sum_{i=1}^k (p\cdot V^{-1}a_iV)(\overline{p}\cdot\overline{V^{-1}b_iV}) & \mbox{by identity \eqref{equ_versor_identity},} \\
+=\;& \sum_{i=1}^k p\wedge\overline{p}\cdot V^{-1}a_iV\wedge\overline{V^{-1}b_iV} &\mbox{by property \eqref{equ_versor_closure_property},} \\
+=\;& \sum_{i=1}^k p\wedge\overline{p}\cdot (V\overline{V})^{-1}a_iV\overline{V}\wedge
+(V\overline{V})^{-1}\overline{b_i}V\overline{V} &\mbox{by property \eqref{equ_versor_invariant_property},}\label{equ_third_to_last} \\
+=\;& \sum_{i=1}^k p\wedge\overline{p}\cdot (V\overline{V})^{-1}(a_i\wedge\overline{b_i})V\overline{V} & \mbox{by identity \eqref{equ_versor_identity_wedge},} \\
+=\;& p\wedge\overline{p}\cdot (V\overline{V})^{-1}EV\overline{V}.\label{equ_finish}
+\end{align}}
+
+Of course, this is just one of perhaps many algebraic routes one could take to prove the
+identity that \eqref{equ_start} is \eqref{equ_finish}.  In fact, it is not hard to see that
+a shorter route can be found from \eqref{equ_second} to \eqref{equ_third_to_last} using only
+\eqref{equ_versor_identity_dot} and \eqref{equ_versor_invariant_property}.  Nevertheless,
+the route shown above illustrates algebraic techniques that are useful as their need is frequently encountered.
+
+The property \eqref{equ_versor_invariant_property} is not unreasonable at all
+since a versor providing any action on a projective point $p\in\V$ must come from $\G(\V)$ anyway,
+and by so doing, naturally leaves vectors in $\overline{\V}$ untouched, up to scale.
+In fact, the condition of \eqref{equ_versor_invariant_property} may be relaxed to allow
+for a sign change, as such a change leaves the geometry represented by a bivector invariant.
+
+\section{The Search For A Better Model}
+
+The main result having now been established, we may harness it as a tool in the search
+for a better model of quadric surfaces.  By this it is meant a model that offers
+more of the desired types of transformations by versors.  One possible approach
+that is motivated by the main result is that of replacing each of $\G(\V)$ and
+$\G(\overline{\V})$ as isomorphic Minkowski sub-algebras of $\G(\W)$.
+The conformal model could then be imposed on each of these sub-algebras.
+Then, ideally, the model we impose on $\G(\W)$ will be able to benefit from
+what we already know about the conformal model.
+
+Our first task is to find a versor $S\in\G(\W)$ that, when taken with any
+vector $v\in\V$ as the conjugation of $v$ by $S$, produces in this manner
+an outermorphic isomorphism between the sub-algebras $\G(\V)$ and $\G(\overline{\V})$.
+For any vector $v\in\V$, it has the form
+\begin{equation}
+v = \alpha\nvao + x + \beta\nvai,
+\end{equation}
+where $x$ is an $n$-dimensional Euclidean vector, and each of $\nvao$ and $\nvai$
+are null-vectors having the relationship $-1=\nvao\cdot\nvai$.  We will name the
+counter-parts in $\overline{\V}$ of these vectors as $\overline{\nvao}$ and $\overline{\nvai}$, respectively.
+As usual, for any pair of vectors $a,b\in\V$, we will define $a\cdot\overline{b}=0$.
+
+Refering to \cite{LiRockwood},
+we can rewrite $v$ in terms of $x$ and a different pair of basis vectors $e_{-}$ and $e_{+}$,
+the first anti-Euclidean and the second Euclidean.  Doing so, $v$ becomes
+\begin{equation}
+v = \left(\frac{1}{2}\alpha + \beta\right)e_{-} + x + \left(\beta - \frac{1}{2}\alpha\right)e_{+}.
+\end{equation}
+A versor $S$ with the desired property named above is now easily found as
+\begin{equation}
+S = 2^{-(n+2)/2}(1+e_{-}\overline{e_{-}})(1-e_{+}\overline{e_{+}})\prod_{i=1}^n(1-e_ie_{i+n}),
+\end{equation}
+where here we have chosen to name the counter parts in $\overline{\V}$ of $e_{-}$ and $e_{+}$
+as $\overline{e_{-}}$ and $\overline{e_{+}}$, respectively.
+
+It now follows by the main result of this paper that if a bivector $E\in\G(\W)$
+is of the form \eqref{equ_quadric_form}, then the geometry represented
+by $E$ using equation \eqref{equ_quadric_representation}, where $p\in\V$ is a conformal point,
+may be properly transformed by any transformation supported by the conformal model.
+The question that then remains is: does there exist such a bivector $E$ that,
+under this new model, is representative of an $n$-dimensional quadric surface?
+Well, to find out, begin by noticing that a homogenized conformal point $p\in\V$ is of the form
+\begin{equation}
+p = \alpha e_{-} + x + \beta e_{+},
+\end{equation}
+where $\alpha=\frac{1}{2}(x^2+1)$ and $\beta=(\frac{1}{2}x^2-1)$.
+Right away we now see what may be a problem with equation \eqref{equ_quadric_representation}.
+There does not exist a 2-blade $a_i\wedge\overline{b_i}$ in the sum of $E$ giving
+us a constant term in the resulting polynomial equation.  That is, there does not
+exist such a 2-blade $a_i\wedge\overline{b_i}$ and a scalar $\lambda$ such that for
+all $n$-dimensional Euclidean vectors $x$, we have
+\begin{equation}
+\lambda=p\wedge\overline{p}\cdot a_i\wedge\overline{b_i},
+\end{equation}
+a value that remains invarient despite any change in $x$.  This suggests that
+it may not be possible to represent quadric surfaces in the newly proposed model.
+
+Though this effort has failed, there must surely be a model for quadric surfaces
+that is as nice as the conformal model.  Whether any of \cite{Parkin12} or
+this paper is anywhere near close to finding the answer remains highly questionable.
+
+% Use a computer algebra system to find a sample polynomial equation.
+
+\bibliographystyle{amsplain}
+\bibliography{Parkin_ATransformationalResultOfTheQuadricModel}
+
+\end{document}

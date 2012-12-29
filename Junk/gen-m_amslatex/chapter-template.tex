@@ -1,0 +1,193 @@
+%-----------------------------------------------------------------------
+% Beginning of chapter-template.tex
+%-----------------------------------------------------------------------
+%
+%    This is a template file for monographs prepared with AMS author
+%    packages, for use with AMS-LaTeX.  Separate chapters should be
+%    included at the appropriate position.
+%
+%    Templates for various common text, math and figure elements are
+%    given following the \end{document} line.
+%
+%    Start by copying this file to <filename>.tex, using a distinctive
+%    name suitable for your book in place of <filename>.  This will
+%    be the driver file for your book.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%    Replace amsbook by the documentclass code for the monograph series.
+\documentclass{amsbook}
+
+%    If you need symbols beyond the basic set, uncomment this command.
+%\usepackage{amssymb}
+
+%    If your book includes graphics, or such features as rotation or
+%    scaling, uncomment this command.
+%\usepackage{graphicx}
+
+%    If the book includes commutative diagrams:
+%\usepackage[cmtip,all]{xy}
+
+%    If you are using the author-year citation style:
+%\usepackage{natbib}
+
+%    Include other referenced packages here.
+\usepackage{}
+
+%    For use when working on individual chapters
+%\includeonly{}
+
+%    As set up here, all theorem-class objects will be numbered with
+%    the same counter, starting with 1 at every new chapter; numbers
+%    will have the form <chapter>.<theorem>.  This may be changed if
+%    the author prefers.
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+
+%    For a single index; for multiple indexes, see the manual
+%    "Instructions for preparation of papers and monographs:
+%    AMS-LaTeX" (instr-l.pdf in the AMS-LaTeX distribution).
+%    Do not \usepackage{makeidx}; all facilities are contained
+%    within the AMS document classes.
+\makeindex
+
+\begin{document}
+
+\frontmatter
+
+\title{}
+
+%    Remove any unused author tags.
+
+%    author one information
+\author{}
+\address{}
+\curraddr{}
+\email{}
+\thanks{}
+
+%    author two information
+\author{}
+\address{}
+\curraddr{}
+\email{}
+\thanks{}
+
+%    If any version of the Mathematics Subject Classification other
+%    than the 2010 edition appears, then you have an old version
+%    of the AMS-LaTeX collection and need to upgrade.  Download from
+%    http://www.ams.org/tex/amslatex.html .
+\subjclass[2010]{Primary }
+
+\keywords{}
+
+\date{}
+
+\begin{abstract}
+\end{abstract}
+
+\maketitle
+
+%    Dedication.  If the dedication is longer than a line or two,
+%    remove the centering instructions and the line break.
+%\cleardoublepage
+%\thispagestyle{empty}
+%    If this book uses the documentclass stml-l or mmono-s, change
+%    13.5pc to 10.5pc.
+%\vspace*{13.5pc}
+%\begin{center}
+%  Dedication text (use \\[2pt] for line break if necessary)
+%\end{center}
+%\cleardoublepage
+
+%    Change page number to 7 if a dedication is present.
+\setcounter{page}{5}
+
+\tableofcontents
+
+%    Include unnumbered chapters (preface, acknowledgments, etc.) here.
+\include{}
+
+\mainmatter
+%    Include main chapters here.
+\include{}
+
+\appendix
+%    Include appendix "chapters" here.
+\include{}
+
+\backmatter
+%    Bibliographies can be prepared with BibTeX using amsplain,
+%    amsalpha, or (for "historical" overviews) natbib style.
+\bibliographystyle{amsplain}
+\bibliography{}
+
+%    See note above about multiple indexes.
+\printindex
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%    Templates for common elements of a monograph; for additional
+%    information, see the AMS-LaTeX instructions manual, instr-l.pdf,
+%    included in every AMS author package, and the amsthm user's guide,
+%    linked from http://www.ams.org/tex/amslatex.html .
+
+%    Note that [optional] short forms may be needed for running heads.
+
+%    Chapter titles
+\chapter[short form]{full title}
+
+%    Section headings
+\section[short form]{full heading}
+\subsection{}
+
+%    Ordinary theorem and proof
+\begin{theorem}[Optional addition to theorem head]
+% text of theorem
+\end{theorem}
+
+\begin{proof}[Optional replacement proof heading]
+% text of proof
+\end{proof}
+
+%    Figure insertion; default placement is top; if the figure occupies
+%    more than 75% of a page, the [p] option should be specified.
+\begin{figure}
+\includegraphics{filename}
+\caption{text of caption}
+\label{}
+\end{figure}
+
+%    Mathematical displays; for additional information, see the amsmath
+%    user's guide, linked from http://www.ams.org/tex/amslatex.html .
+
+% Numbered equation
+\begin{equation}
+\end{equation}
+
+% Unnumbered equation
+\begin{equation*}
+\end{equation*}
+
+% Aligned equations
+\begin{align}
+  &  \\
+  &
+\end{align}
+
+%-----------------------------------------------------------------------
+% End of chapter-template.tex
+%-----------------------------------------------------------------------

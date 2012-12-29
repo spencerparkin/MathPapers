@@ -1,0 +1,420 @@
+%-----------------------------------------------------------------------
+% Beginning of ecgd-l-template.tex
+%-----------------------------------------------------------------------
+%
+%     This is a topmatter template file for ECGD for use with AMS-LaTeX.
+%
+%     Templates for various common text, math and figure elements are
+%     given following the \end{document} line.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%     Remove any commented or uncommented macros you do not use.
+
+\documentclass{ecgd-l}
+
+%     If you need symbols beyond the basic set, uncomment this command.
+\usepackage{amssymb}
+
+%     If your article includes graphics, uncomment this command.
+%\usepackage{graphicx}
+
+%     If the article includes commutative diagrams, ...
+%\usepackage[cmtip,all]{xy}
+
+\usepackage{url}
+
+%     Update the information and uncomment if AMS is not the copyright
+%     holder.
+%\copyrightinfo{2009}{American Mathematical Society}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Vb}{\mathbb{\overline{V}}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+
+% \title[short text for running head]{full title}
+\title{The Quadric Model Of Geometric Algebra}
+
+%    Only \author and \address are required; other information is
+%    optional.  Remove any unused author tags.
+
+%    author one information
+% \author[short version for running head]{name for top of paper}
+\author{Spencer T. Parkin}
+\address{}
+\curraddr{}
+\email{spencer.parkin@gmail.com}
+\thanks{}
+
+%    author two information
+%\author{}
+%\address{}
+%\curraddr{}
+%\email{}
+%\thanks{}
+
+%    \subjclass is required.
+\subjclass[2010]{Primary }
+
+\date{}
+
+\dedicatory{}
+
+%    Abstract is required.
+\begin{abstract}
+Inspired by the conformal model of geometric algebra, a model of geometry is developed in this
+paper capable of representing any quadric surface.
+\end{abstract}
+
+\maketitle
+
+%    Text of article.
+
+\nocite{DoranHestenes93}
+\nocite{WikipediaQuadricEntry}
+
+\section{Finding The Quadric Equation}
+
+Taking our cue from \cite{WikipediaQuadricEntry}, the $n$-dimensional quadric surfaces
+may be characterized as the set of all projective points in an $(n+1)$-dimensional homogeneous space
+satisfying a matrix equation involving a symmetric matrix.  We will let $\V^{n+1}$ be an
+$(n+1)$-dimensional vector space and identify vectors in this space with projective
+points of $n$-dimensional space in the usual manner.  That is, letting $\{e_i\}_{i=0}^n$
+be an orthonormal basis for $\V^{n+1}$, we identify the $n$-dimensional point
+represented by any $p\in\V^{n+1}$ as the point $p/(p\cdot e_0)$ in the $e_0=1$ plane,
+provided $p\cdot e_0\neq 0$.
+
+Letting $\{\alpha_{ij}\}\subset\R$ with $0\leq i\leq j\leq n$ be the scalar elements of a symmetric
+matrix $M$, an $n$-dimensional quadric surface is the projective solution set to the
+matrix equation
+\begin{equation}\label{equ_quadric_matrix_equation}
+0 = pMp^\intercal,
+\end{equation}
+where here we have abused notation by interpreting the vector $p$ taken from $\V^{n+1}$ as
+a row-vector with $p^\intercal$ as the corresponding column-vector, and where $M$ is the
+$(n+1)\times(n+1)$ symmetric matrix given by
+\begin{equation}
+\left[\begin{array}{cccc}
+\alpha_{00} & \alpha_{01} & \dots & \alpha_{0n} \\
+\alpha_{01} & \alpha_{11} & \dots & \alpha_{1n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\alpha_{0n} & \alpha_{1n} & \dots & \alpha_{nn}
+\end{array}\right].
+\end{equation}
+Written another way without abusing notation, we have
+\begin{equation}\label{equ_lowlevel_equation}
+0 = \sum_{i=0}^n\sum_{j=i}^n\sigma_{ij}\alpha_{ij}(p\cdot e_i)(p\cdot e_j),
+\end{equation}
+where $\sigma_{ij}$ is defined as
+\begin{equation}
+\sigma_{ij} = \left\{\begin{array}{ll}
+1 & \mbox{if $i=j$,} \\
+2 & \mbox{if $i\neq j$.}
+\end{array}\right.
+\end{equation}
+The form \eqref{equ_quadric_matrix_equation} lends itself to the study
+of quadrics using matrix algebra, while the form \eqref{equ_lowlevel_equation}
+may be thought of as a low-level form of the equation in geometric algebra.
+What we might think of as a high-level form in geometric algebra, coming from
+a framework of computation, may provide a better means of studying quadrics
+using geometric algebra.  We proceed now to develop such a form.
+
+Let $\W^{2(n+1)}$ denote a $2(n+1)$-dimensional vector space
+having $\{e_i\}_{i=0}^{2n+1}$ as a set of orthonormal basis vectors
+generating it.  The vector space $\V^{n+1}$ is therefore a vector
+sub-space of $\W^{2(n+1)}$ and we will let $\Vb^{n+1}$ denote
+the $(n+1)$-dimensional vector sub-space of $\W^{2(n+1)}$ that
+is complement to $\V^{n+1}$.  It is then helpful to introduce the
+notation $\overline{p}$ as the vector in $\Vb^{n+1}$ related to the
+vector $p\in\V^{n+1}$ by the equation
+\begin{equation}
+\overline{p} = Rp\tilde{R},
+\end{equation}
+where $R$ is a rotor defined as
+\begin{equation}
+R = 2^{-n/2}\prod_{i=0}^n\left(1-e_ie_{i+n+1}\right).
+\end{equation}
+This idea comes from \cite{DoranHestenes93}, and it is easy to see
+that for any integer $i\in[0,n]$, we have $\overline{e}_i=e_{i+n+1}$
+and $\overline{e}_{i+n+1}=e_i$.  Notice that the over-bar operator
+is also an outermorphic function that we may apply to any element
+of the geometric algebra $\G(\W^{2(n+1)})$.
+
+We are now ready to give the high-level form of equation \eqref{equ_lowlevel_equation}
+as\footnote{Here and throughout this paper, we assume that the outer product takes
+precedence over the inner product.  We also assume that the geometric product takes
+precedence over the inner and outer products.}
+\begin{equation}\label{equ_highlevel_equation}
+0 = p\wedge\overline{p}\cdot B,
+\end{equation}
+where $B\in\G(\W^{2(n+1)})$ is a bivector of the form
+\begin{equation}\label{equ_quadric_bivector_form}
+B = -\frac{1}{2}\sum_{i=0}^n\sum_{j=i}^n\alpha_{ij}(e_i\overline{e}_j+(-1)^{\sigma_{ij}}\overline{e}_ie_j).
+\end{equation}
+Here, as in the form \eqref{equ_quadric_matrix_equation} where we may think of
+the symmetric matrix as representative of the quadric, the bivector $B$ may also be thought
+of as a quadric representative.  Of course, some bivectors cannot be written
+in the form of equation \eqref{equ_quadric_bivector_form}, but such bivectors
+clearly still give a quadric when plugged into equation \eqref{equ_highlevel_equation}.
+
+While realizing that we need to be careful, because the inner product is not associative,
+it is interesting to write equation \eqref{equ_highlevel_equation} in a form
+similar to that of equation \eqref{equ_quadric_matrix_equation}.  Doing so, we get
+\begin{equation}\label{equ_conjugation_form}
+0 = p\cdot B\cdot\overline{p}.
+\end{equation}
+We can get away with this, because the choice of associativity here only changes
+the sign of the right-hand side, and the sign of the left-hand side clearly doesn't matter.
+Considering $\overline{p}$ a type of conjugate to $p$, we may refer to equation
+\eqref{equ_conjugation_form} as the inner product conjugation of $B$ by $p$.
+
+\section{Using The Quadric Equation}
+
+Having developed the quadric equation \eqref{equ_highlevel_equation} in geometric algebra, we can
+now benefit from the language of geometric algebra in using it to answer questions about quadric geometry.
+
+Notice that in our model we can make a distinction between members of $\V^{n+1}$ that are
+representative of points and those representative of directions.  Specifically, a vector $v\in\V^{n+1}$
+is a direction if and only if $v\cdot e_0=0$.  Although we will use an arrow accent to distinguish
+between direction vectors and position vectors, there should be no confusion on the form
+of a vector and what we intend it to represent when we refer to it as a direction or a position.
+Similarly, we will take the liberty of referring to bivectors taken
+from $\G(\V^{2(n+1)})$ as quadrics.  This helps eliminate phrases that would otherwise sound a bit
+too pedantic.
+
+\subsection{Characterizing Flat Quadrics}
+
+Letting $f:\V^{n+1}\to\R$ be the function defined as
+\begin{equation}
+f(x) = x\wedge\overline{x}\cdot B,
+\end{equation}
+we arrive at our first result.
+\begin{lemma}\label{lma_flat_quadric}
+Given any quadric $B$, if for all pairs of homogenized points $p,x\in\V^{n+1}$ on $B$
+we have $f(x-p)=0$, then $B$ is a linear (flat) quadric.
+\end{lemma}
+\begin{proof}
+For any pair of homogenized points $p,x\in\V^{n+1}$, there is a direction $\vec{x}\in\V^{n+1}$
+such that $x=p+\vec{x}$.  We then find that
+\begin{equation}
+f(x) = f(p+\vec{x}) = f(p) + \nabla_{\vec{x}}f(p) + f(x-p) = \nabla_{\vec{x}}f(p),
+\end{equation}
+in the case that $p$ is on $B$, where $\nabla_{\vec{x}}f(p)$ is the directional
+derivative of $f$ at $p$ in the direction of $\vec{x}$.  It follows that the tangent
+space of any point on the quadric is also in the quadric.  The quadric is therefore
+flat at any point upon its surface.  To see this, consider all such pairs of points $p,x$ where
+both are on $B$.  Both are on $B$ and both are in the tangent space of $B$ at $p$.
+\end{proof}
+Recalling that for any $x\in\V^{n+1}$, the definition of $\nabla f(x)$ is given by
+\begin{equation}
+\nabla f(x) = \sum_{i=0}^n e_i\nabla_{e_i}f(x),
+\end{equation}
+it is not hard to show that for any vector $y\in\V^{n+1}$, we have
+$y\cdot\nabla f(x)=\nabla_y f(x)$.  Seeing that $\vec{x}\cdot\nabla f(p)=\nabla_{\vec{x}}f(p)$
+in the light of Lemma~\ref{lma_flat_quadric},
+it follows that the direction $e_0\cdot e_0\wedge\nabla f(p)$
+is normal to the surface of the quadric $B$ at $p$.
+
+\subsection{Quadric 2-Blades}
+
+All quadrics are bivectors, but not all bivectors are 2-blades.  Here
+we study the class of quadrics that are 2-blades.  For any four
+vectors $a,b,c,d\in\V^{n+1}$, such a quadric $B$ has the form
+\begin{align}
+B &= (a+\overline{b})\wedge(c+\overline{d})\label{equ_quadric_twoblade} \\
+ &= a\wedge c + a\wedge\overline{d} + \overline{b}\wedge c + \overline{b\wedge d}.\label{equ_quadric_twoblade_expanded}
+\end{align}
+Further restricting the type of bivector studied here,
+it is curious to think what geometric significance the quadric $B$ has in relation
+to these four vectors when assumed to be projective points.  Whatever the case may be, it is clear from equation
+\eqref{equ_quadric_twoblade_expanded} that the quadric $B$ contains the intersection, if any,
+of the four quadrics appearing in the sum.  Considering the three forms of 2-blades
+found in the expansion of equation \eqref{equ_quadric_twoblade} to be more
+fundamental, (namely, $a\wedge c$, $\overline{b\wedge d}$ and
+the identical forms $a\wedge\overline{d}$ and $-c\wedge\overline{b}$), we'll
+start with a treatment of each of these forms.
+
+We first notice that the quadrics of the form $a\wedge c$ and $\overline{b\wedge d}$
+trivially represent the quadric of all space.  They therefore contribute nothing
+to the shape of $B$.  The remaining form $a\wedge\overline{d}$, therefore,
+deserves our full attention.  We break this form into two cases, the first being
+the case when $a=d$, and the second when $a\neq d$.
+
+In the first case, an application of equation
+\eqref{equ_highlevel_equation} easily reveals the type of quadric
+represented by $a\wedge\overline{a}$.  Doing so, we see that it represents
+the set of all projective points $p\in\V^{n+1}$ such that
+\begin{equation}\label{equ_point_or_plane_blade}
+0=p\wedge\overline{p}\cdot a\wedge\overline{a}=-(p\cdot a)^2,
+\end{equation}
+which holds if and only if $p\cdot a=0$.
+Letting $p=e_0+\vec{p}$ and $a=e_0+\vec{a}$, equation \eqref{equ_point_or_plane_blade} becomes
+\begin{equation}
+-1 = \vec{p}\cdot\vec{a} = \langle \vec{p}\vec{a}\rangle_0,
+\end{equation}
+where it is clear that $a\wedge\overline{a}$ is the solitary projective point
+$e_0-\vec{a}^{-1}$ in the case that $a$ is a projective point.\footnote{What is perhaps unfortunate is
+that this also means that the element $p\wedge\overline{p}$ does not
+represent the projective point $p$ as we might like to think of it
+in the context of equation \eqref{equ_highlevel_equation}.
+That is, while $0=p\wedge\overline{p}\cdot B$ implies that the
+projective point $p$ is on $B$, it does not imply that the point $p\wedge\overline{p}$
+is on $B$ under the definition implied by equation \eqref{equ_highlevel_equation}
+of what $p\wedge\overline{p}$ represents.  We therefore have to be careful with
+our manner of speech when we refer to any element as representing any particular geometry.
+The definition under which that element is representative of a geometry must always be known.}
+In the case that $a$ is a direction, equation \eqref{equ_point_or_plane_blade} becomes
+\begin{equation}
+0 = \vec{p}\cdot\vec{a},
+\end{equation}
+showing that in this case, $a\wedge\overline{a}$ is the plane containing
+the origin and having $\vec{a}$ as a vector normal to its surface.
+
+%\footnote{At this point we are able to see that there may be a new
+%and significant interpretation to equation \eqref{equ_highlevel_equation}
+%in the realization that $p\wedge\overline{p}$ is itself a point.  Specifically,
+%this brings up the question: if $A$ and $B$ are quadrics, what geometric
+%relation can we draw between these two quadrics in the case that
+%$A\cdot B=0$?  Clearly, we already know that the general
+%quadric $B$ is characterized by the set of all points satisfying
+%the condition of this relationship, whatever this relationship may be.}
+
+In the second case, our use of equation \eqref{equ_highlevel_equation} barrows
+from what we have just learned in the first case.
+\begin{equation}
+0 = p\wedge\overline{p}\cdot a\wedge\overline{d} = -(p\cdot a)(p\cdot d)
+\end{equation}
+Clearly this represents the union of any combination of a pair geometries where either
+one is a point or a plane containing the origin.  Interestingly, in the case of a
+point-plane pair, the point need not be on the plane.
+
+Returning to the general quadric 2-blade \eqref{equ_quadric_twoblade}, to understand
+this general form, we must come to some understanding of...
+
+
+% Formulate a sphere.  Can we do stuff with spheres, points and planes?
+
+% Can we apply the lemma to 2-blade quadrics?
+
+% Can we formulate quadrics in terms of a center point?
+% How do you define or find the center of a quadric?
+
+\subsection{Exploiting The Entire Algebra}
+
+It should be observed that a bivector is not the sole form of an
+element of our geometric algebra that is capable of representing
+a quadric.  Indeed, any element of the algebra can represent a quadric,
+because all of the necessary mixing of coordinates is done in the
+$p\wedge\overline{p}$ calculation, while the quadric representative
+$B$, not necessarily a bivector, contains nothing more than the coefficients characterizing the quadric.
+A formal definition of the desired algebraic variety is now warranted.
+\begin{definition}\label{def_quadric_variety}
+For any element $E\in\G(\V^{2(n+1)})$, this element is representative of the
+geometry that is the set of all projective points $p\in\V^{n+1}$ such that
+\begin{equation}
+0=p\wedge\overline{p}\cdot E.
+\end{equation}
+\end{definition}
+From the beginning of this paper we have been using the version of
+Definition~\ref{def_quadric_variety} where $E$ is strictly a bivector.  We will now consider
+some cases where $E$ is not a bivector.
+
+The first consideration is naturally that of vectors.  Letting $a,b\in\V^{n+1}$ be any two
+vectors, we see that
+\begin{equation}
+p\wedge\overline{p}\cdot(a+\overline{b}) = (p\cdot b)p - (p\cdot a)\overline{p}.
+\end{equation}
+Recalling that if $p$ is a projective point, then $p\neq 0$, it is clear that $p$ is on $a+\overline{b}$
+if and only if $p\cdot a=0$ and $p\cdot b=0$.
+Blah blah.\footnote{Notice that we must be careful here in referring to a
+vector as any geometry.  For example, it is common for us to think of a vector $p\in\V^{n+1}$
+as a projective point, but under Definition~\ref{def_quadric_variety}, $p$ represents the projective
+point $e_0-(e_0\cdot (e_0\wedge p))^{-1}$.}
+
+General trivectors are as formidable an object of study as bivectors themselves.
+Let us therefore consider cases of trivectors that we can relate back to what
+we already know about bivectors.
+
+\section{Concluding Remarks}
+
+Admittedly, more questions have been brought up than answered in this paper.
+It also appears that while the equation \eqref{equ_highlevel_equation}
+works as an alternative to the matrix equation \eqref{equ_quadric_matrix_equation},
+it may prove to be nothing more than a curious mathematical construction.  If there are
+any new insights to be gained about quadrics using geometric algebra, I have no idea
+if this model can be helpful in that regard.
+
+%    Bibliographies can be prepared with BibTeX using amsplain,
+%    amsalpha, or (for "historical" overviews) natbib style.
+\bibliographystyle{amsplain}
+%    Insert the bibliography data here.
+
+\bibliography{QuadricModelOfGA}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%    Templates for common elements of a journal article; for additional
+%    information, see the AMS-LaTeX instructions manual, instr-l.pdf,
+%    included in the ECGD author package, and the amsthm user's guide,
+%    linked from http://www.ams.org/tex/amslatex.html .
+
+%    Section headings
+\section{}
+\subsection{}
+
+%    Ordinary theorem and proof
+\begin{theorem}[Optional addition to theorem head]
+% text of theorem
+\end{theorem}
+
+\begin{proof}[Optional replacement proof heading]
+% text of proof
+\end{proof}
+
+%    Figure insertion; default placement is top; if the figure occupies
+%    more than 75% of a page, the [p] option should be specified.
+\begin{figure}
+\includegraphics{filename}
+\caption{text of caption}
+\label{}
+\end{figure}
+
+%    Mathematical displays; for additional information, see the amsmath
+%    user's guide, linked from http://www.ams.org/tex/amslatex.html .
+
+% Numbered equation
+\begin{equation}
+\end{equation}
+
+% Unnumbered equation
+\begin{equation*}
+\end{equation*}
+
+% Aligned equations
+\begin{align}
+  &  \\
+  &
+\end{align}
+
+%-----------------------------------------------------------------------
+% End of ecgd-l-template.tex
+%-----------------------------------------------------------------------

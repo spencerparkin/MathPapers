@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\prl}{\parallel}
+\newcommand{\prp}{\perp}
+\newcommand{\nlo}{o}
+\newcommand{\nli}{\infty}
+
+%\swapnumbers
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+
+\title{A Compilation Of Fun GA Problems}
+%\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+\section{The First Set Of Problems}
+
+For this first set of problems, assume that all elements
+come from a \emph{Euclidean} geometric algebra.
+
+\subsection{The Inverse Of A Vector}
+
+Given a non-zero vector $v$, determine its inverse $v^{-1}$ with respect to the geometric product.
+Show that this inverse is unique.  Does $v$ have an inverse with respect to the inner or outer products?
+Do all vectors have an inverse with respect to the geometric product?
+
+\subsection{Reflecting A Vector About A Vector}
+
+Given a unit-length vector $n$ and a vector $v$, find the vector $v'$ which is the
+orthogonal reflection of $v$ about $n$.
+
+\subsection{Reflecting A Vector About A Blade}
+
+Given a 2-blade $B$ and a vector $v$, find the vector $v'$ which is the orthogonal
+reflection of $v$ about $B$.
+
+\subsection{The Angle Between Blades}
+
+Given two blades $A$ and $B$, each of the same grade $k\geq 1$, find a formula for the product $A\cdot B$
+in terms of the angle $\theta$ made between the planes containing each of these blades.
+
+\subsection{The Magnitude Of The Outer Product Of Two Blades}
+
+Given two blades $A$ and $B$, each of the same grade $k\geq 1$, find a formula for the quantity $|A\wedge B|$
+in terms of the angle $\theta$ made between the planes containing each of these blades.
+
+\subsection{The Inner Product Of A Vector And A Blade}
+
+Given a vector $v$ and a $k$-blade $B$, which may be written in terms
+of the $k$ vectors in $\{b_i\}_{i=1}^k$ as
+\begin{equation}
+B = \bigwedge_{i=1}^k b_k,
+\end{equation}
+we may define the inner product of $v$ and $B$ as
+\begin{equation}
+v\cdot B = -\sum_{i=1}^k (v\cdot b_i)B_i,
+\end{equation}
+where we define $B_i$ as the $(i-1)$-blade given as
+\begin{equation}
+B_i = \bigwedge_{\substack{j=1\\j\neq i}} b_j.
+\end{equation}
+Given this definition of $v\cdot B$, show that
+\begin{equation}
+v\cdot B = (v\cdot a_k)B_1 - a_k\cdot(v\wedge B_1).
+\end{equation}
+
+\subsection{Versors}
+
+A versor is any geometric product of a finite sequence $\{v_i\}_{i=1}^k$ of invertible vectors.
+That is, if $V$ is a versor, then we may write
+\begin{equation}
+V = a_1a_2a_3\dots a_k = \prod_{i=1}^k a_i
+\end{equation}
+The reverse of $V$, written as $\tilde{V}$, is defined as
+\begin{equation}
+\tilde{V} = a_ka_{k-1}a_{k-2}\dots a_1 = \prod_{i=1}^k a_{k-i+1}.
+\end{equation}
+Given all of this information, determine the inverse $V^{-1}$ of $V$.
+
+\subsection{Converting Between Versors And Blades}\label{prob_blade_versor_conversion}
+
+Show that any versor can be rewritten as a blade.  Then show that any blade can be rewritten as a versor.
+
+\subsection{The Inverse Of a Blade}
+
+Given a blade $B$, determine when $B^{-1}$ exists, given a formula for $B^{-1}$ in terms of $B$,
+and show that if $B^{-1}$ exists, then it is unique.
+
+\subsection{The Conjugation Of Vectors By Versors}\label{prob_vector_versor_conjugation}
+
+Given any vector $v$ and a versor $V$, show that $VvV^{-1}$ is also a vector.
+
+\subsection{The Conjugation Of Blades By Versors}\label{prob_blade_versor_conjugation}
+
+Given any $k$-blade $B$ and a versor $V$, show that
+\begin{equation}
+VBV^{-1} = \bigwedge_{i=1}^k Vb_kV^{-1},
+\end{equation}
+in the case that $B$ may be factored in terms of the vectors in $\{b_i\}_{i=1}^k$ as
+\begin{equation}
+B = \bigwedge_{i=1}^k b_k.
+\end{equation}
+Also show that $VBV^{-1}$ has the same grade as $B$.
+
+\subsection{Versors And The Inner Product}\label{prob_versors_and_inner_prod}
+
+Given any two vectors $a$ and $B$, and a versor $V$, show that
+\begin{equation}
+a\cdot b = (VaV^{-1})\cdot(VbV^{-1}),
+\end{equation}
+and that
+\begin{equation}
+(V^{-1}aV)\cdot b = a\cdot(VbV^{-1}).
+\end{equation}
+(Hint: One of these follows trivially from the other.)
+
+\section{The Second Set Of Problems}
+
+In this second set of problems, assume that all elements
+come from a \emph{non-Euclidean} geometric algebra.
+
+\subsection{Null Vectors}
+
+In a non-Euclidean geometric algebra, we allow vectors $v$ having an inner product
+square $v\cdot v$ of zero.  How does this impact the invertibility of non-zero vectors?
+
+\subsection{Converting Between Versors And Blades}
+
+Re-examine Problem~\ref{prob_blade_versor_conversion}.  Does your
+proof work in a non-Euclidean geometric algebra?!  What can you conclude?
+
+\subsection{Conjugation By Versors}
+
+Re-examine Problem~\ref{prob_vector_versor_conjugation},
+Problem~\ref{prob_blade_versor_conjugation} and Problem~\ref{prob_versors_and_inner_prod}.
+Do your proofs for these problems still
+go through in a non-Euclidean geometric algebra?  If not, can an alternative
+proof by found that does work in a non-Euclidean geometric algebra, or if so,
+could you have found an easier proof that takes advantage of properties
+available in a Euclidean geometric algebra?
+
+\end{document}

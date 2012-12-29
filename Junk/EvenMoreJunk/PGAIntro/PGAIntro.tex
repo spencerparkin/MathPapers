@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{biblatex}
+
+\title{An Introduction To\\Projective Geometry\\Using\\Geometric Algebra}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+This paper is my attempt to build up the subject of projective
+geometry using geometric algebra in my own words.  I do not
+claim originality to any result in this paper.  If nothing else, this
+paper simply represents a formal compilation of my notes on the
+subject.  I have mainly used \cite{hestenes91}, \cite{birchfield98} and \cite{dorst07}
+for research in the preparation of this paper.
+
+I began my study of projective geometry using geometric algebra
+after having already put much effort into understanding the
+conformal model of geometric algebra.  I may therefore make reference
+to concepts in the conformal model as we go along, but it is not a
+prerequisite that the reader be familiar at all with the conformal model.
+
+I don't know for certain, but I believe that the conformal model
+might be superior to projective geometry, though to-date the latter has
+been studied far more than the former, it having been around a lot longer.
+
+\section{Representing Geometry}
+
+Like the conformal model, we may think of geometries as subsets of the
+set of all points in some $n$-dimensional Euclidean space, which we'll
+denote by $\V^n$.  This also denotes an $n$-dimensional Euclidean vector space
+as we adopt here the standard correlation between vectors in such a vector space
+with points in an $n$-dimensional Euclidean space.
+
+Points sets, of course, do not lend themselves easily to goemetric analysis.  So,
+like the conformal model, we represent them using blades in a geometric algebra.
+Why we use blades will become apparent after we define how a blade represents
+a point set, because then it will become clear how the meet and join operations
+of blades will allow us to do some interesting geometric operations, just as we
+can in the conformal model.
+
+For $n$-dimensional projective geometry, we use a geometric algebra generated
+by an $(n+1)$-dimesnional Euclidean vector space.  If $\{e_k\}_{k=0}^{n-1}$ is any set of orthonormal basis
+vectors spanning $\V^n$, let $\{e_k\}_{k=0}^n$ be a set of
+orthonormal basis vectors spanning $\V^{n+1}$, which we'll use to generate our
+geometric algebra $\G(\V^{n+1})$.
+
+In projective geometry we can represent points, lines, planes, hyper-planes, and so on to higher dimensions.
+Certainly results in geometry involving all of these types of geometric 
+primitives can be found by simply using $\V^n$ alone, but what we'll see is that the extra dimension
+in $\V^{n+1}$ will facilitate some amazingly useful constructions in $\G(\V^{n+1})$ that
+make the finding of such results much easier than it would be otherwise.  Indeed, in
+\cite{hestenes91}, it is shown how geometric algebra easily and naturally explains many
+fundamental theorems in projective geometry.
+It is my guess that interpretations of how these constructions work based on $(n+1)$-dimensional
+projections into $n$-dimensional space are at least partially to blame for the title of the
+subject being projective geometry.
+
+Without further delay, we begin with a function $p:\V^n\to\V^{n+1}$ that defines
+a mapping from points in our Euclidean space with vectors in our geometric algebra.
+We then say that a blade $A\in\G(\V^{n+1})$ represents a piece of geometry as
+the set of all points $x\in\V^n$ such that $p(x)\wedge A=0$.  From this it is clear
+that all non-zero scalar multiples $A$ also represent the same piece of geometry.
+This is the nature of a homogeneous representation model.
+
+We define $p$ simply as
+\begin{equation*}
+p(x) = x + e_3.
+\end{equation*}
+Having done so, it is easy to see that for any vector $b\in\V^n$, that $p(b)$
+represents the point $b$.  Now here's where it gets interesting.  Let $\{b_k\}_{k=0}^{m-1}$
+be any set of $m$ points taken from $\V^n$ such that they are non-co-$(m-1)$-hyper-planar.
+That is, if $m=2$, the 2 points are distinct; if $m=3$, the 3 points are non-co-linear; if
+$m=4$, the 4 points are non-co-planar; if $m=5$, the points are non-co-hyper-planar, and so on.
+We will now show that if $m\leq n+1$, then the blade $B=\bigwedge_{k=0}^{m-1}p(b_k)$ represents an
+$(m-1)$-dimensional hyper-plane.
+
+The case $m=n+1$ is trivial.  In that case, $B$ is a psuedo-scalar of $\G(\V^{n+1})$, and
+so for all points $x\in\V^n$, we have $p(x)\wedge B=0$, showing that $B$ represents
+an $n$-dimensional hyper-plane.  Let us now consider all $1<m<n+1$.  We start by
+putting $B$ in a form that exposes its two primary characteristics.
+\begin{equation}\label{equ_plane_canonical_form}
+B = p(b_0)\wedge A = b_0\wedge A + e_n\wedge A
+\end{equation}
+Here we have arbitrarily chosen $a_0$ to represent what we'll call the center of the hyper-plane, if you will.
+(Any point on a plane may be thought of as its center.  Let's just choose one.)  The blade $A$ here
+represents the attitude of the hyper-plane, and is given by
+\begin{equation*}
+A = \bigwedge_{k=1}^{m-1}(b_k-b_0).
+\end{equation*}
+Examining now the equation $p(x)\wedge B=0$, we see that this reduces to
+\begin{equation*}
+x\wedge a_0\wedge A + e_n\wedge (x-a_0)\wedge A = 0,
+\end{equation*}
+showing that for $x$ to be part of the geometry represented by $A$, there are two
+conditions that need to be met.  The first is that $x\wedge a_0\wedge A=0$, which is
+a necessary yet insufficient condition that $x$ be on the hyper-plane.  The second,
+however, that $(x-a_0)\wedge A=0$, is both a necessary and sufficient condition
+that $x$ be on the $(m-1)$-dimensional hyper-plane.  And there we have it!
+
+Looking back at the canonical form of a hyper-plane in this model,
+equation $\eqref{equ_plane_canonical_form}$ shows how we might decompose
+a given hyper-plane into its constituent characteristics.  Of course, given
+a blade $B$, we couldn't hope to recover the original center and attitude
+used to compose it, but we can find a center and the original attitude up to scale.
+An attidue can be found as $A=e_n\cdot B$.  Then, interestingly, we can find
+the center on the plane closest to the origin by requiring $b_0\cdot A=0$.
+It follows that
+\begin{equation*}
+b_0 = (e_n\cdot(e_n\wedge B))\frac{\tilde{A}}{|A|^2}.
+\end{equation*}
+
+We have now exhausted the geometric primitives of the projective geometry model
+of geometric algebra.  What remains to is to explore what types of operations we
+can perform on these geometries, what results we can derive in this model, and
+however else we can find the model useful in the subject of geometry.
+
+\section{Intersecting Geometry}
+
+Explore that here...
+
+% decompose to get characteristic parts.  center closest to origin found.  attitude recoverable
+
+\bibliographystyle{plain}
+\bibliography{PGAIntro}
+
+\end{document}

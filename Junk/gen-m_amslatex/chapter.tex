@@ -1,0 +1,97 @@
+%-----------------------------------------------------------------------
+% Beginning of chapter.tex
+%-----------------------------------------------------------------------
+%
+%  This is a sample file for use with AMS-LaTeX.  It provides an example
+%  of how to set up a file for a book to be typeset with AMS-LaTeX.
+%
+%  This is the driver file.  Separate chapters should be included at
+%  the end of this file.
+%
+%  ***** DO NOT USE THIS FILE AS A STARTER FOR YOUR BOOK. *****
+%  Follow the guidelines in the file chapter.template.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{amsbook}
+
+\includeonly{preface,chap1,biblio,index}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+\begin{document}
+\frontmatter
+\title{AMS Monograph Series Sample}
+
+%    Information for first author
+\author{Author One}
+%    Address of record for the research reported here
+\address{Department of Mathematics, Louisiana State University, Baton
+Rouge, Louisiana 70803}
+%    Current address
+\curraddr{Department of Mathematics and Statistics,
+Case Western Reserve University, Cleveland, Ohio 43403}
+\email{xyz@math.university.edu}
+%    \thanks will become a 1st page footnote.
+\thanks{The first author was supported in part by NSF Grant \#000000.}
+
+%    Information for second author
+\author{Author Two}
+\address{Mathematical Research Section, School of Mathematical Sciences,
+Australian National University, Canberra ACT 2601, Australia}
+\email{two@maths.univ.edu.au}
+
+\date{July 2, 1991}
+\subjclass[2010]{Primary 54C40, 14E20;\\Secondary 46E25, 20C20}
+\keywords{\texttt{amsbook}, AMS-\LaTeX}
+
+\begin{abstract}
+This document is a sample prepared to illustrate the use of the
+American Mathematical Society's \LaTeX{} document class
+\texttt{amsbook} and publication-specific variants of that class.
+\end{abstract}
+
+\maketitle
+
+\setcounter{page}{4}
+\tableofcontents
+
+\include{preface}
+
+\mainmatter
+\include{chap1}
+
+\backmatter
+\include{biblio}
+\include{index}
+\end{document}
+
+%-----------------------------------------------------------------------
+% End of chapter.tex
+%-----------------------------------------------------------------------

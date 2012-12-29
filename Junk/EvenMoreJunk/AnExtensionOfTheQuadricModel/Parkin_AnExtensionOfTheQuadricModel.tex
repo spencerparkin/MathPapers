@@ -1,0 +1,275 @@
+\documentclass{birkjour}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Vb}{\mathbb{\overline{V}}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Alpha}{A}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvaob}{\overline{o}}
+\newcommand{\nvaib}{\overline{\infty}}
+\newcommand{\eminus}{e_{-}}
+\newcommand{\eplus}{e_{+}}
+\newcommand{\eminusb}{\overline{e}_{-}}
+\newcommand{\eplusb}{\overline{e}_{+}}
+
+\begin{document}
+
+\title{An Extension Of The Quadric Model}
+
+\author{Spencer T. Parkin}
+\address{%
+2113 S. Claremont Dr.\\
+Bountiful, Utah  84010\\
+USA}
+\email{spencer.parkin@gmail.com}
+
+\numberwithin{equation}{section}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+\keywords{Quadric Surface, Geometric Algebra, Quadric Model}
+
+%\dedicatory{To Melinda and Naomi}
+
+\begin{abstract}
+An extension is found for the model set forth in \cite{Parkin12}
+which expands the set of all transformations that can be applied
+to quadric surfaces to the set of all conformal transformations.
+\end{abstract}
+
+\maketitle
+
+\section{The Expansion Of $\G$ to $\G^*$}
+
+We assume here from the beginning that the reader is familiar with
+all definitions and results set forth in \cite{Parkin12} as this paper
+will make use of that material without recounting it.
+That said, we begin with an extension of $\G$ to the geometric
+algebra $\G^*$.  We will let $\G$ be a proper sub-algebra of $\G^*$
+by adding the following four basis vectors.
+\begin{equation}\label{equ_null_basis_vecs}
+\begin{array}{ll}
+\nvao & \mbox{The null-vector at the origin.} \\
+\nvai & \mbox{The null-vector at infinity.} \\
+\nvaob & \mbox{The friend of $\nvao$.} \\
+\nvaib & \mbox{The friend of $\nvai$.}
+\end{array}
+\end{equation}
+What was referred to in \cite{Parkin12} as the counter-part of a vector will be referred
+to here in this paper as the friend of a vector.  In group theory terms, the vectors
+$\nvao$ and $\nvaob$ are conjugates of one another, which is always a mutual
+relationship.  Friendship, however, as it will be defined shortly, and as we'll find,
+is not always such a relationship.
+
+At the moment, the over-bar notation used in table \eqref{equ_null_basis_vecs}
+is nothing more than notation.  In \cite{Parkin12}, the over-bar notation refers to the application
+of an outermorphic function.  We will see shortly that we can overload this notation to
+also refer to an extension of this outermorphic function.
+
+The following is an inner product table for the basis vectors in table \eqref{equ_null_basis_vecs}.
+\begin{equation}
+\begin{array}{c|cccc}
+\cdot & \nvao & \nvai & \nvaob & \nvaib \\
+\hline
+\nvao & 0 & -1 & 0 & 0 \\
+\nvai & -1 & 0 & 0 & 0 \\
+\nvaob & 0 & 0 & 0 & -1 \\
+\nvaib & 0 & 0 & -1 & 0
+\end{array}
+\end{equation}
+
+We will let $\V^*$ contain $\V$ as a proper vector-subspace, adding to it the
+basis vectors $\nvao$ and $\nvai$.  Similarly, we will let $\overline{\V}^*$ contain
+$\overline{\V}$ as a proper vector-space, adding to it the basis vectors $\overline{\nvao}$
+and $\overline{\nvai}$.  We will let $\W^*$ denote the smallest vector space containing
+$\V^*$ and $\overline{\V}^*$ as vector sub-spaces.
+For all vectors $v\in\W$, (not $v\in\W^*$), we will define $0=v\cdot b$, where
+$b$ is any basis vector in table \eqref{equ_null_basis_vecs}.
+
+What we have now with $\G^*$ is simply a geometric algebra containing
+two isomorphic Minkownski sub-algebras $\G(\V^*)$ and $\G(\overline{\V}^*)$.
+To preserve the use of the over-bar notation in our extended model, we will need
+to extend its use an outermorphic function to the new model.  To that end, we will
+find it useful to refer to \cite{LiRockwood} in defining the following vectors.
+\begin{align}
+\eminus &= \frac{1}{2}\nvai + \nvao \\
+\eplus &= \frac{1}{2}\nvai - \nvao
+\end{align}
+As the reader can check, $\eminus$ is a unit-length anti-Euclidean vector, (having an inner-product
+square of $-1$), while $\eplus$ is a unit-length Euclidean vector.  We will define
+$\eminusb$ and $\eplusb$ similarly with $\nvaob$ and $\nvaib$.  We can now
+define, for any element $E\in\G^*$, the friend $\overline{E}$ of $E$ as
+\begin{equation}
+\overline{E} = S^*E\tilde{S^*},
+\end{equation}
+where $S^*$ is defined in terms of $S$ as
+\begin{equation}
+S^* = \frac{1}{2}(1+\eminus\eminusb)(1-\eplus\eplusb)S.
+\end{equation}
+It now follows that for any vector $v\in\V^*$, the vector $\overline{v}$ is the
+friend of $v$ in $\overline{V}^*$.  Similarly, for any vector $v\in\overline{\V}^*$,
+the vector $\overline{v}$ as the friend of $v$ in $\V^*$.
+We must be careful, however, because it does not now follow, as it did in our
+original model, that the friend of $v\in\V^*$ in $\overline{\V}^*$ is also the
+friend of $v$, and vice-versa.
+This is because $\nvao$ is not the friend
+of $\nvaob$, nor is $\nvai$ the friend of $\nvaib$.  Rather, $-\nvao$
+is the friend of $\nvaob$, and $-\nvai$ is the friend of $\nvaib$.
+In the extended model, friendship is not always a mutual relationship as it
+was in the original model.
+This will not present a problem for us, however, if we only use the over-bar
+function in one direction; from $\V^*$ to $\overline{\V}^*$.
+
+Furthermore, it should be noted here that the over-bar function
+is no longer an isomorphism between the two principle halves
+of our model; namely, $\G(\V)$ and $\G(\V^*)$, but we never
+relied upon this property to begin with, nor will we need it moving forward.
+The only important fact is that $\G(\V)$ and $\G(\V^*)$ are indeed isomorphic.
+It may actually possible to remove our definition of the over-bar function
+in terms of $S^*$, and simply use it as pure notation.
+
+We now introduce the conformal mapping $P:\V\to\V^*$ as
+\begin{equation}
+P(p) = \nvao + p + \frac{1}{2}p^2\nvai,
+\end{equation}
+and then realize that for any bivector $E\in\G$ representative of an $n$-dimensional
+quadric surface by our original model, that we have
+\begin{equation}
+P(p)\wedge\overline{P(p)}\cdot E = p\wedge\overline{p}\cdot E
+\end{equation}
+showing that the bivectors of the form $E$ in \cite{Parkin12} are 
+conveniently the very bivectors in our extended model that are also presentative
+of $n$-dimensional quadric surfaces.  To see this, it is convenient
+to make use of the vectors $\eminus$ and $\eplus$; rewriting the conformal
+mapping in terms of them as
+\begin{equation}
+P(p) = \alpha\eminus + p + \beta\eplus,
+\end{equation}
+where $\alpha=\frac{1}{2}(p^2+1)$ and $\beta=\frac{1}{2}(p^2-1)$.
+Doing so, we see that
+\begin{align}
+P(p)\wedge\overline{P(p)}
+ &= (\alpha\eminus + \beta\eplus)\wedge\overline{(\alpha\eminus + \beta\eplus)}\label{equ_e_with_e} \\
+ &+  (\alpha\eminus + \beta\eplus)\wedge\overline{p}\label{equ_e_with_p} \\
+ &+ p\wedge\overline{(\alpha\eminus + \beta\eplus)}\label{equ_p_with_e} \\
+ &+ p\wedge\overline{p}.\label{equ_p_with_p}
+\end{align}
+It is now easy to see that $E$, when taken in the inner product with
+each of \eqref{equ_e_with_e}, \eqref{equ_e_with_p} and \eqref{equ_p_with_e}, vanishes to zero,
+leaving just \eqref{equ_p_with_p}.
+
+\section{Transformations Of The Extended Model}
+
+At this point we have extended the framework of the quadric model to a higher dimensional
+algebra $\G^*$ in which all previously known results of $\G$ are preserved.  In this extended framework
+we can now discover a larger set of transformations applicable to quadrics as versors.  Indeed, what
+we'll now show is that the entire set of conformal transformations are available to us in the extended model.
+To see this, we start by making the simple observation that for any versor $V\in\G(\V^*)$, we can
+recognize the algebraic variety generated by the set of all projective points $p\in\V$, such that
+\begin{equation}\label{equ_quadric_transformed}
+0 = V^{-1}P(p)V\wedge\overline{V^{-1}P(p)V}\cdot E,
+\end{equation}
+as the transformation of the quadric $E\in\G$ by the versor $V$, provided
+that $e_0=V^{-1}e_0V$.  Indeed, what we'll find
+is that the transformation $E'$ of $E$ by $V$ is given by
+\begin{equation}
+E' = V\overline{V}E(V\overline{V})^{-1}.
+\end{equation}
+To see this, let us first write $E$ in the form
+\begin{equation}
+E = \sum_{i=1}^k a_i\wedge\overline{b_i},
+\end{equation}
+where each of $\{a_i\}_{i=1}^k$ and $\{b_k\}_{k=1}^i$ is a sequence of $k$ vectors taken from $\V$.
+Then, by the linearity of all the products of geometric algebra, there is no loss in generality here
+if we, for convenience, consider only the case $k=1$, and write $E$ as simply the 2-blade
+\begin{equation}
+E = a\wedge\overline{b},
+\end{equation}
+where $a,b\in\V$.  Having done this, it is easy to establish that the quadric represented by $E'$
+is the very quadric represented in equation \eqref{equ_quadric_transformed} by the equality of
+\eqref{equ_start} with \eqref{equ_finish}.
+\begin{align}
+ & V^{-1}P(p)V\wedge\overline{V^{-1}P(p)V}\cdot a\wedge\overline{b}\label{equ_start} \\
+=\;& -(V^{-1}P(p)V\cdot a)(V^{-1}P(p)V\cdot b) \\
+=\;& (P(p)\cdot VaV^{-1})(P(p)\cdot VbV^{-1}) \\
+=\;& P(p)\wedge\overline{P(p)}\cdot VaV^{-1}\wedge\overline{VbV^{-1}}\label{equ_before_versor_invariance} \\
+=\;& P(p)\wedge\overline{P(p)}\cdot
+V\overline{V}a(V\overline{V})^{-1}\wedge V\overline{Vb}(V\overline{V})^{-1}\label{equ_after_versor_invariance} \\
+=\;& P(p)\wedge\overline{P(p)}\cdot V\overline{V}(a\wedge\overline{b})(V\overline{V})^{-1}\label{equ_finish}
+\end{align}
+Seeing that the step from \eqref{equ_before_versor_invariance} to \eqref{equ_after_versor_invariance} may
+require more clarity, let us proceed to justify this step.  To begin, realize
+that for any vector $v\in\V$, the conjugation of $\overline{v}$ by $V$ leaves $\overline{v}$ invariant, up
+to scale; and likewise, the conjugation of $v$ by $\overline{V}$ leaves $v$ invariant, up to scale.
+A change in sign depends upon the parity of the versor $V$, but it doesn't matter,
+because only zero or two sign changes, if any, will happen, a cancelation occuring in the latter case.
+To see this, realize that
+\begin{align}
+ & VaV^{-1} \\
+=\;& V\overline{VV^{-1}}aV^{-1} \\
+=\;& (-1)^mV\overline{V}a\overline{V}^{-1}V^{-1} \\
+=\;& (-1)^m V\overline{V}a(V\overline{V})^{-1},\label{equ_a_with_m}
+\end{align}
+where $m$ is the number of vectors composing $V$ in a geometric product,
+while on the other side of the outer product, we have
+\begin{align}
+ & \overline{VbV^{-1}} \\
+=\;& VV^{-1}\overline{VbV^{-1}} \\
+=\;& (-1)^{m^2}V\overline{V}V^{-1}\overline{bV^{-1}} \\
+=\;& (-1)^{m^2+m}V\overline{Vb}V^{-1}\overline{V}^{-1} \\
+=\;& (-1)^{2m^2+m}V\overline{VbV^{-1}}V^{-1} \\
+=\;& (-1)^m V\overline{Vb}(V\overline{V})^{-1}.\label{equ_b_with_m}
+\end{align}
+It is clear now that the $(-1)^m$ in \eqref{equ_a_with_m} will cancel the $(-1)^m$ in \eqref{equ_b_with_m}
+as we see each of these appearing in \eqref{equ_after_versor_invariance}.
+
+Of course, the requirement that $V$ keep $e_0$ invariant under versor conjugation is only necessary
+if we wish to easily visualize the newly transformed point $V^{-1}P(p)V$ in Euclidean space.
+Removing this constraint, a versor $V$ transforms points in homogeneous space, the results
+of which are harder to visualize, but which may provide us with the ability to project the quadrics.
+
+\section{Computational Verification}
+
+``For example'' is not a proof\footnote{Of course, ``for example'' may certainly be a disproof, which
+is a type of proof; but the meaning of the phrase is still well understood.},
+as the Jewish proverb goes.  Nevertheless, making practical use
+of the new model for quadric surfaces can be a proof of concept.  Here we give the resulting
+output of a computer program, developed by the author, and designed to help users visualize
+the elements of a geometric algebra, (such as our $\G(\W^*)$), under certain
+interpretations.
+
+\section{Concluding Remarks}
+
+The biggest gap that seems to remain between our extended model and
+the conformal model is the lack of conformal operations such as intersecting geometries, fitting geometries
+to a set of points, and so on.  It isn't too surprising that that these features do not
+naturally present themselves, however, because the quadrics are not closed under
+the intersection operation, and there may not be a unique quadric fitting a given set
+of points in a certain way.  In any case, the jury is still out on what the
+best model for quadrics is, but until a better model comes along, this one appears
+to show some promise.
+
+\bibliographystyle{amsplain}
+\bibliography{Parkin_AnExtensionOfTheQuadricModel}
+
+\end{document}

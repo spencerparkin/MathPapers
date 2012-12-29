@@ -1,0 +1,155 @@
+
+
+\section{Catalog of Canonical Forms}
+
+For reference, this section catalogs canonical dual representations of the geometries in the
+conformal model of 3-dimensional space, as well as common transformations represented
+by versors.  In each sub-section about dual geometric representations, the blade $B\in\G$ is
+assumed to represent the geometry in question, while in sub-sections about
+versor transformations, the versor $V\in\G$ represents the transformation in question.
+In addition to the composition
+of each geometry's dual representation, a sequence of steps
+are also provided that show how one can decompose this representation
+into the variables that characterize the geometry.  A similar set of composition
+and decomposition steps are provided for the versor transformations.
+
+\subsection{Points}
+
+Points (round points) are characterized by a Euclidean point $x\in\V^n$ and
+a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda\left(\nvao + x + \frac{1}{2}x^2\nvai\right)
+\end{equation*}
+We may decompose this as follows.
+\begin{align*}
+\lambda &= -\nvai\cdot B \\
+v &= \nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvao\wedge\nvai
+\end{align*}
+
+\subsection{Spheres}
+
+Spheres are characterized by a Euclidean point (center) $x\in\V^n$, a
+non-zero radius $r\in\R$ and a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda\left(\nvao + x + \frac{1}{2}(x^2\pm r^2)\nvai\right)
+\end{equation*}
+(Say something about imaginary spheres.)
+We may decompose this as follows.
+\begin{align*}
+\lambda &= -\nvai\cdot B \\
+x &= \nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvao\wedge\nvai \\
+r^2 &= x^2 + 2\nvao\cdot\frac{B}{\lambda}
+\end{align*}
+Alternatively, we can find $r^2$ as simply the square of $B^2/\lambda$.
+Using what we know about spherical reflections, we can find $x$ by
+reflecting $\nvai$ into the sphere.
+
+\subsection{Planes}
+
+Planes are characterized by a Euclidean point (center, if you will) $x\in\V^n$,
+a unit-normal $v\in\V^n$ and a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda(v + (x\cdot v)\nvai)
+\end{equation*}
+If $T=1-\frac{1}{2}x\nvai$, we may also formulate $B$ as $Tv\tilde{T}$.
+We may decompose $B$ as follows.
+\begin{align*}
+v &= \nvao\cdot\frac{B}{\lambda}\wedge\nvai \\
+x &= -v\left(\nvao\cdot\frac{B}{\lambda}\right)
+\end{align*}
+Notice here that any original weight, normal and position used in
+the composition of $B$ are not recoverable in the decomposition of $B$.
+Here, $x$ will be the point on the plane closest to the origin.
+
+\subsection{Circles}
+
+Circles are characterized by a Euclidean point (center) $x\in\V^n$,
+a unit-normal $v\in\V^n$, a non-zero radius $r\in\R$ and a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda(v+(x\cdot v)\nvai)\wedge\left(\nvao+x+\frac{1}{2}(x^2\pm r^2)\nvai\right)
+\end{equation*}
+(Say something about imaginary circles.)  We may decompose this as follows.
+\begin{align*}
+v &= \nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvai \\
+x &= v\left(\nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvao\nvai\right) \\
+r^2 &= x^2 - 2v\left((x\cdot v)x-\nvao\wedge\nvai\cdot\nvao\wedge \frac{B}{\lambda}\right)
+\end{align*}
+
+\subsection{Lines}
+
+Lines are characterized by a Euclidean point (center, if you will) $x\in\V^n$,
+a unit-normal $v\in\V^n$ and a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda\left(vi - \left(x\cdot vi\right)\wedge\nvai\right)
+\end{equation*}
+We may decompose this as follows.
+\begin{align*}
+v &= \left(\nvao\cdot\frac{B}{\lambda}\wedge\nvai\right)i \\
+x &= -v\left(\nvao\cdot\frac{B}{\lambda}\right)i
+\end{align*}
+
+\subsection{Point-Pairs}
+
+Point-pairs are characterized by a Euclidean point (center) $x\in\V^n$,
+a unit-normal $v\in\V^n$, a non-zero radius $r\in\R$ and a non-zero scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda(vi-(x\cdot vi)\wedge\nvai)\wedge\left(\nvao+x+\frac{1}{2}(x^2\pm r^2)\nvai\right)
+\end{equation*}
+(Say something about imaginary point-pairs.)  We may decompose this as follows.
+\begin{align*}
+v &= -\left(\nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvai\right)i \\
+x &= -v\left(\nvao\wedge\nvai\cdot\frac{B}{\lambda}\wedge\nvao\nvai\right)i \\
+r^2 &= -x^2+2v\left((x\cdot v)v+\left(\nvao\wedge\nvai\cdot\nvao\wedge\frac{B}{\lambda}\right)i\right)
+\end{align*}
+
+\subsection{Flat Points}
+
+Flat-points are characterized by a Euclidean point $x\in\V^n$ and a non-zero
+scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+B = \lambda(i+xi\wedge\nvai)
+\end{equation*}
+We may decompose this as follows.
+\begin{align*}
+\lambda &= -(B\wedge\nvai)i \\
+x &= \left(\nvao\cdot\frac{B}{\lambda}\right)i
+\end{align*}
+
+\subsection{Tangent Points}
+
+A tangent-point is characterized by a Euclidean point $x\in\V^n$, a unit-normal $v\in\V^n$
+and a non-zero scalar (weight) $\lambda\in\R$.  Dual canonical forms of tangent points for
+grades 2 and 3 are given by the dual canonical forms of circles and point-pairs, respectively,
+with a radius $r$ of zero.  For example, given any $r>0$, simplyfing the following equation recovers
+the dual form of a tangent point for grade 2.
+\begin{equation*}
+B = \lambda(v+(x\cdot v)\nvai)\wedge\left(\nvao+x-rv+\frac{1}{2}((x-rv)^2-r^2)\nvai\right),
+\end{equation*}
+The reader will notice that $r$ cancels itself out.  The decomposition steps for tangent
+points are the same as those given for circles and point-pairs.  The recovered radius
+will be zero in the case of tangent points.
+
+\subsection{Free Blades}
+
+Address free-blades here.
+
+\subsection{Rotate-Translate Transformations}
+
+Such a transformation is characterized by a Euclidean translation vector $t\in\V^n$, a unit-axis $a\in\V^n$,
+an angle $\theta\in\R$ and a scalar (weight) $\lambda\in\R$.
+\begin{equation*}
+V = \lambda\left(1-\frac{1}{2}t\nvai\right)\left(\cos\frac{\theta}{2}-ai\sin\frac{\theta}{2}\right),
+\end{equation*}
+Notice that $V$ here is not a blade.  It is an even versor.  If the blade $B\in\G$ represents
+a geometry, (directyl or dually), the transformation of $B$ by $V$ is given by $VBV^{-1}$,
+in the case that we wish to the apply the rotation first, then the translation.
+We may decompose this type of transformation as follows.
+\begin{align*}
+\lambda^2 &= V\tilde{V} \\
+R &= -\nvao\cdot\frac{V}{\lambda}\wedge\nvai \\
+T &= \frac{V}{\lambda}\tilde{R} \\
+\theta &= 2\cos^{-1}\left\langle R\right\rangle_0 \\
+a &= \frac{1}{\sin(\theta/2)}\left\langle R\right\rangle_2 i \\
+t &= 2\nvao\cdot(1-T)
+\end{align*}
+(Say something about the polar decomposition of $V$.)

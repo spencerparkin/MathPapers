@@ -1,0 +1,409 @@
+\documentclass{birkjour}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Vb}{\mathbb{\overline{V}}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvaob}{\overline{o}}
+\newcommand{\nvaib}{\overline{\infty}}
+
+\newcommand{\eminus}{e_{-}}
+\newcommand{\eplus}{e_{+}}
+\newcommand{\eminusb}{\overline{e}_{-}}
+\newcommand{\eplusb}{\overline{e}_{+}}
+
+\begin{document}
+
+\title{The Quadratic Form In Geometric Algebra}
+
+\author{Spencer T. Parkin}
+\email{spencer.parkin@gmail.com}
+
+\numberwithin{equation}{section}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+\keywords{Quadric Surface, Quadratic Form, Geometric Algebra}
+
+%\dedicatory{To Melinda and Naomi}
+
+\begin{abstract}
+Blah.
+\end{abstract}
+
+\maketitle
+
+\section{The Quadratic Form In Vector Algebra}
+
+Let $\V^n$ be an $n$-dimensional Euclidean vector space, and identify vectors
+in this space with points in $n$-dimensional Euclidean space.  That is,
+for any vector $v\in\V^n$, identify this vector with the point at its tip when
+its tail is placed at origin.  Letting any subset of $\V^n$ be what we refer to
+as a geometry, the goal of this paper is to use geometric algebra in the study of all
+such geometries that occur as the zero set of one or more quadratic forms.\footnote{In
+algebraic geometry, the zero set of one or more polynomials is called an affine variety.}
+A quadratic form $q:\V^n\to\R$ is a quadratic polynomial in the vector components of any
+vector $v\in\V^n$.  Specifically, we have
+\begin{equation}\label{equ_quadratic_form}
+q(v) = C + \sum_{i=1}^n C_i(v\cdot e_i) + \sum_{i=1}^n\sum_{j=1}^n C_{ij}(v\cdot e_i)(v\cdot e_j),
+\end{equation}
+where $C$, each of $C_i$ and each of $C_{ij}$ are scalars in $\R$.  The coeficients $C$, $C_i$ and $C_{ij}$ collectively determine the geometry that is the zero set of $q$.  Adding a Euclidean vector $e_0$
+representative of the origin to $\V^n$ to obtain the $(n+1)$-dimensional Euclidean
+vector space $\V^{n+1}$, we see that the quadratic form $q$ is determined by a
+symmetric billinear form $B:\V^{n+1}\times\V^{n+1}\to\R$ as
+\begin{align}
+q(v) &= B(e_0+v,e_0+v) \\
+ &= B(e_0,e_0)+2\sum_{i=1}^n B(e_0,e_i)(v\cdot e_i)
+ + \sum_{i=1}^n\sum_{j=1}^n B(e_i,e_j)(v\cdot e_i)(v\cdot e_j),
+\end{align}
+if we let $B(e_0,e_0)=C$, each of $B(e_0,e_i)=B(e_i,e_0)=\frac{1}{2}C_i$ and each of
+$B(e_i,e_j)=C_{ij}$.
+In turn, we see that the symmetric billinear form $B$ is determined entirely by how it
+maps a basis of $\V^{n+1}$.
+
+While the quadratic function $q$ in equation \eqref{equ_quadratic_form} is useful as is, it is
+worth abandoning the direct use of this function in favor of finding a way to implement it in
+a geometric algebra, because
+such an implementation, depending on how it's done, may allow us to exploit certain
+properties and theorems of that algebra.
+This has already been accomplished with matrix algebra.  See, for example, \cite{}.  The approach taken
+in this paper to finding a useful instance of the quadric form in a geometric algebra will be based on
+a search for the symmetric bilinear form $B$.
+
+\section{The Quadratic Form In $\G(\V^{n+1}\oplus\Vb^{n+1})$}
+
+Here we let $\Vb^{n+1}$ be an $(n+1)$-dimensional Euclidean vector space
+disjoint from and isomorphic to $\V^{n+1}$, and then define the over-bar notation on elements
+of the geometric algebra $\G(\W)$, with $\W=\V^{n+1}\oplus\Vb^{n+1}$, as an
+outermorphic isomorphism between $\G(\V^{n+1})$ and $\G(\Vb^{n+1})$.
+That is, for any element $Q\in\G(\W)$, we have
+\begin{equation}
+\overline{R} = RQR^{-1},
+\end{equation}
+where the rotor $R$ is given by
+\begin{equation}
+R = \prod_{i=0}^n(1-e_i\overline{e}_i).
+\end{equation}
+Havine done this, for any pair of vectors $x,y\in\V^{n+1}$, we can now find
+the symmetric bilinear form $B$ in $\G(\W)$ as
+\begin{equation}
+B(x,y) = x\overline{y}\cdot\sum_{i=0}^n\sum_{j=0}^n B(e_i,e_j)e_i\overline{e}_j.
+\end{equation}
+Then, defining the function $S:\V^{n+1}\to\G(\W)$ as
+\begin{equation}
+S(p) = p\overline{p},
+\end{equation}
+we may, for any bivector $Q\in\G(\W)$, write the quadratic form as
+\begin{equation}\label{equ_quadric_form_in_ga}
+q(v) = S(e_0+v)\cdot Q,
+\end{equation}
+showing that such bivectors $Q$ are representative of $n$-dimensional
+quadric surfaces as the set of all vectors $v\in\V^n$ such that $S(e_0+v)\cdot Q=0$.
+
+This approach is especially advantageous in the realization that for
+any versor $V\in\G(\V^{n+1})$, we have
+\begin{equation}
+S(V^{-1}pV)\cdot Q=S(p)\cdot V\overline{V}Q(V\overline{V})^{-1}
+\end{equation}
+which shows that if we understand how $V$ transforms homogeneous
+points $p\in\V^{n+1}$ as $V^{-1}pV$, then we also understand
+how $V$ transforms quadric surfaces $Q\in\G(\W)$ as $(V\overline{V})Q(V\overline{V})^{-1}$.
+In a variation of this approach that uses the Minkowski geometric algebra $\G(\V^{n+1,1}\oplus\V^{n+1,1})$,
+the versors of the conformal model of geometric algebra may be used to transform quadric surfaces.
+See \cite{}.
+
+A down-side to this approach, however, is in the fact that we're not using blades
+to represent quadric surfaces in the same way that blades are representive of geometries
+in the conformal model of geometric algebra.  Consequently, we cannot similarly benefit
+from the meet and join operations.
+We will attempt to remedy this problem in the next section.
+
+\section{The Quadratic Form In $\G(\V^{(n+1)^2})$}
+
+Notice that in the previous method, the Euclidean space $\V^n$ was
+embedded in the representation space $\G(\W)$.  For the method to
+follow, we show that this need not be the case.  Specifically, we
+do not let $\V^n$ be a vector sub-space of the $(n+1)^2$-dimensional
+anti-Euclidean\footnote{If $\{e_i\}_{i=1}^n$ is an orthonormal set of basis
+vectors for an $n$-dimensional Euclidean vector space, then the vector space
+becomes anti-Euclidean if for each integer $i\in[1,n]$, we redefine $e_i^2=1$ as $e_i^2=-1$.}
+vector space $\V^{(n+1)^2}$.
+We will, however, continue to let $\V^n$ be a proper vector sub-space of $\V^{n+1}$.
+
+Letting $\{e_{ij}\}$ be a set
+of orthonormal basis vectors spanning $\V^{(n+1)^2}$, we will now reintroduce the
+function $S:\V^{n+1}\to\V^{(n+1)^2}$ as
+\begin{equation}
+S(p) = p\otimes p,
+\end{equation}
+where $\otimes:\V^{n+1}\times\V^{n+1}\to\V^{(n+1)^2}$ is a non-commutative
+bilinear operator, defined as
+\begin{equation}
+x\otimes y = \sum_{i=0}^n\sum_{j=0}^n(x\cdot e_i)(y\cdot e_j)e_{ij},
+\end{equation}
+and then find that for all pairs of vectors $x,y\in\V^{n+1}$, the symmetric
+bilinear form $B$ in $\G(\V^{(n+1)^2})$ is given by
+\begin{equation}
+B(x,y) = -(x\otimes y)\cdot\sum_{i=1}^n\sum_{j=1}^n B(e_i,e_j)e_{ij},
+\end{equation}
+showing that the vectors $Q\in\G(\V^{(n+1)^2})$ are representative
+of $n$-dimensional quadric surfaces as the set of all vectors $v\in\V^n$
+such that $q(v)=0$, where $q$ is again given by equation \eqref{equ_quadric_form_in_ga}.
+
+Immediately we see that the advantage to this approach is that a
+non-zero blade $Q\in\G(\V^{(n+1)^2})$ of grade $k$ is representative
+of an $(n+1-k)$-dimensional quadric surface.  To see this,
+let $Q=Q_1\wedge\dots\wedge Q_k$, and realize that
+\begin{equation}
+0 = S(p)\cdot\bigwedge_{i=1}^k Q_i = \sum_{i=1}^k (S(p)\cdot Q_i)\bigwedge_{j=1,j\neq i}^k Q_j
+\end{equation}
+if and only if for all integers $j\in[1,k]$, we have $S(p)\cdot Q_j=0$.  In other words,
+$Q$ represents the affine variety generated by the set of all quadratic polynomials
+determined by each $Q_j$.
+
+We will refer to $Q$ as a dual quadric if we are interpreting it as being representative
+of a quadric surface in terms of the equation
+\begin{equation}\label{equ_dual_quadric}
+0 = S(e_0+v)\cdot Q.
+\end{equation}
+Similarly, we will refer to $Q$ as a direct quadric if we are interpreting it as being
+representative of such a surface in terms of the equation
+\begin{equation}\label{equ_direct_quadric}
+0 = S(e_0+v)\wedge Q.
+\end{equation}
+To see that this is also the previously mentioned affine variety, simply realize that
+\begin{align}
+ & 0 = S(e_0+v)\wedge Q \\
+\mbox{iff}\;\; & 0 = S(e_0+v)\cdot QI,
+\end{align}
+where $I$ is the unit-psuedo scalar of $\G(\V^{(n+1)^2})$.
+
+Notice that any single blade $Q\in\G(\V^{(n+1)^2})$ is
+simultaneously representative of both a dual and direct quadric, which are distinct
+pieces of geometry.\footnote{A dual quadric is directly represented by its dual, and
+a direct quadric is dually represented by its dual.  As a given blade simultaneously
+represents two geometries, (one dually, the other directly), a single given geometry is
+simultaneously represented by two distinct blades, (which are duals of one another).}
+It is sometimes useful to reinterpret a dual quadric
+as a direct quadric, or vice versa.  For example, if the dual intersection of
+two dual quadrics is imaginary, the imaginary intersection may be a real quadric
+in direct form.
+
+%The immediate down-side to this approach, however, is that we lose
+%the versor transformation properties of the prior method.  To see this,
+%realize that for any vector $v\in\V^{n+1}$, we have
+%\begin{equation}
+%S(v^{-1}pv) = 2(p\cdot v^{-1})v\otimes y - S(p),
+%\end{equation}
+%and that for any vector $w\in\V^{(n+1)^2}$, we have
+%\begin{equation}
+%w^{-1}S(p)w = \frac{2}{w^2}\sum_{i=1}^n\sum_{j=1}^n(w\cdot e_{ij})^2(p\cdot e_i)^2e_{ij} - S(p).
+%\end{equation}
+%Given a vector $v\in\V^{n+1}$, there is not always a choice of $w\in\V^{(n+1)^2}$ such
+%that $S(v^{-1}pv)=w^{-1}S(p)$w.  (Needs more work.)
+
+Before moving on, there is some question here about how the versors
+of $\G(\V^{(n+1)^2})$ act on the quadrics in this geometric algebra.
+The first observation we can make is that for any vector $v\in\V^{(n+1)^2}$,
+we have
+\begin{align}
+ & 0 = S(p)\wedge vQv^{-1} \\
+\mbox{iff}\;\; & 0 = S(p)\cdot vQv^{-1}I \\
+\mbox{iff}\;\; & 0 = S(p)\cdot vQIv^{-1},
+\end{align}
+since vectors either commute or anti-commute with the unit psuedo-scalar.  This shows that
+versors will act the same way on dual and direct quadrics.  We may therefore restrict
+our attention to direct quadrics without loss of generality.  Doing so, let $V\in\G(\V^{(n+1)^2})$
+be a versor, and notice that
+\begin{align}
+ & 0 = V^{-1}S(p)V\wedge Q \\
+\mbox{iff}\;\;& 0 = S(p)\wedge VQV^{-1},
+\end{align}
+which shows that the question of how any versor $V$ acts on any quadric $Q$ reduces
+to the question of how $V$ acts on $S(p)$.  This also reflects the importance of our
+choice in defining $S(p)$ and in choosing the signature of our geometric algebra.
+In any case, subject to the signature we have chosen for $\G(\V^{(n+1)^2})$,
+and with $S(p)$ defined the way it is, we see that for a vector $v\in\V^{(n+1)^2}$,
+we have
+\begin{equation}
+v^{-1}S(p)v = \sum_{i=1}^n\sum_{j=1}^n(p\cdot e_i)(p\cdot e_j)v^{-1}e_{ij}v.
+\end{equation}
+Simplify that, if you can.
+
+\section{Point Fitting Quadrics In $\G(\V^{(n+1)^2})$}
+
+Suppose $Q\in\G(\V^{(n+1)^2})$ is a direct quadric of grade $k$, and
+that $\{p_i\}_{i=1}^k$ is a set of $k$ homogeneous points taken from $\V^{n+1}$
+such that for all integers $i\in[1,k]$, we have $S(p_i)\wedge Q=0$.  Then,
+if $\{S(p_i)\}_{i=1}^k$ is a linearly independent set, it follows that
+there exists a scalar $\lambda\in\R$ such that
+\begin{equation}
+\bigwedge_{i=1}^k S(p_i) = \lambda Q.
+\end{equation}
+What this shows is that, given a set of $k$ points $\{p_i\}_{i=1}^k$, we can find a quadric $Q$
+that fits the $k$ points, provided the set $\{S(p_i)\}_{i=1}^k$ is linearly
+independent.  Two questions
+arise from this.  First, under what circumstances do the $k$ points generate
+a linearly independent set $\{S(p_i)\}_{i=1}^k$; and secondly, under
+those circumstances, what quadric surface do we get?  These questions
+are easy to answer in the conformal model of geometric algebra.  Here, however,
+the author is forced to leave them as open questions.  This, of course, does
+not stop us from performing the experiment of trying to fit a quadric surface
+to a given set of points.  Figures \ref{} and \ref{} illustrate the results
+of such an experiment.
+
+From what we have thus far gathered, an $(n+1-k)$-dimensional quadric surface
+would be fit to $(n+1)^2-k$ points if it were at all possible to find such a set
+of points generating a linearly independent set.  Possible or not, it is easy to show that this
+is certainly not the least upper bound on the minimum number of points needed to determine
+such a surface.  To see why, define $S_{\leq}:\V^n\to\V^m$ as
+\begin{equation}
+S_{\leq}(p) = \sum_{i\leq j}(S(p)\cdot e_{ij})e_{ij},
+\end{equation}
+where $m$ is given by
+\begin{equation}
+m = \binom{n}{0}+2\binom{n}{1}+\binom{n}{2} = \frac{(n+1)(n+2)}{2},
+\end{equation}
+and $\V^m$ is a proper vector sub-space of $\V^{(n+1)^2}$ and spanned
+by the vectors in $\{e_{ij}\}_{i\leq j}$.
+Using now $I_{\leq}$, what we'll use to denote the unit psuedo-scalar of $\G(\V^m)$,
+to transition between dual and direct quadrics,\footnote{Notice that quadrics in $\G(\V^m)$
+defined using $S_{\leq}$ are still valid quadrics in $\G(\V^{(n+1)^2})$ under the definition
+using $S$.  We may think of the
+quadrics in $\G(\V^{(n+1)^2})$ satisfying both definitions as being in a reduced form.}
+and using $S_{\leq}$ in place of $S$
+to define dual and direct quadrics by equations \eqref{equ_dual_quadric} and
+\eqref{equ_direct_quadric}, we see that
+an $(n+1-k)$-dimensional quadric surface may be fit to $m-k$ points, from which it
+is more likely that we'll generate a linearly independent set.
+
+A perhaps better approach to studying the ability to fit quadrics to
+points would be the idea of generating a higher dimensional quadric
+from a lower dimensional quadric.  For example, letting $Q$ be a $k$-blade, $Q$
+represents an $(n+1-k)$-dimensional surface as a direct quadric.  Then,
+if we choose any point $p\in\V^n$ not on $Q$ so that $S(p)\wedge Q\neq 0$,
+then the quadric $Q'=S(p)\wedge Q$ must be a direct $(n+2-k)$-dimensional quadric containing
+both $p$ and all the points of $Q$.  An example of this idea is given in Figure \ref{}.
+
+% Do a 2D ellips (through intersectoin of two 3D ellipsoids).  then add a point not on the ellipsoid.
+% Do we get a 3D ellipsoid?
+
+% Do it on the computer?  can we show a figure where i've
+% fit points to a quadric?
+
+\section{Switching Between $\G(\V^{n+1}\oplus\Vb^{n+1})$ And $\G(\V^{(n+1)^2})$}
+
+% Compare canonical forms in this section.
+% S(a).S(b) = (a.b)^2
+% Show Q then f(Q) in the form
+
+If you found the choice of an anti-Euclidean vector
+space in section \ref{} odd, the reason for this will
+now come to light.  To gain the advantages of working
+in both $\G(\V^{n+1}\oplus\Vb^{n+1})$ and $\G(\V^{(n+1)^2})$,
+it may not be unreasonable to switch between the two
+algebras when needed.  To do this, we simply use the linear
+function $f:\V^{(n+1)^2}\to\G(\V^{n+1}\oplus\Vb^{n+1})$,
+defined in terms of how it maps the basis vectors of $\V^{(n+1)^2}$ onto the
+basis bivectors of the linear sub-space of bivectors in $\G(\V^{n+1}\oplus\Vb^{n+1})$ as follows.
+For all pairs of integers $(i,j)\in[0,n]\times[0,n]$, we define
+\begin{equation}
+f(e_{ij})=e_i\overline{e}_j.
+\end{equation}
+We now see that for any vector $Q\in\V^{(n+1)^2}$ representative of
+a quadric surface through the use of equation \eqref{equ_quadric_intersectable}, the bivector
+$f(Q)\in\G(\V^{n+1}\oplus\Vb^{n+1})$ is representative of the same
+quadric through the use of equation \eqref{equ_quadric_transformable}.
+
+This gives us the ability to transform any intersection of one or more quadrics
+in $\G(\V^{(n+1)^2})$ as we would a single quadric in $\G(\V^{n+1}\oplus\Vb^{n+1})$.
+For a given blade $Q\in\G(\V^{(n+1)^2})$, we need only find a factorization
+of the blade $Q$ as $Q_i\wedge\dots\wedge Q_k$, then formulate the transformation $Q'$
+of $Q$ by a versor $V\in\G(\V^{n+1}\oplus\Vb^{n+1})$ as
+\begin{equation}
+Q' = \bigwedge_{i=1}^k f^{-1}\left(V\overline{V}f(Q_i)(V\overline{V})^{-1}\right).
+\end{equation}
+The problem of blade factorization has been given a great deal of treatment in \cite{}.
+
+\section{Intersecting Lines With Quadrics}
+
+Given a homogeneous point $p\in\V^{n+1}$ and a direction vector $v\in\V^n$,
+it can be shown that
+\begin{equation}\label{equ_quadric_line_intersect_quadratic}
+S(p+\lambda v) = S(p)+\lambda v\cdot\nabla S(p)+\lambda^2 S(v),
+\end{equation}
+where $\lambda\in\R$ is a scalar.  Taking equation \eqref{equ_quadric_line_intersect_quadratic} in the
+inner product with a quadric $Q\in\G(\W)$, and then setting this
+product to zero, we get a quadratic equation in $\lambda$ with
+coeficients $S(p)\cdot Q$, $(v\cdot\nabla S(p))\cdot Q$ and $S(v)\cdot Q$.
+In the case that these coeficients are not all zero, the equation can be
+solved to find zero, one or two points of intersection.  Otherwise, the quadric
+contains the line through $p$ having direction $v$.
+
+This is an easy way to intersect lines and quadrics, but shouldn't there be
+a way to do this in $\G(\V^{(n+1)^2})$ using the outer product?  Presumably,
+if $Q_L$ is a dual line quadric and $Q$ is any other dual quadric, the 2-blade
+$Q_L\wedge Q$ should be a real or imaginary point-pair, or a tangent point.\footnote{A
+tangent point in the conformal model of geometric algebra may be thought of as a
+degenerate point-pair or a point-pair with radius zero.}
+Unfortunately, attempts to find a canonical form for the quadric point-pair
+show the impracticality of working in $\G(\V^{(n+1)^2})$.  In theory, however,
+once a canonical form is found, any intersection $Q_L\wedge Q$ could
+be interpreted in terms of this canonical form as a means to decomposing $Q_L\wedge Q$
+into parameters characteristic of the point-pair.
+
+\section{Closing Remarks}
+
+It is not hard to see how the methods of this paper might be generalized
+to surfaces of higher degree.  That is, affine varieties generated from a
+set of one or more polynomials of higher degree.  But it doesn't seem worth
+exploring such an idea until all of the wrinkles can be worked out of the study
+of the quadratic form in geometric algebra.  There are many different ways
+in which a quadratic polynomial can be encoded in a vector or bivector that
+take advantage of geometric algebras with various signatures.  There is a question
+of which arrangement is best, or which constructions lend themselves more to solving
+one type of problem over another.  It may well be that there is an entirely
+better model in existence for quadric surfaces that doesn't use geometric algebra at all.
+
+% synthetic geometry <--> computational geometry
+
+% Study conjugate points WRT a quadric?
+% ruled surfaces, lines as generators of quadrics?
+% thm: ruled surface in every pencil?
+
+% completing the square?
+
+\bibliographystyle{amsplain}
+\bibliography{Parkin_TheQuadraticFormInGA}
+
+% cite http://en.wikipedia.org/wiki/Zero_set
+% cite http://www.science.uva.nl/~geer/Ch2.pdf
+% cite a work on blade factorization
+% cite your own work on the quadric model
+% cite your own work on the extension/variation of the quadric model
+% maybe cite http://www.montgomerycollege.edu/Departments/planet/planet/Numerical_Relativity/GA-SIG/Conformal%20Geometry%20Papers/Cambridge/Oriented%20Conformal%20Geometric%20Algebra.pdf
+% cite http://en.wikipedia.org/wiki/Quadric_(projective_geometry) for line/quad intersect
+% cite? http://www.encyclopediaofmath.org/index.php/Quadric  (too many internet sources)
+
+\end{document}
