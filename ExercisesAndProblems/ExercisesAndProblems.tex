@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Exercises and Problems\\of Alan Mcdonald's\\Vector and Geometric Calculus}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 1.4 (Genarlized)}
+
+When do two line parameterizations intersect?
+\begin{align*}
+x_1(t) &= c_1 + tv_1 \\
+x_2(t) &= c_2 + tv_2
+\end{align*}
+We're interested in a scalar $t\in\R$ such that $x_1(t)=x_2(t)$.
+It is clear that zero, one or infinitely many such $t$ may exist.
+Solving the equation
+\begin{equation*}
+c_1+tv_1=c_2+tv_2,
+\end{equation*}
+we get
+\begin{equation*}
+t = (c_1-c_2)(v_2-v_1)^{-1}.
+\end{equation*}
+Clearly there is no solution when $v_1=v_2$, unless $c_1=c_2$, in which case
+$x_1(t)=x_2(t)$ for all $t$.  On the other hand, $t$ may not be a scalar by
+this equation, in which case we may conclude that the lines do not touch.
+Letting $\Delta c=c_2-c_1$ and $\Delta v=v_2-v_1$, we have
+\begin{equation*}
+t = -\Delta c\cdot \Delta v^{-1} - \Delta c\wedge\Delta v^{-1},
+\end{equation*}
+showing that the lines intersect only when $\Delta c\wedge \Delta v=0$.
+
+\section*{Problem 1.1.1}
+
+Let $x(t)=a\cos(\theta i)+b\sin(\theta j)$, where $0\leq\theta\leq 2\pi$, parameterize a curve.
+Show that the points on the curve are on the ellipse with equation $x^2/a^2+y^2/b^2=1$.
+
+We need only show that $x(t)$ satisfies the implicit equation for all $t$.
+Doing so, we see that
+\begin{align*}
+(a\cos\theta)^2/a^2 + (b\sin\theta)^2/b^2 = \cos^2 \theta+\sin^2 \theta = 1
+\end{align*}
+by the Pythagorean Theorem.
+
+\section*{Problem 1.3.1}
+
+Show that $\rho=2a\sin\phi\cos\theta$ is the equation of the sphere of
+radius $|a|$ with center at $(a,0,0)$.
+
+With $x=\rho\sin\phi\cos\theta$, notice that $\rho=2ax/\rho$ so that
+we have $x^2+y^2+z^2=\rho^2=2ax$.  All that remains is to
+complete the square, giving us $(x-a)^2+y^2+z^2=a^2$.
+
+\section*{Exercise 2.1}
+
+\subsection*{Part a)}
+
+Show that the union of (arbitrariy many) open sets is open.
+
+Let $\{U_\alpha\}$ be a set of arbitrarily many open sets, and
+let $U=\cup_\alpha U_\alpha$.  Choosing any $x\in U$, there
+must exist $\alpha$ such that $x\in U_\alpha$.  Now let $N$ be
+a neighborhood of $x$ contained in $U_\alpha$, and see that
+$x\in N\subset U_\alpha\subseteq U$.  It follows that a neighborhood
+$N$ of $x$ exists in $U$ for all $x\in U$, and so $U$ is open.
+
+\subsection*{Part b)}
+
+Show that the intersection $O_1\cap O_2$ of two open sets is open.
+
+If the intersection is empty, then we're done, since the empty set is vacuously open.
+Supposing the intersection to be non-empty, for any $x\in O_1\cap O_2$, we see
+that $x\in O_1$ and $x\in O_2$, and therefore, there exist neighborhoods $N_1$ and
+$N_2$ of $x$ such that $x\in N_1\subset O_1$ and $x\in N_2\subset O_2$.  Clearly,
+$N_1\cap N_2\neq\emptyset$ and there exists a neighborhood $N$ of $x$ in $N_1\cap N_2$.
+It follows that $x\in N\subset N_1\cap N_2\subset O_1\cap O_2$, showing that $O_1\cap O_2$ is open.
+
+\subsection*{Part c)}
+
+The intersection of finitely many open sets is open.  Show that the intersection
+of infinitely many open sets need not be open.
+
+Let $\{U_\alpha\}$ be an infinite set of open sets such that $\cap_\alpha U_\alpha$
+is a singleton set.  For example,
+\begin{equation*}
+\{0\} = \bigcap_{r>0}(r,r).
+\end{equation*}
+Clearly $\{0\}$ is closed, because there exists no neighborhood of 0 in $\{0\}$.
+
+\section*{Exercise 2.5}
+
+Given an example of a set which is neither open nor closed.
+
+Consider the rationals $\Q\subset\R$.  It is clearly not an open set, nor is its complement, the irrationals.
+
+\section*{Problem 2.1.3}
+
+Show that every open set $U$ in $\R^n$ is a union of neighborhoods of points of $U$.
+
+For any $x\in U$, let $N_x$ denote any neighborhood of $x$ in $U$.  We then see that
+\begin{equation}
+U = \bigcup_{x\in U} x\subseteq \bigcup_{x\in U} N_x \subseteq U.
+\end{equation}
+It follows that $U=\cup_{x\in U}N_x$.
+
+\pagebreak
+\section*{Problem 2.3.4}
+
+Let $f:U\subseteq \R^m\to\R^n$, where $U$ is an open connected
+set, be continuous.  Show that the range of $f$ is connected.
+
+For any two vectors $y_1,y_2\in f(U)$, let $x_1,x_2\in U$ be the vectors
+such that $y_1=f(x_1)$ and $y_2=f(x_2)$.  Then, by virtue of $U$ being
+a connected set, there exists a continuous parameterization $x(t):[a,b]\to U$
+such that $x(a)=x_1$ and $x(b)=x_2$.  Letting $y(t):[a,b]\to\R^n$ be
+defined as $y(t)=f(x(t))$, we see that $y$ is continuous, because the composition
+of continuous functions is continuous.  Furthermore, $y(a)=y_1$ and $y(b)=y_2$.
+It follows now that $f(U)$ is connected.
+
+(Didn't use fact that $U$ is open set?)
+
+\end{document}
