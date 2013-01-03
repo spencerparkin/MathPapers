@@ -122,10 +122,10 @@ as vector subspaces.  In symbols, one may write
 \end{equation}
 
 We will use over-bar notation to distinguish between vectors taken from $\V$
-with vectors taken from $\Vb$.  Then, so that we may use the over-bar notation
-in a well defined manner to distinguish between elements of $\G(\V)$ and $\G(\Vb)$,
-we will define it as an outermorphic function that is also an isomorphism between
-$\G(\V)$ and $\G(\Vb)$.  Doing so, we see that for any element $E\in\G(\V)$,
+with vectors taken from $\Vb$.  For algebraic purposes, we will find it useful
+to see that the over-bar notation may be defined as an outermorphic function
+that is also an isomorphism between $\G(\V)$ and $\G(\Vb)$.
+Doing so, we see that for any element $E\in\G(\V)$,
 we may define $\overline{E}\in\G(\Vb)$ as
 \begin{equation}
 \overline{E} = SES^{-1},
@@ -172,7 +172,7 @@ where each of $\lambda_{ij}$, $\lambda_i$, and $\lambda$ are scalars, in the
 sense that this reduced form represents the same surface as that in equation \eqref{equ_quadric_form}
 under Definition~\ref{def_quadric}.
 We then see that this form \eqref{equ_quadric_reduced_form}, when it is
-substituted into equation \eqref{equ_quadric_equation}, produces to a polynomial
+substituted into equation \eqref{equ_quadric_equation}, reduces to a polynomial
 equation of degree 2 in the vector components of $p+(p\cdot\nvai)\nvao$.
 Doing so with $p=\nvao+x$, where $x\in\V^e$, we get the equation
 \begin{equation}\label{equ_quadric_polynomial_equation}
@@ -194,7 +194,7 @@ of an element of a geometric algebra whose decomposition
 produces the parameters characterizing the quadric surface.  For example, many common
 quadrics are the solution set in $\V^e$ of the equation
 \begin{equation}
-0 = -r^2 + (x-c)^2 + \lambda((x-c)\cdot v)^2,
+0 = -r^2 + (x-c)^2 + \lambda((x-c)\cdot v)^2
 \end{equation}
 in the variable $x$.  (An explanation of the parameters $r$, $c$, $v$ and $\lambda$
 was given in \cite{Parkin12}.)  Then, factoring out $-p\overline{p}$, we see that
@@ -248,10 +248,12 @@ product to form $V$.  We then notice that
 =\;&(-1)^mV\overline{Vd}(V\overline{V})^{-1}.
 \end{align}
 It now follows that
-\begin{equation}
-a\wedge\overline{b}\cdot VcV^{-1}\wedge\overline{VdV^{-1}} =
-a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1}.
-\end{equation}
+\begin{align}
+ & a\wedge\overline{b}\cdot VcV^{-1}\wedge\overline{VdV^{-1}} \\
+=\;& a\wedge\overline{b}\cdot (-1)^{2m}V\overline{V}c(V\overline{V})^{-1}\wedge V\overline{Vd}(V\overline{V})^{-1} \\
+=\;& a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1},
+\end{align}
+which completes the proof.
 \end{proof}
 We're now ready to prove the main result as follows.
 \begin{thm}\label{thm_quadric_transform}
@@ -343,13 +345,6 @@ have done is at least similar to finding an isomorphism between quadratic spaces
 used to render the cylinder and its inversion.}
 \label{fig_invert_cylinder_in_sphere_wire}
 \end{figure}
-\begin{figure}
-\includegraphics[scale=0.4]{InvertCylinderInSphereSolid}
-\caption{The inversion of a cylinder in a sphere.  A surface mesh generation
-algorithm was used to skin the cylindrical and inverted surfaces.  The inverted
-mesh suffers where the curvature becomes extreme.}
-\label{fig_invert_cylinder_in_sphere_solid}
-\end{figure}
 Interestingly, if we were not content with the rigid body motions of
 quadrics, then we really could find what is, for example, the spherical
 inversion of, say, an infinitely long cylinder in a sphere.  To do this, we change
@@ -360,7 +355,7 @@ quartic surface as the set of all points $p\in\V^e$ such that
 \begin{equation}\label{equ_surface_set}
 0 = P(p)\wedge\overline{P}(p)\cdot E,
 \end{equation}
-where $P:\V^e\to\V$ is the conformal mapping of CGA, defined in \cite{} as
+where $P:\V^e\to\V$ is the conformal mapping of CGA, defined in \cite{Hestenes01} as
 \begin{equation}
 P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{equation}
@@ -431,7 +426,7 @@ do
 %\end{samepage}
 The functions beginning with the word ``bind'' create and bind an entity to the given
 element of the geometric algebra that is responsible for interpreting that element
-as a surface under Definition~\ref{def_surface} or as a surface under the definition
+as a surface under Definition~\ref{def_surface} or, in the case of the sphere, as a dual surface under the definition
 given by CGA.  The computer program can then
 use traditional methods to render the surface from the extracted polynomial equation.
 For example, the polynomial equation in $x$, $y$ and $z$ for the inverted surface presented
@@ -448,6 +443,13 @@ Of course, while such equations lend themselves to computer algorithms, they
 are not practical on paper.  This is where the canonical forms of elements might become
 useful; although, admittedly, even these forms have proven to be unwieldy
 and impractical for the author, unlike their CGA counterparts.
+\begin{figure}
+\includegraphics[scale=0.4]{InvertCylinderInSphereSolid}
+\caption{The inversion of a cylinder in a sphere.  A surface mesh generation
+algorithm was used to skin the cylindrical and inverted surfaces.  The inverted
+mesh suffers where the curvature becomes extreme.}
+\label{fig_invert_cylinder_in_sphere_solid}
+\end{figure}
 
 \section{Dual And Direct Surfaces}\label{sec_deal_dir_surf}
 
@@ -457,11 +459,12 @@ not just the specific class of surfaces, up to degree 2, that are just the spher
 While this has been accomplished to some extent, one of the greatest deficiencies
 remaining appears to be the inability for the model to represent surfaces of up to
 the desired degree for
-all dimensions from zero to $n$ in the same manner that this is done in CGA.\footnote{We
+all dimensions from zero to $n$ in the same manner that this is possible in CGA.\footnote{We
 can, of course, easily formulate the extruded conics.  That is, the surfaces of
 dimension $n-1$ extruded through a given dimension.  To do so, we simply apply a
 rigid-body motion versor to any conic section that is easily formulated as
-being origin-centered and axis-aligned.}
+being origin-centered and axis-aligned.  For example $0=-r^2+x^2+y^2$ is a circle in the plane,
+but an extruded circle (a cylinder) in 3-dimensional space.}
 One possible solution to this is that of utilizing the geometric
 algebra that is generated by the linear space of bivectors in $\G(\W)$.  We could
 define a linear function on this space that maps it to a vector space $\B$.  If $[]$ was such
@@ -481,8 +484,11 @@ where we define the function $\rho$ as
 The notions of dual and direct surfaces
 would then emerge as they do in CGA.  We could then, using the outer product,
 intersect dual surfaces and combine direct surfaces.\footnote{The outer product
+of two dual surfaces is the dual surface that is the intersection, if any, of the two
+dual surfaces taken in the product.  Similarly, the outer product
 of two direct surfaces is the direct surface containing at least the union of the surfaces
-taken in the product.}  These features come of representing geometries
+taken in the product.  Imaginary dual intersections may be reinterpreted as real direct surfaces.}
+These features arise as a consequence of representing geometries
 as blades in a geometric algebra.
 
 For a given versor $V\in\G(\V)$,
@@ -491,8 +497,8 @@ of $B$, then the transformation $B'$ of $B$ by $V$ would be given by
 \begin{equation}
 B' = \bigwedge_{i=1}^k [V\overline{V}[v_i]^{-1}(V\overline{V})^{-1}].
 \end{equation}
-See \cite{Fontijne10} on the problem of blade factorization.  It is unfortunate that we would
-have to bother finding such a factorization to transform a piece of geometry.
+See \cite{Fontijne10} on the problem of factoring blades.  It is unfortunate that we would
+have to bother finding such a factorization in order to apply a given transformation.
 
 To illustrate the use of $\G(\B)$, let $s,c\in\G(\B)$ be vectors dually representative
 of a sphere and cylinder, respectively.  Then, for any point $p\in\V^e$, we can find
@@ -510,63 +516,42 @@ Even this vector space, which is of dimension $(n+2)^2$, is larger than it needs
 We could suffice with a vector space of dimension $(n+2)(n+3)/2$.
 In any case, it is clear from equation \eqref{equ_pencil} that the algebra
 is simply giving us the desired surface in the pencil of $s$ and $c$.
+
 If all we cared about was the dual intersection $s\wedge c$, we may still
 need to resort to \cite{Wang03} to do any meaningful analysis.
-Contrasting this with an absense of any need to do such a thing in CGA,
+Contrasting this with an absence of any need to do such a thing in CGA,
 we see further deficiencies in our more generalized model for surfaces
 up to degree 2.
-
-\section{The Algebraic Set}
-
-The term used in the title of this section has already been employed
-in sections prior to refer to the sets of points generated by
-Definition~\ref{def_quadric}, Definition~\ref{def_surface},
-equation \eqref{equ_dual_surf_set} and equation \eqref{equ_wanted_set},
-to name a few.  Algebraic sets come from the subject of algebraic geometry,
-(see \cite{Milne12}),
-and one would think that geometric algebra might play an integral role
-in such a subject.  Though the objects of study in modern algebraic geometry
-have grown far beyond the simple idea of algebraic sets, here we
-try to relate the subjects of geometric algebra and algebraic geometry
-by showing how blades can be used to represent algebraic sets, thereby generalizing the
-ideas of CGA, \cite{Parkin12} and this paper thus far, to geometries of
-any dimension generated by polynomials of any form.
-
-It is really quite trivial.  To begin, remove the requirement that $\V^e$ be
-embedded in $\V$ as we have in Table~\eqref{equ_vector_spaces},
-and let $\V$ be an $m$-dimensional vector space of any geometric algebra with a
-Euclidean signature.  The embedding of the $n$-dimensional Euclidean
-vector space $\V^e$ in $\V$ is optional, while
-alternative signatures of $\V$ are worth exploring.  In any case,
-letting $\{b_i\}_{i=1}^m$ be an orthonormal basis for $\V$, we
-simply define a mapping $\rho:\V^e\to\V$ as
+To further illustrate the point, consider the intersection of any quadratic dual surface with a line.
+It is much easier to setup and solve a quadratic equation than it is to take the outer
+product of the dual surface with a dual line and then make sense of the result.  For example,
+given a quadric $E\in\G(\W)$ of the form \eqref{equ_quadric_form}, and
+letting $f:\V^o\to\R$ be defined as
 \begin{equation}
-\rho(p) = \sum_{i=1}^m f_i(p) b_i,
+f(p)=p\overline{p}\cdot E,
 \end{equation}
-where each $f_i:\V^e\to\R$ is a polynomial in the vector components of its
-argument that simply maps a point in our Euclidean space $\V^e$
-to a scalar in $\R$.  Then, for any vector $v\in\V$, we see that the set of all
-points $p\in\V^e$ such that
+we have
 \begin{equation}
-0 = \rho(p)\cdot v
+0 = f(p+\lambda v) = f(p)+\lambda v\cdot\nabla f(p)+\lambda^2 f(v),
 \end{equation}
-is an algebraic set generated by one polynomial.  The polynomial form
-is determined by our definition of the function $\rho$, while an instance
-of the polynomial form is determined by $v$.  The general algebraic set,
-which is the zero set of one or more polynomials, is then simply given by
-\begin{equation}
-\{p\in\V^e|0=\rho(p)\cdot B\},
-\end{equation}
-where $B$ is any blade taken from $\G(\V)$.  A factorization of the $k$-blade $B$
-gives us vectors containing the coeficients of $k$ linearly independent polynomials
-of the form $\rho$.
+where $p\in\V^o$ is a point and $v\in\V^e$ is a direction vector, and from
+which we easily recognize a quadratic equation in the scalar variable $\lambda$.
+In CGA, point-pairs are easily decomposable.
 
-CGA is simply an instance of this more generalized model, as is
-the model given in section \ref{sec_deal_dir_surf} which, when
-used in conjunction with a bivector representation scheme, allows
-us to utilize the transformations of CGA.  How any of this may
-be useful, if at all, in the study of algebraic geometry, remains
-to be seen.
+\section{Closing Remarks}
+
+With a background in abstract algebra and topology, an accessible
+introduction to the subject of algebraic geometry is given in \cite{Milne12}.
+Not surprisingly, and perhaps ironically, there is no mention of geometric algebra; although
+one might presume that the similarly named subjects would have a great deal to do
+with one another.  From the present paper, a method for using blades of a geometric
+algebra to represent algebraic sets generated by polynomials of any form, though not specifically stated,
+can now be inferred, and it is quite trivial.  Algebraic geometry, however, has grown far beyond
+algebraic sets as the central objects of study.  Not being competent in geometric calculus,
+much less the vast and arcane subject of algebraic geometry, the author cannot pursue
+a reformulation of any part of one subject with the other, but perhaps others can and will.
+Until then, geometric algebra continues to offer fun and interesting ways to do geometry
+with models such as CGA and perhaps the newly established model of this paper.
 
 \nocite{Dorst07}
 \nocite{Sobczyk12}
