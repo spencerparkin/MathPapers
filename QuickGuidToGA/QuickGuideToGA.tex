@@ -1,0 +1,233 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{A Quick Guide To Geometric Algebra}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+Geometric algebra (GA) is easy and you can be up and running with it quickly!  The key is to
+simply understand the basic definitions and identities of the algebra.  From these a number
+of simple results can be deduced.  We begin with a few simple definitions from linear algebra (LA).
+
+\section{Definitions of LA}
+
+Linear algebra is the study of linear functions defined on linear spaces.  We will not need
+to define linear functions here, but we will need to define linear spaces.
+\begin{definition}\label{def_vec_space}
+A linear space $\V$ is a set of elements, where each element is called a vector.  It does not stand on its own.
+Associated with every vector space $\V$ is a set of scalars, usually the set of real numbers $\R$,
+such that for every scalar $\lambda\in\R$ and any two vectors $a,b\in\V$, we have
+\begin{align}
+\lambda a &\in \V \\\label{equ_vec_scalar_mul}
+a+b &\in\V
+\end{align}
+We define vector addition to be commutative and associative.
+\end{definition}
+Linear spaces are more commonly referred to as vector spaces, and so we will no longer
+use the term linear space.
+
+Notice that equation \eqref{equ_vec_scalar_mul} defines the relationship between the
+vector space $\V$ and the real numbers $\R$ associated with it.
+
+\begin{definition}
+A linear combination of a set of $k$ vectors $\{v_i\}_{i=1}^k$, taken from $\V$, is
+a vector $v\in\V$, such that it may be written as
+\begin{equation}
+v = \lambda_1 v_1 + \lambda_2 v_2 + \dots + \lambda_k v_k,
+\end{equation}
+where $\{\lambda_i\}_{i=1}^k$ is a set of $k$ scalars taken from $\R$.
+\end{definition}
+
+We now introduce the idea of linear dependence and linear independence.
+
+\begin{definition}
+A set of $k$ vectors $\{v_i\}_{i=1}^k$, taken from $\V$, is said to be linearly
+independent if there does not exist a vector $v\in\{v_i\}_{i=1}^k$ such that
+$v$ is a linear combination of the $k-1$ vectors in $\{v_i\}_{i=1}^k-\{v\}$.
+\end{definition}
+
+In other words, no one of the $k$ vectors in $\{v_i\}_{i=1}^k$ can be
+written as a linear combination of the other $k-1$ vectors.  Intuitively, if
+we were to attach a geometric interpretation to the vectors in $\V$, then
+each vector in $\{v_i\}_{i=1}^k$, if $\{v_i\}_{i=1}^k$ is a linearly independent set, points
+in a direction that is a newly unexplored dimension.  If you can grasp the
+definition of linear independence, then the definition of linear dependence
+is a snap.
+
+\begin{definition}
+A set of $k$ vectors $\{v_i\}_{i=1}^k$, taken from $\V$ is said to be linearly
+dependent if and only if it is not linearly dependent.
+\end{definition}
+
+This means that for such a set of $k$ vectors, we can always find a $v\in\{v_i\}_{i=1}^k$
+such that $v$ is a linear combination of the remaining $k-1$ vectors.
+
+Understanding the concepts of linear independence and linear dependence is
+critical to an understanding of geometric algebra.
+
+\begin{definition}
+The dimension of a vector space $\V$, denoted $\dim\V$, is the largest
+possible set of $k$ vectors we can take from $\V$ that is also a linearly
+independent set.
+\end{definition}
+
+We do not prove the existence of such a set, but our definition is fine,
+because such a set always exists.
+
+Given a linearly independent set $\{v_i\}_{i=1}^k$ of $k$ vectors, where $k=\dim\V$,
+we can describe $\V$ is the set of all linear combinations of the vectors in $\{v_i\}_{i=1}^k$.
+In this way, we refer to $\{v_i\}_{i=1}^k$ as a basis for the vector space $\V$.
+Any linearly independent set of vectors taken from $\V$ forms a basis for some
+vector sub-space of $V$.  The set of all linear combinations of such a set is
+what we refer to as the span of that set, and we can say that a vector sub-space
+is spanned by any given basis of that space.
+
+We are now ready to move on to definitions of geometric algebra.
+
+\section{Definitions of GA}
+
+We begin by simultaneously introducing the concept of a blade and a new kind of
+product, called the outer product, for vectors, which is not closed in $\V$.  This means
+that, unlike what we can say about vector addition, the outer product of two vectors is not a vector.
+\begin{definition}\label{def_blade}
+A non-zero blade $B$ of grade $k$ is the outer product of the $k$ vectors taken
+from a linearly independent set $\{v_i\}_{i=1}^k$, and may be written as
+\begin{equation}\label{equ_blade}
+B = v_1\wedge v_2\wedge\dots\wedge v_k.
+\end{equation}
+A blade is considered zero otherwise.  That is, the outer product of $k$
+linearly dependent vectors is zero.  The outer product is defined as
+anti-commutative, associative, and left and right distributive over addition.
+\end{definition}
+
+We will talk about what anti-commutative means later on.
+
+Notice that blades of grade 1 are simply vectors.  Blades of higher grade are simply
+a higher-dimensional generalization of the idea of a vector.  We will leave the geometric
+interpretation of such blades open to the reader, and proceed with our treatment of
+blades from a purely algebraic stand-point.
+
+Recall scalar-vector multiplication in equation \eqref{equ_vec_scalar_mul}.
+We similarly allow such a multiplication for blades.  Call it scalar-blade multiplication.
+Realize that a scalar distributes to one and only one vector in the product of
+equation \eqref{equ_blade}.  That is, for any scalar $\lambda\in\R$,
+we have
+\begin{equation}
+\lambda B = v_1\wedge v_2\wedge\dots\wedge \lambda v_i\wedge\dots\wedge v_k,
+\end{equation}
+where $1\leq i\leq k$.
+
+It is important to realize at this point that, by Definition~\ref{def_blade}, a blade
+may be said to represent a vector sub-space of $\V$.  It represents a little more
+than that, but let us focus on this idea exclusively.  Given a blade $B$ of the
+form in equation \eqref{equ_blade}, we can take the $k$ vectors in the
+set $\{v_k\}_{i=1}^k$ as a basis for a vector sub-space of $\V$ of
+dimension $k$.  In fact, every basis for this vector sub-space, when put
+in an outer product of the form \eqref{equ_blade}, is, by definition,
+equal to $B$, up to scale.  That is, if $\{b_i\}_{i=1}^k$ is any other
+basis for the vector sub-space represented by $B$ in equation \eqref{equ_blade},
+then there exists a scalar $\lambda\in\R$, such that
+\begin{equation}
+B = \lambda b_1\wedge b_2\wedge\dots\wedge b_k.
+\end{equation}
+
+We now extend addition of vectors to addition of blades.  The sum of blades
+of various grades are just that.  They do not combine into anything new.
+Think of this like adding real and imaginary numbers.  They don't combine
+into anything new, but are simply toted about as a pair.  Letting scalars
+be what we'll call blades of grade zero, it is now clear that we can form
+what we'll call a multivector, the general element of a geometric algebra,
+as an element of the form
+\begin{equation}
+B_0 + B_1 + \dots + B_k,
+\end{equation}
+where each $B_i$ is a blade of grade $i$.  Clearly $k\leq\dim\V$, since
+any blade of grade greater than $k$ must be zero by Definition~\ref{def_blade} above.
+
+Just as vectors add as vectors, and scalars add as scalars, it is tempting to assume
+that blades of any grade $k$ will add as blades of that grade.  This is not necessarily true,
+and forces us to introduce the notion of $k$-vectors.
+\begin{definition}
+A $k$-vector is the sum of one or more blades of grade $k$.
+\end{definition}
+From this definition, it is clear that all $k$-blades are simply $k$-vectors.
+The opposite, however, is not generally true.  That is, not all $k$-vectors are
+$k$-blades.  To see why, we must study the idea of adding blades of the
+same grade $k$.
+
+Let $A$ and $B$ be blades of grade $k$, and consider the $k$-vector
+$C$ given as
+\begin{equation}
+C = A + B,
+\end{equation}
+the sum of $A$ and $B$.  Now, by virtue of being blades, for each of
+$A$ and $B$, there exist factorizations of these blades in terms of
+two linearly independent sets $\{a_i\}_{i=1}^k$ and $\{b_i\}_{i=1}^k$,
+respectively.  That is, we may write each of $A$ and $B$ as
+\begin{align}
+A &= a_1\wedge a_2\wedge\dots\wedge a_k, \label{equ_blade_A}\\
+B &= b_1\wedge b_2\wedge\dots\wedge b_k,\label{equ_blade_B}
+\end{align}
+by applying Definition~\ref{def_blade}.
+Notice that for blades of grade greater than 1, such factorizations are not unique!
+For example, there may be many such sets $\{a_i\}_{i=1}^k$ of $k$ vectors
+that we could come up with such that equation \eqref{equ_blade_A} is satisfied,
+because there are many different possible sets of basis vectors we can choose that
+span the vector sub-space represented by $A$.
+
+Now comes the critical observation.  It is that, under certain circumstances, we
+can choose factorizations of $A$ and $B$ such that $a_k=b_k$.  Then, using
+the distributive property of the outer product over addition, we have
+\begin{equation}
+C = (a_1\wedge a_2\wedge\dots\wedge a_{k-1}+b_1\wedge b_2\wedge\dots\wedge b_{k-1})\wedge c_k,
+\end{equation}
+where $c_k=a_k=b_k$.  What we've now done is reduce the problem of adding
+$k$-blades to that of adding blades of grade $k-1$.  Inductively, we can say that we've
+found a way to add $k$-blades, because ultimately, if our certain circumstance persists,
+we will eventually reduce the problem of adding the two blades to that
+of adding 1-blades (vectors), which thing is already defined.
+
+So then what is this certain circumstance?  Recall that $A$ and $B$ represent
+vector sub-spaces of $\V$.  Then isn't it clear that if these vector sub-spaces
+non-trivially overlap, (share more than just the zero vector in common), then we can find
+a non-zero vector $c_k$ that exists in both vector sub-spaces?  Given such a
+vector $c_k$, we now need only write each of $A$ and $B$ in terms of this
+vector, such that $a_k=c_k$ and $b_k=c_k$.
+
+It is now clear that two blades $A$ and $B$ of grade $k>1$ fully add if and only if they
+share a common vector sub-space of dimension $k-1$.  Notice that
+two 1-blades (vectors), may represent disjoint 1-dimensional vector sub-spaces,
+(with the exception of the zero vector), yet we can still add them by
+the Definition~\ref{def_vec_space}.
+
+\subsection{The Outer Product}
+
+We needed the outer product to get going with blades, but we now
+return to it to give it a closer look and a more formal treatment.
+
+\subsection{The Inner Product}
+
+\subsection{The Geometric Product}
+
+\end{document}
