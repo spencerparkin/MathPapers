@@ -149,9 +149,14 @@ in an outer product of the form \eqref{equ_blade}, is, by definition,
 equal to $B$, up to scale.  That is, if $\{b_i\}_{i=1}^k$ is any other
 basis for the vector sub-space represented by $B$ in equation \eqref{equ_blade},
 then there exists a scalar $\lambda\in\R$, such that
-\begin{equation}
+\begin{equation}\label{equ_blade_alt_basis}
 B = \lambda b_1\wedge b_2\wedge\dots\wedge b_k.
 \end{equation}
+The great power in this is the freedom to choose any factorization we want
+of a given blade.  The factorization we choose will often be one of convenience
+that lends itself both algebraically and geometrically to the problem at hand.
+We'll see examples of this later on.  The scalar $\lambda$ in equation \eqref{equ_blade_alt_basis}
+will also be addressed later on.
 
 Continuing with this idea of blades as being representative of vector sub-spaces
 of $\V$, we can define the following notation.
@@ -211,7 +216,8 @@ A &= a_1\wedge a_2\wedge\dots\wedge a_k, \label{equ_blade_A}\\
 B &= b_1\wedge b_2\wedge\dots\wedge b_k,\label{equ_blade_B}
 \end{align}
 by applying Definition~\ref{def_blade}.
-Notice that for blades of grade greater than 1, such factorizations are not unique!
+Recall now from our an earlier discussion that for blades of grade greater than 1,
+such factorizations are not unique!
 For example, there may be many such sets $\{a_i\}_{i=1}^k$ of $k$ vectors
 that we could come up with such that equation \eqref{equ_blade_A} is satisfied,
 because there are many different possible sets of basis vectors we can choose that
@@ -230,8 +236,8 @@ we will eventually reduce the problem of adding the two blades to that
 of adding 1-blades (vectors), which thing is already defined by equation
 \eqref{equ_vec_addition} of Definition~\ref{def_vec_space}.
 
-So then what is this certain circumstance?  Recall that $A$ and $B$ represent
-vector sub-spaces of $\V$.  Then isn't it clear that if these vector sub-spaces
+So then what is this certain circumstance?  Recalling that $A$ and $B$ represent
+vector sub-spaces of $\V$, isn't it clear that if these vector sub-spaces
 non-trivially overlap, (share more than just the zero vector in common), then we can find
 a non-zero vector $c_k$ that exists in both vector sub-spaces?  Given such a
 vector $c_k$, we now need only write each of $A$ and $B$ in terms of this
@@ -281,7 +287,9 @@ Clearly, $|B|$ is a $k$-dimensional hyper-volume.  That is, length if $k=1$, are
 if $k=3$, and so on.
 
 But how do we know that such a basis as that given in Definition~\ref{def_blade_mag} always exists?
-The answer is the Grahm-Schmidt orthogonalization process.  Notice that for any scalar $\lambda\in\R$,
+We do by the same reasoning we gave for equation \eqref{equ_blade_alt_basis} above, but another
+answer can be given by starting with any basis, and then performing the
+Gram-Schmidt orthogonalization process.  Notice that for any scalar $\lambda\in\R$,
 we can rewrite $B$ in equation \eqref{equ_blade} as
 \begin{equation}\label{equ_grahm_schmidt_step_form}
 B = v_1\wedge v_2\wedge\dots\wedge(v_i+\lambda v_j)\wedge\dots\wedge v_k,
