@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Fun Problems}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+\section{Rotating One Vector Into Another}
+
+Let $a$ and $b$ be two non-zero vectors with the property that if there
+exists a scalar $\lambda$ such that $a=\lambda b$, then $\lambda>0$.
+(These vectors are not necessarily parallel, but if they are parallel,
+they point in the same direction.)  Given two such vectors $a$ and $b$,
+find a rotor $R$ such that
+\begin{equation}
+b = RaR^{-1}.
+\end{equation}
+
+\section{The Magnitude Of A Rotor}
+
+For any two vectors $a$ and $b$, show that
+\begin{equation}
+|a||b| = |ab|.
+\end{equation}
+Hint: You need to know that for any element $E$ of a geometric algebra generated
+by an $n$-dimensional vector space, we define
+\begin{equation}
+|E|^2 = \sum_{i=0}^n|\langle E\rangle_i|^2.
+\end{equation}
+
+\section{The Rotor $ab$}
+
+Given any two unit-length vectors $a$ and $b$ with $a\neq b$, and any non-zero
+vector $c$, show that the vector $c'$, given by
+\begin{equation}
+c' = RcR^{-1},
+\end{equation}
+where $R=ab$, is the rotation of $c$ through an angle $2\theta$
+in a plane parallel to the plane containing $a$ and $b$, where $\theta$
+is the angle between $a$ and $b$.
+
+Bonus: Find the polar decomposition of $R$.  That is, write $R$
+in terms of $e$, the base of the natural logarithm.
+
+\end{document}
