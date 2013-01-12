@@ -1,0 +1,94 @@
+\documentclass{birkjour}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Poly}{\mathbb{P}}
+
+\begin{document}
+
+\title{A Model Of Algebraic Sets\\Using\\Geometric Algebra}
+
+\author{Spencer T. Parkin}
+\email{spencer.parkin@gmail.com}
+
+\numberwithin{equation}{section}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+\keywords{Quadric Surface, Quartic Surface, Geometric Algebra, Quadric Model, Conformal Model}
+
+%\dedicatory{To Melinda and Naomi}
+
+\begin{abstract}
+Blah.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+Letting $\R^n$ denote an $n$-dimensional Euclidean space, we are
+going to let $\Poly^n$ denote the set of all polynomials $p:\R^n\to\R$
+of any degree.  Then, letting $P\subseteq\Poly^n$ be any set of such
+polynomials, we then define the zero set $Z$ of $P$, denoted $Z(P)$,
+as the set given by
+\begin{equation}\label{equ_zero_set_of_polys}
+Z(P) = \{x\in\R^n|\mbox{$p(x)=0$ for all $p\in P$}\}.
+\end{equation}
+Every subset $S$ of $\R^n$ for which there exists a set $P\subseteq\Poly^n$
+such that $S=Z(P)$ is what we refer to as an algebraic set.  It is well known
+that for any algebraic set $S\subseteq\R^n$, there is always such a subset $P$
+of $\Poly^n$ of finite cardinality.
+
+Given the definition in equation \eqref{equ_zero_set_of_polys}, it is easy to show that
+the subsets $S$ of $\R^n$ that are the geometries of
+CGA, and other similar models of geometry based upon geometric algebra, are simply algebraic sets.
+The goal of this paper is to show that there exists a model of geometry, based upon geometric algebra,
+where every possible algebraic set has a representative in the form of an element of that geometric algebra.
+A desire to come up with such a model of geometric algebra is motivated by the admittedly fanciful
+dream of the German mathematician Leibniz, referred to in \cite{} and claimed to
+have already been realized in \cite{}.  In any case, it would seem that a generalization
+of CGA or any CGA-like model to one that hosts the set of all algebraic sets in $\R^n$ would bring
+us closer to such a goal.  Work to this end has already been done in \cite{Parkin13a,Parkin13b} which
+has brought us, the reader and writer, to the present paper.
+
+\section{Blah}
+
+We begin with an examination of $\Poly^n$ as a linear space, observing that
+it is of countably infinite dimension.  A set of basis vectors for this space may be taken
+as the set of all unit monomials in the $n$ variables of an arbitrary point in $\R^n$.
+The number $c_k$ of such monomials homogeneous of a degree $k$ is given by
+\begin{equation}
+c_k=\sum_{i=1}^n\binom{n}{i}p(k,i),
+\end{equation}
+where $p(k,i)$ is the number of partitions of $k$ of size $i$.
+% the combinatorics of the matter isn't important
+
+% Possible citations:
+% http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
+% Invariant algebras and geometric reasoning, Hongbo Li
+% http://www.xtec.cat/~rgonzal1/proceedings.pdf
+
+\bibliographystyle{amsplain}
+\bibliography{Parkin_AModelOfAlgebraicSetsUsingGA}
+
+\end{document}
