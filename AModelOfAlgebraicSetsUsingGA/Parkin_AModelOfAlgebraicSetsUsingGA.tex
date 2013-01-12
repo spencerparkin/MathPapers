@@ -21,6 +21,7 @@
 \newcommand{\G}{\mathbb{G}}
 \newcommand{\V}{\mathbb{V}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Poly}{\mathbb{P}}
 
 \begin{document}
@@ -71,17 +72,118 @@ of CGA or any CGA-like model to one that hosts the set of all algebraic sets in 
 us closer to such a goal.  Work to this end has already been done in \cite{Parkin13a,Parkin13b} which
 has brought us, the reader and writer, to the present paper.
 
-\section{Blah}
+\section{Blades As Algebraic Sets}
 
 We begin with an examination of $\Poly^n$ as a linear space, observing that
 it is of countably infinite dimension.  A set of basis vectors for this space may be taken
-as the set of all unit monomials in the $n$ variables of an arbitrary point in $\R^n$.
-The number $c_k$ of such monomials homogeneous of a degree $k$ is given by
+as the set of all unit-monomials in anywhere from 1 to $n$ of the $n$ variable components
+of an arbitrary point in $\R^n$.\footnote{The
+number $c_k$ of such monomials homogeneous of a degree $k$ is given by
 \begin{equation}
 c_k=\sum_{i=1}^n\binom{n}{i}p(k,i),
 \end{equation}
-where $p(k,i)$ is the number of partitions of $k$ of size $i$.
-% the combinatorics of the matter isn't important
+where $p(k,i)$ is the number of partitions of size $i$ of the integer $k$.  The
+combinatorics of the matter are not important, but they are pointed out here as an added
+measure of the reality of the set of monomials we are talking about.}
+Considering now any mapping from the set $\Z^+$ of
+positive integers to this said set $\{g_i\}_{i=1}^\infty$ of unit-monomials,
+and letting $\V^\infty$ denote a simple Euclidean vector space of countably infinite
+dimension, if we define the function $p:\R^n\to\V^\infty$ as
+\begin{equation}\label{equ_form_vector}
+p(x) = \sum_{i=1}^\infty g_i(x)e_i,
+\end{equation}
+where $\{e_i\}_{i=1}^\infty$ is any orthonormal basis for $\V^\infty$, then for
+any polynomial $f\in\Poly^n$, there must exist a unique vector $v\in\V^\infty$ such that
+\begin{equation}\label{equ_form_coef_split}
+f(x) = p(x)\cdot v.
+\end{equation}
+It now follows that for any subset $P$ of $\Poly^n$, there exists a blade $B\in\G(\V^\infty)$,
+such that
+\begin{equation}
+Z(P) = \{x\in\R^n|p(x)\cdot B=0\}.
+\end{equation}
+Clearly, we need only consider such finite sets $P=\{f_i\}_{i=1}^k$ that are linearly independent
+sets of $k$ polynomials.  Then, for each polynomial $f_i$, there is an associated vector $v_i$ by
+equation \eqref{equ_form_coef_split}, and the set $\{v_i\}_{i=1}^k$ must clearly be a linearly independent
+set of $k$ vectors.
+We may then take $B$ to be the $k$-blade
+\begin{equation}
+B=\bigwedge_{i=1}^k v_i,
+\end{equation}
+seeing that the equation $p(x)\cdot B=0$ becomes
+\begin{equation}
+0 = -\sum_{i=1}^k (-1)^i(p(x)\cdot v_i)B_i,
+\end{equation}
+where $B_i$ denotes the product $B$ with $v_i$ removed.  Realize
+that $\{B_i\}_{i=1}^k$ is a linearly independent set of $(k-1)$-blades,
+and therefore $p(x)\cdot B=0$ if and only if $p(x)\cdot v_i=0$ for all $i\in\Z_k$,
+where we'll let $\Z_k$ denote $[1,k]\cap\Z^+$ for convenience.
+
+Already we have fulfilled the promise of the introductory section of this paper,
+but we will continue now with one further development that is motivated by a desire
+to pair our current ability to intersect geometries with an ability to take their union.
+
+We start by letting $\{\V_i^\infty\}_{i=1}^\infty$ be a countably infinite set of
+vector spaces isomorphic to $\V^\infty$.  With the exception of the zero vector,
+we consider these vector spaces as pair-wise disjoint, so that for any pair of non-zero
+vectors $v_i\in\V_i^\infty$ and $v_j\in\V_j^\infty$ with $i\neq j$, we have $v_i\cdot v_j=0$.
+Let $\V$ simply denote the vector space spanned by the set of vectors $\cup_{i\in\Z^+}\{e_{ij}\}_{j=1}^\infty$,
+where for each $i\in\Z^+$, the set $\{e_{ij}\}_{j=1}^\infty$ is an orthonormal basis for
+the vector space $\V_i^\infty$.
+It is clear that the dimension of $\V$,
+like that of $\V^\infty$ above, is countably infinite as the union of countably many countable
+sets is countable.\footnote{This may come as some comfort, since if you already thought that
+the dimension of $\V^\infty$ was ridiculously huge, the dimension of the vector space $\V$ is no bigger.
+In practice, of course, a computer
+program, for example, would work in a finite-dimensional vector space, thereby restricting
+the number of possible geometries to those that are zero sets of polynomials of a specific form.
+This is exactly what's going on in CGA, with the additional modification of altering the signature
+of the geometric algebra to accommodate the conformal transformations.  Non-Euclidean signatures
+are not considered in this paper.}
+
+Given a blade $B\in\G(\V)$, we now define a function $q$ as a mapping from
+the set of all blades in $\G(\V)$ to $\Z^+$, so that $i\in q(B)$ if and only if
+there exists a vector $v\in\V_i^\infty$ such that $v\wedge B=0$.  With this in place,
+we define the set $G$ of $B$, denoted $G(B)$, as the set
+\begin{equation}
+G(B) = \left\{x\in\R^n\left|\bigwedge_{i\in q(B)} p_i(x)\cdot B=0\right.\right\},
+\end{equation}
+where for each $i\in\Z^+$, we define $p_i$ similar to equation \eqref{equ_form_vector} as
+\begin{equation}
+p_i(x) = \sum_{j=1}^\infty g_j(x)e_{ij}.
+\end{equation}
+
+Given any two blades $A,B\in\G(\V)$, we can now show that
+there exists a rotor $R\in\G(\V)$, such that
+\begin{equation}
+G(A)\cup G(B)=G(A\wedge B'),
+\end{equation}
+where $B'=RBR^{-1}$.  Letting $R$ be the rotor given by
+\begin{equation}
+R = \prod_{i\in q(A)}\prod_{j=1}^\infty(1-e_{ij}e_{(i+k)j}),
+\end{equation}
+where $k=\max q(A)$, observe that $q(A)\cap q(B')$ is empty.
+If it was already the case that $q(A)\cap q(B)$ is empty, then we may have taken
+$R$ as simply the identity rotor.  In any case, a rotor $R\in\G(\V)$ always exists
+such that for any pair of blades $A$ and $B$, the sets $q(A)$ and $q(B')$ are disjoint.
+Furthermore, it is not hard to show that $G(B)=G(B')$.  Then, without loss of generality,
+we may rewrite $C=A\wedge B'$ as $C=\bigwedge_{i=1}^k C_k$, where for
+each $i\in\Z_k$, the blade $C_i$ is found exclusively in $\G(V_i^\infty)$.
+(Notice that $q(C)=\Z_k$.)
+It is now clear that
+\begin{align}
+\bigwedge_{i\in\Z_k} p_i(x)\cdot C &= \pm\bigwedge_{i\in\Z_{k-1}} p_i(x)\cdot
+(p_k(x)\cdot C_k)\wedge\bigwedge_{i\in\Z_{k-1}} C_i \\
+ &= \pm\bigwedge_{i\in\Z_k}p_i(x)\cdot C_i.\label{equ_union_product}
+\end{align}
+(Notice that the outer product in \eqref{equ_union_product} becomes
+a scalar product in the case that every $C_i$ is a vector.)
+It is now clear that $G(C)$ is indeed the union of $G(A)$ and $G(B)$.
+
+% how can we intersect generally?
+
+% zarisky topology...arbitrary intersections of algebraic sets are algebraic, while finite unions are algebraic.
+% union of countably many countable sets is countable
 
 % Possible citations:
 % http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
