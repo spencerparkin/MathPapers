@@ -202,15 +202,24 @@ We begin by making the observation that
 where for each $i\in q(A)$, we have $A=\bigwedge_{i\in q(A)}A_i$ with
 each $A_i\in\G(\V_i^\infty)$.  The same can be
 said for each $B_i$ in terms of $B$.  We now carefully select
-a set of rotors $\{R_i\}$ and $\{S_j\}$ such that
+a set of rotors $\{R_{ij}\}$ and $\{S_{ij}\}$, each of size $|q(A)||q(B)|$, such that
 \begin{equation}
 C=\bigwedge_{\substack{i\in q(A)\\j\in q(B)}}A'_i\wedge B'_j,
 \end{equation}
-where for each $i\in q(A)$, we have $A_i'=R_iA_iR_i^{-1}$ and $G(A_i)=G(A_i')$,
-where for each $j\in q(B)$, we have $B_j'=S_jB_jS_j^{-1}$ and $G(B_j)=G(B_j')$,
-where for each $(i,j)\in q(A)\times q(B)$, $q(A_i')=q(B_j')$, and lastly, where for each $(i,j)\neq(k,l)$,
-we have $q(A_i'\wedge B_j')\cap q(A_k'\wedge B_l')$ empty.  Admittedly, this is
-quite terrible.
+where for each $(i,j)\in q(A)\times q(B)$, we have
+\begin{align}
+A_i' &= R_{ij}A_iR_{ij}^{-1}, \\
+B_j' &= S_{ij}B_jS_{ij}^{-1},
+\end{align}
+such that
+\begin{align}
+G(A_i)&=G(A_i'), \\
+G(B_j)&=G(B_j'), \\
+q(A_i')&=q(B_j'),
+\end{align}
+and such that for all $(i,j)\neq(k,l)$, we have
+$q(A_i'\wedge B_j')\cap q(A_k'\wedge B_l')$ an empty set.
+Admittedly, this is quite terrible.
 
 Notice that, assuming $A\wedge B\neq 0$, the grade of $A\wedge B$ is
 not necessarily the grade of $A'\wedge B'$.  This means that we cannot
