@@ -118,7 +118,7 @@ We may then take $B$ to be the $k$-blade
 B=\bigwedge_{i=1}^k v_i,
 \end{equation}
 seeing that the equation $p(x)\cdot B=0$ becomes
-\begin{equation}
+\begin{equation}\label{equ_intersection_of_geometries}
 0 = -\sum_{i=1}^k (-1)^i(p(x)\cdot v_i)B_i,
 \end{equation}
 where $B_i$ denotes the product $B$ with $v_i$ removed.  Realize
@@ -139,7 +139,7 @@ where for each $i\in\Z^+$, the set $\{e_{ij}\}_{j=1}^\infty$ is an orthonormal b
 the vector space $\V_i^\infty$.
 It is clear that the dimension of $\V$,
 like that of $\V^\infty$ above, is countably infinite as the union of countably many countable
-sets is countable.\footnote{This may come as some comfort, since if you already thought that
+sets is countable.\footnote{This may come as some comfort to the reader. If you already thought that
 the dimension of $\V^\infty$ was ridiculously huge, the dimension of the vector space $\V$ is no bigger.
 In practice, of course, a computer
 program, for example, would work in a finite-dimensional vector space, thereby restricting
@@ -148,10 +148,16 @@ This is exactly what's going on in CGA, with the additional modification of alte
 of the geometric algebra to accommodate the conformal transformations.  Non-Euclidean signatures
 are not considered in this paper.}
 
-Given a blade $B\in\G(\V)$, we now define a function $q$ as a mapping from
-the set of all blades in $\G(\V)$ to $\Z^+$, so that $i\in q(B)$ if and only if
-there exists a vector $v\in\V_i^\infty$ such that $v\wedge B=0$.  With this in place,
-we define the set $\Gi$ of $B$, denoted $\Gi(B)$, as the set
+\begin{defn}[The $q$ Function]\label{def_q_func}
+Given a blade $B\in\G(\V)$, the function $q$ is a mapping from
+the set of all blades in $\G(\V)$ to $\Z^+$ so that $i\in q(B)$ if and only if
+there exists a vector $v\in\V_i^\infty$ such that $v\wedge B=0$.
+\end{defn}
+
+With Definition~\ref{def_q_func} in place, we may now proceed with the following two definitions.
+
+\begin{defn}[The Algebraic Set $\Gi$]\label{def_gi}
+Given a blade $B\in\G(\V)$, the set $\Gi$ of $B$, denoted $\Gi(B)$, is the set
 \begin{equation}
 \Gi(B) = \left\{x\in\R^n\left|\bigwedge_{i\in q(B)} p_i(x)\cdot B=0\right.\right\},
 \end{equation}
@@ -159,41 +165,39 @@ where for each $i\in\Z^+$, we define $p_i$ similar to equation \eqref{equ_form_v
 \begin{equation}
 p_i(x) = \sum_{j=1}^\infty g_j(x)e_{ij}.
 \end{equation}
+\end{defn}
 For any product of the form $\prod_{i\in S}$ or $\bigwedge_{i\in S}$, where $S$ is
-a set of positive integers, we take the terms in the product to be in ascending order.
+a set of positive integers, we take the terms in the product to be in ascending order
+with respect to the index $i$.
 
-Similarly, given a blade $B\in\G(\V)$, we will define the set $\Go(B)$ as
+\begin{defn}[The Algebraic Set $\Go$]\label{def_go}
+Given a blade $B\in\G(\V)$, the set $\Go$ of $B$, denoted $\Go(B)$, is the set
 \begin{equation}
 \Go(B) = \left\{x\in\R^n\left|\bigwedge_{i\in q(B)}p_i(x)\wedge B=0\right.\right\}.
 \end{equation}
+\end{defn}
 
-We now proceed to investigate the consequences of these two definitions.
+We now proceed to investigate the consequences of Definition~\ref{def_gi}
+and that of Definition~\ref{def_go}.
 
 \section{The Algebraic Set $\Gi$}
 
-\section{The Algebraic Set $\Go$}
+As promised, there now exist conditions under which we are able to take the
+union of any two geometries represented by blades in $\G(\V)$.  The result is
+as follows.
 
-\section{Relating $\Gi$ with $\Go$}
-
-Given any two blades $A,B\in\G(\V)$, we can now show that
-there exists a rotor $R\in\G(\V)$, such that
+\begin{lem}[The Union Of Geometries]
+For any two blades $A,B\in\G(\V)$ with the property that $q(A)\cap q(B)$ is empty,
+we have
 \begin{equation}
-G(A)\cup G(B)=G(A\wedge B'),
+\Gi(A)\cup\Gi(B)=\Gi(A\wedge B).
 \end{equation}
-where $B'=RBR^{-1}$.  Letting $R$ be the rotor given by
-\begin{equation}\label{equ_rotor_b_to_b_prime}
-R = \prod_{i\in q(A)}\prod_{j=1}^\infty(1-e_{ij}e_{(i+k)j}),
-\end{equation}
-where $k=\max q(A)$, observe that $q(A)\cap q(B')$ is empty.
-If it was already the case that $q(A)\cap q(B)$ is empty, then we may have taken
-$R$ as simply the identity rotor.  In any case, a rotor $R\in\G(\V)$ always exists
-such that for any pair of blades $A$ and $B$, the sets $q(A)$ and $q(B')$ are disjoint.
-Furthermore, it is not hard to show that for the rotor $R$ given
-in equation \eqref{equ_rotor_b_to_b_prime}, we have $G(B)=G(B')$.  Then, without loss of generality,
-we may rewrite $C=A\wedge B'$ as $C=\bigwedge_{i=1}^k C_k$, where for
+\end{lem}
+\begin{proof}
+Without loss of generality,
+we may write $C=A\wedge B$ as $C=\bigwedge_{i=1}^k C_k$, where for
 each $i\in\Z_k$, we have $C_i\in\G(V_i^\infty)$.
-(Notice that $q(C)=\Z_k$.)
-It is now clear that
+(Notice that $q(C)=\Z_k$.)  It is now clear that
 \begin{align}
 \bigwedge_{i\in\Z_k} p_i(x)\cdot C &= \pm\bigwedge_{i\in\Z_{k-1}} p_i(x)\cdot
 (p_k(x)\cdot C_k)\wedge\bigwedge_{i\in\Z_{k-1}} C_i \\
@@ -201,75 +205,62 @@ It is now clear that
 \end{align}
 (Notice that the outer product in \eqref{equ_union_product} becomes
 a scalar product in the case that every $C_i$ is a vector.)
-It is now clear that $G(C)$ is indeed the union of $G(A)$ and $G(B)$.
+It is now clear that $\Gi(C)$ is indeed the union of $\Gi(A)$ and $\Gi(B)$.
+\end{proof}
+It is not hard to show that for any blade $B\in\G(\V)$, there exists
+a rotor $R$, such that $B'$, given by $B'=RBR^{-1}$, has the property
+$\Gi(B')=\Gi(B)$ while $q(B')$ is mapped to any other set of integers
+of size $|q(B)|$.  This fact can be used to adjust any given pair
+of blades $A,B\in\G(\V)$, if needed, so that $q(A)\cap q(B)$ is empty.
+Admittedly, the need for any such adjustment prior to a union operation
+seems to detract from our dream of an algebra where the geometric elements
+would combine effortlessly in products that perform desired geometric operations.
+Unfortunately, things don't get any better as the next lemma shows.
 
-Having established the union operation, it is not clear at this point how
-the intersection operation is preserved.  We begin with the observation
-that for all blades $A,B\in\V$ such that $q(A)=q(B)$ with $|q(A)|=|q(B)|=1$, we have
-$G(A)\cap G(B)=G(A\wedge B)$.  On the other hand, if $q(A)\neq q(B)$ with
-the persisting requirement that $|q(A)|=|q(B)|=1$,
-then there clearly exists a rotor $R$ such that $G(A)\cap G(B)=G(A\wedge B')$,
-where $B'=RBR^{-1}$.  Performing an intersection in the case that one of $|q(A)|$
-and $|q(B)|$ is not one requires a little more effort.  What we'll show is that,
-in general, for any two blades $A,B\in\G(\V)$, there exist a blade $C\in\G(\V)$
-such that
+\begin{lem}[The Intersection Of Geometries]
+For any two blades $A,B\in\G(\V)$ such that $q(A)=q(B)$
+with $|q(A)|=|q(B)|=1$, we have
 \begin{equation}
-G(A)\cap G(B)=G(C).
+\Gi(A)\cap\Gi(B)=\Gi(A\wedge B).
 \end{equation}
-We begin by making the observation that
-\begin{equation}
-\bigcup_{i\in q(A)}G(A_i)\cap\bigcup_{i\in q(B)}G(B_i) =
-\bigcup_{\substack{i\in q(A)\\j\in q(B)}} G(A_i)\cap G(B_j),
+\end{lem}
+\begin{proof}
+Revisit the conversation of this paper surrounding equation \eqref{equ_intersection_of_geometries}.
+\end{proof}
+In this case, a simple rotor adjustment to one of $A$ and $B$ will only help
+in the case that $|q(A)|=|q(B)|=1$.  If either one of $|q(A)|$ or $|q(B)|$
+is greater than one, however, more adjustments are needed before an intersection can
+be taken.  The following equation illustrates why.
+\begin{equation}\label{equ_intersection_expansion}
+\bigcup_{i\in q(A)}\Gi(A_i)\cap\bigcup_{i\in q(B)}\Gi(B_i) =
+\bigcup_{\substack{i\in q(A)\\j\in q(B)}} \Gi(A_i)\cap \Gi(B_j),
 \end{equation}
-where for each $i\in q(A)$, we have $A=\bigwedge_{i\in q(A)}A_i$ with
-each $A_i\in\G(\V_i^\infty)$.  The same can be
-said for each $B_i$ in terms of $B$.  We now carefully select
-a set of rotors $\{R_{ij}\}$ and $\{S_{ij}\}$, each of size $|q(A)||q(B)|$, such that
-\begin{equation}
-C=\bigwedge_{\substack{i\in q(A)\\j\in q(B)}}A'_i\wedge B'_j,
-\end{equation}
-where for each $(i,j)\in q(A)\times q(B)$, we have
-\begin{align}
-A_i' &= R_{ij}A_iR_{ij}^{-1}, \\
-B_j' &= S_{ij}B_jS_{ij}^{-1},
-\end{align}
-such that
-\begin{align}
-G(A_i)&=G(A_i'), \\
-G(B_j)&=G(B_j'), \\
-q(A_i')&=q(B_j'),
-\end{align}
-and such that for all $(i,j)\neq(k,l)$, we have
-$q(A_i'\wedge B_j')\cap q(A_k'\wedge B_l')$ an empty set.
-Admittedly, this is quite terrible.
+Here we have considered $A$ as the blade $\bigwedge_{i\in q(A)}A_i$, where
+for each $i\in q(A)$, we have $A_i\in\G(\V_i^\infty)$.  We have similiarly
+considered $B$ in terms of the blades $\{B_i\}_{i\in q(B)}$.  It is now
+easy to see by the right-hand side of equation \eqref{equ_intersection_expansion}
+that there exists a blade $C$
+with the property that $\Gi(C)=\Gi(A)\cap\Gi(B)$, but we do not necessarily
+have $\mbox{grade}(C)=\mbox{grade}(A\wedge B)$, showing that a rotor
+adjustment, which is grade preserving, to one or both of $A$ and $B$ cannot
+be of general help.  We need the factorizations of $A$ and $B$ to formulate $C$.
 
-Notice that, assuming $A\wedge B\neq 0$, the grade of $A\wedge B$ is
-not necessarily the grade of $A'\wedge B'$.  This means that we cannot
-always apply a rotor to one or both of $A$ and $B$ before taking them
-in an outer product to perform an intersection operation.
 
-% zarisky topology...arbitrary intersections of algebraic sets are algebraic, while finite unions are algebraic.
-% union of countably many countable sets is countable
+
+% What may be helpful is a lemma showing that for any blade B,
+% there exists a blade B' such that $Gi(B)=G(B')$ with q(B')=1.
+
+% examing Gi(A ^ B) for general A,B and given boolean exprsesion (using set unions/intersections)
+% do same for Go(A ^ B).
+
+\section{The Algebraic Set $\Go$}
+
+\section{Relating $\Gi$ with $\Go$}
 
 % for every blade B with q(B)>1, does there exist a blade A with q(A)=1
 % where G(B)=G(A)?
 
-\section{Comments And Criticisms}
 
-A valid complaint, which the reader may have had by this point,
-is that in most circumstances, a rotor needs to be applied to one or
-both of the two blades $A$ and $B$ before they may be taken in the
-outer product in the performance of a union or intersection operation.
-Understandably, something like this has to happen if, borrowing a computer
-science term, we are able to mathematically overload the outer product.
-Owing to the definition of the $q$ function, what's further difficult about this is
-that, prior to a union or intersection
-operation, one would, in practice, need to
-perform some sort of analysis on $A$ and $B$.
-
-% program keeps blades in memory in factored form all the time?
-
-% not ideal
 
 % Possible citations:
 % http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
