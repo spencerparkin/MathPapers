@@ -244,8 +244,24 @@ with the property that $\Gi(C)=\Gi(A)\cap\Gi(B)$, but we do not necessarily
 have $\mbox{grade}(C)=\mbox{grade}(A\wedge B)$, showing that a rotor
 adjustment, which is grade preserving, to one or both of $A$ and $B$ cannot
 be of general help.  We need the factorizations of $A$ and $B$ to formulate $C$.
+One possible saving grace taunts us with the following lemma.
 
-
+\begin{lem}\label{lma_geo_reduction}
+For any blade $B\in\G(\V)$, there exists a blade $B'\in\G(\V)$ with $|q(B')|=1$ such
+that $\Gi(B')=\Gi(B)$.
+\end{lem}
+\begin{proof}
+It is clear that $\Gi(B)$ is an algebraic set as finite unions and arbitrary
+intersections of such sets are algebraic.  Now simply see that the set of all
+algebraic sets is covered by the set
+\begin{equation}
+\{\Gi(B')|\mbox{$B'\in\G(\V)$ and $|q(B')|=1$}\}.
+\end{equation}
+\end{proof}
+Lemma~\ref{lma_geo_reduction} proves the existance of a blade with a desired
+property, but does not give us
+any clue to a means of calculating it.  It would be a great achievement
+of geometric algebra if it provided such a means.
 
 % What may be helpful is a lemma showing that for any blade B,
 % there exists a blade B' such that $Gi(B)=G(B')$ with q(B')=1.
@@ -260,7 +276,7 @@ be of general help.  We need the factorizations of $A$ and $B$ to formulate $C$.
 % for every blade B with q(B)>1, does there exist a blade A with q(A)=1
 % where G(B)=G(A)?
 
-
+\section{Transforming The Geometries of $\G(\V)$}
 
 % Possible citations:
 % http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
