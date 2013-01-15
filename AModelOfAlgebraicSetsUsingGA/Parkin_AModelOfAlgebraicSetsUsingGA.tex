@@ -162,7 +162,7 @@ Given a blade $B\in\G(\V)$, the set $\Gi$ of $B$, denoted $\Gi(B)$, is the set
 \Gi(B) = \left\{x\in\R^n\left|\bigwedge_{i\in q(B)} p_i(x)\cdot B=0\right.\right\},
 \end{equation}
 where for each $i\in\Z^+$, we define $p_i$ similar to equation \eqref{equ_form_vector} as
-\begin{equation}
+\begin{equation}\label{equ_pi_func}
 p_i(x) = \sum_{j=1}^\infty g_j(x)e_{ij}.
 \end{equation}
 \end{defn}
@@ -186,7 +186,7 @@ As promised, there now exist conditions under which we are able to take the
 union of any two geometries represented by blades in $\G(\V)$.  The result is
 as follows.
 
-\begin{lem}[The Union Of Geometries]
+\begin{lem}[The Union Of Geometries]\label{lma_union_geos}
 For any two blades $A,B\in\G(\V)$ with the property that $q(A)\cap q(B)$ is empty,
 we have
 \begin{equation}
@@ -217,7 +217,7 @@ seems to detract from our dream of an algebra where the geometric elements
 would combine effortlessly in products that perform desired geometric operations.
 Unfortunately, things don't get any better as the next lemma shows.
 
-\begin{lem}[The Intersection Of Geometries]
+\begin{lem}[The Intersection Of Geometries]\label{lma_intersect_geos}
 For any two blades $A,B\in\G(\V)$ such that $q(A)=q(B)$
 with $|q(A)|=|q(B)|=1$, we have
 \begin{equation}
@@ -238,8 +238,19 @@ be taken.  The following equation illustrates why.
 Here we have considered $A$ as the blade $\bigwedge_{i\in q(A)}A_i$, where
 for each $i\in q(A)$, we have $A_i\in\G(\V_i^\infty)$.  We have similiarly
 considered $B$ in terms of the blades $\{B_i\}_{i\in q(B)}$.  It is now
-easy to see by the right-hand side of equation \eqref{equ_intersection_expansion}
-that there exists a blade $C$
+easy to see that by the right-hand side of equation \eqref{equ_intersection_expansion}
+there exists\footnote{For each $(i,j)\in q(A)\times q(B)$, choose blades $A_i'$ and
+$B_j'$ such that $\Gi(A_i')=\Gi(A_i)$, that $\Gi(B_i')=\Gi(B_i)$, and that
+Lemma~\ref{lma_intersect_geos} may be applied
+to get $\Gi(A_i')\cap\Gi(B_j')=\Gi(A_i'\wedge B_j')$.  (This may be done using rotor
+adjustments of $A_i$ and $B_j$.)
+Furthermore, make these choices so that for all $(i,j)\neq (k,l)$, Lemma~\ref{lma_union_geos}
+may be applied to get
+\begin{equation*}
+\Gi(A_i'\wedge B_j')\cup\Gi(A_k'\wedge B_l')=\Gi(A_i'\wedge B_j'\wedge A_k'\wedge B_l').
+\end{equation*}
+The blade $C$ make now be taken as an outer product of all $A_i'\wedge B_j'$
+over all $(i,j)\in q(A)\times q(B)$.} a blade $C$
 with the property that $\Gi(C)=\Gi(A)\cap\Gi(B)$, but we do not necessarily
 have $\mbox{grade}(C)=\mbox{grade}(A\wedge B)$, showing that a rotor
 adjustment, which is grade preserving, to one or both of $A$ and $B$ cannot
@@ -260,23 +271,63 @@ algebraic sets is covered by the set
 \end{proof}
 Lemma~\ref{lma_geo_reduction} proves the existance of a blade with a desired
 property, but does not give us
-any clue to a means of calculating it.  It would be a great achievement
-of geometric algebra if it provided such a means.
+any clue to a means of calculating it.  Providing such a means in geometric algebra,
+as we'll see, is possible, but doesn't seem to come naturally.
 
-% What may be helpful is a lemma showing that for any blade B,
-% there exists a blade B' such that $Gi(B)=G(B')$ with q(B')=1.
+Letting $A,B\in\G(\V)$ be two blades with $q(A)\cap q(B)$ empty,
+we know that $A\wedge B$ is the union of two geometries.  Suppose
+now that $|q(A)|=|q(B)|=1$ and that we want a blade $C\in\G(\V)$
+with $\Gi(C)=\Gi(A\wedge B)$, where $|q(C)|=1$.
+Well, writing the $k$-blade $A$ as $\bigwedge_{i=1}^k a_i$
+and the $l$-blade $B$ as $\bigwedge_{i=1}^l b_i$, we see that
+\begin{equation}
+\bigcap_{i=1}^k\Gi(a_i)\cup\bigcap_{i=1}^l\Gi(b_i) = \bigcap_{i=1}^k\bigcap_{j=1}^l \Gi(a_i\wedge b_j),
+\end{equation}
+showing that
+\begin{equation}
+C=\bigwedge_{i=1}^k\bigwedge_{j=1}^l r(a_i\wedge b_j),
+\end{equation}
+where the function $r:\G(\V)\to\V$ is a linear function that maps
+a basis 2-blade to the appropriate basis vector by the associations between
+basis vectors and unit-monomials implied by equation \eqref{equ_pi_func}.
+For example, we have $e_{ij}$ associated with $g_j$ and $e_{kl}$ with $g_l$,
+therefore, we have, for $i\neq k$, $r(e_{ij}\wedge e_{kl})$ mapped to the basis vector $e_m$ for
+the integer $m$ where $g_jg_l=g_m$.  This isn't pretty, but it is a well defined
+function.
 
-% examing Gi(A ^ B) for general A,B and given boolean exprsesion (using set unions/intersections)
-% do same for Go(A ^ B).
+Such a mapping $r$ could easily be extended to map blades of any grade,
+but it cannot be extended to an outermorphism so that $C=r(A\wedge B)$.
+Notice that $\mbox{grade}(C)$ is not necessarily $\mbox{grade}(A\wedge B)$.
+Geometric algebra doesn't seem to be going to work for us without the need
+to continually add more machinary.
+
+% examine Gi(A ^ B) for general A,B and give boolean expression (using set unions/intersections)
+% do same for Go(A ^ B) in that section.
 
 \section{The Algebraic Set $\Go$}
 
 \section{Relating $\Gi$ with $\Go$}
 
-% for every blade B with q(B)>1, does there exist a blade A with q(A)=1
-% where G(B)=G(A)?
+% can we relate these using duals?  is this even significant?
 
 \section{Transforming The Geometries of $\G(\V)$}
+
+% knowing how pi transforms allows us to know how any algebraic
+% set transforms under a certain versor.
+
+\section{Comments And Criticisms}
+
+Unfortunately, the conclusion that must be reached at the end of this paper is
+that there does not appear to be any tangable benefit to the now
+presented model of algebraic sets using geometric algebra in terms
+of the union and intersection operations.  The outer product does not
+appear to calculate for us anything beyond what we can already
+do by simply multiplying polynomial equations together, or storing
+them in a set.
+
+The only possible redeeming quality of the approach given is perhaps
+that, by virtue of using blades to represent algebraic sets, it lends
+itself well to the use of versors in the desire to transform such sets.
 
 % Possible citations:
 % http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
