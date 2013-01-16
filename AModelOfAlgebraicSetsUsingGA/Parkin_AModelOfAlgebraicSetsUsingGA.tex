@@ -359,6 +359,15 @@ Letting $i\in\Z^+$ be a fixed integer, $S\subset\R^n$ a finite set
 of points, and $B=\bigwedge_{x\in S} p_i(x)$, if we have $B\neq 0$,
 then for all $x\in S$, we have $x\in\Go(B)$; in other words, $S\subseteq\Go(B)$.
 \end{lem}
+Interestingly, the set of all vectors $v\in\V_i^\infty$ such that
+there exists $x\in\R^n$ such that $p_i(x)=v$ is a proper subset
+of $\V_i^\infty$; so for any blade $B\in\G(\V_i^\infty)$, we cannot always
+factor it as even a non-zero scalar multiple of an outer product of vectors $p_i(x)$ over $x\in S$.\footnote{To
+see this, simply consider $xy e_1+xz e_2 + yz e_3=e_1+e_2-e_3$.  This
+creates the system of equations $xy=1$, $xz=1$ and $yz=-1$, which has
+no solution in $\R^3$.}
+We may therefore consider some geometries as point-fit-able
+while others not.
 
 Lemma~\ref{lma_combine_geos} is unsatisfactory, however, because it does not tell
 us exactly what geometry we get out of $A\wedge B$ in terms of $A$ and $B$ as is
@@ -405,7 +414,7 @@ what geometry we get in our generalized model of algebraic sets
 from the fitting of all points in a set $S$ is to analyze a dual of the
 blade $B$.  This may require finding a factorization of $BI_i$.
 
-\section{Transforming The Geometries of $\G(\V)$}
+\section{Transforming The Geometries Of $\G(\V)$}
 
 Admittedly, up this point in the paper, nothing insightful or new about
 algebraic sets has been revealed through our use of GA to model
@@ -422,15 +431,38 @@ For example, spheres of CGA, as versors, perform inversions about
 a sphere.  The planes of CGA, as versors, perform reflections about
 a plane.
 
-% show that every algebraic set is the outer product of points.
-% for vectors, this is easy.  for blades, we need to prove
-% linear independence.
+Fixing an integer $i\in\Z^+$, consider the set of all versors
+$V\in\G(\V_i^\infty)$ such that for any point $x\in\R^n$,
+there exists a scalar $\lambda\in\R$ and point $y\in\R^n$ such that $V^{-1}p_i(x)V=\lambda p_i(y)$.
+Given such a versor, it is easy to see that the
+problem of determining how $V$
+transforms a given blade $B\in\G(\V_i^\infty)$ representative
+of a point-fit-able geometry simply reduces
+to the problem of determining how, for any point $x\in\R^n$,
+the versor $V$ transforms $p_i(x)$.  This is because $VBV^{-1}$
+is also point-fit-able.  For non-point-fit-able
+geometries, however, it is not so obvious that this
+same reduction of the problem applies.
+To see that it does, begin by
+factoring the $k$-blade $B$ using the set of $k$ vectors in $\{b_i\}_{i=1}^k$
+as $B=\bigwedge_{i=1}^k b_i$, and write
+\begin{equation}
+V^{-1}p_i(x)V\cdot B=-\sum_{j=1}^k(-1)^j(p_i(x)\cdot Vb_jV^{-1})B_j,
+\end{equation}
+where again $B_j$ denotes the product $B$ with $b_j$ removed.
+Cleary, we have $V^{-1}p_i(x)V\cdot B=0$ if and only if for all $j\in\Z_k$,
+we have $p_i(x)\cdot Vb_jV^{-1}=0$.  Now notice that for all $j\in\Z_k$,
+we have $p_i(x)\cdot Vb_jV^{-1}=0$ if and only if $p_i(x)\cdot VBV^{-1}=0$,
+since
+\begin{equation}
+p_i(x)\cdot VBV^{-1} = -\sum_{j=1}^k(-1)^j(p_i(x)\cdot Vb_jV^{-1})VB_jV^{-1}.
+\end{equation}
+Notice that the linear independence of the set $\{B_i\}_{i=1}^k$ remains invariant
+under an application of the versor $V$ on this set to get the set $\{VB_iV^{-1}\}_{i=1}^k$.
 
-% then, knowing how to transform any points lets us
-% understand how any algebraic set is transformed.
-% the problem of knowing how a given versor transform
-% any algebraic set is reduced to knowing how any
-% versor transforms a p_i(x) -- a point.
+% make "point-fitable" a formal definition?
+
+% now explore V=prod_i V_i.
 
 \section{Comments And Criticisms}
 
@@ -445,6 +477,16 @@ them in a set.
 The only possible redeeming quality of the approach given is perhaps
 that, by virtue of using blades to represent algebraic sets, it lends
 itself well to the use of versors in the desire to transform such sets.
+
+Given a blade $C\in\V^\infty$, we may think of $\Gi(C)$ and
+$\Go(C)$ as two different geometric interpretations of $C$.
+If at any point we find one of these sets empty, (i.e., if we
+intersect two non-intersecting geometries), then we may find
+the other set as non-empty.  Furthermore, there is always
+geometric significance in the comparison of the geometries
+$\Gi(C)$ and $\Go(C)$.  For example, in CGA,
+every imaginary dual round, when reinterpreted as a direct geometry,
+is a real round.
 
 % Possible citations:
 % http://mathdl.maa.org/images/upload_library/22/Ford/DesmondFearnleySander.pdf
