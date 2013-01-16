@@ -42,7 +42,17 @@
 %\dedicatory{To Melinda and Naomi}
 
 \begin{abstract}
-Blah.
+This paper is an attempt to study algebraic sets using
+the techniques of geometric algebra (GA).  Refering to
+algebraic sets as geometries, conditions are
+found under which the outer product performs the
+union and intersection operation of geometries as
+represented by blades of a GA.
+This model of algebraic sets using GA
+is simply a generalization of the conformal model of
+geometric algebra (CGA) to a model capable of representing
+geometries that are each the zero set of one or more
+polynomials of any form.
 \end{abstract}
 
 \maketitle
@@ -63,13 +73,13 @@ that for any algebraic set $S\subseteq\R^n$, there is always such a subset $P$
 of $\Poly^n$ of finite cardinality.
 
 Given the definition in equation \eqref{equ_zero_set_of_polys}, it is easy to show that
-the subsets $S$ of $\R^n$ that are the geometries of
-CGA, and other similar models of geometry based upon geometric algebra, are simply algebraic sets.
-The goal of this paper is to show that there exists a model of geometry, based upon geometric algebra,
-where every possible algebraic set has a representative in the form of an element of that geometric algebra.
-A desire to come up with such a model of geometric algebra is motivated by the admittedly fanciful
+the subsets $S$ of $\R^n$ that are the geometries of the conformal model of geometric algebra
+(CGA), and other similar models of geometry based upon geometric algebra (GA), are simply algebraic sets.
+The goal of this paper is to show that there exists a model of geometry, based upon GA,
+where every possible algebraic set has a representative in the form of an element of that GA.
+A desire to come up with such a model of GA is motivated by the admittedly fanciful
 dream of the German mathematician Leibniz, referred to in \cite{} and claimed to
-have already been realized in \cite{}.  In any case, it would seem that a generalization
+have already been realized in the daunting book \cite{}.  In any case, it would seem that a generalization
 of CGA or any CGA-like model to one that hosts the set of all algebraic sets in $\R^n$ would bring
 us closer to such a goal.  Work to this end has already been done in \cite{Parkin13a,Parkin13b} which
 has brought us, the reader and writer, to the present paper.
@@ -90,8 +100,11 @@ measure of the reality of the set of monomials we are talking about.}
 Considering now any mapping from the set $\Z^+$ of
 positive integers to this said set $\{g_i\}_{i=1}^\infty$ of unit-monomials,\footnote{For example,
 if $n=2$, then we might take $g_1(x,y)=1$, $g_2(x,y)=x$, $g_3(x,y)=y$, $g_3(x,y)=x^2$,
-$g_4(x,y)=xy$, $g_5(x,y)=y^2$, and so on.}
-and letting $\V^\infty$ denote a simple Euclidean vector space of countably infinite
+$g_4(x,y)=xy$, $g_5(x,y)=y^2$, $g_6(x,y)=x^3$, $g_7(x,y)=x^2y$, and so on.}
+and letting $\V^\infty$ denote a simple Euclidean\footnote{A GA of Euclidean signature
+keeps things simpler, but the model of this paper can be made to work with any GA having
+a non-degenerate, non-Euclidean signature.}
+vector space of countably infinite
 dimension, if we define the function $p:\R^n\to\V^\infty$ as
 \begin{equation}\label{equ_form_vector}
 p(x) = \sum_{i=1}^\infty g_i(x)e_i,
@@ -141,16 +154,13 @@ It is clear that the dimension of $\V$,
 like that of $\V^\infty$ above, is countably infinite as the union of countably many countable
 sets is countable.\footnote{This may come as some comfort to the reader. If you already thought that
 the dimension of $\V^\infty$ was ridiculously huge, the dimension of the vector space $\V$ is no bigger.
-In practice, of course, a computer
-program, for example, would work in a finite-dimensional vector space, thereby restricting
-the number of possible geometries to those that are zero sets of polynomials of a specific form.
-This is exactly what's going on in CGA, with the additional modification of altering the signature
-of the geometric algebra to accommodate the conformal transformations.  Non-Euclidean signatures
-are not considered in this paper.}
+If it would help, however, it would be reasonable to choose a positive integer $k\in\Z^+$ and
+have for all $i>k$, $g_i=0$.  This would bring $\V$ to finite dimension while
+enabling us to represent any desired subset of the set of all algebraic sets.}
 
 \begin{defn}[The $q$ Function]\label{def_q_func}
 Given a blade $B\in\G(\V)$, the function $q$ is a mapping from
-the set of all blades in $\G(\V)$ to $\Z^+$ so that $i\in q(B)$ if and only if
+the set of all blades in $\G(\V)$ to subsets of $\Z^+$ so that $i\in q(B)$ if and only if
 there exists a vector $v\in\V_i^\infty$ such that $v\wedge B=0$.
 \end{defn}
 
@@ -168,7 +178,9 @@ p_i(x) = \sum_{j=1}^\infty g_j(x)e_{ij}.
 \end{defn}
 For any product of the form $\prod_{i\in S}$ or $\bigwedge_{i\in S}$, where $S$ is
 a set of positive integers, we take the terms in the product to be in ascending order
-with respect to the index $i$.
+with respect to the index $i$.  While of course the outer product is non-commutative,
+we will be more interested in the vector sub-spaces represented by blades in this
+paper rather than the handedness of those blades.
 
 \begin{defn}[The Algebraic Set $\Go$]\label{def_go}
 Given a blade $B\in\G(\V)$, the set $\Go$ of $B$, denoted $\Go(B)$, is the set
@@ -186,7 +198,7 @@ As promised, there now exist conditions under which we are able to take the
 union of any two geometries represented by blades in $\G(\V)$.  The result is
 as follows.
 
-\begin{lem}[The Union Of Geometries]\label{lma_union_geos}
+\begin{lem}[The Union Of Geometries]\label{lma_union_geos_for_gi}
 For any two blades $A,B\in\G(\V)$ with the property that $q(A)\cap q(B)$ is empty,
 we have
 \begin{equation}
@@ -244,7 +256,7 @@ $B_j'$ such that $\Gi(A_i')=\Gi(A_i)$, that $\Gi(B_i')=\Gi(B_i)$, and that
 Lemma~\ref{lma_intersect_geos} may be applied
 to get $\Gi(A_i')\cap\Gi(B_j')=\Gi(A_i'\wedge B_j')$.  (This may be done using rotor
 adjustments of $A_i$ and $B_j$.)
-Furthermore, make these choices so that for all $(i,j)\neq (k,l)$, Lemma~\ref{lma_union_geos}
+Furthermore, make these choices so that for all $(i,j)\neq (k,l)$, Lemma~\ref{lma_union_geos_for_gi}
 may be applied to get
 \begin{equation*}
 \Gi(A_i'\wedge B_j')\cup\Gi(A_k'\wedge B_l')=\Gi(A_i'\wedge B_j'\wedge A_k'\wedge B_l').
@@ -266,7 +278,7 @@ It is clear that $\Gi(B)$ is an algebraic set as finite unions and arbitrary
 intersections of such sets are algebraic.  Now simply see that the set of all
 algebraic sets is covered by the set
 \begin{equation}
-\{\Gi(B')|\mbox{$B'\in\G(\V)$ and $|q(B')|=1$}\}.
+\{\Gi(B')|\mbox{$B'\in\G(\V)$ and $q(B')=\{1\}$}\}.
 \end{equation}
 \end{proof}
 Lemma~\ref{lma_geo_reduction} proves the existance of a blade with a desired
@@ -298,27 +310,132 @@ function.
 Such a mapping $r$ could easily be extended to map blades of any grade,
 but it cannot be extended to an outermorphism so that $C=r(A\wedge B)$.
 Notice that $\mbox{grade}(C)$ is not necessarily $\mbox{grade}(A\wedge B)$.
-It would seem that geometric algebra doesn't go to work for us without the need
-to continually add more machinary.
+It would seem that geometric algebra doesn't go to work for us in this case without the need
+to add more machinary.
 
 % examine Gi(A ^ B) for general A,B and give boolean expression (using set unions/intersections)
 % do same for Go(A ^ B) in that section.
 
 \section{The Algebraic Set $\Go$}
 
-\section{Relating $\Gi$ with $\Go$}
+Interestingly, the condition of Lemma~\ref{lma_union_geos_for_gi} is the same
+as the following lemma.
+\begin{lem}[The Union Of Geometries]\label{lma_union_geos_for_go}
+For any two blades $A,B\in\G(\V)$ with the property that $q(A)\cap q(B)$ is empty,
+we have
+\begin{equation}
+\Go(A)\cup\Go(B)=\Go(A\wedge B).
+\end{equation}
+\end{lem}
+\begin{proof}
+Without loss of generality, we may write $C=A\wedge B$ as $C=\bigwedge_{i=1}^k C_k$,
+where for each $i\in\Z_k$, we have $C_i\in\G(\V_i^\infty)$.  (Notice again that $q(C)=\Z_k$.)
+It is now clear that
+\begin{equation}
+\bigwedge_{i\in\Z_k}p_i(x)\wedge C=\pm\bigwedge_{i\in\Z_k}p_i(x)\wedge C_i,
+\end{equation}
+and therefore, $\Go(C)$ is indeed the union of $\Go(A)$ and $\Go(B)$.
+\end{proof}
+Applying the condition of Lemma~\ref{lma_intersect_geos}, we get the
+following lemma.
+\begin{lem}\label{lma_combine_geos}
+For any two blades $A,B\in\G(\V)$ such that $q(A)=q(B)$
+with $|q(A)|=|q(B)|=1$, we have
+\begin{equation}
+\Go(A)\cup\G(B)\subseteq\Go(A\wedge B).
+\end{equation}
+\end{lem}
+\begin{proof}
+Letting $i\in\Z^+$ be the integer such that $\{i\}=q(A)=q(B)$, realize that while
+\begin{equation}
+\mbox{$p_i(x)\wedge A=0$ or $p_i(x)\wedge B=0\implies p_i(x)\wedge A\wedge B=0$}
+\end{equation}
+is a true statement, the converse of this statement is not true.
+\end{proof}
+Lemma~\ref{lma_combine_geos} gives us the exciting prospect of fitting
+geometries to a set of points as the next lemma shows.
+\begin{lem}[Point-Fitting Geometries]\label{lma_point_fitting}
+Letting $i\in\Z^+$ be a fixed integer, $S\subset\R^n$ a finite set
+of points, and $B=\bigwedge_{x\in S} p_i(x)$, if we have $B\neq 0$,
+then for all $x\in S$, we have $x\in\Go(B)$; in other words, $S\subseteq\Go(B)$.
+\end{lem}
 
-% can we relate these using duals?  is this even significant?
+Lemma~\ref{lma_combine_geos} is unsatisfactory, however, because it does not tell
+us exactly what geometry we get out of $A\wedge B$ in terms of $A$ and $B$ as is
+the case with Lemma~\ref{lma_intersect_geos}.
+Interestingly, we can apply Lemma~\ref{lma_intersect_geos} to solve this
+problem, if we use it in addition to the following lemma.
+\begin{lem}[Dual Geometries]\label{lma_dual_geos}
+Let $i\in\Z^+$ be a fixed integer and let $B\in\G(\V_i^\infty)$
+be a blade.  Now let $I_i$ denote the unit-psuedo-scalar of
+any vector sub-space $\V_i$ of $\V_i^\infty$ of finite dimension
+such that $B\in\G(\V_i)$ and $B$ is not a psuedo-scalar.
+It then follows that
+\begin{equation}
+\Go(B)=\Gi(BI_i).
+\end{equation}
+\end{lem}
+\begin{proof}
+Simply note that
+\begin{equation}
+\mbox{$p_i(x)\wedge B=0$ iff $(p_i(x)\cdot BI_i)I_i=0$ iff $p_i(x)\cdot BI_i=0$.}
+\end{equation}
+\end{proof}
+The solution to the dilemma presented by Lemma~\ref{lma_combine_geos}
+can now be addressed as follows.  Let $i\in\Z_k$ be a fixed integer,
+and let us assume that for every $c\in\V_i^\infty$, we know what
+geometry we get from $\Gi(c)$.  It now follows by Lemma~\ref{lma_intersect_geos}
+that for any blade $C\in\V_i^\infty$, we know what geometry we get from $\Gi(C)$.
+Then, for any two blades $A$ and $B$ of Lemma~\ref{lma_combine_geos},
+we can apply Lemma~\ref{lma_dual_geos} to show that
+\begin{equation}
+\Go(A\wedge B)=\Gi((A\wedge B)I_i).
+\end{equation}
+It follows now that we know what geometry we get from $A\wedge B$
+in terms of its dual $\pm(A\wedge B)I_i$.  So the answer is that we can understand
+the geometry of such blades through a geometric interpretation of their duals.
+
+To give a concrete example of this, it is not at all obvious that the
+outer product of the points of CGA can produce the rounds and flats of
+that model until we relate those blades with their duals, the geometry
+of which may be thought of as the set of all possible intersections of rounds and flats.
+
+Returning to the idea of point-fitting in Lemma~\ref{lma_point_fitting}, one way to understand
+what geometry we get in our generalized model of algebraic sets
+from the fitting of all points in a set $S$ is to analyze a dual of the
+blade $B$.  This may require finding a factorization of $BI_i$.
 
 \section{Transforming The Geometries of $\G(\V)$}
 
-% knowing how pi transforms allows us to know how any algebraic
-% set transforms under a certain versor.
+Admittedly, up this point in the paper, nothing insightful or new about
+algebraic sets has been revealed through our use of GA to model
+such sets.  Perhaps the only advantage of using such a model
+is that, by virtue of using blades to represent algebraic sets,
+this lends itself well to the use of versors as transformations
+applicable to any geometry of the model.  As can be seen
+in CGA, this reveals an interesting relationship
+between transformations as versors and geometries as blades.
+It is that many geometries (blades) are in fact transformations (versors).
+When reinterpreted as a geometry, the transformation performed by a given versor
+often has geometric significance with respect to that geometry.
+For example, spheres of CGA, as versors, perform inversions about
+a sphere.  The planes of CGA, as versors, perform reflections about
+a plane.
+
+% show that every algebraic set is the outer product of points.
+% for vectors, this is easy.  for blades, we need to prove
+% linear independence.
+
+% then, knowing how to transform any points lets us
+% understand how any algebraic set is transformed.
+% the problem of knowing how a given versor transform
+% any algebraic set is reduced to knowing how any
+% versor transforms a p_i(x) -- a point.
 
 \section{Comments And Criticisms}
 
 Unfortunately, the conclusion that must be reached at the end of this paper is
-that there does not appear to be any tangable benefit to the now
+that there does not appear to be any tangible benefit to the now
 presented model of algebraic sets using geometric algebra in terms
 of the union and intersection operations.  The outer product does not
 appear to calculate for us anything beyond what we can already
