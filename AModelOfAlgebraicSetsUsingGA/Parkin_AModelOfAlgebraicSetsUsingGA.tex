@@ -46,7 +46,7 @@ This paper is an attempt to study algebraic sets using
 the techniques of geometric algebra (GA).  Refering to
 algebraic sets as geometries, conditions are
 found under which the outer product performs the
-union and intersection operation of geometries as
+union and intersection operations of geometries as
 represented by blades of a GA.
 This model of algebraic sets using GA
 is simply a generalization of the conformal model of
@@ -191,6 +191,10 @@ Given a blade $B\in\G(\V)$, the set $\Go$ of $B$, denoted $\Go(B)$, is the set
 
 We now proceed to investigate the consequences of Definition~\ref{def_gi}
 and that of Definition~\ref{def_go}.
+
+Fatal error!  Definition~\ref{def_go} is wrong!!!  I don't know how
+to fix it.  For almost all blades $B$, $p_i(x)\wedge B\neq 0$ for any $x$ and any $i$.
+Also, we didn't need the $q$ function for Definition~\ref{def_gi}.
 
 \section{The Algebraic Set $\Gi$}
 
@@ -359,19 +363,24 @@ Letting $i\in\Z^+$ be a fixed integer, $S\subset\R^n$ a finite set
 of points, and $B=\bigwedge_{x\in S} p_i(x)$, if we have $B\neq 0$,
 then for all $x\in S$, we have $x\in\Go(B)$; in other words, $S\subseteq\Go(B)$.
 \end{lem}
-Interestingly, the set of all vectors $v\in\V_i^\infty$ such that
-there exists $x\in\R^n$ such that $p_i(x)=v$ is a proper subset
-of $\V_i^\infty$; so for any blade $B\in\G(\V_i^\infty)$, we cannot always
-factor it as even a non-zero scalar multiple of an outer product of vectors $p_i(x)$ over $x\in S$.\footnote{To
+This begs the following definition.
+\begin{defn}[Point-Fit-Able Geometries]\label{def_point_fit_geos}
+For any $k$-blade $B\in\G(\V)$, write it as $B=\bigwedge_{i\in q(B)}B_i$.
+Then, if for every $i\in q(B)$, there exists a scalar $\lambda\in\R$ and a
+set $S\subset\R^n$ of points such that
+\begin{equation}
+B_i = \lambda\bigwedge_{x\in S}p_i(x),
+\end{equation}
+then we will refer to $B$ as point-fit-able.
+\end{defn}
+It is not hard to show\footnote{To
 see this, simply consider $xy e_1+xz e_2 + yz e_3=e_1+e_2-e_3$.  This
 creates the system of equations $xy=1$, $xz=1$ and $yz=-1$, which has
-no solution in $\R^3$.}
-We may therefore consider some geometries as point-fit-able
-while others not.
+no solution in $\R^3$.} that not all blade $B\in\G(\V)$ are point-fit-able.
 
-Lemma~\ref{lma_combine_geos} is unsatisfactory, however, because it does not tell
-us exactly what geometry we get out of $A\wedge B$ in terms of $A$ and $B$ as is
-the case with Lemma~\ref{lma_intersect_geos}.
+Lemma~\ref{lma_combine_geos} is unsatisfactory, however, because, unlike
+Lemma~\ref{lma_intersect_geos}, it does not tell
+us exactly what geometry we get out of $A\wedge B$ in terms of $A$ and $B$.
 Interestingly, we can apply Lemma~\ref{lma_intersect_geos} to solve this
 problem, if we use it in addition to the following lemma.
 \begin{lem}[Dual Geometries]\label{lma_dual_geos}
@@ -458,7 +467,7 @@ since
 p_i(x)\cdot VBV^{-1} = -\sum_{j=1}^k(-1)^j(p_i(x)\cdot Vb_jV^{-1})VB_jV^{-1}.
 \end{equation}
 Notice that the linear independence of the set $\{B_i\}_{i=1}^k$ remains invariant
-under an application of the versor $V$ on this set to get the set $\{VB_iV^{-1}\}_{i=1}^k$.
+under an application of the versor $V$ to get the set $\{VB_iV^{-1}\}_{i=1}^k$.
 
 % make "point-fitable" a formal definition?
 
