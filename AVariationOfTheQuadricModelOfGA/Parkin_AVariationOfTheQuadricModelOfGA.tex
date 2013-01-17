@@ -258,7 +258,7 @@ It now follows that
 which completes the proof.
 \end{proof}
 We're now ready to prove the main result as follows.
-\begin{thm}\label{thm_quadric_transform}
+\begin{lem}\label{lma_quadric_transform}
 Letting $E\in\G(\W)$ be a bivector of the form \eqref{equ_quadric_form},
 $p,p'\in\V^o$ be a pair of points related by a versor $V\in\G(\V)$ by
 the equation
@@ -277,9 +277,9 @@ is exactly the set of all points $p\in\V^\nvao$ such that
 \begin{equation}\label{equ_derived_set}
 0 = p\wedge\overline{p}\cdot E'.
 \end{equation}
-\end{thm}
+\end{lem}
 \begin{proof}
-The theorem goes through by the following chain of equalities.
+The lemma goes through by the following chain of equalities.
 \begin{align}
  & (\nvao\cdot V^{-1}pV\wedge\nvai)\wedge\overline{(\nvao\cdot V^{-1}pV\wedge\nvai)}\cdot E \\
 =\;& V^{-1}pV\wedge\overline{V^{-1}pV}\cdot E \\
@@ -288,19 +288,19 @@ The theorem goes through by the following chain of equalities.
 The first equality holds by the fact that $E$ is of the form \eqref{equ_quadric_form},
 while the second equality holds by Lemma~\ref{lma_versor_transfer}.
 \end{proof}
-A corrollary to Theorem~\ref{thm_quadric_transform} immediately follows.
+A corrollary to Lemma~\ref{lma_quadric_transform} immediately follows.
 \begin{cor}\label{cor_quadric_transform}
 If $V\in\G(\V)$ is a versor such that $E'$ in equation \eqref{equ_transformed_surface}
 is of the form \eqref{equ_quadric_form}, then the versor $V\overline{V}$
 represents a transformation closed in the set of all quadric surfaces.
 \end{cor}
 
-The key motivation behind Theorem~\ref{thm_quadric_transform} is
+The key motivation behind Lemma~\ref{lma_quadric_transform} is
 the observation that the desired transformation of $E$ by $V$ is
 given by the algebraic set of equation \eqref{equ_wanted_set}, because
 an understanding of how $V^{-1}$ transforms $p$ gives us an understanding
 of what type of geometry we get from equation \eqref{equ_wanted_set} in terms of
-$E$ and $V$.  The theorem then
+$E$ and $V$.  Lemma~\ref{lma_quadric_transform} then
 shows that this is also the algebraic set of equation \eqref{equ_derived_set}, thereby
 giving us a means of performing desired transformations on elements in $\G(\W)$ representative
 of quadric surfaces.
@@ -309,7 +309,7 @@ from such a transformation is also a quadric surface, provided that $V$ is a
 versor such that $E'$
 in \eqref{equ_transformed_surface}, like $E$, is also a bivector of the form \eqref{equ_quadric_form}.
 
-We can now apply Theorem~\ref{thm_quadric_transform} to show
+We can now apply Lemma~\ref{lma_quadric_transform} to show
 that the rigid body transformations are supported in our new variation
 of the original model.
 Letting $\pi\in\V$ be a dual plane of CGA, given by
@@ -326,7 +326,7 @@ where $p=\nvao+x$ with $x\in\V^e$, and
 where the scalar $\lambda\in\R$ is of no consequence.  Letting $V=\pi$,
 the point $p'\in\V^o$ of consequence here is given by equation \eqref{equ_get_rid_ni},
 from which we can recognize an orthogonal reflection about the plane $\pi$.
-It now follows by Theorem~\ref{thm_quadric_transform} that $\pi\overline{\pi}$ is a versor
+It now follows by Lemma~\ref{lma_quadric_transform} that $\pi\overline{\pi}$ is a versor
 capable of reflecting any quadric surface about the plane $\pi$.
 Being able to perform planar reflections of any quadric in any plane, it
 now follows that we can always find a versor $V\in\G(\W)$ capable of performing
@@ -364,7 +364,7 @@ where $P:\V^e\to\V$ is the point mapping of CGA, defined in \cite{Hestenes01} as
 P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{equation}
 \end{defn}
-A version of Theorem~\ref{thm_quadric_transform} is then easily found
+A version of Lemma~\ref{lma_quadric_transform} is then easily found
 such that if $V\in\G(\W)$ is any versor of CGA, and if $E$
 is a surface under Definition~\ref{def_surface}, then the element $E'\in\G(\W)$,
 given by equation \eqref{equ_transformed_surface}, must, by Definition~\ref{def_surface},
