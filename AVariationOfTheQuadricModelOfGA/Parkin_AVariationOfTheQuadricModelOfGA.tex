@@ -300,7 +300,13 @@ the observation that the desired transformation of $E$ by $V$ is
 given by the algebraic set of equation \eqref{equ_wanted_set}, because
 an understanding of how $V^{-1}$ transforms $p$ gives us an understanding
 of what type of geometry we get from equation \eqref{equ_wanted_set} in terms of
-$E$ and $V$.  The theorem then
+$E$ and $V$.\footnote{It's important to realize that another reason why
+Theorem~\ref{thm_quadric_transform} is applicable in our situation is
+that for any versor $V\in\G(\V)$ and any point $x\in\V^e$, there exist
+scalars $\alpha,\beta\in\R$ and a point $y\in\V^e$ such that
+$V^{-1}(\nvao+x)V=\alpha(\nvao+y)+\beta\nvai$.  (Proof is needed.)}
+%where the mapping $P:\V^e\to\V$ is given in equation \eqref{equ_cga_point_map} below.}
+The theorem then
 shows that this is also the algebraic set of equation \eqref{equ_derived_set}, thereby
 giving us a means of performing desired transformations on elements in $\G(\W)$ representative
 of quadric surfaces.
@@ -360,7 +366,7 @@ quartic surface as the set of all points $p\in\V^e$ such that
 0 = P(p)\wedge\overline{P}(p)\cdot E,
 \end{equation}
 where $P:\V^e\to\V$ is the point mapping of CGA, defined in \cite{Hestenes01} as
-\begin{equation}
+\begin{equation}\label{equ_cga_point_map}
 P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{equation}
 \end{defn}
