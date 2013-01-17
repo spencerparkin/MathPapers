@@ -351,7 +351,7 @@ used to render the cylinder and its inversion.}
 \end{figure}
 Interestingly, if we were not content with the rigid body motions of
 quadrics, then we really could find what is, for example, the spherical
-inversion of, say, an infinitely long cylinder in a sphere.  To do this, we change
+inversion of, say, an infinitely long cylinder in a sphere.  To do this, we start by changing
 Definition~\ref{def_quadric} into the following definition.
 \begin{defn}\label{def_surface}
 For any element $E\in\G(\W)$, we may refer to it as an $n$-dimensional
@@ -364,11 +364,47 @@ where $P:\V^e\to\V$ is the point mapping of CGA, defined in \cite{Hestenes01} as
 P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{equation}
 \end{defn}
-A version of Lemma~\ref{lma_quadric_transform} is then easily found
-such that if $V\in\G(\W)$ is any versor of CGA, and if $E$
+It is then helpful to introduce another definition as follows.
+\begin{defn}
+A versor $V\in\G(\W)$ is said to be point-form preserving if for
+any point $x\in\V^e$, there exists a scalar $\lambda\in\R$ and
+a point $y\in\V^e$ such that $V^{-1}P(x)V=\lambda P(y)$.
+\end{defn}
+We then arrive at the following upgrade of Lemma~\ref{lma_quadric_transform}.
+\begin{lem}\label{lma_quartic_transform}
+Letting $E\in\G(\W)$ be a bivector of any form, $p,p'\in\V^e$ be
+a pair of points related by a point-form preserving versor $V\in\G(\V)$ by
+the equation
+\begin{equation}
+\lambda P(p') = V^{-1}P(p)V,
+\end{equation}
+and $E'\in\G(\W)$ a bivector given by equation \eqref{equ_transformed_surface},
+the set of all point $p\in\V^e$ such that
+\begin{equation}\label{equ_wanted_set2}
+0 = P(p')\wedge\overline{P}(p')\cdot E
+\end{equation}
+is exactly the set of all point $p\in\V^e$ such that
+\begin{equation}
+0 = P(p)\wedge\overline{P}(p)\cdot E'.
+\end{equation}
+\end{lem}
+\begin{proof}
+The scalar $\lambda$ clearly divides out of equation \eqref{equ_wanted_set2}, so we may,
+without loss of generality, let $\lambda=1$.
+Once again applying Lemma~\ref{lma_versor_transfer}, we simply see that
+\begin{equation}
+V^{-1}P(p)V\wedge\overline{V^{-1}P(p)V}\cdot E = P(p)\wedge\overline{P}(p)\cdot V\overline{V}E(V\overline{V})^{-1}.
+\end{equation}
+\end{proof}
+
+The need for a point-form preserving versor is apparent from equation
+\eqref{equ_wanted_set2}, since otherwise we could not claim to understand what
+algebraic set we get from equation \eqref{equ_wanted_set2} in terms of $E$ and $V$.
+We now see by Lemma~\ref{lma_quartic_transform}
+that if $V\in\G(\W)$ is any point-form preserving versor, and if $E$
 is a surface under Definition~\ref{def_surface}, then the element $E'\in\G(\W)$,
 given by equation \eqref{equ_transformed_surface}, must, by Definition~\ref{def_surface},
- be representative of the desired transformation of $E$ by the versor $V\overline{V}$.
+be representative of the desired transformation of $E$ by the versor $V\overline{V}$.
 The general polynomial equation arising from the form of
 such elements $E$ in Defintion~\ref{def_surface} is much more involved than
 what we have in equation \eqref{equ_quadric_polynomial_equation}.  Nevertheless, it is possible to extract
@@ -386,7 +422,8 @@ This is because
 P(p)\wedge\overline{P}(p)\cdot E = (\nvao+p)\wedge\overline{(\nvao+p)}\cdot E
 \end{equation}
 in the case that $E$ is of the form \eqref{equ_quadric_form}.  This allows
-us to use what we already know about quadrics in the new model with its extension.
+us to use what we already know about quadrics in the new model with its extension to
+quartic surfaces of a specific form.
 
 An interesting side effect of Definition~\ref{def_surface} is the existence
 of every union of any pair of geometries where either one is a circle, plane
@@ -404,7 +441,8 @@ Figure~\ref{fig_invert_cylinder_in_sphere_solid}.
 The script is easy for anyone to read, even if they are not familiar with its language.  It is given
 here to illustrate how one might use the model with the aide a computer system.
 %\begin{samepage}
-{\small
+\begin{center}
+{\tiny
 \begin{verbatim}
 
 /*
@@ -434,6 +472,7 @@ do
 
 \end{verbatim}
 }
+\end{center}
 %\end{samepage}
 The functions beginning with the word ``bind'' create and bind an entity to the given
 element of the geometric algebra that is responsible for interpreting that element
