@@ -38,6 +38,9 @@
 \newcommand{\eminusb}{\overline{e}_{-}}
 \newcommand{\eplusb}{\overline{e}_{+}}
 
+\newcommand{\Gi}{\dot{G}}
+\newcommand{\Go}{\hat{G}}
+
 \begin{document}
 
 \title{A Variation Of The Quadric Model\\Of Geometric Algebra}
@@ -365,8 +368,8 @@ P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{equation}
 \end{defn}
 It is then helpful to introduce another definition as follows.
-\begin{defn}
-A versor $V\in\G(\W)$ is said to be point-form preserving if for
+\begin{defn}\label{def_preserve_point_map}
+A versor $V\in\G(\V)$ is said to be point-form preserving if for
 any point $x\in\V^e$, there exists a scalar $\lambda\in\R$ and
 a point $y\in\V^e$ such that $V^{-1}P(x)V=\lambda P(y)$.
 \end{defn}
@@ -527,28 +530,42 @@ representative of a surface as the set of all points $p\in\V^e$ such that
 \begin{equation}\label{equ_dual_surf_set}
 0 = \rho(p)\cdot v,
 \end{equation}
-where we define the function $\rho$ as
+where we define\footnote{Notice that we need not define $\rho$ here
+in terms of $P$ and $[]$.  We could simply forget all of that machinary
+and provide an equivilant function in terms a basis for the vector space $\B$.
+In fact, in how $\rho$ is defined on a given vector space, we can find a model
+capable of representing almost any subset of the set of all algebraic sets.} the function $\rho$ as
 \begin{equation}
 \rho(p) = [P(p)\overline{P(p)}].
 \end{equation}
 The notions of dual and direct surfaces
-would then emerge as they do in CGA.  We could then, using the outer product,
+would then emerge as they do in CGA.  A blade $B\in\G(\B)$ is dually representative
+of a surface as the set $\Gi(B)$, defined as
+\begin{equation}
+\Gi(B) = \{p\in\V^e|0=\rho(p)\cdot B\}.
+\end{equation}
+A blade $B\in\G(\B)$ is directly representative of a surface as the set $\Go(B)$,
+defined as
+\begin{equation}
+\Go(B) = \{p\in\V^e|0=\rho(p)\wedge B\}.
+\end{equation}
+Using the outer product, we can now
 intersect dual surfaces and combine direct surfaces.\footnote{The outer product
 of two dual surfaces is the dual surface that is the intersection, if any, of the two
-dual surfaces taken in the product.  Similarly, the outer product
+dual surfaces taken in the product.  That is, for any two blades $A,B\in\G(\B)$
+with $A\wedge B\neq 0$, we have
+\begin{equation*}
+\Gi(A\wedge B)=\Gi(A)\cap\Gi(B).
+\end{equation*}
+Similarly, the outer product
 of two direct surfaces is the direct surface containing at least the union of the surfaces
-taken in the product.  Imaginary dual intersections may be reinterpreted as real direct surfaces.}
+taken in the product.  That is, for any two blades $A,B\in\G(\B)$, we have
+\begin{equation*}
+\Go(A\wedge B)\supseteq\Go(A)\cup\Go(B).
+\end{equation*}
+Imaginary dual intersections may be reinterpreted as real direct surfaces.}
 These features arise as a consequence of representing geometries
 as blades in a geometric algebra.
-
-For a given versor $V\in\G(\V)$,
-and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $v_1\wedge\dots\wedge v_k$
-of $B$, then the transformation $B'$ of $B$ by $V$ would be given by
-\begin{equation}
-B' = \bigwedge_{i=1}^k [V\overline{V}[v_i]^{-1}(V\overline{V})^{-1}].
-\end{equation}
-See \cite{Fontijne10} on the problem of factoring blades.  It is unfortunate that we would
-have to bother finding such a factorization in order to apply a given transformation.
 
 To illustrate the use of $\G(\B)$, let $s,c\in\G(\B)$ be vectors dually representative
 of a sphere and cylinder, respectively.  Then, for any point $p\in\V^e$, we can find
@@ -590,6 +607,88 @@ which we easily recognize a quadratic equation in the scalar variable $\lambda$.
 In CGA, point-pairs are easily decomposable.  Section 4 of \cite{Lasenby05} offers
 a solution to the intersection problem using a different method of utilizing CGA to
 represent conic and quadric surfaces.  See also section 4.2 of \cite{Wareham05}.
+
+\section{Transformations Of Dual And Direct Surfaces}
+
+For a given versor $V\in\G(\V)$,
+and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $v_1\wedge\dots\wedge v_k$
+of $B$, then the transformation $B'$ of $B$ by $V$ would be given by
+\begin{equation}
+B' = \bigwedge_{i=1}^k [V\overline{V}[v_i]^{-1}(V\overline{V})^{-1}].
+\end{equation}
+(See \cite{Fontijne10} on the problem of factoring blades.)  It is unfortunate that we would
+have to bother finding such a factorization in order to apply a given transformation.
+
+Leaving the versors of $\G(\V)$ behind, we are left to consider the versors of $\G(\B)$.
+Following the line of thinking that led to Lemma~\ref{lma_quadric_transform} and 
+emma~\ref{lma_quartic_transform}, we begin by
+considering the set of all versors $V\in\G(\B)$ preserving the form $\rho(p)$ as
+the point-form preserving versors $V\in\G(\V)$ preserve the form $P(p)$
+under Definition~\ref{def_preserve_point_map}.
+We will also refer to such versors $V\in\G(\B)$ as point-form preserving.
+
+If we are able to develop any point-form preserving versor $V\in\G(\B)$,
+and understand what kind of transformation a point undergoes by an application
+of this transformation, then it is not hard to show that an application of
+such a versor to any blade $B\in\G(\B)$, dually or directly representative of a given surface,
+can be well understood.
+We begin with the following definition.
+\begin{defn}
+For any $k$-blade $B\in\G(\B)$, we refer to it as point-fit-able, if there
+exists a set of $k$ points $\{p_i\}_{i=1}^k\subset\V^e$, such that
+\begin{equation}\label{equ_point_fit_factor}
+B = \bigwedge_{i=1}^k\rho(p_i).
+\end{equation}
+\end{defn}
+It is clear that the surface directly represented by a point-fit-able $k$-blade fits
+any $k$ points that can be used to formulate a factorization of that blade
+by equation \eqref{equ_point_fit_factor}.  Given a set $\{p_i\}_{i=1}^k$ of such points,
+and a point-form preserving versor $V\in\G(\B)$,
+if we know which surface must fit those points, then it is also clear that
+we'll know which surface is fit by the set of points $\{p_i'\}_{i=1}^k$,
+where for each integer $i$, we have $V\rho(p_i)V^{-1}=\lambda\rho(p_i')$.
+Given the surface $B$ of equation \eqref{equ_point_fit_factor}, this is simply the surface $VBV^{-1}$.
+
+There are, however, at least two problems with this.  First, assuming that
+the set $\{\rho(p_i)\}_{i=1}^\infty$ is linearly independent, or that
+we understand under what circumstances of the set $\{p_i\}_{i=1}^k$
+that the set $\{\rho(p_i)\}_{i=1}^\infty$ will be linearly independent, determining the
+surface that must fit such a given set of points is non-trivial.
+Secondly, it is not clear whether all direct surfaces are point-fit-able.
+Fortunately for us, the property of being point-fit-able plays no
+part in the following lemma.
+\begin{lem}
+Given a $k$-blade $B\in\G(\W)$ and a point-form preserving versor $V\in\G(\B)$,
+if for any piont $p\in\V^e$, we understand the action of $V$ on $\rho(p)$
+as $V^{-1}\rho(p)V$, then we understand the action of $V$ on the
+dual surface $B$ as $VBV^{-1}$.
+\end{lem}
+\begin{proof}
+Writing $B$ in terms of the $k$ vectors in $\{b_i\}_{i=1}^k$ as $B=\bigwedge_{i=1}^k b_i$,
+we have $0=V^{-1}\rho(p)V\cdot B$ if and only if for all integers $i\in[1,k]$,
+we have $0=V^{-1}\rho(p)V\cdot b_i=\rho(p)\cdot Vb_iV^{-1}$, since the
+set $\{B_i\}_{i=1}^k$, where $B_i$ denotes the product $B$ with $b_i$ removed,
+is a linearly independent set.  Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$,
+if and only if $0=\rho(p)\cdot VBV^{-1}$, since
+the set $\{VB_iV^{-1}\}_{i=1}^k$ is also linearly independent.
+
+It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV^{-1}$.
+Then, in terms of understanding the transformation of $\rho(p)$ by $V$ as $V^{-1}\rho(p)V$,
+we also understand the transformation of $B$ by $V$ as $VBV^{-1}$.
+\end{proof}
+
+All that remains now is to show that an understanding of how dual surfaces
+transform gives us an understanding of how direct surfaces transform.
+To see this, realize that $\Go(B)=\Gi(BI)$, and then that
+\begin{equation}
+\Go(VBV^{-1})=\Go(VBI^2V^{-1})=\Go(VBIV^{-1}I)=\Gi(VBIV^{-1}),
+\end{equation}
+where $I$ is the unit psuedo-scalar of $\G(\B)$.  This shows that
+direct surfaces are affected by versors in the same way that dual surface are.
+
+The challenge now is to find a point-form preserving versor $V\in\G(\B)$ and
+understand its action on $\rho(p)$.  We will have to leave this as
+an open question for now.
 
 \section{Closing Remarks}
 
