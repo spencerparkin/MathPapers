@@ -370,20 +370,129 @@ Like the outer product, we define the inner product to be left and
 right distributive over addition.  Unlike the outer product, however,
 the inner product commutes vectors and is not generally associative.
 
-% break out formulas for inner products.  use recursive def with blades.
+The inner product between vectors already understood, we begin
+by defining the inner product between vectors and blades.
+
+\begin{definition}\label{def_vec_blade_inner_prod}
+For any vector $v$ and blade $B$ of grade $k$, we define
+\begin{equation}\label{equ_v_dot_B_expanded}
+v\cdot B = (v\cdot b_1)B_1 - (v\cdot b_2)B_2 + \dots - (-1)^k(v\cdot b_k)B_k,
+\end{equation}
+where here, $B$ is factored into the $k$ vectors in $\{b_i\}_{i=1}^k$ as it
+is in equation \eqref{equ_blade_B}, and we have let $B_i$ denote the $(k-1)$-blade
+given by
+\begin{equation}
+B_i = b_1\wedge b_2\wedge\dots\wedge b_{i-1}\wedge b_{i+1}\wedge\dots\wedge b_k,
+\end{equation}
+which is simply the product $B$ with $b_i$ removed.  Similarly, we define
+\begin{equation}
+B\cdot v = (v\cdot b_k)B_k - (v\cdot b_{k-1})B_{k-1} +\dots - (-1)^k(v\cdot b_1)B_1.
+\end{equation}
+\end{definition}
+From this definition it is easy to deduce the commutativity of vectors and
+blades in the inner product.  We have
+\begin{equation}
+v\cdot B = (-1)^k B\cdot v.
+\end{equation}
+Compare this to the commutativity of vectors and blades in the outer product.
+\begin{equation}
+v\wedge B = -(-1)^k B\wedge v.
+\end{equation}
+It is also easy to deduce from Definition~\ref{def_vec_blade_inner_prod} the
+following useful identities.
+\begin{align}
+v\cdot B &= (v\cdot B_k)\wedge b_k-(-1)^k(v\cdot b_k)B_k \\
+B\cdot v &= (v\cdot b_k)B_k - (v\cdot B_k)\wedge b_k
+\end{align}
+
+We are now ready to define the inner product among blades
+in general.
+
+\begin{definition}\label{def_blade_blade_inner_prod}
+For any two blades $A$ and $B$ of grades $k$ and $l$, respectively,
+we define their inner product as
+\begin{equation}
+A\cdot B = \left\{
+\begin{array}{ll}
+(a_1\wedge a_2\wedge\dots\wedge a_{k-1})\cdot (a_k\cdot B) & \mbox{if $k\leq l$,} \\
+(A\cdot b_1)\cdot(b_2\wedge b_3\wedge\dots\wedge b_{l-1}) & \mbox{if $k\geq l$,}
+\end{array}
+\right.
+\end{equation}
+where here, $A$ and $B$ have vector factorizations in terms of the
+vectors in $\{a_i\}_{i=1}^k$ and $\{b_i\}_{i=1}^l$, respectively,
+as given in equations \eqref{equ_blade_A} and \eqref{equ_blade_B}.
+In the case that $k=l$, either case may be chosen.
+\end{definition}
+Definition~\ref{def_blade_blade_inner_prod} defines the
+inner product between two blades in terms of Definition~\ref{def_vec_blade_inner_prod}.
+Realizing that we have let the inner product be left and right distributive
+over addition, we now know how to take the inner product between
+any two multivectors.
 
 \subsection{Comparing the Inner and Outer Products}
 
-In this section we want to build intuition about the inner and
-outer products as performing operations opposite to one another.
-That is, one operation, in a sense, undoes the other.
-%We start with the ideas of the vector projection and vector rejection.
-% part of vector in and out of blade.
-%\begin{definition}
-%
-%\end{definition}
+While motivations for our definition of the outer product are readily available,
+such motivations are not entirely clear at this point for our recent
+definition of the inner product.  In this section we explain the
+definition of the inner product by revealing its relationship with
+the outer product.
+
+For a given vector $v$ and a blade $B$, notice
+that we have
+\begin{align}
+v\wedge B &= v_{\perp}\wedge B, \label{equ_v_op_B}\\
+v\cdot B &= v_{\parallel}\cdot B,\label{equ_v_ip_B}
+\end{align}
+where we have let $v=v_{\parallel}+v_{\perp}$, the
+sum of the vector components of $v$ parallel and
+perpendicular to the blade $B$, respectively.  To be more precise,
+the vector $v_{\parallel}$ is the orthogonal projection of $v$ down
+onto the $k$-blade $B$, while $v_{\perp}$ is simply $v-v_{\parallel}$,
+sometimes referred to as the orthogonal rejection of $v$ from $B$.
+
+Equation \eqref{equ_v_op_B} is easily verified by realizing that $v_{\parallel}\in B$.
+Equation \eqref{equ_v_ip_B} can be verified by an application of
+equation \eqref{equ_v_dot_B_expanded}, seeing that for all
+vectors $b\in B$, we have $b\cdot v_{\perp}=0$.
+
+Intuitively, equation \eqref{equ_v_op_B} is showing us that
+the only contribution of $v$ in the product $v\wedge B$
+is the part of $v$ entirely out of the blade, which is also indicating
+the new dimension through which we are extruding $B$ to
+form the higher-dimensional volume element $v\wedge B$.
+On the other hand, equation \eqref{equ_v_ip_B} is showing us
+that the only contribution of $v$ in the product $v\cdot B$
+is the part of $v$ entirely in the blade, which is also indicating
+the old dimension through which we are collapsing $B$ to
+form the lower-dimensional volume element $v\cdot B$.
+So you see, the inner and outer product perform complementary
+operations.  The outer product can be used to build blades up, while
+the inner product can be used to tare blades down.
+The grade lowering and grade raising properties of the inner
+and outer products, respectively, should now be summarized
+as follows.
+\begin{equation}
+\begin{array}{ll}
+\mbox{grade}(v\wedge B) = \mbox{grade}(B)+1 & \mbox{if $v\not\in B$,} \\
+\mbox{grade}(v\cdot B) = \mbox{grade}(B)-1 & \mbox{if $v_{\parallel}\neq 0$.}
+\end{array}
+\end{equation}
+
+The keen observer at this point, however, might point
+out that it is not entirely obvious that equation
+\eqref{equ_v_dot_B_expanded} gives us a blade.  To see that
+it does, ...
+
+% explore magnitude of grade raised or lowered volume element.
+
+% point out that scalar . E or scalar ^ E reduces to scalar-blade product.
+
+% give |a||b|cos T and |a||b|sin T formulas here.
 
 \subsection{The Geometric Product}
+
+% note the great leap it was to come up with the GP.
 
 % inertible, zero product property
 
