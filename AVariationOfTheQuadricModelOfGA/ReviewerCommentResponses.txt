@@ -1,0 +1,59 @@
+Responses to review comments are precedded by "***" (3 asterisks).
+
+COMMENTS FOR THE AUTHOR:
+
+Reviewer #1: This paper is pretty well written and seems correct.  It doesn't extend things very far though.  The main results seem new.  It does give an interesting approach to the problem.  There should be a few changes listed below. If the paper that it depends on is published then I am recommending this be published (but it will be the editor's choice).
+
+*** The dependent paper, AACA-12-00082R1, has been accepted.
+
+Figure 1 (the graphics picture) should precede the references.  It is good that the computer code is given as an example of the quartic, but it is not clear what language or software is being used, and this should be stated.
+
+*** The placement of the figure has been fixed.  The language and software have now been stated.
+
+Reviewer #2: This paper extends a previous definition of the model for quadric surfaces using geometric algebra proposed by the same author. According to the author, the main property of the new model is being equipped with versors encoding rigid body motions that can be applied to any blade representing a quadric surface. However, the presented results are not clear due to lack of precision of some equations and statements. In such a case, I believe that the paper should be reconsidered after major revision.
+
+*** The original submission was poorly named.  The model given is not an extension of the original model.  It is a variation of the original model, and I do not rely on any definitions given in the paper that sets forth the original model.  This paper is therefore self contained as I'm sure you'll be able to see.  Furthermore, a careful look at equation (3.2) will convince you that 2-vectors, not blades, are claimed to be the representatives of quadric surfaces in the model.  I agree that my original submission lacked a great deal of precision.  I have therefore done my best to be more precise.
+
+The text is well written, but it is not self-contained. Notice that the previous works is not available for download yet. Therefore, it is quite difficult (or even impossible) to assert some definitions presented in the current manuscript. The author must include more details about his previous model in order to make this paper self-contained.
+
+*** I again maintain that the paper is self-contained and that it does not rely on any definitions given in the prior paper.  A more careful reading will assert this.  I may refer to definitions in the prior paper, but I do not rely upon to develop the model in the present paper.
+
+The tilde operation used in Equation (2.4) was not defined. It denotes a reverse operation?
+
+*** The tilde operation has been removed; however, it is often used as the reverse operation, and this was clear in context.  In any case, it doesn't matter anymore as it has been removed in favor of a more compact formulation of the rotor S.
+
+Assuming that the tilde in Equation (2.4) denotes the reverse operation, the property presented in the first line of page 3 is incorrect because it seems that S is not a unary even versor (i.e., a rotor).
+
+*** The statement you are pointing at was indeed incorrect, and I have corrected the mistake in the newly submitted paper.  You have also pointed out here a gross oversight on my part.  I had never questioned whether S was a versor.  It appears that it is NOT a versor.  I therefore do not refer to it as a versor in the paper.
+
+The element E has a different interpretation in Equation (2.4) and in Equation (3.1). The author should use a different notation.
+
+*** The variable E is re-used to mean different things in different contexts.  E is just the name of a variable.  Every time E is used, it is being made very clearly how we're intending to use it and how we're interpreting it.  In equation (2.4), we're interpreting E as any element of G(V).  In equation (3.1) we are interpreting it as any element in G(W).
+
+The operation precedence in Equations (3.1), (4.1)-(4.5), (4.16), (4.17), (4.19)-(4.23), (5.1), (5.3) is not clear. The author must use parentheses in order to ensure the order of operations.
+
+*** It has been made clear in a newly added footnote that the outer product takes precedence over the inner product, and that the geometric product takes precedence over the inner and outer products.
+
+The author does not define the dot symbol for cases different than the inner product of vectors. It is clear that it is an inner product. However, for general blades the inner product could be a scalar product, a left contraction or a right contraction, among others.
+
+*** In the same footnote mentioned above, I make it clear what inner product is being used.
+
+From Equation (3.1), it makes sense to state that E is the dual of a quadric surface since the expected (or intuitive) behavior in any model of geometry would be p ^ X = 0, where X is blade geometrically interpreted as some geometric entity and p is a vector spanning X and interpreted as a point. In such a case, we would have dual(p ^ X) = dual(0) leading to p . dual(X) = 0. In the proposed model p would be replaced by the 2-blade p ^ overbar{p}, and \dual(X) by E.
+
+*** I think I understand what you're saying.  The notion of dual and direct geometries is born out of a model that uses blades to represent its geometries (surfaces).  But we are not using blades to represent quadric surfaces here.  We are using 2-vectors.  The idea of using blades (not 2-vectors) to represent quadric surfaces is address later on in the paper with a new section that I've added, which also brings up the notion of dual and direct geometries.
+
+In Equation (3.2), the author presents how the general form of a quadric is represented as a 2-vector. From such definition [a] it is not possible do guarantee that the 2-vector is also a 2-blade as one would expect while defining a model of geometry. The author should make a comment about that.
+
+*** Again, no effort, expressed or implied, was made to use 2-blades as representatives of geometric surfaces.  For example, I do not assume that E in (3.2) is a 2-blade, nor do I rely on E in (3.2) as being a 2-blade for any of the results to go through.  Indeed, and as you pointed out, E in (3.2) is not always a 2-blade.  More than a comment about this will be made in the newly added section which will address the representation of quadric surfaces (or surfaces of any degree or form) using blades of any grade.
+
+Assuming that Equation (3.2) defines a blade, would [it] be possible to build a quadric surface as the outer product of vectors interpreted as points?
+
+*** This question is addressed in the newly added section, even if it is not fully answered.
+
+The sentence "For example, many common quadrics are the solution set in..." must be rephrased. The author should be more specific about which quadratic surface he is talking about.
+
+*** This phrase has been refined.
+
+It is not clear why -p ^ overbar{p} was factored out from Equation (3.5) in order to define Equation (3.6).
+
+*** The test "E =" was inserted into equation (3.6), which I hope will make it clearer.  This element E, by definition 3.1, is then representative of the same surface that is the solution set in x of equation (3.5).

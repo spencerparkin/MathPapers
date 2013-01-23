@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{url}
+%\usepackage{hyperref}
 
 \newtheorem{thm}{Theorem}[section]
  \newtheorem{cor}[thm]{Corollary}
@@ -75,7 +76,7 @@ presented based upon the ideas of projective geometry.  What was unfortunate
 about this model, however, was its lack of support for the rigid body transformations.  It was
 predicted in the conclusion of that paper that a better model for quadric
 surfaces may exist that is more like the conformal model of geometric algebra, here-after
-abbreviated as CGA.
+abbreviated CGA.
 The present paper details what may be such a model.  We'll find that the rigid
 body transformations can be incorporated into the model by using an alternative
 method of encoding the quadric form.  An extension to this quadric form
@@ -130,10 +131,11 @@ to see that the over-bar notation may be defined as an outermorphic function
 that is also an isomorphism between $\G(\V)$ and $\G(\Vb)$.
 Doing so, we see that for any element $E\in\G(\V)$,
 we may define $\overline{E}\in\G(\Vb)$ as
-\begin{equation}
+\begin{equation}\label{equ_over_bar_func}
 \overline{E} = SES^{-1},
 \end{equation}
-where $S$ is the versor given by
+where $S\in\G(\W)$ is the element\footnote{The equivalent of $S$ given in \cite{Parkin12}
+was erroneously referred to as a versor.} given by
 \begin{equation}\label{equ_isomorphism_versor}
 S = (1+\eminus\eminusb)(1-\eplus\eplusb)\prod_{i=1}^n(1-e_i\overline{e}_i).
 \end{equation}
@@ -147,6 +149,8 @@ are defined as
 The vectors $\eminusb$ and $\eplusb$ are defined similarly in terms of $\nvaob$ and $\nvaib$.
 Defined this way, realize that, like the over-bar function defined in \cite{Parkin12},
 here we have the property that for any vector $v\in\V$, we have $\overline{\overline{v}}=-v$.
+Letting $E$ be any element in $\G(\W)$ in equation \eqref{equ_over_bar_func},
+we extend the over-bar function to be defined on all of $\G(\W)$.
 
 \section{The Form Of Quadric Surfaces In $\G(\W)$}
 
@@ -154,7 +158,10 @@ We now give a formal definition under which elements $E\in\G(\W)$
 are representative of $n$-dimensional quadric surfaces in our present variation
 of the original model.
 \begin{defn}\label{def_quadric}
-Referring to an element $E\in\G(\W)$ as a quadric surface, it is representative of such an $n$-dimensional surface as the set of all points $p\in\V^o$ such that
+Referring to an element $E\in\G(\W)$ as a quadric surface, it is representative of such an $n$-dimensional surface as\footnote{Throughout this paper, we let the outer product take precedence
+over the inner product, and the geometric product take precedence over the inner and
+outer products.  The inner product used is that given in \cite{Dorst07}, appendix B,
+equation (B.1).} the set of all points $p\in\V^o$ such that
 \begin{equation}\label{equ_quadric_equation}
 0 = p\wedge\overline{p}\cdot E.
 \end{equation}
@@ -197,7 +204,8 @@ Of course, using geometric algebra on paper, it might be undesirable and unneces
 quadrics in terms of polynomial equations.  A, perhaps, better way to think of quadrics is in terms
 of an element of a geometric algebra whose decomposition
 produces the parameters characterizing the quadric surface.  For example, many common
-quadrics are the solution set in $\V^e$ of the equation
+quadrics, such as the cylinder, double-cone, spheroid and hyperboloid of two sheets, are the
+solution set in $\V^e$ of the equation
 \begin{equation}
 0 = -r^2 + (x-c)^2 + \lambda((x-c)\cdot v)^2
 \end{equation}
@@ -205,7 +213,7 @@ in the variable $x$.  (An explanation of the parameters $r$, $c$, $v$ and $\lamb
 was given in \cite{Parkin12}.)  Then, factoring out $-p\overline{p}$, we see that
 the element $E\in\G(\W)$, given by
 \begin{equation}\label{equ_canonical_form_of_common_quadric}
-\Omega + \lambda v\overline{v}+2(c+\lambda(c\cdot v)v)\nvaib+
+E=\Omega + \lambda v\overline{v}+2(c+\lambda(c\cdot v)v)\nvaib+
 (c^2+\lambda (c\cdot v)^2-r^2)\nvai\nvaib
 \end{equation}
 is representative of this very same quadric by Definition~\ref{def_quadric},
@@ -347,10 +355,17 @@ surfaces using an entirely different approach.
 \section{Extending The New Model}
 
 \begin{figure}
-\includegraphics[scale=0.4]{InvertCylinderInSphereWire}
+\includegraphics[scale=0.3]{InvertCylinderInSphereWire}
 \caption{The inversion of a cylinder in a sphere.  Traces in various planes were
 used to render the cylinder and its inversion.}
 \label{fig_invert_cylinder_in_sphere_wire}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.3]{InvertCylinderInSphereSolid}
+\caption{The inversion of a cylinder in a sphere.  A surface mesh generation
+algorithm was used to skin the cylindrical and inverted surfaces.  The inverted
+mesh suffers where the curvature becomes extreme.}
+\label{fig_invert_cylinder_in_sphere_solid}
 \end{figure}
 Interestingly, if we were not content with the rigid body motions of
 quadrics, then we really could find what is, for example, the spherical
@@ -392,7 +407,7 @@ is exactly the set of all point $p\in\V^e$ such that
 \end{equation}
 \end{lem}
 \begin{proof}
-The scalar $\lambda$ clearly divides out of equation \eqref{equ_wanted_set2}, so we may,
+The scalar $\lambda$ clearly divides out of equation \eqref{equ_wanted_set2} so that we may,
 without loss of generality, let $\lambda=1$.
 Once again applying Lemma~\ref{lma_versor_transfer}, we simply see that
 \begin{equation}
@@ -436,7 +451,11 @@ P(p)\wedge\overline{P}(p)\cdot a\wedge\overline{b} = -(P(p)\cdot a)(P(p)\cdot b)
 \end{equation}
 
 Putting theory into practice, the author wrote a piece of computer
-software that implements this CGA-like model for the special class of
+software\footnote{The software is available
+at \url{https://github.com/spencerparkin/GAVisTool}.  The author does
+not recommend making use of this software for research purposes.  Instead,
+the reader is referred to tools such as GAViewer and CLUCalc.}
+that implements this CGA-like model for the special class of
 quartic surfaces of equation \eqref{equ_surface_set}.  Giving the program the following
 script as input, the output of the program is given in
 Figure~\ref{fig_invert_cylinder_in_sphere_wire} and rendered another way in
@@ -477,6 +496,7 @@ do
 }
 \end{center}
 %\end{samepage}
+The language used here was invented for the software and has no name.
 The functions beginning with the word ``bind'' create and bind an entity to the given
 element of the geometric algebra that is responsible for interpreting that element
 as a surface under Definition~\ref{def_surface} or, in the case of the sphere, as a dual surface under the definition
@@ -496,13 +516,6 @@ Of course, while such equations lend themselves to computer algorithms, they
 are not practical on paper.  This is where the canonical forms of elements might become
 useful; although, admittedly, even these forms have proven to be unwieldy
 and impractical for the author, unlike their CGA counterparts.
-\begin{figure}
-\includegraphics[scale=0.4]{InvertCylinderInSphereSolid}
-\caption{The inversion of a cylinder in a sphere.  A surface mesh generation
-algorithm was used to skin the cylindrical and inverted surfaces.  The inverted
-mesh suffers where the curvature becomes extreme.}
-\label{fig_invert_cylinder_in_sphere_solid}
-\end{figure}
 
 \section{Dual And Direct Surfaces}\label{sec_deal_dir_surf}
 
@@ -512,14 +525,17 @@ not just the specific class of surfaces, up to degree 2, that are just the spher
 While this has been accomplished to some extent, one of the greatest deficiencies
 remaining appears to be the inability for the model to represent surfaces of up to
 the desired degree for
-all dimensions from zero to $n$ in the same manner that this is possible in CGA.\footnote{We
-can, of course, easily formulate the extruded conics.  That is, the surfaces of
-dimension $n-1$ extruded through a dimension orthogonal to the conic section.  To do so, we simply apply a
-rigid-body motion versor to any conic section that is easily formulated as
-being origin-centered and axis-aligned.  For example, $0=-r^2+x^2+y^2$ is a circle in the plane,
-but also an extruded circle (a cylinder) in 3-dimensional space.}
+all dimensions from zero to $n$ in the same manner that this is possible in CGA.
+%\footnote{We
+%can, of course, easily formulate the extruded conics.  That is, the surfaces of
+%dimension $n-1$ extruded through a dimension orthogonal to the conic section.
+%To do so, we simply apply a
+%rigid-body motion versor to any conic section that is easily formulated as
+%being origin-centered and axis-aligned.  For example, $0=-r^2+x^2+y^2$ is a circle in the plane,
+%but also an extruded circle (a cylinder) in 3-dimensional space.}
 One possible solution to this is that of utilizing the geometric
-algebra that is generated by the linear space of bivectors in $\G(\W)$.  We could
+algebra that is generated by the linear space of bivectors in $\G(\W)$.  Pursuing
+this idea, we could
 define a linear function on this space that maps it to a vector space $\B$.  If $[]$ was such
 a function, then for any pair of 2-blades $A,B\in\G(\W)$, we could define
 \begin{equation}
@@ -530,11 +546,12 @@ representative of a surface as the set of all points $p\in\V^e$ such that
 \begin{equation}\label{equ_dual_surf_set}
 0 = \rho(p)\cdot v,
 \end{equation}
-where we define\footnote{Notice that we need not define $\rho$ here
-in terms of $P$ and $[]$.  We could simply forget all of that machinary
-and provide an equivilant function in terms of a basis for the vector space $\B$.
-In fact, in how $\rho$ is defined on a given vector space, we can find a model
-capable of representing almost any subset of the set of all algebraic sets.} the function $\rho$ as
+where we define\footnote{The reader should be made aware of the fact
+that we do not need the machinery of the functions $P$ or $[]$ to
+define the function $\rho$.  We could just as easily define $\rho$
+in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)  Furthermore, taking the liberty of defining
+$\rho$ in other ways, we can easily come up with models of GA capable of representing
+almost any subset of the set of all algebraic sets.} the function $\rho$ as
 \begin{equation}
 \rho(p) = [P(p)\overline{P(p)}].
 \end{equation}
@@ -550,21 +567,21 @@ defined as
 \Go(B) = \{p\in\V^e|0=\rho(p)\wedge B\}.
 \end{equation}
 Using the outer product, we can now
-intersect dual surfaces and combine direct surfaces.\footnote{The outer product
+intersect dual surfaces and combine direct surfaces.  Specifically, the outer product
 of two dual surfaces is the dual surface that is the intersection, if any, of the two
 dual surfaces taken in the product.  That is, for any two blades $A,B\in\G(\B)$
 with $A\wedge B\neq 0$, we have
-\begin{equation*}
+\begin{equation}
 \Gi(A\wedge B)=\Gi(A)\cap\Gi(B).
-\end{equation*}
+\end{equation}
 Similarly, the outer product
 of two direct surfaces is the direct surface containing at least the union of the surfaces
 taken in the product.  That is, for any two blades $A,B\in\G(\B)$, we have
-\begin{equation*}
+\begin{equation}
 \Go(A\wedge B)\supseteq\Go(A)\cup\Go(B).
-\end{equation*}
-Imaginary dual intersections may be reinterpreted as real direct surfaces.  That is,
-for any blade $C\in\G(\B)$, if $\Gi(C)$ is empty, consider $\Go(B)$.}
+\end{equation}
+Imaginary dual intersections may often be reinterpreted as real direct surfaces.  That is,
+for any blade $C\in\G(\B)$, if $\Gi(C)$ is empty, consider $\Go(C)$.
 These features arise as a consequence of representing geometries
 as blades in a geometric algebra.
 
@@ -585,7 +602,7 @@ We could suffice with a vector space of dimension $(n+2)(n+3)/2$.
 In any case, it is clear from equation \eqref{equ_pencil} that the algebra
 is simply giving us the desired surface in the pencil of $s$ and $c$.
 
-If all we cared about was the dual intersection $s\wedge c$, we may still
+If, however, all we cared about was the dual intersection $s\wedge c$, we may still
 need to resort to \cite{Wang03} to do any meaningful analysis.
 Contrasting this with an absence of any need to do such a thing in CGA,
 we see further deficiencies in our more generalized model for surfaces
@@ -605,7 +622,8 @@ we have
 where $p\in\V^o$ is a point and $v\in\V^e$ is a direction vector, where
 $\nabla_v f(p)$ is the directional derivative of $f$ at $p$ in the direction $v$, and from
 which we easily recognize a quadratic equation in the scalar variable $\lambda$.
-In CGA, point-pairs are easily decomposable.  Section 4 of \cite{Lasenby05} offers
+In CGA, point-pairs are easily decomposable; the point-pair equivalent
+in our current model, however, is not.  Section 4 of \cite{Lasenby05} offers
 a solution to the intersection problem using a different method of utilizing CGA to
 represent conic and quadric surfaces.  See also section 4.2 of \cite{Wareham05}.
 
@@ -622,7 +640,7 @@ have to bother finding such a factorization in order to apply a given transforma
 
 Leaving the versors of $\G(\V)$ behind, we are left to consider the versors of $\G(\B)$.
 Following the line of thinking that led to Lemma~\ref{lma_quadric_transform} and 
-emma~\ref{lma_quartic_transform}, we begin by
+Lemma~\ref{lma_quartic_transform}, we begin by
 considering the set of all versors $V\in\G(\B)$ preserving the form $\rho(p)$ as
 the point-form preserving versors $V\in\G(\V)$ preserve the form $P(p)$
 under Definition~\ref{def_preserve_point_map}.
@@ -657,10 +675,33 @@ that the set $\{\rho(p_i)\}_{i=1}^\infty$ will be linearly independent, determin
 surface that must fit such a given set of points is non-trivial.
 Secondly, it is not clear whether all direct surfaces are point-fit-able.
 Fortunately for us, the property of being point-fit-able plays no
-part in the following lemma.
+part in the following definitions and and subsequent lemma.
+
+A lot of work needs to be done here to make all of this precise.
+Kill the following two defs and make the lemma precise.
+
+\begin{defn}
+Letting $V\in\G(\B)$ be any point-form preserving versor, we define,
+for any $p\in\V^e$,
+the action of $V$ on $\rho(p)$ as $V\rho(p)V^{-1}$ as the
+mapping from $\V^e$ to $\V^e$ taking any $x\in\V^e$ to $x'\in\V^e$ where
+$x'$ is the point in $\V^e$ such that $V\rho(x')V^{-1}=\lambda\rho(x)$
+for some scalar $\lambda\in\R$.
+\end{defn}
+A question of existence and uniqueness arises from this definition.
+The question of existence is trivially answered by realizing that $V^{-1}\rho(x)V$
+is of the form $\lambda^{-1}\rho(x')$ by virtue of $V$ being point-form preserving.
+
+
+\begin{defn}
+Letting $V\in\G(\B)$ be any versor, and letting $B\in\G(\B)$ be any
+non-zero blade, we define the action of $V$ on the dual surface $B$
+as the transformation sending the set of points $\Gi(B)$ into $\Gi(VBV^{-1})$
+\end{defn}
+
 \begin{lem}
 Given a $k$-blade $B\in\G(\W)$ and a point-form preserving versor $V\in\G(\B)$,
-if for any piont $p\in\V^e$, we understand the action of $V$ on $\rho(p)$
+if for any point $p\in\V^e$, we understand the action of $V$ on $\rho(p)$
 as $V^{-1}\rho(p)V$, then we understand the action of $V$ on the
 dual surface $B$ as $VBV^{-1}$.
 \end{lem}
@@ -669,14 +710,19 @@ Writing $B$ in terms of the $k$ vectors in $\{b_i\}_{i=1}^k$ as $B=\bigwedge_{i=
 we have $0=V^{-1}\rho(p)V\cdot B$ if and only if for all integers $i\in[1,k]$,
 we have $0=V^{-1}\rho(p)V\cdot b_i=\rho(p)\cdot Vb_iV^{-1}$, since the
 set $\{B_i\}_{i=1}^k$, where $B_i$ denotes the product $B$ with $b_i$ removed,
-is a linearly independent set.  Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$,
+is a linearly independent set.  Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$
 if and only if $0=\rho(p)\cdot VBV^{-1}$, since
 the set $\{VB_iV^{-1}\}_{i=1}^k$ is also linearly independent.
 
 It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV^{-1}$.
-Then, in terms of understanding the transformation of $\rho(p)$ by $V$ as $V^{-1}\rho(p)V$,
-we also understand the transformation of $B$ by $V$ as $VBV^{-1}$.
+Then, in terms of understanding the action of $\rho(p)$ by $V$ as $V^{-1}\rho(p)V$,
+we also understand the action of $B$ by $V$ as $VBV^{-1}$, since
+\begin{equation}
+\{p\in\V^e|0=V^{-1}\rho(p)V\cdot B\} = \Gi(VBV^{-1}).
+\end{equation}
 \end{proof}
+
+Can we show that $\{VB_iV^{-1}\}_{i=1}^k$ is a linearly independent set?
 
 All that remains now is to show that an understanding of how dual surfaces
 transform gives us an understanding of how direct surfaces transform.
