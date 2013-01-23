@@ -646,9 +646,19 @@ the point-form preserving versors $V\in\G(\V)$ preserve the form $P(p)$
 under Definition~\ref{def_preserve_point_map}.
 We will also refer to such versors $V\in\G(\B)$ as point-form preserving.
 
-If we are able to develop any point-form preserving versor $V\in\G(\B)$,
-and understand what kind of transformation a point undergoes by an application
-of this transformation, then it is not hard to show that an application of
+We now make the observation that point-form
+preserving versors $V\in\G(\B)$ induce a map from $\V^e$ to $\V^e$ by
+taking $p\in\V^e$ to $p'\in\V^e$, where $p'$ is the point satisfying
+$V\rho(p)V^{-1}=\lambda\rho(p')$ for some scalar $\lambda\in\R$.
+Of course, whether this mapping is well-defined depends on $\rho$.
+Can there exist distinct scalars $\alpha,\beta\in\R$ and distinct
+points $x,y\in\V^e$ such that $\alpha\rho(x)=\beta\rho(y)$?
+Assuming that such a combination of scalars and points does not exist for $\rho$,
+the mapping is well-defined.
+
+Now, if we are able to develop any point-form preserving versor $V$,
+and understand what kind of transformation a point in $\V^e$ undergoes by an application
+of this transformation to $\rho$, then it is not hard to show that an application of
 such a versor to any blade $B\in\G(\B)$, dually or directly representative of a given surface,
 can be well understood.
 We begin with the following definition.
@@ -675,35 +685,14 @@ that the set $\{\rho(p_i)\}_{i=1}^\infty$ will be linearly independent, determin
 surface that must fit such a given set of points is non-trivial.
 Secondly, it is not clear whether all direct surfaces are point-fit-able.
 Fortunately for us, the property of being point-fit-able plays no
-part in the following definitions and and subsequent lemma.
+part in the following lemma.
 
-A lot of work needs to be done here to make all of this precise.
-Kill the following two defs and make the lemma precise.
-
-\begin{defn}
-Letting $V\in\G(\B)$ be any point-form preserving versor, we define,
-for any $p\in\V^e$,
-the action of $V$ on $\rho(p)$ as $V\rho(p)V^{-1}$ as the
-mapping from $\V^e$ to $\V^e$ taking any $x\in\V^e$ to $x'\in\V^e$ where
-$x'$ is the point in $\V^e$ such that $V\rho(x')V^{-1}=\lambda\rho(x)$
-for some scalar $\lambda\in\R$.
-\end{defn}
-A question of existence and uniqueness arises from this definition.
-The question of existence is trivially answered by realizing that $V^{-1}\rho(x)V$
-is of the form $\lambda^{-1}\rho(x')$ by virtue of $V$ being point-form preserving.
-
-
-\begin{defn}
-Letting $V\in\G(\B)$ be any versor, and letting $B\in\G(\B)$ be any
-non-zero blade, we define the action of $V$ on the dual surface $B$
-as the transformation sending the set of points $\Gi(B)$ into $\Gi(VBV^{-1})$
-\end{defn}
-
-\begin{lem}
+\begin{lem}\label{lem_xform_dual_geo}
 Given a $k$-blade $B\in\G(\W)$ and a point-form preserving versor $V\in\G(\B)$,
-if for any point $p\in\V^e$, we understand the action of $V$ on $\rho(p)$
-as $V^{-1}\rho(p)V$, then we understand the action of $V$ on the
-dual surface $B$ as $VBV^{-1}$.
+we have
+\begin{equation}
+\{p\in\V^e|0=V^{-1}\rho(p)V\cdot B\}=\Gi(VBV^{-1}).
+\end{equation}
 \end{lem}
 \begin{proof}
 Writing $B$ in terms of the $k$ vectors in $\{b_i\}_{i=1}^k$ as $B=\bigwedge_{i=1}^k b_i$,
@@ -713,16 +702,14 @@ set $\{B_i\}_{i=1}^k$, where $B_i$ denotes the product $B$ with $b_i$ removed,
 is a linearly independent set.  Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$
 if and only if $0=\rho(p)\cdot VBV^{-1}$, since
 the set $\{VB_iV^{-1}\}_{i=1}^k$ is also linearly independent.
-
 It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV^{-1}$.
-Then, in terms of understanding the action of $\rho(p)$ by $V$ as $V^{-1}\rho(p)V$,
-we also understand the action of $B$ by $V$ as $VBV^{-1}$, since
-\begin{equation}
-\{p\in\V^e|0=V^{-1}\rho(p)V\cdot B\} = \Gi(VBV^{-1}).
-\end{equation}
 \end{proof}
 
 Can we show that $\{VB_iV^{-1}\}_{i=1}^k$ is a linearly independent set?
+
+Intuitively, Lemma~\ref{lem_xform_dual_geo} is telling us that if
+we understand the action of $V$ on $\rho(p)$ as $V^{-1}\rho(p)V$,
+then we understand the action of $V$ on $B$ as $VBV^{-1}$.
 
 All that remains now is to show that an understanding of how dual surfaces
 transform gives us an understanding of how direct surfaces transform.
@@ -733,8 +720,9 @@ To see this, realize that $\Go(B)=\Gi(BI)$, and then that
 where $I$ is the unit psuedo-scalar of $\G(\B)$.  This shows that
 direct surfaces are affected by versors in the same way that dual surface are.
 
-The challenge now is to find a point-form preserving versor $V\in\G(\B)$ and
-understand its action on $\rho(p)$.  We will have to leave this as
+The challenge now is to find a point-form preserving versor $V$ and then
+understand the mapping from $\V^e$ to $\V^e$ it induces through
+the use of $\rho$.  We will have to leave this as
 an open question for now.
 
 \section{Closing Remarks}
