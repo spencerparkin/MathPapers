@@ -555,7 +555,7 @@ define the function $\rho$.  We could just as easily define $\rho$
 in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)  Furthermore, taking the liberty of defining
 $\rho$ in other ways, we can easily come up with models of GA capable of representing
 almost any subset of the set of all algebraic sets.} the function $\rho$ as
-\begin{equation}
+\begin{equation}\label{equ_def_of_rho}
 \rho(p) = [P(p)\overline{P(p)}].
 \end{equation}
 The notions of dual and direct surfaces
@@ -647,16 +647,41 @@ Lemma~\ref{lma_quartic_transform}, we begin by
 considering the set of all versors $V\in\G(\B)$ preserving the form $\rho(p)$.
 That is, the set of all $\rho$-form preserving versors in $\G(\B)$ by
 Definition~\ref{def_preserve_point_map}.
+We then need the following definition.
 
-We now make the observation that $\rho$-form
-preserving versors $V\in\G(\B)$ induce a map from $\V^e$ to $\V^e$ by
+\begin{defn}
+For any mapping $f:\V^e\to\V$, we refer to it as a stable mapping
+if there do not exist distinct scalars $\alpha,\beta\in\R$ and
+distinct points $x,y\in\V^e$ such that
+\begin{equation}
+\alpha\rho(x)=\beta\rho(y).
+\end{equation}
+\end{defn}
+
+We can now make the observation that if $\rho$ is a stable mapping,
+then $\rho$-form preserving versors $V\in\G(\B)$ induce a map from $\V^e$ to $\V^e$ by
 taking $p\in\V^e$ to $p'\in\V^e$, where $p'$ is the point satisfying
 $V\rho(p)V^{-1}=\lambda\rho(p')$ for some scalar $\lambda\in\R$.
-Of course, whether this mapping is well-defined depends on $\rho$.
-Can there exist distinct scalars $\alpha,\beta\in\R$ and distinct
-points $x,y\in\V^e$ such that $\alpha\rho(x)=\beta\rho(y)$?
-Assuming that such a combination of scalars and points does not exist for $\rho$,
-the mapping is well-defined.
+The need for $\rho$ to be a stable mapping simply insures that this
+induced mapping is well-defined.
+
+\begin{lem}
+The mapping $\rho:\V^e\to\V$, as it is defined in equation \eqref{equ_def_of_rho},
+is a stable mapping.
+\end{lem}
+\begin{proof}
+Assume that $\rho$ is unstable.  We can therefore find distinct $\alpha,\beta\in\R$ and distinct $x,y\in\V^e$
+such that $\alpha\rho(x)=\beta\rho(y)$.  This then implies that
+\begin{equation}
+\alpha P(x)\wedge\overline{P}(x) = \beta P(y)\wedge\overline{P}(y),
+\end{equation}
+but there does not exist a non-zero scalar $\lambda\in\R$ such that
+\begin{equation}
+\alpha P(x) = \beta P(y) + \lambda\overline{P}(y).
+\end{equation}
+Therefore, we must have $\alpha P(x)=\beta P(y)$, yet we know
+from CGA that $P$ is a stable mapping.  It follows that $\rho$ is stable by contradiction.
+\end{proof}
 
 Now, if we are able to develop any $\rho$-form preserving versor $V$,
 and understand what kind of transformation a point in $\V^e$ undergoes by an application
@@ -707,8 +732,6 @@ if and only if $0=\rho(p)\cdot VBV^{-1}$, since
 the set $\{VB_iV^{-1}\}_{i=1}^k$ is also linearly independent.
 It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV^{-1}$.
 \end{proof}
-
-Can we show that $\{VB_iV^{-1}\}_{i=1}^k$ is a linearly independent set?
 
 Intuitively, Lemma~\ref{lem_xform_dual_geo} is telling us that if
 we understand the mapping from $\V^e$ to $\V^e$ induced by $V$ on $\rho(p)$ as $V^{-1}\rho(p)V$,
