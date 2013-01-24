@@ -230,7 +230,42 @@ circular cylinders, circular conical surfaces, and so on.
 
 \section{Transformations Supported By The Model}
 
-The main result of this section will depend upon the following lemma.
+The main result of this section will depend upon Lemma~\ref{lma_versor_transfer} below;
+but first, the following lemma, although perhaps well-known, is given to add further clarification.
+\begin{lem}\label{lma_clarify}
+Given any two vectors $a,b\in\V$, and a versor $V\in\G(\V)$, we have
+\begin{equation}\label{equ_versor_with_dot}
+a\cdot b=VaV^{-1}\cdot VbV^{-1}.
+\end{equation}
+\end{lem}
+\begin{proof}
+It suffices to show that $\langle V(a\wedge b)V^{-1}\rangle_0=0$, since
+\begin{equation*}
+a\cdot b + \langle V(a\wedge b)V^{-1}\rangle_0 = \langle VabV^{-1}\rangle_0 = VaV^{-1}\cdot VbV^{-1}.
+\end{equation*}
+A proof by induction is given.  Consider first $\langle v(a\wedge b)v^{-1}\rangle_0$, where $v\in\V$.
+By direct evaluation, we get
+\begin{equation*}
+\langle v(a\wedge b)v^{-1}\rangle_0 = \frac{1}{|v|}
+\left|\begin{array}{cc} v\cdot a & v\cdot a\\ v\cdot b & v\cdot b\end{array}\right| = 0.
+\end{equation*}
+Suppose now that for a fixed integer $k$, the versor $V$, being the geometric product of $k$ vectors,
+satisfies equation \eqref{equ_versor_with_dot}.  We must show that
+\begin{equation}
+\langle vV(a\wedge b)(vV)^{-1}\rangle_0=\langle vV(a\wedge b)V^{-1}v^{-1}\rangle_0=0.
+\end{equation}
+To that end, it is not hard to see that
+\begin{equation*}
+\langle vV(a\wedge b)V^{-1}v^{-1}\rangle_0 =
+\langle v\langle V(a\wedge b)V^{-1}\rangle_0 v^{-1}\rangle_0 +
+\langle v\langle V(a\wedge b)V^{-1}\rangle_2 v^{-1}\rangle_0.
+\end{equation*}
+Clearly $\langle v\langle V(a\wedge b)V^{-1}\rangle_0 v^{-1}\rangle_0$ is zero by our inductive hypothesis.
+That $\langle v\langle V(a\wedge b)V^{-1}\rangle_2 v^{-1}\rangle_0$ is zero follows directly from
+the work we did to show that $\langle v(a\wedge b)v^{-1}\rangle_0$ is zero.
+\end{proof}
+Lemma~\ref{lma_clarify} is employed in the step taken from equation
+\eqref{equ_step_a_clarify} to equation \eqref{equ_step_b_clarify} below.
 \begin{lem}\label{lma_versor_transfer}
 For any versor $V\in\G(\W)$, and any four vectors $a,b,c,d\in\V$, we have
 \begin{equation}
@@ -242,8 +277,8 @@ a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1}.
 We begin by first establishing that
 \begin{align}
  & V^{-1}aV\wedge\overline{V^{-1}bV}\cdot c\wedge\overline{d} \\
-=\;& -(V^{-1}aV\cdot c)(V^{-1}bV\cdot d) \\
-=\;& -(a\cdot VcV^{-1})(b\cdot VdV^{-1}) \\
+=\;& -(V^{-1}aV\cdot c)(V^{-1}bV\cdot d)\label{equ_step_a_clarify} \\
+=\;& -(a\cdot VcV^{-1})(b\cdot VdV^{-1})\label{equ_step_b_clarify} \\
 =\;& a\wedge\overline{b}\cdot VcV^{-1}\wedge\overline{VdV^{-1}}.
 \end{align}
 We now notice that
