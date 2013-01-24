@@ -109,7 +109,7 @@ The vectors $\nvao$ and $\nvai$ are the familiar null-vectors representing the
 points at origin and infinity, respectively, taken from CGA.
 An inner-product table for these basis vectors is given as follows, where
 $1\leq i<j\leq n$.
-\begin{equation}
+\begin{equation}\label{equ_basis_mul_table}
 \begin{array}{c|cccc}
 \cdot & \nvao & e_i & e_j & \nvai \\
 \hline
@@ -130,17 +130,17 @@ as vector subspaces.  In symbols, one may write
 
 We will use over-bar notation to distinguish between vectors taken from $\V$
 with vectors taken from $\Vb$.  For algebraic purposes, we will find it useful
-to see that the over-bar notation may be defined as an outermorphic function
+to see that the over-bar notation may be defined as a function
 that is also an isomorphism between $\G(\V)$ and $\G(\Vb)$.
 Doing so, we see that for any element $E\in\G(\V)$,
 we may define $\overline{E}\in\G(\Vb)$ as
 \begin{equation}\label{equ_over_bar_func}
-\overline{E} = SES^{-1},
+\overline{E} = S_1ES_1^{-1},
 \end{equation}
-where $S\in\G(\W)$ is the element\footnote{The equivalent of $S$ given in \cite{Parkin12}
-was erroneously referred to as a versor.} given by
+where $S_k\in\G(\W)$ is the element\footnote{The equivalent of $S_k$ given in \cite{Parkin12}
+was erroneously referred to as a versor.  Clearly, $S_k$ is not a versor.} given by
 \begin{equation}\label{equ_isomorphism_versor}
-S = (1+\eminus\eminusb)(1-\eplus\eplusb)\prod_{i=1}^n(1-e_i\overline{e}_i).
+S_k = (1-(-1)^k\eminus\eminusb)(1+(-1)^k\eplus\eplusb)\prod_{i=1}^n(1+(-1)^ke_i\overline{e}_i).
 \end{equation}
 This definition is non-circular if we let the over-bars in equation \eqref{equ_isomorphism_versor}
 be purely notation.  The vectors $\eminus$ and $\eplus$, taken from \cite{LiRockwood},
@@ -152,6 +152,11 @@ are defined as
 The vectors $\eminusb$ and $\eplusb$ are defined similarly in terms of $\nvaob$ and $\nvaib$.
 Defined this way, realize that, like the over-bar function defined in \cite{Parkin12},
 here we have the property that for any vector $v\in\V$, we have $\overline{\overline{v}}=-v$.
+Also notice that
+\begin{equation}
+S_1 = \frac{S_{-1}}{2^{n+2}}.
+\end{equation}
+
 Letting $E$ be any element in $\G(\W)$ in equation \eqref{equ_over_bar_func},
 we extend the over-bar function to be defined on all of $\G(\W)$.
 
@@ -163,13 +168,41 @@ of the original model.
 \begin{defn}\label{def_quadric}
 Referring to an element $E\in\G(\W)$ as a quadric surface, it is representative of such an $n$-dimensional surface as\footnote{Throughout this paper, we let the outer product take precedence
 over the inner product, and the geometric product take precedence over the inner and
-outer products.  The inner product used is that given in \cite{Dorst07}, appendix B,
-equation (B.1).} the set of all points $p\in\V^o$ such that
+outer products.} the set of all points $p\in\V^o$ such that
 \begin{equation}\label{equ_quadric_equation}
 0 = p\wedge\overline{p}\cdot E.
 \end{equation}
 \end{defn}
-From this definition it can be seen that the general form of a quadric $E\in\G(\W)$ is given by
+To be absolutely clear, let us briefly go over the exact definition of the inner product
+we are using here.  The inner product between vectors is defined as being left
+and right distributive over addition, but not generally associative as usual.
+Table \eqref{equ_basis_mul_table} then completes the definition of the inner product among vectors.
+For any vector $v\in\W$ and any $k$-blade $A\in\G(\W)$ with $k>1$, we define
+\begin{align}
+v\cdot A &= (v\cdot A_k)\wedge a_k-(-1)^k(v\cdot a_k)A_k,\label{equ_def_ip_a} \\
+A\cdot v &=-(-1)^kv\cdot A,\label{equ_def_ip_b}
+\end{align}
+where $A$ is factored as $\bigwedge_{i=1}^k a_i$, and $A_i$ denotes
+the outer product $A$ with $a_i$ removed.  Equations \eqref{equ_def_ip_a} and \eqref{equ_def_ip_b}
+recursively define the inner product in terms how we have defined it among vectors.
+For blades $A,B\in\G(\W)$, each of grade $k$ and $l$, respectively, we define
+\begin{equation}\label{equ_blade_blade_dot}
+A\cdot B = \left\{
+\begin{array}{ll}
+A_k\cdot (a_k\cdot B) & \mbox{if $k\leq l$}, \\
+(A\cdot b_1)\cdot B_1 & \mbox{if $k\geq l$},
+\end{array}
+\right.
+\end{equation}
+where here we have used the same notation in factoring $B$ as we
+did for $A$ earlier in equations \eqref{equ_def_ip_a} and \eqref{equ_def_ip_b}.
+Equation \eqref{equ_blade_blade_dot} is another recursive definition.  In the
+case that $k=l$, either part of the piece-wise definition may be used.
+We let the inner product be left and right distributive over addition among
+blades of any grade.
+
+Returning to Definition~\ref{def_quadric}, from it can be seen that the general
+form of a quadric $E\in\G(\W)$ is given by
 \begin{equation}\label{equ_quadric_form}
 E = \sum_{i=1}^k a_i\overline{b}_i,
 \end{equation}
@@ -204,16 +237,20 @@ to render the traced surfaces in Figure~\ref{fig_invert_cylinder_in_sphere_wire}
 or the meshed surfaces in Figure~\ref{fig_invert_cylinder_in_sphere_solid} yet further below.
 
 Of course, using geometric algebra on paper, it might be undesirable and unnecessary to think of
-quadrics in terms of polynomial equations.  A, perhaps, better way to think of quadrics is in terms
+quadrics in terms of polynomial equations.  A perhaps better way to think of quadrics is in terms
 of an element of a geometric algebra whose decomposition
 produces the parameters characterizing the quadric surface.  For example, many common
 quadrics, such as the cylinder, double-cone, spheroid and hyperboloid of two sheets, are the
 solution set in $\V^e$ of the equation
-\begin{equation}
+\begin{equation}\label{equ_common_quadric}
 0 = -r^2 + (x-c)^2 + \lambda((x-c)\cdot v)^2
 \end{equation}
-in the variable $x$.  (An explanation of the parameters $r$, $c$, $v$ and $\lambda$
-was given in \cite{Parkin12}.)  Then, factoring out $-p\overline{p}$, we see that
+in the variable $x\in\V^e$.  Here, $v\in\V^e$ is a unit-length direction
+vector, $c\in\V^e$ is a center, and $r\in\R$ is a radius about that center.
+The scalar $\lambda\in\R$ controls the type and
+extremity of the surface.
+
+Then, factoring $-p\wedge\overline{p}$ out of equation \eqref{equ_common_quadric}, we see that
 the element $E\in\G(\W)$, given by
 \begin{equation}\label{equ_canonical_form_of_common_quadric}
 E=\Omega + \lambda v\overline{v}+2(c+\lambda(c\cdot v)v)\nvaib+
@@ -226,14 +263,17 @@ where $\Omega$ is defined as
 \end{equation}
 Canonical forms similar to \eqref{equ_canonical_form_of_common_quadric}
 can be found for specific geometries, such as planes, spheres, plane-pairs,
-circular cylinders, circular conical surfaces, and so on.
+circular cylinders, circular conical surfaces, and so on.  It is possible to combine
+such forms with addition and subtraction to find other forms, but without as much success as we
+seem to have in CGA, combining its forms in the inner and outer products.
 
 \section{Transformations Supported By The Model}
 
-The main result of this section will depend upon Lemma~\ref{lma_versor_transfer} below;
+The main result of this section, Lemma~\ref{lma_quadric_transform},
+will depend upon Lemma~\ref{lma_versor_transfer} below;
 but first, the following lemma, although perhaps well-known, is given to add further clarification.
 \begin{lem}\label{lma_clarify}
-Given any two vectors $a,b\in\V$, and a versor $V\in\G(\V)$, we have
+Given any two vectors $a,b\in\W$, and a versor $V\in\G(\W)$, we have
 \begin{equation}\label{equ_versor_with_dot}
 a\cdot b=VaV^{-1}\cdot VbV^{-1}.
 \end{equation}
@@ -243,7 +283,7 @@ It suffices to show that $\langle V(a\wedge b)V^{-1}\rangle_0=0$, since
 \begin{equation*}
 a\cdot b + \langle V(a\wedge b)V^{-1}\rangle_0 = \langle VabV^{-1}\rangle_0 = VaV^{-1}\cdot VbV^{-1}.
 \end{equation*}
-A proof by induction is given.  Consider first $\langle v(a\wedge b)v^{-1}\rangle_0$, where $v\in\V$.
+A proof by induction is given.  Consider first $\langle v(a\wedge b)v^{-1}\rangle_0$, where $v\in\W$.
 By direct evaluation, we get
 \begin{equation*}
 \langle v(a\wedge b)v^{-1}\rangle_0 = \frac{1}{|v|}
@@ -266,8 +306,17 @@ the work we did to show that $\langle v(a\wedge b)v^{-1}\rangle_0$ is zero.
 \end{proof}
 Lemma~\ref{lma_clarify} is employed in the step taken from equation
 \eqref{equ_step_a_clarify} to equation \eqref{equ_step_b_clarify} below.
+It is also assumed that the reader is already familiar with the outermorphic
+property of functions of the form $f(A)=VAV^{-1}$, where $A$ is
+a multivector and $V$ is a versor.  Recall that
+\begin{equation}
+f(A) = \bigwedge_{i=1}^k Va_iV^{-1},
+\end{equation}
+in the case that $A$ is a $k$-blade factored as $A=\bigwedge_{i=1}^k a_i$.
+This property is used, for example, in the step taken from equation \eqref{equ_step_c_clarify}
+to \eqref{equ_step_d_clarify} in the lemma to follow.
 \begin{lem}\label{lma_versor_transfer}
-For any versor $V\in\G(\W)$, and any four vectors $a,b,c,d\in\V$, we have
+For any versor $V\in\G(\W)$, and any four vectors $a,b,c,d\in\W$, we have
 \begin{equation}
 V^{-1}aV\wedge\overline{V^{-1}bV}\cdot c\wedge\overline{d} =
 a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1}.
@@ -301,8 +350,8 @@ product to form $V$.  We then notice that
 It now follows that
 \begin{align}
  & a\wedge\overline{b}\cdot VcV^{-1}\wedge\overline{VdV^{-1}} \\
-=\;& a\wedge\overline{b}\cdot (-1)^{2m}V\overline{V}c(V\overline{V})^{-1}\wedge V\overline{Vd}(V\overline{V})^{-1} \\
-=\;& a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1},
+=\;& a\wedge\overline{b}\cdot (-1)^{2m}V\overline{V}c(V\overline{V})^{-1}\wedge V\overline{Vd}(V\overline{V})^{-1}\label{equ_step_c_clarify} \\
+=\;& a\wedge\overline{b}\cdot V\overline{V}(c\wedge\overline{d})(V\overline{V})^{-1},\label{equ_step_d_clarify}
 \end{align}
 which completes the proof.
 \end{proof}
@@ -330,19 +379,27 @@ is exactly the set of all points $p\in\V^\nvao$ such that
 \begin{proof}
 The lemma goes through by the following chain of equalities.
 \begin{align}
- & (\nvao\cdot V^{-1}pV\wedge\nvai)\wedge\overline{(\nvao\cdot V^{-1}pV\wedge\nvai)}\cdot E \\
-=\;& V^{-1}pV\wedge\overline{V^{-1}pV}\cdot E \\
+ & (\nvao\cdot V^{-1}pV\wedge\nvai)\wedge\overline{(\nvao\cdot V^{-1}pV\wedge\nvai)}\cdot E\label{equ_step_e_clarify} \\
+=\;& V^{-1}pV\wedge\overline{V^{-1}pV}\cdot E\label{equ_step_f_clarify} \\
 =\;& p\wedge\overline{p}\cdot(V\overline{V})E(V\overline{V})^{-1}.
 \end{align}
 The first equality holds by the fact that $E$ is of the form \eqref{equ_quadric_form},
 while the second equality holds by Lemma~\ref{lma_versor_transfer}.
 \end{proof}
-A corrollary to Lemma~\ref{lma_quadric_transform} immediately follows.
+A corollary to Lemma~\ref{lma_quadric_transform} immediately follows.
 \begin{cor}\label{cor_quadric_transform}
 If $V\in\G(\V)$ is a versor such that $E'$ in equation \eqref{equ_transformed_surface}
 is of the form \eqref{equ_quadric_form}, then the versor $V\overline{V}$
 represents a transformation closed in the set of all quadric surfaces.
 \end{cor}
+
+To see the step from \eqref{equ_step_e_clarify} to \eqref{equ_step_f_clarify}, the reader must first realize that
+while $V^{-1}pV$ is not necessarily in $\V^o$, the vector
+$\nvao\cdot V^{-1}pV\wedge\nvai$ is always in $\V^o$.  Now realize
+that it doesn't matter if $V^{-1}pV$ is not in $\V^o$ if $E$
+is of the form \eqref{equ_quadric_form}, because this form masks
+off, if you will, the parts of $V^{-1}pV$ that would otherwise
+contribute to the result of the inner product.
 
 The key motivation behind Lemma~\ref{lma_quadric_transform} is
 the observation that the desired transformation of $E$ by $V$ is
@@ -351,9 +408,9 @@ an understanding of how $V^{-1}$ transforms $p$ gives us an understanding
 of what type of geometry we get from equation \eqref{equ_wanted_set} in terms of
 $E$ and $V$.  Lemma~\ref{lma_quadric_transform} then
 shows that this is also the algebraic set of equation \eqref{equ_derived_set}, thereby
-giving us a means of performing desired transformations on elements in $\G(\W)$ representative
+giving us a means of performing desired transformations directly on elements in $\G(\W)$ representative
 of quadric surfaces.
-By Corrollary~\ref{cor_quadric_transform}, what we get
+By Corollary~\ref{cor_quadric_transform}, what we get
 from such a transformation is also a quadric surface, provided that $V$ is a
 versor such that $E'$
 in \eqref{equ_transformed_surface}, like $E$, is also a bivector of the form \eqref{equ_quadric_form}.
@@ -445,7 +502,10 @@ is exactly the set of all point $p\in\V^e$ such that
 \end{equation}
 \end{lem}
 \begin{proof}
-The scalar $\lambda$ clearly divides out of equation \eqref{equ_wanted_set2} so that we may,
+We first note that the function $P$ is a stable mapping.  (See Definition~\ref{def_stable_mapping} below.)
+This insures that $p'$ may correctly be considered a well defined function of $p$.
+
+Now notice that the scalar $\lambda$ clearly cancels out of equation \eqref{equ_wanted_set2} so that we may,
 without loss of generality, let $\lambda=1$.
 Once again applying Lemma~\ref{lma_versor_transfer}, we simply see that
 \begin{equation}
@@ -590,7 +650,8 @@ representative of a surface as the set of all points $p\in\V^e$ such that
 where we define\footnote{The reader should be made aware of the fact
 that we do not need the machinery of the functions $P$ or $[]$ to
 define the function $\rho$.  We could just as easily define $\rho$
-in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)  Furthermore, taking the liberty of defining
+in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)
+Furthermore, taking the liberty of defining
 $\rho$ in other ways, we can easily come up with models of GA capable of representing
 almost any subset of the set of all algebraic sets.} the function $\rho$ as
 \begin{equation}\label{equ_def_of_rho}
@@ -668,7 +729,7 @@ in our current model, however, is not.  Section 4 of \cite{Lasenby05} offers
 a solution to the intersection problem using a different method of utilizing CGA to
 represent conic and quadric surfaces.  See also section 4.2 of \cite{Wareham05}.
 
-\section{Transformations Of Dual And Direct Surfaces}
+\section{Transformations Of Dual And Direct Surfaces}\label{sec_transform_surf}
 
 For a given versor $V\in\G(\V)$,
 and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $v_1\wedge\dots\wedge v_k$
@@ -687,7 +748,7 @@ That is, the set of all $\rho$-form preserving versors in $\G(\B)$ by
 Definition~\ref{def_preserve_point_map}.
 We then need the following definition.
 
-\begin{defn}
+\begin{defn}\label{def_stable_mapping}
 For any mapping $f:\V^e\to\V$, we refer to it as a stable mapping
 if there do not exist distinct scalars $\alpha,\beta\in\R$ and
 distinct points $x,y\in\V^e$ such that
