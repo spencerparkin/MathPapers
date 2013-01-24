@@ -138,7 +138,10 @@ we may define $\overline{E}\in\G(\Vb)$ as
 \overline{E} = S_1ES_1^{-1},
 \end{equation}
 where $S_k\in\G(\W)$ is the element\footnote{The equivalent of $S_k$ given in \cite{Parkin12}
-was erroneously referred to as a versor.  Clearly, $S_k$ is not a versor.} given by
+was erroneously referred to as a versor.  Clearly, $S_k$ is not a versor.  In \cite{Parkin12},
+a mistake was also made in believing that the over-bar function generally preserved the outer product.
+It does not preserve the outer product, but it does preserve the geometric product.
+This allows it to preserve the outer product between orthogonal vectors.} given by
 \begin{equation}\label{equ_isomorphism_versor}
 S_k = (1-(-1)^k\eminus\eminusb)(1+(-1)^k\eplus\eplusb)\prod_{i=1}^n(1+(-1)^ke_i\overline{e}_i).
 \end{equation}
@@ -154,7 +157,7 @@ Defined this way, realize that, like the over-bar function defined in \cite{Park
 here we have the property that for any vector $v\in\V$, we have $\overline{\overline{v}}=-v$.
 Also notice that
 \begin{equation}
-S_1 = \frac{S_{-1}}{2^{n+2}}.
+S_1^{-1} = \frac{S_{-1}}{2^{n+2}}.
 \end{equation}
 
 Letting $E$ be any element in $\G(\W)$ in equation \eqref{equ_over_bar_func},
