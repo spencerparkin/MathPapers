@@ -278,7 +278,7 @@ seem to have in CGA, combining its forms in the inner and outer products.
 
 The main result of this section, Lemma~\ref{lma_quadric_transform},
 will depend upon Lemma~\ref{lma_versor_transfer} below;
-but first, the following three lemmas, although perhaps well-known, are given to add further clarification.
+but first, the following four lemmas, although perhaps well-known, are given to add further clarification.
 Having full confidence in the reader's ability,
 Lemma~\ref{lem_versor_act_on_vector} and Lemma~\ref{lem_versor_act_on_two_blade}
 are given without proof.
@@ -332,9 +332,9 @@ linearly independent.  Clearly equation \eqref{equ_versor_outermorphic_property}
 case that we are dealing with linearly dependent sets.
 
 Assuming that each side of equation \eqref{equ_versor_outermorphic_property} is non-zero,
-we proceed with a proof by induction.  The case $k=1$ is trivial.  Lemma~\ref{lem_versor_act_on_two_blade}
-proves the case $k=2$.  Assume that equation \eqref{equ_versor_outermorphic_property}
-holds for a fixed integer $k\geq 2$.
+we proceed with a proof by strong induction.  The case $k=1$ is trivial.  Lemma~\ref{lem_versor_act_on_two_blade}
+proves the case $k=2$.  Letting $l\geq 2$ be a fixed integer, assume that equation
+\eqref{equ_versor_outermorphic_property} holds for all integers $1\leq k\leq l$.
 We then see that
 \begin{align}
 \bigwedge_{i=1}^k Va_iV^{-1} &= V\left(\bigwedge_{i=1}^{k-1}a_i\right)V^{-1}\wedge Va_kV^{-1}\label{equ_step_A} \\
