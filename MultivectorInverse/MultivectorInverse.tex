@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{On The Multiplicative Inverse Of Multivectors\\With Respect To The Geometric Product}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+We begin by extending the idea of linear independent amoung vectors to that of blades.
+\begin{definition}\label{def_lin_indep_set}
+For a given set $\{A_i\}_{i=1}^n$ of $n$ non-zero blades of various grades, we say that it is
+a linearly independent set if there does not exist a linear combination $L$, given by
+\begin{equation}
+L = \sum_{i=1}^k \alpha_iA_i,
+\end{equation}
+of these blades, where $L=0$ and not all scalars in $\{\alpha_i\}_{i=1}^n$ are zero.
+\end{definition}
+It is clear that if no two blades in $\{A_i\}_{i=1}^n$ are of the same grade, then
+$\{A_i\}_{i=1}^n$ must be a linearly independent set.  If this is not the case, however,
+the set may not be linearly independent.  If a set of blades is not linearly independent,
+we will call it linearly dependent.
+\begin{definition}\label{def_irreducible_set}
+For any given set of $n$ non-zero blades $\{A_i\}_{i=1}^n$, we say that it
+is an irreducible set if there does not exist a set of $m$ non-zero blades $\{B_i\}_{i=1}^m$,
+with $m<n$, such that
+\begin{equation}
+\sum_{i=1}^n A_i=\sum_{i=1}^m B_i.
+\end{equation}
+\end{definition}
+A non-irreducible set will be referred to as reducible.  In the context
+of Definition~\ref{def_irreducible_set}, we will refer to $\{B_i\}_{i=1}^m$
+as a reduction of the set $\{A_i\}_{i=1}^n$.
+
+We now find that the irreducible sets are the linearly independent sets.
+\begin{lemma}
+A given set of $n$ non-zero blades $\{A_i\}_{i=1}^n$ is irreducible if and only if
+it is linearly independent.
+\end{lemma}
+\begin{proof}
+Clearly the lemma goes through in the case $n=1$.  Therefore, we will consider now only the
+cases $n>1$.  We prove the contrapositive in each direction.
+
+Let $\{A_i\}_{i=1}^n$ be a linearly dependent set.  Then, without loss of generality,
+we may write
+\begin{equation}
+A_n = \sum_{i=1}^{n-1}\alpha_i A_i.
+\end{equation}
+Then, for each blade in $\{B_i\}_{i=1}^{n-1}$, letting $B_i=(\alpha_i+1)A_i$, we have
+\begin{equation}
+\sum_{i=1}^n A_i = \sum_{i=1}^{n-1} B_i,
+\end{equation}
+showing that $\{A_i\}_{i=1}^n$ is a reducible set.
+
+Now assume that $\{A_i\}_{i=1}^n$ is a reducible set.  Let $\{B_i\}_{i=1}^m$
+be a linearly independent reduction of this set.  (To find such a set, take
+any reduction of $\{A_i\}_{i=1}^n$ and combine any pair of linearly
+dependent blades until the set is linearly independent.)  Considering now
+$\{B_i\}_{i=1}^m$ to be a basis for a linear space, we must show
+that $\{A_i\}_{i=1}^m$ also spans this space to establish its linear dependence.
+Hmmm...
+\end{proof}
+
+For the discussion to follow, we will find it convenient to think of a
+multivector $M$ as a sum
+\begin{equation}
+M = \sum_{i=1}^n A_i,
+\end{equation}
+where the set of blades $\{A_i\}_{i=1}^n$ is an irreducible set.
+(Clearly a multivector can always be written in terms of such a set.)
+Furthermore, we will overload the notation $M$ as denoting
+both the multivector $M$ and the linear space spanned by
+the set of blades $\{A_i\}_{i=1}^n$.  It will therefore
+make sense to think of multivectors in $M$.
+
+Consider now the multiplicative inverse of a multivector $M$ with
+respect to the geometric product.  The geometric product not being
+generally commutative, we will restrict our attention in this paper to the inverse $M^{-1}$
+of $M$, such that
+\begin{equation}\label{equ_m_m_inv}
+1=MM^{-1}.
+\end{equation}
+Such an inverse may or may not exist.
+If it does exists, it is clearly unique by the zero-product property of the geometric product.
+
+\begin{lemma}\label{lem_inverse_form}
+For any invertible multivector $M$, if it can be written in
+terms of the blades in the irreducible set $\{A_i\}_{i=1}^n$, then its inverse $M^{-1}$ is a linear
+combination of the blades in this set.
+\end{lemma}
+\begin{proof}
+Given such a multivector $M$, it is natural to write $M^{-1}$ as
+\begin{equation}
+M^{-1} = M_0 + M_1,
+\end{equation}
+where $M_0\in M$ and $\mbox{span}(M_1)\cap\mbox{span}(M)=\emptyset$.
+Put another way, for all multivectors $A\in M_0$, we have $A\in M$; and for
+all multivectors $A\in M_1$, we have $A\not\in M_1$.
+Clearly $M^{-1}$ takes on such
+a form, because any multivector may be written in such a form with respect to $M$.
+In the case of $M^{-1}$, however, we must show that $M_1=0$ and
+that $\mbox{span}(M_0)=\mbox{span}(M)$.
+
+To that end, notice that for all $B\in M_1$, it is clear that there
+does not exist a blade $A\in M$ such that $\langle AB\rangle_0$ is a non-zero scalar.
+It follows that $\langle MB\rangle_0=0$, and then that $\langle MM_1\rangle_0=0$.
+It then follows that
+\begin{equation}
+1 = MM^{-1} = \langle MM^{-1}\rangle_0 = \langle MM_0\rangle_0 + \langle MM_1\rangle_0
+\end{equation}
+if and only if $\langle MM_0\rangle_0=1$ and $\langle MM_1\rangle_0=0$.
+Now notice that there does not exist a multivector $A\in M_0$ and a multivector
+$B\in M_1$ such that
+\begin{equation}
+MA+MB=0.
+\end{equation}
+It follows that for all integers $i>0$, we must have $\langle MM_0\rangle_i=0$
+and $\langle MM_1\rangle_i=0$.  We can now say that
+\begin{equation}
+1 = MM^{-1} = MM_0 + MM_1
+\end{equation}
+if and only if $MM_0=1$ and $MM_1=0$, and therefore
+$M_1=0$ by the zero product property.
+
+What we want to show now is that $\mbox{span}(M_0)=\mbox{span}(M)$.
+It is clear by definition that $\mbox{span}(M_0)\subseteq\mbox{span}(M)$.
+\end{proof}
+
+Knowing the form of which $M^{-1}$ takes on
+in terms of $M$ brings us a long way towards formulating $M^{-1}$
+in terms of $M$.  Writing $M=\sum_{i=1}^n A_i$ and then
+$M^{-1}=\sum_{i=1}^n \alpha_i A_i^{-1}$, we may now expand
+equation \eqref{equ_m_m_inv} to arrive at the following system of equations.
+\begin{align}
+1 &= \sum_{i=1}^n \alpha_i \\
+0 &= \sum_{i=1}^n\sum_{j=i+1}^n\left(\alpha_iA_jA_i^{-1}+\alpha_jA_iA_j^{-1}\right).
+\end{align}
+Recall that for any non-zero blade $A_i$ that $A_i^{-1}$ and $A_i$ are scalar multiples
+of one another.  We may therefore apply Lemma~\ref{lem_inverse_form} in writing $M^{-1}$
+as $\sum_{i=1}^n \alpha_i A_i^{-1}$.
+
+\end{document}
