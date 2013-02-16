@@ -133,23 +133,18 @@ as vector subspaces.  In symbols, one may write
 
 We will use over-bar notation to distinguish between vectors taken from $\V$
 with vectors taken from $\Vb$.  For algebraic purposes, we will find it useful
-to see that the over-bar notation may be defined as a function
-that is also an isomorphism between $\G(\V)$ and $\G(\Vb)$.
-Doing so, we see that for any element $E\in\G(\V)$,
-we may define $\overline{E}\in\G(\Vb)$ as
+to see that the over-bar notation may be defined as a bijective function
+from $\V$ to $\Vb$.
+Doing so, we see that for any element $E\in\V$,
+we may define $\overline{E}\in\Vb$ as
 \begin{equation}\label{equ_over_bar_func}
 \overline{E} = S_1ES_1^{-1},
 \end{equation}
-where $S_k\in\G(\W)$ is the element\footnote{The equivalent of $S_k$ given in \cite{Parkin12}
-was erroneously referred to as a versor.  Clearly, $S_k$ is not a versor.  In \cite{Parkin12},
-a mistake was also made in believing that the over-bar function generally preserved the outer product.
-It does not preserve the outer product, but it does preserve the geometric product.
-This allows it to preserve the outer product between orthogonal vectors.  Lastly, if we
-were to utilize the ``mother algebra'' in \cite{DoranHestenes93}, then $S_k$ would be a versor.} given by
-\begin{equation}\label{equ_isomorphism_versor}
+where $S_k\in\G(\W)$ is the element given by
+\begin{equation}\label{equ_s_sub_k}
 S_k = (1-(-1)^k\eminus\eminusb)(1+(-1)^k\eplus\eplusb)\prod_{i=1}^n(1+(-1)^ke_i\overline{e}_i).
 \end{equation}
-This definition is non-circular if we let the over-bars in equation \eqref{equ_isomorphism_versor}
+This definition is non-circular if we let the over-bars in equation \eqref{equ_s_sub_k}
 be purely notation.  The vectors $\eminus$ and $\eplus$, taken from \cite{LiRockwood},
 are defined as
 \begin{align}
@@ -165,7 +160,11 @@ S_1^{-1} = \frac{S_0}{2^{n+2}}.
 \end{equation}
 
 Letting $E$ be any element in $\G(\W)$ in equation \eqref{equ_over_bar_func},
-we extend the over-bar function to be defined on all of $\G(\W)$.
+we extend the over-bar function to be defined on all of $\G(\W)$.  If it could be
+shown that $S_k$ in \eqref{equ_s_sub_k} was a versor, we could now conclude
+that the over-bar function was an outermorphism.  Interestingly, despite the
+fact that $S_k$ is not a versor, we will be
+able to show later on that the over-bar function is never-the-less an outermorphism.
 
 \section{The Form Of Quadric Surfaces In $\G(\W)$}
 
@@ -693,7 +692,8 @@ representative of a surface as the set of all points $p\in\V^e$ such that
 0 = \rho(p)\cdot v,
 \end{equation}
 where we define\footnote{The reader should be made aware of the fact
-that we do not need the machinery of the functions $P$ or $[]$ to
+that we do not need the machinery of the over-bar function, nor
+that of the functions $P$ or $[]$, to
 define the function $\rho$.  We could just as easily define $\rho$
 in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)
 Furthermore, taking the liberty of defining
@@ -890,9 +890,9 @@ To see this, realize that $\Go(B)=\Gi(BI)$, and then that
 where $I$ is the unit psuedo-scalar of $\G(\B)$.  This shows that
 direct surfaces are affected by versors in the same way that dual surface are.
 
-The challenge now is to find a $\rho$-form preserving versor $V$ and then
+The challenge now is to find a stable $\rho$-form preserving versor $V$ and then
 understand the mapping from $\V^e$ to $\V^e$ it induces through
-the use of $\rho$.  We will have to leave this as
+the use of $\rho$.  Not yet being able find such a mapping, we will have to leave this as
 an open question for now.
 
 \section{Closing Remarks}
