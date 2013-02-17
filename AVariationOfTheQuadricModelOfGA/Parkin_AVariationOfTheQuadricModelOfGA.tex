@@ -1004,11 +1004,16 @@ equation \eqref{equ_algebraic_set}.  The subset of the set of all algebraic sets
 you are able to represent this way using blades $B$ of your geometric algebra is
 simply determined by how you choose to define the vector-valued function $\rho$.
 A realization that this is an algebraic set, (the zero set of one or more polynomial equations),
-is had by a second visit to equation \eqref{equ_def_ip_a}, expanding it as
+is had by a revisitation of equation \eqref{equ_def_ip_a}.  Utilizing and expanding
+this equation, we see that
 \begin{equation}
-v\cdot A = -\sum_{i=1}^k (-1)^i(v\cdot a_i)A_i.
+0 = \rho(p)\cdot B = -\sum_{i=1}^k (-1)^i(\rho(p)\cdot b_i)B_i.
 \end{equation}
-(Notice that $\{A_i\}_{i=1}^k$ is a linearly independent set.)
+It is now clear that
+\begin{equation}
+\Gi(B) = \bigcap_{i=1}^k \Gi(b_i),
+\end{equation}
+since $\{B_i\}_{i=1}^k$ is a linearly independent set.
 
 One of the results of this paper then shows that in searching for such a function
 $\rho$, the properties of stability and form preservation are desirable in one
