@@ -162,7 +162,7 @@ S_1^{-1} = \frac{S_0}{2^{n+2}}.
 Letting $E$ be any element in $\G(\W)$ in equation \eqref{equ_over_bar_func},
 we extend the over-bar function to be defined on all of $\G(\W)$.  If it could be
 shown that $S_k$ in \eqref{equ_s_sub_k} was a versor, we could now conclude
-that the over-bar function was an outermorphism.  Interestingly, despite the
+that the over-bar function is an outermorphism.  Interestingly, despite the
 fact that $S_k$ is not a versor, we will be
 able to show later on that the over-bar function is never-the-less an outermorphism.
 
@@ -303,7 +303,7 @@ which completes the proof by induction.
 \end{proof}
 
 Of course, Lemma~\ref{lem_versor_act_on_vector} is not unique to our geometric algebra $\G(\W)$ as it
-applies to any geometric algebra.  We will find this to be the case with lemmas \ref{lem_versor_property_with_ip}
+applies to any geometric algebra.  We will find this to be the case with the lemmas \ref{lem_versor_property_with_ip}
 and \ref{lem_versor_outermorphic_property} to follow.
 
 \begin{lem}\label{lem_versor_property_with_ip}
@@ -355,7 +355,6 @@ consider the cases $i=0$, $i=1$ and $i=2$ in the expression $\langle vX_iv^{-1}\
 For the case $i=0$, this expression is zero by our inductive hypothesis.
 For the case $i=1$, this expression is zero by inspection.  For the case $i=2$, this
 expression is zero by the same work we did to show our result in equation \eqref{equ_det_vabv_zero}.
-
 \end{proof}
 
 \begin{lem}\label{lem_versor_outermorphic_property}
@@ -420,7 +419,7 @@ We now need only observe that
 \end{equation}
 \end{proof}
 We are now ready to prove that the over-bar function is an outermorphism.
-\begin{lem}
+\begin{lem}\label{lem_overbar_outermorph}
 For any set of $k$-vectors $\{a_i\}_{i=1}^k$, we have
 \begin{equation}
 \overline{A}=\bigwedge_{i=1}^k\overline{a}_i.
@@ -429,7 +428,8 @@ where here we have let $A=\bigwedge_{i=1}^k a_i$.
 \end{lem}
 \begin{proof}
 Revisit the proof of Lemma~\ref{lem_versor_outermorphic_property},
-replacing $V$ with $S_1$, and replacing the application of Lemma~\ref{lem_versor_property_with_ip}
+replacing $V$ with $S_1$ of equation \eqref{equ_s_sub_k},
+and replacing the application of Lemma~\ref{lem_versor_property_with_ip}
 with that of Lemma~\ref{lem_overbar_property_with_ip}.  We have already established
 by definition that Lemma~\ref{lem_versor_act_on_vector} holds when $V$ is replaced by $S_1$.
 \end{proof}
@@ -438,11 +438,23 @@ Knowing that the over-bar function is an outermorphism gives it great
 ease of use while performing algebraic manipulations.  Admittedly, this knowledge
 was requisite to the paper \cite{Parkin12}, though not proved until now.
 
+Having now set forth lemmas \ref{lem_versor_act_on_vector} through
+\ref{lem_overbar_outermorph},
+we are ready to tackle our main result.  For brevity, Lemmas
+\ref{lem_versor_act_on_vector} through
+\ref{lem_overbar_outermorph} are invoked as needed
+without making any explicit reference to them.
+For example, 
+Lemma~\ref{lem_versor_property_with_ip}
+is employed in the step taken from equation
+\eqref{equ_step_a_clarify} to equation \eqref{equ_step_b_clarify} below.
 Lemma~\ref{lem_versor_outermorphic_property} is used in the step taken
 from equation \eqref{equ_step_c_clarify}
-to \eqref{equ_step_d_clarify} in the lemma to follow.
-Lemma~\ref{lma_clarify} is employed in the step taken from equation
-\eqref{equ_step_a_clarify} to equation \eqref{equ_step_b_clarify}.
+to \eqref{equ_step_d_clarify}.  We will often make use of the fact
+that the over-bar function preserves the geometric product, and in the
+case that we might require its preservation the outer product,
+Lemma~\ref{lem_overbar_outermorph} justifies our use of this property.
+
 \begin{lem}\label{lma_versor_transfer}
 For any versor $V\in\G(\W)$, and any four vectors $a,b,c,d\in\W$, we have
 \begin{equation}
@@ -778,18 +790,19 @@ representative of a surface as the set of all points $p\in\V^e$ such that
 where we define\footnote{The reader should be made aware of the fact
 that we do not need the machinery of the over-bar function, nor
 that of the functions $P$ or $[]$, to
-define the function $\rho$.  We could just as easily define $\rho$
+define the function $\rho$.  Thougn not as easily, we could have defined $\rho$
 in terms of any basis of $\G(\B)$ using elementary functions (addition and multiplication.)
 Furthermore, taking the liberty of defining
 $\rho$ in other ways, we can easily come up with models of GA capable of representing
-almost any subset of the set of all algebraic sets.} the function $\rho$ as
+almost any subset of the set of all algebraic sets.  This is clarified in the closing remarks.}
+the function $\rho$ as
 \begin{equation}\label{equ_def_of_rho}
 \rho(p) = [P(p)\overline{P(p)}].
 \end{equation}
 The notions of dual and direct surfaces
 would then emerge as they do in CGA.  A blade $B\in\G(\B)$ is dually representative
 of a surface as the set $\Gi(B)$, defined as
-\begin{equation}
+\begin{equation}\label{equ_algebraic_set}
 \Gi(B) = \{p\in\V^e|0=\rho(p)\cdot B\}.
 \end{equation}
 A blade $B\in\G(\B)$ is directly representative of a surface as the set $\Go(B)$,
@@ -974,7 +987,7 @@ To see this, realize that $\Go(B)=\Gi(BI)$, and then that
 where $I$ is the unit psuedo-scalar of $\G(\B)$.  This shows that
 direct surfaces are affected by versors in the same way that dual surface are.
 
-The challenge now is to find a stable $\rho$-form preserving versor $V$ and then
+The challenge now is to find a $\rho$-form preserving versor $V$ and then
 understand the mapping from $\V^e$ to $\V^e$ it induces through
 the use of $\rho$.  Not yet being able find such a mapping, we will have to leave this as
 an open question for now.
@@ -986,11 +999,30 @@ introduction to the subject of algebraic geometry is given in \cite{Milne12}.
 Not surprisingly, and perhaps ironically, there is no mention of geometric algebra; although
 one might presume at first glance that the similarly named subjects would have a great deal to do
 with one another.  From the present paper, a method for using blades of a geometric
-algebra to represent algebraic sets generated by polynomials of any form, though not specifically stated,
-can now be inferred, and it is quite trivial.  Algebraic geometry, however, has grown far beyond
+algebra to represent algebraic sets generated by polynomials of any form, though not specifically stated, can now be inferred, and it is quite trivial.  Simply take a second glance at
+equation \eqref{equ_algebraic_set}.  The subset of the set of all algebraic sets
+you are able to represent this way using blades $B$ of your geometric algebra is
+simply determined by how you choose to define the vector-valued function $\rho$.
+A realization that this is an algebraic set, (the zero set of one or more polynomial equations),
+is had by a second visit to equation \eqref{equ_def_ip_a}, expanding it as
+\begin{equation}
+v\cdot A = -\sum_{i=1}^k (-1)^i(v\cdot a_i)A_i.
+\end{equation}
+(Notice that $\{A_i\}_{i=1}^k$ is a linearly independent set.)
+
+One of the results of this paper then shows that in searching for such a function
+$\rho$, the properties of stability and form preservation are desirable in one
+method of coming to
+an understanding of how versors transform the geometries
+(algebraic sets) represented by blades $B$ of the geometric algebra.
+
+Algebraic geometry, however, has grown far beyond
 algebraic sets as the central objects of study.  Not being competent in geometric calculus,
-much less the vast and arcane subject of algebraic geometry, the author cannot pursue
-a reformulation of any part of one subject with the other, but surely others can and will.
+much less the vast and arcane subject of algebraic geometry, the author cannot hope to pursue
+a reformulation of even the tiniest part of one subject with the other.  Assuming it
+is even possible or practical to do so, perhaps someone possessing
+a great deal more genius and mathematical fortitude than the present author,
+(someone not at all hard to find), will accomplish such a task.
 Until then, geometric algebra continues to offer fun and interesting ways to do geometry
 with models such as CGA and perhaps the newly established model of this paper.
 
