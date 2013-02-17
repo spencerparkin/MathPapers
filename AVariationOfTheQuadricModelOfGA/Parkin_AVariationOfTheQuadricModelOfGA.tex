@@ -278,16 +278,9 @@ seem to have in CGA, combining its forms in the inner and outer products.
 
 \section{Transformations Supported By The Model}
 
-%
-% These initial lemmas need to be revisited.  Can we show that V can be replaced by S_1?!
-%
-
 The main result of this section, Lemma~\ref{lma_quadric_transform},
 will depend upon Lemma~\ref{lma_versor_transfer} below;
-but first, the following four lemmas, although perhaps well-known, are given to add further clarification.
-Having full confidence in the reader's ability,
-Lemma~\ref{lem_versor_act_on_vector} and Lemma~\ref{lem_versor_act_on_two_blade}
-are given without proof.
+but first, the immediately following lemmas, although perhaps well-known, are given to add further clarification.
 
 \begin{lem}\label{lem_versor_act_on_vector}
 For any vector $a\in\W$ and any versor $V\in\G(\W)$, we have
@@ -295,41 +288,83 @@ For any vector $a\in\W$ and any versor $V\in\G(\W)$, we have
 VaV^{-1}\in\W.
 \end{equation}
 \end{lem}
-
-\begin{lem}\label{lem_versor_act_on_two_blade}
-For any two vectors $a,b\in\W$ and any versor $V\in\G(\W)$, we have
+\begin{proof}
+It is left to the reader to prove that $VaV^{-1}$ is a vector when $V$ is a vector.
+Letting $V=\prod_{i=1}^k v_k$, where $\{v_i\}_{i=1}^k$ is
+a set of $k$ vectors, form the inductive hypothesis that for any vector $a\in\W$, we have
 \begin{equation}
-V(a\wedge b)V^{-1}=VaV^{-1}\wedge VbV^{-1}.
+(Vv_k^{-1})a(Vv_k^{-1})^{-1}\in\W.
 \end{equation}
-\end{lem}
-Notice that versors, acting on vectors and 2-blades in a sandwich-like product,
-preserve grade.  Ultimately we will want to show the grade preserving nature that versors have
-when applied to blades of any grade in a sandwich-like fashion.
+We then see that
+\begin{equation}
+VaV^{-1} = (Vv_k^{-1}v_k)a(Vv_k^{-1}v_k)^{-1} = (Vv_k^{-1})(v_kav_k^{-1})(Vv_k)^{-1}\in\W,
+\end{equation}
+which completes the proof by induction.
+\end{proof}
 
-\begin{lem}\label{lma_clarify}
+Of course, Lemma~\ref{lem_versor_act_on_vector} is not unique to our geometric algebra $\G(\W)$ as it
+applies to any geometric algebra.  We will find this to be the case with lemmas \ref{lem_versor_property_with_ip}
+and \ref{lem_versor_outermorphic_property} to follow.
+
+\begin{lem}\label{lem_versor_property_with_ip}
 Given any two vectors $a,b\in\W$, and a versor $V\in\G(\W)$, we have
-\begin{equation}\label{equ_versor_with_dot}
-a\cdot b=VaV^{-1}\cdot VbV^{-1}.
+\begin{equation}
+a\cdot b = VaV^{-1}\cdot VbV^{-1}.
 \end{equation}
 \end{lem}
 \begin{proof}
-Simply notice that
+It suffices to show that
+\begin{equation}\label{equ_scalar_part_of_VabV}
+\langle V(a\wedge b)V^{-1}\rangle_0=0,
+\end{equation}
+since
 \begin{align}
-VaV^{-1}\cdot VbV^{-1} &= \langle VaV^{-1}VbV^{-1}\rangle_0 \\
- &= \langle VabV^{-1}\rangle_0 \\
- &= \langle (a\cdot b)VV^{-1}\rangle_0 + \langle V(a\wedge b)V^{-1}\rangle_0 \\
- &= a\cdot b + \langle VaV^{-1}\wedge VbV^{-1}\rangle_0.
+ & a\cdot b + \langle V(a\wedge b)V^{-1}\rangle_0 \\
+=\;& \langle V(a\cdot b + a\wedge b)V^{-1}\rangle_0 \\
+=\;& \langle VabV^{-1}\rangle_0 \\
+=\;& \langle VaV^{-1}VbV^{-1}\rangle_0 \\
+=\;& VaV^{-1}\cdot VbV^{-1}
 \end{align}
-It is now clear that $\langle VaV^{-1}\wedge VbV^{-1}\rangle_0=0$
-by Lemma~\ref{lem_versor_act_on_two_blade}.
+by Lemma~\ref{lem_versor_act_on_vector}.  Considering first the
+case $\langle v(a\wedge b)v^{-1}\rangle_0$, where $v\in\W$, we see
+by direct evaluation that
+\begin{equation}\label{equ_det_vabv_zero}
+\langle v(a\wedge b)v^{-1}\rangle_0=\frac{1}{v^2}\left|
+\begin{array}{cc}
+v\cdot a & v\cdot a \\
+v\cdot b & v\cdot b
+\end{array}\right|=0.
+\end{equation}
+Suppose now that for a fixed integer $k$, the versor $V$, being the geometric
+product of $k$ vectors, satisfies equation \eqref{equ_scalar_part_of_VabV}.
+Then, to complete our proof by induction, we must now show that
+\begin{equation}
+\langle vV(a\wedge b)(vV)^{-1}\rangle_0=\langle vV(a\wedge b)V^{-1}v^{-1}\rangle_0=0.
+\end{equation}
+To that end, we write
+\begin{equation}\label{equ_sum_vev_zero}
+\langle vV(a\wedge b)V^{-1}v^{-1}\rangle_0 = \left\langle v\left(\sum_{i=0}^m X_i\right)v^{-1}\right\rangle_0,
+\end{equation}
+where $X_i$ is given by
+\begin{equation}
+X_i = \langle V(a\wedge b)V^{-1}\rangle_i,
+\end{equation}
+and where $m=n+2$.  Clearly, however, we may allow the condition $m\leq 2$, because
+we're only interested in the grade zero part in equation \eqref{equ_sum_vev_zero}.  This leaves us to
+consider the cases $i=0$, $i=1$ and $i=2$ in the expression $\langle vX_iv^{-1}\rangle_0$.
+For the case $i=0$, this expression is zero by our inductive hypothesis.
+For the case $i=1$, this expression is zero by inspection.  For the case $i=2$, this
+expression is zero by the same work we did to show our result in equation \eqref{equ_det_vabv_zero}.
+
 \end{proof}
 
 \begin{lem}\label{lem_versor_outermorphic_property}
 For any set of $k$-vectors $\{a_i\}_{i=1}^k$, and a versor $V\in\G(\W)$,
 we have
 \begin{equation}\label{equ_versor_outermorphic_property}
-V\left(\bigwedge_{i=1}^k a_i\right)V^{-1} = \bigwedge_{i=1}^k Va_iV^{-1}.
+VAV^{-1} = \bigwedge_{i=1}^k Va_iV^{-1},
 \end{equation}
+where here we have let $A=\bigwedge_{i=1}^k a_i$.
 \end{lem}
 \begin{proof}
 It is not hard to show that the set $\{a_i\}_{i=1}^k$ is linearly
@@ -337,22 +372,71 @@ independent if and only if the set $\{Va_iV^{-1}\}_{i=1}^k$ is
 linearly independent.  Clearly equation \eqref{equ_versor_outermorphic_property} holds in the
 case that we are dealing with linearly dependent sets.
 
-Assuming that each side of equation \eqref{equ_versor_outermorphic_property} is non-zero,
-we proceed with a proof by strong induction.  The case $k=1$ is trivial.  Lemma~\ref{lem_versor_act_on_two_blade}
-proves the case $k=2$.  Letting $l\geq 2$ be a fixed integer, assume that equation
-\eqref{equ_versor_outermorphic_property} holds for all integers $1\leq k\leq l$.
-We then see that
+Assuming now that $A$ is a non-zero blade, we will procede with yet
+another proof by induction.  We first notice that our lemma trivially holds in the case $k=1$.
+For the case $k=2$, notice that
 \begin{align}
-\bigwedge_{i=1}^k Va_iV^{-1} &= V\left(\bigwedge_{i=1}^{k-1}a_i\right)V^{-1}\wedge Va_kV^{-1}\label{equ_step_A} \\
- &= \left\langle V\left(\bigwedge_{i=1}^{k-1} a_i\right)a_kV^{-1}\right\rangle_k\label{equ_step_B} \\
- &= \left\langle\left(V\left(\bigwedge_{i=1}^{k-1} a_i\right)\cdot a_k\right)V^{-1}\right\rangle_k +
-\left\langle V\left(\bigwedge_{i=1}^k a_i\right)V^{-1}\right\rangle_k\label{equ_step_C} \\
- &= V\left(\bigwedge_{i=1}^k a_k\right)V^{-1}.\label{equ_step_D}
+ & V(a_1\wedge a_2)V^{-1} \\
+ =\;& V(a_1a_2-a_1\cdot a_2)V^{-1} \\
+ =\;& Va_1a_2V^{-1}-a_1\cdot a_2 \\
+ =\;& Va_1V^{-1}Va_2V^{-1}-Va_1V^{-1}\cdot Va_2V^{-1} \\
+ =\;& Va_1V^{-1}\wedge Va_2V^{-1}
 \end{align}
-That we're interested in the grade $k$ part in equation \eqref{equ_step_B} is clear by noticing
-that the left-hand side of equation \eqref{equ_step_A} is of grade $k$ by Lemma~\ref{lem_versor_act_on_vector}.
-Our inductive hypothesis was invoked in equation \eqref{equ_step_A} as well as in equation \eqref{equ_step_C}.
+by Lemma~\ref{lem_versor_property_with_ip} and Lemma~\ref{lem_versor_act_on_vector}.
+We now make the inductive hypothesis that for a fixed integer $k>2$, that our
+lemma holds for the cases $k-1$ and $k-2$.
+
+%equ_def_ip_a
+
 \end{proof}
+
+Similar to Lemma~\ref{lem_versor_property_with_ip}, the following
+lemma will help us prove the outermorphic property of the over-bar function.
+\begin{lem}\label{lem_overbar_property_with_ip}
+Given any two vectors $a,b\in\W$, we have
+\begin{equation}
+a\cdot b = \overline{a}\cdot\overline{b}.
+\end{equation}
+\end{lem}
+\begin{proof}
+Let $a=a_v+a_{\overline{v}}$ with $a_v\in\V$ and $a_{\overline{v}}\in\Vb$.
+Similarly, let $b=b_v+b_{\overline{v}}$.  We then see that
+\begin{equation}
+a\cdot b = a_v\cdot b_v + a_{\overline{v}}\cdot b_{\overline{v}},
+\end{equation}
+since any vector in $\V$ is orthogonal to any vector in $\Vb$.
+It is then trivial to see that $a_v\cdot b_v=\overline{a}_v\cdot\overline{b}_v$ by
+our definition of the over-bar function in equation \eqref{equ_over_bar_func}.
+Furthermore, we see that
+\begin{equation}
+a_{\overline{v}}\cdot b_{\overline{v}}=
+(-\overline{a}_{\overline{v}})\cdot(-\overline{b}_{\overline{v}})=
+\overline{a}_{\overline{v}}\cdot\overline{b}_{\overline{v}}.
+\end{equation}
+We now need only observe that
+\begin{equation}
+\overline{a}\cdot\overline{b}=\overline{a}_v\cdot\overline{b}_v +
+\overline{a}_{\overline{v}}\cdot\overline{b}_{\overline{v}}.
+\end{equation}
+\end{proof}
+We are now ready to prove that the over-bar function is an outermorphism.
+\begin{lem}
+For any set of $k$-vectors $\{a_i\}_{i=1}^k$, we have
+\begin{equation}
+\overline{A}=\bigwedge_{i=1}^k\overline{a}_i.
+\end{equation}
+where here we have let $A=\bigwedge_{i=1}^k a_i$.
+\end{lem}
+\begin{proof}
+Revisit the proof of Lemma~\ref{lem_versor_outermorphic_property},
+replacing $V$ with $S_1$, and replacing the application of Lemma~\ref{lem_versor_property_with_ip}
+with that of Lemma~\ref{lem_overbar_property_with_ip}.  We have already established
+by definition that Lemma~\ref{lem_versor_act_on_vector} holds when $V$ is replaced by $S_1$.
+\end{proof}
+
+Knowing that the over-bar function is an outermorphism gives it great
+ease of use while performing algebraic manipulations.  Admittedly, this knowledge
+was requisite to the paper \cite{Parkin12}, though not proved until now.
 
 Lemma~\ref{lem_versor_outermorphic_property} is used in the step taken
 from equation \eqref{equ_step_c_clarify}
