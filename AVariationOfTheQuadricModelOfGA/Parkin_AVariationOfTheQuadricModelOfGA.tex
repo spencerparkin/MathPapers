@@ -384,8 +384,23 @@ For the case $k=2$, notice that
 by Lemma~\ref{lem_versor_property_with_ip} and Lemma~\ref{lem_versor_act_on_vector}.
 We now make the inductive hypothesis that for a fixed integer $k>2$, that our
 lemma holds for the cases $k-1$ and $k-2$.
+To simplify the algebra, we will let $B$ be the blade given by $\bigwedge_{i=1}^k b_i$,
+where for each integer $i\in[1,k]$, we have $b_i=Va_iV^{-1}$.  Our proof by
+induction is then completed when we see that
+\begin{align}
+ & VAV^{-1} \\
+=\;& V(a_1A_1 - a_1\cdot A_1)V^{-1} \\
+=\;& Va_1A_1V^{-1} - V(a_1\cdot A_1)V^{-1} \\
+=\;& Va_1V^{-1}VA_1V^{-1} - V\left(\sum_{i=2}^k(-1)^i(a_1\cdot a_j)(A_1)_i\right)V^{-1} \\
+=\;& b_1B_1 - \sum_{i=2}^k(-1)^i(Va_1V^{-1}\cdot Va_iV^{-1})V(A_1)_iV^{-1} \\
+=\;& b_1B_1 - \sum_{i=2}^k(-1)^i(b_1\cdot b_i)(B_1)_i \\
+=\;& B.
+\end{align}
+Here, for any $k$-blade $C=\bigwedge_{i=1}^k c_i$, we have re-used the notation $C_i$ as denoting
+the blade $C$ with $c_i$ removed.  The blade $(C_i)_j$ is the blade $C$ with $c_i$ and $c_j$ removed.
 
-%equ_def_ip_a
+Our inductive hypothesis was invoked above in letting $VA_1V^{-1}=B_1$, and in
+letting $V(A_1)_iV^{-1}=(B_1)_i$.
 
 \end{proof}
 
@@ -1037,7 +1052,9 @@ It is now clear that
 \begin{equation}
 \Gi(B) = \bigcap_{i=1}^k \Gi(b_i),
 \end{equation}
-since $\{B_i\}_{i=1}^k$ is a linearly independent set.
+since $\{B_i\}_{i=1}^k$ is a linearly independent set.  We may think of $\rho$ as
+defining the form of each polynomial equation while thinking of each $b_i$ as
+an instantiation of that form, it containing the desired coeficients of the polynomial.
 
 One of the results of this paper then shows that in searching for such a function
 $\rho$, the properties of stability and form preservation are desirable in one
