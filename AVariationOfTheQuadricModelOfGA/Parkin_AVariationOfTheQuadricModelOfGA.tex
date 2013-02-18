@@ -392,9 +392,9 @@ induction is then completed when we see that
 =\;& V(a_1A_1 - a_1\cdot A_1)V^{-1} \\
 =\;& Va_1A_1V^{-1} - V(a_1\cdot A_1)V^{-1} \\
 =\;& Va_1V^{-1}VA_1V^{-1} - V\left(\sum_{i=2}^k(-1)^i(a_1\cdot a_j)(A_1)_i\right)V^{-1} \\
-=\;& b_1B_1 - \sum_{i=2}^k(-1)^i(Va_1V^{-1}\cdot Va_iV^{-1})V(A_1)_iV^{-1} \\
+=\;& Va_1V^{-1}B_1 - \sum_{i=2}^k(-1)^i(Va_1V^{-1}\cdot Va_iV^{-1})V(A_1)_iV^{-1} \\
 =\;& b_1B_1 - \sum_{i=2}^k(-1)^i(b_1\cdot b_i)(B_1)_i \\
-=\;& B.
+=\;& b_1B_1 - b_1\cdot B_1 = B.
 \end{align}
 Here, for any $k$-blade $C=\bigwedge_{i=1}^k c_i$, we have re-used the notation $C_i$ as denoting
 the blade $C$ with $c_i$ removed.  The blade $(C_i)_j$ is the blade $C$ with $c_i$ and $c_j$ removed.
