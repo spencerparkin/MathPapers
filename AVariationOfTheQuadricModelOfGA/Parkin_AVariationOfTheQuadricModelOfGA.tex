@@ -643,7 +643,7 @@ is exactly the set of all point $p\in\V^e$ such that
 \end{lem}
 \begin{proof}
 We first note that the function $P$ is a stable mapping.  (See Definition~\ref{def_stable_mapping} below.)
-This insures that $p'$ may correctly be considered a well defined function of $p$.
+This insures that $p'$ may be correctly considered a well defined function of $p$.
 
 Now notice that the scalar $\lambda$ clearly cancels out of equation \eqref{equ_wanted_set2} so that we may,
 without loss of generality, let $\lambda=1$.
@@ -873,14 +873,37 @@ represent conic and quadric surfaces.  See also section 4.2 of \cite{Wareham05}.
 
 \section{Transformations Of Dual And Direct Surfaces}\label{sec_transform_surf}
 
+As we've been able to see, using blades, not bivectors, to represent the geometries
+of our model allows us to recover one of the benefits enjoyed by CGA in its ability to
+perform operations on geometry that result as a consequence of the
+operations we can perform on sub-spaces.  Switching to blades, what we would
+hope to be able to do at this point is preserve the transformations we have
+already developed.  The question is as follows.  For a given quartic $E\in\G(\W)$
+and a versor $V\in\G(\V)$, does there exist a versor $Q\in\G(\B)$ such that
+\begin{equation}
+Q[E]Q^{-1} = [V\overline{V}E(V\overline{V})^{-1}]?
+\end{equation}
+Unfortunately, considering $V$ to be a vector,
+there appears only to exist such a versor $Q$ in the special
+case that $E$ is a 2-blade $a\wedge\overline{b}$ with $a,b\in\V$, and
+that $V\cdot a=0$ or $V\cdot b=0$.  In this case, $Q$ is the rotor given by
+\begin{equation}
+Q = [\overline{V}\wedge a^{-1}][\overline{b}^{-1}\wedge V],
+\end{equation}
+which, sadly, does not depend upon $V$ alone.
+
+Alternatively, we might consider allowing our model to utilize the geometric
+algebras $\G(\W)$ and $\G(\B)$ in concert with one another.
 For a given versor $V\in\G(\V)$,
 and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $v_1\wedge\dots\wedge v_k$
 of $B$, then the transformation $B'$ of $B$ by $V$ would be given by
 \begin{equation}
 B' = \bigwedge_{i=1}^k [V\overline{V}[v_i]^{-1}(V\overline{V})^{-1}].
 \end{equation}
-(See \cite{Fontijne10} on the problem of factoring blades.)  It is unfortunate that we would
-have to bother finding such a factorization in order to apply a given transformation.
+(See \cite{Fontijne10} on the problem of factoring blades.)  It is unfortunate, however,
+that we would have to bother finding such a factorization in order to apply a given
+transformation.  Not wanting our model to be spread across two geometric algebras
+working in conjunction with one another, we now consider $\G(\B)$ alone.
 
 Leaving the versors of $\G(\V)$ behind, we are left to consider the versors of $\G(\B)$.
 Following the line of thinking that led to Lemma~\ref{lma_quadric_transform} and 
@@ -968,7 +991,8 @@ Writing $B$ in terms of the $k$ vectors in $\{b_i\}_{i=1}^k$ as $B=\bigwedge_{i=
 we have $0=V^{-1}\rho(p)V\cdot B$ if and only if for all integers $i\in[1,k]$,
 we have $0=V^{-1}\rho(p)V\cdot b_i=\rho(p)\cdot Vb_iV^{-1}$, since the
 set $\{B_i\}_{i=1}^k$, where $B_i$ denotes the product $B$ with $b_i$ removed,
-is a linearly independent set.  Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$
+is a linearly independent set.  (See equation \eqref{equ_rho_dot_B} below.)
+Then, for all integers $i\in[1,k]$, we have $0=\rho(p)\cdot Vb_iV^{-1}$
 if and only if $0=\rho(p)\cdot VBV^{-1}$, since
 the set $\{VB_iV^{-1}\}_{i=1}^k$ is also linearly independent.
 It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV^{-1}$.
@@ -984,7 +1008,7 @@ To see this, realize that $\Go(B)=\Gi(BI)$, and then that
 \begin{equation}
 \Go(VBV^{-1})=\Go(VBI^2V^{-1})=\Go(VBIV^{-1}I)=\Gi(VBIV^{-1}),
 \end{equation}
-where $I$ is the unit psuedo-scalar of $\G(\B)$.  This shows that
+where $I$ is the unit pseudo-scalar of $\G(\B)$.  This shows that
 direct surfaces are affected by versors in the same way that dual surface are.
 
 The challenge now is to find a $\rho$-form preserving versor $V$ and then
@@ -1006,7 +1030,7 @@ simply determined by how you choose to define the vector-valued function $\rho$.
 A realization that this is an algebraic set, (the zero set of one or more polynomial equations),
 is had by a revisitation of equation \eqref{equ_def_ip_a}.  Utilizing and expanding
 this equation, we see that
-\begin{equation}
+\begin{equation}\label{equ_rho_dot_B}
 0 = \rho(p)\cdot B = -\sum_{i=1}^k (-1)^i(\rho(p)\cdot b_i)B_i.
 \end{equation}
 It is now clear that
@@ -1025,9 +1049,9 @@ Algebraic geometry, however, has grown far beyond
 algebraic sets as the central objects of study.  Not being competent in geometric calculus,
 much less the vast and arcane subject of algebraic geometry, the author cannot hope to pursue
 a reformulation of even the tiniest part of one subject with the other.  Assuming it
-is even possible or practical to do so, perhaps someone possessing
-a great deal more genius and mathematical fortitude than the present author,
-(someone not at all hard to find), will accomplish such a task.
+is even possible or practical to do so, (an assumption built upon the hype that
+geometric algebra is, as many claim, the ultimate and universal mathematical language),
+perhaps someone will make roads in that direction.
 Until then, geometric algebra continues to offer fun and interesting ways to do geometry
 with models such as CGA and perhaps the newly established model of this paper.
 
