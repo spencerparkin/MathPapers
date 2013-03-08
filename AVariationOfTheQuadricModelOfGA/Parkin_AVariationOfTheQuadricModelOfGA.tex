@@ -192,7 +192,7 @@ A\cdot v &=-(-1)^kv\cdot A,\label{equ_def_ip_b}
 \end{align}
 where $A$ is factored as $\bigwedge_{i=1}^k a_i$, and $A_i$ denotes
 the outer product $A$ with $a_i$ removed.  Equations \eqref{equ_def_ip_a} and \eqref{equ_def_ip_b}
-recursively define the inner product in terms how we have defined it among vectors.
+recursively define the inner product in terms of how we have defined it among vectors.
 
 For blades $A,B\in\G(\W)$, each of grade $k$ and $l$, respectively, we define
 \begin{equation}\label{equ_blade_blade_dot}
@@ -272,7 +272,7 @@ where $\Omega$ is defined as
 \end{equation}
 Canonical forms similar to \eqref{equ_canonical_form_of_common_quadric}
 can be found for specific geometries, such as planes, spheres, plane-pairs,
-circular cylinders, circular conical surfaces, and so on.  It is possible to combine
+circular cylinders, circular conical surfaces, and so on.  It is then possible to combine
 such forms with addition and subtraction to find other forms, but without as much success as we
 seem to have in CGA, combining its forms in the inner and outer products.
 
@@ -297,13 +297,13 @@ a set of $k$ vectors, form the inductive hypothesis that for any vector $a\in\W$
 \end{equation}
 We then see that
 \begin{equation}
-VaV^{-1} = (Vv_k^{-1}v_k)a(Vv_k^{-1}v_k)^{-1} = (Vv_k^{-1})(v_kav_k^{-1})(Vv_k)^{-1}\in\W,
+VaV^{-1} = (Vv_k^{-1}v_k)a(Vv_k^{-1}v_k)^{-1} = (Vv_k^{-1})(v_kav_k^{-1})(Vv_k^{-1})^{-1}\in\W,
 \end{equation}
 which completes the proof by induction.
 \end{proof}
 
 Of course, Lemma~\ref{lem_versor_act_on_vector} is not unique to our geometric algebra $\G(\W)$ as it
-applies to any geometric algebra.  We will also find this to be the case with lemmas \ref{lem_versor_property_with_ip}
+applies to any geometric algebra.  We will also find this to be the case with Lemmas \ref{lem_versor_property_with_ip}
 and \ref{lem_versor_outermorphic_property} to follow.
 
 \begin{lem}\label{lem_versor_property_with_ip}
@@ -391,13 +391,13 @@ induction is then completed when we see that
  & VAV^{-1} \\
 =\;& V(a_1A_1 - a_1\cdot A_1)V^{-1} \\
 =\;& Va_1A_1V^{-1} - V(a_1\cdot A_1)V^{-1} \\
-=\;& Va_1V^{-1}VA_1V^{-1} - V\left(\sum_{i=2}^k(-1)^i(a_1\cdot a_j)(A_1)_i\right)V^{-1} \\
+=\;& Va_1V^{-1}VA_1V^{-1} - V\left(\sum_{i=2}^k(-1)^i(a_1\cdot a_i)(A_1)_i\right)V^{-1} \\
 =\;& Va_1V^{-1}B_1 - \sum_{i=2}^k(-1)^i(Va_1V^{-1}\cdot Va_iV^{-1})V(A_1)_iV^{-1} \\
 =\;& b_1B_1 - \sum_{i=2}^k(-1)^i(b_1\cdot b_i)(B_1)_i \\
 =\;& b_1B_1 - b_1\cdot B_1 = B.
 \end{align}
 Here, for any $k$-blade $C=\bigwedge_{i=1}^k c_i$, we have re-used the notation $C_i$ as denoting
-the blade $C$ with $c_i$ removed.  The blade $(C_i)_j$ is the blade $C$ with $c_i$ and $c_j$ removed.
+the blade $C$ with $c_i$ removed.  The blade $(C_i)_j$ is the blade $C$ with both $c_i$ and $c_j$ removed.
 
 Our inductive hypothesis was invoked above in letting $VA_1V^{-1}=B_1$, and in
 letting $V(A_1)_iV^{-1}=(B_1)_i$.
@@ -420,8 +420,8 @@ a\cdot b = a_v\cdot b_v + a_{\overline{v}}\cdot b_{\overline{v}},
 \end{equation}
 since any vector in $\V$ is orthogonal to any vector in $\Vb$.
 It is then trivial to see that $a_v\cdot b_v=\overline{a}_v\cdot\overline{b}_v$ by
-our definition of the over-bar function in equation \eqref{equ_over_bar_func}.
-Furthermore, we see that
+our knowledge of what the over-bar function in equation \eqref{equ_over_bar_func} does.
+Similarly, we see that
 \begin{equation}
 a_{\overline{v}}\cdot b_{\overline{v}}=
 (-\overline{a}_{\overline{v}})\cdot(-\overline{b}_{\overline{v}})=
@@ -467,7 +467,7 @@ Lemma~\ref{lem_versor_outermorphic_property} is used in the step taken
 from equation \eqref{equ_step_c_clarify}
 to \eqref{equ_step_d_clarify}.  We will often make use of the fact
 that the over-bar function preserves the geometric product, and in the
-case that we might require its preservation the outer product,
+case that we might require its preservation of the outer product,
 Lemma~\ref{lem_overbar_outermorph} justifies our use of this property.
 
 \begin{lem}\label{lma_versor_transfer}
@@ -585,7 +585,7 @@ we see that for any homogenized point $p\in\V^o$, we have
 \end{equation}
 where $p=\nvao+x$ with $x\in\V^e$, and
 where the scalar $\lambda\in\R$ is of no consequence.  Letting $V=\pi$,
-the point $p'\in\V^o$ of consequence here is given by equation \eqref{equ_get_rid_ni},
+the point $p'\in\V^o$ of consequence here is given by the additive inverse of equation \eqref{equ_get_rid_ni},
 from which we can recognize an orthogonal reflection about the plane $\pi$.
 It now follows by Lemma~\ref{lma_quadric_transform} that $\pi\overline{\pi}$ is a versor
 capable of reflecting any quadric surface about the plane $\pi$.
@@ -634,7 +634,7 @@ P(p) = \nvao + p + \frac{1}{2}p^2\nvai.
 \end{defn}
 It is then helpful to introduce another definition as follows.
 \begin{defn}\label{def_preserve_point_map}
-Given a mapping $f:\V^e\to\V$, a versor $V\in\G(\V)$ is said to be $f$-form preserving if for
+Given a mapping $f:\V^e\to\V$, a versor $V\in\G(\W)$ is said to be $f$-form preserving if for
 any point $x\in\V^e$, there exists a non-zero scalar $\lambda\in\R$ and
 a point $y\in\V^e$ such that $Vf(x)V^{-1}=\lambda f(y)$.
 \end{defn}
@@ -657,7 +657,7 @@ is exactly the set of all point $p\in\V^e$ such that
 \end{equation}
 \end{lem}
 \begin{proof}
-We first note that the function $P$ is a stable mapping.  (See Definition~\ref{def_stable_mapping} below.)
+We first note that the function $P$ is a stable mapping.  (See Definition~\ref{def_stable_mapping} far below.)
 This insures that $p'$ may be correctly considered a well defined function of $p$.
 
 Now notice that the scalar $\lambda$ clearly cancels out of equation \eqref{equ_wanted_set2} so that we may,
@@ -678,6 +678,9 @@ that if $V\in\G(\W)$ is any $P$-form preserving versor, and if $E$
 is a surface under Definition~\ref{def_surface}, then the element $E'\in\G(\W)$,
 given by equation \eqref{equ_transformed_surface}, must, by Definition~\ref{def_surface},
 be representative of the desired transformation of $E$ by the versor $V\overline{V}$.
+Realizing that all of the conformal transformations of CGA are $P$-form preserving, and
+that $P$ is a stable mapping, we now see that our extended model supports the entire
+set of conformal transformations.
 
 The general polynomial equation arising from the form of
 such elements $E$ in Definition~\ref{def_surface} is much more involved than
@@ -910,10 +913,10 @@ which, sadly, does not depend upon $V$ alone.
 Alternatively, we might consider allowing our model to utilize the geometric
 algebras $\G(\W)$ and $\G(\B)$ in concert with one another.
 For a given versor $V\in\G(\V)$,
-and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $v_1\wedge\dots\wedge v_k$
+and a $k$-blade $B\in\G(\B)$, if we could find a vector factorization $b_1\wedge\dots\wedge b_k$
 of $B$, then the transformation $B'$ of $B$ by $V$ would be given by
 \begin{equation}
-B' = \bigwedge_{i=1}^k [V\overline{V}[v_i]^{-1}(V\overline{V})^{-1}].
+B' = \bigwedge_{i=1}^k [V\overline{V}[b_i]^{-1}(V\overline{V})^{-1}].
 \end{equation}
 (See \cite{Fontijne10} on the problem of factoring blades.)  It is unfortunate, however,
 that we would have to bother finding such a factorization in order to apply a given
@@ -1014,7 +1017,7 @@ It follows now that $0=V^{-1}\rho(p)V\cdot B$ if and only if $0=\rho(p)\cdot VBV
 \end{proof}
 
 Intuitively, Lemma~\ref{lem_xform_dual_geo} is telling us that if
-we understand the mapping from $\V^e$ to $\V^e$ induced by $V$ on $\rho(p)$ as $V^{-1}\rho(p)V$,
+we understand the mapping from $\V^e$ to $\V^e$ induced by $V$ on $\rho(p)$ as $V^{-1}\rho(p)V=\lambda\rho(p')$,
 then we understand the geometric transformation $B$ undergoes by $V$ as $VBV^{-1}$.
 
 All that remains now is to show that an understanding of how dual surfaces
@@ -1056,15 +1059,16 @@ since $\{B_i\}_{i=1}^k$ is a linearly independent set.  We may think of $\rho$ a
 defining the form of each polynomial equation while thinking of each $b_i$ as
 an instantiation of that form, it containing the desired coefficients of the polynomial.
 
-One of the results of this paper then shows that in searching for such a function
+The results of this paper then show that in searching for such a function
 $\rho$, the properties of stability and form preservation are desirable in one
-method of coming to
+possible method of coming to
 an understanding of how versors transform the geometries
 (algebraic sets) represented by blades $B$ of the geometric algebra.
 
+Geometric algebra may give us a new way to study algebraic sets.
 Algebraic geometry, however, has grown far beyond
 algebraic sets as the central objects of study.  Not being competent in geometric calculus,
-much less the vast and arcane subject of algebraic geometry, the author cannot hope to pursue
+much less the vast and arcane subject of algebraic geometry, the present author cannot hope to pursue
 a reformulation of even the tiniest part of one subject with the other.  Assuming it
 is even possible or practical to do so, (an assumption built upon the hype that
 geometric algebra is, as many claim, the ultimate and universal mathematical language),
