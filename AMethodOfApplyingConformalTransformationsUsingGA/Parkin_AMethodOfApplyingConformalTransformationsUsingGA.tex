@@ -58,15 +58,21 @@
 
 %    Abstract is required.
 \begin{abstract}
-Abstract goes here...
+It is shown that any conformal transformation may be applied to a polynomial
+of degree $m$
+by first converting the polynomial to an $m$-vector of a geometric algebra,
+applying a versor to that $m$-vector, and then converting the resulting $m$-vector
+back into a polynomial.
 \end{abstract}
 
 \maketitle
 
 \section{Preliminaries}
 
-For this paper, we assume the reader is already familiar with geometric algebra.
-(See \cite{} for introductory material on geometric algebra.)  Despite what convensions
+For this paper, we assume the reader is already familiar with geometric algebra and the
+conformal model of geometric algebra.
+(See \cite{} for introductory material on geometric algebra.  See \cite{} for material
+on conformal geometric algebra.)  Despite what conventions
 may be used in other papers on geometric algebra, here we will let the outer product
 take precedence over the inner product, and the geometric product take precedence
 over the inner and outer products.  The inner product used in this paper is the
@@ -76,7 +82,7 @@ same one used in \cite{}.
 
 We begin by letting $\{\G_i\}_{i=1}^m$ be a sequence of $m$ Minkowski geometric algebras upon
 which the conformal model of $n$-dimensional euclidean space may be imposed.
-Each $\G_i$ is the very geometric algebra found in \cite{}.  If $\V^i$ is a vector space
+Each $\G_i$ is the very geometric algebra found in \cite{}.  If $\V_i$ is a vector space
 generating $\G_i$, then $\{e_{i,-},e_{i,+}\}\cup\{e_{i,j}\}_{j=1}^n$ is a set of basis
 vectors generating $\V_i$, where $\{e_{i,j}\}_{j=1}^n$ is an orthonormal basis
 for an $n$-dimensional euclidean space, and each of $e_{i,-}$ and $e_{i,+}$, taken from \cite{}, is given by
@@ -84,7 +90,7 @@ for an $n$-dimensional euclidean space, and each of $e_{i,-}$ and $e_{i,+}$, tak
 e_{i,-} &= \frac{1}{2}\nvai_i + \nvao_i, \\
 e_{i,+} &= \frac{1}{2}\nvai_i - \nvao_i,
 \end{align*}
-where here, $\nvao_i$ and $\nvai_i$ are the familiar null-vectors
+where here, $\nvao_i$ and $\nvai_i$ are, for each $\G_i$, the familiar null-vectors
 representative of the points at origin and infinity, respectively.
 With the exception of zero, we consider the sequence of geometric algebras $\{\G_i\}_{i=1}^m$
 to be pair-wise disjoint.
@@ -116,7 +122,7 @@ corresponding vector $v_j\in\V_j$, we have
 \begin{equation*}
 v_j = \Psi_{i,j}(v_i).
 \end{equation*}
-Being in correspondance, this means that for all integers $k\in[1,n]$,
+Being in correspondence, this means that for all integers $k\in[1,n]$,
 we have
 \begin{equation*}
 v_i\cdot e_{i,k}=v_j\cdot e_{j,k},
@@ -130,8 +136,7 @@ Notice that $\Psi_{i,j}(v_j)=-v_i$.
 For any vector $v\not\in\V_i$ and $v\not\in\V_j$, the function $\Psi_{i,j}$ leaves $v$ invariant.
 
 Though $S_{i,j,1}$ in equation \eqref{equ_S} is not a versor of $\G$, we will now show that $\Psi_{i,j}$ is an outermorphism.
-(See \cite{} for a definition of outermorphism.)  For the sake of brevity, we will cut straight
-to the crux of the proof.  It suffices to show that
+(See \cite{} for a definition of outermorphism.)  It suffices to show that
 for any two vectors $a,b\in\V$, we have
 \begin{equation*}
 a\cdot b = \Psi_{i,j}(a)\cdot \Psi_{i,j}(b).
@@ -141,7 +146,7 @@ To see this, begin by rewriting $a$ and $b$ as
 a &= \sum_{k=1}^m a_k, \\
 b &= \sum_{k=1}^m b_k,
 \end{align*}
-where for each pair, we have $a_k,b_k\in\V_k$.  We then have
+where for each pair $(a_k,b_k)$, we have $a_k,b_k\in\V_k$.  We then have
 \begin{equation*}
 a\cdot b=\sum_{k=1}^m a_k\cdot b_k,
 \end{equation*}
@@ -195,11 +200,12 @@ To see this, let $x_j=\Psi_{1,j}(x)$ and write
  &= \lambda(-1)^{m-r}\prod_{i=1}^r x_j\cdot a_j,
 \end{align*}
 which shows that for an appropriate choice of the vectors in $\{a_j\}_{j=1}^r$,
-and that of $\lambda$, we can formulate $A$ as being representative of any monomial.
+and that of $\lambda$, we can formulate $A$ as being representative of any monomial in $n$
+independent variables $\{x\cdot e_{1,j}\}_{j=1}^n$.
 
 It is not difficult to convert between polynomial functions and $m$-vectors $A$
 of our geometric algebra $\G$.  That is, not difficult if we are using a computer
-algebra system.  Never-the-less, once implemented, we may have a nice subroutine
+algebra system.  Never-the-less, once implemented, we have a nice subroutine
 allowing us to convert between the two forms.
 
 \section{Applying Conformal Transformations To Geometries}
@@ -217,7 +223,7 @@ geometry is given by the set of all points $x\in\R^n$, such that
 It will not be hard to show that the element $A'$ representative
 of this very set of points by equation \eqref{} is given by
 \begin{equation*}
-A' = WEW^{-1},
+A' = WAW^{-1},
 \end{equation*}
 where the versor $W$ is given by
 \begin{equation*}
