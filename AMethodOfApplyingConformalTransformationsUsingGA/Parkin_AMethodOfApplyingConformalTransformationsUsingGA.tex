@@ -9,7 +9,7 @@
 %     If the article includes commutative diagrams, ...
 %\usepackage[cmtip,all]{xy}
 
-\usepackage{hyperref}
+\usepackage{url}
 
 %     Update the information and uncomment if AMS is not the copyright
 %     holder.
@@ -98,7 +98,7 @@ It is sometimes convenient to rewrite equation \eqref{equ_def_inner_prod} as
 \begin{equation*}
 v\cdot A = (v\cdot a_1)A_1 - (v\cdot A_1)\wedge a_1,
 \end{equation*}
-which gives a recursive version of the definition.  For the $k$-blade $A$ and
+which gives a recursive version of the definition.  For a $k$-blade $A$ and an
 $l$-blade $B$, we define
 \begin{equation}\label{equ_A_dot_B}
 A\cdot B = \left\{\begin{array}{ll}
@@ -240,7 +240,7 @@ equation \eqref{equ_rep_geo}.  For all polynomials of degree $r$ with $0\leq r\l
 however,
 there does exist such an $m$-vector $A$.  Taking advantage of the linearity of the inner product,
 it suffices to show that this is the case for every monomial of such a degree.  Indeed, the $m$-vector
-$A$, (in this case an $m$-blade), is given by
+$A$ (in this case an $m$-blade) is given by
 \begin{equation*}
 A = \lambda\bigwedge_{j=1}^r a_j\wedge\bigwedge_{j=r+1}^m\nvai_j,
 \end{equation*}
@@ -284,10 +284,26 @@ We simply observe that if $V_1\in\G_1$ is a versor representative
 of a conformal transformation, (those that can be found in \cite{Dorst07,LiRockwood01}),
 then, letting $V_j=\Psi_{1,j}(V_1)$, the desired
 geometry is given by the set of all points $x_1\in\R^n_1$, such that
-\begin{equation*}
+\begin{equation}\label{equ_xform_intuition}
 \bigwedge_{j=1}^m V_j^{-1} p_j(x_1) V_j\cdot A=0.
-\end{equation*}
-It will not be hard to show that the $m$-vector $A'$ representative
+\end{equation}
+There are two properties of such versors $V_1$ in relation to the function $p_1$
+that make this possible.  The first is form preservation, up to scale.  It is well known in the conformal
+model of geometric algebra that for any versor $V_1$ of that model, there exists a scalar $\lambda\in\R$
+and a point $y_1\in\R_1^n$ such that
+\begin{equation}\label{equ_xform_point}
+V_1^{-1}p_1(x_1)V_1 = \lambda p_1(y_1).
+\end{equation}
+Here, the sandwitch product of $V_1$ with $p_1(x_1)$ has preserved the form of the
+function $p_1$, up to scale.  The second property is uniqueness.
+It is also well known in the conformal model that while such a scalar $\lambda\in\R$ and a
+point $y_1\in\R_1^n$ in equation \eqref{equ_xform_point} exist, this pair is also unique.  It follows that
+that $V_1$ and $p_1$ together induce a well-defined mapping from $\R_1^n$ to $\R_1^n$,
+the point $y_1$ being a function of the point $x_1$.
+
+Returning to the geometry that is the solution set in $\R_1^n$
+of equation \eqref{equ_xform_intuition},
+it will not be hard to show that the $m$-vector $A'$ representative
 of this very set of points by equation \eqref{equ_rep_geo} is given by
 \begin{equation*}
 A' = WAW^{-1},
