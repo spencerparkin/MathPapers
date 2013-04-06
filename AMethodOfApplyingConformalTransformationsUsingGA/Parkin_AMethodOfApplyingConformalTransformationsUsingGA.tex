@@ -178,7 +178,7 @@ For any vector $v\not\in\V_i$ and $v\not\in\V_j$, the function $\Psi_{i,j}$ leav
 If it could be shown that $S_{i,j,1}$ in equation \eqref{equ_S} is a versor of $\G$,
 we could then conclude that $\Psi_{i,j}$ is an outermorphism.
 (See \cite{Hestenes91} for a definition of outermorphism.)  Though no such
-proof will be given here, we will be able to show that $\Psi_{i,j}$ is indeed
+proof will be given here, we will never-the-less be able to show that $\Psi_{i,j}$ is indeed
 an outermorphism.  To that end, it suffices to show that
 for any two vectors $a,b\in\V$, we have
 \begin{equation}\label{equ_inner_prod_add_psi}
@@ -198,10 +198,16 @@ We now simply see that
 \begin{equation*}
 \Psi_{i,j}(a)\cdot\Psi_{i,j}(b)=\sum_{k=1}^m\Psi_{i,j}(a_k)\cdot\Psi_{i,j}(b_k)
 \end{equation*}
-to complete the proof.
+to complete the proof.  For a versor $V\in\G$, the property equivalent
+to equation \eqref{equ_inner_prod_add_psi} is as follows.
+\begin{equation*}
+a\cdot b = VaV^{-1}\cdot VbV^{-1}
+\end{equation*}
+This property of versors is imployed in the step taken from \eqref{} to
+\eqref{} in \S\ref{sec_apply_conf_xforms} below.
 
-Equation \eqref{equ_inner_prod_add_psi} can now be applied in a proof
-that $\Psi_{i,j}$ preserves the outer product.
+Having now established equation \eqref{equ_inner_prod_add_psi}, we can apply it in
+a proof that $\Psi_{i,j}$ preserves the outer product.
 \begin{align*}
 \Psi_{i,j}(a\wedge b) &= \Psi_{i,j}(ab - a\cdot b) \\
  &= \Psi_{i,j}(ab) - \Psi_{i,j}(a\cdot b) \\
@@ -209,7 +215,40 @@ that $\Psi_{i,j}$ preserves the outer product.
  &= \Psi_{i,j}(a)\Psi_{i,j}(b) - \Psi_{i,j}(a)\cdot\Psi_{i,j}(b) \\
  &= \Psi_{i,j}(a)\wedge\Psi_{i,j}(b).
 \end{align*}
-It is not too difficult to generalize this proof to blades of arbitrary grade.
+Interestingly, it seems that although the property in equation
+\eqref{equ_inner_prod_add_psi} is important, and though we
+could now continue to use it in an inductive proof that $\Psi$
+preserves the outer product among blades of arbitrary grade
+through the use of equation \eqref{equ_def_inner_prod},
+the following proof, also inductive, shows that only the properties
+of linearity, grade preservation and the preservation of the geometric product
+are required to prove such a thing.
+
+Let $A$ be a $k$-blade.  It is clear that $\Psi$ trivially and vacuously preserves the
+outer product in the case $k=1$.  Assuming now that $k>1$, we make the
+inductive hypothesis that $\Psi$ preserves the outer product for blades $A$
+of grade $k-1$.  We then see that
+\begin{align*}
+\Psi_{i,j}(A) &= \Psi_{i,j}(a_1\wedge A_1) \\
+ &= \Psi_{i,j}\left(\frac{1}{2}(a_1A_1+(-1)^{k-1}A_1a_1\right) \\
+ &= \frac{1}{2}\left(\Psi_{i,j}(a_1)\Psi_{i,j}(A_1)+(-1)^{k-1}\Psi_{i,j}(A_1)\Psi_{i,j}(a_1)\right) \\
+ &= \Psi_{i,j}(a_1)\wedge\Psi_{i,j}(A_1) \\
+ &= \bigwedge_{l=1}^k\Psi_{i,j}(a_l).
+\end{align*}
+As you can see, our inductive hypothesis was invoked here in the last step, but
+this was not our first use of it.
+In the second-to-last step, the property of grade preservation is required.
+We know that $\Psi$ preserves grade in the case $k=1$.  By our inductive
+hypothesis, we know that $\Psi$ preserves grade in the case $k-1$.
+
+Establishing the outermorphic property of $\Psi$ was not actually needed
+to prove the main result of this paper.  It is, however, a property worth showing,
+because it allows for greater ease of use.  That is, we don't have to carefully avoid
+any temptation to employ an outermorphic property in the case that a given blade
+is not also a versor by virtue of having a factorization in terms of pair-wise
+orthogonal vectors.  With versors we can employ our property of preserving
+the geometric product.  With blades that are not versors, we must have the
+property of preserving the outer product.
 
 \section{Geometric Representation}
 
@@ -247,36 +286,36 @@ A = \lambda\bigwedge_{j=1}^r a_j\wedge\bigwedge_{j=r+1}^m\nvai_j,
 where $\lambda\in\R$ is a scalar, $\{a_j\}_{j=1}^r$ is a set of $r$ vectors with
 each $a_j\in\R^n_j$,
 and the product $\bigwedge_{j=1}^r a_j$ is one in the case that $r=0$.
+(Notice that $A$ is not just an $m$-blade here, but also a versor.)
 To see this, let $x_j=\Psi_{1,j}(x_1)$ and write
 \begin{align*}
 \bigwedge_{j=1}^m p_j(x_1)\cdot A
  &= \bigwedge_{j=1}^m\left(\nvao_j+x_j+\frac{1}{2}x_j^2\nvai_j\right)\cdot A \\
  &= \bigwedge_{j=1}^r x_j\wedge\bigwedge_{j=r+1}^m\nvao_j\cdot A \\
- &= \pm\lambda\bigwedge_{i=1}^r x_j \cdot\bigwedge_{i=1}^r a_j \\
- &= \pm\lambda\prod_{i=1}^r x_j\cdot a_j,
+ &= \lambda(-1)^k\bigwedge_{i=1}^r x_j \cdot\bigwedge_{i=1}^r a_j \\
+ &= \lambda(-1)^k\prod_{i=1}^r x_j\cdot a_j,
 \end{align*}
 which shows that for an appropriate choice of the vectors in $\{a_j\}_{j=1}^r$,
 and that of $\lambda$, we can formulate $A$ as being representative of any monomial in $n$
-independent variables $\{x_1\cdot e_{1,j}\}_{j=1}^n$.  With some effort,
-the sign can be deduced as a function of $m$ and $r$, but this distracts us
-from the point being made here.
+independent variables $\{x_1\cdot e_{1,j}\}_{j=1}^n$.  The integer $k$ is
+given by
+\begin{equation*}
+k = 
+\end{equation*}
 
 It is not difficult to convert between polynomial functions and $m$-vectors $A$
 of our geometric algebra $\G$.  That is, not difficult if we are using a computer
 algebra system.  We'll no doubt want to make further
 use of such a system in the section to follow.  It should also be mentioned
 that there are often nice conversions between $m$-vectors and vector-based
-equations, each of who's solution sets are the geometries in question.  See, for example,
-the vector-based equations for quadric surfaces found in \cite{Miller87}.
+equations, (as apposed to the perhaps less intuitive form of polynomial equations),
+that can be easily performed by hand by simply factoring $\bigwedge_{j=1}^m p_j(x_1)$
+out of the equation with respect to the inner product.
+See, for example,
+the vector-based equations for the quadric surfaces found in \cite{Miller87}.
 
-\section{Applying Conformal Transformations To Geometries}
+\section{Applying Conformal Transformations To Geometries}\label{sec_apply_conf_xforms}
 
-\begin{figure}
-\includegraphics[scale=0.3]{InvertCylinderInSphere}
-\caption{The inversion of a cylinder in a sphere.  Traces in various planes were
-used to render the cylinder and its inversion.}
-\label{fig_invert_cylinder_in_sphere}
-\end{figure}
 We now come to the main result of this paper, which is to show
 that the conformal transformations are easily applicable to any geometry
 that may be represented as an $m$-vector by equation \eqref{equ_rep_geo}.
@@ -327,65 +366,13 @@ We then have
 &= \bigwedge_{j=1}^m p_j(x_1)\cdot\bigwedge_{j=1}^m Wa_jW^{-1}\nonumber \\
 &= \bigwedge_{j=1}^m p_j(x_1)\cdot WAW^{-1}.\nonumber
 \end{align}
-This completes the proof.
+This completes the proof.  The see the second-to-last step here,
+one must realize that if $i\neq j$, then $V_i$ leaves $a_j$ invariant, up to sign,
+as $V_ia_jV_i^{-1}=\pm a_j$.  Furthermore, a lot of sign cancellation
+goes on that has not been typeset here.  (Revisit.  Make sure signs all go away.)
+
 We can now convert $A'$ into a polynomial equation, which
 may be a more usable form than that of an $m$-vector.
-
-In the course of this research, theory was put into practice, and a computer algebra
-system with visualization capabilities was implemented and used to generate
-Figure~\ref{fig_invert_cylinder_in_sphere}.
-
-In the case of Figure~\ref{fig_invert_cylinder_in_sphere}, we need only
-have $m=2$.  The following computer code, consumed by the research
-software, illustrates how the figure was generated.
-%\begin{samepage}
-\begin{center}
-{\tiny
-\begin{verbatim}
-
-/*
- * Calculate the surface that is the
- * inversion of a cylinder in a sphere.
- */
-do
-(
-    /* Make the cylinder. */
-    v = e2, c = -7*e1, r = 2,
-    cylinder = Omega - v^bar(v) + 2*c*nib + (c.c - r*r)*ni^nib,
-    bind_quadric(cylinder),
-    geo_color(cylinder,0,1,0),
-	
-    /* Make the sphere. */
-    c = 0, r = 6,
-    sphere = no + c + 0.5*(c.c - r*r)*ni,
-    bind_dual_sphere(sphere),
-    geo_color(sphere,1,0,0,0.2),
-	
-    /* Make the inversion of the cylinder in the sphere. */
-    V = sphere*bar(sphere),
-    inversion = V*cylinder*V~,
-    bind_conformal_quartic(inversion),
-    geo_color(inversion,0,0,1),
-)
-
-\end{verbatim}
-}
-\end{center}
-%\end{samepage}
-
-Here, the ``bar'' function takes the place of $\Psi_{1,2}$, and
-the constant $\Omega$ is defined as
-\begin{equation*}
-\Omega = \sum_{j=1}^n e_{1,j}\wedge e_{2,j}.
-\end{equation*}
-The ``bind\_*'' functions create and bind a piece of computer code
-to the given element that is responsible
-for interpreting that element under the named definition.
-While the sphere element is interpreted as a dual sphere of the conformal model
-of geometric algebra in the usual manner, the cylindrical and inverted
-surfaces are interpreted under the definition given earlier using
-equation \eqref{equ_rep_geo}.\footnote{The research software
-can be found at \url{https://github.com/spencerparkin/GAVisTool}.}
 
 \section{Closing Remarks}
 
