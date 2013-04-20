@@ -1,0 +1,134 @@
+\documentclass{ecgd-l}
+
+% Who will be the copy right owner?
+%\copyrightinfo{2013}{American Mathematical Society}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+
+\begin{document}
+
+\title{The Mother Minkowski Algebra of Order $m$}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., Salt Lake City, UT  84101}
+\email{spencerparkin@outlook.com}
+
+\subjclass[2010]{Primary 14J70}
+
+% Date?
+%\date{}
+
+\begin{abstract}
+Put abstract here.
+\end{abstract}
+
+\maketitle
+
+\section{Motivation}
+
+Before presenting the Mother Minkowski algebra of order $m$, we lead up to it here with
+some background and motivation.  We begin by recalling that an algebraic set is any 
+subset of an $n$-dimensional euclidean space $\R^n$ that is also the zero set of one
+or more polynomials.  Given a geometric algebra $\G$, we can represents such sets
+using blades $B\in\G$ as the set of all points $x\in\R^n$ such that
+\begin{equation*}
+p(x)\cdot B=0,
+\end{equation*}
+where $p:\R^n\to\V$ maps points in $\R^n$ to a vector space $\V$ generating
+our geometric algebra $\G$.  Though not necessary, $\R^n$ is often embedded in $\V$;
+but regardless of this, the function $p$ is necessarily defined in such a way that the expression
+$p(x)\cdot B$ is a polynomial in the vector components of $x$ when $B\in\V$.
+
+Letting $\B$ denote the set of all blades found in $\G$,
+and letting $P(\R^n)$ denote the power set of $\R^n$,
+we will find it useful to define the mapping $g:\B\to P(\R^n)$ as
+\begin{equation*}
+\gd(B) = \{x\in\R^n|p(x)\cdot B=0\}.
+\end{equation*}
+To see that $\gd(B)$ is an algebraic set, we first observe that when $B\in\V$,
+$\gd(B)$ is the zero set of a polynomial in the vector components of $x$.
+Secondly, we observe that if $\bigwedge_{i=1}^k b_i$ is a factorization
+of the $k$-blade $B$, each $b_i$ being in $\V$, then
+\begin{equation*}
+p(x)\cdot B = -\sum_{i=1}^k (-1)^i (p(x)\cdot b_i)B_i,
+\end{equation*}
+where $B_i$ is given by
+\begin{equation*}
+B_i = \bigwedge_{j=1,j\neq i} b_j,
+\end{equation*}
+and therefore, since $\{B_i\}_{i=1}^k$ is a linearly independent set, we have
+\begin{equation*}
+\gd(B) = \bigcap_{i=1}^k \gd(b_i).
+\end{equation*}
+This model of representing algebraic sets using blades of a geometric algebra presents
+some interesting properties.  To begin, if $A,B\in\B$ are blades with $A\wedge B\neq 0$,
+then
+\begin{equation*}
+\gd(A)\cap\gd(B)=\gd(A\wedge B).
+\end{equation*}
+In this way, the outer product serves to take the intersection of two surfaces.  But we can also
+look at the outer product in a different light as an operator that takes at least the union
+of its two given surfaces.  To see this, we must consider an alternative interpretation
+of blades $B\in\B$ as algebraic sets.  Defining $\gh:\B\to P(\R^n)$ as
+\begin{equation*}
+\gh(B)=\{x\in\R^n|p(x)\wedge B=0\},
+\end{equation*}
+we see that $\gh(B)=\gd(BI)$, where $I$ is the unit psuedo-scalar of $\G$, showing
+that the image of $\gh$, like $\gd$, consists of algebraic sets.
+Under this new interpretation, we find that for blades $A,B\in\B$, we have
+\begin{equation*}
+\gh(A)\cup\gh(B)\subseteq\gh(A\wedge B).
+\end{equation*}
+Exactly what surface we get from $A\wedge B$ in terms of $\gh$ can
+be deduced by considering the surface $(A\wedge B)I$ in terms of $\gd$.
+
+What's further a benefit of using blades to represent surfaces are the transformations
+performable on such geometries through the use of outermorphisms; in particular,
+outermorphisms $f:\B\to\B$ of the form
+\begin{equation*}
+f(B) = VBV^{-1},
+\end{equation*}
+where $V$ is a versor of $\G$.  Given such a function, we wish to
+compare $\gd(B)$ with $\gd(f(B))$.  Interestingly, to understand
+the latter in terms of the former, we need only understand the mapping from $\R^n\to\R^n$,
+if any, induced by $V$ through $p$ as being each point $x\in\R^n$ mapped to a point
+$y\in\R^n$, where
+\begin{equation*}
+Vp(x)V^{-1}=\lambda p(y),
+\end{equation*}
+$\lambda$ being some scalar in $\R$.
+This is, of course, only a well defined mapping, provided that for every point $x\in\R^n$, there exists
+such a point $y\in\R^n$, and that it is unique.
+Assuming that $V$ and $p$ meet these requirements, and so do indeed induce
+such a mapping $h:\R^n\to\R^n$, we can now show that
+\begin{equation*}
+\gd(f(B)) = h(\gd(B)).
+\end{equation*}
+We need only show that
+\begin{equation*}
+\gd(VBV^{-1})=\{x\in\R^n|V^{-1}p(x)V\cdot B=0\}.
+\end{equation*}
+Do that here...
+
+\bibliographystyle{amsplain}
+% Put the bib here!
+
+\end{document}
