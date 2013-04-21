@@ -115,19 +115,23 @@ where $V$ is a versor of $\G$.  Given such a function, we wish to
 compare $\gd(B)$ with $\gd(f(B))$.  Interestingly, to understand
 the latter in terms of the former, we need only understand the mapping from $\R^n\to\R^n$,
 if any, induced by $V$ through $p$ as being each point $x\in\R^n$ mapped to a point
-$y\in\R^n$, where
-\begin{equation*}
-Vp(x)V^{-1}=\lambda p(y),
-\end{equation*}
+$y\in\R^n$ satisfying the condition
+\begin{equation}\label{equ_induce_mapping}
+V^{-1}p(x)V=\lambda p(y),
+\end{equation}
 $\lambda$ being some scalar in $\R$.
 This is, of course, only a well defined mapping, provided that for every point $x\in\R^n$, there exists
 such a point $y\in\R^n$, and that it is unique.
 Assuming that $V$ and $p$ meet these requirements, and so do indeed induce
 such a mapping $h:\R^n\to\R^n$, we can now show that
 \begin{equation*}
-\gd(f(B)) = h(\gd(B)).
+\gd(f(B)) = h^{-1}(\gd(B)).
 \end{equation*}
-We need only show that
+Notice that by the symmetry
+of equation \eqref{equ_induce_mapping}, the same argument we
+used to show that $h$ is a well defined
+mapping can also be used to show that $h^{-1}$ exists.
+We now need only show that
 \begin{equation*}
 \gd(VBV^{-1})=\{x\in\R^n|V^{-1}p(x)V\cdot B=0\}.
 \end{equation*}
