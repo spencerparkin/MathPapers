@@ -1,5 +1,7 @@
 \documentclass{ecgd-l}
 
+\usepackage{tikz}
+
 % Who will be the copy right owner?
 %\copyrightinfo{2013}{American Mathematical Society}
 
@@ -36,13 +38,19 @@
 \address{102 W. 500 S., Salt Lake City, UT  84101}
 \email{spencerparkin@outlook.com}
 
-\subjclass[2010]{Primary 14J70}
+\subjclass[2010]{Primary 14J70; Secondary 14J29}
 
 % Date?
 %\date{}
 
 \begin{abstract}
-Put abstract here.
+It is found that all polynomials
+have an encoding as $m$-vectors in a geometric algebra referred
+to as the mother Minkowski algebra of order $m$.
+It is then shown that all conformal transformations may be
+applied to these $m$-vectors, the results of which, when converted
+back into polynomial form, give us the transformed surfaces in terms
+of the zero sets of the original and final polynomials.
 \end{abstract}
 
 \maketitle
@@ -50,7 +58,10 @@ Put abstract here.
 \section{Motivation}
 
 Before presenting the Mother Minkowski algebra of order $m$, we lead up to it here with
-some background and motivation.  We begin by recalling that an algebraic set is any 
+some background and motivation.\footnote{In all equations to follow, we let the
+outer product take precedence over the inner product, and the geometric product
+take precedence over the inner and outer products.  The inner product used in this
+paper is the Hestenes inner product.}  We begin by recalling that an algebraic set is any 
 subset of an $n$-dimensional euclidean space $\R^n$ that is also the zero set of one
 or more polynomials.  Given a geometric algebra $\G$, we can represents such sets
 using blades $B\in\G$ as the set of all points $x\in\R^n$ such that
@@ -236,9 +247,9 @@ where each $B_i$ is in $\B_i$, and then see that
 \bigwedge_{i=1}^m p_i(x)\cdot B = (-1)^k\bigwedge_{i=1}^m p_i(x)\cdot B_i,
 \end{equation}
 where the integer $k$ is given by
-\begin{equation*}
+\begin{equation}\label{equ_k}
 k=\sum_{i=1}^m \grade(B_i)\left(\sum_{j=1,j\neq i}^m \grade(B_j)-m+i\right).
-\end{equation*}
+\end{equation}
 Subscripting equation \eqref{equ_gd} as
 \begin{equation*}
 \gd_i(B_i) = \{x\in\R^n|p_i(x)\cdot B_i=0\},
@@ -300,14 +311,42 @@ To begin, we notice that by the linearity of the outer product, there is no loss
 in generality in letting $B$ be an $m$-blade instead of a general $m$-vector.
 We will therefore precede by factoring $B$ as we have in equation \eqref{equ_B_factored}
 with each $B_i\in\V_i$.  We then have
-\begin{align*}
-\bigwedge_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B
-&= (-1)^k\prod_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B_i \\
-&= (-1)^k\prod_{i=1}^m p_i(x)\cdot V_iB_iV_i^{-1} \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m V_iB_iV_i^{-1} \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m VB_iV^{-1} \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot VBV^{-1}.
-\end{align*}
+\begin{align}
+\bigwedge_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B\nonumber
+&= (-1)^k\prod_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B_i\nonumber \\
+&= (-1)^k\prod_{i=1}^m p_i(x)\cdot V_iB_iV_i^{-1}\nonumber \\
+&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m V_iB_iV_i^{-1}\label{equ_before_subscript_drop} \\
+&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m VB_iV^{-1}\label{equ_after_subscript_drop} \\
+&=\bigwedge_{i=1}^m p_i(x)\cdot VBV^{-1},\nonumber
+\end{align}
+where here, the integer $k$ is given by equation \eqref{equ_k}.  The step taking us from
+\eqref{equ_before_subscript_drop} to \eqref{equ_after_subscript_drop} deserves some explanation.
+Removing the subscript $i$ from $V_i$ is done by inserting each of the factors $V_jV_j^{-1}=1$ with $j\neq i$
+into the appropriate position, and then
+commuting the $V_j^{-1}$ to the other side of $B_i$ into its appropriate position.  Finding the net change in sign
+is an exercise in combinatorics, and ends up being
+\begin{equation*}
+(-1)^{m(m-1)}=1.
+\end{equation*}
+
+This result suggests the following process of transforming a polynomial $f$ into another polynomial $f'$ by a conformal
+transformation represented by a versor $V$.
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, auto]
+\node (f) {$f$};
+\node (B) [above of=f] {$B$};
+\node (VBV) [right of=B] {$VBV^{-1}$};
+\node (fp) [below of=VBV] {$f'$};
+\draw[->] (f) to node {} (B);
+\draw[->] (B) to node {} (VBV);
+\draw[->] (VBV) to node {} (fp);
+\draw[->, dashed] (f) to node {} (fp);
+\end{tikzpicture}
+\end{center}
+Here, the polynomial $f$ is converted into an $m$-vector $B$, the versor $V$ is applied to this $m$-vector
+as the $m$-vector $VBV^{-1}$, which in turn is converted back into the polynomial $f'$.  The conversion
+process is straightforward and can be easily handled by a computer algebra system.
+
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheMotherMinkowskiAlgebraOfOrderM}
