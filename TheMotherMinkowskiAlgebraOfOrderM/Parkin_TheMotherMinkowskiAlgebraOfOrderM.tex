@@ -237,10 +237,9 @@ formally introduce it, because the equations still go through in its absence; no
 because it would just make the math less readable.  If the reader is
 interested, this outermorphism is given in the appendix.
 
-What is immediately clear from the definition of $\Gd$ in equation \eqref{equ_Gd}
-is that unless for all integers $i\in[1,m]$, a vector
-$v\in\V_i$ exists such that $v\wedge B=0$, we must have $\Gd(B)=\R^n$.  We will therefore limit our attention
-to those blades $B\in\B$ having factorizations involving a representative from each $\B_i$.
+In this paper we are going to limit our attention
+to those blades $B\in\B$ having factorizations involving a representative from each $\B_i$,
+which is to say that for all integers $i\in[1,m]$, there exists a vector $v\in\V_i$ such that $v\wedge B=0$.
 Doing so, we write $B$ as
 \begin{equation}\label{equ_B_factored}
 B = \bigwedge_{i=1}^m B_i,
@@ -273,9 +272,10 @@ The expression then becomes
 (-1)^k\prod_{i=1}^m p_i(x)\cdot B_i,
 \end{equation}
 with the integer $k$ becoming
-\begin{equation*}
-k = \frac{m(m-1)}{2}.
-\end{equation*}
+\begin{equation}\label{equ_tri_numb}
+k = \frac{m(m-1)}{2},
+\end{equation}
+the $(m-1)^{th}$ triangle number.
 It is clear now that for an appropriate choice of each vector $B_i$, we can formulate any
 monomial in the components of $x$ using equation \eqref{equ_monomial}.
 Letting $B$ be a general $m$-vector, (which is not necessarily an $m$-blade),
@@ -314,17 +314,17 @@ It is clear that the right-hand side of equation \eqref{equ_conf_trans_poly} is
 the surface $\Gd(B)$ having undergone the transformation represented by each $V_i$.
 Our result will show that this is also the surface $\Gd(VBV^{-1})$.
 
-To begin, we notice that by the linearity of the outer product, there is no loss
-in generality in letting $B$ be an $m$-blade instead of a general $m$-vector.
+To begin, we will first prove the validity of equation \eqref{equ_conf_trans_poly} for $m$-blades $B$ of $\G$,
+and then after-word consider the more general case of $B$ as being a general $m$-vector.
 We will therefore precede by factoring $B$ as we have in equation \eqref{equ_B_factored}
 with each $B_i\in\V_i$.  We then have
 \begin{align}
-\bigwedge_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B\nonumber
-&= (-1)^k\prod_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B_i\nonumber \\
-&= (-1)^k\prod_{i=1}^m p_i(x)\cdot V_iB_iV_i^{-1}\nonumber \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m V_iB_iV_i^{-1}\label{equ_before_subscript_drop} \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m VB_iV^{-1}\label{equ_after_subscript_drop} \\
-&=\bigwedge_{i=1}^m p_i(x)\cdot VBV^{-1},\nonumber
+ & \bigwedge_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B\label{equ_seq_start} \\
+=\;& (-1)^k\prod_{i=1}^m V_i^{-1}p_i(x)V_i\cdot B_i\nonumber \\
+=\;& (-1)^k\prod_{i=1}^m p_i(x)\cdot V_iB_iV_i^{-1}\nonumber \\
+=\;&\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m V_iB_iV_i^{-1}\label{equ_before_subscript_drop} \\
+=\;&\bigwedge_{i=1}^m p_i(x)\cdot\bigwedge_{i=1}^m VB_iV^{-1}\label{equ_after_subscript_drop} \\
+=\;&\bigwedge_{i=1}^m p_i(x)\cdot VBV^{-1},\label{equ_seq_stop}
 \end{align}
 where here, the integer $k$ is again given by equation \eqref{equ_k}.  The step taking us from
 \eqref{equ_before_subscript_drop} to \eqref{equ_after_subscript_drop} deserves some explanation.
@@ -335,6 +335,9 @@ is an exercise in combinatorics, and ends up being
 \begin{equation*}
 (-1)^{m(m-1)}=1.
 \end{equation*}
+
+Returning now to equation \eqref{equ_conf_trans_poly} in the case that $B$ is a general $m$-vector, simply notice
+that by the linearity of the inner product, the sequence of equalities equating \eqref{equ_seq_start} with \eqref{equ_seq_stop} remains valid.
 
 This result suggests the following process of transforming a polynomial $f$ into another polynomial $f'$ by a conformal
 transformation represented by a versor $V$.
