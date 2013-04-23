@@ -61,7 +61,8 @@ Before presenting the Mother Minkowski algebra of order $m$, we lead up to it he
 some background and motivation.\footnote{In all equations to follow, we let the
 outer product take precedence over the inner product, and the geometric product
 take precedence over the inner and outer products.  The inner product used in this
-paper is the Hestenes inner product.}  We begin by recalling that an algebraic set is any 
+paper is the Hestenes inner product.}
+We begin by recalling that an algebraic set is any 
 subset of an $n$-dimensional euclidean space $\R^n$ that is also the zero set of one
 or more polynomials, each in $n$ independent variables.  Given a geometric algebra $\G$, we can represents such sets
 using blades $B\in\G$ as the set of all points $x\in\R^n$ such that
@@ -226,7 +227,9 @@ work exclusively in $\R_1^n$ by defining an outermorphism that takes any blade i
 to its corresponding blade in $\B_i$.  The function $p_i$ can then be defined in terms
 of this outermorphism.  Interestingly, an explicit formula for this outermorphism can be found and carried through
 all of the equations we'll present in the remainder of this paper, but there is no need to
-formally introduce it, because the equations still go through in its absence.
+formally introduce it, because the equations still go through in its absence; nor would we want to,
+because it would just make the math less readable.  If the reader is
+interested, this outermorphism is given in the appendix.
 
 What is immediately clear from the definition of $\Gd$ in equation \eqref{equ_Gd}
 is that unless for all integers $i\in[1,m]$, a vector
@@ -345,6 +348,41 @@ Here, the polynomial $f$ is converted into an $m$-vector $B$, the versor $V$ is 
 as the $m$-vector $VBV^{-1}$, which in turn is converted back into the polynomial $f'$.  The conversion
 process is straightforward and can be easily handled by a computer algebra system.
 
+\section{Appendix}
+
+As promised, the following function $f:\G_i\to\G_j$ is an outermorphism that can be used
+to transform any element in $\G_i$ to its associated element in $\G_j$, provided $i\neq j$.
+It is given by
+\begin{equation*}
+f(E) = S_1ES_1^{-1},
+\end{equation*}
+where $S_k$ is the element given by
+\begin{equation*}
+S_k = (1-(-1)^k e_{-,i}e_{-,j})(1+(-1)^k e_{+,i}e_{+,j})\prod_{l=1}^n(1+(-1)^k e_{l,i}e_{l,j}),
+\end{equation*}
+where $\{e_{l,i}\}_{l=1}^n$ and $\{e_{l,j}\}_{l=1}^n$ are the orthonormal bases for $\R_i^n$ and $R_j^n$, respectively,
+and where $e_{-,i}$ and $e_{+,i}$ are each given by
+\begin{align*}
+e_{-,i} &= \frac{1}{2}(\nvai_i+\nvao_i),\\
+e_{+,i} &= \frac{1}{2}(\nvai_i-\nvao_i).
+\end{align*}
+Take note that
+\begin{equation*}
+S_1^{-1} = \frac{S_0}{2^{n+2}}.
+\end{equation*}
+Although $S_k$ is not a versor, it can be shown that $f$ is an outermorphism.
+
+For a vector $v_i\in\V_i$, to say that it's associated vector $v_j\in\V_j$ is $f(v_i)$ is to say
+that for any integer $l\in[1,n]$, we have
+\begin{equation*}
+e_{l,i}\cdot v_i = e_{l,j}\cdot v_j,
+\end{equation*}
+as well as
+\begin{align*}
+\nvao_i\cdot v_i &= \nvao_j\cdot v_j,\\
+\nvai_i\cdot v_i &= \nvai_j\cdot v_j.
+\end{align*}
+Notice that while $v_j=f(v_i)$, we have $v_i = -f(v_j)$.
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheMotherMinkowskiAlgebraOfOrderM}
