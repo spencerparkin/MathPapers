@@ -2,6 +2,7 @@
 
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \copyrightinfo{2013}{American Mathematical Society}
 
@@ -347,7 +348,8 @@ is an exercise in combinatorics, and ends up being
 \end{equation*}
 
 Returning now to equation \eqref{equ_conf_trans_poly} in the case that $B$ is a general $m$-vector, simply notice
-that by the linearity of the inner product, the sequence of equalities equating \eqref{equ_seq_start} with \eqref{equ_seq_stop} remains valid.
+that by the linearity of the inner, outer and
+geometric products, the sequence of equalities equating \eqref{equ_seq_start} with \eqref{equ_seq_stop} remains valid.
 
 This result suggests the following process of transforming a polynomial $f$ into another polynomial $f'$ by a conformal
 transformation represented by a versor $V$.
@@ -364,8 +366,9 @@ transformation represented by a versor $V$.
 \end{tikzpicture}
 \end{center}
 Here, the polynomial $f$ is converted into an $m$-vector $B$, the versor $V$ is applied to this $m$-vector
-as the $m$-vector $VBV^{-1}$, which in turn is converted back into the polynomial $f'$.  The conversion
-process is straightforward and can be easily handled by a computer algebra system.
+as the $m$-vector $VBV^{-1}$, which is in turn converted back into the polynomial $f'$.  The conversion
+process is straightforward and can be easily handled by a computer algebra system, as well as that
+of the computation of $VBV^{-1}$.
 
 \begin{figure}
 \includegraphics[scale=0.3]{InvertCylinderInSphere}
@@ -376,7 +379,8 @@ of the object becomes extreme.}
 \end{figure}
 
 Using the vector-based equations for quadric surfaces found in \cite{Miller87},
-a piece of software was written that implements the method given in this paper of
+a piece of software\footnote{This software can be found at \url{https://github.com/spencerparkin/GAVisTool}.}
+was written that implements the method given in this paper of
 applying conformal transformations to polynomials.  This software was used
 to generate Figure~\ref{fig_invert_cylinder_in_sphere}.  The input
 polynomial, whose zero set is the clyindrical surface, was given by
