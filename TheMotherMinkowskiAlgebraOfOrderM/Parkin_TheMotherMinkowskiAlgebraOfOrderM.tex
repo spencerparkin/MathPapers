@@ -98,7 +98,7 @@ then
 In this way, the outer product serves to take the intersection of two surfaces.  But we can also
 look at the outer product in a different light as an operator that takes at least the union
 of its two given surfaces.  To see this, we must consider an alternative interpretation
-of blades $B\in\B$ as algebraic sets.  Defining $\gh:\B\to P(\R^n)$ as
+of blades $B\in\B$ as being representative algebraic sets.  Defining $\gh:\B\to P(\R^n)$ as
 \begin{equation}\label{equ_gh}
 \gh(B)=\{x\in\R^n|p(x)\wedge B=0\},
 \end{equation}
@@ -224,17 +224,17 @@ to its corresponding blade in $\B_i$.  The function $p_i$ can then be defined in
 of this outermorphism.  Interestingly, an explicit formula for this outermorphism can be found and carried through
 all of the equations we'll present in the remainder of this paper, but there is no need to
 formally introduce it, because the equations still go through in its absence; nor would we want to,
-because it would just make the math less readable.  If the reader is
+because it would just make the math less readable.  Nevertheless, if the reader is
 interested, this outermorphism is given in the appendix.
 
 In this paper we are going to limit our attention
 to those blades $B\in\B$ having factorizations involving a representative from each $\B_i$,
 which is to say that for all integers $i\in[1,m]$, there exists a non-zero vector $v\in\V_i$ such that $v\wedge B=0$.
-Doing so, we write $B$ as
+Doing so, we write the blade $B$ as
 \begin{equation}\label{equ_B_factored}
 B = \bigwedge_{i=1}^m B_i,
 \end{equation}
-where each $B_i$ is in $\B_i$, and then see that
+where each blade $B_i$ is in $\B_i$, and then see that
 \begin{equation}\label{equ_exp_def}
 \bigwedge_{i=1}^m p_i(x)\cdot B = (-1)^k\bigwedge_{i=1}^m p_i(x)\cdot B_i,
 \end{equation}
@@ -255,9 +255,8 @@ This shows that we can represent any union of up to $m$ surfaces taken from the 
 but if we extend our function $\Gd$ to the set of all $m$-vectors, we can do even better.
 To see why, we need only show that any monomial in up to $n$ variables and at most
 degree $m$ can be represented by the expression on the right-hand side of equation \eqref{equ_exp_def}.
-The $n$ variables are taken from the components of the point $x\in\R^n$.  Let each $B_i$ be a vector in $\V_i$
-with $B_i\cdot\nvai_i=0$.
-The expression then becomes
+The $n$ variables are taken from the components of the point $x\in\R^n$.
+Letting each $B_i$ be a vector in $\V_i$, the expression becomes
 \begin{equation}\label{equ_monomial}
 (-1)^k\prod_{i=1}^m p_i(x)\cdot B_i,
 \end{equation}
@@ -267,13 +266,15 @@ k = \frac{m(m-1)}{2},
 \end{equation}
 the $(m-1)^{th}$ triangle number.
 It is clear now that for an appropriate choice of each vector $B_i$, we can formulate any
-monomial in the components of $x$ using equation \eqref{equ_monomial}.
+monomial in the components of $x$ using equation \eqref{equ_monomial}.  In
+every such choice, notice that we may let $B_i\cdot\nvai_i=0$.
 Letting $B$ be a general $m$-vector, (which is not necessarily an $m$-blade),
 we see now that the expression
 that is the left-hand side of equation \eqref{equ_exp_def} represents
 any polynomial of at most degree $m$
-in the vector components of $x$.
-Of course, if $B_i\cdot\nvai_i=0$ for not all vector factors of the blades in $B$, what
+in the vector components of $x$, provided we have $B_i\cdot\nvai_i=0$
+for all vector factors of any blade in $B$.
+Of course, if this is not the case, what
 we get is a polynomial of at most degree $2m$ by the squaring that
 occures in equation \eqref{equ_p_i}, but we cannot represent all polynomials
 of up to this degree.  If polynomials of a higher degree are needed, simply go to a
