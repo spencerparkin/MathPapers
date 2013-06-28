@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Geometric Calculus}
+\author{Spencer T. Parkin}
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+\section{Introduction and Motivation}
+
+This paper draws upon a number of sources, most notably
+\cite{}, to give an exposition of basic geometric calculus
+in my own words.  Ancient and modern calculus is laden with
+confusing notation that is designed to appeal to most human's
+intuition, but this leaves simple-minded people, such as myself, feeling
+that the calculus conveyed suffers from a great deal lack of rigor.  Put another way,
+if the language of calculus as it is inconsistently given in many
+different calculus texts were fed to a computer program designed
+to compile it into machine language, that program would either fail
+every time, or be extremely complicated.
+This paper, therefore, is my attempt to put basic geometric calculus in layman's terms
+and in a way that does not assume that the reader is on board with every bit
+of notation that can only be understood by glimpsing the unspoken mind of the author.
+
+\section{What Is Geometric Calculus?}
+
+Already having an understanding of geometric algebra (GA), we may define
+geometric calculus (GC) as the study of limiting processes involving multivector-valued functions
+defined on sub-sets of the vector-space generating the geometric algebra containing the
+image of such functions.  Before moving on, it is therefore
+requisite that we review here the definition of the limit.
+Throughout this paper, we will let $\G$ denote a geometric algebra, and $\V$
+the vector space generating $\G$.  The scalars of $\V$ will be the real numbers $\R$.
+\begin{definition}\label{def_scalar_limit}
+Given a multivector-valued function $f:\R\to\G$, we define the limit of $f$ at
+$x_0\in\R$, if it exists, as the multivector $L\in\G$, and write
+\begin{equation}
+\lim_{x\to x_0} f(x) = L,
+\end{equation}
+if and only if for all real numbers $\epsilon>0$, there exists a real number $\delta>0$ such that
+\begin{equation}
+|x-x_0|<\delta \implies |f(x)-f(x_0)|<\epsilon.
+\end{equation}
+\end{definition}
+Here, the notation $|\cdot |$ takes the norm of its argument, which norm
+is defined and well-known in studies of GA.
+
+As the reader will notice, this definition applies to multivector-valued functions
+defined on $\R$.  But what about multivector-valued functions defined on $\V$?
+In an effort to answer this question, it is tempting to give what may be a natural extension of
+Definition~\ref{def_scalar_limit} by simply replacing $\R$ with $\V$ in the wording
+of Definition~\ref{def_scalar_limit}.  While such a definition may prove useful,
+what we'll find in our study of GC is that functions defined on $\V$ can be analyzed
+in great and perhaps sufficient detail by restricting our use of the limit process to related functions
+defined on $\R$.  The first such function we will study is the difference quotient used
+to define what we'll call the directional derivative.
+
+\section{The Directional Derivative Of A Function}
+
+Given a function $f:\R\to\G$, we define its derivative at a point $x_0\in\R$ as
+$f'(x_0)$, where the function $f':\R\to\G$ is given by
+\begin{equation}\label{equ_scalar_deriv}
+f'(x) = \lim_{\delta\to 0}\frac{f(x+\delta)-f(x)}{\delta}.
+\end{equation}
+Extending this idea to a function $f:\V\to\G$, we get the following definition.
+\begin{definition}\label{def_dir_deriv}
+Given a function $f:\V\to\G$, we define its derivative at a point $x_0\in\V$
+and in a direction $a\in\V$ as $f_a(x_0)$, where the function $f_a:\V\to\R$ is given by
+\begin{equation}\label{equ_dir_deriv}
+f_a(x) = \lim_{\delta\to 0}\frac{f(x+\delta a)-f(x)}{\delta}.
+\end{equation}
+\end{definition}
+Intuitively, we may think of $f_a(x)$ as the instantaneous rate of change
+of the function $f$ at $x$ in the direction $a$.
+
+Just as $\frac{d}{dx}$ is often notation used as an operator taking the
+derivative of function $f:\R\to\G$ in equation \eqref{equ_scalar_deriv}, we will let
+$\nabla_a$ denote an operator used to take the directional derivative of
+a function $f:\V\to\G$ as we have in equation \eqref{equ_dir_deriv}.
+Specifically, we have $\frac{d}{dx}f(x)=f'(x)$ and $\nabla_a f(x)=f_a(x)$.
+
+\section{The Derivative (Gradient) Of A Function}
+
+When working with functions defined on $\R$, equation \eqref{equ_scalar_deriv} gives
+our definition of the derivative.  Equation \eqref{equ_dir_deriv}, however, is not
+completely analogous, because it is additionally characterized by a
+direction vector $a$.  What, then, might we consider to be the derivative of a function $f:\V\to\G$
+at a point $x_0\in\V$, and what interpretation might we attach to it?
+In terms of Definition~\ref{def_dir_deriv}, we will  now proceed to give a definition
+of the derivative of a function $f:\V\to\G$, denoted $\nabla f$, and sometimes referred
+to as the gradient of $f$, and then go on to contemplate its geometric significance.
+For the definition to follow, we let $\{e_i\}_{i=1}^n$ be any set of vectors forming
+a basis for the $n$-dimensional vector space $\V$.
+\begin{definition}\label{def_vec_diriv}
+Given a function $f:\V\to\G$, we define its derivative at a point $x_0\in\V$
+as $\nabla f(x_0)$, where the function $\nabla f:\V\to\G$ is given by
+\begin{equation}\label{equ_vec_deriv}
+\nabla f(x) = \sum_{i=1}^n e_if_{e_i}(x).
+\end{equation}
+\end{definition}
+Notice that here, since the image of $f$ is not necessarily confined to $\R$,
+the order of multiplication between $e_i$ and $f_{e_i}$ is significant.
+The product here is the geometric product.
+
+The reader should be aware that most authors like to introduce the gradient
+of $f$ as an operator that acts like a vector.  Intuitively, they write
+\begin{equation}\label{equ_nabla_op}
+\nabla = \sum_{i=1}^n e_i\nabla_{e_i}.
+\end{equation}
+When applied to a function $f$, you must realize that $f$ distributes over addition to
+each operator $\nabla_{e_i}$.
+To make matters even more complicated, when the application of each operator $\nabla_{e_i}$
+results in a scalar-valued function, they then go on to let $a\cdot\nabla$, where $a\in\V$
+is any given non-zero vector, denote an operator in its own right as
+\begin{equation}\label{equ_dir_deriv_op}
+a\cdot\nabla = \sum_{i=1}^n (a\cdot e_i)\nabla_{e_i}
+\end{equation}
+under the same idea of distribution upon application.  Notice that the $\nabla$ operator
+is being treated like a vector here so that the inner product $a\cdot\nabla$ may be carried out.
+In my opinion, all of this is horribly confusing, unjustified and completely unnecessary.
+A claim is then made that $\nabla_a=a\cdot\nabla$ with little or no explanation.  Here we are
+going to justify this reasoning; but for now, put equations \eqref{equ_nabla_op} and \eqref{equ_dir_deriv_op}
+out of your mind.
+
+Regaining our grip on mathematical rigor, take a second look at Definition~\ref{def_vec_diriv}, and
+consider the case that each function $f_{e_i}$ is scalar-valued.  This makes the function $\nabla f$
+vector-valued, and for a vector $a\in\V$, we may then write
+\begin{equation}
+a\cdot \nabla f(x) = \sum_{i=1}^n (a\cdot e_i)f_{e_i}(x).
+\end{equation}
+At first glance, it may not be entirely clear what geometric significance the
+function $a\cdot \nabla f(x)$ has, but the following theorem will relate
+it to the direction derivative which we have already come to terms with geometrically.
+\begin{theorem}
+Given a differentiable and scalar-valued function $f:\V\to\R$ and a non-zero vector $a\in\V$, we have
+\begin{equation}
+\nabla_a f(x) = a\cdot\nabla f(x).
+\end{equation}
+\end{theorem}
+\begin{proof}
+We begin by rewriting equation \eqref{equ_dir_deriv} as
+\begin{equation}
+\nabla_a f(x) = \lim_{\delta\to 0}\frac{1}{\delta}\left(f\left(x+\delta\sum_{i=1}^n (a\cdot e_i)e_i\right)-
+\sum_{i=1}^n f(x)+\sum_{i=1}^{n-1} f(x)\right).
+\end{equation}
+We now make the observation that for small values of $\delta$, the function $f$ begins to
+approximate a linear function.  This allows us to write
+\begin{equation}
+\nabla_a f(x)=\lim_{\delta\to 0}\frac{1}{\delta}\left(\sum_{i=1}^n (f(x+\delta (a\cdot e_i)e_i)-f(x))\right).
+\end{equation}
+Now make the substitution $\delta=\frac{\delta'}{a\cdot e_i}$.
+\end{proof}
+Lots of rigor lacking here.
+
+\end{document}
