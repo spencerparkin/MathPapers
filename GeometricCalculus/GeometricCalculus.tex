@@ -145,14 +145,15 @@ out of your mind.
 Regaining our grip on mathematical rigor, take a second look at Definition~\ref{def_vec_diriv}, and
 consider the case that each function $f_{e_i}$ is scalar-valued.  This makes the function $\nabla f$
 vector-valued, and for a vector $a\in\V$, we may then write
-\begin{equation}
+\begin{equation}\label{equ_dir_deriv_as_dot_grad}
 a\cdot \nabla f(x) = \sum_{i=1}^n (a\cdot e_i)f_{e_i}(x).
 \end{equation}
 At first glance, it may not be entirely clear what geometric significance the
 function $a\cdot \nabla f(x)$ has, but the following theorem will relate
-it to the direction derivative which we have already come to terms with geometrically.
-\begin{theorem}
-Given a differentiable and scalar-valued function $f:\V\to\R$ and a non-zero vector $a\in\V$, we have
+it to the directional derivative which we have already come to terms with geometrically.
+\begin{theorem}\label{thm_dir_deriv_relate_grad}
+Given a scalar-valued function $f:\V\to\R$ that is differentiable in all directions at any point,
+and a non-zero vector $a\in\V$, we have
 \begin{equation}
 \nabla_a f(x) = a\cdot\nabla f(x).
 \end{equation}
@@ -168,8 +169,30 @@ approximate a linear function.  This allows us to write
 \begin{equation}
 \nabla_a f(x)=\lim_{\delta\to 0}\frac{1}{\delta}\left(\sum_{i=1}^n (f(x+\delta (a\cdot e_i)e_i)-f(x))\right).
 \end{equation}
-Now make the substitution $\delta=\frac{\delta'}{a\cdot e_i}$.
+Now recall that the limit of a sum is a sum of limits, provided that each of those limits exists.
+This gives us
+\begin{equation}
+\nabla_a f(x)=\sum_{i=1}^n\lim_{\delta\to 0}\frac{f(x+\delta (a\cdot e_i)e_i)-f(x)}{\delta}.
+\end{equation}
+We can now simply make the substitution $\delta=\frac{\delta'}{a\cdot e_i}$ to get
+\begin{equation}
+\nabla_a f(x) = \sum_{i=1}^n (a\cdot e_i)\lim_{\delta'\to 0}\frac{f(x+\delta' a)-f(x)}{\delta'},
+\end{equation}
+which completes our proof by equation \eqref{equ_dir_deriv_as_dot_grad}.
 \end{proof}
-Lots of rigor lacking here.
+A great deal of rigor is lacking here in this proof; particularly as concerns the part about
+$f$ approximating a linear function.
+
+As promised, let us now concern ourselves with the geometric significance of $\nabla f$.
+Letting $f$ represent a surface as the set of all points $x\in\V$ such that $f(x)=0$,
+let $x_0$ be a point on this surface, and consider the vector $\nabla f(x_0)$.
+Now realize that if $a\in\V$ is a vector such that $\nabla_a f(x_0)=0$, then
+$a$ must be a vector tangent to the surface at $x_0$.  Realizing that all such tangents
+to the surface of $f$ at $x_0$ may be characterized this way, we see by
+Theorem~\ref{thm_dir_deriv_relate_grad} that $\nabla f(x_0)$ must be a normal
+to the surface of $f$ at $x_0$, because it is orthogonal to all tangents at $x_0$.
+
+What's further, we should somehow be able to prove that the gradient allows us to
+converge on the surface of $f$.
 
 \end{document}
