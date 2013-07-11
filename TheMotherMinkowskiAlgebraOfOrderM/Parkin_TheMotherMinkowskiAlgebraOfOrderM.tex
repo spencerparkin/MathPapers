@@ -243,13 +243,14 @@ where each blade $B_i$ is in $\B_i$, and then see that
 \end{equation}
 where the integer $k$ is given by
 \begin{equation}\label{equ_k}
-k=\sum_{i=1}^m \grade(B_i)\left(\sum_{\substack{j=1\\j\neq i}}^m \grade(B_j)-m+i\right).
+k=\sum_{i=1}^m\sum_{j=1}^{m-i}\grade(B_j),
 \end{equation}
-Subscripting equation \eqref{equ_gd} as
+letting the nested sum be zero in the case that $i=m$.
+Then, subscripting equation \eqref{equ_gd} as
 \begin{equation*}
 \gd_i(B_i) = \{x\in\R^n|p_i(x)\cdot B_i=0\},
 \end{equation*}
-what we now find is that
+what we now find is that by equation \eqref{equ_exp_def}, we have
 \begin{equation*}
 \Gd(B) = \bigcup_{i=1}^m\gd_i(B_i).
 \end{equation*}
@@ -267,7 +268,8 @@ with the integer $k$ becoming
 \begin{equation}\label{equ_tri_numb}
 k = \frac{m(m-1)}{2},
 \end{equation}
-the $(m-1)^{th}$ triangle number.
+the $(m-1)^{th}$ triangle number, since for all integers $j\in[1,m]$, we have $\grade(B_j)=1$ in
+equation \eqref{equ_k}.
 It is clear now that for an appropriate choice of each vector $B_i$, we can formulate any
 monomial in the components of $x$ using equation \eqref{equ_monomial}.  In
 every such choice, notice that we may let $B_i\cdot\nvai_i=0$.
