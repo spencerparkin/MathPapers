@@ -1,0 +1,298 @@
+% ------------------------------------------------------------------------
+% bjourdoc.tex for birkjour.cls*******************************************
+% ------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{birkjour}
+%
+%
+% THEOREM Environments (Examples)-----------------------------------------
+%
+ \newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposition}
+ \theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ \theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \newtheorem*{ex}{Example}
+ \numberwithin{equation}{section}
+
+
+\begin{document}
+
+%-------------------------------------------------------------------------
+% editorial commands: to be inserted by the editorial office
+%
+%\firstpage{1} \volume{228} \Copyrightyear{2004} \DOI{003-0001}
+%
+%
+%\seriesextra{Just an add-on}
+%\seriesextraline{This is the Concrete Title of this Book\br H.E. R and S.T.C. W, Eds.}
+%
+% for journals:
+%
+%\firstpage{1}
+%\issuenumber{1}
+%\Volumeandyear{1 (2004)}
+%\Copyrightyear{2004}
+%\DOI{003-xxxx-y}
+%\Signet
+%\commby{inhouse}
+%\submitted{March 14, 2003}
+%\received{March 16, 2000}
+%\revised{June 1, 2000}
+%\accepted{July 22, 2000}
+%
+%
+%
+%---------------------------------------------------------------------------
+%Insert here the title, affiliations and abstract:
+%
+
+
+\title[An Example for birkjour]
+ {An Example for the Usage of the\\  birkjour Class File}
+
+
+
+%----------Author 1
+\author[Birkh\"auser]{Birkh\"{a}user Publishing Ltd.}
+
+\address{%
+Viaduktstr. 42\\
+P.O. Box 133\\
+CH 4010 Basel\\
+Switzerland}
+
+\email{info@birkhauser.ch}
+
+\thanks{This work was completed with the support of our
+\TeX-pert.}
+%----------Author 2
+\author{A Second Author}
+\address{The address of\br
+the second author\br
+sitting somewhere\br
+in the world}
+\email{dont@know.who.knows}
+%----------classification, keywords, date
+\subjclass{Primary 99Z99; Secondary 00A00}
+
+\keywords{Class file, journal}
+
+\date{January 1, 2004}
+%----------additions
+\dedicatory{To my boss}
+%%% ----------------------------------------------------------------------
+
+\begin{abstract}
+The aim of this work is to provide the contributors to journals or to
+multi-authored books with an easy-to-use and flexible class file compatible
+with \LaTeX\ and \AmS-\LaTeX.
+\end{abstract}
+
+%%% ----------------------------------------------------------------------
+\maketitle
+%%% ----------------------------------------------------------------------
+%\tableofcontents
+\section{Document Preamble}
+Start the article with the command
+
+\begin{verbatim}\documentclass{birkjour}\end{verbatim}
+
+After that, needed macro packages and new commands can be inserted
+as in every \LaTeX\ or \AmS-\LaTeX\ document. Don't use commands
+that change the page layout (like
+\verb+\textwidth, \oddsidemargin+
+etc.) or fonts.\bigskip
+
+\section{Frontmatter}
+The command
+\begin{verbatim}\begin{document}\end{verbatim}
+starts -- as always -- the article.
+
+\subsection{Author Data}
+
+Afterwards, insert title, author(s) and affiliation(s), as in the source file to this document,
+\verb+bjourdoc.tex+. E.g.,
+\begin{verbatim}
+\title[An Example for birkjour]
+ {An Example for the Usage of the\\ birkjour Class File}
+%----------Author 1
+\author[Birkh\"auser]{Birkh\"{a}user Publishing Ltd.}
+\address{%
+Viaduktstr. 42\\
+P.O. Box 133\\
+CH 4010 Basel\\
+Switzerland}
+\email{info@birkhauser.ch}
+\end{verbatim}
+For each author the commands \verb+\author+, \verb+\address+ and \verb+\email+ should be used separately. See the last page of this document for the typesetting layout of the above addresses.
+
+\subsection{Abstract, Thanks, Key Words, MSC}
+
+The \verb+abstract+ environment typesets the abstract:
+\begin{verbatim}
+\begin{abstract}
+The aim of this work is to provide the contributors to edited
+books with an easy-to-use and flexible class file compatible
+with \LaTeX\ and \AmS-\LaTeX.
+\end{abstract}
+\end{verbatim}
+In addition, the Mathematical Subject Codes, some key words and thanks can be given:
+\begin{verbatim}
+\thanks{This work was completed with the support of our
+\TeX-pert.}
+\subjclass{Primary 99Z99; Secondary 00A00}
+\keywords{Class file, journal}
+\end{verbatim}
+Finally, \verb+\maketitle+ typesets the title.
+
+\section{Mainmatter}
+Now type the article using the usual \LaTeX\ and (if you need them)
+\AmS-\LaTeX\ commands.
+
+We gratefully appreciate if the text does
+not contain \verb+\overfull+ and/or \verb+\underfull+ boxes, if
+equations do not exceed the indicated width, if hyphenations have
+been checked, and if the hierarchical structure of your article is
+clear. Please avoid caps and underlines.
+
+Just to give examples of a few typical environments:
+
+\begin{defn}
+This serves as environment for definitions. Note that the text
+appears not in italics.
+\end{defn}
+
+\begin{equation}\label{testequation}
+\text{This is a sample equation: } c^2=a^2+b^2
+\end{equation}
+
+The above equation received the label \verb+testequation+.
+
+\begin{thm}[Main Theorem]
+In contrast to definitions, theorems appear typeset in italics as
+it has become more or less standard in most textbooks and
+monographs. Equations can be cited using the \verb+\eqref+ command which
+automatically adds brackets: \verb+\eqref{testequation}+ results in \eqref{testequation}.
+\end{thm}
+
+\begin{proof}
+A special environment is predefined: the \textit{proof} environment. Please use
+\begin{verbatim}\begin{proof}\end{verbatim}
+proof of the statement
+\begin{verbatim}\end{proof}\end{verbatim}
+for typesetting your proofs. The end-of-proof symbol $\Box$ will be added automatically.
+\end{proof}
+
+There are two known problems with the placement of the end-of-proof sign:
+
+\begin{enumerate}
+  \item if your proof ends with a\ \ s i n g l e\ \ displayed line, the end-of-proof sign would
+be placed in the line below; if you want to avoid this, write your line in the form
+\begin{verbatim}$$displayed math line \eqno\qedhere$$\end{verbatim}
+which results in
+
+\begin{proof}
+$$displayed math line \eqno\qedhere$$
+\end{proof}
+\item if your proof ends with an aligned displayed environment, the command
+\verb+\tag*{\qed}+ can be used to place the end-of-proof sign properly:
+\begin{verbatim}
+\begin{align*}
+\alpha&=\beta+\gamma\\
+&=\delta+\epsilon\tag*{\qed}
+\end{align*}
+\end{verbatim}
+results in
+\begin{align*}
+\alpha&=\beta+\gamma\\
+&=\delta+\epsilon\tag*{\qed}
+\end{align*}
+\end{enumerate}
+Please try to avoid using the obsolete \verb+\eqnarray+ environment. This environment has several bugs
+and has been replaced by the more flexible \AmS\ environments \verb+align, split, multline+.
+
+
+\begin{rem}
+Additional comments are being typeset without boldfaced entrance
+word as they may be minor important.
+\end{rem}
+
+\begin{ex}
+For some constructs, even no number is required.
+\end{ex}
+
+Displayed equations may be numbered like the following one:
+\begin{equation}
+\sqrt{1-\sin^2(x)}=|\cos(x)|.
+\end{equation}
+
+\subsection{Here is a Sample Subsection}
+
+Just needed because next thing is
+
+\subsubsection{Here is a Sample for a Subsubsection}
+
+One more sample will follow which clearly shows the difference between subsubsection deeper nested lists:
+
+\paragraph{Here is a Sample for a Paragraph}
+
+As you observe, paragraphs do not have numbers and start new lines after the heading, by default.
+
+\subsection{Indentation}
+Though indentation to indicate a new paragraph is welcome, please
+do not use indentation when the new paragraph is already marked by
+an extra vertical space, as for example in the case of the first
+paragraph following a heading (this is standard in this class), or
+after using commands like
+\verb+\smallskip, \medskip, \bigskip+ etc.
+
+
+\subsection{Figures}
+
+Please use whenever possible figures in EPS format (encapsulated
+postscript). Then, you can include the figure with
+the command
+
+\begin{verbatim}\includegraphics{figure.eps}\end{verbatim}
+
+It is sometimes difficult to place insertions at an exact location
+in the final form of the article. Therefore, all figures and tables
+should be numbered and you should refer to these numbers within
+the text. Please avoid formulations like ``the following
+figure\dots".
+
+\subsection{Your Own Macros}
+
+If you prefer to use your own macros within your document(s)
+please don't forget to send them to us together with the source
+files for the manuscript. We will need all these files to produce
+the final layout.
+
+
+\section{Backmatter}
+
+At the end of the document, the affiliation(s) will be typeset
+automatically. For this it is necessary that you used the \verb+\address+ command for including your affiliation, as explained above.
+
+
+% ------------------------------------------------------------------------
+
+\subsection*{Acknowledgment}
+Many thanks to our \TeX-pert for developing this class file.
+
+
+\begin{thebibliography}{1}
+\bibitem{test} A. B. C. Test, \textit{On a Test.} J. of Testing
+\textbf{88} (2000), 100--120.
+\bibitem{latex} G. Gr\"atzer, \textit{Math into \LaTeX.} 3rd Edition,
+Birkh\"auser, 2000.
+\end{thebibliography}
+
+% ------------------------------------------------------------------------
+\end{document}
+% ------------------------------------------------------------------------
