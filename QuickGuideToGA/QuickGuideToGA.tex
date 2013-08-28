@@ -9,6 +9,8 @@
 \title{A Quick Guide To Geometric Algebra}
 \author{Spencer T. Parkin}
 
+\numberwithin{equation}{section}
+
 \newcommand{\G}{\mathbb{G}}
 \newcommand{\V}{\mathbb{V}}
 \newcommand{\R}{\mathbb{R}}
@@ -201,7 +203,7 @@ showing that $B_i$ represents the largest possible vector sub-space of $\V$, whi
 grade of $B_i$, therefore, is in this case the largest possible grade.
 
 Just as vectors add as vectors, and scalars add as scalars, it is tempting to assume
-that blades of any grade $k$ will add as blades of that grade.  This is not necessarily true,
+that blades of any grade $k$ will add as blades of that grade.  This is not necessarily true, however,
 and forces us to introduce the notion of $k$-vectors.
 \begin{definition}\label{def_k_vector}
 A $k$-vector is the sum of one or more blades of grade $k$.
@@ -294,7 +296,9 @@ by $B$, we define the magnitude of $B$, denoted by $|B|$, as
 \begin{equation}
 |B| = |v_1||v_2|\dots |v_k|,
 \end{equation}
-where for each $1\leq i\leq k$, $|v_i|$ denotes the length of $v_i$.
+where for each $1\leq i\leq k$, $|v_i|$ denotes the length of $v_i$.\footnote{This definition is
+not applicable in non-Euclidean geometric algebras.  For such algebras, we will have to revisit
+the definition of blade magnitude, finding one that is applicable in all algebras.  See Definition~\ref{}.}
 \end{definition}
 If $\{v_k\}_{k=1}^k$ is an orthogonal basis, then for any pair of vectors $a,b\in\{v_i\}_{i=1}^k$,
 we have $a\cdot b=0$, which is to say that $a$ and $b$ are perpendicular to one another.
@@ -311,14 +315,18 @@ B = v_1\wedge v_2\wedge\dots\wedge(v_i+\lambda v_j)\wedge\dots\wedge v_k,
 where $1\leq i\leq k$, $1\leq j\leq k$ and $i\neq j$.  Every step of the Gram-Schmidt
 orthogonalization process, which process, for brevity, we'll leave as a research project for the reader,
 is of the form of equation \eqref{equ_grahm_schmidt_step_form}, and in the end, produces
-a factorization of $B$ in terms of an orthogonal basis.
+a factorization of $B$ in terms of an orthogonal basis.\footnote{Such factorizations are not
+always possible in non-Euclidean geometric algebras.  Therefore, any argument that uses
+this technique must be revisited when dealing in such algebras.  For now, we assume a
+Euclidean geometric algebra for simplicity and visibility, non-Euclidean geometry being harder to imagine.}
 
 The geometric take-home point of all this is that blades, under a geometric interpretation,
 have arbitrary shape.  While a vector is always a line segment, we may visualize a blade of
 grade greater than one
 as an area in a plane or a volume in a hyper-plane, the shape of that area or volume being completely
 arbitrary.  The defining characteristics of a $k$-blade are simply the orientation of the $k$-dimensional
-hyper-volume, the amount of that hyper-volume, and another property known as handedness.
+hyper-volume as viewed in $(k+1)$-dimensional space,
+the amount of that hyper-volume, and another property known as handedness.
 Handedness is a property
 that manifests itself only in the comparison of two blades $A$ and $B$ of the same grade with
 the same orientation
@@ -401,7 +409,7 @@ v\wedge B = -(-1)^k B\wedge v.
 It is also easy to deduce from Definition~\ref{def_vec_blade_inner_prod} the
 following useful identities.
 \begin{align}
-v\cdot B &= (v\cdot B_k)\wedge b_k-(-1)^k(v\cdot b_k)B_k \\
+v\cdot B &= (v\cdot B_k)\wedge b_k-(-1)^k(v\cdot b_k)B_k\label{equ_v_dot_B_recursive_ident} \\
 B\cdot v &= (v\cdot b_k)B_k - (v\cdot B_k)\wedge b_k
 \end{align}
 
@@ -433,7 +441,7 @@ any two multivectors.
 \subsection{Comparing the Inner and Outer Products}
 
 While motivations for our definition of the outer product are readily available,
-such motivations are not entirely clear at this point for our recent
+similar motivations may not be entirely clear at this point for our recent
 definition of the inner product.  In this section we explain the
 definition of the inner product by revealing its relationship with
 the outer product.
@@ -470,7 +478,7 @@ So you see, the inner and outer product perform complementary
 operations.  The outer product can be used to build blades up, while
 the inner product can be used to tare blades down.
 The grade lowering and grade raising properties of the inner
-and outer products, respectively, should now be summarized
+and outer products, respectively, can now be summarized
 as follows.
 \begin{equation}
 \begin{array}{ll}
@@ -482,19 +490,63 @@ as follows.
 The keen observer at this point, however, might point
 out that it is not entirely obvious that equation
 \eqref{equ_v_dot_B_expanded} gives us a blade.  To see that
-it does, ...
+it does, we simply evaluate equation \eqref{equ_v_dot_B_expanded} with
+the realization that we can, without loss of generality, let $b_k=v_{\parallel}$
+in equation \eqref{equ_v_ip_B}, and let $v_{\parallel}\cdot b_i=0$ for all
+$1\leq i<k$ by our choice of factorization for $B$.  Doing so, we get
+\begin{equation}
+v\cdot B = v_{\parallel}\cdot B = -(-1)^k v_{\parallel}^2 B_k.
+\end{equation}
+In non-Euclidean geometric algebras, this explanation is
+unsatisfactory as it does not go through due to the inability, in some cases, to factor a blade in
+terms of an orthogonal basis.  Never-the-less, we will still be able to prove that $v\cdot B$ is a
+blade in such algebras by using the geometric product.  (Will we?!)
 
-% explore magnitude of grade raised or lowered volume element.
+Before moving on to the geometric product, is worth taking a moment in this section
+to compare $|v\cdot B|$ to $|v\wedge B|$ by an application of Definition~\ref{def_blade_mag}.
+Again, letting our blade $B$ be factored in terms of an orthogonal basis, also letting $b_k=v_{\parallel}$,
+we find that
+\begin{align}
+|v\wedge B|&=|v_{\perp}\wedge B|=|v_{\perp}||B|\label{equ_a_wedge_B_mag} \\
+|v\cdot B|&=|v_{\parallel}\cdot B|=|v_{\parallel}|^2|B_k|=|v_{\parallel}||B|.\label{equ_a_dot_B_mag}
+\end{align}
+Interestingly, in both cases, the units of hyper-volume increase by one dimension.  In the
+case of equation \eqref{equ_a_wedge_B_mag}, this is expected, but in the case of
+equation \eqref{equ_a_dot_B_mag}, one might have hoped to get $|B|/|v_{\parallel}|$,
+but this is not how the math goes down.  In any case, we should consider ourselves fortunate
+that it doesn't go down this way, as we'll see in equation \eqref{} of the next section.
 
 % point out that scalar . E or scalar ^ E reduces to scalar-blade product.
 
-% give |a||b|cos T and |a||b|sin T formulas here.
+% give |a||b|cos T and |a||b|sin T formulas here?
 
 \subsection{The Geometric Product}
 
+By themselves, neither the inner nor the outer product is an invertible
+product; but interesingly, when we combine them into a new product that
+we'll call the geometric product, we get an invertible product.
+\begin{definition}[The Geometric Product]\label{def_vec_blade_geo_prod}
+For any vector $v$ and a blade $B$, we define the geometric product $vB$ as
+\begin{equation}
+vB = v\cdot B + v\wedge B,
+\end{equation}
+and similarly, we define the geometric product $Bv$ as
+\begin{equation}
+Bv = B\cdot v + B\wedge v.
+\end{equation}
+We define the geometric product to be associative and left and right distributive
+over addition.  Its commutativity will depend upon the elements being taken in the product.
+\end{definition}
+As you can see, we use juxtaposition to denote the geometric product, and
+between $v$ and $B$ it is simply the sum of their inner and outer products.\footnote{Using
+Definition~\ref{def_vec_blade_geo_prod}, it is possible to find the geometric
+product of any two blades of various grades by rewriting each blade as a sum of geometric products,
+expanding the product, and then converting each geometric product back into a
+sum of outer products.}
+
 % note the great leap it was to come up with the GP.
 
-% inertible, zero product property
+% invertible, zero product property
 
 % juxtaposition
 
@@ -503,6 +555,8 @@ it does, ...
 % reverse
 
 % versors and outermorphisms
+
+% show that |vB| = |v||B|
 
 % have section on important identities or have those come along as we go?
 
