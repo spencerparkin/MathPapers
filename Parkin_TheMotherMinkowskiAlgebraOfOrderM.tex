@@ -272,12 +272,16 @@ work exclusively in $\R_1^n$ by defining an outermorphism that takes any blade i
 to its corresponding blade in $\B_i$.  The function $p_i$ can then be defined in terms
 of this outermorphism.  Letting $f_i:\B_1\to\B_i$ be this outermorphism,
 we would, (working exclusively in $\R_1^n$), redefine $p_i:\R_1^n\to\V_i$ as
-\begin{equation*}
-p_i(x) = \left\{\begin{array}{ll}
-\nvao_i + f_i(x) + \frac{1}{2}f_i^2(x)\nvai_i & \mbox{if $i\neq 1$,} \\
-\nvao_i + x + \frac{1}{2}x^2\nvao_i & \mbox{if $i = 1$.}
+\begin{align*}
+p_i(x) &= \nvao_i + \frac{1}{2}x^2\nvai_i + \left\{\begin{array}{ll}
+f_i(x) & \mbox{if $i\neq 1$,} \\
+x & \mbox{if $i = 1$,}
+\end{array}\right. \\
+&= \left\{\begin{array}{ll}
+f_i(p(x)) & \mbox{if $i\neq 1$,} \\
+p(x) & \mbox{if $i=1$.}
 \end{array}\right.
-\end{equation*}
+\end{align*}
 
 Interestingly, an explicit formula for this outermorphism $f_i$ can be found and carried through
 all of the equations we'll present in the remainder of this paper, but there is no need to
