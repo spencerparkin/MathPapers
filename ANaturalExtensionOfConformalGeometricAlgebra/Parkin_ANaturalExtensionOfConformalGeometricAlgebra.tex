@@ -1,0 +1,220 @@
+\documentclass{birkjour}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Vb}{\overline{\mathcal{V}}}
+\newcommand{\Gb}{\overline{\mathcal{G}}}
+\newcommand{\Rb}{\overline{\mathcal{R}}}
+\newcommand{\Bb}{\overline{\mathcal{B}}}
+
+\newcommand{\VB}{\mathbb{V}}
+\newcommand{\GB}{\mathbb{G}}
+
+\newcommand{\nvao}{o}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvaob}{\overline{o}}
+\newcommand{\nvaib}{\overline{\infty}}
+\newcommand{\eb}{\overline{e}}
+
+\begin{document}
+
+%-------------------------------------------------------------------------
+% editorial commands: to be inserted by the editorial office
+%
+%\firstpage{1} \volume{228} \Copyrightyear{2004} \DOI{003-0001}
+%
+%
+%\seriesextra{Just an add-on}
+%\seriesextraline{This is the Concrete Title of this Book\br H.E. R and S.T.C. W, Eds.}
+%
+% for journals:
+%
+%\firstpage{1}
+%\issuenumber{1}
+%\Volumeandyear{1 (2004)}
+%\Copyrightyear{2004}
+%\DOI{003-xxxx-y}
+%\Signet
+%\commby{inhouse}
+%\submitted{March 14, 2003}
+%\received{March 16, 2000}
+%\revised{June 1, 2000}
+%\accepted{July 22, 2000}
+%
+%
+%
+%---------------------------------------------------------------------------
+
+\title{A Natural Extension Of\\The Conformal Model Of\\Geometric Algebra}
+
+\author{Spencer T. Parkin}
+
+%\address{%
+%\\
+%\\
+%\\
+%}
+
+\email{spencerparkin@outlook.com}
+
+%\thanks{}
+
+%\subjclass{Primary 99Z99; Secondary 00A00}
+%\keywords{Class file, journal}
+
+\date{January 1, 2004}
+
+%\dedicatory{To Naomi and Dean}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+The conformal model of geometric algebra, (here-after abbreviated CGA), is
+a model of geometry based upon a geometric algebra by an interpretation of its blades as being
+representative of certain algebraic surfaces.  For 3-dimensional space, such surfaces include the set of all
+points, lines, planes, point-pairs, circles and spheres.  If we include the empty-set geometry, this set
+of geometries is closed under the intersection operation as well as the set of all conformal transformations.
+Interestingly, the blades representative of the geometries of CGA are also
+representative of the conformal transformations.  For example, planes represent planar reflections,
+and spheres represent spherical inversions.
+
+Once one has come to terms with CGA, it is natural to ask whether there exists a similar model of
+geometry based upon a geometric algebra in which higher order algebraic surfaces may be
+represented.  The goal of this paper is to explore a possible answer to this question.  Specifically,
+we will introduce a new model of geometry based upon a mother Minkowski algebra of order 2
+in which all quadratic surfaces have representation.  In CGA, the quadratic surfaces have 
+representation in only the rounds of the model, which certainly do not exhaust the set of
+all possible types of quadratic surfaces.
+
+\section{The Structure Of The Algebra}
+
+We are going to let $\V$ denote an $(n+2)$-dimensional vector space generating
+a Minkownski geometric algebra $\G$ and having an $n$-dimensional euclidean space
+$\R^n$ embedded within it.  A set of basis vectors for $\V$ is given by
+\begin{equation*}
+\{\nvao,\nvai\}\cup\{e_i\}_{i=1}^n,
+\end{equation*}
+where $\nvao$ and $\nvai$ are the familiar null-vectors representing the points in CGA
+at origin and infinity, respectively.  The set $\{e_i\}_{i=1}^n$ is a right-handed, orthonormal set of
+euclidean vectors.
+
+Enter now $\Vb$, which we'll use to denote an identical, yet entirely disjoint $(n+2)$-dimensional
+vector space generating a Minkowski geometric algebra $\Gb$ and also having an $n$-dimensional
+euclidean space $\Rb^n$ embedded within it.  A set of basis vectors for $\Vb$ will employ
+an over-bar notation and be given by
+\begin{equation*}
+\{\nvaob,\nvaib\}\cup\{\eb_i\}_{i=1}^n.
+\end{equation*}
+
+Taken together to form the $2(n+2)$-dimensional vector space $\V\cup\Vb$, this new vector space
+generates a mother Minkowski algebra $\G\cup\Gb$ of order 2 as outlined in \cite{}.
+Working within this algebra, the over-bar notation may become an outermorphism
+that lets us map multivectors in $\G$ to their counter-parts in $\Gb$.  Though an explicit formula
+for this outermorphism is given by
+\begin{equation*}
+\overline{M} = SMS^{-1},
+\end{equation*}
+where $M$ is a multi-vector in $\G$ and $S$ is given by
+\begin{equation*}
+(1-)(1+)\prod_{i=1}^n(1-e_i\eb_i),
+\end{equation*}
+once we have become familiar with the algebraic properties of this outermorphism,
+we will have no need to carry $S$ through any of our calculations.  A list of
+such properties is given as follows.
+\begin{equation*}
+\begin{array}{l}
+\mbox{For all $a\in\V$, we have $a=-\overline{\overline{a}}$.} \\
+\mbox{For all $a,b\in\V$, we have $\overline{a}+\overline{b}=\overline{a+b}.$} \\
+\mbox{For all $a,b\in\V$, we have $\overline{a}\cdot\overline{b}=a\cdot b$.} \\
+\mbox{For all $a,b\in\V$, we have $\overline{a}\wedge\overline{b}=\overline{a\wedge b}$.} \\
+\mbox{For all $a,b\in\V$, we have $a\cdot\overline{b}=0$.}
+\end{array}
+\end{equation*}
+The verification of each of these properties is left as an exercise for the reader.
+
+It is at this point in the paper that we introduce an additional layer of
+algebraic structure that will facilitate the realization of properties that
+we would otherwise be enable to achieve.  Letting $\B$ and $\Bb$ denote the
+set of all bivectors in $\G$ and $\Gb$, respectively, we will let $\VB$ denote the linear space
+of bivectors $\B\cup\Bb$.  Being a vector space, we are free to let $\GB$ denote the
+geometric algebra generated by $\VB$.
+
+So that we do not confuse the inner
+and outer products of $\G\cup\Gb$ with those of $\GB$, we will use $\odot$ for the
+inner product of $\GB$ and $\vee$ for the outer product of $\GB$.  These
+will carry a lower level of precedence than the inner and outer products $\cdot$
+and $\wedge$ of $\G\cup\Gb$.
+
+To complete our definition of $\GB$, we need
+now only define the signature of the inner product.  We do so as follows.
+\begin{equation*}
+\mbox{For any two vectors $a,b\in\VB$, we let $a\odot b=a\cdot b$.}
+\end{equation*}
+In other words, the inner product among the vectors of $\GB$ is simply the
+inner product among the bivectors of $\G\cup\Gb$.
+
+\section{The New Model}
+
+Our new model of geometry will be based upon the geometric algebra $\GB$.
+A blade $B\in\GB$ will be representative of a geometry as the set of
+all points $x\in\R^n$ such that
+\begin{equation*}
+P(x)\odot B = 0,
+\end{equation*}
+where the function $P:\R^n\to\VB$ is defined as
+\begin{equation*}
+P(x) = p(x)\wedge\overline{p}(x),
+\end{equation*}
+with the function $p:\R^n\to\V$ being defined as it is in \cite{} as
+\begin{equation*}
+p(x) = \nvao + x + \frac{1}{2}x^2\nvai.
+\end{equation*}
+In keeping with the methods of CGA, an alternative geometry that is also
+represented by the blade $B\in\GB$ is given by the set of all points $x\in\R^n$
+such that
+\begin{equation*}
+P(x)\vee B = 0.
+\end{equation*}
+
+As shown in \cite{}, this new model preserves the set of all conformal
+transformations.  That is, any one geometry in the set of all geometries that may be represented
+in this model may undergo any conformal transformation by the application of a well-formulated
+versor, the result of which
+being yet another geometry having representation in the model.\footnote{It should be noted
+that more than the set of conformal transformations is supported by this new model, but such
+additional transformations are not studied in this paper.}
+In what remains of this paper, we will therefore concern
+ourselves with the goal of preserving the intersection and union properties of CGA.
+
+%\section{Canonical Forms}
+
+% We lose uniqueness of representation up to scale in the new model.
+% This means we can't equate one characterization as easily with another as we could in CGA.
+% Such equalities are used for composition and decomposition.
+
+%\begin{thebibliography}{1}
+%\bibitem{test} A. B. C. Test, \textit{On a Test.} J. of Testing
+%\textbf{88} (2000), 100--120.
+%\bibitem{latex} G. Gr\"atzer, \textit{Math into \LaTeX.} 3rd Edition,
+%Birkh\"auser, 2000.
+%\end{thebibliography}
+
+\end{document}
