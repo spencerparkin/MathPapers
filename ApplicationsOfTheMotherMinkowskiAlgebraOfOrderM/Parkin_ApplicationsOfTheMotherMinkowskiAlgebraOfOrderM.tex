@@ -69,7 +69,9 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Abstract goes here...
+It is shown that for any multi-variable function whose zero set is an algebraic surface, that the image of any
+line in the domain of such a function is determined entirely by all orders of its directional
+derivatives at any one point on the line and in the direction of the line.
 \end{abstract}
 
 \maketitle
@@ -139,22 +141,12 @@ F(x+\lambda v) = \bigwedge_{i=1}^m (p_i(x)+\lambda v_i)\cdot B,
 the expansion of which gives us a polynomial of degree $m$ in the scalar $\lambda$.
 We can then show that this polynomial can be written in terms of the directional derivative of $F$
 in the direction of $v$ as
-\begin{align*}
-F(x+\lambda v) &= F(x) + \sum_{i=1}^m \lambda^i\nabla_v^i F(x) \\
- &= F(x) + \sum_{i=1}^m \lambda^i v_j\cdot\nabla^i F_j(x),
-\end{align*}
+\begin{equation*}
+F(x+\lambda v) = F(x) + \sum_{i=1}^m \frac{\lambda^i}{2^{i-1}}\nabla_v^i F(x)
+\end{equation*}
 where $j$ is any integer in $[1,m]$.
 Here, $\nabla_v^i F$ is the $i^{th}$ order directional derivative of $F$ in the direction of $v$.
-It is the directional derivative of the directional derivative, and so on, $i$ times.  Similarly,
-$\nabla^i F_j$ is the $i^{th}$ order gradient of $F$ using the sub-algebra $\G_j$.
-For $i=1$, we would write
-\begin{equation*}
-\nabla F_j(x) = \sum_{i=1}^n e_{i,j}\nabla_{e_{i,j}}F(x),
-\end{equation*}
-being careful to differentiate, (no pun intended), between the two different uses
-of subscript notation here.  One is used to iterate over an orthonormal basis
-$\{e_{i,j}\}_{i=1}^n$ of the vector space $\V_j$,
-while the other denotes the sub-algebra $\G_j$ in which we are working.
+It is the directional derivative of the directional derivative, and so on, $i$ times.
 
 What we see now is that if all orders of the gradient of $F$ are available to us,
 we can use them to find the coefficients of the polynomial whose roots we need
