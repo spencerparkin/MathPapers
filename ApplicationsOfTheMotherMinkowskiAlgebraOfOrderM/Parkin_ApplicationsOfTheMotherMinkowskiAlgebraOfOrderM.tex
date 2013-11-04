@@ -1,0 +1,166 @@
+\documentclass{birkjour}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+\begin{document}
+
+%-------------------------------------------------------------------------
+% editorial commands: to be inserted by the editorial office
+%
+%\firstpage{1} \volume{228} \Copyrightyear{2004} \DOI{003-0001}
+%
+%
+%\seriesextra{Just an add-on}
+%\seriesextraline{This is the Concrete Title of this Book\br H.E. R and S.T.C. W, Eds.}
+%
+% for journals:
+%
+%\firstpage{1}
+%\issuenumber{1}
+%\Volumeandyear{1 (2004)}
+%\Copyrightyear{2004}
+%\DOI{003-xxxx-y}
+%\Signet
+%\commby{inhouse}
+%\submitted{March 14, 2003}
+%\received{March 16, 2000}
+%\revised{June 1, 2000}
+%\accepted{July 22, 2000}
+%
+%
+%
+%---------------------------------------------------------------------------
+
+\title{Applications Of\\The Mother Minkowski Algebra Of Order $m$}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., Salt Lake City, UT  84101}
+\email{spencerparkin@outlook.com}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+%\date{October 22, 2013}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+That we may begin with new material immediately, this paper assumes full knowledge
+of the paper \cite{}, continuing where this paper ended, and regiving equations from
+\cite{} only where necessary.
+
+\section{A Refinements Of Notation}
+
+Notation is important as it facilitates understanding and ease of algebraic manipulation.
+We are going to keep the notation of \cite{}, but think of it somewhat differently.
+In this paper we are going to work exclusively in $\G_1^n$ and transform multivectors
+from this sub-algebra to their counter-parts in $\G_{i>1}^n$ through a use of sub-script notation.
+To denote the sub-algebra in which an element $B$ resides, (for any integer $i\in[1,m]$,
+we will never use a single letter to denote an element that cannot be placed in $\G_i$),
+we will use a sub-script, writing $B_i$, to show that $B\in\G_i$.  If the sub-script is
+absent, we can assume $B=B_1$.
+
+As shown in the appendix of \cite{}, there is an outermorphism that lets us transform
+elements in one of these sub-algebras to its counter-part in any other.  And indeed,
+to make our notation more concrete, we may let the subscription of an
+otherwise unscripted letter or expression denote the application of this outermorphism
+in the case $i>1$, $i$ being the subscript in question.
+Doing so, we see that for any two vectors $a,b\in\V_1$ and any integer $i\in[1,m]$, we have
+the following properties.
+\begin{align*}
+(a)_i &= a_i \\
+(a+b)_i &= a_i + b_i \\
+(a\wedge b)_i &= a_i\wedge b_i \\
+a\cdot b &= a_i\cdot b_i
+\end{align*}
+The last property here applies to outermorphisms generally, but is especially obvious
+with the particular outermorphism we're using here.
+It should also be mentioned that for all $i\neq j$, we have $a_i\cdot a_j=0$, yet $a_i\wedge a_j\neq 0$,
+a property that has been specifically exploited in the use of the mother algebra to
+represent algebraic surfaces.
+It should be noted that if $i>1$, we have $(a_i)_i=-a$.
+
+Thinking of these subscripts as an outermorphism may aide us in making algebraic manipulation
+and in the way we think about what we're doing.
+
+\section{Intersecting Rays With Algebraic Surfaces}
+
+In \cite{} it was shown that an $m$-vector $B$ with $\nvai\cdot B=0$ may be representative of any
+algebraic surface of up to degree $m$ as the set of all points $x\in\R_1^n$ such that $F(x)=0$,
+where $F:\R_1^n\to\R$ is given by
+\begin{equation*}
+F(x) = \bigwedge_{i=1}^m p_i(x)\cdot B,
+\end{equation*}
+the function $p_i:\R_1^n\to\V_i$ being given by
+\begin{equation*}
+p_i(x) = \nvao_i + x_i + \frac{1}{2}x_i^2\nvai_i,
+\end{equation*}
+having its origins in the paper \cite{}.
+
+What we wish to do in this section is, given a point $x\in\R_1^n$ and a
+direction $v\in\R_1^n$, find the scalar $\lambda\in\R$, if any, such that
+$F(x+\lambda v)=0$.  Attempting to do so, we easily find\footnote{Notice that
+since $\nvai\cdot B=0$, we can pretend that we have $p_i(x)=\nvao_i+x_i$,
+ignoring the $\frac{1}{2}x_i^2\nvai_i$ term.} that
+\begin{equation*}
+F(x+\lambda v) = \bigwedge_{i=1}^m (p_i(x)+\lambda v_i)\cdot B,
+\end{equation*}
+the expansion of which gives us a polynomial of degree $m$ in the scalar $\lambda$.
+We can then show that this polynomial can be written in terms of the directional derivative of $F$
+in the direction of $v$ as
+\begin{align*}
+F(x+\lambda v) &= F(x) + \sum_{i=1}^m \lambda^i\nabla_v^i F(x) \\
+ &= F(x) + \sum_{i=1}^m \lambda^i v_j\cdot\nabla^i F_j(x),
+\end{align*}
+where $j$ is any integer in $[1,m]$.
+Here, $\nabla_v^i F$ is the $i^{th}$ order directional derivative of $F$ in the direction of $v$.
+It is the directional derivative of the directional derivative, and so on, $i$ times.  Similarly,
+$\nabla^i F_j$ is the $i^{th}$ order gradient of $F$ using the sub-algebra $\G_j$.
+For $i=1$, we would write
+\begin{equation*}
+\nabla F_j(x) = \sum_{i=1}^n e_{i,j}\nabla_{e_{i,j}}F(x),
+\end{equation*}
+being careful to differentiate, (no pun intended), between the two different uses
+of subscript notation here.  One is used to iterate over an orthonormal basis
+$\{e_{i,j}\}_{i=1}^n$ of the vector space $\V_j$,
+while the other denotes the sub-algebra $\G_j$ in which we are working.
+
+What we see now is that if all orders of the gradient of $F$ are available to us,
+we can use them to find the coefficients of the polynomial whose roots we need
+to find in the problem intersecting a ray with the surface.  Interestingly, this
+also shows how one might numerically integrate the function $F$.
+
+(This result has to exist somewhere already.  Find it.)
+
+\end{document}
