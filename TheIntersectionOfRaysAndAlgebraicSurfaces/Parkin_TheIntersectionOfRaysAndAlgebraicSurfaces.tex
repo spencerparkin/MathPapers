@@ -84,7 +84,7 @@ in terms of the multi-variable polynomial and ray in question.
 \section{Introduction}
 
 Letting $f:\R^n\to\R$ be any polynomial equation in $n$ variables and up to degree $m$, it
-was shown in \cite{} that the function $\bigwedge_{i=1}^m p_i(x)$ may be factored out
+was shown in \cite{Parkin13} that the function $\bigwedge_{i=1}^m p_i(x)$ may be factored out
 of this polynomial in terms of the inner product as
 \begin{equation}\label{equ_polynomial_func}
 f(x) = \bigwedge_{i=1}^m p_i(x)\cdot B,
@@ -95,7 +95,8 @@ $p_i:\R^n\to\V_i$ is given by
 \begin{equation}\label{equ_point_func}
 p_i(x) = \nvao_i + x_i + \frac{1}{2}x_i^2\nvai_i,
 \end{equation}
-having its origins in the paper \cite{}.  Given a point $x\in\R^n$ and a direction vector $v\in\R^n$,
+having its origins in the paper \cite{Hestenes01}.
+Given a point $x\in\R^n$ and a direction vector $v\in\R^n$,
 we wish to find the set of all scalars $\lambda\in\R$ such that $f(x+\lambda v)=0$.
 Utilizing equation \eqref{equ_polynomial_func} for this purpose, we easily find that
 \begin{equation}\label{equ_ray_polynomial_unexpanded}
@@ -165,10 +166,47 @@ Returning to equation \eqref{equ_ray_polynomial_expanded_but_unknown},
 and realizing that $T_0(x)=f(x)$, we can now finally deduce the expansion of
 \eqref{equ_ray_polynomial_unexpanded} using the recurrence relation
 of equation \eqref{equ_recurrence_relation} as
-\begin{equation*}
+\begin{equation}\label{equ_result}
 f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\nabla_v^i f(x),
-\end{equation*}
+\end{equation}
 where $\nabla_v^i f(x)$ is the $i^{th}$ order directional derivative of $f$ at $x$
 in the direction of $v$ with $\nabla_v^0 f(x)=f(x)$.
+
+\section{Making Use Of The Result}
+
+Admittedly, this result may be more of theoretical interest than of having any practical
+application to the problem of ray casting algebraic surfaces.
+Nevertheless, equation \eqref{equ_result} has been used to formulate
+the coeficients of a quadric equation which can then be easily solved
+by the quadratic formula.  A variety of quadrics were ray-taced using this method and
+can be seen in Figure~\ref{}.  The quadratic equation used may be written as
+\begin{equation*}
+f(x) + \lambda v\cdot\nabla f(x) + \lambda^2 v_1\wedge v_2\cdot B.
+\end{equation*}
+
+As can be easily seen, each of the ceoficients are easy to compute, given $f$ and $\nabla f$.
+This is not quite the case, however, when we consider the cubic equation
+\begin{equation*}
+f(x) + \lambda v\cdot\nabla f(x) + \frac{\lambda^2}{2}\nabla_v(v\cdot\nabla f(x)) +
+\lambda^3 v_1\wedge v_2\wedge v_3\cdot B.
+\end{equation*}
+Here, all but the third coeficient is easily computed.  Interestingly, we may rewrite
+$\nabla_v(v\cdot\nabla f(x))$ as $v\cdot\nabla_v(\nabla f(x))$, in which form,
+approximating the derivative may be a bit easier.  In all cases, a coeficient can
+be computed as an approximation of the following limit.
+\begin{equation*}
+\frac{T_i(x)}{\lambda^i} = \lim_{\delta\to 0}\frac{f(x+\delta v)-f(x)}{\delta^i}.
+\end{equation*}
+
+\begin{equation*}
+v_1\wedge v_2\cdot\nabla\wedge\nabla f(x)
+\end{equation*}
+
+% Of course, anything of degree 5 or higher must be solved using
+% numerical methods, are there is no algebraic solution to polynomials
+% of such degrees.
+
+\bibliographystyle{amsplain}
+\bibliography{Parkin_TheIntersectionOfRaysAndAlgebraicSurfaces}
 
 \end{document}
