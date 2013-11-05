@@ -1,0 +1,174 @@
+\documentclass{birkjour}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+\begin{document}
+
+%-------------------------------------------------------------------------
+% editorial commands: to be inserted by the editorial office
+%
+%\firstpage{1} \volume{228} \Copyrightyear{2004} \DOI{003-0001}
+%
+%
+%\seriesextra{Just an add-on}
+%\seriesextraline{This is the Concrete Title of this Book\br H.E. R and S.T.C. W, Eds.}
+%
+% for journals:
+%
+%\firstpage{1}
+%\issuenumber{1}
+%\Volumeandyear{1 (2004)}
+%\Copyrightyear{2004}
+%\DOI{003-xxxx-y}
+%\Signet
+%\commby{inhouse}
+%\submitted{March 14, 2003}
+%\received{March 16, 2000}
+%\revised{June 1, 2000}
+%\accepted{July 22, 2000}
+%
+%
+%
+%---------------------------------------------------------------------------
+
+\title{The Intersection Of Rays And\\Algebraic Surfaces}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., Salt Lake City, UT  84101}
+\email{spencerparkin@outlook.com}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+%\date{October 22, 2013}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+It is shown that for any multi-variable polynomial defined over the
+real numbers that the image of a line through the domain of such a function
+is determined entirely by all orders of the directional derivatives of this function at
+any one point along the line and in a direction of the line.  This result has an
+application in the problem of casting rays through algebraic surfaces as it
+shows that such a problem, in all cases, reduces to the problem of finding
+the roots of a single-variable polynomial having an explicit formulation
+in terms of the multi-variable polynomial and ray in question.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Letting $f:\R^n\to\R$ be any polynomial equation in $n$ variables and up to degree $m$, it
+was shown in \cite{} that the function $\bigwedge_{i=1}^m p_i(x)$ may be factored out
+of this polynomial in terms of the inner product as
+\begin{equation}\label{equ_polynomial_func}
+f(x) = \bigwedge_{i=1}^m p_i(x)\cdot B,
+\end{equation}
+where $B$ is an $m$-vector of our geometric algebra with $\nvai_i\cdot B=0$ for all
+integers $i\in[1,m]$, and where the function
+$p_i:\R^n\to\V_i$ is given by
+\begin{equation}\label{equ_point_func}
+p_i(x) = \nvao_i + x_i + \frac{1}{2}x_i^2\nvai_i,
+\end{equation}
+having its origins in the paper \cite{}.  Given a point $x\in\R^n$ and a direction vector $v\in\R^n$,
+we wish to find the set of all scalars $\lambda\in\R$ such that $f(x+\lambda v)=0$.
+Utilizing equation \eqref{equ_polynomial_func} for this purpose, we easily find that
+\begin{equation}\label{equ_ray_polynomial_unexpanded}
+f(x+\lambda v) = \bigwedge_{i=1}^m(p_i(x)+\lambda v_i)\cdot B,
+\end{equation}
+because we can ignore the $\frac{1}{2}x_i^2\nvai_i$ term in equation \eqref{equ_point_func}.
+Looking at equation \eqref{equ_ray_polynomial_unexpanded},
+it is immediately clear that its expansion is that of a polynomial in $\lambda$ of up to degree $m$.
+What we're going to show in this paper is that an explicit formula for this polynomial can
+be found in terms of all orders of directional derivatives of $f$ at $x$ and in the
+direction of $v$.
+
+\section{The Result}
+
+We begin by rewriting equation \eqref{equ_ray_polynomial_unexpanded} as
+\begin{equation}\label{equ_ray_polynomial_expanded_but_unknown}
+f(x+\lambda v) = \sum_{i=0}^m T_i(x),
+\end{equation}
+where $T_i(x)$ will denote the $i^{th}$ term involving $\lambda^i$ in the series expansion of
+\eqref{equ_ray_polynomial_unexpanded}.  Carefully formulating this term, we get
+\begin{equation*}
+T_i(x) = \lambda^i \sum_{j=1}^{\binom{m}{i}} W_{j,i}(x)\cdot B,
+\end{equation*}
+where $W_{j,i}$ is the $j^{th}$ way to write an outer product involving
+$i$ vectors taken from $\{v_k\}_{k=1}^m$ and $m-i$ vectors taken from
+$\{p_k(x)\}_{k=1}^m$ in an order having ascending sub-scripts.  The following
+examples help clarify this in the case $m=3$.
+\begin{align*}
+W_{1,0} &= p_1\wedge p_2\wedge p_3 \\
+W_{1,1} &= p_1\wedge p_2\wedge v_3 \\
+W_{2,1} &= p_1\wedge v_2\wedge p_3 \\
+W_{3,1} &= v_1\wedge p_2\wedge p_3 \\
+W_{1,2} &= p_1\wedge v_2\wedge v_3 \\
+W_{2,2} &= v_1\wedge p_2\wedge v_3 \\
+W_{3,2} &= v_1\wedge v_2\wedge v_3 \\
+W_{1,3} &= v_1\wedge v_2\wedge v_3
+\end{align*}
+Having now come to terms, (no pun intended), with the general expansion of
+equation \eqref{equ_ray_polynomial_unexpanded}, we proceed now to
+fearlessly take the directional derivative of $T_i$ at $x$ and in the direction of $v$.
+Doing so, we get
+\begin{align*}
+\nabla_v T_i(x) &= \lambda^i\sum_{j=1}^{\binom{m}{i}}\lim_{\delta\to 0}
+\frac{W_{j,i}(x+\delta v)-W_{j,i}(x)}{\delta}\cdot B,
+\end{align*}
+knowing that each individual limit will exist.  What we must realize now is that
+the term $W_{j,i}(x)$ will get canceled in the expansion
+of $W_{j,i}(x+\delta v)$, leaving only terms that are multiples of positive powers of $\delta$.
+Furthermore, it is only those remaining terms that are multiples of $\delta$ itself
+that will survive the limit process.  We are therefore left to deduce these terms in an
+evaluation of the limit.  What we find is that all such terms are of the form
+$\delta W_{j,i+1}(x)$, but we need to determine just how many we have.
+Realizing that $\binom{m}{i}$ old terms will each contribute $m-i$ new terms of
+this form, of which there should be $\binom{m}{i+1}$, but that no type of term
+will be produced any more or less than any other, we see that
+\begin{equation*}
+\frac{(m-i)\binom{m}{i}}{\binom{m}{i+1}}=i+1
+\end{equation*}
+is the number of such terms of the form $\delta W_{j,i+1}(x)$, and we may write
+\begin{align}
+\nabla_v T_i(x) &= \lambda^i\sum_{j=1}^{\binom{m}{i+1}}\lim_{\delta\to 0}
+\frac{(i+1)\delta W_{j,i+1}(x)}{\delta}\cdot B\nonumber \\
+ &= \lambda^i(i+1)\sum_{j=1}^{\binom{m}{i+1}} W_{j,i+1}(x)\cdot B\nonumber \\
+ &= \frac{i+1}{\lambda}T_{i+1}(x).\label{equ_recurrence_relation}
+\end{align}
+Returning to equation \eqref{equ_ray_polynomial_expanded_but_unknown},
+and realizing that $T_0(x)=f(x)$, we can now finally deduce the expansion of
+\eqref{equ_ray_polynomial_unexpanded} using the recurrence relation
+of equation \eqref{equ_recurrence_relation} as
+\begin{equation*}
+f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\nabla_v^i f(x),
+\end{equation*}
+where $\nabla_v^i f(x)$ is the $i^{th}$ order directional derivative of $f$ at $x$
+in the direction of $v$ with $\nabla_v^0 f(x)=f(x)$.
+
+\end{document}
