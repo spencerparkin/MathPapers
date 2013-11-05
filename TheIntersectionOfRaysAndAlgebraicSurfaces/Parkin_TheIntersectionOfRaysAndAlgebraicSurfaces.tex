@@ -81,6 +81,9 @@ in terms of the multi-variable polynomial and ray in question.
 
 \maketitle
 
+% More needs to be said at start, especially about the notation so that
+% sub-scripts are understood.
+
 \section{Introduction}
 
 Letting $f:\R^n\to\R$ be any polynomial equation in $n$ variables and up to degree $m$, it
@@ -174,37 +177,62 @@ in the direction of $v$ with $\nabla_v^0 f(x)=f(x)$.
 
 \section{Making Use Of The Result}
 
-Admittedly, this result may be more of theoretical interest than of having any practical
-application to the problem of ray casting algebraic surfaces.
-Nevertheless, equation \eqref{equ_result} has been used to formulate
-the coeficients of a quadric equation which can then be easily solved
-by the quadratic formula.  A variety of quadrics were ray-taced using this method and
-can be seen in Figure~\ref{}.  The quadratic equation used may be written as
-\begin{equation*}
-f(x) + \lambda v\cdot\nabla f(x) + \lambda^2 v_1\wedge v_2\cdot B.
-\end{equation*}
+In its present form, equation \eqref{equ_result} lacks ease of use, because knowledge of the
+vector $v$ is needed to calculate all orders of the directional derivative.  To solve this problem,
+we need to decouple the knowledge of this vector from the limit processes by generalizing the
+idea of the gradient to higher orders.  This has already been done in \cite{} with the use of
+$k$-forms.  The manifestation of such things in the algebra we are using may be as follows.
 
-As can be easily seen, each of the ceoficients are easy to compute, given $f$ and $\nabla f$.
-This is not quite the case, however, when we consider the cubic equation
+We begin with the gradient of $f$, usually written $\nabla f$.  But this is ambiguous in our algebra,
+because we need to specify the sub-algebra over which $\nabla f$ will be taken.  We will
+do this with an integral subscript as $\nabla_i f$, not to be confused with the directional
+derivative, which uses a vector subscript.  The gradient can now be defined similarly to
+it's definition in \cite{} as
 \begin{equation*}
-f(x) + \lambda v\cdot\nabla f(x) + \frac{\lambda^2}{2}\nabla_v(v\cdot\nabla f(x)) +
-\lambda^3 v_1\wedge v_2\wedge v_3\cdot B.
+\nabla_i f(x) = \sum_{j=1}^n e_{i,j}\nabla_{e_j} f(x).
 \end{equation*}
-Here, all but the third coeficient is easily computed.  Interestingly, we may rewrite
-$\nabla_v(v\cdot\nabla f(x))$ as $v\cdot\nabla_v(\nabla f(x))$, in which form,
-approximating the derivative may be a bit easier.  In all cases, a coeficient can
-be computed as an approximation of the following limit.
+Having done this, we have, for any integer $i\in[1,m]$,
 \begin{equation*}
-\frac{T_i(x)}{\lambda^i} = \lim_{\delta\to 0}\frac{f(x+\delta v)-f(x)}{\delta^i}.
+\nabla_v f(x) = v_i\cdot\nabla_i f(x),
 \end{equation*}
+which is a well-known result.  Generalizing this, we find that
+\begin{equation*}
+\nabla_v^i f(x) = \bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right) f(x),
+\end{equation*}
+where the function operator $\bigwedge_{j=1}^i\nabla_j$ is defined as
+\begin{equation*}
+\left(\bigwedge_{j=1}^i\nabla_j\right)f(x) =
+-(-1)^i \sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i e_{k,j_k}\left(\prod_{k=1}^i\nabla_{e_{j_k}}\right)f(x),
+\end{equation*}
+realizing that, as was assumed throughout \cite{}, the outer and inner products bind tighter than
+the geometric product.
+Here, the function operator being applied to $f$ is an $i^{th}$ order partial derivative.
 
-\begin{equation*}
-v_1\wedge v_2\cdot\nabla\wedge\nabla f(x)
-\end{equation*}
+The decoupling of equation \eqref{equ_result} can now be written as
+\begin{equation}\label{equ_result_decoupled}
+f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right)f(x),
+\end{equation}
+where the outer product $\bigwedge_{j=1}^i v_j$ is one in the case $i=0$, and where the function
+operator $\bigwedge_{j=1}^i\nabla j$ is the identity operator in the same case.
 
-% Of course, anything of degree 5 or higher must be solved using
-% numerical methods, are there is no algebraic solution to polynomials
-% of such degrees.
+If all orders of the gradient of $f$ are available to us, equation \eqref{equ_result_decoupled} becomes
+a convenient way to calculate the coeficients of the polynomial whose zeros give us the parameters of
+the intersection points of our ray with the a given algebraic surface.
+
+Looking back again at equation \eqref{equ_ray_polynomial_unexpanded}, this is certainly a usable form
+if a symbolic calculator is available.  Use of symbolic calculation was employed in \cite{}.  If no such
+thing is available, then \eqref{equ_result_decoupled} may allow us to come up with the polynomial
+through literal evaluation, provided, again, that we have all gradients available to us.
+For algebraic surfaces of degrees greater than or equal to five\footnote{There is no closed form solution
+to a polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{}.}, we may
+lose the need to come up
+with the polynomial expansion of $f(x+\lambda v)$ altogether in favor of root-finding methods
+that need know nothing more about $f(x+\lambda v)$ than that it is continuous.\footnote{In such a
+case, the intermediate value theorem applies.  Recall that the composition of two continuous functions
+is continuous.}
+
+In any case, \eqref{equ_result_decoupled} appears to be, if nothing more, an
+interesting result about algebraic surface that may find applications in other areas.
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheIntersectionOfRaysAndAlgebraicSurfaces}
