@@ -74,7 +74,7 @@ real numbers that the image of a line through the domain of such a function
 is determined entirely by all orders of the directional derivatives of this function at
 any one point along the line and in a direction of the line.
 Although a well known result, (see \cite{Weisstein13}),
-this paper shows a derivision using the language of geometric algebra,
+this paper shows a derivation using the language of geometric algebra,
 and its suitability to the task.
 
 The result has an
@@ -86,10 +86,47 @@ in terms of the multi-variable polynomial and ray in question.
 
 \maketitle
 
-% More needs to be said at start, especially about the notation so that
-% sub-scripts are understood.
-
 \section{Introduction}
+
+This paper uses the framework laid out in \cite{Parkin13} for the representation of
+algebraic surfaces, and so assumes sufficient knowledge of that work.
+What may be worth revisiting here at the start, however, is an additional
+conception of the notation used in that paper; specifically to do with the
+heavy use of subscripts.  This paper is no exception to such use of subscripts,
+and so the reader must know exactly what is going on if there is
+to be any hope of success in communicating ideas.
+
+Unless otherwise specified, a subscript denotes membership in a
+specific sub-algebra.  These sub-algebras of our ``mother'' algebra $\G$ are
+enumerated by the
+integers in $[1,m]$, and denoted by $\G_i$.  The absence of a subscript
+most often denotes membership in an algebra or space outside of $\G$,
+usually $\R^n$, which is thought of as an $n$-dimensional euclidean vector
+space.
+
+This, however, does not have to be the case, and we can work exclusively
+in $\R_1^n$, a sub-space of the vector space $\V_1$ generating $\G_1$.
+The omission of a subscript, (or, as usual, the presence of the subscript 1),
+can denote membership in $\G_1$, while the
+presence of a subscript can be thought of as the application of an
+outermorphism\footnote{An explicit formula for this
+outermorphism was given in the appendix of \cite{Parkin13}.}
+ that takes us from $\G_1$ to the corresponding element
+in $\G_i$, $i$ being the subscript in question.  This being the
+conception of our use of subscripts, they may begin to play a role
+in our performance of certain algebraic manipulations, such as
+\begin{align*}
+(a+b)_i &= a_i + b_i, \\
+(a\wedge b)_i &= a_i\wedge b_i, \\
+a\cdot b &= a_i\cdot b_i, \\
+a_i\cdot a_j &= 0, \\
+a_i\wedge a_j &\neq 0, \\
+(a_i)_i &= -a, \\
+\end{align*}
+with $a,b\in\V_1$ and $i\neq j$.  Except for the last, these are all important properties
+of the algebra that make the representation scheme work.
+
+\section{An Approach To The Problem}
 
 Letting $f:\R^n\to\R$ be any polynomial equation in $n$ variables and up to degree $m$, it
 was shown in \cite{Parkin13} that the function $\bigwedge_{i=1}^m p_i(x)$ may be factored out
@@ -157,7 +194,7 @@ of $W_{j,i}(x+\delta v)$, leaving only terms that are multiples of positive powe
 Furthermore, it is only those remaining terms that are multiples of $\delta$ itself
 that will survive the limit process.  We are therefore left to deduce these terms in an
 evaluation of the limit.  What we find is that all such terms are of the form
-$\delta W_{j,i+1}(x)$, but we need to determine just how many we have.
+$\delta W_{j,i+1}(x)$, but we need to determine just how many of them there are.
 Realizing that $\binom{m}{i}$ old terms will each contribute $m-i$ new terms of
 this form, of which there should be $\binom{m}{i+1}$, but that no type of term
 will be produced any more or less than any other, we see that
@@ -181,8 +218,10 @@ f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\nabla_v^i f(x),
 where $\nabla_v^i f(x)$ is the $i^{th}$ order directional derivative of $f$ at $x$
 in the direction of $v$ with $\nabla_v^0 f(x)=f(x)$.
 
-% There may certainly be an easier way to arrive at this result using
-% numerical integration techniques.
+Clearly this is a Taylor series, and so a much simpler
+derivation could have probably been found, perhaps using the
+concept of integration along the ray.  In any case, we have been
+able to show the promised result.
 
 \section{Making Use Of The Result}
 
@@ -198,8 +237,9 @@ do this with an integral subscript as $\nabla_i f$, not to be confused with the 
 derivative, which uses a vector subscript.  The gradient can now be defined similarly to
 it's definition in \cite{} as
 \begin{equation*}
-\nabla_i = \sum_{j=1}^n e_{i,j}\nabla_{e_j}.
+\nabla_i = \sum_{j=1}^n e_{i,j}\nabla_{e_j},
 \end{equation*}
+where $\{e_{i,j}\}_{j=1}^n$ is an orthonormal basis for $\R^n_i$.
 Having done this, we have, for any integer $i\in[1,m]$,
 \begin{equation*}
 \nabla_v = v_i\cdot\nabla_i,
@@ -242,7 +282,7 @@ case, the intermediate value theorem applies.  Recall that the composition of tw
 is continuous.}
 
 In any case, \eqref{equ_result_decoupled} appears to be, if nothing more, an
-interesting result about algebraic surface that may find applications in other areas.
+interesting result about algebraic surfaces that may find applications in other areas.
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheIntersectionOfRaysAndAlgebraicSurfaces}
