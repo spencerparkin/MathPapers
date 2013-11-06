@@ -75,11 +75,15 @@ real-valued, multi-variable polynomial defined over the
 real numbers that the image of any line through the domain of such a function
 is determined entirely by all orders of the directional derivatives of this function at
 any one point along the line and in the direction of the line.
+
 This result has an
 application in the problem of casting rays through algebraic surfaces as it
 shows that such a problem, in all cases, reduces to the problem of finding
 the roots of a single-variable polynomial having an explicit formulation
-in terms of the multi-variable polynomial and ray in question.
+in terms of the surface and ray in question.
+
+A generalization of the gradient is found in geometric algebra that is
+similar to differential forms.
 \end{abstract}
 
 \maketitle
@@ -237,27 +241,37 @@ because we need to specify the sub-algebra over which $\nabla f$ will be taken. 
 do this with an integral subscript as $\nabla_i f$, not to be confused with the directional
 derivative, which uses a vector subscript.  The gradient can now be defined similarly to
 it's definition in \cite{} as
-\begin{equation*}
+\begin{equation}\label{equ_gradient_func_operator}
 \nabla_i = \sum_{j=1}^n e_{i,j}\nabla_{e_j},
-\end{equation*}
-where $\{e_{i,j}\}_{j=1}^n$ is an orthonormal basis for $\R^n_i$.
+\end{equation}
+where $\{e_{i,j}\}_{j=1}^n$ is an orthonormal basis for $\R^n_i$, and
+we, for all integers $i\in[1,n]$, let $e_i=e_{1,i}$ for convenience.
 Having done this, we have, for any integer $i\in[1,m]$,
 \begin{equation*}
 \nabla_v = v_i\cdot\nabla_i,
 \end{equation*}
 which is a well-known result.  Generalizing this, we find that
-\begin{equation*}
+\begin{equation}\label{equ_generalize_gradient_func_operator}
 \nabla_v^i = -(-1)^i\bigwedge_{j=1}^i v_j\cdot\bigwedge_{j=1}^i\nabla_j,
-\end{equation*}
+\end{equation}
 where the function operator $\bigwedge_{j=1}^i\nabla_j$ is defined as
-\begin{equation*}
+\begin{equation}\label{equ_expand_func_operator}
 \bigwedge_{j=1}^i\nabla_j =
-\sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i
-e_{k,j_k}\prod_{k=0}^{i-1}\nabla_{e_{j_{i-k}}},
-\end{equation*}
-realizing that, as was assumed throughout \cite{Parkin13}, the outer and inner products bind tighter than
-the geometric product.
+\sum_{j_1=1}^n\dots\sum_{j_i=1}^n\left(\bigwedge_{k=1}^i
+e_{k,j_k}\right)\prod_{k=0}^{i-1}\nabla_{e_{j_{i-k}}}.
+\end{equation}
 Here, the function operator being applied to $f$ is an $i^{th}$ order partial derivative.
+If not for the reverse order of partial derivatives, equation \eqref{equ_expand_func_operator}
+would have been omitted on
+the basis that equations \eqref{equ_gradient_func_operator} and
+\eqref{equ_generalize_gradient_func_operator}, together, sufficiently
+define the operator $\bigwedge_{j=1}^k\nabla_j$.
+
+Notice that this generalization of the gradient appears in keeping with the reoccurring theme
+of grade raising or lowering operations found in geometric algebra.  The traditional gradient,
+as we knew it, raised the grade of scalar-valued functions to that of vector-valued functions.
+The general gradient now raises an $i$-blade-valued function to that of an $(i+1)$-blade-valued function.
+The geometric significance of these blades with respect to a given algebraic surface should be investigated.
 
 The decoupling of equation \eqref{equ_result} can now be written as
 \begin{equation}\label{equ_result_decoupled}
@@ -267,7 +281,7 @@ where the outer product $\bigwedge_{j=1}^i v_j$ is one in the case $i=0$, and wh
 operator $\bigwedge_{j=1}^i\nabla j$ is the identity operator in the same case.
 
 If all orders of the gradient of $f$ are available to us, equation \eqref{equ_result_decoupled} becomes
-a convenient way to calculate the coeficients of the polynomial whose zeros give us the parameters of
+a convenient way to calculate the coefficients of the polynomial whose zeros give us the parameters of
 the intersection points of our ray with the a given algebraic surface.
 
 Looking back again at equation \eqref{equ_ray_polynomial_unexpanded}, this is certainly a usable form
