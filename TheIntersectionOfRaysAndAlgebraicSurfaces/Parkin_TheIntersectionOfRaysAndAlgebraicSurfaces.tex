@@ -69,15 +69,13 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-It is shown that for any real-valued, multi-variable polynomial defined over the
-real numbers that the image of a line through the domain of such a function
+Although a well known result in the traditional language of multi-variable calculus,
+in this paper it is shown, using the language of geometric algebra, that for any
+real-valued, multi-variable polynomial defined over the
+real numbers that the image of any line through the domain of such a function
 is determined entirely by all orders of the directional derivatives of this function at
-any one point along the line and in a direction of the line.
-Although a well known result, (see \cite{Weisstein13}),
-this paper shows a derivation using the language of geometric algebra,
-and its suitability to the task.
-
-The result has an
+any one point along the line and in the direction of the line.
+This result has an
 application in the problem of casting rays through algebraic surfaces as it
 shows that such a problem, in all cases, reduces to the problem of finding
 the roots of a single-variable polynomial having an explicit formulation
@@ -93,14 +91,14 @@ algebraic surfaces, and so assumes sufficient knowledge of that work.
 What may be worth revisiting here at the start, however, is an additional
 conception of the notation used in that paper; specifically to do with the
 heavy use of subscripts.  This paper is no exception to such use of subscripts,
-and so the reader must know exactly what is going on if there is
-to be any hope of success in communicating ideas.
+and so the reader must be up to speed on the notation if there is
+to be any hope of success in communicating the ideas to follow.
 
 Unless otherwise specified, a subscript denotes membership in a
 specific sub-algebra.  These sub-algebras of our ``mother'' algebra $\G$ are
 enumerated by the
 integers in $[1,m]$, and denoted by $\G_i$.  The absence of a subscript
-most often denotes membership in an algebra or space outside of $\G$,
+can denote membership in an algebra or space outside of $\G$,
 usually $\R^n$, which is thought of as an $n$-dimensional euclidean vector
 space.
 
@@ -121,10 +119,13 @@ in our performance of certain algebraic manipulations, such as
 a\cdot b &= a_i\cdot b_i, \\
 a_i\cdot a_j &= 0, \\
 a_i\wedge a_j &\neq 0, \\
-(a_i)_i &= -a, \\
+(a_i)_i &= -a,
 \end{align*}
 with $a,b\in\V_1$ and $i\neq j$.  Except for the last, these are all important properties
 of the algebra that make the representation scheme work.
+In the remainder of this paper, you may think of $\R^n$ as $\R_1^n$ if you would like.
+In any case, the reader must understand the application of subscripts to otherwise
+unsubscripted variables and expressions.  This is covered in detail in \cite{Parkin13}.
 
 \section{An Approach To The Problem}
 
@@ -169,7 +170,7 @@ T_i(x) = \lambda^i \sum_{j=1}^{\binom{m}{i}} W_{j,i}(x)\cdot B,
 where $W_{j,i}$ is the $j^{th}$ way to write an outer product involving
 $i$ vectors taken from $\{v_k\}_{k=1}^m$ and $m-i$ vectors taken from
 $\{p_k(x)\}_{k=1}^m$ in an order having ascending sub-scripts.  The following
-examples help clarify this in the case $m=3$.
+example helps clarify this in the case $m=3$.
 \begin{align*}
 W_{1,0} &= p_1\wedge p_2\wedge p_3 \\
 W_{1,1} &= p_1\wedge p_2\wedge v_3 \\
@@ -177,7 +178,7 @@ W_{2,1} &= p_1\wedge v_2\wedge p_3 \\
 W_{3,1} &= v_1\wedge p_2\wedge p_3 \\
 W_{1,2} &= p_1\wedge v_2\wedge v_3 \\
 W_{2,2} &= v_1\wedge p_2\wedge v_3 \\
-W_{3,2} &= v_1\wedge v_2\wedge v_3 \\
+W_{3,2} &= v_1\wedge v_2\wedge p_3 \\
 W_{1,3} &= v_1\wedge v_2\wedge v_3
 \end{align*}
 Having now come to terms, (no pun intended), with the general expansion of
@@ -229,7 +230,7 @@ In its present form, equation \eqref{equ_result} lacks ease of use, because know
 vector $v$ is needed to calculate all orders of the directional derivative.  To solve this problem,
 we need to decouple the knowledge of this vector from the limit processes by generalizing the
 idea of the gradient to higher orders.  This has already been done in \cite{} with the use of
-$k$-forms.  The manifestation of such things in the algebra we are using may be as follows.
+$k$-forms.  The manifestation of such things in the algebra $\G$ that we are using may be as follows.
 
 We begin with the gradient of $f$, usually written $\nabla f$.  But this is ambiguous in our algebra,
 because we need to specify the sub-algebra over which $\nabla f$ will be taken.  We will
@@ -251,16 +252,16 @@ which is a well-known result.  Generalizing this, we find that
 where the function operator $\bigwedge_{j=1}^i\nabla_j$ is defined as
 \begin{equation*}
 \bigwedge_{j=1}^i\nabla_j =
--(-1)^i \sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i
+\sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i
 e_{k,j_k}\prod_{k=0}^{i-1}\nabla_{e_{j_{i-k}}},
 \end{equation*}
-realizing that, as was assumed throughout \cite{}, the outer and inner products bind tighter than
+realizing that, as was assumed throughout \cite{Parkin13}, the outer and inner products bind tighter than
 the geometric product.
 Here, the function operator being applied to $f$ is an $i^{th}$ order partial derivative.
 
 The decoupling of equation \eqref{equ_result} can now be written as
 \begin{equation}\label{equ_result_decoupled}
-f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right)f(x),
+f(x+\lambda v) = -\sum_{i=0}^m\frac{(-\lambda)^i}{i!}\bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right)f(x),
 \end{equation}
 where the outer product $\bigwedge_{j=1}^i v_j$ is one in the case $i=0$, and where the function
 operator $\bigwedge_{j=1}^i\nabla j$ is the identity operator in the same case.
@@ -270,7 +271,7 @@ a convenient way to calculate the coeficients of the polynomial whose zeros give
 the intersection points of our ray with the a given algebraic surface.
 
 Looking back again at equation \eqref{equ_ray_polynomial_unexpanded}, this is certainly a usable form
-if a symbolic calculator is available.  Use of symbolic calculation was employed in \cite{}.  If no such
+if a symbolic calculator is available.  Use of symbolic calculation was made in \cite{Hanrahan83}.  If no such
 thing is available, then \eqref{equ_result_decoupled} allows us to come up with the polynomial
 through literal evaluation; provided, again, that we have all gradients available to us.
 For algebraic surfaces of degrees greater than or equal to five\footnote{There is no closed form solution
@@ -286,5 +287,7 @@ interesting result about algebraic surfaces that may find applications in other 
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheIntersectionOfRaysAndAlgebraicSurfaces}
+
+% http://ralph.cs.cf.ac.uk/papers/Geometry/RayCast.pdf
 
 \end{document}
