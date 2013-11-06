@@ -69,10 +69,15 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-It is shown that for any multi-variable polynomial defined over the
+It is shown that for any real-valued, multi-variable polynomial defined over the
 real numbers that the image of a line through the domain of such a function
 is determined entirely by all orders of the directional derivatives of this function at
-any one point along the line and in a direction of the line.  This result has an
+any one point along the line and in a direction of the line.
+Though arrived at independantly in this paper,
+this result, in hindsight, is well known, and can be found in \cite{Weisstein13}.
+This paper shows a derivision using the language of geometric algebra.
+
+The result has an
 application in the problem of casting rays through algebraic surfaces as it
 shows that such a problem, in all cases, reduces to the problem of finding
 the roots of a single-variable polynomial having an explicit formulation
@@ -175,6 +180,9 @@ f(x+\lambda v) = \sum_{i=0}^m\frac{\lambda^i}{i!}\nabla_v^i f(x),
 where $\nabla_v^i f(x)$ is the $i^{th}$ order directional derivative of $f$ at $x$
 in the direction of $v$ with $\nabla_v^0 f(x)=f(x)$.
 
+% There may certainly be an easier way to arrive at this result using
+% numerical integration techniques.
+
 \section{Making Use Of The Result}
 
 In its present form, equation \eqref{equ_result} lacks ease of use, because knowledge of the
@@ -189,20 +197,20 @@ do this with an integral subscript as $\nabla_i f$, not to be confused with the 
 derivative, which uses a vector subscript.  The gradient can now be defined similarly to
 it's definition in \cite{} as
 \begin{equation*}
-\nabla_i f(x) = \sum_{j=1}^n e_{i,j}\nabla_{e_j} f(x).
+\nabla_i = \sum_{j=1}^n e_{i,j}\nabla_{e_j}.
 \end{equation*}
 Having done this, we have, for any integer $i\in[1,m]$,
 \begin{equation*}
-\nabla_v f(x) = v_i\cdot\nabla_i f(x),
+\nabla_v = v_i\cdot\nabla_i,
 \end{equation*}
 which is a well-known result.  Generalizing this, we find that
 \begin{equation*}
-\nabla_v^i f(x) = \bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right) f(x),
+\nabla_v^i = -(-1)^i\bigwedge_{j=1}^i v_j\cdot\bigwedge_{j=1}^i\nabla_j,
 \end{equation*}
 where the function operator $\bigwedge_{j=1}^i\nabla_j$ is defined as
 \begin{equation*}
-\left(\bigwedge_{j=1}^i\nabla_j\right)f(x) =
--(-1)^i \sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i e_{k,j_k}\left(\prod_{k=1}^i\nabla_{e_{j_k}}\right)f(x),
+\bigwedge_{j=1}^i\nabla_j =
+-(-1)^i \sum_{j_1=1}^n\dots\sum_{j_i=1}^n\bigwedge_{k=1}^i e_{k,j_k}\prod_{k=1}^i\nabla_{e_{j_k}},
 \end{equation*}
 realizing that, as was assumed throughout \cite{}, the outer and inner products bind tighter than
 the geometric product.
@@ -224,7 +232,7 @@ if a symbolic calculator is available.  Use of symbolic calculation was employed
 thing is available, then \eqref{equ_result_decoupled} may allow us to come up with the polynomial
 through literal evaluation, provided, again, that we have all gradients available to us.
 For algebraic surfaces of degrees greater than or equal to five\footnote{There is no closed form solution
-to a polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{}.}, we may
+to a general polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{}.}, we may
 lose the need to come up
 with the polynomial expansion of $f(x+\lambda v)$ altogether in favor of root-finding methods
 that need know nothing more about $f(x+\lambda v)$ than that it is continuous.\footnote{In such a
