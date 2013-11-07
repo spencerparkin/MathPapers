@@ -69,11 +69,11 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Although a well known result in the traditional language of multi-variable calculus,
+Although a well known\footnote{See the generalized Taylor series in \cite{Weisstein13}.} result in the traditional language of multi-variable calculus,
 in this paper it is shown, using the language of geometric algebra, that for any
 real-valued, multi-variable polynomial defined over the
 real numbers that the image of any line through the domain of such a function
-is determined entirely by all orders of the directional derivatives of this function at
+is determined entirely by all orders of directional derivatives of this function at
 any one point along the line and in the direction of the line.
 
 This result has an
@@ -233,10 +233,9 @@ able to show the promised result.
 In its present form, equation \eqref{equ_result} lacks ease of use, because knowledge of the
 vector $v$ is needed to calculate all orders of the directional derivative.  To solve this problem,
 we need to decouple the knowledge of this vector from the limit processes by generalizing the
-idea of the gradient to higher orders.  This has already been done in \cite{} with the use of
-$k$-forms.  The manifestation of such things in the algebra $\G$ that we are using may be as follows.
+idea of the gradient to higher orders.
 
-We begin with the gradient of $f$, usually written $\nabla f$.  But this is ambiguous in our algebra,
+We begin with the gradient of $f$, usually written $\nabla f$, but this is ambiguous in our algebra,
 because we need to specify the sub-algebra over which $\nabla f$ will be taken.  We will
 do this with an integral subscript as $\nabla_i f$, not to be confused with the directional
 derivative, which uses a vector subscript.  The gradient can now be defined similarly to
@@ -273,6 +272,9 @@ as we knew it, raised the grade of scalar-valued functions to that of vector-val
 The general gradient now raises an $i$-blade-valued function to that of an $(i+1)$-blade-valued function.
 The geometric significance of these blades with respect to a given algebraic surface should be investigated.
 
+Definition \eqref{equ_expand_func_operator} is almost the definition given in \cite{Hestenes93} for
+differential forms.  Definition \eqref{equ_generalize_gradient_func_operator} strives to be coordinate free.
+
 The decoupling of equation \eqref{equ_result} can now be written as
 \begin{equation}\label{equ_result_decoupled}
 f(x+\lambda v) = -\sum_{i=0}^m\frac{(-\lambda)^i}{i!}\bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right)f(x),
@@ -303,5 +305,7 @@ interesting result about algebraic surfaces that may find applications in other 
 \bibliography{Parkin_TheIntersectionOfRaysAndAlgebraicSurfaces}
 
 % http://ralph.cs.cf.ac.uk/papers/Geometry/RayCast.pdf
+% http://geocalc.clas.asu.edu/pdf/MultCalc.pdf
+% http://geocalc.clas.asu.edu/pdf-preAdobe8/DIF_FORM.pdf
 
 \end{document}
