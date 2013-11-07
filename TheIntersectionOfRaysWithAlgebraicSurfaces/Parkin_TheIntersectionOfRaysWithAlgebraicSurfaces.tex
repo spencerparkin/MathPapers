@@ -264,19 +264,24 @@ If not for the reverse order of partial derivatives, equation \eqref{equ_expand_
 would have been omitted on
 the basis that equations \eqref{equ_gradient_func_operator} and
 \eqref{equ_generalize_gradient_func_operator}, together, sufficiently
-define the operator $\bigwedge_{j=1}^k\nabla_j$.
+define the operator $\bigwedge_{j=1}^k\nabla_j$.  Those two equations
+probably are sufficient, however, if we realize how the composition of operators, as a product,
+must be taken.  In any case, \eqref{equ_expand_func_operator} is given for clarity.
 
 Notice that this generalization of the gradient appears in keeping with the reoccurring theme
 of grade raising or lowering operations found in geometric algebra.  The traditional gradient,
 as we knew it, raised the grade of scalar-valued functions to that of vector-valued functions.
-The general gradient now raises an $i$-blade-valued function to that of an $(i+1)$-blade-valued function.
-The geometric significance of these blades with respect to a given algebraic surface should be investigated.
+The more general gradient we have in \eqref{equ_generalize_gradient_func_operator} now raises a scalar-valued function to that
+of an $i$-blade-valued function, but we could use it to find a form of operator that takes an
+$i$-blade-valued function and raises it to an $(i+1)$-blade-valued function, or lowers it
+to that of an $(i-1)$-blade-valued function.  The geometric significance of these derived
+functions with respect to the surface at $x$ deserves an investigation.
 
 Definition \eqref{equ_expand_func_operator} is comparable to the
-definition given in \cite{Hestenes93,Macdonald12} for differential forms.
+definitions given in \cite{Hestenes93,Macdonald12} for differential forms.
 Definition \eqref{equ_generalize_gradient_func_operator} strives to be coordinate free.
 
-The decoupling of equation \eqref{equ_result} can now be written as
+Returning from a brief digression, the decoupling of equation \eqref{equ_result} can now be written as
 \begin{equation}\label{equ_result_decoupled}
 f(x+\lambda v) = -\sum_{i=0}^m\frac{(-\lambda)^i}{i!}\bigwedge_{j=1}^i v_j\cdot\left(\bigwedge_{j=1}^i\nabla_j\right)f(x),
 \end{equation}
