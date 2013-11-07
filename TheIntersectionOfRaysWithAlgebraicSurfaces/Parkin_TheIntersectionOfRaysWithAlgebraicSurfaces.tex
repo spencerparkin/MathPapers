@@ -305,7 +305,7 @@ if a symbolic calculator is available.  Use of symbolic calculation was made in 
 thing is available, then \eqref{equ_result_decoupled} allows us to come up with the polynomial
 through literal evaluation; provided, again, that we have all gradients available to us.
 For algebraic surfaces of degrees greater than or equal to five\footnote{There is no closed form solution
-to a general polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{}.}, we may
+to a general polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{Gallian12}.}, we may
 lose the need to come up
 with the polynomial expansion of $f(x+\lambda v)$ altogether in favor of root-finding methods
 that need know nothing more about $f(x+\lambda v)$ other than that it is continuous.\footnote{In such a
@@ -317,7 +317,7 @@ interesting result about algebraic surfaces that may find applications in other 
 Figure~\ref{fig_ray_traced_image} shows an application to ray-tracing.
 
 Range analysis is often a component of algorithms that find the smallest
-zero of the ray-to-surface intersection equation.  In the paper \cite{Shou06},
+solution of the ray-to-surface intersection equation.  In the paper \cite{Shou06},
 the Taylor series is employed to perform such an analysis, but not under
 the realization that the ray-to-surface intersection equation is, itself, a
 Taylor polynomial.  So there is some wonder there whether this realization
@@ -325,9 +325,5 @@ could improve the method of analysis in that case.
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheIntersectionOfRaysWithAlgebraicSurfaces}
-
-% http://ralph.cs.cf.ac.uk/papers/Geometry/RayCast.pdf
-% http://geocalc.clas.asu.edu/pdf/MultCalc.pdf
-% http://geocalc.clas.asu.edu/pdf-preAdobe8/DIF_FORM.pdf
 
 \end{document}
