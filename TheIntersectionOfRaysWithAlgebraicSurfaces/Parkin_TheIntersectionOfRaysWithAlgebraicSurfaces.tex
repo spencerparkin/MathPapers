@@ -230,6 +230,14 @@ able to show the promised result.
 
 \section{Making Use Of The Result}
 
+\begin{figure}
+\includegraphics[scale=0.3]{Quadrics}
+\caption{An ellipsoid and a hyperboloid of two sheets ray-traced by finding the zeros
+of the quadratic equation found through the use of equation \eqref{equ_result_decoupled}.
+The ray-tracing software can be found at \url{https://github.com/spencerparkin/ImageGenerator}.}
+\label{fig_ray_traced_image}
+\end{figure}
+
 In its present form, equation \eqref{equ_result} lacks ease of use, because knowledge of the
 vector $v$ is needed to calculate all orders of the directional derivative.  To solve this problem,
 we need to decouple the knowledge of this vector from the limit processes by generalizing the
@@ -306,6 +314,7 @@ is continuous.}
 
 In any case, \eqref{equ_result_decoupled} appears to be, if nothing more, an
 interesting result about algebraic surfaces that may find applications in other areas.
+Figure~\ref{fig_ray_traced_image} shows an application to ray-tracing.
 
 \bibliographystyle{amsplain}
 \bibliography{Parkin_TheIntersectionOfRaysWithAlgebraicSurfaces}
