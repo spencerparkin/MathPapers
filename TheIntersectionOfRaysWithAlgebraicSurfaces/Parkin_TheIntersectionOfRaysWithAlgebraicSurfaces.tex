@@ -234,7 +234,7 @@ able to show the promised result.
 \includegraphics[scale=0.3]{Quadrics}
 \caption{An ellipsoid and a hyperboloid of two sheets ray-traced by finding the zeros
 of the quadratic equation found through the use of equation \eqref{equ_result_decoupled}.
-The ray-tracing software can be found at \url{https://github.com/spencerparkin/ImageGenerator}.}
+The ray-tracing software used here can be found at \url{https://github.com/spencerparkin/ImageGenerator}.}
 \label{fig_ray_traced_image}
 \end{figure}
 
@@ -304,11 +304,12 @@ Looking back again at equation \eqref{equ_ray_polynomial_unexpanded}, this is ce
 if a symbolic calculator is available.  Use of symbolic calculation was made in \cite{Hanrahan83}.  If no such
 thing is available, then \eqref{equ_result_decoupled} allows us to come up with the polynomial
 through literal evaluation; provided, again, that we have all gradients available to us.
-For algebraic surfaces of degrees greater than or equal to five\footnote{There is no closed form solution
-to a general polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{Gallian12}.}, we may
+For algebraic surfaces of degrees greater than or equal to five,\footnote{There is no closed form solution
+to a general polynomial of degree greater than or equal to five in terms of elementary functions.  See\cite{Gallian12}.} we may
 lose the need to come up
 with the polynomial expansion of $f(x+\lambda v)$ altogether in favor of root-finding methods
-that need know nothing more about $f(x+\lambda v)$ other than that it is continuous.\footnote{In such a
+that need know nothing more about $f(x+\lambda v)$ other than that it is continuous on
+a compact interval.\footnote{In such a
 case, the intermediate value theorem applies.  Recall that the composition of two continuous functions
 is continuous.}
 
