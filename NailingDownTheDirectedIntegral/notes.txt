@@ -1,0 +1,6 @@
+we first must give usual metric on R^n as euclidean metric using norm in GA
+assume the usual topology on R^n
+build up the definition of what will become an integrable surface
+define the integral over a surface
+show that the integral is well defined (the integral is a function taking
+the surface to integrate over and the function to integrate over the surface as arguments)
