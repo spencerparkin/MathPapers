@@ -4,3 +4,34 @@ build up the definition of what will become an integrable surface
 define the integral over a surface
 show that the integral is well defined (the integral is a function taking
 the surface to integrate over and the function to integrate over the surface as arguments)
+
+
+% space and structure on space.
+% assume euclidean metric
+% assume usual topology on R^n
+
+% we'll want to integrate multivector-valued functions defined on the space over
+% subsets of the space, but not just any subset is an integrable subset, nor
+% is any function an integrable function.  those things need to be worked out.
+
+% an integrable surface may need to be compact so that Henie-Borel principle works.
+% this means that it contains all of its accumulation points.
+% define what a tangent vector is to a subset of space.
+% show that the set of all tangent vectors to a point in a subset of space
+% forms a vector space.  a k-dim surface has a tangent space at every point that
+% is of dimension k.
+
+% an integration sequence is a sequence s_i of finite subsets of our integrable
+% surface with the property that for any open set intersecting our surface,
+% there exists j s.t. for all i >= j, s_i intersects the surface.
+% with a compact surface, we can take any open covering, reduce it to a finite
+% sub-cover, then show that there exists j s.t. for all i >= j, we have
+% s_i intersecting every open set in the finite cover.
+
+% concrete.  what constitutes this, that.  no lack of rigor.
+
+% now try to define integral.  you must show that it is a well defined
+% function of the integrable surface and the integrable function.
+
+% we're not sufficiently nailed down until we have an FTC that
+% gives us a way to evaluate integrals.
