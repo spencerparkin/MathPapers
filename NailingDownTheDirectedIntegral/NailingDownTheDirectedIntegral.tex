@@ -58,9 +58,17 @@ In light of Definition~\ref{def_tangent_vector}, we shall let
 $T(x)$ denote the set of all tangent vectors of $S$ at the point $x$.
 
 \begin{definition}[Surface]\label{def_surface}
-A subset $S$ of $\R^n$ is a $k$-dimensional surface if for all points $x\in S$, the set
+A subset $S$ of $\R^n$ is a $k$-dimensional surface if for all points $x\in S$ that
+are, under the subspace topology of $S$, interior to $S$, the set
 $T(x)\cup\{0\}$ is a vector space of dimension $k$.
 \end{definition}
+
+% Does this definition need to be recursive so that the boundry points
+% form a (k-1)-dim surface, and the boundry points of that surf form
+% a (k-2)-dim surface, and so on?
+
+% If all boundry points of S have a tangent space of dimension k, then the k-dimensional
+% surface is a closed surface?
 
 With Definition~\ref{def_surface} in place, it is easy to imagine examples of surfaces in $\R^n$,
 such as a hollow sphere or plane,
@@ -162,7 +170,7 @@ and an anti-derivative of the function it integrates.  Without this, there is no
 to evaluate the integral for a given integrable function.  The goal of this section, therefore,
 is to find such a relationship.
 
-\begin{definition}[Surface Boundry]
+\begin{definition}[Surface Boundry]\label{def_surface_boundry}
 Assuming the subspace topology on a given surface $S$, the set of
 all boundry points of $S$, denoted $\partial S$, is the set of all points
 in $S$ that are not interior to $S$.
@@ -171,6 +179,22 @@ in $S$ that are not interior to $S$.
 Recall that if $x\in S$ is interior to $S$, then there exists an open
 set $O$ such that $x\in O\subset S$.
 
+\begin{lemma}
+Given a $k$-dimensional surface $S$, the set of points $\partial S$, as given by
+Definition~\ref{def_surface_boundry}, form a $(k-1)$-dimensional surface by
+Definition~\ref{def_surface}.
+\end{lemma}
+
+\begin{lemma}
+If $S$ is a compact surface, then $\partial S$ is also compact.
+\end{lemma}
+
 % What is the vector derivative?!?!  It is not at all obvious to me.
+
+If $f$ is an integrable function over a surface $S$, what function $g$ is there, if any, such that
+\begin{equation*}
+\int_S dv f(x) = \int_{\partial S} dv g(x),
+\end{equation*}
+and what relationship, if any, might it have with $f$?
 
 \end{document}
