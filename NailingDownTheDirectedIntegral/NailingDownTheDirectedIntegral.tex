@@ -74,8 +74,8 @@ each point $x\in S$, a consistent unit psuedo-scalar for the tangent algebra $G(
 The unit psuedo-scalar $v(x)$ is referred to as the tangent of $S$ at $x$, while its
 principle dual, the normal of $S$ at $x$.
 
-\begin{definition}[Surface Covering]\label{def_surface_covering}
-Given a surface $S$, a surface covering of $S$ of radius $r$ is a set $C$ of least
+\begin{definition}[Minimal Surface Covering]\label{def_surface_covering}
+Given a surface $S$, a minimal surface covering of $S$ of radius $r$ is a set $C$ of least
 possible cardinality of open
 balls centered on points of $S$, each of radius $r$, with the property that for any point
 $x\in S$, there exists an open ball $b\in C$ such that $x\in b$.
@@ -85,10 +85,10 @@ Letting $\mbox{ball}(x,r)$ denote an open ball of radius $r$
 centered at a point $x$, notice that if a surface $S$ is compact, then, by the Heine-Borel property,
 (see \cite{}), we can always take the covering $\{\mbox{ball}(x,r)|x\in S\}$ and
 reduce it to a finite sub-cover.  That is, find a finite subset of this cover that is
-also a cover of $S$.  A surface cover of $S$ is then a cover of this form
+also a cover of $S$.  A minimal surface cover of $S$ is then a cover of this form
 of smallest possible cardinality.
 
-If $C$ is a surface covering of $S$, then we are going to let $C'$ denote
+If $C$ is a minimal surface covering of $S$, then we are going to let $C'$ denote
 the set of open ball centers of all open balls in $C$.
 
 \begin{definition}[Directed Integral]\label{def_directed_integral}
@@ -98,7 +98,7 @@ Then the directed integral of $f$ over $S$, if it exists, is a multivector $L\in
 L = \int_S dv f(x),
 \end{equation*}
 if for every real number $\epsilon>0$, there exists a real number $\delta>0$ such
-that if $C$ is a surface covering of $S$ of radius $r<\delta$, then
+that if $C$ is a minimal surface covering of $S$ of radius $r<\delta$, then
 \begin{equation*}
 \left|L - \sum_{x\in C'} r v(x)f(x)\right|<\epsilon.
 \end{equation*}
@@ -120,10 +120,10 @@ and define the function
 F(C) = \sum_{x\in C'}rv(x)f(x).
 \end{equation*}
 Since $L_0$ is an integral of $f$ over $S$, there exists $\delta_0>0$ such that
-if $C$ is a surface covering of $S$ of radius $r<\delta_0$, we have $|L_0-F(C)|<\epsilon$.
+if $C$ is a minimal surface covering of $S$ of radius $r<\delta_0$, we have $|L_0-F(C)|<\epsilon$.
 Similarly, since $L_1$ is an integral of $f$ over $S$, there exists $\delta_1>0$ such that
-if $C$ is a surface covering of $S$ of radius $r<\delta_1$, we have $|L_1-F(C)|<\epsilon$.
-Now letting $\delta=\mbox{min}\{\delta_0,\delta_1\}$, we see that if $C$ is a surface
+if $C$ is a minimal surface covering of $S$ of radius $r<\delta_1$, we have $|L_1-F(C)|<\epsilon$.
+Now letting $\delta=\mbox{min}\{\delta_0,\delta_1\}$, we see that if $C$ is a minimal surface
 covering of $S$ of radius $r<\delta$, we have $|L_0-F(C)|<\epsilon$ and $|L_1-F(C)|<\epsilon$.
 We then see that
 \begin{equation*}
@@ -137,11 +137,40 @@ Having defined our integral only over compact surfaces, notice that we can
 integrate over hollow spheres, but not planes.  Also note that not all closed
 and bounded subsets of $\R^n$ are compact.
 
+At this point, we should also try to find some sort of geometric interpretation
+of the directed integral.  The most fundamental interpretation, perhaps,
+is that of surface area (or length or volume, etc.) when integrating the
+function $f(x)=1$ over any compact surface, but it is not entirely obvious
+that what we get from the integral, as we have defined it, is such a result
+in that case.
+\begin{lemma}
+The directed integral of $f(x)=1$ over a compact $k$-dimensional surface $S$
+is the $k$-dimensional hyper-volume of the surface.
+\end{lemma}
+\begin{proof}
+How could this be proven?
+\end{proof}
+
+% I am not at all convinced of Hestenes claim that the integral over
+% a closed surface of f(x)=1 is 0.  In some cases, the directed
+% volume elements do not come in pairs to cancel one another out.
+
 \section{Using The Directed Integral}
 
 The directed integral becomes useful to us when we can find a relationship between it
 and an anti-derivative of the function it integrates.  Without this, there is no clear way
 to evaluate the integral for a given integrable function.  The goal of this section, therefore,
 is to find such a relationship.
+
+\begin{definition}[Surface Boundry]
+Assuming the subspace topology on a given surface $S$, the set of
+all boundry points of $S$, denoted $\partial S$, is the set of all points
+in $S$ that are not interior to $S$.
+\end{definition}
+
+Recall that if $x\in S$ is interior to $S$, then there exists an open
+set $O$ such that $x\in O\subset S$.
+
+% What is the vector derivative?!?!  It is not at all obvious to me.
 
 \end{document}
