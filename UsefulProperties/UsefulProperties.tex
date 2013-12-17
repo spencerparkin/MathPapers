@@ -1,0 +1,112 @@
+\documentclass{birkjour}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+\begin{document}
+
+\title{On Two Useful Properties of\\Conformal-like Models of\\Geometric Algebra}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., Salt Lake City, UT  84101}
+\email{spencerparkin@outlook.com}
+
+\subjclass{Primary 14J70; Secondary 14J29}
+
+\keywords{Algebraic Surface, Conformal Model, Conformal Transformation, Geometric Algebra}
+
+\date{November 18, 2013}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Blah.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+This paper begins where the first section of \cite{Parkin13} leaves off.\footnote{No more than
+the first section of \cite{Parkin13} need be read before reading this paper.}  In the
+said section, the function $\gh$ was introduced, but its property of allowing us
+to combine geometries was not given any treatment.  Here we rectify this
+glossing-over of the property by giving it an in-depth look in a some-what more general context
+than that of the conformal model of geometric algebra.
+
+Another often-over-looked, and very important
+property of the general model laid out in the first section of \cite{Parkin13} is that
+of being able to equate different characterizations of a single geometry.  We will see
+how this property follows from what we'll call the point-fitting property, and why
+it is important.
+
+\section{The Point-Fitting Property}
+
+Letting $B\in\G$ be a $k$-blade, notice that if
+there exists a set of $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$ such that
+$\bigwedge_{i=1}^k p(x_i)\neq 0$,
+then there must exist a scalar $\lambda\in\R$ such that
+\begin{equation*}
+B = \lambda\bigwedge_{i=1}^k p(x_i).
+\end{equation*}
+When there exists such a set of $k$ points for a blade $B$,
+we will say that the geometry $\gh(B)$ has the point-fitting
+property, and that the $k$ points $\{x_i\}_{i=1}^k$ fit $\gh(B)$,
+or that $\gh(B)$ is fitted by these points.
+
+% Adapt proofs in other paper here.
+
+\section{The Reinterpretation Property}
+
+Letting $A,B\in\G$ both be $k$-blades with $\gh(A)=\gh(B)$, if there
+exists a scalar $\lambda\in\R$ such that $A=\lambda B$, we say that
+the geometries $\gh(A)$ and $\gh(B)$ have, collectively, the reinterpretation property.\footnote{Clearly,
+if $A=\lambda B$, then $\gh(A)=\gh(B)$, but, depending on how $p$ is defined, the
+converse of this statement may not be generally true.}
+It is not hard to show that if each of $A$ and $B$ have the ponit-fitting property,
+then they share the reinterpretation property.
+
+Under the assumption that each of $\gh(A)$ and $\gh(B)$ have the point-fitting property,
+notice that if the $k$ points $\{x_i\}_{i=1}^k$ fit $\gh(A)$,
+then they also fit $\gh(B)$.  Letting $A=\alpha\bigwedge_{i=1}^k p(x_i)$ and
+$B=\beta\bigwedge_{i=1}^k p(x_i)$, it is clear that if $\lambda =\frac{\alpha}{\beta}$,
+then $A=\lambda B$.
+
+What this property allows us to do in the model is equate one characterization of a given
+geometry with that of another.  This may well be termed a reinterpretation of the geometry.
+For example, we may form a circle as the intersection of two spheres, then go on
+to equate this characterization of the circle with a canonical characterization, which may
+be that of the intersection of a plane and sphere centered on that plane.  Reinterpreting
+the calculated geometry in terms of a canonical form, we can easily
+calculate the characteristics this intersection.  Indeed, this property of the model, (the reinterpretation property),
+and not the intersection property of the model itself, is what makes the ability to do intersections
+in the model useful and interesting.
+
+\begin{thebibliography}{9}
+
+\bibitem{Parkin13}
+S. Parkin, {\it The Mother Minkowski Algebra of Order $m$}.
+2013
+\end{thebibliography}
+
+\end{document}
