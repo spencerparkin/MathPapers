@@ -78,6 +78,40 @@ all terms and definitions given in that section.
 What has been given thus far in \cite{} is a general model of geometry based upon
 a geometric algebra $\G$.  Continuing with this model, we wish here to develop it
 further for the purpose of finding intersections as described in the introductory section.
-To that end,
+
+To that end, we begin by letting $B\in\G$ be a $k$-blade, and then consider the surface $\gh(B)$.
+If now there exist $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$ such that $\bigwedge_{i=1}^k p(x_i)\neq 0$,
+then it is clear that there must exist a scalar $\beta\in\R$ such that
+\begin{equation}\label{equ_point_factorization}
+B = \beta\bigwedge_{i=1}^k p(x_i).
+\end{equation}
+Being able to find such a factorization of $B$ is perhaps desirable for many reasons, but the
+reason it is sought after in this paper is explained as follows.
+
+Given two $k$-blades $A,B\in\G$, if there exists a scalar $\lambda\in\R$
+such that $A=\lambda B$, it is clear that $\gh(A)=\gh(B)$.  If, however, we know that
+the blades $A$ and $B$ each characterize the same geometry, (even though they may do so in different ways),
+we have $\gh(A)=\gh(B)$, but it does not necessarily follow that there exists a
+scalar $\lambda\in\R$ such that $A=\lambda B$.  If such a scalar did exist, then
+we would clearly have an algebraic means of relating the two characterizations so that
+an analysis\footnote{If $A$ was composed as some intersection we had wished to take,
+then $B$ may be the canonical form
+that we wish to decompose.} by decomposition of either $A$ or $B$ could move forward.
+
+Returning now to equation \eqref{equ_point_factorization}, notice that if $B$ has
+such a factorization, then clearly so does $A$, and we may write $A=\alpha\bigwedge_{i=1}^k p(x_i)$.
+Letting
+\begin{equation*}
+\lambda=\frac{\alpha}{\beta},
+\end{equation*}
+we now have $A=\lambda B$.
+
+Seeing now why such factorizations as that in equation \eqref{equ_point_factorization} are desireable for
+our purposes, let us consider when such factorizations exist.
+
+% if p linear, then {p} lin indep iff {x} lin indep
+
+% As a side (digression) we may wish to consider, based upon how p is defined, how and when
+% a given set of points gives us a linearly independent set p(x_1), ..., p(x_k)
 
 \end{document}
