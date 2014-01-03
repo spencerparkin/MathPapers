@@ -51,7 +51,9 @@ Abstract goes here...
 
 The intersection of two algebraic surfaces of the same dimension may be
 realized in different ways.  A natural realization of such an intersection would
-simply be that of an algebraic surface, real or imaginary, of dimension one
+simply be that of an algebraic surface, real or imaginary\footnote{The surfaces
+in question may have no real intersection.  Cases of tangency should also be considered.},
+of dimension one
 less than those taken in the intersection.  In \cite{}, the intersection of quadratic surfaces
 are found as parametric curves through space.
 In this paper, however, we will attempt to realize the intersection of two algebraic surfaces as a
@@ -66,7 +68,7 @@ characterization of the given intersection lends itself to analysis through deco
 That is, we can easily break the canonical form of the intersection down into its characteristic
 parts; which parts, collectively, help us realize the intersection as, in this case, the foci and orientation of
 the ellipse that is the intersection of the elliptical cylinder and the plane.  By this analysis
-we have effectively found the intersection as it was originally given to us.
+we have effectively found the intersection that was originally given to us.
 
 The rest of this paper will now begin exactly where the first section\footnote{The reader
 need not read all of \cite{}; just the first section.} of \cite{} ended, and
@@ -109,9 +111,17 @@ we now have $A=\lambda B$.
 Seeing now why such factorizations as that in equation \eqref{equ_point_factorization} are desireable for
 our purposes, let us consider when such factorizations exist.
 
-% if p linear, then {p} lin indep iff {x} lin indep
+We may first observe that if $p$ is a linear function, then $\{p(x_i)\}_{i=1}^k$ is linearly
+independent if and only if $\{x_i\}_{i=1}^k$ is linearly independent.
+Requiring $p$ be linear, however, we could never represent non-linear surfaces within
+our model.
 
-% As a side (digression) we may wish to consider, based upon how p is defined, how and when
-% a given set of points gives us a linearly independent set p(x_1), ..., p(x_k)
+% I can show other forms of p and what conditions we get linear independence.
+
+% The idea was that even though I can't get a full point factorization,
+% I can show that two characterization share a large sub-space in common,
+% which means that one blade (char.) may be a versor (even) multiple of the other,
+% as apposed to a scalar multiple.  A successful intersection should be taken
+% before any more writing is done in this paper.
 
 \end{document}
