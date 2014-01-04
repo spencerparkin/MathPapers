@@ -93,7 +93,7 @@ reason it is sought after in this paper is explained as follows.
 Given two $k$-blades $A,B\in\G$, if there exists a scalar $\lambda\in\R$
 such that $A=\lambda B$, it is clear that $\gh(A)=\gh(B)$.  If, however, we know that
 the blades $A$ and $B$ each characterize the same geometry, (even though they may do so in different ways),
-we have $\gh(A)=\gh(B)$, but it does not necessarily follow that there exists a
+which is to say that $\gh(A)=\gh(B)$, then it does not necessarily follow that there exists a
 scalar $\lambda\in\R$ such that $A=\lambda B$.  If such a scalar did exist, then
 we would clearly have an algebraic means of relating the two characterizations so that
 an analysis\footnote{If $A$ was composed as some intersection we had wished to take,
@@ -109,7 +109,8 @@ Letting
 we now have $A=\lambda B$.
 
 Seeing now why such factorizations as that in equation \eqref{equ_point_factorization} are desireable for
-our purposes, let us consider when such factorizations exist.
+our purposes, let us consider when such factorizations exist.  It should already be clear that
+such factorizations must depend upon how we define the function $p$.
 
 We may first observe that if $p$ is a linear function, then $\{p(x_i)\}_{i=1}^k$ is linearly
 independent if and only if $\{x_i\}_{i=1}^k$ is linearly independent.
@@ -133,17 +134,15 @@ then write
 B = B_0\wedge\bigwedge_{i=1}^j p(x_i),
 \end{equation*}
 where $B_0$ is a blade of grade $k-j$.  Now realize that for any $x\in\gh(B)$, if
-$x\in\gh(B_0)$, then $x\not\in\{x_i\}_{i=1}^j$ yet $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$,
+$x\in\gh(B_0)$, then $x\not\in\{x_i\}_{i=1}^j$ and $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$,
 which is a contradiction.  Therefore, letting $B'=\bigwedge_{i=1}^j p(x_i)$,
 we must have $x\in\gh(B')$.  Lastly, noticing that if $x\in\gh(B')$, then $x\in\gh(B)$,
 we can conclude that $\gh(B)=\gh(B')$.
 
 % How can we actually use this stuff?
-% Possible next steps...
-%   1) Formulate a canonical form, axis-aligned.
-%   2) Can it be reduced in grade?
-%   3) Calculate an intersection to match the canonical form.
-%   4) Can it be reduced in grade?
-%   5) If the calculated intersection and the canonical form are both of the same reduced grade, we can equate them.
+
+% Something should probably be said about the difficulty in this method with
+% non-planar intersections being that it's hard to characterize such an intersection
+% in more than one way let alone some canonical way.
 
 \end{document}
