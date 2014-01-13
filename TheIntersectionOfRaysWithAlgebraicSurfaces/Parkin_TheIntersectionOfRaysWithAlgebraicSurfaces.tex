@@ -64,9 +64,9 @@
 
 \subjclass{Primary 14J70; Secondary 14J29}
 
-%\date{October 22, 2013}
+%\date{}
 
-%\dedicatory{To my dear wife Melinda.}
+\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
 Although a well known\footnote{See the generalized Taylor series in \cite{Weisstein13}.}
@@ -76,15 +76,7 @@ real-valued polynomial defined over $n$-dimensional euclidean space, that
 the image of any line through the domain of such a function
 is determined entirely by all orders of directional derivatives of this function at
 any one point along the line and in the direction of the line.
-
-This result has an
-application in the problem of casting rays through algebraic surfaces as it
-shows that such a problem, in all cases, reduces to the problem of finding
-the roots of a real-valued polynomial in one real variable, and having an explicit formulation
-in terms of the surface and ray in question.
-
-A generalization of the gradient is found in geometric algebra that is
-similar to differential forms.
+This result is applied to the problem of casting rays through algebraic surfaces.
 \end{abstract}
 
 \maketitle
@@ -134,14 +126,15 @@ unsubscripted variables and expressions.  This is covered in detail in \cite{Par
 
 \section{An Approach To The Problem}
 
-Letting $f:\R^n\to\R$ be any polynomial equation in $n$ variables and up to degree $m$, it
+Letting $f:\R^n\to\R$ be any polynomial function in $n$ variables and up to degree $m$, it
 was shown in \cite{Parkin13} that the function $\bigwedge_{i=1}^m p_i(x)$ may be factored out
 of this polynomial in terms of the inner product as
 \begin{equation}\label{equ_polynomial_func}
 f(x) = \bigwedge_{i=1}^m p_i(x)\cdot B,
 \end{equation}
-where $B$ is an $m$-vector of our geometric algebra with $\nvai_i\cdot B=0$ for all
-integers $i\in[1,m]$, and where the function
+where $B$ is an $m$-vector of our geometric algebra with $\nvai_i\cdot B_j=0$ for all
+integers $i\in[1,m]$ and all $m$-blades $B_j$ if we were to write $B=\sum B_j$,
+and where the function
 $p_i:\R^n\to\V_i$ is given by
 \begin{equation}\label{equ_point_func}
 p_i(x) = \nvao_i + x_i + \frac{1}{2}x_i^2\nvai_i,
@@ -154,7 +147,8 @@ Utilizing equation \eqref{equ_polynomial_func} for this purpose, we easily find 
 f(x+\lambda v) = \bigwedge_{i=1}^m(p_i(x)+\lambda v_i)\cdot B,
 \end{equation}
 because we can ignore the $\frac{1}{2}x_i^2\nvai_i$ term in equation \eqref{equ_point_func}
-on account that $\nvai_i\cdot B=0$.
+on account that $\nvai_i\cdot B_j=0$.\footnote{Use (2.7) of \cite{Parkin13} to get \eqref{equ_ray_polynomial_unexpanded} in
+the case that $B$ is an $m$-blade, then show that \eqref{equ_ray_polynomial_unexpanded} holds when $B$ is an $m$-vector.}
 Looking at equation \eqref{equ_ray_polynomial_unexpanded},
 it is immediately clear that its expansion is that of a polynomial in $\lambda$ of up to degree $m$.
 What we're going to show in this paper is that an explicit formula for this polynomial can
