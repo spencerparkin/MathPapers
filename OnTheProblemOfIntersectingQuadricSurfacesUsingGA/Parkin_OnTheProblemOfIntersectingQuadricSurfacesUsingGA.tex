@@ -52,28 +52,29 @@ Abstract goes here...
 In light of the paper \cite{}, some encouragement has been given to the present
 author to develop a model of geometry, similar to the conformal model of geometric
 algebra, but not limited in representation to any proper subset of the set of all
-quadric surfaces.  But for such a model to achieve adaquite similarity to the conformal model,
+quadric surfaces.  But for such a model to achieve adequate similarity to the conformal model,
 it must preserve one of more of its most desirable features; preferably, all of them.
 For example, in \cite{}, the set of all conformal transformations were preserved, but
-intersections were not.
+intersections were not.\footnote{A way of representing intersections using the outer
+product in the model of \cite{} can be found, but its usefulness, if any, is highly questionable.}
 
 The goal of this paper, therefore, is to
 preserve the intersection property.  In other words, we want to find a model of geometry based upon
 geometric algebra giving us all quadric surfaces and the ability to intersect them
 as effortlessly as can be done in the conformal model.  If nothing else, the attempt
-to do so in this paper will shed light on the feasability of such an endeaver, and thereby
-bring us closer to anwering the question of whether it can even be done.
+to do so in this paper will shed light on the feasibility of such an endeavor, and thereby
+bring us closer to answering the question of whether it can even be done.
 
 \section{The Intersection Property}
 
 Let us begin by taking a closer look at exactly what the intersection property is.
 Upon initial inspection, one might suppose that this property is nothing more than
-the ability to formulate the intersection of two given geometries in a way consistent
+the ability to represent the intersection of any two given geometries in a way consistent
 with the representation of any geometry of the model, but this is not
-enough.  Such a formulation has no usefulness if it does not submit to an
+enough.  Such a representation has no usefulness if it does not submit to an
 analysis yielding the geometric characteristics of the intersection.
 
-This having been said, the outer product's ability to intersect geometries represented
+That having been said, we can say now that the outer product's ability to intersect geometries represented
 by blades in the conformal model is really not at all interesting.  What is interesting
 is the realization that we can equate one characterization of an intersection
 with another, and this is the key to finding intersections in the conformal model.
@@ -85,23 +86,130 @@ For example, suppose we wish to take the planar intersection of a conical surfac
 If we know that the resulting conic section is an ellipse, then we can choose to
 interpret this intersection as that of a plane and an elliptical cylinder meeting
 the plane at right angles.  This latter characterization will have an easily found decomposition
-yielding all features of the ellipse.  Having found all such features, we can then say that we've
-fully realized the given section, whereas before this we were only able to represent it.
+yielding all features of the ellipse.\footnote{Geometries having easily decomposable
+representations in our model will be referred to as canonical forms.}
+Having found all such features, we can then say that we've
+fully realized the given section, whereas before this we were only able to
+represent it.\footnote{Note that although non-planar intersections are as easily
+represented in our model of geometry as any other type of intersection,
+the technique of finding intersections in this paper
+may not be helpful in finding non-planar intersections for the simple reason that such intersections
+have no obvious canonical form.}
 
-The ability to find our model of geometry, (the one promised in the introductory section of
+The quest to find our model of geometry, (the one promised in the introductory section of
 this paper), being quite difficult, the bringing of the example just given in the preceding paragraph
-to fruition will become the impetus for all choices we make in finding the model.
+to fruition will become the impetus for all choices we henceforth make in finding the model.
 Even if our model can do nothing more than this one example, we will consider or goal achieved.
+Rest assured, however, that along the way, we will find results generally applicable to the problem at hand.
+
+\section{Enter The Model}
 
 So that no further delay be made, we will now let the remainder of this paper begin
 exactly where the first section of \cite{} ended, assuming all results and definitions up to that point.
-That said, we now introduction the function $p:\R^n\to\V$ as
-\begin{equation}
-p(x) = e_0 + x + (x\cdot e_2)(x\cdot e_3)e_4 + \dots + (x\cdot e_1)^2e_7,
-\end{equation}
-the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional vector space.
+That said, we now introduce the function $p:\R^n\to\V$ as
+\begin{align*}
+p(x) &= e_0 + x \\
+ &+ (x\cdot e_2)(x\cdot e_3)e_4 + (x\cdot e_1)(x\cdot e_3)e_5 + (x\cdot e_1)(x\cdot e_2)e_6 \\
+ &+ (x\cdot e_1)^2e_7 + (x\cdot e_2)^2e_8 + (x\cdot e_3)^2 e_9,
+\end{align*}
+the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional
+euclidean vector space.\footnote{The reader should take care to note which results of this paper
+depend upon this definition of the function $p$ and which do not.}
+This is sufficient to define the entire model as it is clear that for any quadric
+surface, or any intersection of two or more quadric surfaces, there exists a blade
+$B\in\G$ representative of this surface as $\gd(B)$.
 
-Some results of this paper will depend upon this definition of $p$ while
-others will not.
+Continuing with our example, let us now find the canonical form for an ellipse
+in a plane.  Using the notation $x_i = x\cdot e_i$, an equation for such an ellipse
+may be given by
+\begin{equation}\label{equ_ellipse}
+\frac{(x_1-h)^2}{a^2} + \frac{(x_2-k)^2}{b^2} - 1 = 0,
+\end{equation}
+provided $x_3=0$, which is simply an equation for the plane.
+Factoring $p(x)$ out of the equation $x_3=0$, we get $p(x)\cdot e_3=0$,
+and out of equation \eqref{equ_ellipse}, we get $p(x)\cdot E=0$, where the
+vector $E$ is given by
+\begin{equation*}
+E = \left(\frac{h^2}{a^2} + \frac{k^2}{b^2} - 1\right)e_0 -
+  2\frac{h}{a^2}e_1 - 2\frac{k}{b^2}e_2 + \frac{1}{a^2}e_7 + \frac{1}{b^2}e_8.
+\end{equation*}
+By itself, $E$ here represents an elliptical cylinder.  The ellipse is given by
+the set of points $\gd(E\wedge e_3)$.  The 2-blade $E\wedge e_3$ will be the
+canonical form of the ellipse that we will use to find a conic intersection that
+is an ellipse.
+
+To see that $B=E\wedge e_3$ is easily decomposable, we given the following set of
+equations.
+\begin{align*}
+a^2 &= \frac{1}{e_3\wedge e_7\cdot B} &
+h &= -\frac{a^2}{2}e_3\wedge e_1\cdot B \\
+b^2 &= \frac{1}{e_3\wedge e_8\cdot B} &
+k &= -\frac{b^2}{2}e_3\wedge e_2\cdot B
+\end{align*}
+Using these equations we can recover the ellipse.
+
+Formulate our conical surface $C$ here...
+
+\section{Making Use Of The Model}
+
+Being now able to represent all quadric intersections, the task of
+algebraically relating them remains.  For example, knowing that
+$C\wedge e_3$ is an ellipse, how might we decompose it
+as we would $E\wedge e_3$?  The following lemma may be able to help.
+\begin{lem}\label{lma_point_factored_blade}
+Letting $B\in\G$ be a blade of grade $k$, if there exist $k$ points $\{x_i\}_{i=1}^k\subset\R^n$
+such that $\bigwedge_{i=1}^k p(x_i)\neq 0$, and that for all points
+$x\in\{x_i\}_{i=1}^k$, we have $x\in\gh(B)$, then there exists a scalar $\lambda\in\R$
+such that
+\begin{equation}\label{equ_point_factored_blade}
+B = \lambda\bigwedge_{i=1}^k p(x_i).
+\end{equation}
+\end{lem}
+\begin{proof}
+\end{proof}
+For a blade $B\in\G$ having a factorization \eqref{equ_point_factored_blade},
+we will refer to $B$ as an irreducible blade for reasons that will become clear shortly.
+
+The usefulness of Lemma~\ref{lma_point_factored_blade} is realized in our next lemma.
+\begin{lem}\label{lma_equating_blades}
+If $A,B\in\G$ are blades of grade $k$ with $\gh(A)=\gh(B)$, and one of these is irreducible,
+then there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
+\end{lem}
+\begin{proof}
+We first establish that if one of the blades $A$ and $B$ is irreducible, then so is the other.
+Assuming, without loss of generality, that $A$ is irreducible, let $\{x_i\}_{i=1}^k\in\R^n$
+be a set of $k$ points, and $\alpha\in\R$ be a scalar, such that $A=\alpha\bigwedge_{i=1}^k p(x_i)$.
+Now since $\gh(A)=\gh(B)$, it is clear that for all $x\in\{x_i\}_{i=1}^k$, we have $x\in\gh(B)$,
+and so it follows by Lemma~\ref{lma_point_factored_blade} that there exists a scalar $\beta\in\R$
+such that $B=\beta\bigwedge_{i=1}^k p(x_i)$.
+
+Lastly, we simply realize that if we let $\lambda=\frac{\alpha}{\beta}$, we have
+$A=\lambda B$.
+\end{proof}
+
+In light of Lemma~\ref{lma_equating_blades}, the following question naturally arises.
+Knowing that $\gd(E\wedge e_3)=\gd(C\wedge e_3)$, is any one of
+$(E\wedge e_3)I$ and $(C\wedge e_3)I$ irreducible?\footnote{Here we're letting $I$
+be the unit psuedo-scalar of our 10-dimensional geometric algebra $\G$.}  If so, we have found
+a way to algebraically relate them so that an analysis by decomposition of $C\wedge e_3$
+as $E\wedge e_3$ can move forward.  Unfortunately, it is not hard to show
+that neither of these is irreducible.  To see why, consider the following equation which
+expresses the form of $p(x)$ for all points in the $x_3=0$ plane.
+\begin{equation*}
+p(x_1e_1 + x_2e_2) = e_0 + x_1e_1 + x_2e_2 + x_1x_2e_6 + x_1^2e_7 + x_2^2e_8
+\end{equation*}
+Now notice that an upper-bound on the dimension of a vector space that can
+be spanned by vectors of this form is clearly 6 as there are only 6 components.
+But each of $E\wedge e_3$ and $C\wedge e_2$ are 2-blades, making their
+duals blades of grade $10-2=8>6$.  It follows that there is no set of 8 points $\{x_i\}_{i=1}^8$
+on the ellipse such that $\bigwedge_{i=1}^8 p(x_i)\neq 0$.
+
+% Give lemma now that shows that every blade that's not irreducible can be reduced to
+% one that is.
+
+% bring up concept of ir/reducable forms and ir/reducible canonical forms.
+% show upper bound of number of points that can gen lin indepence.
+
+% talk about when p(x_1)^...^p(x_k) is linearly independent
 
 \end{document}
