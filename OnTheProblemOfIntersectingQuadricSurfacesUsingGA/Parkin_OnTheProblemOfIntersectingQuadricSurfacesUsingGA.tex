@@ -1,0 +1,107 @@
+\documentclass{birkjour}
+
+%\usepackage{tikz}
+%\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+\begin{document}
+
+\title{On The Problem Of Intersecting\\Quadric Surfaces Using\\Geometric Algebra}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., \\
+Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\keywords{Keywords go here...}
+
+\maketitle
+
+\section{Introduction}
+
+In light of the paper \cite{}, some encouragement has been given to the present
+author to develop a model of geometry, similar to the conformal model of geometric
+algebra, but not limited in representation to any proper subset of the set of all
+quadric surfaces.  But for such a model to achieve adaquite similarity to the conformal model,
+it must preserve one of more of its most desirable features; preferably, all of them.
+For example, in \cite{}, the set of all conformal transformations were preserved, but
+intersections were not.
+
+The goal of this paper, therefore, is to
+preserve the intersection property.  In other words, we want to find a model of geometry based upon
+geometric algebra giving us all quadric surfaces and the ability to intersect them
+as effortlessly as can be done in the conformal model.  If nothing else, the attempt
+to do so in this paper will shed light on the feasability of such an endeaver, and thereby
+bring us closer to anwering the question of whether it can even be done.
+
+\section{The Intersection Property}
+
+Let us begin by taking a closer look at exactly what the intersection property is.
+Upon initial inspection, one might suppose that this property is nothing more than
+the ability to formulate the intersection of two given geometries in a way consistent
+with the representation of any geometry of the model, but this is not
+enough.  Such a formulation has no usefulness if it does not submit to an
+analysis yielding the geometric characteristics of the intersection.
+
+This having been said, the outer product's ability to intersect geometries represented
+by blades in the conformal model is really not at all interesting.  What is interesting
+is the realization that we can equate one characterization of an intersection
+with another, and this is the key to finding intersections in the conformal model.
+The reason for this is that while one such characterization is composed as the
+intersection we wish to take, the other characterization lends itself to
+analysis through decomposition.
+
+For example, suppose we wish to take the planar intersection of a conical surface.
+If we know that the resulting conic section is an ellipse, then we can choose to
+interpret this intersection as that of a plane and an elliptical cylinder meeting
+the plane at right angles.  This latter characterization will have an easily found decomposition
+yielding all features of the ellipse.  Having found all such features, we can then say that we've
+fully realized the given section, whereas before this we were only able to represent it.
+
+The ability to find our model of geometry, (the one promised in the introductory section of
+this paper), being quite difficult, the bringing of the example just given in the preceding paragraph
+to fruition will become the impetus for all choices we make in finding the model.
+Even if our model can do nothing more than this one example, we will consider or goal achieved.
+
+So that no further delay be made, we will now let the remainder of this paper begin
+exactly where the first section of \cite{} ended, assuming all results and definitions up to that point.
+That said, we now introduction the function $p:\R^n\to\V$ as
+\begin{equation}
+p(x) = e_0 + x + (x\cdot e_2)(x\cdot e_3)e_4 + \dots + (x\cdot e_1)^2e_7,
+\end{equation}
+the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional vector space.
+
+Some results of this paper will depend upon this definition of $p$ while
+others will not.
+
+\end{document}
