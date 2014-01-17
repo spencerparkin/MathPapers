@@ -114,7 +114,8 @@ p(x) &= e_0 + x \\
 \end{align*}
 the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional
 euclidean vector space.\footnote{The reader should take care to note which results of this paper
-depend upon this definition of the function $p$ and which do not.}
+depend upon this definition of the function $p$ and which do not.  Also note that signatures
+other than the euclidean may be worth considering, but there will be no foreseeable need in this paper.}
 This is sufficient to define the entire model as it is clear that for any quadric
 surface, or any intersection of two or more quadric surfaces, there exists a blade
 $B\in\G$ representative of this surface as $\gd(B)$.
@@ -166,6 +167,11 @@ B = \lambda\bigwedge_{i=1}^k p(x_i).
 \end{equation}
 \end{lem}
 \begin{proof}
+If $x_i\in\gh(B)$, then $p(x_i)\wedge B=0$, showing that $p(x_i)$ is in the vector
+space spanned by any factorization of $B$.  Then, since $\bigwedge_{i=1}^k p(x_i)\neq 0$,
+the set of vectors $\{p(x_i)\}_{i=1}^k$ is linearly independent and therefore
+a basis for such a vector space.  The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
+must, therefore, be equal, up to scale.
 \end{proof}
 For a blade $B\in\G$ having a factorization \eqref{equ_point_factored_blade},
 we will refer to $B$ as an irreducible blade for reasons that will become clear shortly.
@@ -177,7 +183,7 @@ then there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
 \end{lem}
 \begin{proof}
 We first establish that if one of the blades $A$ and $B$ is irreducible, then so is the other.
-Assuming, without loss of generality, that $A$ is irreducible, let $\{x_i\}_{i=1}^k\in\R^n$
+Assuming, without loss of generality, that $A$ is irreducible, let $\{x_i\}_{i=1}^k\subset\R^n$
 be a set of $k$ points, and $\alpha\in\R$ be a scalar, such that $A=\alpha\bigwedge_{i=1}^k p(x_i)$.
 Now since $\gh(A)=\gh(B)$, it is clear that for all $x\in\{x_i\}_{i=1}^k$, we have $x\in\gh(B)$,
 and so it follows by Lemma~\ref{lma_point_factored_blade} that there exists a scalar $\beta\in\R$
@@ -191,7 +197,7 @@ In light of Lemma~\ref{lma_equating_blades}, the following question naturally ar
 Knowing that $\gd(E\wedge e_3)=\gd(C\wedge e_3)$, is any one of
 $(E\wedge e_3)I$ and $(C\wedge e_3)I$ irreducible?\footnote{Here we're letting $I$
 be the unit psuedo-scalar of our 10-dimensional geometric algebra $\G$.}  If so, we have found
-a way to algebraically relate them so that an analysis by decomposition of $C\wedge e_3$
+a way to algebraically relate them so that an analysis by decomposition, up to scale, of $C\wedge e_3$
 as $E\wedge e_3$ can move forward.  Unfortunately, it is not hard to show
 that neither of these is irreducible.  To see why, consider the following equation which
 expresses the form of $p(x)$ for all points in the $x_3=0$ plane.
@@ -204,12 +210,41 @@ But each of $E\wedge e_3$ and $C\wedge e_2$ are 2-blades, making their
 duals blades of grade $10-2=8>6$.  It follows that there is no set of 8 points $\{x_i\}_{i=1}^8$
 on the ellipse such that $\bigwedge_{i=1}^8 p(x_i)\neq 0$.
 
-% Give lemma now that shows that every blade that's not irreducible can be reduced to
-% one that is.
+Not willing to give up just yet, we arrive at the following lemma.
 
-% bring up concept of ir/reducable forms and ir/reducible canonical forms.
-% show upper bound of number of points that can gen lin indepence.
+\begin{lem}
+For every $k$-blade $B\in\G$, there exists a blade $B'\in\G$ of grade $k'\leq k$
+such that $\gh(B)=\gh(B')$ and $B'$ is irreducible.
+\end{lem}
+\begin{proof}
+If $B$ is irreducible, then let $k'=k$ and $B'=B$ and we're done.
+If $B$ is not irreducible, then let $j$ be the largest possible integer
+for which there exists a set of $j$ points $\{x_i\}_{i=1}^j\subseteq\gh(B)$
+with $\bigwedge_{i=1}^j p(x_i)\neq 0$, (clearly $j<k$), and write
+\begin{equation*}
+B = B_0\wedge\bigwedge_{i=1}^j p(x_i)
+\end{equation*}
+for some blade $B_0$ of grade $k-j$.  Now realize that for any $x\in\gh(B)$,
+if $x\in\gh(B_0)$, then $x\not\in\{x_i\}_{i=1}^j$ and $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$,
+which is a contradiction.  Therefore, if $x\in\gh(B)$, then, letting $k'=j$ and $B'=\bigwedge_{i=1}^jp(x_i)$,
+we have $x\in\gh(B')$.  Conversely, if $x\in\gh(B')$, then clearly $x\in\gh(B)$.  It follows that
+$\gh(B)=\gh(B')$.
+\end{proof}
+
+Seeing that $B'$ is potentially a reduction in grade of the blade $B$, but that it certainly does
+not sacrifice the geometry represented by $B$, we will say that $B$ is reducible
+in the case that $k'<k$.  In the case that $k'=k$, it is clear that $B$ is irreducible.
+
+What we see now is that $(C\wedge e_3)I$ and $(E\wedge e_3)I$ are reducible blades,
+and that equating them is possible if they can both be reduced.  Unfortunately,
+an irreducible canonical form of our ellipse is not obvious, nor is a solution to the problem
+of either reducing a given blade, or showing that it is already irreducible.  Each of these
+problems may be about as hard as factoring the blade in question, and there may be no
+way of getting around that.
 
 % talk about when p(x_1)^...^p(x_k) is linearly independent
+
+% an alternative may be to generate a system of equations by doing
+% symbolic probes of (C^e3)I with points on (E^e3)I.
 
 \end{document}
