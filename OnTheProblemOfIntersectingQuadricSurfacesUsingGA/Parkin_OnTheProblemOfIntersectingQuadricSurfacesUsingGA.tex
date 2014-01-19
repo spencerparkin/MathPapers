@@ -35,15 +35,17 @@
 \address{102 W. 500 S., \\
 Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
 
-%\subjclass{Primary 14J70; Secondary 14J29}
+\subjclass{Primary 14J70; Secondary 14J29}
 
-%\dedicatory{To my dear wife Melinda.}
+\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Abstract goes here...
+Progress is made on the problem of finding a conformal-like model of geometry
+based upon geometric algebra in which intersections of quadric surfaces
+may be taken.
 \end{abstract}
 
-\keywords{Keywords go here...}
+\keywords{Quadric, Geometric Algebra, Conformal Model, Intersection}
 
 \maketitle
 
@@ -133,7 +135,7 @@ Factoring $p(x)$ out of the equation $x_3=0$, we get $p(x)\cdot e_3=0$,
 and out of equation \eqref{equ_ellipse}, we get $p(x)\cdot E=0$, where the
 vector $E$ is given by
 \begin{equation*}
-E = \left(\frac{h^2}{a^2} + \frac{k^2}{b^2} - 1\right)e_0 -
+E = \left(\frac{h^2}{a^2}+\frac{k^2}{b^2} - 1\right)e_0 -
   2\frac{h}{a^2}e_1 - 2\frac{k}{b^2}e_2 + \frac{1}{a^2}e_7 + \frac{1}{b^2}e_8.
 \end{equation*}
 By itself, $E$ here represents an elliptical cylinder.  The ellipse is given by
@@ -141,29 +143,30 @@ the set of points $\gd(E\wedge e_3)$.  The 2-blade $E\wedge e_3$ will be the
 canonical form of the ellipse that we will use to find a conic intersection that
 is an ellipse.
 
-To see that $B=E\wedge e_3$ is easily decomposable, we given the following set of
+Letting $\lambda\in\R$ be any non-zero scalar, to see that
+$B=\lambda E\wedge e_3$ is easily decomposable, we give the following set of
 equations.
-\begin{align*}
-a^2 &= \frac{1}{e_3\wedge e_7\cdot B} &
-h &= -\frac{a^2}{2}e_3\wedge e_1\cdot B \\
-b^2 &= \frac{1}{e_3\wedge e_8\cdot B} &
-k &= -\frac{b^2}{2}e_3\wedge e_2\cdot B
-\end{align*}
-Using these equations we can recover the ellipse.
+\begin{align}
+h &= \frac{-e_3\wedge e_1\cdot B}{2e_3\wedge e_7\cdot B}\label{equ_decompose_first} \\
+k &= \frac{-e_3\wedge e_2\cdot B}{2e_3\wedge e_8\cdot B} \\
+\lambda &= (e_3\wedge(h^2e_7+k^2e_8-e_0))\cdot B \\
+a &= \sqrt{\lambda(e_3\wedge e_7\cdot B)^{-1}} \\
+b &= \sqrt{\lambda(e_3\wedge e_8\cdot B)^{-1}}\label{equ_decompose_last}
+\end{align}
+Using these equations, we can recover the ellipse.
 
 Now let us formulate the intersection we wish to take.  We will
 intersect the $x_3=0$ plane with the conical surface having points satisfying the equation
-\begin{equation*}
-(x_1^2+(x_2+1)^2)\cos^2\theta - x_3^2\sin^2\theta = 0,\mbox{wrong!}
-\end{equation*}
+\begin{equation}\label{equ_conical_surface}
+x_1^2+x_2^2 - (x_3+1)^2\tan^2\theta = 0,
+\end{equation}
 where $2\theta$ is the angle of aperture.\footnote{Yes, this will give
 us a circle in the $x_3=0$ plane and not a general ellipse, but to keep things
-simpler, our primary example will consider a degenerate case of the ellipse,
-and we will see that it suffices for this paper's purposes.}  We have submerged it
+simpler, our primary example will consider this special case of the ellipse.}  We have submerged it
 below the $x_3=0$ plane to get a non-trivial intersection $\gd(C\wedge e_3)$,
 the vector $C$ being given by
 \begin{equation*}
-C = \cos^2\theta e_0 + 2\cos^2\theta e_2 + \cos^2\theta e_7 + \cos^2\theta e_8 - \sin^2\theta e_9.
+C = (\tan^2\theta)e_0 + 2(\tan^2\theta)e_3 + e_7 + e_8 - (\tan^2\theta)e_9.
 \end{equation*}
 
 \section{Making Use Of The Model}
@@ -214,7 +217,8 @@ $(E\wedge e_3)I$ and $(C\wedge e_3)I$ irreducible?\footnote{Here we're letting $
 be the unit psuedo-scalar of our 10-dimensional geometric algebra $\G$.}  If so, we have found
 a way to algebraically relate them so that an analysis by decomposition, up to scale, of $C\wedge e_3$
 as $E\wedge e_3$ can move forward.\footnote{Think of this as replacing
-$B$ with $\lambda^{-1}C\wedge e_3$ in equations \eqref{} and \eqref{}.}
+$B$ with $\lambda C\wedge e_3$ in equations \eqref{equ_decompose_first} through
+\eqref{equ_decompose_last}.}
 Unfortunately, it is not hard to show
 that neither of these is irreducible.  To see why, consider the following equation which
 expresses the form of $p(x)$ for all points in the $x_3=0$ plane.
@@ -242,7 +246,7 @@ with $\bigwedge_{i=1}^j p(x_i)\neq 0$, (clearly $j<k$), and write
 B = B_0\wedge\bigwedge_{i=1}^j p(x_i)
 \end{equation*}
 for some blade $B_0$ of grade $k-j$.  Now realize that for any $x\in\gh(B)$,
-if $x\in\gh(B_0)$, then $x\not\in\{x_i\}_{i=1}^j$ and $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$,
+if $x\in\gh(B_0)$, then $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$ and $x\not\in\{x_i\}_{i=1}^j$,
 which is a contradiction.  Therefore, if $x\in\gh(B)$, then, letting $k'=j$ and $B'=\bigwedge_{i=1}^jp(x_i)$,
 we have $x\in\gh(B')$.  Conversely, if $x\in\gh(B')$, then clearly $x\in\gh(B)$.  It follows that
 $\gh(B)=\gh(B')$.
@@ -255,7 +259,7 @@ in the case that $k'<k$.  In the case that $k'=k$, it is clear that $B$ is irred
 What we see now is that $(C\wedge e_3)I$ and $(E\wedge e_3)I$ are reducible blades,
 and that equating them is possible if they can both be reduced.  Unfortunately,
 an irreducible canonical form of our ellipse is not obvious, nor is a solution to the problem
-of either reducing a given blade, or showing that it is already irreducible.  Each of these
+of either fully reducing a given blade, or showing that it is already irreducible.  Each of these
 problems may be about as hard  as finding, not just any, but a specific type of factorization
 of the blade in question, and there may be no
 way of getting around that.  That is, if we're bent on equating one blade with another.
@@ -264,24 +268,29 @@ way of getting around that.  That is, if we're bent on equating one blade with a
 
 Fortunately, what may be an alternative to our original plan is that of using
 $C\wedge e_3$ and $E\wedge e_3$ to generate a system of non-linear
-equations in a different way.  The idea is simple.  If we know that we have a point $x\in\gd(E\wedge e_3)$, (our
+equations.  The idea is simple.  If we know that we have a point $x\in\gd(E\wedge e_3)$, (our
 canonical form), then we also have $x\in\gd(C\wedge e_3)$, (our desired intersection), and this generates
 for us one or more equations in the components $x_i$ of $x$.  For example,
 if we let $x=(h+a)e_1 + ke_2$, then $p(x)\cdot E\wedge e_3$ is clearly
-zero, and therefore, so must be $p(x)\cdot C\wedge e_3$.
-This generates one equation for us, and it is $0=(k+1)^2+(h+a)^2$.
+zero, and therefore, $p(x)\cdot C\wedge e_3=(p(x)\cdot C)e_3$ must be zero too.\footnote{This
+idea calls into question the use of geometric algebra as a framework for solving
+the problem at hand.  Could we not just as easily take this approach using nothing
+more than our original polynomial equations \eqref{equ_ellipse} and \eqref{equ_conical_surface}?
+Yes; however, the use of some framework, whether it be geometric, linear or abstract algebra,
+may help us make useful generalizations about the problem as the lemmas of this
+paper attempt to do.}
 
 A lemma is now in order.  For the following lemma, the asterisk symbol ``$*$'' may be
 replaced by either the inner product symbol ``$\cdot$'' or the outer product symbol ``$\wedge$.''
 
 \begin{lem}\label{lma_determine_system}
-Given a blade $B\in\G$, if $\{x_i\}_{i=1}^j\subset g^*(B)$ is a
-set of $j$ points with $\bigwedge_{i=1}^{j-1} p(x_i)\neq 0$ and $\bigwedge_{i=1}^j p(x_i)=0$ such
-that the system of equations generated by, for all integers $i\in[1,j-1]$, $0=p(x_i)* B$,
-is an under-determined system, then the system of equations generated by,
-for all integers $i\in[1,j]$, $0=p(x_i)* B$, is not any more determined.\footnote{This is
-also to say that the system of equations generated by all $j$ points is essentially the
-same as that generated by all $j-1$ points.}
+Given a blade $B\in\G$, if $\{x_i\}_{i=1}^j\subseteq g^*(B)$ is a
+set of $j$ points with $\bigwedge_{i=1}^{j-1} p(x_i)\neq 0$ and $\bigwedge_{i=1}^j p(x_i)=0$,
+then the system of equations generated by, for all integers $i\in[1,j]$, $0=p(x_i)* B$,
+is not any more determined than the system of equations generated by,
+for all integers $i\in[1,j-1]$, $0=p(x_i)* B$.\footnote{This is
+also to say that the system of equations generated by all $j$ points has the same solution
+set as that generated by all $j-1$ points.}
 \end{lem}
 \begin{proof}
 For an appropriate set of $j-1$ scalars $\{\lambda_i\}_{i=1}^{j-1}\subset\R$, letting $p(x_j)=\sum_{i=1}^{j-1}\lambda_i p(x_i)$,
@@ -328,31 +337,31 @@ But this can only be if the $j$ points are co-planar for a hyper-plane of dimens
 Lemma~\ref{lma_non_co_planar} is a good start, but there are certainly more conditions on $\{x_i\}_{i=1}^j$ to be found upon which
 $\bigwedge_{i=1}^j p(x_i)\neq 0$.  The non-linearity of our function $p$ makes these conditions difficult to find, to say the least.
 
-Returning to our example, ...
-
-% Can we get a lemma better than lemma~\ref{lma_determine_system}?  I'd
-% like to know if the system i finally get is determined.
-
-The approach might not work, because of
-\begin{align*}
-0 &= p(x_1e_1+x_2e_2)\cdot C\wedge e_3 \\
- &= (p(x_1e_1+x_2e_2)\cdot C)e_3 \\
- &= \cos^2\theta(1+2x_2+x_1^2+x_2^2)e_3.
-\end{align*}
-No system can be determined, because it never takes the aperture into account.
-It can be shown that the outer product generates the same equations.
-
-Does this also show that no approach will ever work?
-
-Next step: ray trace the conical surface to be sure you have the equation right.
-
-Okay, okay, the equation for the conical surface has to be wrong, because, forgetting
-all crap in this paper, its solution set in the $xy$-plane does not take into account
-the aperture.  Check the equation.
-
-% lemma blah gives a necessary but insufficient condition for producing a determined system.
+At this point we would wish to return to our example, but
+lemmas ~\ref{lma_determine_system} and ~\ref{lma_non_co_planar} do
+not allow us to do so.  Lemma~\ref{lma_determine_system} offers a
+necessary, but insufficient condition for obtaining a completely determined system,
+and Lemma~\ref{lma_non_co_planar} is not even enough to help us satisfy this condition.
 
 % hyp: if B is an irreducible canonical form and p(x1)^...^p(xk) is a factorization
 % of it, then the system generated by, for all i, p(xi).B, is a completely determined sys.
+
+\section{Closing Remakrs}
+
+Admittedly, this paper is coming to an end having failed to reach its goal,
+but its efficacy may be found in what we've learned from the attempt,
+and so the following questions are left open to the thoughtful reader.
+
+First, does there exist an irreducible canonical form for the ellipse, and if so,
+does it have a straight-forward set of decomposition steps?
+
+Second, is there a practical algorithm for fully reducing a blade?  If not, perhaps
+a reducible blade could be related to a reducible canonical form by an outermorphism
+that, while leaving vectors of the form $p(x)$ invariant, does not leave invariant
+vectors not of this form.
+
+Lastly, it must be questioned whether any conformal-like model for quadric surfaces
+exists that provides a practical solution to the problem of intersection.
+Geometric algebra may not be the right tool.
 
 \end{document}
