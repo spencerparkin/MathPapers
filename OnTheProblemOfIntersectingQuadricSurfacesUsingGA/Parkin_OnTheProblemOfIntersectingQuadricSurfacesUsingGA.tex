@@ -92,7 +92,7 @@ yielding all features of the ellipse.\footnote{Geometries having easily decompos
 representations in our model will be referred to as canonical forms.}
 Having found all such features, we can then say that we've
 fully realized the given section, whereas before this we were only able to
-represent it.\footnote{Note that although non-planar intersections are as easily
+represent it.\footnote{Note that although non-planar intersections will be as easily
 represented in our model of geometry as any other type of intersection,
 the technique of finding intersections in this paper
 may not be helpful in finding non-planar intersections for the simple reason that such intersections
@@ -100,7 +100,7 @@ have no obvious canonical form.}
 
 The quest to find our model of geometry, (the one promised in the introductory section of
 this paper), being quite difficult, the bringing of the example just given in the preceding paragraph
-to fruition will become the impetus for all choices we henceforth make in finding the model.
+to fruition will become the impetus for all choices henceforth made in finding the model.
 Even if our model can do nothing more than this one example, we will consider or goal achieved.
 Rest assured, however, that along the way, we will find results generally applicable to the problem at hand.
 
@@ -138,7 +138,7 @@ vector $E$ is given by
 E = \left(\frac{h^2}{a^2}+\frac{k^2}{b^2} - 1\right)e_0 -
   2\frac{h}{a^2}e_1 - 2\frac{k}{b^2}e_2 + \frac{1}{a^2}e_7 + \frac{1}{b^2}e_8.
 \end{equation*}
-By itself, $E$ here represents an elliptical cylinder.  The ellipse is given by
+By itself, $E$ here represents an axis-aligned elliptical cylinder.  The ellipse is given by
 the set of points $\gd(E\wedge e_3)$.  The 2-blade $E\wedge e_3$ will be the
 canonical form of the ellipse that we will use to find a conic intersection that
 is an ellipse.
@@ -188,7 +188,7 @@ B = \lambda\bigwedge_{i=1}^k p(x_i).
 If $x_i\in\gh(B)$, then $p(x_i)\wedge B=0$, showing that $p(x_i)$ is in the vector
 space spanned by any factorization of $B$.  Then, since $\bigwedge_{i=1}^k p(x_i)\neq 0$,
 the set of vectors $\{p(x_i)\}_{i=1}^k$ is linearly independent and therefore
-a basis for such a vector space.  The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
+a basis for this vector space.  The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
 must, therefore, be equal, up to scale.
 \end{proof}
 For a blade $B\in\G$ having a factorization \eqref{equ_point_factored_blade},
@@ -222,12 +222,13 @@ $B$ with $\lambda C\wedge e_3$ in equations \eqref{equ_decompose_first} through
 Unfortunately, it is not hard to show
 that neither of these is irreducible.  To see why, consider the following equation which
 expresses the form of $p(x)$ for all points in the $x_3=0$ plane.
-\begin{equation*}
+\begin{equation}\label{equ_form_of_points_in_plane}
 p(x_1e_1 + x_2e_2) = e_0 + x_1e_1 + x_2e_2 + x_1x_2e_6 + x_1^2e_7 + x_2^2e_8
-\end{equation*}
+\end{equation}
 Now notice that an upper-bound on the dimension of a vector space that can
-be spanned by vectors of this form is clearly 6 as there are only 6 components.
-But each of $E\wedge e_3$ and $C\wedge e_2$ are 2-blades, making their
+be spanned by vectors of this form is clearly 6 as there are only 6 components
+on the right-hand side of equation \eqref{equ_form_of_points_in_plane}.
+But each of $E\wedge e_3$ and $C\wedge e_3$ are 2-blades, making their
 duals blades of grade $10-2=8>6$.  It follows that there is no set of 8 points $\{x_i\}_{i=1}^8$
 on the ellipse such that $\bigwedge_{i=1}^8 p(x_i)\neq 0$.
 
@@ -249,7 +250,7 @@ for some blade $B_0$ of grade $k-j$.  Now realize that for any $x\in\gh(B)$,
 if $x\in\gh(B_0)$, then $p(x)\wedge\bigwedge_{i=1}^j p(x_i)\neq 0$ and $x\not\in\{x_i\}_{i=1}^j$,
 which is a contradiction.  Therefore, if $x\in\gh(B)$, then, letting $k'=j$ and $B'=\bigwedge_{i=1}^jp(x_i)$,
 we have $x\in\gh(B')$.  Conversely, if $x\in\gh(B')$, then clearly $x\in\gh(B)$.  It follows that
-$\gh(B)=\gh(B')$.
+$\gh(B)=\gh(B')$ and $B'$ is irreducible.
 \end{proof}
 
 Seeing that $B'$ is potentially a reduction in grade of the blade $B$, but that it certainly does
@@ -281,7 +282,8 @@ may help us make useful generalizations about the problem as the lemmas of this
 paper attempt to do.}
 
 A lemma is now in order.  For the following lemma, the asterisk symbol ``$*$'' may be
-replaced by either the inner product symbol ``$\cdot$'' or the outer product symbol ``$\wedge$.''
+replaced, if done in a consistent manner, by either the inner product symbol ``$\cdot$'' or
+the outer product symbol ``$\wedge$.''
 
 \begin{lem}\label{lma_determine_system}
 Given a blade $B\in\G$, if $\{x_i\}_{i=1}^j\subseteq g^*(B)$ is a
