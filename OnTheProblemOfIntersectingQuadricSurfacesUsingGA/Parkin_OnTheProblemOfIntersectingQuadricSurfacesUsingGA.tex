@@ -54,7 +54,7 @@ may be taken.
 
 In light of the paper \cite{Parkin13}, some encouragement has been given to the present
 author to develop a model of geometry, similar to the conformal model of geometric
-algebra, but not limited in representation to any proper subset of the set of all
+algebra, (see\cite{Hestenes01,Dorst07}), but not limited in representation to any proper subset of the set of all
 quadric surfaces.  But for such a model to achieve adequate similarity to the conformal model,
 it must preserve one or more of its most desirable features; preferably, all of them.
 For example, in \cite{Parkin13}, the set of all conformal transformations were preserved, but
@@ -121,7 +121,7 @@ p(x) &= e_0 + x \\
 the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional
 euclidean vector space $\V$.\footnote{The reader should take care to note which results of this paper
 depend upon this definition of the function $p$ and which do not.  Also note that signatures
-other than the euclidean may be worth considering, but there will be no foreseeable need in this paper.}
+other than the euclidean may be worth considering, but there will be no foreseeable need to do so in this paper.}
 This is sufficient to define the entire model as it is clear that for any quadric
 surface, or any intersection of two or more quadric surfaces, there exists a blade
 $B\in\G$ representative of this surface as $\gd(B)$.
@@ -218,11 +218,11 @@ $A=\lambda B$.
 \end{proof}
 
 In light of Lemma~\ref{lma_equating_blades}, the following question naturally arises.
-Knowing that $\gd(E\wedge e_3)=\gd(C\wedge e_3)$, is any one of
+Knowing that $\gh((E\wedge e_3)I)=\gh((C\wedge e_3)I)$, is any one of
 $(E\wedge e_3)I$ and $(C\wedge e_3)I$ irreducible?\footnote{Here we're letting $I=e_{0123456789}$
 be the unit psuedo-scalar of our 10-dimensional geometric algebra $\G$.}  If so, we have found
 a way, by Lemma~\ref{lma_equating_blades}, to algebraically relate them so that an analysis
-by decomposition, up to scale, of $C\wedge e_3$
+by decomposition of $C\wedge e_3$
 as $E\wedge e_3$ can move forward.\footnote{Think of this as replacing
 $B$ with $\lambda C\wedge e_3$ in equations \eqref{equ_decompose_first} through
 \eqref{equ_decompose_last}.}
@@ -272,7 +272,7 @@ does not seem in the least bit trivial, let us take a moment now to consider red
 intersection $(C\wedge e_3)I$ we wish to find.
 
 To do this, we set out to find the largest irreducible factor of $(C\wedge e_3)I$.
-Clearly, if $x\in\gd(C\wedge e_3)$, then $p(x)$ is a factor of $(C\wedge e_3)I$, so
+Clearly, if $x\in\gd(C\wedge e_3)$, then $p(x)$ is a factor of $(C\wedge e_3)I$; so
 the question of when a set of points produces a linearly independent set of
 vectors naturally arises.  It is immediately clear that if the set of $j$ points $\{x_i\}_{i=1}^j$
 is linearly independent, then so is the set of $j$ vectors $\{p(x_i)\}_{i=1}^j$, but the following
@@ -302,9 +302,11 @@ But this can only be if the $j$ points are co-planar for a hyper-plane of dimens
 \end{proof}
 Lemma~\ref{lma_non_co_planar} is a good start, but there are certainly more conditions on $\{x_i\}_{i=1}^j$ to be found upon which
 $\bigwedge_{i=1}^j p(x_i)\neq 0$.  The non-linearity of our function $p$ makes these conditions difficult to find, to say the least.
-Nevertheless, Lemma~\ref{lma_non_co_planar} can help guide our initial set choices of vectors in the naive blade factorization
-algorithm;\footnote{A better blade factorization algorithm can been found in \cite{}, but remember that we're not looking
-for just any factorization.  What further complicates the matter is that, in finding our desired factorization, we need points on
+Nevertheless, Lemma~\ref{lma_non_co_planar} can help guide our initial choice of probing vectors in the na\"{i}ve blade factorization
+algorithm;\footnote{A better blade factorization algorithm can been found in \cite{}, but remember, we're not looking
+for just any factorization; we're looking for one having a factor of the form \eqref{equ_point_factored_blade} of largest possible grade.
+What further complicates the matter is that, in finding
+our desired factorization, we need points on
 the intersection we are in the process of trying to find.  Calculus methods may be in order.} and we, as
 Lemma~\ref{lma_unique_grade_of_irreducible_form} below will show,
 do not have to complete this factorization.  We need go only so far as to know
@@ -349,17 +351,18 @@ as irreducible blades.
 
 By Lemma~\ref{lma_unique_grade_of_irreducible_form}, we are justified in
 claiming that, up to scale, the irreducible form of
-our desired intersection $\gd(C\wedge e3)$ is given by $\gh(R)$, where
+our desired intersection $\gd(C\wedge e_3)$ is given by $\gh(R)$, where
 \begin{equation}\label{equ_irreducible_form_of_our_intersection}
 R = e_{012}\wedge(e_{67} + e_{78} + e_{86})
 \end{equation}
 is a blade of grade 5 in our algebra.\footnote{Choosing any 5 points $\{x_i\}_{i=1}^5$ on
 the unit circle in the plane for which $\bigwedge_{i=1}^5 p(x_i)\neq 0$, you'll find that $\bigwedge_{i=1}^5 p(x_i)$
-is a scalar multiple of $R$ in equation \eqref{equ_irreducible_form_of_our_intersection}.}
+is a scalar multiple of $R$ in equation \eqref{equ_irreducible_form_of_our_intersection}.  It is also not
+hard to show that $\gh(R)=\gd(C\wedge e_3)$.}
 Admittedly, knowledge of the intersection was used
 to obtain this form; but, assuming that there is an algorithm for finding it
 that does not depend upon such knowledge, let's move forward unashamed
-and not the least bit discouraged.
+and undiscouraged.
 
 Having now fully reduced the 8-blade $(C\wedge e_3)I$ down to the 5-blade $R$, we know
 that there must exist a 3-blade $R_0$ such that the equation
@@ -368,7 +371,7 @@ that there must exist a 3-blade $R_0$ such that the equation
 \end{equation*}
 has real solutions in $a$, $b$, $h$ and $k$.
 Indeed, by examination, it is not hard to see that if we let $R_0=e_{459}$, then this is the case.
-The 8-blade $R_0\wedge R$ may be decomposed using equations \eqref{equ_decompose_first} through \eqref{equ_decompose_last}.
+The 2-blade $(R_0\wedge R)I$ may now be decomposed using equations \eqref{equ_decompose_first} through \eqref{equ_decompose_last}.
 As the reader can check, we get the unit circle at origin.
 
 \section{Closing Remarks}
@@ -376,7 +379,7 @@ As the reader can check, we get the unit circle at origin.
 To see any efficacy in this, admittedly, anticlimactic paper, we have to look at what
 we've learned from our attempt at finding the model of geometry we had hoped
 for in the introductory section, and then try to ask the right questions moving forward.
-To the thoughtful reader, they are given as follows.
+To the thoughtful reader, a few of these are given as follows.
 
 Do that here...
 
