@@ -54,7 +54,7 @@ may be taken.
 
 In light of the paper \cite{Parkin13}, some encouragement has been given to the present
 author to develop a model of geometry, similar to the conformal model of geometric
-algebra, (see\cite{Hestenes01,Dorst07}), but not limited in representation to any proper subset of the set of all
+algebra, (see\cite{Hestenes01,Dorst07,Lasenby04}), but not limited in representation to any proper subset of the set of all
 quadric surfaces.  But for such a model to achieve adequate similarity to the conformal model,
 it must preserve one or more of its most desirable features; preferably, all of them.
 For example, in \cite{Parkin13}, the set of all conformal transformations were preserved, but
@@ -303,7 +303,7 @@ But this can only be if the $j$ points are co-planar for a hyper-plane of dimens
 Lemma~\ref{lma_non_co_planar} is a good start, but there are certainly more conditions on $\{x_i\}_{i=1}^j$ to be found upon which
 $\bigwedge_{i=1}^j p(x_i)\neq 0$.  The non-linearity of our function $p$ makes these conditions difficult to find, to say the least.
 Nevertheless, Lemma~\ref{lma_non_co_planar} can help guide our initial choice of probing vectors in the na\"{i}ve blade factorization
-algorithm;\footnote{A better blade factorization algorithm can been found in \cite{}, but remember, we're not looking
+algorithm;\footnote{A better blade factorization algorithm can been found in \cite{Dorst10}, but remember, we're not looking
 for just any factorization; we're looking for one having a factor of the form \eqref{equ_point_factored_blade} of largest possible grade.
 What further complicates the matter is that, in finding
 our desired factorization, we need points on
@@ -383,15 +383,26 @@ To the thoughtful reader, a few of these are given as follows.
 
 Do that here...
 
+Lastly, it must be said here that geometric algebra may not be the right tool
+for studying the intersections of algebraic surfaces.  For those readers possessing a savy
+for algebraic geometry, the article \cite{Fulton83}, and similar publications by the same author,
+gives the modern approach to intersection theory.
+
 \begin{thebibliography}{9}
 
-\bibitem{Parkin13}
-S. Parkin, {\it Mother Minkowski Algebra Of Order $M$}.
-Advances in Applied Clifford Algebras (2013).
+\bibitem{Lasenby04}
+A. Lasenby, J. Lasenby, R. Wareham, {\it A covariant approach
+to geometry using geometric algebra}.  Technical report, Cambridge University
+Engineering Department, 2004.
 
 \bibitem{Dorst07}
 L. Dorst, D. Fontijne and S. Mann, {\it Geometric algebra for computer
 science}. Morgan Kaufmann, 2007.
+
+\bibitem{Dorst10}
+L. Dorst, D. Fontijne, {\it Efficient Algorithms for Factorization and Join
+of Blades}.  Geometric Algebra Computing, E. Bayro-Corrochano, G Scheuermann, Eds.,
+Springer, London, 2010, pp. 457-476.
 
 \bibitem{Hestenes01}
 D. Hestenes, {\it Old wine in new bottles: A new algebraic
@@ -402,6 +413,14 @@ Algebra with Applications in Science and Engineering (2001), 1-14.
 J. Miller, {\it Geometric approaches to nonplanar quadric surface
 intersection curves}. ACM Transactions on Graphics Vol. 6, No. 4, pp.
 274-307.
+
+\bibitem{Parkin13}
+S. Parkin, {\it Mother Minkowski Algebra Of Order $M$}.
+Advances in Applied Clifford Algebras (2013).
+
+\bibitem{Fulton83}
+W. Fulton, {\it Introduction To Intersection Theory In Algebraic Geometry}.
+Expository Lecture, CBMS Regional Conference, 1983.
 
 \end{thebibliography}
 
