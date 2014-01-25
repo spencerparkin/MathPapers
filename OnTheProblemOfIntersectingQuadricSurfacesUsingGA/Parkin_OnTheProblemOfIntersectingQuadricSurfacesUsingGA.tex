@@ -313,18 +313,23 @@ do not have to complete this factorization.  We need go only so far as to know
 that we have found the irreducible factor we're trying to find.
 
 \begin{lem}\label{lma_irreducibles_factor_as_irreducibles}
-If $A,B\in\G$ are a pair of irreducible blades of grades $j,k\in\Z$, respectively, with $j<k$ such that,
-for all $v\in\V$, $v\wedge A=0$ implies that $v\wedge B=0$, then the
-blade $C\in\G$ of grade $k-j$ such that $B=A\wedge C$ is
-also irreducible.
+If $B\in\G$ is an irreducible $k$-blade with $k>2$ and $B_0,B_1\in\G$ is any factorization
+of $B$ in terms of two blades as $B=B_0\wedge B_1$, each having non-zero grade,
+then both $B_0$ and $B_1$ are irreducible blades.
 \end{lem}
 \begin{proof}
-For an appropriate set of $k$ points $\{x_i\}_{i=1}^k\subset\R^n$ and scalars $\alpha,\beta\in\R$,
-let $A=\alpha\bigwedge_{i=1}^j p(x_i)$ and $B=\beta\bigwedge_{i=1}^k p(x_i)$.
-Now notice that for all integers $i\in[j+1,k]$, we have $x_i\in\gh(B)$ and $x_i\not\in\gh(A)$.
-It follows that $x_i\in\gh(C)$.  Then, seeing that $\bigwedge_{i=j+1}^k p(x_i)\neq 0$,
-there exists, by Lemma~\ref{lma_point_factored_blade},  a scalar $\gamma\in\R$ such
-that $C=\gamma\bigwedge_{i=j+1}^k p(x_i)$.
+Let $\{x_i\}_{i=1}^k\subseteq\gh(B)$ be a set of $k$ points on the geometry represented
+by $B$ such that $\bigwedge_{i=1}^k p(x_i)\neq 0$.
+Then, seeing that $B=B_0\wedge B_1$, it is clear that there must exist a partition of
+$\{x_i\}_{i=1}^k$ into two non-empty sets, one of size $j=\grade(B_0)$ with $0<j<k$, and
+the other of size $k-j=\grade(B_1)$, such that for all $x$ in the first partition, we
+have $x\in\gh(B_0)$; and for all $x$ in the second partitoin, we have $x\in\gh(B_1)$.
+Without loss of generality, let the first partition be $\{x_i\}_{i=1}^j$,
+and the second $\{x_i\}_{i=j+1}^k$.  Then, since $\bigwedge_{i=1}^j p(x_i)$
+and $\bigwedge_{i=j+1}^k p(x_i)$ are each non-zero, it follows, by
+Lemma~\ref{lma_point_factored_blade},
+that there exist scalars $\lambda_0,\lambda_1\in\R$ such that $B_0=\lambda_0\bigwedge_{i=1}^j p(x_i)$,
+and $B_1=\lambda_1\bigwedge_{i=j+1}^k p(x_i)$.
 \end{proof}
 
 \begin{lem}\label{lma_unique_grade_of_irreducible_form}
@@ -335,17 +340,20 @@ irreducible blade $B'$ of a grade greater than $k$, or less than $k$, such that 
 \begin{proof}
 Suppose, contrary to the lemma, that $B'\in\G$ is an irreducible blade of grade greater than $k$ such that $\gh(B)=\gh(B')$.
 Letting $B_0\in\G$ be a blade such that $B'=R\wedge B_0$, we see that $B_0$ is irreducible
-by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(B')=\gh(R)$, then
+by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(R)=\gh(B)$, then
 we must have $R\wedge B_0=0$, which is a contradiction, because $B'\neq 0$.
 
 Suppose now, also contrary to the lemma, that $B'\in\G$ is an irreducible blade of grade less than $k$ such that $\gh(B)=\gh(B')$.
 Letting $B_0\in\G$ be a blade such that $R=B'\wedge B_0$, we see that $B_0$ is irreducible
-by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(R)=\gh(B')$, then
+by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(B')=\gh(B)$, then
 we must have $B'\wedge B_0=0$, which is a contradiction, because $R\neq 0$.
 \end{proof}
 
 Concerning irreducible blades, we see that while Lemma~\ref{lma_irreducible_form_exists} has dealt with
-the question of existence, Lemma~\ref{lma_unique_grade_of_irreducible_form} has dealt with the question of uniqueness.
+the question of existence, Lemma~\ref{lma_unique_grade_of_irreducible_form} has dealt with the question of uniqueness.  Lemmas \ref{lma_irreducible_form_exists}, \ref{lma_unique_grade_of_irreducible_form}
+and \ref{lma_equating_blades}, all taken together, we can
+say now that every blade representative of a non-empty geometry has an irreducible form that
+is unique, up to scale.
 Lemma~\ref{lma_irreducibles_factor_as_irreducibles} shows that irreducible blades always factor
 as irreducible blades.
 
@@ -386,7 +394,7 @@ Do that here...
 Lastly, it must be said here that geometric algebra may not be the right tool
 for studying the intersections of algebraic surfaces.  For those readers possessing a savy
 for algebraic geometry, the article \cite{Fulton83}, and similar publications by the same author,
-gives the modern approach to intersection theory.
+give the modern approach to intersection theory.
 
 \begin{thebibliography}{9}
 
