@@ -65,8 +65,7 @@ The goal of this paper, therefore, is to
 preserve the intersection property.  In other words, we want to find a model of geometry based upon
 geometric algebra giving us all quadric surfaces and the ability to intersect them
 as effortlessly as can be done in the conformal model.  If nothing else, the attempt
-to do so in this paper will shed light on the feasibility and practicality of such an endeavor, and thereby
-bring us closer to answering the question of whether it can even be done at all.
+to do so in this paper will shed light on the feasibility and practicality of such an endeavor.
 
 \section{The Intersection Property}
 
@@ -119,10 +118,12 @@ p(x) &= e_0 + x \\
  &+ (x\cdot e_1)^2e_7 + (x\cdot e_2)^2e_8 + (x\cdot e_3)^2 e_9,
 \end{align*}
 the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional
-euclidean vector space $\V$.\footnote{The reader should take care to note which results of this paper
+euclidean vector space $\V$ generating our geometric algebra $\G$.\footnote{The reader
+should take care to note which results of this paper
 depend upon this definition of the function $p$ and which do not.  Also note that signatures
 other than the euclidean may be worth considering, but there will be no foreseeable need to do so in this paper.}
-This is sufficient to define the entire model as it is clear that for any quadric
+This, along with the function $\gh$ and $\gd$, is
+sufficient to define the entire model as it is clear that for any quadric
 surface, or any intersection of two or more quadric surfaces, there exists a blade
 $B\in\G$ representative of this surface as $\gd(B)$.
 
@@ -192,15 +193,16 @@ B = \lambda\bigwedge_{i=1}^k p(x_i).
 \end{lem}
 \begin{proof}
 If $x_i\in\gh(B)$, then $p(x_i)\wedge B=0$, showing that $p(x_i)$ is in the vector
-space spanned by any factorization of $B$.  Then, since $\bigwedge_{i=1}^k p(x_i)\neq 0$,
+space spanned by any factorization of $B$ in terms of a set of basis vectors.
+Then, since $\bigwedge_{i=1}^k p(x_i)\neq 0$,
 the set of vectors $\{p(x_i)\}_{i=1}^k$ is linearly independent and therefore
 a basis for this vector space.  The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
 must, therefore, be equal, up to scale.
 \end{proof}
-For a blade $B\in\G$ having a factorization \eqref{equ_point_factored_blade},
-we will refer to $B$ as an irreducible blade for reasons that will become clear shortly.
+For a blade $B\in\G$ having a factorization of the form in equation \eqref{equ_point_factored_blade},
+we will refer to $B$ as an {\it irreducible blade} for reasons that will become clear shortly.
 
-The usefulness of Lemma~\ref{lma_point_factored_blade} is realized in our next lemma.
+We now make use of Lemma~\ref{lma_point_factored_blade} in our next lemma.
 \begin{lem}\label{lma_equating_blades}
 If $A,B\in\G$ are blades of grade $k$ with $\gh(A)=\gh(B)$, and one of these is irreducible,
 then there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
