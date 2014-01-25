@@ -244,14 +244,14 @@ on the ellipse such that $\bigwedge_{i=1}^8 p(x_i)\neq 0$.
 Not willing to give up just yet, we arrive at the following lemma.
 
 \begin{lem}\label{lma_irreducible_form_exists}
-For every $k$-blade $B\in\G$, there exists a blade $B'\in\G$ of grade $k'\leq k$
+For every $k$-blade $B\in\G$ with $\gh(B)$ non-empty, there exists a blade $B'\in\G$ of grade $k'\leq k$
 such that $\gh(B)=\gh(B')$ and $B'$ is irreducible.
 \end{lem}
 \begin{proof}
 If $B$ is irreducible, then let $k'=k$ and $B'=B$ and we're done.
 If $B$ is not irreducible, then let $j$ be the largest possible integer
 for which there exists a set of $j$ points $\{x_i\}_{i=1}^j\subseteq\gh(B)$
-with $\bigwedge_{i=1}^j p(x_i)\neq 0$, (clearly $j<k$), and write
+with $\bigwedge_{i=1}^j p(x_i)\neq 0$, (clearly $0<j<k$), and write
 \begin{equation*}
 B = B_0\wedge\bigwedge_{i=1}^j p(x_i)
 \end{equation*}
@@ -269,7 +269,8 @@ in the case that $k'<k$.  In the case that $k'=k$, it is clear that $B$ is irred
 
 What we see now is that $(C\wedge e_3)I$ and $(E\wedge e_3)I$ are reducible blades,
 and that finding an algebraic relation between them may be possible if either
-one or both can be reduced.  Since finding an irreducible canonical form of the ellipse $(E\wedge e_3)I$
+one or both of them can be reduced.  Since finding an
+irreducible canonical form of the ellipse $(E\wedge e_3)I$
 does not seem in the least bit trivial, let us take a moment now to consider reducing the
 intersection $(C\wedge e_3)I$ we wish to find.
 
@@ -305,7 +306,7 @@ But this can only be if the $j$ points are co-planar for a hyper-plane of dimens
 Lemma~\ref{lma_non_co_planar} is a good start, but there are certainly more conditions on $\{x_i\}_{i=1}^j$ to be found upon which
 $\bigwedge_{i=1}^j p(x_i)\neq 0$.  The non-linearity of our function $p$ makes these conditions difficult to find, to say the least.
 Nevertheless, Lemma~\ref{lma_non_co_planar} can help guide our initial choice of probing vectors in the na\"{i}ve blade factorization
-algorithm;\footnote{A better blade factorization algorithm can been found in \cite{Dorst10}, but remember, we're not looking
+algorithm;\footnote{A better blade factorization algorithm can been found in \cite{Dorst10}; but remember, we're not looking
 for just any factorization; we're looking for one having a factor of the form \eqref{equ_point_factored_blade} of largest possible grade.
 What further complicates the matter is that, in finding
 our desired factorization, we need points on
@@ -313,6 +314,9 @@ the intersection we are in the process of trying to find.  Calculus methods may 
 Lemma~\ref{lma_unique_grade_of_irreducible_form} below will show,
 do not have to complete this factorization.  We need go only so far as to know
 that we have found the irreducible factor we're trying to find.
+
+Lemma~\ref{lma_unique_grade_of_irreducible_form} will depend upon
+Lemma~\ref{lma_irreducibles_factor_as_irreducibles}, which we now give.
 
 \begin{lem}\label{lma_irreducibles_factor_as_irreducibles}
 If $B\in\G$ is an irreducible $k$-blade with $k>2$ and $B_0,B_1\in\G$ is any factorization
@@ -323,8 +327,8 @@ then both $B_0$ and $B_1$ are irreducible blades.
 Let $\{x_i\}_{i=1}^k\subseteq\gh(B)$ be a set of $k$ points on the geometry represented
 by $B$ such that $\bigwedge_{i=1}^k p(x_i)\neq 0$.
 Then, seeing that $B=B_0\wedge B_1$, it is clear that there must exist a partition of
-$\{x_i\}_{i=1}^k$ into two non-empty sets, one of size $j=\grade(B_0)$ with $0<j<k$, and
-the other of size $k-j=\grade(B_1)$, such that for all $x$ in the first partition, we
+$\{x_i\}_{i=1}^k$ into two non-empty sets, one of cardinality $j=\grade(B_0)$ with $0<j<k$, and
+the other of cardinality $k-j=\grade(B_1)$, such that for all $x$ in the first partition, we
 have $x\in\gh(B_0)$; and for all $x$ in the second partitoin, we have $x\in\gh(B_1)$.
 Without loss of generality, let the first partition be $\{x_i\}_{i=1}^j$,
 and the second $\{x_i\}_{i=j+1}^k$.  Then, since $\bigwedge_{i=1}^j p(x_i)$
@@ -368,7 +372,8 @@ R = e_{012}\wedge(e_{67} + e_{78} + e_{86})
 is a blade of grade 5 in our algebra.\footnote{Choosing any 5 points $\{x_i\}_{i=1}^5$ on
 the unit circle in the plane for which $\bigwedge_{i=1}^5 p(x_i)\neq 0$, you'll find that $\bigwedge_{i=1}^5 p(x_i)$
 is a scalar multiple of $R$ in equation \eqref{equ_irreducible_form_of_our_intersection}.  It is also not
-hard to show that $\gh(R)=\gd(C\wedge e_3)$.}
+hard to show that $\gh(R)=\gd(C\wedge e_3)$.
+Symbolic computation software was used by the author to do this.}
 Admittedly, knowledge of the intersection was used
 to obtain this form; but, assuming that there is an algorithm for finding it
 that does not depend upon such knowledge, let's move forward unashamed
@@ -391,9 +396,37 @@ we've learned from our attempt at finding the model of geometry we had hoped
 for in the introductory section, and then try to ask the right questions moving forward.
 To the thoughtful reader, a few of these are given as follows.
 
-Do that here...
+\begin{enumerate}
+\item Is there a condition on a vector $v\in\V$ such that if this condition
+is satisfied, we have, for any blade
+$B\in\G$, $\gh(B)=\gh(v\cdot B)$?  If $\gd(v)=\R^n$, it is
+not hard to show that $\gh(B)\subseteq\gh(v\cdot B)$.  Note that it may
+be possible to factor an irreducible blade in terms of vectors where not all
+of them are of the form $p(x)$ for some point $x\in\R^n$.
 
-Lastly, it must be said here that geometric algebra may not be the right tool
+\item Is there an algorithm for fully reducing a given blade that does not
+require knowledge of the intersection it represents?  Such an algorithm, if it
+exists, must surely take into account how we have defined the function $p$
+and any properties we can derive from it.
+
+\item Removing the need for such an algorithm altogether, is there a model
+for quadric surfaces in which all blades are irreducible?  With the exception
+of flat points, all blades of the conformal model are irreducible.
+
+\item Even if we can always find the irreducible form $R$ of a desired intersection,
+will the blade $R_0$, making $(R_0\wedge R)I$ a scalar multiple of our canonical
+form, always be obvious by inspection?
+
+\item Removing the need to find $R_0$, is it better to find and consider
+only irreducible canonical forms?
+
+\item If we had chosen an arbitrary plane,
+instead of the $x_3=0$ plane, how might this have complicated our example?
+
+\item Is there any way to deal with non-planar intersection in this model?
+\end{enumerate}
+
+Lastly, it must be said here that geometric algebra just may not be the right tool
 for studying the intersections of algebraic surfaces.  For those readers possessing a savy
 for algebraic geometry, the article \cite{Fulton83}, and similar publications by the same author,
 give the modern approach to intersection theory.
