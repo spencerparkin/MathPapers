@@ -367,13 +367,12 @@ By Lemma~\ref{lma_unique_grade_of_irreducible_form}, we are justified in
 claiming that, up to scale, the irreducible form of
 our desired intersection $\gd(C\wedge e_3)$ is given by $\gh(R)$, where
 \begin{equation}\label{equ_irreducible_form_of_our_intersection}
-R = e_{012}\wedge(e_{67} + e_{78} + e_{86})
+R = e_{01267} - e_{01268} + e_{12678}
 \end{equation}
 is a blade of grade 5 in our algebra.\footnote{Choosing any 5 points $\{x_i\}_{i=1}^5$ on
 the unit circle in the plane for which $\bigwedge_{i=1}^5 p(x_i)\neq 0$, you'll find that $\bigwedge_{i=1}^5 p(x_i)$
 is a scalar multiple of $R$ in equation \eqref{equ_irreducible_form_of_our_intersection}.  It is also not
-hard to show that $\gh(R)=\gd(C\wedge e_3)$.
-Symbolic computation software was used by the author to do this.}
+hard to show that $\gh(R)=\gd(C\wedge e_3)$.}
 Admittedly, knowledge of the intersection was used
 to obtain this form; but, assuming that there is an algorithm for finding it
 that does not depend upon such knowledge, let's move forward unashamed
@@ -400,14 +399,14 @@ To the thoughtful reader, a few of these are given as follows.
 \item Is there a condition on a vector $v\in\V$ such that if this condition
 is satisfied, we have, for any blade
 $B\in\G$, $\gh(B)=\gh(v\cdot B)$?  If $\gd(v)=\R^n$, it is
-not hard to show that $\gh(B)\subseteq\gh(v\cdot B)$.  Note that it may
-be possible to factor an irreducible blade in terms of vectors where not all
-of them are of the form $p(x)$ for some point $x\in\R^n$.
+not hard to show that $\gh(B)\subseteq\gh(v\cdot B)$.
 
 \item Is there an algorithm for fully reducing a given blade that does not
 require knowledge of the intersection it represents?  Such an algorithm, if it
 exists, must surely take into account how we have defined the function $p$
-and any properties we can derive from it.
+and any properties we can derive from it.  {\it Note that it may
+be possible to factor an irreducible blade in terms of vectors where not all
+of them are of the form $p(x)$ for some point $x\in\R^n$.}
 
 \item Removing the need for such an algorithm altogether, is there a model
 for quadric surfaces in which all blades are irreducible?  With the exception
