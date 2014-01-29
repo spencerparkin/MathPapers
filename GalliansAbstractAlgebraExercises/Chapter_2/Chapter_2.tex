@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 2 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+Give two reasons why the set of odd integers under addition is not a group.
+
+We have no closure and no identity element.
+
+\section*{Problem 2}
+
+Referring to Example 13, verify the assertion that subtraction is not associative.
+
+\begin{equation*}
+(a-b)-c = a-b-c \neq a-b+c = a-(b-c)
+\end{equation*}
+
+\section*{Problem 3}
+
+Show that $\{1,2,3\}$ under multilication modulo 4 is not a group but that
+$\{1,2,3,4\}$ under multilication modulo 5 is a group.
+
+Notice that $2^2\equiv 0\pmod{4}$ and $0\not\in\{1,2,3\}$.
+
+Notice that $\{1,2,3,4\}=U(5)$ which has already been established as a group.
+
+\section*{Problem 6}
+
+Given an example of group elements $a$ and $b$ with the property that
+$a^{-1}ba\neq b$.
+In $D_4$, we have
+\begin{equation*}
+R_{270}HR_{90} = V.
+\end{equation*}
+
+\section*{Problem 8}
+
+Show that the set $\{5,15,25,35\}$ is a group under multiplication modulo 40.
+What is the identity element of this group?  Can you see any relationship
+between this group and $U(8)$.
+
+The Caylay table shows that it is a group with identity element 25.
+The Caylay table for $\{5,15,25,35\}$ can be found by multiplying
+all entries in the Caylay table for $U(8)$ by 5.  The groups are isomorphic.
+
+\section*{Problem 11}
+
+Prove that the set of all $2\times 2$ matrices with entries from $\R$ and determinant $+1$
+is a group under matrix multiplication.
+
+We have closure by the property of determinants.  For matrices $A$ and $B$, this is given by
+\begin{equation*}
+1 = (\det A)(\det B) = \det AB.
+\end{equation*}
+Matrix mulltiplication is associative.  The identity matrix is the group identity.
+All matrices with non-zero determinants have inverses.
+
+\section*{Problem 12}
+
+For any integers $n>2$, show that there are at least two elements in $U(n)$
+that satisfy $x^2=1$.
+
+Clearly $1\in U(n)$ satisfies this.  Now consider $n-1\in U(n)$.
+\begin{equation*}
+(n-1)^2 = n^2-2n+1\equiv 1\pmod n
+\end{equation*}
+
+\section*{Problem 14}
+
+Let $G$ be a group with the following property: Whenever $a$, $b$ and $c$
+belong to $G$ and $ab=ca$, then $b=c$.  Prove that $G$ is Abelian.
+(``Cross'' cancellation implies commutativity.)
+
+Let $x=ba$ for two elements $a,b\in G$.  It follows that $ax=aba$.
+Then, by ``cross'' cancelation, we get $x=ab$.  We now see
+that $ba=x=ab$.
+
+\section*{Problem 15}
+
+(Law of Exponents for Abelian Groups)  Let $a$ and $b$ be elements of an
+Abelian group and let $n$ be any integer.  show that $(ab)^n=a^nb^n$.
+Is this also true for non-Abelian groups?
+
+Clearly this holds for the case $n=1$, even in non-Abelian groups.
+Assume it holds for the case $n-1\geq 1$.  Then $(ab)^n=(ab)^{n-1}ab = a^{n-1}b^{n-1}ab$
+by our inductive hypothesis.  Then, since our group is Abelian, we have $a^{n-1}b^{n-1}ab=a^nb^n$.
+
+In a non-Abelian group, consider the case $n=2$, and let $a$ and $b$ be non-commuting members of the group.
+Then if $abab=aabb$, it follows by the cancelation property that $ab=ba$, which is a contradiction.
+Therefore, $abab\neq aabb$.  It follows that the equation $(ab)^n= a^nb^n$ does not generaly hold for non-Abelian groups.
+
+\section*{Problem 16}
+
+(Socks-Shoes Property)  In a group, prove that $(ab)^{-1}=b^{-1}a^{-1}$.  Find
+an example that shows that it is possible to have $(ab)^{-2}\neq b^{-2}a^{-2}$.  Find
+distinct nonidentity elements $a$ and $b$ from a non-Abelian group with the
+property that $(ab)^{-1}=a^{-1}b^{-1}$.  Draw an analogy between the statement $(ab)^{-1}=b^{-1}a^{-1}$
+and the act of putting on and taking off your socks and shoes.
+
+Notice that, by associativity, we have $ab(b^{-1}a^{-1}) = a(bb^{-1})a^{-1}=e$.
+
+Now notice, letting $x=a^{-1}$ and $y=b^{-1}$, that while $(ab)^{-2}=((ab)^{-1})^2=(b^{-1}a^{-1})^2=b^{-1}a^{-1}b^{-1}a^{-1}=yxyx$,
+we have $b^{-2}a^{-2}=(b^{-1})^2(a^{-1})^2=b^{-1}b^{-1}a^{-1}a^{-1}=yyxx$.
+It then follows, by Problem 15, that distinct nonidentity and non-commuting elements taken from a
+non-Abelian group can be found such that $(ab)^{-2}\neq b^{-2}a^{-2}$.  Knowing that it exists,
+I don't feel a need to find any one particular example.
+
+I fail to see the analogy.
+
+\section*{Problem 17}
+
+Prove that a group $G$ is Abelian if and only if $(ab)^{-1}=a^{-1}b^{-1}$ for all $a,b\in G$.
+
+Letting $x=a^{-1}$ and $y=b^{-1}$,
+suppose $(ab)^{-1}=xy$.  Then $xy=(ab)^{-1}=b^{-1}a^{-1}=yx$.
+
+Now suppose $G$ is Abelian.  Then $(ab)^{-1}=b^{-1}a^{-1}=a^{-1}b^{-1}$.
+
+\section*{Problem 18}
+
+In a group, prove that $(a^{-1})^{-1}=a$ for all $a$.
+
+Let $x=a^{-1}$.  We must show that $x^{-1}=a$.  To that end, we have
+\begin{equation*}
+xa=e\implies x^{-1}xa=x^{-1}\implies a=x^{-1}.
+\end{equation*}
+
+\end{document}
