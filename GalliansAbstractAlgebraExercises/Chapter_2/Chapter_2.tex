@@ -43,7 +43,7 @@ $\{1,2,3,4\}$ under multilication modulo 5 is a group.
 
 Notice that $2^2\equiv 0\pmod{4}$ and $0\not\in\{1,2,3\}$.
 
-Notice that $\{1,2,3,4\}=U(5)$ which has already been established as a group.
+Notice that $\{1,2,3,4\}=U(5)$ is a group by Problem 35 below.
 
 \section*{Problem 6}
 
@@ -145,5 +145,54 @@ Let $x=a^{-1}$.  We must show that $x^{-1}=a$.  To that end, we have
 \begin{equation*}
 xa=e\implies x^{-1}xa=x^{-1}\implies a=x^{-1}.
 \end{equation*}
+
+\section*{Problem 23}
+
+Prove that every group table is a Latin square.
+
+If the Caylay table for a group $G$ is not a Latin square, then there exist elements $a,b,c\in G$
+such that $b\neq c$, yet $ab=ac$.  But all groups have the cancelation property, so that
+$ab=ac\implies b=c$, which is a contradiction.  The Caylay table, therefore, must be a Latin square.
+
+\section*{Problem 29}
+
+Let $G$ be a finite group.  Show that the number of elements of $x$ of $G$ such
+that $x^3=e$ is odd.  Show that the number of elements $x$ of $G$ such that
+$x^2\neq e$ is even.
+
+Clearly $e^3=e$ so that there is always at least one such element.
+Suppose now that $x\in G$ is not $e$ and that $x^3=e$.
+Now notice that the inverse of $x$ is its square and that $x^2\neq x$,
+since $x^2=x\implies x=e$.  Now notice that if we let $y=x^2$,
+then $y^3 = yy^2 = x^2x^4 = x^{-1}x^4 = x^3=e$, showing that
+the inverse of $y$ is its square as well.  Therefore, any time we find
+a non-identity element of $x$ with the property that $x^3=e$, we also find
+that $x^{-1}\neq x$ also has this property.  It follows that the number of
+non-identity elements with this property is even, so that the total number
+with this property is always odd.
+
+The number of group elements that are not their own inverse is even,
+because an element and its inverse are inverses of one another, so they
+always come in pairs.
+
+\section*{Problem 33}
+
+Prove that if $G$ is a group with the property that the square of every element
+is the identity, then $G$ is Abelian.
+
+Every element is its own inverse.  Therefore,
+\begin{equation*}
+ab = (ab)^{-1} = b^{-1}a^{-1} = ba.
+\end{equation*}
+
+\section*{Problem 35}
+
+Prove the assertion made in Example 19 that the set $\{1,2,\dots,n-1\}$
+is a group under multiplication modulo $n$ if and only if $n$ is prime.
+
+It has been shown in the text that $U(n)$ is a group for all $n>1$.
+It suffices to show that $\{1,2,\dots,n-1\}=U(n)$ in the case that
+$n$ is prime.  To see this, simply notice that when $n$ is prime,
+all integers in $\{1,2,\dots,n-1\}$ are coprime with $n$.
 
 \end{document}
