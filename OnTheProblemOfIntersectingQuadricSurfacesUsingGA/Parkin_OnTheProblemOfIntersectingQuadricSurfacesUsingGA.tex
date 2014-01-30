@@ -117,7 +117,7 @@ p(x) &= e_0 + x \\
  &+ (x\cdot e_2)(x\cdot e_3)e_4 + (x\cdot e_1)(x\cdot e_3)e_5 + (x\cdot e_1)(x\cdot e_2)e_6 \\
  &+ (x\cdot e_1)^2e_7 + (x\cdot e_2)^2e_8 + (x\cdot e_3)^2 e_9,
 \end{align*}
-the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a 10-dimensional
+the vectors in $\{e_i\}_{i=0}^9$ forming an orthonormal basis for a $2^{10}$-dimensional
 euclidean vector space $\V$ generating our geometric algebra $\G$.\footnote{The reader
 should take care to note which results of this paper
 depend upon this definition of the function $p$ and which do not.  Also note that signatures
@@ -328,7 +328,7 @@ then both $B_0$ and $B_1$ are irreducible blades.
 \begin{proof}
 Let $\{x_i\}_{i=1}^k\subseteq\gh(B)$ be a set of $k$ points on the geometry represented
 by $B$ such that $\bigwedge_{i=1}^k p(x_i)\neq 0$.
-Then, seeing that $B=B_0\wedge B_1$, it is clear that there must exist a partition of
+Then, seeing that $B=B_0\wedge B_1$, it is clear that there must exist a partitioning of
 $\{x_i\}_{i=1}^k$ into two non-empty sets, one of cardinality $j=\grade(B_0)$ with $0<j<k$, and
 the other of cardinality $k-j=\grade(B_1)$, such that for all $x$ in the first partition, we
 have $x\in\gh(B_0)$; and for all $x$ in the second partition, we have $x\in\gh(B_1)$.
@@ -341,7 +341,7 @@ and $B_1=\lambda_1\bigwedge_{i=j+1}^k p(x_i)$.
 \end{proof}
 
 \begin{lem}\label{lma_unique_grade_of_irreducible_form}
-Given any blade $B\in\G$, if $k$ points $\{x_i\}_{i=1}^k\subset\R^n$ can be found
+Given any blade $B\in\G$, if $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$ can be found
 such that $\gh(B)=\gh(R)$ with $R=\bigwedge_{i=1}^k p(x_i)$, then there is no
 irreducible blade $B'$ of a grade greater than $k$, or less than $k$, such that $\gh(B)=\gh(B')$.
 \end{lem}
