@@ -127,7 +127,79 @@ For each divisor $k>1$ of $n$, let $U_k(n)=\{x\in U(n)|x\equiv 1\pmod k\}$.
 Prove that $U_k(n)$ is a subgroup of $U(n)$.
 
 It is clear that $1\in U_k(n)$, so it is not empty; and it is clear that $U_k(n)$ is a subset of $U(n)$.
-Closure is obvious.  By Theorem 3.2, what then remains to be shown, is that $a\in U_k(n)$
-implies that $a^{-1}\in U_k(n)$.  Do that here...
+Closure is obvious.  By Theorem 3.2, what then remains to be shown is that for any $a\in U_k(n)$,
+we have $a^{-1}\in U_k(n)$.  To that end, notice that since $k|n$ and $n|(aa^{-1}-1)$,
+we have $k|(aa^{-1}-1)$.  Then since $a\equiv 1\pmod k$ and $aa^{-1}\equiv 1\pmod k$,
+we must have $a^{-1}\equiv 1\pmod k$.
+
+\section*{Problem 14}
+
+If $H$ and $K$ are subroups of $G$, show that $H\cap K$ is a subgroup of $G$.
+
+Note that $e\in H\cap K$, so it is non-empty.  Letting $a,b\in H\cap K\subseteq G$, we
+see, by Theorem 3.1, that since $a,b\in H$, we have $ab^{-1}\in H$, and
+since $a,b\in K$, we have $ab^{-1}\in K$.  It follows that $ab^{-1}\in H\cap K$
+and that, by Theorem 3.1 again, $H\cap K$ is a subgroup of $G$.
+
+Using induction, it can be shown that the intersection of all sub-groups
+in any sequence of subgroups is itself a subgroup.  What about the intersection
+of uncountably many subgroups?
+
+Let $S$ be an uncountably infinite collection of subgroups of $G$.
+Consider the set $H = \cap_{g\in S} g$.  Letting $a,b\in H$,
+we have, for all $g\in S$, $ab^{-1}\in g$, and therefore, $ab^{-1}\in H$.
+It follows that $H$ is also a subgroup of $G$.
+
+Could we form some sort of topology from this idea?
+
+\section*{Problem 15}
+
+Let $G$ be a group.  Show that $Z(G)=\cap_{a\in G} C(a)$.
+
+It is clear that $\cap_{a\in G} C(a)$ is a group by Problem 14 above, since
+each $C(a)$ is a sub-group of $G$.  Now notice that $x\in\cap_{a\in G} C(a)$ if and only if
+$x$ communites with every $a$ in $G$.  But this is the very defining characteristic
+of all elements in $Z(G)$.  So these sets are the same set.
+
+\section*{Problem 16}
+
+Let $G$ be a group, and let $a\in G$.  Prove that $C(a)=C(a^{-1})$.
+
+Notice that since $(a^{-1})^{-1}=a$, we need only show that $C(a)\subseteq C(a^{-1})$.
+Now see that if $x\in C(a)$, then $xa=ax$, which, in turn, implies that $x=axa^{-1}$,
+which implies that $a^{-1}x=xa^{-1}$, showing that $x\in C(a^{-1})$ also.
+
+\section*{Problem 18}
+
+If $a$ and $b$ are distinct group elements, prove that either $a^2\neq b^2$ or $a^3\neq b^3$.
+
+If $a^2\neq b^2$, then we're done.  If $a^2=b^2$, then suppose $a^3=b^3$.
+It follows that $b^2b = b^3=a^3=a^2a=b^2a\implies a=b$, which is a contradiction,
+because $a$ and $b$ are distinct elements.  It follows that $a^3\neq b^3$.
+
+\section*{Problem 19}
+
+Prove Theorem 3.6.  For each $a$ in a group $G$, the centralizer
+of $a$ is a subgroup of $G$.
+
+Notice that $e\in C(a)$, since $ea=a=ae$, so $C(a)$ is non-empty.  (We could
+have also shown that $a\in C(a)$.)
+Let $x,y\in C(a)$.  Then $ax=xa\implies axy=xay=xya\implies xy\in C(a)$,
+and $a=x^{-1}xa=x^{-1}ax\implies ax^{-1}=x^{-1}a\implies x^{-1}\in C(a)$.
+So $C(a)$ is a subgroup by Theorem 3.2.
+
+\section*{Problem 20}
+
+If $H$ is a subgroup of $G$, then by the centralizer $C(H)$ of $H$ we mean the
+set $\{x\in G|\mbox{$xh=hx$ for all $h\in H$}\}$.  Prove that $C(H)$ is a subgroup of $G$.
+
+If I'm not mistaken, $H$ need not be a subgroup of $G$.  By Problem 14,
+$C(H)=\cap_{h\in H}C(h)$ is a subgroup of $G$.
+
+\section*{Problem 21}
+
+Must the centralizer of an element of a group be Abelian?
+
+%Let $G$ be a group, and consider the centralizer of $c$ in $G$.
 
 \end{document}
