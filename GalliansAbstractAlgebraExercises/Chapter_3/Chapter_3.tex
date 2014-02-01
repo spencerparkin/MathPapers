@@ -212,4 +212,35 @@ Must the center of a group be Abelian?
 Yes.  Every element of $Z(G)$ commutes with all elements of $G$, which includes
 all those of $Z(G)$.
 
+\section*{Problem 23}
+
+Let $G$ be an Abelian group with identity $e$ and let $n$ be some fixed integer.
+Prove that the set of elements of $G$ that satisfy the equation $x^n=e$
+is a subgroup of $G$.  Give an example of a group $G$ in which the set
+of all elements of $G$ that satisfy the equation $x^2=e$ does not form a sub-group of $G$.
+
+Let $S=\{x\in G|x^n=e\}$.  Note that $e\in S$ and that $S\subseteq G$.
+Now notice that for any two elements $a,b\in S$, we have
+\begin{equation*}
+(ab^{-1})^n = a^n(b^n)^{-1} = e,
+\end{equation*}
+since $G$ is Abelian.  It then follows by Theorem 3.1 that $S$ is a subgroup of $G$.
+
+Letting $n=2$ and $G=D_n$, we see that $S$ is not a subgroup of $G$,
+because $VD=R_{270}\not\in S$.
+
+\section*{Problem 25}
+
+Determine all finite subgroups of $R^*$, the group of nonzero real numbers under multiplication.
+
+Let $G$ be a finite subgroup of $R^*$.  Now suppose that $a\in G$ and $|a|>1$ or $|a|<1$.
+But then $|\langle a\rangle|=\infty$ while $\langle a\rangle\leq G$, which is a contradiction,
+since we must have $|\langle a\rangle|\leq|G|$.
+It follows that the trivial group and $\{1,-1\}$ are the only finite subgroups of $R^*$.
+
+\section*{Problem 26}
+
+Suppose $n$ is an even positive integer and $H$ is a subgroup of $Z_n$.  Prove
+that either every member of $H$ is even or exactly half of the members of $H$ are even.
+
 \end{document}
