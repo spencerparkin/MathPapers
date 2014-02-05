@@ -54,7 +54,7 @@ may be taken.
 
 In light of the paper \cite{Parkin13}, some encouragement has been given to the present
 author to develop a model of geometry, similar to the conformal model of geometric
-algebra, (see\cite{Hestenes01,Dorst07,Lasenby04}), but not limited in representation to any proper subset of the set of all
+algebra, (see \cite{Hestenes01,Dorst07,Lasenby04}), but not limited in representation to any proper subset of the set of all
 quadric surfaces.  But for such a model to achieve adequate similarity to the conformal model,
 it must preserve one or more of its most desirable features; preferably, all of them.
 For example, in \cite{Parkin13}, the set of all conformal transformations were preserved, but
@@ -170,7 +170,7 @@ intersect the $x_3=0$ plane with the conical surface having points satisfying th
 x_1^2+x_2^2 - (x_3+1)^2\tan^2\frac{\pi}{4} = 0,
 \end{equation}
 where $\frac{\pi}{2}$ is the angle of aperture.\footnote{Yes, this will give
-us a circle in the $x_3=0$ plane and not a general ellipse, but to keep things
+us a circle in the $x_3=0$ plane and not a more general ellipse, but to keep things
 simpler, our primary example will consider this special case of the ellipse.}  We have submerged it
 below the $x_3=0$ plane to get a non-trivial intersection $\gd(C\wedge e_3)$,
 the vector $C$ being given by
@@ -184,7 +184,7 @@ C &= -\left(\tan^2\frac{\pi}{4}\right)e_0 + 2\left(\tan^2\frac{\pi}{4}\right)e_3
 Being now able to represent all quadric intersections, the task of
 algebraically relating them remains.  For example, knowing that
 $C\wedge e_3$ is an ellipse, how might we decompose it
-as we would $E\wedge e_3$?  The following lemma may be able to help.
+as we would $E\wedge e_3$?  The following two lemmas may be able to help.
 \begin{lem}\label{lma_point_factored_blade}
 Letting $B\in\G$ be a blade of grade $k$, if there exist $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$
 such that $\bigwedge_{i=1}^k p(x_i)\neq 0$, then there exists a scalar $\lambda\in\R$
@@ -211,7 +211,8 @@ then there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
 \end{lem}
 \begin{proof}
 We first establish that if one of the blades $A$ and $B$ is irreducible, then so is the other.
-Assuming, without loss of generality, that $A$ is irreducible, let $\{x_i\}_{i=1}^k\subset\R^n$
+Assuming, without loss of generality, that $A$ is irreducible, we can,
+by Lemma~\ref{lma_point_factored_blade}, let $\{x_i\}_{i=1}^k\subseteq\gh(A)$
 be a set of $k$ points, and $\alpha\in\R$ be a scalar, such that $A=\alpha\bigwedge_{i=1}^k p(x_i)$.
 Now since $\gh(A)=\gh(B)$, it is clear that for all $x\in\{x_i\}_{i=1}^k$, we have $x\in\gh(B)$,
 and so it follows by Lemma~\ref{lma_point_factored_blade} that there exists a scalar $\beta\in\R$
@@ -398,11 +399,6 @@ for in the introductory section, and then try to ask the right questions moving 
 To the thoughtful reader, a few of these are given as follows.
 
 \begin{enumerate}
-\item In relation to a blade $B\in\G$, is there a condition on a
-vector $v\in\V$ such that if this condition
-is satisfied, we have, for our blade
-$B\in\G$, $\gh(B)=\gh(v\cdot B)$?  If $\gd(v)=\R^n$, it is
-not hard to show that $\gh(B)\subseteq\gh(v\cdot B)$.
 
 \item Is there an algorithm for fully reducing a given blade that does not
 require knowledge of the intersection it represents?  Such an algorithm, if it
