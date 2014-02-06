@@ -184,4 +184,30 @@ of order $p$.
 Supposing now that we have an infinite group, it is easy how the same type
 of argument applies.
 
+\section*{Problem 56}
+
+Prove that $U(2^n)$ ($n\geq 3$) is not cyclic.
+
+For any set of integers $S$, letting $-S$ denote the set $\{-s|s\in S\}$,
+we first make the observation that
+\begin{equation*}
+U(2^n)=U(2^{n-1})\cup -U(2^{n-1}),
+\end{equation*}
+working modulo $2^n$.  (Notice that $U(2^{n-1})$ is not a subgroup of $U(2^n)$, because
+it does not share its the group operation with $U(2^n)$.)  Now notice that since $|U(2^n)|=2^{n-1}$ is even,
+all orders of elements in $U(2^n)$ are even, and therefore,
+the order of any element $x\in -U(2^{n-1})$ is that of its corresponding
+element $-x\in U(2^{n-1})$.  It follows that if no generator for $U(2^n)$
+can be found in $U(2^{n-1})$, then no generator for it can be found in $-U(2^{n-1})$.
+
+We now proceed by induction.  The case $n=3$ is easily verifiable.
+Suppose now that for a fixed integer $n>3$, we have $U(2^{n-1})$ non-cyclic.
+We must show that $U(2^n)$ is non-cyclic.  To that end, notice that if $U(2^{n-1})$
+is non-cyclic, then for every integer $k$ and any element $x\in U(2^{n-1})$, there
+exists an element $y\in U(2^{n-1})$ such that $2^{n-1}$ does not divide $x^k-y$.
+In all such situations, we can also say that $2^n$ does not divide $x^k-y$ either.
+It follows that there is no generator for $U(2^n)$ in $U(2^{n-1})$, and therefore,
+by the first paragraph of this proof, $U(2^n)$ is also non-cyclic.
+We can now say, by the principle of mathematical induction, that $U(2^n)$ is non-cyclic for all $n\geq 3$.
+
 \end{document}
