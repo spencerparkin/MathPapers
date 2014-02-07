@@ -97,4 +97,58 @@ Seeing now that for any $a\in G$, we have
 it follows by Theorem 0.6 that the conjugacy classes
 of $G$ partition $G$.
 
+\section*{Problem 15}
+
+Let $G$ be an Abelian group and let $n$ be a fixed positive integer.  Let
+$G^n=\{g^n|g\in G\}$.  Prove that $G^n$ is a subgroup of $G$.  Give an example
+showing that $G^n$ need not be a subgroup of $G$ when $G$ is non-Abelian.
+
+Clearly $e\in G^n$, since $e^n=e$.  Then, for any $a,b\in G^n$, there exists
+$g_a,g_b\in G$ such that $a=g_a^n$ and $b=g_b^n$, and we see that
+\begin{equation*}
+ab^{-1} = g_a^n(g_b^n)^{-1} = g_a^n(g_b^{-1})^n = (g_ag_b^{-1})^n \in G^n,
+\end{equation*}
+by the Abelian property of $G$.
+
+I'm failing to come up with an example.
+
+\section*{Problem 26}
+
+Let $H$ be a subgroup of a group $G$ and let $|g|=n$.  If $g^m$ belongs to $H$
+and $m$ and $n$ are relatively prime, prove that $g$ belongs to $H$.
+
+Since $g^m\in H$, we see that $\langle g^m\rangle\leq H$.
+Then, by Theorem 4.2, notice that $\langle g^m\rangle=\langle g^{\gcd(n,m)}\rangle=\langle g\rangle$,
+so that clearly $g\in H$ also.
+
+\section*{Problem 34}
+
+Suppose that $G$ is a group that has exactly one nontrivial proper subgroup.
+Prove that $G$ is cyclic and $|G|=p^2$, where $p$ is prime.
+
+Let $\{e\}<H<G$.  Then, for any non-identity $h\in H$, $\langle h\rangle$ is a subgroup of $H$,
+but it cannot be a proper subgroup.  Therefore, $\langle h\rangle=H$.  Furthermore,
+since for all non-identity $h\in H$, we have $\langle h\rangle = H$, we see that $H$ has one and
+only one non-trivial cyclic subgroup; namely, itself.  Therefore, $H$ being cyclic, and non-trivial, we
+see that $|H|$ must be prime by Theorem 4.3.  Let $|H|=p$.
+
+Now choose $x\in G-H$.  Clearly $x\neq e$.  Consider $\langle x\rangle$.
+This must be $H$ or $G$.  But if $\langle x\rangle=H$, then $x\in H$, which is
+a contradiction.  Therefore, $\langle x\rangle=G$.  Now since $H$ is a
+proper subgroup of $G$, $|H|$ is a non-trivial divisor of $|G|$.
+So $|G|=pk$ for some integer $k>1$.  But $H$ is the only proper
+subgroup of $G$, and so $|H|$ is the only non-trivial divisor of $|G|$.
+Therefore, $k=p$.  (1 and $|G|$ are the trivial divisors of $|G|$.)
+
+\section*{Problem 45}
+
+Let $G$ be a cyclic group of order $n$ and let $H$ be the subgroup of order $d$.
+Show that $H=\{x\in G|\mbox{$|x|$ divides $d$}\}$.
+
+For an $x\in G$ such that $|x|$ divides $d$, consider the subgroup $\langle x\rangle$.
+$G$ being cyclic, there is one and only one subgroup of $G$ of order $|x|$, namely $\langle x\rangle$.
+Now, seeing that $|x|$ is a divisor of $d$, $H$ must have one and only one subgroup of order $|x|$,
+call it $K$.  But then $K$ is also a subgroup of $G$, and therefore, we must have $K=\langle x\rangle$,
+showing that $x\in H$.
+
 \end{document}
