@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapters 1-4 Supplementary Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cl}{\mbox{cl}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+Let $G$ be a group and let $H$ be a subgroup of $G$.  For any fixed $x\in G$,
+define $xHx^{-1}=\{xhx^{-1}|h\in H\}$.  Prove that $xHx^{-1}$ is a subgroup of $G$,
+that if $H$ is cyclic, then $xHx^{-1}$ is cyclic, and that if $H$ is Abelian, then $xHx^{-1}$ is Abelian.
+
+Clearly $e\in xHx^{-1}$.  Letting $a,b\in xHx^{-1}$, there exist elements $h_a,h_b\in H$
+such that $a=xh_ax^{-1}$ and $b=xh_bx^{-1}$.  Now since $h_ah_b^{-1}\in H$,
+we see that
+\begin{equation*}
+ab^{-1}=xh_ax^{-1}(xh_bx^{-1})^{-1}=xh_ax^{-1}xh_b^{-1}x^{-1}=xh_ah_b^{-1}x^{-1}\in xHx^{-1}.
+\end{equation*}
+
+Now if $H$ is cyclic, then there exists $h\in H$ such that $H=\langle h\rangle$.
+We then see that
+\begin{equation*}
+xHx^{-1}=\{xh^kx^{-1}|k\in\Z\}=\{(xhx^{-1})^k|k\in\Z\} = \langle xhx^{-1}\rangle.
+\end{equation*}
+
+If $H$ is Abelian, then for all $a,b\in xHx^{-1}$, we have
+\begin{equation*}
+ab = xh_ax^{-1}xh_bx^{-1}=xh_ah_bx^{-1}=xh_bh_ax^{-1}=xh_bx^{-1}xh_ax^{-1}=ba.
+\end{equation*}
+
+\section*{Problem 2}
+
+Let $G$ be a group and let $H$ be a subgroup of $G$.  Define
+\begin{equation*}
+N(H)=\{x\in G|xHx^{-1}=H\}.
+\end{equation*}
+Prove that $N(H)$ (called the {\it normalizer} of $H$) is a subgroup of $G$.
+
+It is clear that $e\in N(H)$.  Now let $a,b\in N(H)$.
+Then since $aHa^{-1}=H$ and $bHb^{-1}=H$, we have
+\begin{equation*}
+abH(ab)^{-1}=abHb^{-1}a^{-1}=aHa^{-1}=H,
+\end{equation*}
+showing that $ab\in N(H)$.  Now notice that since $aHa^{-1}=H$,
+the function $\phi(a)=aha^{-1}$ is a bijection from $H$ to $H$.
+It follows that $\phi^{-1}(a)=a^{-1}ha$ is also such a bijection,
+and therefore, $a^{-1}Ha=H$, showing that $a^{-1}\in N(H)$.
+
+\section*{Problem 3}
+
+Let $G$ be a group.  For each $a\in G$, define $\cl(a)=\{xax^{-1}|x\in G\}$.
+Prove that these subsets of $G$ partition $G$.  [$\cl(a)$ is called the {\it conjugacy
+class} of $a$.]
+
+For any $a,b\in G$, let $a\sim b$ if and only if there exists $x\in G$
+such that $a=xbx^{-1}$.  We now show that this is an equivilance relation on $G$.
+
+Notice that $a\sim a$, since $a=eae^{-1}$, giving us the reflexive property.
+Then, letting $y=x^{-1}\in G$, we see that
+\begin{equation*}
+a\sim b\implies a=xbx^{-1}\implies b=yay^{-1}\implies b\sim a,
+\end{equation*}
+giving us the symmetric property.  Lastly, for $a,b,c\in G$,
+let $a\sim b$ and $b\sim c$ so that for some $x,y\in G$, we have
+$a=xbx^{-1}$ and $b=ycy^{-1}$.  Then we have
+\begin{equation*}
+a=xbx^{-1}=xycy^{-1}x^{-1}=xyc(xy)^{-1}\implies a\sim c,
+\end{equation*}
+since $xy\in G$, giving us the transitive property.
+
+Seeing now that for any $a\in G$, we have
+\begin{align*}
+\cl(a)&=\{xax^{-1}|x\in G\}\\
+ &= \{b\in G|\mbox{$\exists x\in G$ s.t. $b=xax^{-1}$}\}\\
+ &= \{b\in G|b\sim a\},
+\end{align*}
+it follows by Theorem 0.6 that the conjugacy classes
+of $G$ partition $G$.
+
+\end{document}
