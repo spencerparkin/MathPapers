@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 5 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\stab}{\mbox{stab}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 10}
+
+Show that a function from a finite set $S$ to itself is one-to-one
+if and only if it is onto.  Is this true when $S$ is infinite?
+
+If we show that a function from a finite set $S_0$ to another
+$S_1$ of the same cardinality is one-to-one if and only if
+it is onto, then we have shown the desired result if
+we let $S_0=S_1$.
+
+That said, let $S_0$ be a set of $n$ pigeons, and $S_1$
+be a set of $n$ pigeon holes.  If $f:S_0\to S_1$ is
+not onto, then at least one pigeon hole must be in use
+by more than one pigeon, and therefore, $f$ is not one-to-one.
+Conversely, if $f:S_0\to S_1$ is not one-to-one, then at
+least one pigeon hole is in use by more than one pigeon.
+But this is impossible without leaving at least one pigeon hole
+out of use, so $f$ is not onto.
+
+\section*{Problem 12}
+
+If $\alpha$ is even, prove that $\alpha^{-1}$ is even.
+If $\alpha$ is odd, prove that $\alpha^{-1}$ is odd.
+
+Write $\alpha$ as a product of disjoint cycles.
+Notice that each $n$-cycle can be written as
+a product of $n-1$ 2-cycles.  Now notice that
+$\alpha^{-1}$ can be written as a product of
+disjoint cycles by taking each $n$-cycles for $\alpha$
+and reversing the winding order of the cycle to
+produce that cycle's inverse, which is also an $n$-cycle.
+It follows that $\alpha^{-1}$ can be written as the
+same number of disjoint 2-cycles as can be done
+for $\alpha$.
+
+\section*{Problem 13}
+
+Prove Theorem 5.6 -- The set of even permutations in $S_n$ forms
+a subgroup of $S_n$.
+
+Note that the identity permutation is even.  Note that the product
+of any two even permutations is even.  Lastly, notice that
+by Problem 12 above, the inverse of any even permutation
+is also in the set of even permutations.
+
+\section*{Problem 19}
+
+Show that if $H$ is a subgroup of $S_n$, then either every member of $H$ is an
+even permutation or exactly half of the members are even.
+
+If all members of $H$ are even, we're done.  So assume that not all
+members of $H$ are even.  Let $\beta\in H$ be odd and
+consider the function $\phi(\alpha)=\alpha\beta$.  Notice that $\phi$
+maps the set of all even permutation of $S_n$ into the set of all
+odd permutations of $S_n$.  Being a well defined function, it follows
+that there are at least as many even permutations as there are
+odd permutations.  On the other hand, notice that $\phi$ maps
+the set of all odd permutations of $S_n$ into the set of all even
+permutations of $S_n$.  Being a well defined function, it follows
+that there are at least as many odd permutations as there are
+even permutations.
+
+\section*{Problem 21}
+
+Do the odd permutations of $S_n$ form a group?  Why?
+
+No.  We don't have closure.  And the identity is not odd.
+
+\section*{Problem 22}
+
+Let $\alpha$ and $\beta$ belong to $S_n$.  Prove that $\alpha^{-1}\beta^{-1}\alpha\beta$ is an even permutation.
+
+By Problem 12, $\alpha^{-1}$ has the same parity as $\alpha$.  The same
+can be said of $\beta^{-1}$ and $\beta$.  Now simply realize that for all
+4 cases of parity between $\alpha$ and $\beta$, each of the two parities
+appears twice in the expression, so that any odd parity gets canceled,
+letting the net parity always be even.
+
+\section*{Problem 31}
+
+Let $G$ be a group of permutations on a set $X$.  Let $a\in X$ and
+define $\stab(a)=\{a\in G|\alpha(a)=a\}$.  We call $\stab(a)$ the {\it stabilizer
+of $a$ in $G$} (since it consists of all members of $G$ that leave $a$ fixed).  Prove that
+$\stab(a)$ is a subgroup of $G$.
+
+It is clear that the identity permutation is in $\stab(a)$, since it leaves all elements
+of $X$ invariant.  Let $\alpha\in\stab(a)$.  Then, since $\alpha(a)=a$, we have
+$\alpha^{-1}(a)=a$, showing that $\alpha^{-1}\in\stab(a)$.  Now let $\alpha,\beta\in\stab(a)$.
+Then, since $(\alpha\beta)(a)=\alpha(\beta(a))=\alpha(a)=a$, we have
+$\alpha\beta\in\stab(a)$.
+
+\section*{Problem 34}
+
+Let $H=\{\beta\in S_5|\mbox{$\beta(1)=1$ and $\beta(3)=3$}\}$.  Prove that $H$ is a subgroup of
+$S_5$.  Is your argument valid when 5 is replaced by any $n\geq 3$?
+
+Let $i$ and $j$ be distinct positive integers and let
+\begin{equation*}
+H=\{\beta\in S_n|\mbox{$\beta(i)=i$ and $\beta(j)=j$}\},
+\end{equation*}
+where $n\geq\max(i,j)$.  Now notice that
+\begin{equation*}
+H = \stab(i)\cap\stab(j).
+\end{equation*}
+It is then clear that $H$ is a subgroup of $S_n$, because the intersection
+of any two subgroups is a subgroup.
+
+\end{document}
