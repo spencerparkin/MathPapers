@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 6 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 15}
+
+If $G$ is a group, prove that $\aut(G)$ and $\inn(G)$ are groups.
+
+\section*{Made-Up Problems}
+
+\subsection*{Problem 1}
+
+For any geometric algebra $\G$, show that
+the set of all versors $V\in\G$ forms a group under the geometric product.
+Does the set of all unit-versors form a subgroup?
+
+The geometric product is associative.
+Notice that 1 is the identity versor.  Let $A,B\in\G$ be versors.
+There then exists a set of $m$ invertible vectors $\{a_i\}_{i=1}^m$ and
+a set of $n$ invertible vectors $\{b_i\}_{i=1}^n$ such that
+$A=\prod_{i=1}^m a_i$ and $B=\prod_{i=1}^n b_i$.
+It now follows by the definition of what a versor is, that $AB$ is also a versor.
+$AB$ is a product of one or more invertible vectors.
+Now notice that $A^{-1}=\prod_{i=1}^m a_{m-i+1}^{-1}$ is also, by
+definition, a versor.  (It may also be required to say that by the zero-product
+property of the geometric property, inverses are unique.)
+
+Seeing that $|A|=\prod_{i=1}^m |a_i|$, (this is not hard to prove), if $|A|=1$, we can, without loss
+of generality, assume, for each $a_i$, that $|a_i|=1$.  (Such a set of $m$
+vectors can always be found for $A$.)  Do the same for $B$.  Closure then follows.  Note that the identity
+has magnitude 1.  Then, seeing that, for any $a_i$, we have $|a_i|=|a_i^{-1}|$,
+we also have inverses.  So the unit-versors form a subgroup of the versor group.
+
+\subsection*{Problem 2}
+
+Show that the even versors of a geometric algebra $\G$
+form a group under the geometric product?  Do the odd versors form a group?
+
+Clearly the odd versors don't form a group, because we don't have closure.
+The even versors give us closure.  The identity versor may be considered even.
+And it is clear the the inverse of an even versor is also even.
+
+\subsection*{Problem 3}
+
+For a geometric algebra $\G$, show that
+the function $\phi_W(V)=WVW^{-1}$, with $W$ a versor of $\G$,
+is an automorphism of the group of versors of $\G$.
+
+Notice that we need only consider the case when $W$ is a vector,
+since any composition of two or more isomorphisms is an isomorphism by
+Theorem 6.4.
+
+\subsection*{Problem 4}
+
+For a geometric algebra $\G$ and a fixed positive integer $k$, show that the $k$-vectors of $\G$
+form a group under addition.  Do the $k$-blades form a group?  (Let zero be a $k$-vector for any $k$.)
+
+$k$-blades don't generally form a group, because we don't always have closure for $k\geq 2$.
+(In some geometric algebras, we do have closure for $k=2$, but not all.)
+
+$k$-vectors do give us closure.  Zero is the zero $k$-vector.  $k$-vector addition is associative.
+The additive inverse of a $k$-vector is easy to calculate and it is unique.
+
+\subsection*{Problem 5}
+
+For any versor $W$ in a geometric algebra $\G$, define
+the function $\phi_W(V)=WVW^{-1}$ on the set of $k$-vectors in $\G$,
+and show that it is an automorphism of the group of $k$-vectors.
+
+Notice again that we need only consider the case when $W$ is a vector,
+since any composition of two or more isomorphisms is an isomorphism by
+Theorem 6.4.
+
+\end{document}
