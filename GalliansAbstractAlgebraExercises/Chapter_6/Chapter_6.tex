@@ -31,6 +31,40 @@
 
 If $G$ is a group, prove that $\aut(G)$ and $\inn(G)$ are groups.
 
+It is clear that the identity function $\epsilon$ is in $\aut(G)$.
+Let $\alpha,\beta\in\aut(G)$.  Notice that if each of $\alpha$ and
+$\beta$ are bijections from $G$ to $G$, then so is $\alpha\beta$.
+Letting $a,b\in G$, we see that
+\begin{equation*}
+\alpha(\beta(ab))=\alpha(\beta(a)\beta(b)=\alpha(\beta(a))\alpha(\beta(b)),
+\end{equation*}
+showing that $\alpha\beta$ is operation preserving as well.
+Thus far we have proven closure.  Now notice that if $\alpha$ is
+a bijection of $G$, then so is $\alpha^{-1}$.  To show that
+$\alpha^{-1}$ is operation preserving, notice that
+\begin{equation*}
+\alpha(\alpha^{-1}(a)\alpha^{-1}(b))=\alpha(\alpha^{-1}(a))\alpha(\alpha^{-1}(b))=ab=\alpha(\alpha^{-1}(ab)),
+\end{equation*}
+and then take the $\alpha^{-1}$ of both of the furthest sides of this equation.
+We now that if $\alpha\in\aut(G)$, then so is $\alpha^{-1}$.  We can now
+clame that $\aut(G)$ is a group by the two-step subgroup test.
+
+Go on...
+
+\section*{Problem 17}
+
+Let $r\in U(n)$.  Prove that the mapping $\alpha:Z_n\to Z_n$ defined by
+$\alpha(s)=sr\pmod n$ for all $s\in Z_n$ is an automorphism of $Z_n$.
+
+It is clear that $\alpha$ is onto, because $\langle r\rangle=Z_n$ since $\gcd(r,n)=1$.
+Then, since $\alpha$ maps a finite set to a finite set, it is also one-to-one.
+To see that $\alpha$ is operation preserving, we write, for any $a,b\in Z_n$,
+\begin{equation*}
+\alpha(a+b) = s(a+b)=sa+sb=\alpha(a)+\alpha(b).
+\end{equation*}
+This proof was nothing more than a generalization of what was given
+in Example 13.
+
 \section*{Made-Up Problems}
 
 \subsection*{Problem 1}
