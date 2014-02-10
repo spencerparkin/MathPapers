@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 7 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 29}
+
+Let $G$ be a group of permutations of a set $S$.  Prove that the orbits of the
+members of $S$ consitute a partition of $S$.
+
+For any $a,b\in S$, let $a\sim b$ if and only if $a\in\orb_G(b)$.
+To see that this forms an equivilance relation on the set $S$,
+we begin by noting that for all $a\in S$, we have $a\in\orb_G(a)$,
+giving us the reflexive property.  For all $a,b\in S$, if $a\sim b$,
+then $a\in\orb_G(b)$ and therefore there exists $\phi\in G$ such
+that $\phi(b)=a$.  Seeing that $\phi^{-1}(a)=b$ and $\phi^{-1}\in G$, it is clear
+that $b\in\orb_g(a)$ and therefore $b\sim a$, giving us the symmetric property.
+Lastly, for all $a,b,c\in S$, if $a\sim b$ and $b\sim c$, there exist $\phi_0,\phi_1\in G$
+such that $\phi_0(b)=a$ and $\phi_1(c)=b$.  Then, letting $\phi=\phi_0\phi_1\in G$,
+it is clear that $\phi(c)=a$ and therefore $a\in\orb_G(c)$.  It follows that $a\sim c$,
+and we have the transitive property.
+
+Now notice that the equivilance class containing $a$ is given by
+\begin{equation*}
+[a]=\{x\in S|x\sim a\}=\{x\in S|x\in\orb_G(a)\}=\orb_G(a),
+\end{equation*}
+showing that the orbits of elements in $S$ are the equivilance classes
+that partition $S$ by Theorem 0.6.
+
+\end{document}
