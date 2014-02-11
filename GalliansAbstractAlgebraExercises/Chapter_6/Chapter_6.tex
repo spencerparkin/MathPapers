@@ -27,6 +27,112 @@
 \begin{document}
 \maketitle
 
+\section*{Problem 1}
+
+Find an isomorphism from the group of integers under addition
+to the group of even integers under addition.
+
+Let $\phi(x)=2x$.  Then, if $y\in\Z$ is even, then
+$\phi(y/2)=y$, showing that $\phi$ is onto.
+Now for any pair of integers $x,y\in\Z$, if
+$\phi(x)=\phi(y)$, then $2x=2y\implies x=y$, showing
+that $\phi$ is one-to-one.  Now notice that, for any $x,y\in\Z$,
+we have $\phi(x+y)=2(x+y)=2x+2y=\phi(x)+\phi(y)$, showing
+that $\phi$ is operation preserving.
+
+\section*{Problem 2}
+
+Find $\aut(\Z)$.
+
+Notice that $\Z=\langle 1\rangle=\langle -1\rangle$, and that $1$ and $-1$ are
+the only generators of $\Z$.  Therefore, if $\phi\in\aut(\Z)$, then
+$\phi(1)=1$ or $\phi(1)=-1$.  We now show that there is one and only
+one automorphism of $\Z$ for each of these cases.
+
+Supposing $\phi(1)=1$, notice that we must have $\phi(-1)=-1$,
+since
+\begin{equation*}
+0=\phi(0)=\phi(1+-1)=\phi(1)+\phi(-1)=1+\phi(-1).
+\end{equation*}
+Then, for any $z\in\Z$, we have
+\begin{align*}
+\phi(z) &= \phi\left(\frac{z}{|z|}(\underbrace{1+\dots+1}_{|z|})\right) \\
+ &=\underbrace{\phi\left(\frac{z}{|z|}\right)+\dots+\phi\left(\frac{z}{|z|}\right)}_{|z|} \\
+ &=\underbrace{\frac{z}{|z|}+\dots+\frac{z}{|z|}}_{|z|}=z,
+\end{align*}
+which completely determines $\phi$ as the identity function.
+
+Now suppose that $\phi(1)=-1$.  We then have $\phi(-1)=1$, since
+\begin{equation*}
+0 = \phi(0) = \phi(1+-1)=\phi(1)+\phi(-1)=-1+\phi(-1).
+\end{equation*}
+Then, for any $z\in \Z$, we have
+\begin{align*}
+\phi(z) &= \phi\left(\frac{z}{|z|}\underbrace{(1+\dots+1)}_{|z|}\right) \\
+ &= \underbrace{\phi\left(\frac{z}{|z|}\right)+\dots+\phi\left(\frac{z}{|z|}\right)}_{|z|} \\
+ &= \underbrace{\frac{-z}{|z|}+\dots+\frac{-z}{|z|}}_{|z|}=-z,
+\end{align*}
+which completely determines $\phi$.
+
+We now see that $\aut(\Z)=\{z\to z,z\to -z\}$.
+
+\section*{Problem 4}
+
+Show that $U(8)\not\approx U(10)$.
+
+Notice that $U(8)$ is not cyclic while $U(10)=\langle 3\rangle$.
+
+\section*{Problem 5}
+
+Show that $U(8)\approx U(12)$.
+
+This follows from an examination of the Caylay tables for each.  Is there a better way?
+
+\section*{Problem 6}
+
+Prove that the notion of group isomorphism is transitive.  That is, if $G$,
+$H$, and $K$ are groups and $G\approx H$ and $H\approx K$, then $G\approx K$.
+
+Let $\alpha$ be an isomorphism between $G$ and $H$, and $\beta$ be an isomorphism
+between $H$ and $K$.  Clearly $\alpha\beta$ is a bijection between $G$ and $K$.
+That it is operation preserving follows, for all $a,b\in G$, from
+\begin{equation*}
+(\alpha\beta)(ab)=\alpha(\beta(ab))=\alpha(\beta(a)\beta(b))=\alpha(\beta(a))\alpha(\beta(b))=
+(\alpha\beta)(a)(\alpha\beta)(b).
+\end{equation*}
+
+\section*{Problem 9}
+
+In the notation of Theorem 6.1, prove that $T_e$ is the identity and that $(T_g)^{-1}=T_{g^{-1}}$.
+\begin{equation*}
+T_e(T_g(x))=T_e(gx)=egx=gx=T_g(x)
+\end{equation*}
+Similarly, $T_g(T_e(x))=T_g(x)$.  We then see that
+\begin{equation*}
+T_g(T_{g^{-1}}(x))=T_g(g^{-1}x)=gg^{-1}x=x=T_e(x).
+\end{equation*}
+Similarly, $T_{g^{-1}}(T_g(x))=T_e(x)$.
+
+\section*{Problem 10}
+
+Let $G$ be a group.  Prove that the mapping $\alpha(g)=g^{-1}$ for all $g\in G$ is
+an automorphism if and only if $G$ is Abelian.
+
+Suppose $\phi\in\aut(G)$.  Then for all $a,b\in G$, we have
+\begin{equation*}
+ab=\phi(a^{-1})\phi(b^{-1})=\phi(a^{-1}b^{-1})=\phi((ba)^{-1})=ba,
+\end{equation*}
+showing that $G$ is Abelian.
+
+Now suppose that $G$ is Abelian.  Let $a,b\in G$ such that $\phi(a)=\phi(b)$.
+Then $a^{-1}=b^{-1}\implies a=b$, so $\phi$ is one-to-one.
+If $a\in G$, then $\phi(a^{-1})=a$, showing that $\phi$ is onto.
+Then, for any $a,b\in G$, we have
+\begin{equation*}
+\phi(ab)=(ab)^{-1}=b^{-1}a^{-1}=a^{-1}b^{-1}=\phi(a)\phi(b),
+\end{equation*}
+by the Abelian property of $G$, showing that $\phi$ is operation preserving.
+
 \section*{Problem 15}
 
 If $G$ is a group, prove that $\aut(G)$ and $\inn(G)$ are groups.
@@ -36,7 +142,7 @@ Let $\alpha,\beta\in\aut(G)$.  Notice that if each of $\alpha$ and
 $\beta$ are bijections from $G$ to $G$, then so is $\alpha\beta$.
 Letting $a,b\in G$, we see that
 \begin{equation*}
-\alpha(\beta(ab))=\alpha(\beta(a)\beta(b)=\alpha(\beta(a))\alpha(\beta(b)),
+\alpha(\beta(ab))=\alpha(\beta(a)\beta(b))=\alpha(\beta(a))\alpha(\beta(b)),
 \end{equation*}
 showing that $\alpha\beta$ is operation preserving as well.
 Thus far we have proven closure.  Now notice that if $\alpha$ is
@@ -46,10 +152,18 @@ $\alpha^{-1}$ is operation preserving, notice that
 \alpha(\alpha^{-1}(a)\alpha^{-1}(b))=\alpha(\alpha^{-1}(a))\alpha(\alpha^{-1}(b))=ab=\alpha(\alpha^{-1}(ab)),
 \end{equation*}
 and then take the $\alpha^{-1}$ of both of the furthest sides of this equation.
-We now that if $\alpha\in\aut(G)$, then so is $\alpha^{-1}$.  We can now
-clame that $\aut(G)$ is a group by the two-step subgroup test.
+We now see that if $\alpha\in\aut(G)$, then so is $\alpha^{-1}$.
+Notice that function composition is always associative.  We can now
+clame that $\aut(G)$ is a group.
 
-Go on...
+To show that $\inn(G)$ is a subgroup of $\aut(G)$, we first note that
+it is a subset of $\aut(G)$, then use the two-step subgroup test.  Notice that $\epsilon\in\inn(G)$,
+since $\epsilon(g)=ege^{-1}=g$.
+Let $\alpha,\beta\in\inn(G)$.  Clearly $\alpha\beta\in\inn(G)$,
+since, for some $x,y\in G$, we have $\alpha(g)=xgx^{-1}$, $\beta(g)=ygy^{-1}$
+and $\alpha(\beta(g))=x(ygy^{-1})x^{-1}=xyg(xy)^{-1}$ with $xy\in G$.
+Now notice that $\alpha^{-1}(g)=x^{-1}gx$, but if we let $y=x^{-1}$,
+it is clear that $\alpha^{-1}\in\inn(G)$ also.
 
 \section*{Problem 17}
 
@@ -64,6 +178,68 @@ To see that $\alpha$ is operation preserving, we write, for any $a,b\in Z_n$,
 \end{equation*}
 This proof was nothing more than a generalization of what was given
 in Example 13.
+
+\section*{Problem 19}
+
+Prove Property 3 of Theorem 6.3.
+
+If $G\approx\overline{G}$, then there is no loss in generality if we let $G=\overline{G}$.
+
+It was shown in Problem 15 that $\aut(G)$ is a group.
+Therefore, if $\phi\in\aut(G)$, so is $\phi^{-1}$.
+
+\section*{Problem 20}
+
+Prove Property 4 of Theorem 6.3.
+
+We want to show that if $K$ is a subgruop of $G$, and $\phi$ is an isomorphism
+from $G$ to $\overline{G}$, then $\phi(K)=\{\phi(k)|k\in K\}$
+is a subgroup of $\overline{G}$.
+
+Clearly $\phi(K)$ is a non-empty subset of $\overline{G}$.
+Then, for any $a,b\in\overline{G}$, let $x,y\in G$ such that $\phi(x)=a$ and $\phi(y)=b$,
+and see that
+\begin{equation*}
+ab^{-1}=\phi(x)(\phi(y))^{-1}=\phi(x)\phi(y^{-1})=\phi(xy^{-1})\in\overline{G},
+\end{equation*}
+since $xy^{-1}\in G$ and by Property 2 of Theorem 6.2.  It follows that
+$\phi(K)$ is a subgroup of $\overline{G}$ by the one-step subgroup test.
+
+\section*{Problem 21}
+
+Referring to Theorem 6.1, prove that $T_g$ is indeed a permutation on the set $G$.
+
+This simply follows from that fact that the Caylay table for any group must be a Latin square.
+Notice that $\{T_g(x)|x\in G\}$ is simply one row of this table, and that no element can be
+repeated in this row if it is a Latin square.  (Proof that Caylay tables are Latin squares
+was given in the solution to a previous chapter's exercise.)
+
+\section*{Problem 29}
+
+Consider the following statement: The order of a subgroup divides the order of the group.
+Suppose you could prove this for finite permutation groups.  Would the statement then be true for all
+finite groups?  Explain.
+
+Yes.  For any finite group in question, Caylay's Theorem tells us that there
+is a group of permutations isomorphic to it.  Therefore, all algebraic and group theoretic properties
+of this permutation group are shared by the original the group in question.
+
+The whole of group theory may be reduced to the theory of permutation groups.
+
+\section*{Problem 35}
+
+Let $a$ belong to a group $G$ and let $|a|$ be finite.  Let $\phi_a$ be the automorphism
+of $G$ given by $\phi_a(x)=axa^{-1}$.  Show that $|\phi_a|$ divides $|a|$.
+Exhibit an element $a$ from a group for which $1<|\phi_a|<|a|$.
+
+Notice that for a positive integer $k$, we have
+\begin{equation*}
+\phi_a^k(x) = a^kx(a^{-1})^k=a^kx(a^k)^{-1}.
+\end{equation*}
+From this it is clear that $\phi^{|a|}(x)$ is the identity automorphism in $\aut(G)$.
+Then, by Corollary 2 of Theorem 4.1, we see that $|\phi_a|$ divides $|a|$.
+
+I'm failing to find an example so far.
 
 \section*{Made-Up Problems}
 
@@ -105,9 +281,15 @@ For a geometric algebra $\G$, show that
 the function $\phi_W(V)=WVW^{-1}$, with $W$ a versor of $\G$,
 is an automorphism of the group of versors of $\G$.
 
-Notice that we need only consider the case when $W$ is a vector,
-since any composition of two or more isomorphisms is an isomorphism by
-Theorem 6.4.
+Let $A$ and $B$ be versors such that $\phi_W(A)=\phi_W(B)$.
+Then $WAW^{-1}=WBW^{-1}$ implies that $A=B$ trivially, and
+$\phi_W$ is one-to-one.  Now let $B$ be any versor and
+let $A=W^{-1}BW$ and notice that $\phi(A)=B$, showing that
+$\phi_W$ is onto.  That $\phi_W$ is operator preserving follows
+from, for any versors $A$ and $B$,
+\begin{equation*}
+\phi_W(AB)=WABW^{-1}=WAW^{-1}WBW^{-1}=\phi_W(A)\phi_W(B).
+\end{equation*}
 
 \subsection*{Problem 4}
 
@@ -126,8 +308,26 @@ For any versor $W$ in a geometric algebra $\G$, define
 the function $\phi_W(V)=WVW^{-1}$ on the set of $k$-vectors in $\G$,
 and show that it is an automorphism of the group of $k$-vectors.
 
-Notice again that we need only consider the case when $W$ is a vector,
-since any composition of two or more isomorphisms is an isomorphism by
-Theorem 6.4.
+We begin by showing that the set of $k$-vectors is closed under
+the operation of conjugation by any versor $W$.  By induction,
+we need only consider the case when $W$ is a vector.
+First note that, by the linearity of the operation, it is sufficient
+to show closure in the set of all $k$-blades under this operation.
+Letting $A$ be a vector, it is easy to verify that $WAW^{-1}$ is a vector.
+Letting $A$ be a $k$-blade with factorization $A=\bigwedge_{i=1}^k a_i$,
+and seeing that, by the outermorphic property of conjugation by versors,
+we have
+\begin{equation*}
+WAW^{-1}=\bigwedge_{i=1}^k Wa_iW^{-1},
+\end{equation*}
+it follows that $WAW^{-1}$ is a $k$-blade also.
+
+Returning to the problem at hand, let $A$ and $B$ be $k$-vectors such that $\phi_W(A)=\phi_W(B)$.
+Then $WAW^{-1}=WBW^{-1}$ implies that $A=B$.  Now let $B$
+be any $k$-vector and let $A=W^{-1}BW$ be a $k$-vector too.  It follows that $\phi_W(A)=B$.
+Now let $A$ and $B$ be any two $k$-vectors and notice that
+\begin{equation*}
+\phi_W(A+B) = W(A+B)W^{-1} = WAW^{-1}+WBW^{-1} = \phi_W(A)+\phi_W(B).
+\end{equation*}
 
 \end{document}
