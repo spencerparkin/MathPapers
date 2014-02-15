@@ -226,6 +226,59 @@ of this permutation group are shared by the original the group in question.
 
 The whole of group theory may be reduced to the theory of permutation groups.
 
+\section*{Problem 30}
+
+Suppose that $G$ is a finite Abelian group and $G$ has no element of order 2.
+Show that the mapping $g\to g^2$ is an automorphism of $G$.  Show, by example,
+that if $G$ is infinite the mapping need not be an automorphism.
+
+Notice that the only element $g\in G$ with the property that $g^2=e$ is $e$ itself.
+Now suppose we have $a,b\in G$ with $\phi(a)=\phi(b)$ and $\phi(g)=g^2$, and
+notice that $a^2=b^2\implies a^2b^{-2}=e\implies (ab^{-1})^2=e$ by the Abelian property of $G$.
+It then follows that $ab^{-1}=e\implies a=b$, and that $\phi$ is one-to-one.
+Then, since $\phi$ is one-to-one and maps a finite set to another, it must also be onto.
+Now notice that for any $a,b\in G$, we have
+\begin{equation*}
+\phi(ab)=(ab)^2=a^2b^2=\phi(a)\phi(b),
+\end{equation*}
+by the Abelian property of $G$, showing that $\phi$ is operation preserving.
+
+Now consider $\Z$, the set of integers, under the addition operation.
+Notice that $(-1)^2=1^2$, but $-1\neq 1$.
+
+\section*{Problem 31}
+
+Let $G$ be a group and let $g\in G$.  If $z\in Z(G)$, show that the inner automorphism induced by $g$ is the same as the inner
+automorphism induced by $zg$ (that is, that the mappings $\phi_g$ and $\phi_{zg}$ are equal).
+
+Simply notice that
+\begin{equation*}
+\phi_{zg}(x)=zgx(zg)^{-1}=zgxg^{-1}z^{-1}=gxg^{-1}zz^{-1}=gxg^{-1}=\phi_g(x),
+\end{equation*}
+since $z$ commutes with all elements of $G$.
+
+\section*{Problem 33}
+
+Suppose that $g$ and $h$ induce the same inner automorphism of a group $G$.
+Prove that $h^{-1}g\in Z(G)$.
+
+Since $\phi_g=\phi_h$, we have, for all $x\in G$,
+\begin{equation*}
+gxg^{-1}=hxh^{-1} \iff h^{-1}gx = xh^{-1}g,
+\end{equation*}
+showing that $h^{-1}g$ commutes with all elements in $G$, and therefore, $h^{-1}g\in Z(G)$.
+
+\section*{Problem 34}
+
+Combine the results of Exercises 31 and 33 into a single ``if and only if '' theorem.
+
+The converse of the statement proved in Exercise 33 is clearly true by the proof
+given in that exercise.  So we have $h^{-1}g\in Z(G)\iff\phi_h=\phi_g$.
+It is not clear to me how Problem 31 contributes to this result.
+
+Interestingly, this shows that all members of the center of a group induce
+the same automorphism of the group.
+
 \section*{Problem 35}
 
 Let $a$ belong to a group $G$ and let $|a|$ be finite.  Let $\phi_a$ be the automorphism
@@ -241,39 +294,38 @@ Then, by Corollary 2 of Theorem 4.1, we see that $|\phi_a|$ divides $|a|$.
 
 I'm failing to find an example so far.
 
-%\section*{Problem 40}
-%
-%Show that every ring automorphism $\phi$ of the rational numbers $Q$ under
-%addition and multiplication has the form $\phi(x)=x\phi(1)$.
-%
-%This could be all wrong, because I haven't read about rings yet.
-%
-%It is clear that $\phi(0)=0=0\phi(0)$.  So let $x\in Q$ be any non-zero rational.
-%Then there are integers $a$ and $b$, with $b>0$, such that $x=a/b$.  We then
-%see that
-%\begin{align*}
-%\phi(a/b)&=\phi\left(\frac{a}{|a|}\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_{|a|}\right) \\
-% &= \underbrace{\phi\left(\frac{a}{|a|b}\right)+\dots+\phi\left(\frac{1}{|a|b}\right)}_{|a|} \\
-% &= |a|\phi\left(\frac{a}{|a|b}\right) = \frac{|a|}{b}\phi\left(\frac{a}{|a|}\right)=\frac{a}{b}\phi(1),
-%\end{align*}
-%since
-%\begin{equation*}
-%\phi\left(\frac{a}{|a|}\right)=
-%\phi\left(
-%\frac{a}{|a|}\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_b\right)=b\phi\left(\frac{a}{|a|b}\right).
-%\end{equation*}
+\section*{Problem 40}
 
-%\section*{Problem 42}
-%
-%Prove that $Q$, the group of rational numbers under addition, is not
-%isomorphic to a proper subgroup of itself.
-%
-%By the answer to Problem 40, every isomorphism of $Q$, not just onto itself,
-%but to any other additive group of rational numbers, must be of the form $\phi(x)=x\phi(1)$.
-%It is then clear that $\phi(Q)$, the image of $Q$ under $\phi$, must be $Q$ itself,
-%because $\phi(1)\neq 0$, since $\phi(0)=0$.
+Show that every automorphism of $\phi$ of the rational numbers $Q$ under
+addition to itself has the form $\phi(x)=x\phi(1)$.
 
-Not so sure about this reasoning.
+It is clear that $\phi(0)=0=0\phi(0)$.  So let $x\in Q$ be any non-zero rational.
+Then there are integers $a$ and $b$, with $b>0$, such that $x=a/b$.  We then
+see that
+\begin{align*}
+\phi\left(\frac{a}{b}\right)&=\phi\left(\frac{a}{|a|}\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_{|a|}\right) \\
+ &= \underbrace{\phi\left(\frac{a}{|a|b}\right)+\dots+\phi\left(\frac{1}{|a|b}\right)}_{|a|} \\
+ &= |a|\phi\left(\frac{a}{|a|b}\right) = \frac{|a|}{b}\phi\left(\frac{a}{|a|}\right)=\frac{a}{b}\phi(1),
+\end{align*}
+by Property 2 of Theorem 6.2, and by
+\begin{equation*}
+\phi\left(\frac{a}{|a|}\right)=
+\phi\left(
+\frac{a}{|a|}\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_b\right)=b\phi\left(\frac{a}{|a|b}\right).
+\end{equation*}
+A little bit of abuse of notation has to be allowed to get this result.  Admittedly,
+I can't reconcile myself with it completely, but Gallian says to not get bogged down
+too much in notation.
+
+\section*{Problem 42}
+
+Prove that $Q$, the group of rational numbers under addition, is not
+isomorphic to a proper subgroup of itself.
+
+By the answer to Problem 40, every isomorphism of $Q$, not just onto itself,
+but to any other additive group of rational numbers, must be of the form $\phi(x)=x\phi(1)$.
+It is then clear that $\phi(Q)$, the image of $Q$ under $\phi$, must be $Q$ itself,
+because $\phi(1)\neq 0=\phi(0)$.
 
 \section*{Made-Up Problems}
 
