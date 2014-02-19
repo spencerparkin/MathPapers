@@ -3,6 +3,7 @@
 %\usepackage{tikz}
 %\usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{algpseudocode}
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
@@ -195,10 +196,11 @@ B = \lambda\bigwedge_{i=1}^k p(x_i).
 \end{lem}
 \begin{proof}
 If $x_i\in\gh(B)$, then $p(x_i)\wedge B=0$, showing that $p(x_i)$ is in the $k$-dimensional vector
-space spanned by any factorization of $B$ in terms of a set of basis vectors.
+space spanned by any vector-factorization of $B$.
 Then, since $\bigwedge_{i=1}^k p(x_i)\neq 0$,
-the set of vectors $\{p(x_i)\}_{i=1}^k$ is linearly independent and therefore
-a basis for this vector space.  The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
+the set of vectors $\{p(x_i)\}_{i=1}^k$ is linearly independent.  It follows that
+$\{p(x_i)\}_{i=1}^k$ is a set of basis vectors for the $k$-dimensional vector space represented by $B$.
+The blades $B$ and $\bigwedge_{i=1}^k p(x_i)$
 must, therefore, be equal, up to scale.
 \end{proof}
 For a blade $B\in\G$ having a factorization of the form in equation \eqref{equ_point_factored_blade},
@@ -252,7 +254,8 @@ such that $\gh(B)=\gh(B')$ and $B'$ is irreducible.
 \end{lem}
 \begin{proof}
 If $B$ is irreducible, then let $k'=k$ and $B'=B$ and we're done.
-If $B$ is not irreducible, then let $j$ be the largest possible integer
+If $B$ is not irreducible, then let $j$ be the largest possible integer\footnote{Such an
+integer must exist by the well ordering principle.}
 for which there exists a set of $j$ points $\{x_i\}_{i=1}^j\subseteq\gh(B)$
 with $\bigwedge_{i=1}^j p(x_i)\neq 0$, (clearly $0<j<k$), and write
 \begin{equation*}
@@ -391,6 +394,38 @@ Indeed, by examination, it is not hard to see that if we let $R_0=e_{459}$, then
 The 2-blade $(R_0\wedge R)I$ may now be decomposed using equations \eqref{equ_decompose_first} through \eqref{equ_decompose_last}.
 As the reader can check, we get the unit circle at origin.
 
+\section{A Blade Reduction Algorithm}
+
+Before closing, we briefly consider here an algorithm for fully reducing a given blade $B$.
+Its psuedo-code is given as follows.
+
+\begin{algorithmic}
+\Function{Reduce}{$B$}
+	\State $x\gets$\Call{FindAnyPoint}{$B$}
+	\If{$x\in\gh(B)$}
+		\State\Return $p(x)\wedge$\Call{Reduce}{$p(x)\cdot B$}
+	\EndIf
+	\State\Return $1$
+\EndFunction
+\end{algorithmic}
+Here, the function ``FindAnyPoint'' tries to find and return any point in $\gh(B)$.
+If it fails, the returned point is not in $\gh(B)$.
+
+To see that the function ``Reduce'' above is correct, realize that if
+$x\in\gh(B)$, then there exists a non-zero blade $B_0$, possibly of grade zero, such that $B=p(x)\wedge B_0$.
+Then, by the Gram-Schmidt orthogonalization process,\footnote{This process can always be done in a euclidean geometric algebra,
+but not always in a geometric algebra having null vectors.} we can claim that there must exist such a blade $B_0$
+where for any vector $v$ such that $v\wedge B_0=0$, we have $p(x)\cdot v=0$.  It follows that
+$p(x)\cdot B = |p(x)|^2B_0$.
+
+Notice that the algorithm above is simply a factorization algorithm that is
+looking for vector factors of a specific form.  Furthermore, it may
+terminate before the blade is fully factored.  This is justified by lemmas
+of this paper.
+
+The ``FindAnyPoint'' function solves what may be a difficult problem,
+and might benefit from calculus methods.
+
 \section{Closing Remarks}
 
 To see any efficacy in this, admittedly, anticlimactic paper, we have to look at what
@@ -401,9 +436,7 @@ To the thoughtful reader, a few of these are given as follows.
 \begin{enumerate}
 
 \item Is there an algorithm for fully reducing a given blade that does not
-require knowledge of the intersection it represents?  Such an algorithm, if it
-exists, must surely take into account how we have defined the function $p$
-and any properties we can derive from it.  {\it Note that it may
+require knowledge of the intersection it represents?  {\it Note that it may
 be possible to factor an irreducible blade in terms of vectors where not all
 of them are of the form $p(x)$ for some point $x\in\R^n$.}
 
@@ -421,7 +454,7 @@ only irreducible canonical forms?
 \item If we had chosen an arbitrary plane,
 instead of the $x_3=0$ plane, how might this have complicated our example?
 
-\item Is there any way to deal with non-planar intersection in this model?
+\item Is there any way to deal with non-planar intersections in this model?
 \end{enumerate}
 
 Lastly, it must be said here that geometric algebra just may not be the right tool
