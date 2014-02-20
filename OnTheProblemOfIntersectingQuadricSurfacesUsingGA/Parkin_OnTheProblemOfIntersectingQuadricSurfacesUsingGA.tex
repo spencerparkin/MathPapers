@@ -423,7 +423,7 @@ looking for vector factors of a specific form.  Furthermore, it may
 terminate before the blade is fully factored.  This is justified by lemmas
 of this paper.
 
-The ``FindAnyPoint'' function solves what may be a difficult problem,
+The ``FindAnyPoint'' function solves what may be a difficult optimization problem,
 and might benefit from calculus methods.
 
 \section{Closing Remarks}
@@ -456,6 +456,19 @@ instead of the $x_3=0$ plane, how might this have complicated our example?
 
 \item Is there any way to deal with non-planar intersections in this model?
 \end{enumerate}
+
+Concerning the last question, a canonical
+form would ideally cover many different intersection cases, (an ellipse
+may be the intersection of two ellipsoids, a plane and cylinder, a plane and an ellipsoid, etc.); but
+in the case of, say, two cylinders, there may be no canonical form other than what
+is found by intersecting two generic cylinders.  We then see that,
+after taking the intersection of any two cylinders, we can only realize this
+intersection as the cylinders it took to produce it, which is precisely the
+information with which we began the intersection process.  It follows that
+there is nothing helpful about this process in the case of two cylinders,
+and in possibly all non-planar intersection cases.  A better question, therefore,
+would be: does there exist a type of non-planar intersection that
+can be characterized in some way other than its original characterization?
 
 Lastly, it must be said here that geometric algebra just may not be the right tool
 for studying the intersections of algebraic surfaces.  For those readers possessing a savy
