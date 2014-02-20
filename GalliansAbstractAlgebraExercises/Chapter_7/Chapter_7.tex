@@ -90,6 +90,17 @@ when $n>2$.
 We must show that when $n>2$, that $U(n)$ always has an element of order 2.
 Notice that $|n-1|=2$ for all $n>2$.
 
+\section*{Problem 20}
+
+Suppose $H$ and $K$ are subgroups of a group $G$.  If $|H|=12$ and $|K|=35$,
+find $|H\cap K|$.
+
+The subgroup $H\cap K$ being that of $H$ and $K$, the order of any element of
+$H\cap K$ must divide 12 and 35; but these are
+are relatively prime, so the order of all elements in $H\cap K$ is 1.
+The subgroup $H\cap K$ must therefore be the trivial subgroup having
+order 1.
+
 \section*{problem 21}
 
 Suppose that $G$ is an Abelian group with an odd number of elements.
@@ -119,6 +130,31 @@ just found cannot be proper.  Furthermore, this cyclic subgroup must
 be of prime order, (and hence be finite), or else it would have nontrivial, proper subgroups
 by Theorem 4.3.  (Notice that we did not need Lagrange's Theorem.)
 
+\section*{Problem 23}
+
+Let $|G|=15$.  If $G$ has only one subgroup of order 3 and only one of order 5,
+prove that $G$ is cyclic.  Generalize to $|G|=pq$, where $p$ and $q$ are prime.
+
+By Corollary 3 of Legrange's Theorem, groups of prime order are cyclic.
+Therefore, $G$ must have an element $a\in G$ of order $p$,
+and an element $b\in G$ of order $q$.  Now choose $c\in G$ such that $c\not\in\langle a\rangle$
+and $c\not\in\langle b\rangle$.  (Such an element exists, because $G\neq\langle a\rangle\cup\langle b\rangle$ since
+$|G|>|a|+|b|-1$.)
+Clearly $c$ is not the identity element.
+Further, $|c|$ can't be $p$, otherwise there would exist more than one cyclic
+subgroup of order $p$.  The order of $c$ can't be $q$ for a similar reason.
+Therefore, since $|c|$ must divide $|G|=pq$, it is clear that $|c|=|G|$,
+and we have $G=\langle c\rangle$.
+
+\section*{Problem 24}
+
+Let $G$ be a group of order 25.  Prove that $G$ is cyclic or $g^5=e$ for all $g\in G$.
+
+If $G$ is cyclic, we're done.  Suppose $G$ is not cyclic.  Then there does not
+exist $g\in G$ such that $|g|=25$.  The only possible orders for $g$ are
+then, by Legrange's Theorem, one and five.  The only element of order one
+is the identity, and clearly $e^5=e$.  It follows that $g^5=e$ for all $g\in G$.
+
 \section*{Exercise 29}
 
 Let $G$ be a group of permutations of a set $S$.  Prove that the orbits of the
@@ -142,5 +178,62 @@ Now notice that the equivilance class containing $a$ is given by
 \end{equation*}
 showing that the orbits of elements in $S$ are the equivilance classes
 that partition $S$ by Theorem 0.6.
+
+\section*{Problem 33}
+
+Let $G$ be a group of order $p^n$ where $p$ is prime.  Prove that the center of
+$G$ cannot have order $p^{n-1}$.
+
+I have to use theorems in chapters yet to come to get this done.  I'm not sure
+how else to do it.
+
+Suppose $|Z(G)|=p^{n-1}$.  Then, seeing that $Z(G)$ is always
+a normal subgroup of $G$, the factor group $G/Z(G)$ has
+order $p^n/p^{n-1}=p$, and is therefore cyclic.
+Therefore, there exists an element $g\in G$ such that $G/Z(G)=\{g^kZ(G)|k\in\Z\}$.
+Now since the cosets of $Z(G)$ cover $G$, if $a,b\in G$, there must exist integers $i,j\in\Z$
+and elements $x,y\in Z(G)$ such that $a=g^ix$ and $b=g^jy$.
+It is then easy to see that $ab=ba$, showing that $G$ is
+Abelian, and therefore $Z(G)=G$, but this contradicts the supposition that $Z(G)$ is a proper
+subgroup of $G$.  It follows that $|Z(G)|\neq p^{n-1}$.
+
+Now peaking at the back of the book, I see that a much easier
+proof exists.
+
+\section*{Problem 36}
+
+Let $G$ be a finite Abelian group and let $n$ be a positive integer that is relatively prime to $|G|$.
+Show taht the mapping $a\to a^n$ is an automorphism of $G$.
+
+Letting $\phi(x)=x^n$ be defined on $G$, it is clear that for all $x,y\in G$,
+we have $\phi(xy)=(xy)^n=x^ny^n=\phi(x)\phi(y)$ by the Abelian property
+of $G$, showing that $\phi$ is operation preserving.
+
+Let $x,y\in G$ again and suppose that $\phi(x)=\phi(y)$.
+Then $x^n=y^n\implies e=x^n(y^n)^{-1}=(xy^{-1})^n$
+by the Abelian property of $G$.  Now since $(xy^{-1})^n=e$,
+we see that $|xy^{-1}|$ divides $n$, but it also divides $|G|$.
+Then since $n$ and $|G|$ are coprime, it follows that $|xy^{-1}|=1$,
+and therefore, $xy^{-1}=e\implies x=y$, and we see that
+$\phi$ is one-to-one.  The function $\phi$ must then also be onto,
+because it is one-to-one and maps from one finite set to another
+of the same cardinality.
+
+\section*{Problem 38}
+
+Let $G$ be a group of order $pqr$, where $p$, $q$ and $r$ are distinct primes.
+If $H$ and $K$ are subgroups of $G$ with $|H|=pq$ and $|K|=qr$, prove
+that $|H\cap K|=q$.
+
+We know that $H\cap K$ is a subgroup of $G$.  Let us first show
+that $H\cap K$ is not the trivial subgroup of $G$.  Supposing this
+to be the case, we have...I don't know.
+
+Let $g\in H\cap K$ be a non-identity element.
+Also being an element of $H$, we must have $|g|$ dividing $pq$.
+Being an element of $K$, we must have $|g|$ dividing $qr$.
+It follows that since $|g|>1$, we must have $|g|=q$.
+Then, since all non-identity elements of $H\cap K$ have order $q$,
+it follows that $H\cap K$ is cyclic of order $q$.
 
 \end{document}
