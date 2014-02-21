@@ -345,7 +345,8 @@ and $B_1=\lambda_1\bigwedge_{i=j+1}^k p(x_i)$.
 \end{proof}
 
 \begin{lem}\label{lma_unique_grade_of_irreducible_form}
-Given any blade $B\in\G$, if $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$ can be found
+Given any blade $B\in\G$, not necessarily of grade $k$,
+if $k$ points $\{x_i\}_{i=1}^k\subseteq\gh(B)$ can be found
 such that $\gh(B)=\gh(R)$ with $R=\bigwedge_{i=1}^k p(x_i)$, then there is no
 irreducible blade $B'$ of a grade greater than $k$, or less than $k$, such that $\gh(B)=\gh(B')$.
 \end{lem}
@@ -420,7 +421,7 @@ $p(x)\cdot B = |p(x)|^2B_0$.
 
 Notice that the algorithm above is simply a factorization algorithm that is
 looking for vector factors of a specific form.  Furthermore, it may
-terminate before the blade is fully factored.  This is justified by lemmas
+terminate before the blade is fully factored.  This is justified by the lemmas
 of this paper.
 
 The ``FindAnyPoint'' function solves what may be a difficult optimization problem,
