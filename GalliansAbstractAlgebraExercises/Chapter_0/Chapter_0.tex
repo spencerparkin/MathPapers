@@ -103,6 +103,28 @@ Now suppose the equation above has a solution in $x$.  Then $n$ divides $1-ax$
 and there exists $v\in\Z$ such that $1=nv+ax$.  It now follows that $d=1$
 by Theorem 0.2, because there is no positive integer smaller than 1.
 
+\section*{Problem 15}
+
+Let $a$, $b$, $s$ and $t$ be integers.  If $a\equiv b\pmod{st}$,
+show that $a\equiv b\pmod s$ and $a\equiv b\pmod t$.  What condition
+on $s$ and $t$ is needed to make the converse true?
+
+By symmetry of the problem, we need only show that $a\equiv b\pmod{s}$.
+Notice that $s|st$ and $st|(b-a)$ by Problem 9.  It follows that $s|(b-a)$, and we're done by Problem 9.
+
+Suppose now that $a\equiv b\pmod t$ and $a\equiv b\pmod s$.
+Then $s|(b-a)$ and $t|(b-a)$, from which it is clear that if $\gcd(a,b)=1$,
+then $st|(b-a)$, but this is a sufficient condition, not a necessary one.
+
+\section*{Problem 17}
+
+Show that $\gcd(a,bc)=1$ if and only if $\gcd(a,b)=1$ and $\gcd(a,c)=1$.
+
+If $a$ shares no prime factors in common with $b$ and $c$, then it clearly
+doesn't share any prime factors in common with $bc$.  Conversley, if $a$
+shares no prime factors in common with $bc$, then it certainly doesn't
+share any prmie factors in common with $b$ and $c$.
+
 \section*{Problem 24}
 
 (Generalized Euclid's Lemma)  If $p$ is a prime and $p$ divides
