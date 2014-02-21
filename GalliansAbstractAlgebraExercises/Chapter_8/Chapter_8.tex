@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 8 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+
+\begin{document}
+\maketitle
+
+\section*{Understanding Theorem 8.3}
+
+We want to show that $U(st)\approx U(s)\oplus U(t)$.
+Let $\phi(x)=(x\bmod s,x\bmod t)$.
+For $x,y\in U(st)$, if $\phi(x)=\phi(y)$,
+then $x\equiv y\pmod s$ and $x\equiv y\pmod t$.
+Then, since $\gcd(s,t)=1$, it is clear that $x\equiv y\pmod{st}$.
+(See Problem 15 of Chapter 0.)  So $\phi$ is one-to-one.
+It is also onto since $\phi$ is onto-to-one and maps a finite
+set to another of the same cardinality.  That $\phi$ is
+operation preserving is a matter of showing that for
+any $x,y\in U(st)$, we have
+\begin{align*}
+(xy\bmod st)\bmod m &= (x\bmod m)(y\bmod m)\bmod st \\
+ &= (xy\bmod m)\bmod st,
+\end{align*}
+where $m$ is $s$ or $t$.  With enough thought, this is
+intuitive enough to warrent justification by virtue of being clear.
+
+\section*{Problem 1}
+
+Prove that the external direct product of any finite number of groups is a group.
+
+There is clearly an identity element.  Closure is clear.  Inverses are clear.
+Associativity is clear.  I think that's it.
+
+\end{document}
