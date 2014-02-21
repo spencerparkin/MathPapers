@@ -402,8 +402,8 @@ Its psuedo-code is given as follows.
 \begin{algorithmic}
 \Function{Reduce}{$B$}
 	\State $x\gets$\Call{FindAnyPoint}{$B$}
-	\If{$x\in\gh(B)$}
-		\State\Return $p(x)\wedge$\Call{Reduce}{$p(x)\cdot B$}
+	\If{$p(x)\wedge B=0$}
+		\State\Return $p(x)\,\wedge\,$\Call{Reduce}{$p(x)\cdot B$}
 	\EndIf
 	\State\Return $1$
 \EndFunction
