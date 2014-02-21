@@ -271,7 +271,10 @@ $\gh(B)=\gh(B')$ and $B'$ is irreducible.
 Seeing that $B'$ is potentially a reduction in grade of the blade $B$, but one
 in which the geometry represented by $B$ is certainly not sacrificed,
 we will say that $B$ is reducible
-in the case that $k'<k$.  In the case that $k'=k$, it is clear that $B$ is irreducible.
+in the case that $k'<k$.  In the case that $k'=k$, it is clear that $B$ is irreducible
+in the sense that it can be written in the form of equation \eqref{equ_point_factored_blade}.
+The term ``irreducible blade'' will become fully justified after
+Lemma~\ref{lma_unique_grade_of_irreducible_form} given later on.
 
 What we see now is that $(C\wedge e_3)I$ and $(E\wedge e_3)I$ are reducible blades,
 and that finding an algebraic relation between them may be possible if either
@@ -287,7 +290,7 @@ vectors naturally arises.  It is immediately clear that if the set of $j$ points
 is linearly independent, then so is the set of $j$ vectors $\{p(x_i)\}_{i=1}^j$, but the following
 lemma helps us do a little better than this.
 \begin{lem}\label{lma_non_co_planar}
-If a given set of $j>2$ points $\{x_i\}_{i=1}^j$ are non-co-planar for a hyper-plane of
+If the points in a given set of $j>2$ points $\{x_i\}_{i=1}^j$ are non-co-planar for a hyper-plane of
 dimension $j-2$, then the set of vectors $\{p(x_i)\}_{i=1}^j$ is linearly independent.
 \end{lem}
 \begin{proof}
@@ -352,14 +355,23 @@ irreducible blade $B'$ of a grade greater than $k$, or less than $k$, such that 
 \end{lem}
 \begin{proof}
 Suppose, contrary to the lemma, that $B'\in\G$ is an irreducible blade of grade greater than $k$ such that $\gh(B)=\gh(B')$.
-Letting $B_0\in\G$ be a blade such that $B'=R\wedge B_0$, we see that $B_0$ is irreducible
-by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(R)=\gh(B)$, then
-we must have $R\wedge B_0=0$, which is a contradiction, because $B'\neq 0$.
+Letting $B_0\in\G$ be a blade such that $B'=R\wedge B_0$, (clearly $R$ is a non-trivial factor of $B'$ since $x\in\gh(R)$ implies
+that $x\in\gh(B')$ and $\grade(R)=k<\grade(B')$), we see that $B_0$ is irreducible
+by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But then if
+\begin{equation*}
+x\in\gh(B_0)\implies x\in\gh(B')\implies x\in\gh(B)\implies x\in\gh(R),
+\end{equation*}
+then we must have $R\wedge B_0=0$, which is a contradiction, because $B'\neq 0$.
 
-Suppose now, also contrary to the lemma, that $B'\in\G$ is an irreducible blade of grade less than $k$ such that $\gh(B)=\gh(B')$.
-Letting $B_0\in\G$ be a blade such that $R=B'\wedge B_0$, we see that $B_0$ is irreducible
-by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But if $\gh(B')=\gh(B)$, then
-we must have $B'\wedge B_0=0$, which is a contradiction, because $R\neq 0$.
+Suppose now, also contrary to the lemma, and if $k\geq 2$, that $B'\in\G$ is an irreducible blade of grade less than $k$ and
+greater than zero such that $\gh(B)=\gh(B')$.
+Letting $B_0\in\G$ be a blade such that $R=B'\wedge B_0$, (clearly $B'$ is a non-trivial factor of $R$ since $x\in\gh(B')$ implies
+that $x\in\gh(R)$ and $\grade(B')<k=\grade(R)$), we see that $B_0$ is again irreducible
+by Lemma~\ref{lma_irreducibles_factor_as_irreducibles}.  But then if
+\begin{equation*}
+x\in\gh(B_0)\implies x\in\gh(R)\implies x\in\gh(B)\implies x\in\gh(B'),
+\end{equation*}
+then we must have $B'\wedge B_0=0$, which is a contradiction, because $R\neq 0$.
 \end{proof}
 
 Concerning irreducible blades, we see that while Lemma~\ref{lma_irreducible_form_exists} has dealt with
