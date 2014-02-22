@@ -20,6 +20,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\cl}{\mbox{cl}}
+\newcommand{\aut}{\mbox{Aut}}
 
 \begin{document}
 \maketitle
@@ -54,8 +55,47 @@ showing that $a\in Z(G)$.
 Thus far we have shown that $\phi(Z(G))\subseteq Z(G)$.
 But $\phi$ is one-to-one, so $\phi(Z(G))$ cannot be a proper
 subset of $Z(G)$, and therefore, we must have $\phi(Z(G))=Z(G)$.
-Oops, what if $G$ is infinite?
+Oops, what if $Z(G)$ is infinite?
 
 I'm stumped...
+
+\section*{Problem 4}
+
+Prove that the property of being a characterstic subgroup is transitive.
+That is, if $N$ is a characteristic subgroup of $K$ and $K$ is a characteristic
+subgroup of $G$, then $N$ is a characteristic subgroup of $G$.
+
+Let $\phi\in\aut(G)$.  If $\phi(K)=K$, then $\phi$, when restricted in
+domain to $K$, is an automorphism of $K$.  It follows that
+$\phi(N)=N$, showing that $N$ is a characteristic subgroup of $G$.
+
+\section*{Problem 6}
+
+Let $H$ and $K$ be subgroups of a group $G$ and let $HK=\{hk|h\in H,k\in K\}$
+and $KH=\{kh|k\in K,h\in H\}$.  Prove that $HK$ is a group if and only if
+$HK=KH$.
+
+Suppose $HK=KH$.  Clearly $e\in HK$.  Let $a,b\in HK$.
+Then there exists $h,h'\in H$ and $k,k'\in K$ such that
+$a=hk$ and $b=h'k'$, and we have
+\begin{equation*}
+ab^{-1}=hk(h'k')^{-1}=hk(k')^{-1}(h')^{-1} = hh''k''\in HK,
+\end{equation*}
+for some element $h''\in H$ and another $k''\in K$, because
+$HK=KH$.
+
+Now suppose $HK$ is a subgroup of $G$.  If $a\in HK$,
+then $a^{-1}=hk$ for some $h\in H$ and $k\in K$.
+It follows that $a=k^{-1}h^{-1}\in KH$.
+If $a\in KH$, then $a=hk$ for some $h\in H$ and $k\in K$.
+It follows that $a^{-1}=h^{-1}k^{-1}\in HK\implies (a^{-1})^{-1}=a\in HK$.
+
+\section*{Problem 7}
+
+Let $H$ and $K$ be subgroups of a finite group $G$.  Prove that
+\begin{equation*}
+|HK|=\frac{|H||K|}{|H\cap K|}.
+\end{equation*}
+This is easy to prove when $H\cap K=\{e\}$.  Think about it.
 
 \end{document}
