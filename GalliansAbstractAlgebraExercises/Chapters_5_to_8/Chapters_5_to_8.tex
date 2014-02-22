@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapters 5-8 Supplementary Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cl}{\mbox{cl}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+A subgroup $N$ of a group $G$ is called a {\it chracteristic subgroup} if $\phi(N)=N$
+for all automorphisms $\phi$ of $G$.  Prove that every subgroup of a cyclic group is characteristic.
+
+Let $\phi$ be an automorphism of $G$, a cyclic group.
+Let $a$ be an element of $G$.  Now see that
+\begin{equation*}
+\phi(\langle a\rangle)=\{\phi(a^k)|k\in\Z\}=\{\phi^k(a)|k\in\Z\}=\langle\phi(a)\rangle.
+\end{equation*}
+Clearly, $|a|=|\phi(a)|$, so $|\langle a\rangle|=|\langle\phi(a)\rangle|$.  We can
+now claim that $\langle a\rangle=\langle \phi(a)\rangle$ by the fundamental
+theorem of cyclic groups, because $G$ has one and only one subgroup of each
+possible order.
+
+\section*{Problem 2}
+
+Prove that the center of a group is characteristic.
+
+Let $\phi$ be any automorphism of a group $G$.
+Letting $a$ be an element in $\phi(Z(G))$ and $g$ an element in $G$,
+there must exist an element $a'\in Z(G)$ and an element $g'\in G$ such
+that $\phi(a')=a$ and $\phi(g')=g$.  It then follows that
+\begin{equation*}
+ag=\phi(a')\phi(g')=\phi(a'g')=\phi(g'a')=\phi(g')\phi(a')=ag,
+\end{equation*}
+showing that $a\in Z(G)$.
+Thus far we have shown that $\phi(Z(G))\subseteq Z(G)$.
+But $\phi$ is one-to-one, so $\phi(Z(G))$ cannot be a proper
+subset of $Z(G)$, and therefore, we must have $\phi(Z(G))=Z(G)$.
+Oops, what if $G$ is infinite?
+
+I'm stumped...
+
+\end{document}
