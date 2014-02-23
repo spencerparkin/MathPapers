@@ -90,12 +90,53 @@ It follows that $a=k^{-1}h^{-1}\in KH$.
 If $a\in KH$, then $a=hk$ for some $h\in H$ and $k\in K$.
 It follows that $a^{-1}=h^{-1}k^{-1}\in HK\implies (a^{-1})^{-1}=a\in HK$.
 
+\pagebreak
 \section*{Problem 7}
 
 Let $H$ and $K$ be subgroups of a finite group $G$.  Prove that
 \begin{equation*}
 |HK|=\frac{|H||K|}{|H\cap K|}.
 \end{equation*}
-This is easy to prove when $H\cap K=\{e\}$.  Think about it.
+
+Consider the group $H\oplus K$, and define an equivilance
+relation on it as follows.  For all $a,b\in H\oplus K$,
+let $a\sim b$ if and only if $a_ha_k=b_hb_k$,
+where $a=(a_h,a_k)$ and $b=(b_h,b_k)$.  It is not
+hard to see that this is an equivilance relation
+on $H\oplus K$ that partitions it into $|HK|$
+distinct equivilance classes.  Now consider
+$[(h,k)]$, the equivilance class containing $(h,k)$.
+If $(h',k')\in[(h,k)]$, then $hk=h'k'\implies (h')^{-1}h=k'k^{-1}=x\in H\cap K$,
+showing that
+\begin{equation*}
+[(h,k)]=\{(hx^{-1},xk)|x\in H\cap K\}.
+\end{equation*}
+Furthermore, for any $x,y\in H\cap K$, if $x\neq y$, then
+$(hx^{-1},xk)\neq (hy^{-1},yk)$, showing that
+$|[(h,k)]|=|H\cap K|$.  It now follows that
+\begin{equation*}
+|H||K|=|H\oplus K|=|HK||H\cap K|.
+\end{equation*}
+
+%\section*{Problem 17}
+%
+%Let $p$ be an odd prime.  Show that 1 is the only solution of $x^{p-2}=1$
+%in $U(p)$.
+%
+% This is wrong.  
+%A solution to this equation is an element of $U(p)$ having an
+%order that divides $p-2$, which is odd.  But all elements of
+%$U(p)$, except 1, have even order, because their orders must divide $|U(p)|=\phi(p)=p-1$,
+%which is even.  The only solution, therefore, is 1.
+
+\section*{Progblem 50}
+
+Suppose that $H$ and $K$ are subgroups of a group and that $|H|$ and
+$|K|$ are relatively prime.  Show that $H\cap K=\{e\}$.
+
+Let $a\in H\cap K$.  Then $|a|$ divides $|H\cap K|$, but
+since $|H\cap K|$ divides $|H|$ and $|K|$, we must have $|a|$
+dividing $|H|$ and $|K|$.  But if $\gcd(|H|,|K|)=1$, then
+we must have $|a|=1\implies a=e$.
 
 \end{document}
