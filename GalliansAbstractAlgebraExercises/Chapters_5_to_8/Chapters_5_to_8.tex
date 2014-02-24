@@ -40,11 +40,14 @@ now claim that $\langle a\rangle=\langle \phi(a)\rangle$ by the fundamental
 theorem of cyclic groups, because $G$ has one and only one subgroup of each
 possible order.
 
+\pagebreak
 \section*{Problem 2}
 
 Prove that the center of a group is characteristic.
 
 Let $\phi$ be any automorphism of a group $G$.
+If $Z(G)=G$, then $Z(G)$ is trivially characteristic.
+So assume that $Z(G)$ is a proper subgroup.
 Letting $a$ be an element in $\phi(Z(G))$ and $g$ an element in $G$,
 there must exist an element $a'\in Z(G)$ and an element $g'\in G$ such
 that $\phi(a')=a$ and $\phi(g')=g$.  It then follows that
@@ -53,11 +56,24 @@ ag=\phi(a')\phi(g')=\phi(a'g')=\phi(g'a')=\phi(g')\phi(a')=ag,
 \end{equation*}
 showing that $a\in Z(G)$.
 Thus far we have shown that $\phi(Z(G))\subseteq Z(G)$.
-But $\phi$ is one-to-one, so $\phi(Z(G))$ cannot be a proper
-subset of $Z(G)$, and therefore, we must have $\phi(Z(G))=Z(G)$.
-Oops, what if $Z(G)$ is infinite?
 
-I'm stumped...
+At this point, if $Z(G)$ is finite, then we could argue that
+because $\phi$ is one-to-one, $\phi(Z(G))$ cannot be a proper
+subset of $Z(G)$, and therefore, we must have $\phi(Z(G))=Z(G)$.
+But $Z(G)$ may be infinite.
+
+In any case, let $z\in G$ such that $\phi^{-1}(z)\in G-Z(G)$.
+Suppose now that $z\in Z(G)$.  Then for all $g\in G$, we have
+\begin{equation*}
+\phi^{-1}(z)\phi^{-1}(g)=\phi^{-1}(zg)=\phi^{-1}(gz)=\phi^{-1}(g)\phi^{-1}(z),
+\end{equation*}
+showing that $\phi^{-1}(z)\in Z(G)$, (since $\phi^{-1}$ is onto $G$), which is a contradiction.
+Therefore, $\phi^{-1}(z)\not\in Z(G)\implies z\not\in Z(G)$.
+It follows that
+\begin{equation*}
+z\in Z(G)\implies\phi^{-1}(z)\in Z(G)\implies z\in \phi(Z(G)),
+\end{equation*}
+and we have $Z(G)\subseteq\phi(Z(G))$.
 
 \section*{Problem 4}
 
