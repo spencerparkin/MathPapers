@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 9 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 61}
+
+Suppose that $H$ is a normal subgroup of a finite group $G$.
+If $G/H$ has an element of order $n$, show that $H$ has an element of order $n$.
+Show, by example, that the assumption that $G$ is finite is necessary.
+
+The case $n=1$ is trivial, so let $n>1$.  Let $a\in G$ such that $|aH|=n$.  Clearly $a\neq e$.
+It follows that the mapping $\phi:H\to H$, given by $\phi(h)=a^nh$ is a non-trivial permutation of
+the elements of $H$ and so $\phi$ is a member of the group of permutations of $H$.
+We then see that $a^{|\phi|n}=e$.  But it is easy to see that for all
+integers $i\in [1,|\phi|n-1]$, we have $a^i\neq e$.  So $|a^{|\phi|}|=n$.
+
+\end{document}
