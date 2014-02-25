@@ -28,6 +28,49 @@
 \begin{document}
 \maketitle
 
+\section*{Exercise 1}
+
+Let $H=\{(1),(12)\}$.  Is $H$ normal in $S_3$.
+
+No, $(123)H\neq H(123)$, because $(123)(12)=(13)\neq(23)=(12)(123)$.
+
+\section*{Exercise 2}
+
+Prove that $A_n$ is normal in $S_n$.
+
+Let $\alpha\in A_n$ and let $\beta\in S_n$.  Now notice that $\beta\alpha\beta^{-1}\in A_n$,
+in the case that $\beta$ is an even permutation, or an odd permuation.
+It then follows by Theorem 9.1 that $A_n$ is a normal subgroup of $S_n$.
+
+\section*{Exercise 3}
+
+Show that if $G$ is the internal direct product of $H_1,H_2,\dots,H_n$ and
+$i\neq j$ with $1\leq i\leq n$, $1\leq j\leq n$, then $H_i\cap H_j=\{e\}$.
+
+Without loss of generality, let $i<j$.
+Now notice that
+\begin{equation*}
+H_i\subseteq H_1H_2\dots H_i\dots H_{j-2}H_{j-1}
+\end{equation*}
+and that $H_1H_2\dots H_i\dots H_{j-2}H_{j-1}\cap H_j=\{e\}$.
+It follows that $H_i\cap H_j=\{e\}$.
+
+\section*{Finishing Theorem 9.6}
+
+We are given $\phi(h_1h_2\dots h_n)=(h_1,h_2,\dots,h_n)$.
+It is immediately clear that $\phi$ is onto $H_1\oplus H_2\oplus\dots\oplus H_n$.
+By the uniqueness of representation of elements in $H_1H_2\dots H_n$ already proven,
+it follows that $\phi$ is one-to-one.  That $\phi$ is operation preserving follows
+from the commutativity among disjoint subgroups.  For all integers $i\in[1,n]$,
+for all $a_i,b_i\in H_i$, we have
+\begin{align*}
+ & \phi(a_1a_2\dots a_nb_1b_2\dots b_n) \\
+ =\,&\phi(a_1b_1a_2b_2\dots a_nb_n) \\
+ =\,&(a_1b_1,a_2b_2,\dots,a_nb_n) \\
+ =\,&(a_1,a_2,\dots,a_n)(b_1,b_2,\dots,b_n) \\
+ =\,&\phi(a_1a_2\dots a_n)\phi(b_1b_2\dots b_n).
+\end{align*}
+
 \section*{Exercise 61}
 
 Suppose that $H$ is a normal subgroup of a finite group $G$.
