@@ -97,6 +97,16 @@ Seeing now that for any $a\in G$, we have
 it follows by Theorem 0.6 that the conjugacy classes
 of $G$ partition $G$.
 
+\section*{Problem 5}
+
+Prove that, in any group, $|xax^{-1}|=|a|$.
+
+Let $a_i = (xax^{-1})^i=xa^ix^{-1}$.
+Suppose $a_i=e$ for $0\leq i<|a|$.
+Then $xa^ix^{-1}=e\implies a^i=e$, which is
+a contradiction.  Therefore, since $a_{|a|}=e$,
+we see that $|a_i|=e$.
+
 \section*{Problem 15}
 
 Let $G$ be an Abelian group and let $n$ be a fixed positive integer.  Let
@@ -111,6 +121,25 @@ ab^{-1} = g_a^n(g_b^n)^{-1} = g_a^n(g_b^{-1})^n = (g_ag_b^{-1})^n \in G^n,
 by the Abelian property of $G$.
 
 I'm failing to come up with an example.
+
+\section*{Problem 18}
+
+Prove that the subset of elements of finite order in an Abelian group forms
+a subgroup.  Is the same thing true for non-Abelian groups?
+
+Let $H$ be the said subset of an Abelian group $G$.  Clearly $e\in H$, since $|e|=1$.
+For all $a,b\in H$, we see that
+\begin{equation*}
+(ab)^{|a||b|}=a^{|a|}b^{|b|}=e,
+\end{equation*}
+by the Abelian property of $G$,
+showing that $|ab|$ divides $|a||b|$ and
+therefore $|ab|\leq |a||b|$, so $ab\in H$.
+Lastly, notice that for all $a\in H$, $|a^{-1}|=|a|$,
+so $a^{-1}\in H$.
+
+We need to find an example of two elements having finite
+order whose product has infinite order...
 
 \section*{Problem 26}
 

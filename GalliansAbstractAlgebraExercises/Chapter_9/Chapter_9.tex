@@ -71,6 +71,83 @@ for all $a_i,b_i\in H_i$, we have
  =\,&\phi(a_1a_2\dots a_n)\phi(b_1b_2\dots b_n).
 \end{align*}
 
+\section*{Exercise 7}
+
+Prove that if $H$ has index 2 in $G$, then $H$ is normal in $G$.
+
+The cosets of $H$ in $G$ are $H$ and $xH$ for any $x\in G-H$.
+Now consider $Hx$.  This is $H$ or $xH$.  But it can't be $H$, because $x\not\in H$.
+It must, therefore, be $xH$.
+
+\section*{Exercise 10}
+
+Prove that a factor group of a cyclic group is cyclic.
+
+Let $H$ be a normal subgroup of a cyclic group $G=\langle g\rangle$.
+(All cyclic groups are Abelian and therefore, all subgroups of a cyclic
+group are normal.)  We then see that
+\begin{equation*}
+G/H = \{aH|a\in G\}=\{g^kH|k\in\Z\}=\langle gH\rangle.
+\end{equation*}
+
+\section*{Exercise 11}
+
+Let $H$ be a normal subgroup of $G$.  If $H$ and $G/H$ are Abelian, must $G$
+be Abelian?
+
+No.  Consider $G=D_4$ and $H$ as the subgroup of rotations in $D_4$.
+
+\section*{Exercise 12}
+
+Prove that a factor group of a cyclic group is cyclic.
+
+Let $a,b\in G/H$ with $a=xH$ and $b=yH$ for $x,y\in G$.
+We then have
+\begin{equation*}
+ab=xHyH=xyH=yxH=yHxH=ba.
+\end{equation*}
+
+\section*{Exercise 44}
+
+If $|G|=pq$, where $p$ and $q$ are primes that are not necessarily distinct,
+prove that $|Z(G)|=1$ or $pq$.
+
+If $Z(G)=\{e\}$, we're done.  So suppose $Z(G)\neq\{e\}$.
+Notice that $G$ must have an element of order $q$, since
+if $a\in G$ and $a\neq e$, we have $(a^p)^q=e\implies |a^p|=q$
+by Legrange's Theorem and by Corollary 2 of Theorem 4.1.
+Similarly, $G$ must have an element of order $p$.
+
+Suppose $p\neq q$.  Let $a,b\in G$ be elements of orders $p$ and $q$, respectively.
+Then $\langle a\rangle$ is a normal subgroup
+in $G$, since for all $g\in G-\langle a\rangle$, and any integer $k$, the element
+$ga^kg^{-1}$ has the same order as $a^k$, so we have
+$g\langle a\rangle g^{-1}\subseteq \langle a\rangle$.
+Similarly, $\langle b\rangle$ is normal in $G$.
+Furthermore, it is clear that $\langle a\rangle\cap\langle b\rangle=\{e\}$.
+Now if $x,x'\in\langle a\rangle$ and $y,y'\in\langle b\rangle$, and
+if $xy=x'y'$, then $(x')^{-1}x=y'y^{-1}\in\langle a\rangle\cap\langle b\rangle$,
+so $x=x'$ and $y=y'$, and we see that $\langle a\rangle\langle b\rangle=G$.
+We can now invoke Theorem 9.6, and say that
+\begin{equation*}
+G\approx\langle a\rangle\oplus\langle b\rangle\approx Z_p\oplus Z_q,
+\end{equation*}
+and it follows that $Z(G)=G$ and therefore $|Z(G)|=pq$.
+
+Now suppose $p=q$.  If there exists an element $g\in G$
+with order $pq$, we're done, since $G\approx Z_{p^2}\implies Z(G)=G$.
+So suppose that $G$ has no such element.  Go on...
+
+\section*{Exercise 46}
+
+Let $G$ be an Abelian group and let $H$ be the subgroup consisting
+of all elements of $G$ that have finite order.  Prove that every nonidentity
+element in $G/H$ has infinite order.
+
+Let $a\in G/H$ be a non-identity element.  Then there exists $g\in G$ such
+that $a=gH$.  Clearly $g\not\in H$ by Property 2 of the Lemma for Theorem 7.1.
+It follows that $|g|=\infty$.
+
 \section*{Exercise 61}
 
 Suppose that $H$ is a normal subgroup of a finite group $G$.
@@ -82,5 +159,19 @@ It follows that the mapping $\phi:H\to H$, given by $\phi(h)=a^nh$ is a non-triv
 the elements of $H$ and so $\phi$ is a member of the group of permutations of $H$.
 We then see that $a^{|\phi|n}=e$.  But it is easy to see that for all
 integers $i\in [1,|\phi|n-1]$, we have $a^i\neq e$.  So $|a^{|\phi|}|=n$.
+
+\section*{Exercise 62}
+
+Do it...
+
+\section*{Exercise 65}
+
+If $|G|=30$ and $|Z(G)|=5$, what is the
+structure of $G/Z(G)?$.
+
+Note that $|G/Z(G)|=30/5=6=2\cdot 3$.
+It follows from Theorem 7.2 that $G/Z(G)$
+is isomorphic to $Z_6$ or $D_3$.  Erf...which one?
+Think about it.
 
 \end{document}
