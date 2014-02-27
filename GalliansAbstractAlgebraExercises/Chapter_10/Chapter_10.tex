@@ -42,23 +42,40 @@ Let $N$ be a normal subgroup of a group $G$.
 Then for any $g\in G$ and any $n\in N$,
 there exists $n'\in N$ such that $gn=n'g$ or such that $ng=gn'$.
 
+\section*{Lemma 3}
+
+Let $G$ be a group and let $n$ be a positive integer.
+Then the number of elements in $G$ of order $n$, if any,
+is divisible by $\phi(n)$, the totient of $n$.
+
+Suppose $G$ has one or more elements of order $n$.
+Let $N$ be the set $\{x\in G||x|=n\}$.  Then, for any pair
+of elements $a,b\in N$, let $a\sim b$ if and only if $a\in\langle b\rangle$.
+This defines an equivilance relation on $N$, since $a\in\langle a\rangle$ gives us
+the reflexive property, since $a\in\langle b\rangle\implies b\in\langle a\rangle$ gives
+us the symmetric property, and since $a\in\langle b\rangle$ and, for $c\in N$, $b\in\langle c\rangle$ implies
+that $a\in\langle c\rangle$, giving us the transitive property.  We now note that
+by Theorem 4.4, the size of each equivilance class is $\phi(n)$.
+It follows that the number of elements of order $n$ is $G$ is
+$s\phi(n)$, where $s$ is the number of equivilance classes.
+
 \section*{Exercise 39}
 
 If $K$ is a subgroup of $G$ and $N$ is a normal subgroup of $G$,
 prove that $K/(K\cap N)$ is isomorphic to $KN/N$.
 
-Notice that the normality of the subgroup $K\cap N$ in $K$ is
-implied in the problem statement.  (I do not believe that
-$(K\cap N)$ is normal in $K$ generally.)
+Notice that the normality of the subgroup $K\cap N$ in $K$ is proven
+by the problem similar to Exercise 50 in Chapter 9.
 
-It can be shown, however, that $KN$ is a group, and if a group,
-clearly $N$ is normal in $KN$.
+We now show that $KN$ is a group.
 Let $x\in KN$.  Then $x=kn$ for some $k\in K$ and $n\in N$.
 But then by Lemma 2 above, $x=n'k\in NK$ for some $n'\in N$.
 It follows that $KN\subseteq NK$.
 Similarly, we can show that $NK\subseteq KN$, so $NK=KN$.
 It then follows by Exercise 6 of the supplementary exercises
 for chapters 5 through 8 that $NK$ is a group.
+
+Is $N$ normal in $KN$?
 
 We now let $\phi:K/(K\cap N)\to KN/N$ be a function defined as
 \begin{equation*}
@@ -67,7 +84,9 @@ We now let $\phi:K/(K\cap N)\to KN/N$ be a function defined as
 and show that it is a homomorphism.  Let us first verify that this
 is a well defined function.  Let $a,b\in K$ such that $a(K\cap N)=b(K\cap N)$.
 Then $ab^{-1}\in K\cap N\subseteq N$, showing that $aN=bN$.
-Then, by the normality of $N$ and $N\cap K$, we see that
+
+We now show that $\phi$ is operation preserving.
+By the normality of $N$ and $N\cap K$, we see that
 \begin{align*}
  & \phi(a(K\cap N)b(K\cap N)) \\
 =\,& \phi(ab(K\cap N)) \\
@@ -84,5 +103,10 @@ We now consider the kernel of $\phi$.  Notice that
 \end{align*}
 It follows that $\phi$ is an isomorphism by Property 9
 of Theorem 10.2.
+
+\section*{Exercise 40}
+
+If $M$ and $N$ are normal subgroups of $G$ and $N\leq M$, prove
+that $(G/N)/(M/N)\approx G/M$.
 
 \end{document}

@@ -134,6 +134,27 @@ Let $a\in G/H$ be a non-identity element.  Then there exists $g\in G$ such
 that $a=gH$.  Clearly $g\not\in H$ by Property 2 of the Lemma for Theorem 7.1.
 It follows that $|g|=\infty$.
 
+\section*{Exercise 50}
+
+Show that the intersection of two normal subgroups of $G$ is a normal subgroup of $G$.
+
+Let $H$ and $K$ be normal subgroups of $G$.  We know that $H\cap K$ is a subgroup
+of $G$ by a previous problem from a previous chapter.  Let $g\in G$ and let
+$x\in H\cap K$.  Then $gxg^{-1}\in H$ by the normality of $H$ and $gxg^{-1}\in K$
+by the normality of $K$.  It follows that $gxg^{-1}\in H\cap K$ and so $H\cap K$
+is normal in $G$.
+
+\section*{Problem similar to Exercise 50}
+
+Gallian himself helped me with this in relation to another problem.
+We prove the following statement.  If $K$ and $N$ are subgroups of a group
+$G$ with $N$ normal in $G$, then $K\cap N$ is normal in $G$.  ($K$ is not necessarily
+normal in $G$.)
+
+Let $x$ belong to $K\cap N$ and let $k$ belong to $K$.  Then, by closure, $kxk^{-1}\in K$,
+and by the normality of $N$, we have $kxk^{-1}\in N$.  It follows now that $N\cap K$
+is normal in $K$.
+
 \section*{Exercise 51}
 
 Let $N$ be a normal subgroup of $G$ and let $H$
