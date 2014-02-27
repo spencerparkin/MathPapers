@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 10 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+
+\begin{document}
+\maketitle
+
+\section*{Lemma 1}
+
+Let $H$ be a proper subgroup of $G$.  Then
+for all $g\in G-H$ and all $h\in H$, $gh\in G-H$.
+
+Suppose $gh=h'\in H$.  Then $g=h'h^{-1}\in H$,
+which is a contradiction.  Therefore, $gh\in G-H$.
+
+\section*{Lemma 2}
+
+Let $N$ be a normal subgroup of a group $G$.
+Then for any $g\in G$ and any $n\in N$,
+there exists $n'\in N$ such that $gn=n'g$ or such that $ng=gn'$.
+
+\section*{Exercise 39}
+
+If $K$ is a subgroup of $G$ and $N$ is a normal subgroup of $G$,
+prove that $K/(K\cap N)$ is isomorphic to $KN/N$.
+
+Notice that the normality of the subgroup $K\cap N$ in $K$ is
+implied in the problem statement.  (I do not believe that
+$(K\cap N)$ is normal in $K$ generally.)
+
+It can be shown, however, that $KN$ is a group, and if a group,
+clearly $N$ is normal in $KN$.
+Let $x\in KN$.  Then $x=kn$ for some $k\in K$ and $n\in N$.
+But then by Lemma 2 above, $x=n'k\in NK$ for some $n'\in N$.
+It follows that $KN\subseteq NK$.
+Similarly, we can show that $NK\subseteq KN$, so $NK=KN$.
+It then follows by Exercise 6 of the supplementary exercises
+for chapters 5 through 8 that $NK$ is a group.
+
+We now let $\phi:K/(K\cap N)\to KN/N$ be a function defined as
+\begin{equation*}
+\phi(k(K\cap N))=kN,
+\end{equation*}
+and show that it is a homomorphism.  Let us first verify that this
+is a well defined function.  Let $a,b\in K$ such that $a(K\cap N)=b(K\cap N)$.
+Then $ab^{-1}\in K\cap N\subseteq N$, showing that $aN=bN$.
+Then, by the normality of $N$ and $N\cap K$, we see that
+\begin{align*}
+ & \phi(a(K\cap N)b(K\cap N)) \\
+=\,& \phi(ab(K\cap N)) \\
+ =\,& abN=aNbN \\
+ =\,& \phi(a(K\cap N))(\phi(b(K\cap N)),
+\end{align*}
+showing that $\phi$ is operation preserving.
+
+We now consider the kernel of $\phi$.  Notice that
+\begin{align*}
+\ker\phi &= \{k(K\cap N)\in K/(K\cap N)|k\in N\}, \\
+ &= \{k(K\cap N)\in K/(K\cap N)|k\in K\cap N\}, \\
+ &= \{K\cap N\}.
+\end{align*}
+It follows that $\phi$ is an isomorphism by Property 9
+of Theorem 10.2.
+
+\end{document}
