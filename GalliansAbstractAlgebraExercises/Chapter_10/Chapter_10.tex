@@ -59,6 +59,25 @@ by Theorem 4.4, the size of each equivilance class is $\phi(n)$.
 It follows that the number of elements of order $n$ is $G$ is
 $s\phi(n)$, where $s$ is the number of equivilance classes.
 
+Oh, I had already read this in the book as the Corollary to Theorem 4.4.
+
+\section*{Exercise 38}
+
+For each pair of positive integers $m$ and $n$, we can define a homomorphism
+from $Z$ to $Z_m\oplus Z_n$ by $x\to (x\bmod m, x\bmod n)$.  What is the
+kernel when $(m,n)=(3,4)$?  What is the kernel when $(m,n)=(6,4)$?
+Generalize.
+
+Let $\phi:Z\to Z_m\oplus Z_n$ be the homomorphism.  Seeing that
+\begin{align*}
+\ker\phi&=\{x\in Z|\mbox{$x\equiv 0\pmod m$ and $x\equiv 0\pmod n$}\} \\
+ &=\{zm|z\in Z\}\cap\{zn|z\in Z\},
+\end{align*}
+it follows that
+\begin{equation*}
+\ker\phi=\{z\lcm(m,n)|z\in Z\}.
+\end{equation*}
+
 \section*{Exercise 39}
 
 If $K$ is a subgroup of $G$ and $N$ is a normal subgroup of $G$,
@@ -108,5 +127,74 @@ of Theorem 10.2.
 
 If $M$ and $N$ are normal subgroups of $G$ and $N\leq M$, prove
 that $(G/N)/(M/N)\approx G/M$.
+
+Notice that $M/N$ is a subgroup of $G/N$.  To see that $M/N$ is normal in $G/N$,
+let $g\in G$ and let $m\in M$, and see that
+\begin{equation*}
+gNmN(gN)^{-1}=gmNg^{-1}N=gmg^{-1}N\in M/N,
+\end{equation*}
+since $gmg^{-1}\in M$ by the normality of $M$ in $G$.
+
+Now consider the mapping $\phi:(G/N)/(M/N)\to G/M$, defined as
+\begin{equation*}
+\phi(xN(M/N))=yM,
+\end{equation*}
+where $y$ is any element in the coset $xN$.  Let us now show that
+this is a well defined mapping.  Let $a,b\in G$ such that
+$aN(M/N)=bN(M/N)$.  It follows that $aN(bN)^{-1}=ab^{-1}N\in M/N\implies ab^{-1}\in M$.
+Now let $aN(M/N)$ map to $a'M$ and $bN(M/N)$ map to $b'M$.
+Now if $a'\in aN\subseteq aM$, then $a'M=aM$.
+Similarly, if $b'\in bN\subseteq bM$, then $b'M=bM$.
+But now since $ab^{-1}\in M$, we see that $aM=bM$, so $a'M=b'M$.
+
+Notice that the proof that $\phi$ is well defined also lets us simplify its usage.
+That is, for any $x\in G$, we can let $xN(M/N)$ map to $xM$.  This will greatly
+ease the remainder of our proof.
+
+We now show that $\phi$ is operation preserving.  Letting $a,b\in G$, we have
+\begin{align*}
+ & \phi(aN(M/N)bN(M/N)) \\
+ =\,& \phi(aNbN(M/N)) \\
+ =\,& \phi(abN(M/N)) \\
+ =\,& abM = aMbM \\
+ =\,& \phi(aN(M/N))\phi(bN(M/N)).
+\end{align*}
+
+We now consider the kernel of $\phi$.  We have
+\begin{align*}
+\ker\phi &=\{gN(M/N)|\mbox{$g\in G$ and $\phi(gN)=M$}\} \\
+ &= \{gN(M/N)|g\in M\}.
+\end{align*}
+Now let $a,b\in M$ and consider $aN(M/N)$ and $bN(M/N)$.
+Since $a,b\in M$, we have $ab^{-1}N\in M/N$,
+which, in turn, implies that $aN(bN)^{-1}\in M/N\implies aN(M/N)=bN(M/N)$.
+It follows that $|\ker\phi|=1$, and therefore, $\phi$ is an isomorphism.
+
+\section*{Exercise 47}
+
+Suppose that for each prime $p$, $Z_p$ is the homomorphic image of a group $G$.
+What can we say about $|G|$?  Give an example of such a group.
+
+By Property 6 of Theorem 10.2, we see that $|\phi(G)|$ divides the order of $|G|$.
+So, since $\phi(G)=Z_p$, we see that $p$ divides $|G|$.
+
+An automorphism of $Z_p$ may be a trivial example.
+
+After reading the answer in the back of the book, I'm wrong, because I did not understand
+the problem statement.  For {\it every} prime $p$, $Z_p$ is {\it a} homomorphic image of {\it the}
+group $G$.  So by Property 6 of Theorem 10.2, every prime $p$ divides $|G|$; and since
+there are infinitely many primes, $|G|=\infty$.
+
+\section*{Exercise 52}
+
+Let $\alpha$ and $\beta$ be group homomorphisms from $G$ to $\overline{G}$ and let
+$H=\{g\in G|\alpha(g)=\beta(g)\}$.  Prove or disprove that $H$ is a subgroup of $G$.
+
+Clearly $e\in H$ by Property 1 of Theorem 10.1.
+Now let $a,b\in H$.  We then have
+\begin{equation*}
+\alpha(ab^{-1})=\alpha(a)\alpha(b)^{-1}=\beta(a)\beta(b)^{-1}=\beta(ab^{-1}),
+\end{equation*}
+showing that $ab^{-1}\in H$.  So I think it's a subgroup of $G$.
 
 \end{document}
