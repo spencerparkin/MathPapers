@@ -219,6 +219,24 @@ gN\in\phi^{-1}(K)/N\iff g\in\phi^{-1}(K)\iff\phi(g)\in K\iff gN\in K.
 \end{equation*}
 It follows that $H/N=K$.
 
+\section*{Exercise 50}
+
+Show that a homomorphism defined on a cyclic group is completely determined by its action on a generator of the group.
+
+Let $\phi:G\to\overline{G}$ be a homomorphism of the cyclic group $G=\langle g\rangle$.
+Then $\phi(g^k)=\phi(g)^k$.
+
+\section*{Exercise 51}
+
+Use the First Isomorphism Theorem to prove Theorem 9.4.
+
+We want to show that for any group $G$, $G/Z(G)\approx\inn(G)$.
+To that end, let $\phi_g(x)=gxg^{-1}\in\inn(G)$, and define $\psi(g)=\phi_g$.
+It is clear that $\psi$ is a homomorphism from $G$ onto $\inn(G)$.
+Now realize that $\psi(g)=\phi_e$ if and only if $gxg^{-1}=e$,
+showing that $\ker\psi=Z(G)$.  It now follows from Theorem 9.4
+that $G/G(Z)=G/\ker\psi\approx\psi(G)=\inn(G)$.
+
 \section*{Exercise 52}
 
 Let $\alpha$ and $\beta$ be group homomorphisms from $G$ to $\overline{G}$ and let
@@ -230,5 +248,43 @@ Now let $a,b\in H$.  We then have
 \alpha(ab^{-1})=\alpha(a)\alpha(b)^{-1}=\beta(a)\beta(b)^{-1}=\beta(ab^{-1}),
 \end{equation*}
 showing that $ab^{-1}\in H$.  So I think it's a subgroup of $G$.
+
+\section*{Exercise 54}
+
+If $H$ and $K$ are normal subgroups of $G$ and $H\cap K=\{e\}$, prove that $G$
+is isomorphic to a subgroup of $G/H\oplus G/K$.
+
+Let $\phi(g)=(gH,gK)$.  It is clear that $\phi$ is a homomorphism from $G$
+to $G/H\oplus G/K$.  Then, by property 1 of Theorem 10.2, we see that
+$\phi(G)$ is a subgroup of $G/H\oplus G/K$.  We will now show that $G\approx\phi(G)$,
+and do so by showing that $\phi$ is an isomorphism between $G$ and $\phi(G)$.
+Notice that $\phi$ is clearly onto.  We already know it is operation preserving.
+All that remains to be shown then is that $\phi$ is one-to-one.  So, let $a,b\in G$ such that
+$(aH,aK)=(bH,bK)$.  Then $aH=bH$ and $aK=bK$, so $ab^{-1}\in H$ and $ab^{-1}\in K$.
+It follows that $ab^{-1}\in H\cap K\implies ab^{-1}=e\implies a=b$, showing that
+$\phi$ is one-to-one.
+
+\section*{Exercise 55}
+
+Suppose that $H$ and $K$ are distinct subgroups of $G$ of index 2.  Prove that
+$H\cap K$ is a normal subgroup of $G$ of index 4 and that $G/(H\cap K)$ is not cyclic.
+
+It is easy to show that both $H$ and $K$ are normal in $G$.  By symmetry of the
+problem, we need only show that $H$ is normal in $G$.  (The proof for $K$ is similar.)
+Let $g\in G-H$.  Then $gH\neq H$ and $Hg\neq H$.  But $gH$ is the only remaining
+of the 2 cosets of $H$ in $G$, so $gH=Hg$, and therefore $H$ is normal in $G$.
+
+We then see that $H\cap K$ is normal in $G$ by Exercise 50 of chapter 9.
+
+At this point I had to peak at the back of the book to get some hints.
+By Exercise 39 in this chapter, we see that $K/(K\cap H)\approx KH/H$,
+so $|K|/|K\cap H|=|KH|/|H|$.  But $|H|=|K|=|G|/2$, so we see that
+$|G|^2/4=|KH||K\cap H|$.  Now realize that $|KH|=|G|$, because $K\neq H\implies |HK|>|G|/2$,
+and $KH=HK$ implies that $HK$ is a subgroup of $G$, and so $|HK|$ divides $|G|$.
+
+Lastly, the back of the book says that $G/(H\cap K)$ has two subgroups of order 2,
+which clearly means that it can't by cyclic by the Fundamental Theorem of Cyclic Groups.
+To which two subgroups of $G/(H\cap K)$ is Gallian refering?  I'm not entirely sure,
+and need to go to bed.
 
 \end{document}
