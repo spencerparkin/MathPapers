@@ -61,6 +61,18 @@ $s\phi(n)$, where $s$ is the number of equivilance classes.
 
 Oh, I had already read this in the book as the Corollary to Theorem 4.4.
 
+\section*{Lemma 4}
+
+If $N$ is a normal subgroup of a group $G$ and
+$gN$ for some $g\in G$ is a coset in $G/N$, then
+for any $g'\in gN$, we have $gN=g'N$.
+
+If $g'\in gN$, then there exists $n\in N$ such that $g'=gn$.
+Then $g'g^{-1}=gng^{-1}\in N$ by the normality of $N$ in $G$,
+and it follows that $gN=g'N$ by Property 4 of the Lemma on cosets
+in Chapter 7.  Thus any member of a coset can act as a representative
+of the coset.
+
 \section*{Exercise 38}
 
 For each pair of positive integers $m$ and $n$, we can define a homomorphism
@@ -184,6 +196,28 @@ After reading the answer in the back of the book, I'm wrong, because I did not u
 the problem statement.  For {\it every} prime $p$, $Z_p$ is {\it a} homomorphic image of {\it the}
 group $G$.  So by Property 6 of Theorem 10.2, every prime $p$ divides $|G|$; and since
 there are infinitely many primes, $|G|=\infty$.
+
+\section*{Exercise 49}
+
+Let $N$ be a normal subgroup of a group $G$.  Use property 7 of Theorem 10.2
+to prove that every subgroup of $G/N$ has the form $H/N$, where $H$ is a subgroup
+of $G$.
+
+For every subgroup $H$ of $G$ with $N\leq H$, it is clear that $N$ is normal in $H$
+and that $H/N\leq G/N$.  Now let's consider what is somewhat the converse of this.
+For every subgroup $K$ of $G/N$, does there exists a subgroup $H$ of $G$
+such that $K=H/N$?
+
+Let $\phi:G\to G/N$ be defined as $\phi(g)=gN$.  This is well defined
+and operation preserving, so it is a homomorphism from $G$ to $G/N$.
+Then, by property 7 of Theorem 10.2, we see that $\phi^{-1}(K)$ is a
+subgroup of $G$.  Now notice that if $n\in N$, then $\phi(n)=nN=N\in K$,
+showing that $N\leq\phi^{-1}(K)$.  It follows that $N$ is normal in $\phi^{-1}(K)$.
+Letting $H=\phi^{-1}(K)$, what remains to be shown now is that $H/N=K$.  Letting $g\in G$, we have
+\begin{equation*}
+gN\in\phi^{-1}(K)/N\iff g\in\phi^{-1}(K)\iff\phi(g)\in K\iff gN\in K.
+\end{equation*}
+It follows that $H/N=K$.
 
 \section*{Exercise 52}
 
