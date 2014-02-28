@@ -258,7 +258,7 @@ Let $\phi(g)=(gH,gK)$.  It is clear that $\phi$ is a homomorphism from $G$
 to $G/H\oplus G/K$.  Then, by property 1 of Theorem 10.2, we see that
 $\phi(G)$ is a subgroup of $G/H\oplus G/K$.  We will now show that $G\approx\phi(G)$,
 and do so by showing that $\phi$ is an isomorphism between $G$ and $\phi(G)$.
-Notice that $\phi$ is clearly onto.  We already know it is operation preserving.
+Notice that $\phi$ is clearly onto $\phi(G)$, of course.  We already know it is operation preserving.
 All that remains to be shown then is that $\phi$ is one-to-one.  So, let $a,b\in G$ such that
 $(aH,aK)=(bH,bK)$.  Then $aH=bH$ and $aK=bK$, so $ab^{-1}\in H$ and $ab^{-1}\in K$.
 It follows that $ab^{-1}\in H\cap K\implies ab^{-1}=e\implies a=b$, showing that
@@ -284,7 +284,8 @@ and $KH=HK$ implies that $HK$ is a subgroup of $G$, and so $|HK|$ divides $|G|$.
 
 Lastly, the back of the book says that $G/(H\cap K)$ has two subgroups of order 2,
 which clearly means that it can't by cyclic by the Fundamental Theorem of Cyclic Groups.
-To which two subgroups of $G/(H\cap K)$ is Gallian refering?  I'm not entirely sure,
-and need to go to bed.
+To which two subgroups of $G/(H\cap K)$ is Gallian refering?  I think it's
+$\{(H\cap K),h(H\cap K)\}$ where $h\in H$, but $h\not\in K$, and then
+something similar for the other group.  I need to think about it more.
 
 \end{document}
