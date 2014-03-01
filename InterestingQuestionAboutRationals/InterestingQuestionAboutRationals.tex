@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\spn}{\mbox{span}\;}
+
+\title{An Interesting Question About\\The Rationals $\Q$}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+\section*{The Question}
+
+Let $\Q$ denote the set of rational numbers and $\Z$ the integers.
+For any set $S$ of rationals numbers, let the span of $S$ be defined as the set
+\begin{equation*}
+\spn S = \{z_1q_1+z_2q_2+\dots|z_i\in\Z\},
+\end{equation*}
+where $S=\{q_1,q_2,\dots\}$ is any enumeration of $S$, a finite
+or countably infinite set of rational numbers.
+If the cardinality of $S$ is greater than 1, say that such a set $S$ is
+linearly independent if and only if for all
+integers $k>1$, $q_k\not\in\spn\{q_1,q_2,\dots,q_{k-1}\}$.
+
+Now here's the question: is $\Q$ the span of every or any linearly
+independent and countably infinite set of rational numbers?
+
+\section*{Motivation For The Question}
+
+This question came about while trying to show that no proper subgroup
+of $\Q$ under addition is maximal.  Given any proper subgroup $H$ of $\Q$,
+it is easy to find a subgroup $K$ of $\Q$ containing $H$ properly, but it is
+not at all obvious that $K$ is a proper subgroup of $\Q$.
+
+Letting $H$ be a proper subgroup of $\Q$, if $q\in\Q-H$, it is easy to show that $H+Z(q)$
+properly contains $H$ and is a subgroup of $\Q$, where
+$Z(q)=\{zq|z\in\Z\}$ and $H+Z(q)=\{h+q'|\mbox{$h\in H$ and $q'\in Z(q)$}\}$.
+Now notice that $q/2\not\in H$ and $q/2\not\in Z(q)$.
+But it is not at all clear whether $q/2\in H+Z(q)$.  Suppose it is.
+Then there exists $h\in H$ and $z\in\Z$ such that $q/2=h+zq$.
+Rearranging, we find that $2h=(1-2z)q$.  Since $1-2z$ is never zero, this would imply that
+the intersection of $H$ and $Z(q)$ is a non-trivial group.
+
+Taking a step back for a moment, realize that if $q\in H$,
+then $Z(q)$ is a subgroup of $H$.  Now suppose that $q\not\in H$,
+but that there exists $q'\in H\cap Z(q)$ where $q'\neq 0$.
+Then $Z(q')$ is a subgroup of $H\cap Z(q)$ and it follows that
+some multiple of $q$, (namely, $q'=zq$ for some $|z|>1$), is in $H$.
+
+Taking a step back again, can we always find $q\in\Q-H$ such that
+$Z(q)\cap H$ is empty?  I have no idea, but if we could always find
+such a $q$, then a proof would go through.
+
+\end{document}
