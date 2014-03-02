@@ -14,46 +14,29 @@
 \begin{document}
 \maketitle
 
-\section*{The Question}
+\section*{Axiom}
 
-Let $\Q$ denote the set of rational numbers and $\Z$ the integers.
-For any set $S$ of rationals numbers, let the span of $S$ be defined as the set
-\begin{equation*}
-\spn S = \{z_1q_1+z_2q_2+\dots|z_i\in\Z\},
-\end{equation*}
-where $S=\{q_1,q_2,\dots\}$ is any enumeration of $S$, a finite
-or countably infinite set of rational numbers.
-If the cardinality of $S$ is greater than 1, say that such a set $S$ is
-linearly independent if and only if for all
-integers $k>1$, $q_k\not\in\spn\{q_1,q_2,\dots,q_{k-1}\}$.
+For any $q\in\Q$, let $Z(q)$ denote the set $\{zq|z\in\Z\}$.
+Then for any proper subgroup $H$ of the rationals $\Q$ under addition,
+there exists $q\in \Q-H$ such that $Z(q)\cap H$ is the trivial
+subgroup of $\Q$.
 
-Now here's the question: is $\Q$ the span of every or any linearly
-independent and countably infinite set of rational numbers?
+\section*{The Problem}
 
-\section*{Motivation For The Question}
+Show that no proper subgroup $H$ of $\Q$ is maximal.
 
-This question came about while trying to show that no proper subgroup
-of $\Q$ under addition is maximal.  Given any proper subgroup $H$ of $\Q$,
-it is easy to find a subgroup $K$ of $\Q$ containing $H$ properly, but it is
-not at all obvious that $K$ is a proper subgroup of $\Q$.
+If $q\in\Q-H$, it is easy to show that $H+Z(q)$
+properly contains $H$ and is a subgroup of $\Q$.
+Let $q\in\Q-H$ be an element of $\Q$ such that $Z(q)\cap H$
+is the trivial group.  This can be done by the axiom above.
 
-Letting $H$ be a proper subgroup of $\Q$, if $q\in\Q-H$, it is easy to show that $H+Z(q)$
-properly contains $H$ and is a subgroup of $\Q$, where
-$Z(q)=\{zq|z\in\Z\}$ and $H+Z(q)=\{h+q'|\mbox{$h\in H$ and $q'\in Z(q)$}\}$.
-Now notice that $q/2\not\in H$ and $q/2\not\in Z(q)$.
-But it is not at all clear whether $q/2\in H+Z(q)$.  Suppose it is.
-Then there exists $h\in H$ and $z\in\Z$ such that $q/2=h+zq$.
-Rearranging, we find that $2h=(1-2z)q$.  Since $1-2z$ is never zero, this would imply that
-the intersection of $H$ and $Z(q)$ is a non-trivial group.
-
-Taking a step back for a moment, realize that if $q\in H$,
-then $Z(q)$ is a subgroup of $H$.  Now suppose that $q\not\in H$,
-but that there exists $q'\in H\cap Z(q)$ where $q'\neq 0$.
-Then $Z(q')$ is a subgroup of $H\cap Z(q)$ and it follows that
-some multiple of $q$, (namely, $q'=zq$ for some $|z|>1$), is in $H$.
-
-Taking a step back again, can we always find $q\in\Q-H$ such that
-$Z(q)\cap H$ is empty?  I have no idea, but if we could always find
-such a $q$, then a proof would go through.
+What remains to be shown is that $H+Z(q)$ is a proper
+subgroup of $\Q$.  Suppose $\Q=H+Z(q)$.
+Notice that $q/2\not\in H$, (since this would imply that $q\in H$), and $q/2\not\in Z(q)$.
+Yet we must have $q/2=zq+h$ for some $h\in H$ and $z\in\Z$.
+Rearranging, we have $2h=(1-2z)q$.  Now since $2h\in H$
+and $(1-2z)q\in Z(q)$, we must have $2h=(1-2z)q\in Z(q)\cap H$ which
+implies that $h=0$ and $q=0$.  But this contradicts the facts that
+$q\not\in H$ and $q/2\not\in Z(q)$.  So $H+Z(q)$ is a proper subgroup of $\Q$.
 
 \end{document}
