@@ -35,4 +35,49 @@ By Exercise 40 of Chapter 10 (The Third Isomorphism Theorem), we
 see that $(Z/\langle n\rangle)/(\langle k\rangle/\langle n\rangle)\approx Z/\langle k\rangle$.
 What more is there to say?
 
+\section*{Exercise 30}
+
+Let $G$ be a group and let $\phi:G\to G$ be a function such that
+\begin{equation*}
+\phi(g_1)\phi(g_2)\phi(g_3) = \phi(h_1)\phi(h_2)\phi(h_3)
+\end{equation*}
+whenever $g_1g_2g_3=e=h_1h_2h_3$.  Prove that there exists an element of $a$
+in $G$ such that $\Psi(x)=a\phi(x)$ is a homomorphism.
+
+If $a=e\in G$ and $u,v\in G$, then
+\begin{equation*}
+\Psi((uv)^{-1})\Psi(u)\Psi(v) = e\implies \Psi(v^{-1}u^{-1})=\Psi(v)^{-1}\Psi(v)^{-1}.
+\end{equation*}
+
+Hmmm...  Can we somehow show that $\Psi$ is a homomorphism here?
+We cannot use homomorphic properties of $\Psi$ before we know that it's
+a homomorphism.
+
+\section*{Exercise 36}
+
+A proper subgroup $H$ of a group $G$ is called {\it maximal} if there is no
+subgroup $K$ such that $H\subset K\subset G$.  Prove that $Q$ under
+addition has no maximal subgroups.
+
+For any $q\in Q$, let $Z(q)$ denote the set $\{zq|z\in\Z\}$.
+Then for any proper subgroup $H$ of the rationals $Q$ under addition,
+we will assume that there exists $q\in Q-H$ such that $Z(q)\cap H$ is the trivial
+subgroup of $Q$.  (How might I prove that this is true, if it's true?  It is
+easy to show that $H$ has no upper bound on the set of its non-members in $Q$.
+We can then find a finite sequence of any length where the elements are evenly spaced
+and the sequence misses $H$ altogether.  But none of these has the form $Z(q)$ for some $q\in Q-H$.)
+
+Now if $q\in Q-H$, it is easy to show that $H+Z(q)$
+properly contains $H$ and is a subgroup of $Q$.
+Let $q\in Q-H$ be an element of $Q$ such that $Z(q)\cap H$
+is the trivial group.  This can be done by our assumption above.
+What remains to be shown is that $H+Z(q)$ is a proper
+subgroup of $Q$.  Suppose $Q=H+Z(q)$.
+Notice that $q/2\not\in H$, (since $q/2\in H$ would imply that $q\in H$), and $q/2\not\in Z(q)$.
+Yet we must have $q/2=zq+h$ for some $h\in H$ and $z\in\Z$.
+Rearranging, we have $2h=(1-2z)q$.  Now since $2h\in H$
+and $(1-2z)q\in Z(q)$, we must have $2h=(1-2z)q\in Z(q)\cap H$ which
+implies that $h=0$ and $q=0$.  But this contradicts the facts that
+$q\not\in H$ and $q/2\not\in Z(q)$.  So $H+Z(q)$ is a proper subgroup of $Q$.
+
 \end{document}
