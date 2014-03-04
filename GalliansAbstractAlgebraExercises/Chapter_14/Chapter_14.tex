@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 14 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+\newcommand{\chr}{\mbox{char}\,}
+
+\begin{document}
+\maketitle
+
+\section*{Understanding Example 7}
+
+Let $R$ be the ring of all real-valued functions of a real variable.
+The subset $S$ of all differentiable functions is a subgring of $R$
+but not an ideal of $R$.
+
+Let $f$ be any real-valued function of a real variable that is not differential and let $g$
+be such a function that is differentiable.  Now notice that the
+function $h(x)=f(x)g(x)$ is not differentiable.
+
+\section*{Understanding Example 15}
+
+If it can be shown that $A$ contains a non-zero real number $c$, then,
+by virtue of being an ideal, it absorbs all elements of $R[x]$,
+so all $f(x)c$ with $f(x)\in R[x]$ is all of $R[x]$, showing that $A=R[x]$.
+
+\section*{Exercise 3}
+
+Verify that the set $I$ in Example 5 is an ideal and that if $J$ is any ideal
+of $R$ that contains $a_1,a_2,\dots,a_n$, then $I\subseteq J$.
+(Hence, $\langle a_1,a_2,\dots,a_n\rangle$ is the smallest ideal of $R$
+that contains $a_1,a_2,\dots,a_n$.)
+
+For reference, note that
+\begin{equation*}
+I=\langle a_1,a_2,\dots,a_n\rangle=\{r_1a_1+r_2a_2+\dots+r_na_n|r_i\in R\}.
+\end{equation*}
+
+Clearly $0\in I$.  If $x,y\in I$, then for elements $x_1,x_2,\dots,x_n\in R$
+and elements $y_1,y_2,\dots,y_n\in R$, we have
+\begin{align*}
+x-y&=x_1a_1+x_2a_2+\dots+x_na_n-(y_1a_1+y_2a_2+\dots+y_na_n) \\
+ &= (x_1-y_1)a_1+(x_2-y_2)a_2+\dots+(x_n-y_n)a_n \in I,
+\end{align*}
+since each $x_i-y_i\in R$.  Letting $r\in R$, we have
+\begin{equation*}
+rx = rx_1a_1+rx_2a_2+\dots+rx_na_n\in I,
+\end{equation*}
+since each $rx_i\in R$.
+
+Now let $J$ be an ideal of $R$ containing $a_1,a_2,\dots,a_n$,
+and let $x$ be any element of $I$.  As before, let $x=x_1a_1+x_2a_2+\dots+x_na_n$.
+Now by the definition of what an ideal is, it is clear that each $x_ia_i\in J$, because
+$x_i\in R$ and $a_i\in J$.  Furthermore, $x\in J$, because each $x_ia_i\in J$ and $J$ is a group.
+
+\section*{Exercise 7}
+
+Let $a$ belong to a commutative ring $R$.  Show that $aR=\{ar|r\in R\}$
+is an ideal of $R$.  If $R$ is the ring of even integers, list the elements of $4R$.
+
+Clearly the additive identity is in $aR$, since $0=a\cdot 0$.
+Let $x,y\in aR$.  Then there exist elements $r_x,r_y\in R$ such that $x=ar_x$ and $y=ar_y$.
+We then have $x-y=ar_x-ar_y=a(r_x-r_y)\in aR$ since $r_x-r_y\in R$.
+Now let $r\in R$ and see that $rx=rar_x=arr_x\in aR$ since $rr_x\in R$.
+It follows that $aR$ is an ideal of $R$.
+
+In that case, $4R=\{0, \pm 8, \pm 16, \pm 24, \pm 32, \dots\}$, I think.
+
+\section*{Exercise 9}
+
+If $n$ is an integer greater than 1, show that $\langle n\rangle=nZ$ is a prime ideal of $Z$
+if and only if $n$ is prime.
+
+Notice that $nZ$ is an ideal of $Z$ by Exercise 7.
+
+Suppose $n$ is prime.  Let $a,b\in Z$ such that $ab\in nZ$.
+Then there exists $z\in Z$ such that $ab=nz$.  It follows
+that $n|ab$ which implies that $n|a$ or $n|b$ by Euclid's Lemma.
+So there exists $z'\in Z$ such that $a=nz'\in nZ$ or $b=nz'\in nZ$,
+showing that $nZ$ is a prime ideal of $Z$.
+
+Now suppose $nZ$ is a prime ideal of $Z$.
+Then if $a,b\in Z$ such that $ab=nz$ for some $z\in Z$,
+we must have, for some $z'\in Z$, $a=nz'$ or $b=nz'$.
+In other words, if $n|ab$, we must have $n|a$ or $n|b$
+in every case.  There is no composite number that can do this,
+so $n$ must be prime.  (We can also conclude $n$ is prime
+by continually factoring what $n$ divides, and then know that $n$
+divides one of the factors.  Repeating, we're eventually left with only one prime factor.)
+
+\section*{Exercise 15}
+
+If $A$ is an ideal of a ring $R$ and 1 belongs to $A$, prove that $A=R$.
+
+Since $A$ is an ideal of $R$ and $1\in A$, we have, for all $r\in R$, $r=1r\in A$,
+showing that $A=R$.
+
+\section*{Exercise 21}
+
+Verify the claim made in Example 10 about the size of $R/I$.
+
+For reference,
+\begin{equation*}
+R=\left\{\left.\left[\begin{array}{cc}a_1&a_2\\a_3&a_4\end{array}\right]\right|a_i\in Z\right\}
+\end{equation*}
+and $I$ is the subset of $R$ consisting of matrices with even entries.
+
+The example in the text helps make the verification easy.  Let $M\in R$.
+Then the coset $M+I=B+I$, where $B$ is a matrix consisting of just ones
+and zeros.  Since the matrices have 4 possible entries, there are $2^4=16$
+possible elements in $R/I$.
+
+\section*{Exercise 23}
+
+Show that the set $B$ in the latter half of the proof of Theorem 14.4 is an
+ideal of $R$.
+
+For reference, $B=\{br+c|r\in R, a\in A\}$ with $b\in R-A$.  The subset $A$ is an ideal
+of $R$, and $R$ is a commutative ring with unity.
+
+Letting $x\in R$, we must show that for any $y\in B$, that $xy\in B$ and $yx\in B$.
+Let $y=br+a$ for elements $r\in R$ and $a\in A$.
+Then $xy=bxr+xa\in B$ since $xr\in R$ and $xa\in A$.  (Remember that $A$ is
+an ideal of $R$.)  And we have $yx=bry+ay\in B$ since $ry\in R$ and $ay\in A$.
+
+\end{document}
