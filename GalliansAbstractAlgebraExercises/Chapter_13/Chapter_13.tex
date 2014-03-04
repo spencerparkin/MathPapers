@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 13 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+\newcommand{\chr}{\mbox{char}\,}
+
+\begin{document}
+\maketitle
+
+\section*{Understanding Examples 5 and 6}
+
+Let us show that $Z_n$ is an integral domain if and only if $n$ is prime.
+
+Suppose $n$ is prime and let $a,b\in Z_n$ such that $ab=0$.
+Then $n|ab$, and so, by Euclid's lemma, $n|a$ or $n|b$.
+It follows that $a=0$ or $b=0$, showing that $Z_n$ is an integral
+domain, because there cannot be any zero divisors, 1 is the unity,
+and multiplication in $Z_n$ is commutative.
+
+Now suppose that for some $a,b\in Z_n$ with $ab=0$,
+we have neither $a=0$ nor $b=0$.  (That is, suppose $Z_n$
+is not an integral domain.)  Then, by Euclid's Lemma one again,
+$n$ is not prime.
+
+\section*{Understanding Theorem 13.2 Better}
+
+Notice that no element in the sequence $a, a^2, a^3,\dots$ is zero,
+because $D$ is an integral domain.  After seeing that there must
+be $i>j$ such that $a^i=a^j$, write $a^{i-j}a^j=a^j\implies a^j(a^{i-j}-1)=0$.
+(Remember that $D$ is a commutative ring.)  We can now claim that
+$a^{i-j}=1$ by the property that $D$ has no zero divisors.
+The rest is easy.
+
+\section*{Exercise 13}
+
+Let $a$ belong to a ring $R$ with unity and suppose that $a^n=0$ for
+some positive integer $n$.  (Such an element is called {\it nilpotent}.)
+Prove that $1-a$ has a multiplicative inverse in $R$.  [{\it Hint}: Consider
+$(1-a)(1+a+a^2+\dots+a^{n-1})$.]
+
+Notice that $1=1-a^n=(1-a)(1+a+a^2+\dots+a^{n-1})$.
+Now realize that we cannot have $1+a+a^2+\dots+a^{n-1}=0$,
+because $0\neq 1$.
+
+\section*{Exercise 14}
+
+Show that the nilpotent elements of a commutative ring form a subgring.
+
+Let $R$ be a ring and let $N(R)$ denote the set of all nilpotents in $R$.
+Clearly $N(R)\subseteq R$.  Notice that $0\in N(R)$, since any power
+of zero is clearly zero.  Now let $a,b\in N(R)$.  Then if $a^m=0$
+and $b^n=0$ for integers $m$ and $n$, then clearly $a^k=0$ and $b^k=0$
+if $k=\max\{m,n\}$.
+Then, by the commutativity of $R$, it follows that $(ab)^k=a^kb^k=0$,
+showing that $ab\in N(R)$.
+Thus we have closure in $N(R)$ for the product of $R$.
+Now consider $a-b$.  Notice that
+\begin{equation*}
+(a-b)^{mn} = \sum_{k=0}^{mn}(-1)^k\binom{mn}{k}a^{mn-k}b^k,
+\end{equation*}
+and that $\min\{\max\{mn-k,k\}\}_{k=0}^{mn}\geq k$.
+It follows that $(a-b)^{mn}=0$ and so $a-b\in N(R)$,
+showing that $N(R)$ is a subgroup of $R$.  We can now claim that
+$N(R)$ is a subring by Theorem 12.3.
+
+\section*{Exercise 16}
+
+A ring element $a$ is called {\it idempotent} if $a^2=a$.  Prove that
+the only idempotents in an integral domain are 0 and 1.
+
+Let $a$ be any element of an integral domain for which $a^2=a$.
+We then see that $a(a-1)=0$.  It then follows that $a=0$ or $a-1=0\implies a=1$
+by the non-existence of zero divisors in the domain.
+
+\section*{Exercise 28}
+
+Prove that there is no integral domain with exactly six elements.
+Can your argument be adapted to show that there is no integral
+domain with exactly four elements?  What about 15 elements?
+Use these observations to guess a general result about the number
+of elements in a finite integral domain.
+
+Let $D$ be the finite integral domain in question.  Then by the proof
+of Theorem 13.3, the unity of $D$ must have an additive
+order of $\chr D$.  Furthermore, since any non-unity element $x\in D$
+has the property that $(\chr D)\cdot x=0$, it follows by Corollary 2 of Theorem 4.1
+that the additive order of $x$ divides $\chr D$.  But by Theorem 13.4,
+we must have $\chr D$ prime.  It follows that all non-zero elements
+of $D$ have an additive order of $p=\chr D$.  Thus, in considering the
+size of $D$, we are left to consider only those Abelian groups where
+all non-zero elements are of the same prime order $p$.
+By the Fundamental Theorem of Finite Abelian Groups, the
+only groups that fit our current description of $D$ are
+isomorphic to, for some integer $k\geq 1$, $\bigoplus_{i=1}^k Z_p$.
+So far we can conclude that the size of $D$ is always a power
+of some prime $p$.  For example, Example 9 exhibits
+a field, (and therefore an integral domain) of size $3^2$.
+
+Back to the original question, we can easily rule out integral
+domains of size 6 and 15, but not 4.  Hmmm...why not 4?
+By a careful examination of all possibilities for the multiplication
+table of such a field, it cannot exist.  In any case, I'm not sure
+that I have reached the general result sought after by the
+author of this exercise's problem statement.
+
+
+\end{document}
