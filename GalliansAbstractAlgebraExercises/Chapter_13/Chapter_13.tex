@@ -125,5 +125,79 @@ table of such a field, it cannot exist.  In any case, I'm not sure
 that I have reached the general result sought after by the
 author of this exercise's problem statement.
 
+\section*{Exercise 38}
+
+Suppose that $a$ and $b$ belong to a commutative ring and $ab$
+is a zero-divisor.  Show that eithe r$a$ or $b$ is a zero-divisor.
+
+Since $ab$ is a zero-divisor, $ab\neq 0$, so $a\neq 0$ and $b\neq 0$.
+Furthermore, there exists $c\neq 0$ in the ring such that $abc=0$.
+Now if $bc\neq 0$, it follows that $a$ is a zero-divisor.  If $bc=0$,
+then $b$ is a zero-divisor.
+
+\section*{Exercise 41}
+
+Let $x$ and $y$ belong to a commutative ring $R$ with $\chr R=p\neq 0$.
+Show that $(x+y)^p=x^p+y^p$.  Show that, for all positive integers $n$,
+$(x+y)^{p^n}=x^{p^n}+y^{p^n}$.  Find elements $x$ and $y$ in a ring of
+characteristic 4 such that $(x+y)^4\neq x^4+y^4$.
+
+Note that the case $n=1$ is covered in the general case, so only the general
+case will be shown.  Also, it is assumed that $p$ is prime, although this was not
+specifically stated.  (It must have been meant as it is needed.)
+
+First note that
+\begin{equation*}
+(x+y)^{p^n}=\sum_{i=1}^{p^n}\binom{p^n}{i}x^iy^{p^n-i}.
+\end{equation*}
+The crux of the proof then comes in realizing that only when $p$ is prime is it
+true that $p$ divides $\binom{p^n}{i}$ whenever $i>0$ and $i<p^n$.
+To see this, we expand the binomial coeficient as
+\begin{equation*}
+\binom{p^n}{i}=\frac{p^n(p^n-1)!}{i!(p^n-i)!}=p^n\frac{(p^n-1)(p^n-2)\dots(p^n-i+1)}{i!}.
+\end{equation*}
+Now notice that when $i>0$ and $i<p^n$, a multiple of $p$ always
+survives any cancellation that may occur in the fraction.  (More rigor could
+be given here, but it is true.)
+
+Returning to the expansion of $(x+y)^{p^n}$, we see that, for some
+integer $s$, the general term is of the form
+\begin{equation*}
+psx^iy^{p^n-i}=(px)sx^{i-1}y^{p^n-i}=0\cdot sx^{i-1}y^{p^n-i}=0,
+\end{equation*}
+whenever $i>0$ and $i<p^n$, since for any $x\in R$, we must have $px=0$.
+When $i=0$ or $i=p^n$, the term survives, and we're left with $x^{p^n}+y^{p^n}$.
+
+For the example, consider $Z_4$.  Notice that $0=(1+3)^4\neq 1^4+3^4=2$.
+
+\section*{Exercise 42}
+
+Let $R$ be a commutative ring with unity 1 and prime characteristic.  If
+$a\in R$ is nilpotent, prove that there is a positive integer $k$ such that
+$(1+a)^k=1$.
+
+Let $m$ be an integer such that $a^m=0$.
+Now choose an integer $n$ such that $(\chr R)^n\geq m$.
+We then have, by Exercise 41, $(1+a)^k=1$, if $k=(\chr R)^n$.
+
+\section*{Exercise 43}
+
+Show that any finite field has order $p^n$, where $p$ is prime.
+
+See Exercise 28 above.
+
+\section*{Exercise 56}
+
+Suppose that $a$ and $b$ belong to a field of order 8 and that $a^2+ab+b^2=0$.
+Prove that $a=0$ and $b=0$.  Do the same when the field has order $2^n$ with $n$ odd.
+
+Notice that there must be an element of the field with an additive order equal to
+the characteristic of the field.  Then, by Legrange's Theorem, this characteristic
+must divide the order of the field.  It follows that the characteristic is 2, because
+it must be finite and therefore prime by Theorem 13.4.  It then
+follows by Exercise 41 that $ab=(a+b)^2=a^2+b^2$.
+So we have $0=a^2+ab+b^2=2ab$ which implies that $a=0$ or $b=0$.
+Suppose, without loss of generality, that $a=0$.  Then $b^2=0\implies b=0$
+by Exercise 15.
 
 \end{document}
