@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 15 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+\newcommand{\chr}{\mbox{char}\,}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 1}
+
+Prove Theorem 15.1.
+
+For the theorem, we let $\phi$ be a ring homomorphism from a ring $R$ to a ring $S$,
+and we let $A$ be a subring of $R$ and let $B$ be an ideal of $S$.
+
+The first part of the theorem states that for any $r\in R$ and any positive integer $n$,
+that $\phi(nr)=n\phi(r)$ and $\phi(r^n)=(\phi(r))^n$.
+
+Proof: That $\phi(nr)=n\phi(r)$ follows from Property 2 of Theorem 10.1 for group homomorphisms.
+Similarly,
+\begin{equation*}
+\phi(r^n)=\phi(\underbrace{r\cdot\dots\cdot r}_n)=\underbrace{\phi(r)\cdot\dots\cdot\phi(r)}_n=(\phi(r))^n.
+\end{equation*}
+
+The second part of the theorem states that $\phi(A)=\{\phi(a)|a\in A\}$ is a subgring of $S$.
+
+Proof: That $\phi(A)$ is an Abelian group follows from Properties 1 and 3 of Theorem 10.2
+for group homomorphisms.  Then, if $a,b\in\phi(A)$, then there exist $x,y\in A$ such
+that $\phi(x)=a$ and $\phi(y)=b$.  Then, since $xy\in A$ and $\phi(xy)=\phi(x)\phi(y)=ab$,
+we see that $ab\in\phi(A)$.  Having now shown closure of the ring multiplication of $S$
+in $\phi(A)$, we can claim that $\phi(A)$ is a subring of $S$.
+
+The third part of the theorem states that if $A$ is an ideal and $\phi$ is onto $S$,
+then $\phi(A)$ is an ideal.
+
+Proof: By the second part of this theorem, $\phi(A)$ is a subring, so we need
+only prove now that it is an ideal of $S$.  Let $s\in S-\phi(A)$ and $y\in\phi(A)$.  Then since $\phi$ is onto, there
+exists $r\in R$ such that $\phi(r)=s$.  Let $x\in A$ such that $\phi(x)=y$.
+Then since $rx\in A$, (because $A$ is an ideal of $R$), and $\phi(rx)=\phi(r)\phi(x)=sy$,
+we have $sy\in\phi(A)$.  Similarly, since $xr\in A$, (again, because $A$ is an ideal of $R$),
+and $\phi(xr)=\phi(x)\phi(r)=ys$, we have $ys\in\phi(A)$.  We can now claim that $\phi(A)$
+is an ideal of $S$.
+
+The fourth part of the theorem states that $\phi^{-1}(B)=\{r\in R|\phi(r)\in B\}$ is an ideal of $R$.
+
+Proof: By Property 7 of Theorem 10.2, $\phi^{-1}(B)$ is a subgroup of $R$.  It must be an
+Abelian group since all subgroups of rings are Abelian.  Now let $r\in R$ and $x\in\phi^{-1}(B)$.
+Then $\phi(r)\in S$ and $\phi(x)\in B$ and since $B$ is an ideal of $S$, $\phi(rx)=\phi(r)\phi(x)\in B$,
+showing that $rx\in\phi^{-1}(B)$.  Similar reasoning shows that $xr\in\phi^{-1}(B)$, so $\phi^{-1}(B)$
+is an ideal of $R$.
+
+The fifth part of the theorem states that if $R$ is commutative, then $\phi(R)$ is commutative.
+
+Proof: Letting $a,b\in R$, notice that
+\begin{equation*}
+\phi(a)\phi(b)=\phi(ab)=\phi(ba)=\phi(b)\phi(a).
+\end{equation*}
+
+The sixth part of the theorem states that if $R$ has a unity 1, $S\neq\{0\}$, and $\phi$ is onto,
+then $\phi(1)$ is the unity of $S$.
+
+Proof: Notice that for all $r\in R$, we have $\phi(1)\phi(r)=\phi(r)$.  Then since $\phi$ is onto,
+it follows that $\phi(1)s=s$ for all $s\in S$.  This shows that $\phi(1)$ is either the unity of $S$,
+or that $\phi(r)=0$ for all $r\in R$.  Now if $S\neq\{0\}$ and $\phi$ is onto, then we can't
+have $\phi(r)=0$ for all $r\in R$.  So $\phi(1)=1$.
+
+The seventh part of the theorem states that $\phi$ is an isomorphism if and only if $\phi$ is onto and
+$\ker\phi=\{r\in R|\phi(r)=0\}=\{0\}$.
+
+Proof: This follows immediately from Property 9 of Theorem 10.2.  We need only look at the statement
+from a purely group-theoretic stand-point and also realize that $\phi$ will preserve the multiplication
+product of the ring.
+
+The eighth and last part of the theorem states that if $\phi$ is an isomorphism from $R$ onto $S$,
+then $\phi^{-1}$ is an isomorphism from $S$ onto $R$.
+
+Proof: Realize that $\ker\phi^{-1}$ is the trivial subring of $R$.  This part of the theorem then
+follows from the seventh part of the theorem.
+
+\end{document}
