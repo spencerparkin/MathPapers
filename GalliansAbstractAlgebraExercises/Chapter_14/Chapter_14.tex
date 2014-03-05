@@ -226,4 +226,65 @@ Also, $p^m\cdot rx=r(p^m\cdot x)=r\cdot 0=0$, showing
 that the additive order of $rx$ divides $p^m$ also.
 So $xr$ and $rx$ are in $I_p$.
 
+\section*{Exercise 42}
+
+Let $R$ be a commutative ring and let $A$ be any ideal of $R$.
+Show that the nil radical of $A$, $N(a)=\{r\in R|r^n\in A$ for some
+positive integer $n$ ($n$ depends on $r$)$\}$, is an ideal of $R$.
+[$N(\langle 0\rangle)$ is called the nil radical of $R$.]
+
+Clearly $0\in N(A)$.  Then if $x,y\in N(A)$, then
+there exist integers $m$ and $n$ such that $x^m\in A$
+and $y^m\in A$.  Now choose an integer $k$ so that
+for all integers $i\in[0,k]$, we have $i\geq m$ or $k-i\geq n$.
+It then follows that
+\begin{equation*}
+(x-y)^k=\sum_{i=1}^k\binom{k}{i}x^iy^{k-i}\in A,
+\end{equation*}
+since $A$ is a left and right ideal.  So $x-y\in N(A)$.
+Now notice that $(rx)^m=r^mx^m\in A\implies rx\in N(A)$,
+since $R$ is commutative and $A$ is an ideal.
+We need not check that $xr\in N(A)$, since $R$ is commutative.
+
+\section*{Exercise 43}
+
+Let $R=Z_{27}$  Find $N(\langle 0\rangle), N(\langle 3\rangle), N(\langle 9\rangle)$.
+
+By inspection, we have
+\begin{equation*}
+N(\langle 0\rangle)=N(\langle 3\rangle)=N(\langle 9\rangle)=\langle 3\rangle,
+\end{equation*}
+if I didn't make a mistake.  Is there a general result these observations could
+lead us to?
+
+\section*{Exercise 44}
+
+Let $R=Z_{36}$.  Find $N(\langle 0\rangle), N(\langle 4\rangle), N(\langle 6\rangle)$.
+
+I think we have $N(\langle 0\rangle)=\langle 6\rangle$, $N(\langle 4\rangle)=\langle 2\rangle$
+and $N(\langle 6\rangle)=\langle 6\rangle$.  Exercise 46 seems to agree.
+
+\section*{Exercise 46}
+
+Let $A$ be an ideal of a commutative ring.  Prove that $N(N(A))=N(A)$.
+
+Notice that $x\in N(N(A))\implies x^n\in N(A)\implies x^{nm}=(x^n)^m\in A\implies x\in N(A)$.
+Then see that $x\in N(A)\implies x^n\in A\implies x^n \in N(A)\implies x\in N(N(A))$.
+This can seem a bit tricky, but it all falls out.
+
+\section*{Exercise 56}
+
+Let $R$ be a commutative ring with unity and let $I$ be a proper ideal with the
+property that every element of $R$ that is not in $I$ is a unit of $R$.  Prove
+that $I$ is the unique maximal ideal of $R$.
+
+Suppose $J$ is an ideal of $R$ properly containing $I$.
+Let $x\in J-I$.  Then $x^{-1}\in J$ and $1=xx^{-1}\in J$,
+so $J=R$, (since it absorbs all of $R$ through the unity.)  This proves that $I$ is maximal.
+Suppose now that $J$ is any other maximal ideal of $R$.
+Then $J\cap (R-I)$ is non-empty.  So, letting $x\in J\cap (R-I)$,
+we see that $1=xx^{-1}\in J$ and $J=R$, which is a contradiction.
+It follows that there is no other maximal ideal of $R$.  This
+proves that $I$ is unique.
+
 \end{document}
