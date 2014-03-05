@@ -100,4 +100,45 @@ then $\phi^{-1}$ is an isomorphism from $S$ onto $R$.
 Proof: Realize that $\ker\phi^{-1}$ is the trivial subring of $R$.  This part of the theorem then
 follows from the seventh part of the theorem.
 
+\section*{Exercise 2}
+
+Prove Theorem 15.2.
+
+Let $\phi$ be a homomorphism from a ring $R$ to a ring $S$.  Then
+$\ker\phi=\{r\in R|\phi(r)=0\}$ is an ideal of $R$.
+
+Proof: From group theory, we already know that $\ker\phi$ is
+a normal subgroup of $R$.  Now let $r\in R$ and $x\in\ker\phi$.
+Then $\phi(rx)=\phi(r)\phi(x)=\phi(r)\cdot 0=0\implies rx\in\ker\phi$.
+Similarly, we have $xr\in\ker\phi$, so $\ker\phi$ is an ideal of $R$.
+
+\section*{Exercise 3}
+
+Prove Theorem 15.3.
+
+Let $\phi$ be a ring homomorphism from $R$ to $S$.  Then the
+mapping from $R/\ker\phi$ to $\phi(R)$, given by $r+\ker\phi\to\phi(r)$,
+is an isomorphism.  In symbols, $R/\ker\phi\approx\phi(R)$.
+
+Proof: By Theorem 10.3, $\phi$ is a group isomorphism from $R/\ker\phi$
+to $\phi(R)$.  Now since $\ker\phi$ is an ideal, $R/\ker\phi$ is a factor ring
+by Theorem 14.2.  What remains to be shown is that the mapping preserves
+multiplication in $\phi(R)$.  To that end, see that for any pair of elements $x,y\in R$, we have
+\begin{equation*}
+\Psi(x+\ker\phi)\Psi(y+\ker\phi)=\phi(x)\phi(y)=\phi(xy)=\Psi(rs+\ker\phi),
+\end{equation*}
+where $\Psi:R/\ker\phi\to\phi(R)$ is the mapping given in the theorem's statement.
+
+\section*{Exercise 4}
+
+Prove Theorem 15.4.
+
+Every ideal of a ring $R$ is the kernel of a ring homomorphism of $R$.
+In particular, an ideal $A$ is the kernel of the mapping $r\to r+A$ from
+$R$ to $R/A$.
+
+Proof: Define $\phi(r)=r+A$ as the natural homomorphism from $R$ to $R/A$.
+It is not hard to see that $\phi$ preserves both operations of $R$ in $R/A$.
+Clearly, $\phi(r)=A$ if and only if $r\in A$, so $\ker\phi=A$.
+
 \end{document}
