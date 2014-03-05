@@ -207,4 +207,23 @@ For any two elements $a,b\in R$, two elements of $R/I$ are $a+I$ and $b+I$.
 Now realize that $ab+I=(a+I)(b+I)=(b+I)(a+I)=ba+I$ if and only if $ab-ba\in I$
 by Property 4 on Page 138, (6th Ed.)
 
+\section*{Exercise 38}
+
+Let $R$ be a ring and let $p$ be a fixed prime.  Show that
+$I_p=\{r\in R|$ additive order of $r$ is a power of $p\}$ is an
+ideal of $R$.
+
+Notice that the additive identity is in $I_p$.  Now for any pair
+of elements $x,y\in I_p$, let them have additive orders $p^m$
+and $p^n$, respectively.  Now notice that if $k=mn$,
+then $p^k\cdot (x-y)=p^k\cdot x-p^k\cdot y=0$, showing
+that the additive order of $x-y$ divides $p^k$ by Corollary 2
+of Theorem 4.1.  So since $p$ is prime, we have $x-y\in I_p$.
+Similarly, letting $r\in R$ be any element,
+notice that $p^m\cdot xr=(p^m\cdot x)r=0\cdot r=0$,
+showing that the additive order of $xr$ divides $p^m$.
+Also, $p^m\cdot rx=r(p^m\cdot x)=r\cdot 0=0$, showing
+that the additive order of $rx$ divides $p^m$ also.
+So $xr$ and $rx$ are in $I_p$.
+
 \end{document}
