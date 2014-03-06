@@ -141,4 +141,88 @@ Proof: Define $\phi(r)=r+A$ as the natural homomorphism from $R$ to $R/A$.
 It is not hard to see that $\phi$ preserves both operations of $R$ in $R/A$.
 Clearly, $\phi(r)=A$ if and only if $r\in A$, so $\ker\phi=A$.
 
+\section*{Exercise 18}
+
+Determine all ring isomorphisms from $Z_n$ to itself.
+
+We know that all such isomorphisms $\phi:Z_n\to Z_n$ are of
+the form $\phi(x)=x\phi(1)$.  Then, by Property 6 of Theorem
+15.1, we must have $\phi(1)=1$.  So $\phi(x)=x$ is the
+only isomorphism from $Z_n$ to itself.
+
+\section*{Exercise 24}
+
+Recall that a ring element $a$ is called an idempotent if $a^2=a$.
+Prove that a ring homomorphism carries an idempotent to an idempotent.
+
+Let $\phi$ be a ring homomorphism and let $a$ be an idempotnent
+in the domain of $\phi$.  Then $\phi(a)^2=\phi(a^2)=\phi(a)$
+by Property 1 of Theorem 15.1.
+
+\section*{Exercise 36}
+
+Determine all ring homomorphisms from $Q$ to $Q$.
+
+By Exercise 40 of Chapter 6, all such homomorphisms are
+of the form $\phi(x)=x\phi(1)$.  (A ring homomorphism must also
+be a group homomorphism.)  Furthermore, since we must
+have $\phi(1)=\phi(1\cdot 1)=\phi(1)\phi(1)$, $\phi(1)$ must be
+an idempotent of $Q$.  But the only idempotents are 0 and 1.
+So $\phi(x)=x$ and $\phi(x)=0$ are the only two homomorphisms
+of $Q$ to itself.
+
+\section*{Exercise 48}
+
+Suppose that $n$ divides $m$ and that $a$ is an idempotent of $Z_n$ (that is,
+$a^2=a$).  Show that the mapping $x\to ax$ is a ring homomorphism from $Z_m$
+to $Z_n$.  Show that the same correspondence need not yield a ring homomorphism
+if $n$ does not divide $m$.
+
+Let $\phi:Z_m\to Z_n$ be defined as $\phi(x)=ax$ for an idempotent $a$ of $Z_n$.
+In considering whether $\phi$ is well defined, we have to ask ourselves: for $x,y\in Z_m$,
+if $x\equiv y\pmod m$, then do we have $\phi(x)\equiv\phi(y)\pmod n$?  Well, if $n|m$ and
+$m|(x-y)$, then $n|(x-y)\implies n|a(x-y)=ax-ay$.  So $\phi$ is well defined.
+We can now go on to show the $\phi$ preserves addition and multiplication.
+We have
+\begin{equation*}
+\phi(x+y)=a(x+y)=ax+ay=\phi(x)+\phi(y),
+\end{equation*}
+and since $a$ is an idempotent of $Z_n$, we have
+\begin{equation*}
+\phi(xy)=axy=a^2xy=axay=\phi(x)\phi(y).
+\end{equation*}
+Suppose now that $m=2$ and $n=3$.  Let $a=1$.
+Notice that while $0\equiv 2\pmod 2$, we have
+$\phi(0)=0\not\equiv2=\phi(2)\pmod 3$.
+
+\section*{Exercise 53}
+
+Let $D$ be an integral domain and let $F$ be the field of quotients of $D$.
+Show that if $E$ is any field that contains $D$, then $E$ contains a subfield
+that is ring-isomorphic to $F$.  (Thus, the field of quotients of an integral
+domain $D$ is the smallest field containing $D$.)
+
+Let $\phi:F\to E$ be a function defined as $\phi(a/b)=ab^{-1}$, where $a,b\in D$ with $b\neq 0$.
+To see that this is a well defined function, let $a',b'\in D$ such that $a/b=a'/b'$.
+It follows that $ab'=a'b$, so $ab^{-1}=a'b(b')^{-1}b^{-1}=a'(b')^{-1}$, showing
+that $\phi$ is indeed well defined.  Now let $x,y\in D$ with $y\neq 0$ and
+see that
+\begin{align*}
+\phi\left(\frac{a}{b}+\frac{x}{y}\right)&=\phi\left(\frac{ay+bx}{by}\right) \\
+ &=(ay+bx)(by)^{-1} \\
+ &= ab^{-1} + xy^{-1} \\
+ &= \phi\left(\frac{a}{b}\right)+\phi\left(\frac{x}{y}\right),
+\end{align*}
+showing that $\phi$ preserves addition.  We then see that
+\begin{equation*}
+\phi\left(\frac{ax}{by}\right)=(ax)(by)^{-1}=ab^{-1}xy^{-1}=\phi\left(\frac{a}{b}\right)\phi\left(\frac{x}{y}\right),
+\end{equation*}
+showing that $\phi$ preserves multiplication.  It follows that $\phi$ is
+a homomorphism from $F$ to $E$.
+
+Now see that $\ker\phi=\{0/1\}$, since if $ab^{-1}=0$ and $b^{-1}\neq 0$, we must have $a=0$.
+Then since $\phi$ is clearly onto $\phi(F)$, it follows from Property 7 of
+Theorem 15.1 that $\phi(F)$ is ring-isomorphic to $F$.  Now realize that $\phi(F)$ is a
+subfield of $E$.
+
 \end{document}
