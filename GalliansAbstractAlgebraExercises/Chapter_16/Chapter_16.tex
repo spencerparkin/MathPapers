@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Chapter 16 Exercises\\Gallian's Book on Abstract Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\abs}{\mbox{abs}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\aut}{\mbox{Aut}}
+\newcommand{\inn}{\mbox{Inn}}
+\newcommand{\orb}{\mbox{orb}}
+\newcommand{\chr}{\mbox{char}\,}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 5}
+
+Prove Corollary 1 of Theorem 16.2.
+
+Let $F$ be a field, $a\in F$, and $f(x)=F[x]$.  Then $f(a)$
+is the remainder in the division of $f(x)$ by $x-a$.
+
+Proof: The case when $\deg f=0$ is easily verified.
+Now let $\deg f>0$ and suppose the statement is
+true for all polynomials of degrees $\deg f - 1$.
+Let $f(x)=a_nx^n+\dots+a_0$.  As we begin
+to divide $x-a$ into $f$ using the defintion algorithm,
+we get $f(x)=(x-a)a_nx^{n-1}+g(x)$,
+where $g(x)=f(x)-(x-a)a_nx^{n-1}$.
+Now since $\deg g = \deg f - 1$, we see, by our
+inductive hypothesis, that for a quotient $q(x)$,
+we have $g(x)=(x-a)q(x)+g(a)$.
+It now follows that
+\begin{align*}
+f(x)&=(x-a)a_nx^{n-1}+g(x) \\
+ &= (x-a)a_nx^{n-1}+(x-a)q(x)+g(a) \\
+ &= (x-a)(a_nx^{n-1}+q(x))+f(a).
+\end{align*}
+Here, the quotient upon dividing $f(x)$ by $x-a$
+is $a_nx^{n-1}+q(x)$ and the remainder is $f(a)$,
+as claimed in the statement of the theorem.
+
+\section*{Exercise 7}
+
+Prove Corollary 2 of Theorem 16.2.
+
+Let $F$ be a field, $a\in F$, and $f(x)\in F[x]$.  Then $a$ is a zero
+of $f(x)$ if and only if $x-a$ is a factor of $f(x)$.
+
+Proof: by Corollary 1 of Theorem 16.2, there exists
+a quotient $q(x)$ such that
+\begin{equation*}
+f(x) = (x-a)q(x) + f(a).
+\end{equation*}
+Using this equation, it is clear that if $a$ is a zero
+of $f$, then $x-a$ is a factor of $f$.  Conversely,
+if $x-a$ is a factor of $f$, then $a$ is a zero of $f$.
+
+\section*{Exercise 10}
+
+If the rings $R$ and $S$ are isomorphic, show that $R[x]$
+and $S[x]$ are isomorphic.
+
+Let $\phi$ be an isomorphism between the rings $R$ and $S$.
+Now define the function $\Psi:R[x]\to S[x]$ as
+\begin{equation*}
+\Psi(f) = \phi(a_n)x^n+\phi(a_{n-1})x^{n-1}+\dots+\phi(a_0),
+\end{equation*}
+where $f\in R[x]$ is the polynomial given by
+\begin{equation*}
+f(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_0.
+\end{equation*}
+Clearly $\Psi$ is onto $S[x]$ since $\phi$ is onto $S$,
+and $\Psi$ is one-to-one since $\phi$ is one-to-one.
+Lastly, $\Psi$ preserves the addition and multiplication,
+because $\phi$ does.  It can be shown, but I'm going to be lazy.
+
+\section*{Exercise 16}
+
+Show that Corollary 3 of Theorem 16.2 is false for any commutative
+ring that has a zero divisor.
+
+Let $R$ be such a ring, and consider $R[x]$.  Let $a\in R$ be
+a zero-divisor.  Then there exists a non-zero element $b\in R$
+such that $ab=0$.  Now consider the polynomial $f(x)=ax$ in $R[x]$,
+and realize that $\deg f=1$, yet $0$ and $b$ are distinct zeros of $f$.
+
+\section*{Exercise 18}
+
+Prove that the ideal $\langle x\rangle$ in $Q[x]$ is maximal.
+
+Let $\phi:Q[x]\to Q$
+be defined as $\phi(f)=f(0)$.  This is a homomorphism from
+$Q[x]$ to $Q$ and $\ker\phi=\langle x\rangle$.
+It then follows by Theorem 15.3, that
+\begin{equation*}
+Q[x]/\langle x\rangle=Q[x]/\ker\phi\approx \phi(Q[x])=Q.
+\end{equation*}
+Now since $Q$ is a field, we know that $Q[x]/\langle x\rangle$
+is a field.  We can now claim that $\langle x\rangle$ is a maximal
+ideal of $Q[x]$ by Theorem 14.4.
+
+\section*{Exercise 24}
+
+Let $f(x)\in R[x]$.  Suppose that $f(a)=0$ but $f'(a)\neq 0$,
+where $f'(x)$ is the derivative of $f(x)$.  Show that $a$ is
+a zero of $f(x)$ of multiplicity 1.
+
+It follows immediately that
+\begin{equation*}
+f(x)=(x-a)^kq(x),
+\end{equation*}
+where $k$ is the multiplicity of $a$ as a zero of $f$.
+(The integer $k$ here in this equation is as large as it
+can be so that there exists such a quotient $q(x)\in R[x]$
+with no remainder.)  The derivative of $f$ is then given by
+\begin{equation*}
+f'(x) = k(x-a)^{k-1}q(x)+(x-a)^kq'(x)=(x-a)^{k-1}(kq(x)+(x-a)q'(x)).
+\end{equation*}
+But $a$ is not a zero $f'$, so we must have $k=1$.
+
+\section*{Exercise 26}
+
+Show that Corollary 3 of Theorem 16.2 is true for polynomials
+over integral domains.
+
+Revisiting the proof of this theorem in the text, it only used
+the fact that a field is an integral domain.  (No where did the
+proof depend upon properties of a field that set it apart from
+an integral domain.)  The theorem therefore
+holds for integral domains as well.
+
+\section*{Exercise 30}
+
+Find infinitely many polynomials $f(x)$ in $Z_3[x]$ such
+that $f(a)=0$ for all $a$ in $Z_3$.
+
+Consider the set of polynomials $\{x^k(x-1)(x-2)\}_{k=1}^\infty$.
+
+\section*{Exercise 36}
+
+If $I$ is an ideal of a ring $R$, prove that $I[x]$ is an ideal of $R[x]$.
+
+Let $f\in R[x]$ and $g\in I[x]$.  Then $fg\in I[x]$ and $gf\in I[x]$, since
+all coefficients of $fg$ and $gf$ are in $I$, since $I$ is an ideal of $R$.
+
+\section*{Exercise 44}
+
+For any field $F$, recall that $F(x)$ denotes the field of quotients of the
+ring $F[x]$.  Prove that there is no element in $F(x)$ whose square is $x$.
+
+Elements of $F(x)$ are of the form $f(x)/g(x)$ where $f(x),g(x)\in F[x]$
+with $g(x)\neq 0$.  Now see that $(f(x)/g(x))^2=x$ if and only if
+$f(x)^2=xg(x)^2$.  But $\deg f^2$ is even while $\deg xg^2$ is
+odd, so this can't happen.
+
+\end{document}
