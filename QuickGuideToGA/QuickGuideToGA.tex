@@ -17,6 +17,7 @@
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\nvao}{o}
 \newcommand{\nvai}{\infty}
+\newcommand{\grade}{\mbox{grade}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}{Definition}[section]
@@ -41,27 +42,29 @@ A linear space $\V$ is a set of elements, where each element is called a vector.
 Associated with every vector space $\V$ is a set of scalars, usually the set of real numbers $\R$,
 such that for every scalar $\lambda\in\R$ and any two vectors $a,b\in\V$, we have
 \begin{align}
-\lambda a &\in \V\label{equ_vec_scalar_mul} \\
-a+b &\in\V\label{equ_vec_addition}
+\lambda a &\in \V\label{equ_vec_scalar_mul}, \\
+a+b &\in\V\label{equ_vec_addition}, \\
+\lambda(a+b) &= \lambda a+\lambda b.\label{equ_vec_scalar_distrib}
 \end{align}
 We define vector addition to be commutative and associative.
 \end{definition}
 Linear spaces are more commonly referred to as vector spaces, and so we will no longer
 use the term linear space.
 
-Notice that equation \eqref{equ_vec_scalar_mul} defines the relationship between the
+Notice that equations \eqref{equ_vec_scalar_mul} and \eqref{equ_vec_scalar_distrib}
+define the relationship between the
 vector space $\V$ and the real numbers $\R$ associated with it.
 
 \begin{definition}
 A linear combination of a set of $k$ vectors $\{v_i\}_{i=1}^k$, taken from $\V$, is
-a vector $v\in\V$, written as
+a vector $v\in\V$, given by
 \begin{equation}
 v = \lambda_1 v_1 + \lambda_2 v_2 + \dots + \lambda_k v_k,
 \end{equation}
 where $\{\lambda_i\}_{i=1}^k$ is a set of $k$ scalars taken from $\R$.
 \end{definition}
 
-We now introduce the idea of linear dependence and linear independence.
+We now introduce the very important ideas of linear dependence and linear independence.
 
 \begin{definition}
 A set of $k$ vectors $\{v_i\}_{i=1}^k$, taken from $\V$, is said to be linearly
@@ -70,10 +73,13 @@ $v$ is any linear combination of the remaining $k-1$ vectors in $\{v_i\}_{i=1}^k
 \end{definition}
 
 In other words, no one of the $k$ vectors in $\{v_i\}_{i=1}^k$ can be
-written as a linear combination of the other $k-1$ vectors.  Intuitively, if
+written as a linear combination of the other $k-1$ vectors.  Alternatively, we can
+say that $\{v_i\}_{i=1}^k$ is a linearly independent set of vectors if and only if
+the only linear combination of these vectors that is zero is the trivial combination
+given by, for all integers $i\in[1,k]$, $\lambda_i=0$.  Intuitively, if
 we were to attach a geometric interpretation to the vectors in $\V$, then
 each vector in $\{v_i\}_{i=1}^k$, (if $\{v_i\}_{i=1}^k$ is a linearly independent set), points
-in a direction that is a newly unexplored dimension.  If you can grasp the
+in a direction requiring a new dimension of space to describe.  If you can grasp the
 definition of linear independence, then the definition of linear dependence
 is a snap.
 
@@ -95,7 +101,8 @@ independent set.
 \end{definition}
 
 If such a set of vectors does not exist, then the vector space has
-infinitely many dimensions.  We will only concern ourselves here in this
+infinitely many dimensions, and we would write $\dim\V=\infty$.
+We will only concern ourselves here in this
 guide with finite-dimensional vector spaces.
 
 Given a linearly independent set $\{v_i\}_{i=1}^k$ of $k$ vectors, where $k=\dim\V$,
@@ -126,6 +133,9 @@ anti-commutative, associative, and left and right distributive over addition.
 
 We will talk about what anti-commutative means later on.
 
+Being a $k$-blade,
+we will sometimes write $\grade(B)$ in place of $k$.  In other words, $k=\grade(B)$.
+
 Notice that blades of grade 1 are simply vectors.  Blades of higher grade are simply
 a higher-dimensional generalization of the idea of a vector.  We will leave the geometric
 interpretation of such blades open to the reader for now, and proceed with our treatment of
@@ -146,8 +156,9 @@ may be said to represent a vector sub-space of $\V$.  It represents a little mor
 than that, but let us focus on this idea exclusively.  Given a non-zero blade $B$ of the
 form in equation \eqref{equ_blade}, we can take the $k$ vectors in the
 set $\{v_k\}_{i=1}^k$ as a basis for a vector sub-space of $\V$ of
-dimension $k$.  In fact, every basis for this vector sub-space, when put
-in an outer product of the form \eqref{equ_blade}, is, by definition,
+dimension $k$.  (Do you see why we must have $k\leq\dim\V$?)
+In fact, every basis for this vector sub-space, (and there are infinitely many of them), when put
+in an outer product of the form \eqref{equ_blade}, is, (by results soon to be realized),
 equal to $B$, up to scale.  That is, if $\{b_i\}_{i=1}^k$ is any basis
 other than $\{v_i\}_{i=1}^k$
 for the vector sub-space represented by $B$ in equation \eqref{equ_blade},
@@ -162,11 +173,12 @@ We'll see examples of this later on.
 
 Given two different basis $\{v_i\}_{i=1}^k$ and $\{b_i\}_{i=1}^k$ for a
 vector sub-space represented by a $k$-blade $B$, the scalar $\lambda$ in equation \eqref{equ_blade_alt_basis},
-which relates their individual outer products, is addressed later on in equation \eqref{equ_blade_orthogonalized}.
+which relates their individual outer products, is addressed later on in equation \eqref{equ_blade_orthogonalized}
+below.
 
 Continuing with this idea of blades as being representative of vector sub-spaces
 of $\V$, we can define the following notation.
-\begin{definition}[Membership in a vector sub-space of $\V$]
+\begin{definition}[Membership in a vector sub-space of $\V$]\label{def_vec_in_blade_vecspace}
 For any vector $v\in\V$ and a non-zero blade $B$, we say that
 \begin{equation}
 \mbox{$v\in B$ if and only if $v\wedge B=0$,}
@@ -174,11 +186,20 @@ For any vector $v\in\V$ and a non-zero blade $B$, we say that
 which is to mean that $v$ is in the vector sub-space of $\V$ represented by $B$
 if and only if $v\wedge B=0$.
 \end{definition}
-It is easy to see that this definition makes sense.  If $v\wedge B=0$, and if $\{v_i\}_{i=1}^k$
+Notice that Definition~\ref{def_vec_in_blade_vecspace} here is simply nothing more than that of notation.
+To understand its motivation, consider the following.  If $v\wedge B=0$, and if $\{v_i\}_{i=1}^k$
 is any linearly independent set such that equation \eqref{equ_blade} is
-satisfied, then $v\wedge B=0$ if and only if $\{v\}\cup\{v_i\}_{i=1}^k$
+satisfied, (which is to say that the vectors in $\{v_i\}_{i=1}^k$ give a factorization
+of $B$ in terms of the outer product), then $v\wedge B=0$ if and only if $\{v\}\cup\{v_i\}_{i=1}^k$
 is a linearly dependent set.  It follows that $v$ is a linear combination of
-the vectors in $\{v_i\}_{i=1}^k$.
+the vectors in $\{v_i\}_{i=1}^k$, and therefore, $v$ is in the vector space
+represented by $B$.
+
+Hoping not to belabor the point too far, notice, perhaps once more,
+that if we find $k$ vectors $\{b_i\}_{i=1}^k$ such that for all integers $i\in[1,k]$,
+we have $b_i\in B$ and $0\neq b_1\wedge b_2\wedge\dots b_k$, (which is to say that
+$\{b_i\}_{i=1}^k$ is a linearly independent set of $k$ vectors), then there exists
+$\lambda\in\R$ such that equation \eqref{equ_blade_alt_basis} is satisfied.
 
 \subsection{Blade Addition}
 
@@ -187,12 +208,12 @@ of various grades are just that.  They do not combine into anything new.
 Think of this like adding real and imaginary numbers.  They don't combine
 into anything new, but are simply toted about as a pair.  Letting scalars
 be what we'll call blades of grade zero, it is now clear that we can form
-what we'll call a multivector $M$, the general element of a geometric algebra,
+what we'll call a {\it multivector} $M$, the general element of a geometric algebra,
 as an element of the form
 \begin{equation}\label{equ_multivector}
 M = B_1 + B_2 + \dots + B_k,
 \end{equation}
-where for each $B_i$, we have $0\leq\mbox{grade}(B_i)\leq\dim\V$.
+where for each blade $B_i$, we have $0\leq\mbox{grade}(B_i)\leq\dim\V$.
 Cleary, we must have
 \begin{equation}
 \mbox{max}\{\mbox{grade}(B_i)\}_{i=1}^k\leq\dim\V,
@@ -209,11 +230,15 @@ and forces us to introduce the notion of $k$-vectors.
 A $k$-vector is the sum of one or more blades of grade $k$.
 \end{definition}
 Referring back to $M$ in equation \eqref{equ_multivector}, if for all integers $i$, we had
-$\mbox{grade}(B_i)=k$, then $M$ is a $k$-vector, and sometimes referred
+\begin{equation*}
+\grade(B_i)=k,
+\end{equation*}
+then $M$ is a $k$-vector, and sometimes referred
 to as a multivector homogeneous of grade $k$.
+We could even write $\grade(M)=k$.
 
 From Definition~\ref{def_k_vector}, it is clear that all $k$-blades are simply
-$k$-vectors.  The opposite, however, is not generally true.
+$k$-vectors.  The converse, however, is not generally true.
 That is, not all $k$-vectors are
 $k$-blades.  To see why, we must study the idea of adding blades of the
 same grade $k$.
@@ -225,7 +250,7 @@ C = A + B,
 \end{equation}
 the sum of $A$ and $B$.  Now, by virtue of being blades, each of
 $A$ and $B$ have a factorization in terms of a
-linearly independent set $\{a_i\}_{i=1}^k$ or $\{b_i\}_{i=1}^k$,
+linearly independent set of vectors $\{a_i\}_{i=1}^k$ or $\{b_i\}_{i=1}^k$,
 respectively.  That is, we may write each of $A$ and $B$ as
 \begin{align}
 A &= a_1\wedge a_2\wedge\dots\wedge a_k, \label{equ_blade_A}\\
@@ -255,13 +280,18 @@ of adding two 1-blades (vectors), which thing is already defined by equation
 
 So then what is this certain circumstance?  Recalling that $A$ and $B$ represent
 vector sub-spaces of $\V$, isn't it clear that if these vector sub-spaces
-non-trivially overlap, (share more than just the zero vector in common), then we can find
+non-trivially overlap, (that is, share more than just the zero vector in common), we can find
 a non-zero vector $c_k$ that exists in both vector sub-spaces?  Given such a
-vector $c_k$, we now need only write each of $A$ and $B$ in terms of this
-vector, such that $a_k=c_k$ and $b_k=c_k$.
+vector $c_k$, (a non-zero vector such that $c_k\in A$ and $c_k\in B$), we now
+need only write each of $A$ and $B$ in terms of this
+vector, which is simply a decision to find a set $\{a_i\}_{i=1}^k$ of
+basis vectors for $A$, and such a set $\{b_i\}_{i=1}^k$ for $B$,
+such that $a_k=c_k$ and $b_k=c_k$.
 
 It is now clear that two blades $A$ and $B$ of grade $k>1$ fully add if and only if they
-share a common vector sub-space of dimension $k-1$.  Notice that
+share a common vector sub-space of at least dimension $k-1$.  This means that the largest
+linearly independent set of vectors $\{c_i\}_{i=1}^j$ such that for all integers
+$i\in[1,j]$, we have $c_i\in A$ and $c_i\in B$, has cardinality $j\geq k-1$.  Notice that
 two 1-blades (vectors), may represent disjoint 1-dimensional vector sub-spaces,
 (with the exception of the zero vector), yet we can still add them by
 equation \eqref{equ_vec_addition} of Definition~\ref{def_vec_space}.
@@ -285,7 +315,7 @@ B = -v_1\wedge v_2\wedge\dots\wedge v_{i+1}\wedge v_i\wedge\dots\wedge v_k,
 \end{equation}
 where $1\leq i<k$.  We'll return to the geometric significance of this momentarily.
 
-Considering $\V$ to be a Euclidean vector space, all vectors $v\in\V$ have
+Considering now $\V$ to be a Euclidean vector space, all vectors $v\in\V$ have
 a Euclidean interpretation.  That is, we can think of $v$ as being a directed
 line segment with arbitrary position.  Using this idea, we can extend the notion
 of vector magnitude to blade magnitude in the following definition.
@@ -300,7 +330,7 @@ where for each $1\leq i\leq k$, $|v_i|$ denotes the length of $v_i$.\footnote{Th
 not applicable in non-Euclidean geometric algebras.  For such algebras, we will have to revisit
 the definition of blade magnitude, finding one that is applicable in all algebras.  See Definition~\ref{}.}
 \end{definition}
-If $\{v_k\}_{k=1}^k$ is an orthogonal basis, then for any pair of vectors $a,b\in\{v_i\}_{i=1}^k$,
+If $\{v_k\}_{k=1}^k$ is an orthogonal basis, then for any pair of distinct vectors $a,b\in\{v_i\}_{i=1}^k$,
 we have $a\cdot b=0$, which is to say that $a$ and $b$ are perpendicular to one another.
 Clearly, $|B|$ is a $k$-dimensional hyper-volume.  That is, length if $k=1$, area if $k=2$, volume
 if $k=3$, and so on.
@@ -312,9 +342,9 @@ we can rewrite $B$ in equation \eqref{equ_blade} as
 \begin{equation}\label{equ_grahm_schmidt_step_form}
 B = v_1\wedge v_2\wedge\dots\wedge(v_i+\lambda v_j)\wedge\dots\wedge v_k,
 \end{equation}
-where $1\leq i\leq k$, $1\leq j\leq k$ and $i\neq j$.  Every step of the Gram-Schmidt
-orthogonalization process, which process, for brevity, we'll leave as a research project for the reader,
-is of the form of equation \eqref{equ_grahm_schmidt_step_form}, and in the end, produces
+where $1\leq i,j\leq k$ and $i\neq j$.  Every step of the Gram-Schmidt
+orthogonalization process, (which process, for brevity, we'll leave as a research project for the reader),
+is similar in form to that of equation \eqref{equ_grahm_schmidt_step_form}, and in the end, produces
 a factorization of $B$ in terms of an orthogonal basis.\footnote{Such factorizations are not
 always possible in non-Euclidean geometric algebras.  Therefore, any argument that uses
 this technique must be revisited when dealing in such algebras.  For now, we assume a
@@ -324,7 +354,7 @@ The geometric take-home point of all this is that blades, under a geometric inte
 have arbitrary shape.  While a vector is always a line segment, we may visualize a blade of
 grade greater than one
 as an area in a plane or a volume in a hyper-plane, the shape of that area or volume being completely
-arbitrary.  The defining characteristics of a $k$-blade are simply the orientation of the $k$-dimensional
+arbitrary.  The defining characteristics of a $k$-blade, therefore, are simply the orientation of the $k$-dimensional
 hyper-volume as viewed in $(k+1)$-dimensional space,
 the amount of that hyper-volume, and another property known as handedness.
 Handedness is a property
@@ -342,7 +372,7 @@ That is, $A=\pm B$.  In the case that $A=B$, each have the same handedness,
 while in the case that $A=-B$, they are said to have opposite handedness.
 
 A last look at the outer product that summarizes all of the geometric characteristics of a $k$-blade
-is given by
+is given algebraically by
 \begin{equation}\label{equ_blade_orthogonalized}
 B = \left|\begin{array}{cccc}
 b_1\cdot v_1 & b_1\cdot v_2 & \dots & b_1\cdot v_k \\
@@ -352,16 +382,19 @@ b_k\cdot v_1 & b_k\cdot v_2 & \dots & b_k\cdot v_k
 \end{array}\right|b_1\wedge b_2\wedge\dots\wedge b_k,
 \end{equation}
 where here, $B$ was originally written as it is in equation \eqref{equ_blade}, and
-for each $1\leq i\leq k$, we have here rewritten $v_i$ in terms of the alternative basis $\{b_i\}_{i=1}^k$,
+for each $1\leq i\leq k$, we have here rewritten $v_i$ in terms of the alternative basis $\{b_i\}_{i=1}^k$ as
+\begin{equation*}
+v_i = (v_i\cdot b_1)b_1^{-1}+(v_i\cdot b_2)b_2^{-1}+\dots+(v_i\cdot b_k)b_k^{-1},
+\end{equation*}
 to get equation \eqref{equ_blade_orthogonalized}.  It is not too hard to
 prove equation \eqref{equ_blade_orthogonalized} by induction.
+After reading Section~\ref{sec_geo_prod} below, you'll see
+for each integer $i\in[1,k]$, that $b_i^{-1}=b_i/|b_i|^2$.
 
-If $\{b_i\}_{i=1}^k$ is an orthonormal basis,
+If $\{b_i\}_{i=1}^k$ is an right-handed, orthonormal basis,
 then we can take the absolute value of the determinant in equation
 \eqref{equ_blade_orthogonalized} to be $|B|$, and its sign as an
 indication of handedness relative to what we usually refer to as a right-handed system.
-(The determinant as a whole is the scalar $\lambda$ we talked about earlier in
-equation \eqref{equ_blade_alt_basis}.)
 The orientation of $B$ is that of the unit $k$-blade $b_1\wedge b_2\wedge\dots\wedge b_k$
 in the same sense that we might use unit-vectors to indicate pure directions without magnitude.
 
@@ -392,7 +425,7 @@ given by
 \begin{equation}
 B_i = b_1\wedge b_2\wedge\dots\wedge b_{i-1}\wedge b_{i+1}\wedge\dots\wedge b_k,
 \end{equation}
-which is simply the product $B$ with $b_i$ removed.  Similarly, we define
+which is simply the outer product $B$ with $b_i$ removed.  Similarly, we define
 \begin{equation}
 B\cdot v = (v\cdot b_k)B_k - (v\cdot b_{k-1})B_{k-1} +\dots - (-1)^k(v\cdot b_1)B_1.
 \end{equation}
@@ -419,7 +452,7 @@ in general.
 \begin{definition}\label{def_blade_blade_inner_prod}
 For any two blades $A$ and $B$ of grades $k$ and $l$, respectively,
 we define their inner product as
-\begin{equation}
+\begin{equation}\label{equ_blade_dot_blade}
 A\cdot B = \left\{
 \begin{array}{ll}
 (a_1\wedge a_2\wedge\dots\wedge a_{k-1})\cdot (a_k\cdot B) & \mbox{if $k\leq l$,} \\
@@ -430,7 +463,9 @@ A\cdot B = \left\{
 where here, $A$ and $B$ have vector factorizations in terms of the
 vectors in $\{a_i\}_{i=1}^k$ and $\{b_i\}_{i=1}^l$, respectively,
 as given in equations \eqref{equ_blade_A} and \eqref{equ_blade_B}.
-In the case that $k=l$, either case may be chosen.
+In the case that $k=l$, either case may be chosen.\footnote{It is left as
+an exercise for the reader to show that when $k=l$, both cases
+in equation ~\eqref{equ_blade_dot_blade} produce the same result.}
 \end{definition}
 Definition~\ref{def_blade_blade_inner_prod} defines the
 inner product between two blades in terms of Definition~\ref{def_vec_blade_inner_prod}.
@@ -458,11 +493,11 @@ perpendicular to the blade $B$, respectively.  To be more precise,
 the vector $v_{\parallel}$ is the orthogonal projection of $v$ down
 onto the $k$-blade $B$, while $v_{\perp}$ is simply $v-v_{\parallel}$,
 sometimes referred to as the orthogonal rejection of $v$ from $B$.
+Given $v$, to find $v_{\parallel}$ and $v_{\perp}$, we're looking for
+the unique pair of such vectors with the property that $v=v_{\parallel}+v_{\perp}$,
+that $v_{||}\in B$, and that for all $b\in B$, we have $b\cdot v_{\perp}=0$.
 
-Equation \eqref{equ_v_op_B} is easily verified by realizing that $v_{\parallel}\in B$.
-Equation \eqref{equ_v_ip_B} can be verified by an application of
-equation \eqref{equ_v_dot_B_expanded}, seeing that for all
-vectors $b\in B$, we have $b\cdot v_{\perp}=0$.
+% Can we prove uniqueness now?
 
 Intuitively, equation \eqref{equ_v_op_B} is showing us that
 the only contribution of $v$ in the product $v\wedge B$
@@ -488,7 +523,8 @@ as follows.
 \end{equation}
 
 The keen observer at this point, however, might point
-out that it is not entirely obvious that equation
+out that, in light of our earlier discussion
+about adding blades, it is not entirely obvious that equation
 \eqref{equ_v_dot_B_expanded} gives us a blade.  To see that
 it does, we simply evaluate equation \eqref{equ_v_dot_B_expanded} with
 the realization that we can, without loss of generality, let $b_k=v_{\parallel}$
@@ -497,20 +533,20 @@ $1\leq i<k$ by our choice of factorization for $B$.  Doing so, we get
 \begin{equation}
 v\cdot B = v_{\parallel}\cdot B = -(-1)^k v_{\parallel}^2 B_k.
 \end{equation}
-In non-Euclidean geometric algebras, this explanation is
+In non-Euclidean geometric algebras, however, this explanation is
 unsatisfactory as it does not go through due to the inability, in some cases, to factor a blade in
 terms of an orthogonal basis.  Never-the-less, we will still be able to prove that $v\cdot B$ is a
-blade in such algebras by using the geometric product.  (Will we?!)
+blade in such algebras by using the geometric product in Section~\ref{sec_geo_prod} below.
 
-Before moving on to the geometric product, is worth taking a moment in this section
-to compare $|v\cdot B|$ to $|v\wedge B|$ by an application of Definition~\ref{def_blade_mag}.
+But before moving on to the geometric product, it is worth taking a moment in the remainder of this section
+to compare $|v\cdot B|$ with $|v\wedge B|$ by an application of Definition~\ref{def_blade_mag}.
 Again, letting our blade $B$ be factored in terms of an orthogonal basis, also letting $b_k=v_{\parallel}$,
 we find that
 \begin{align}
 |v\wedge B|&=|v_{\perp}\wedge B|=|v_{\perp}||B|\label{equ_a_wedge_B_mag} \\
 |v\cdot B|&=|v_{\parallel}\cdot B|=|v_{\parallel}|^2|B_k|=|v_{\parallel}||B|.\label{equ_a_dot_B_mag}
 \end{align}
-Interestingly, in both cases, the units of hyper-volume increase by one dimension.  In the
+Interestingly, in both cases, the units of hyper-volume increases by one dimension.  In the
 case of equation \eqref{equ_a_wedge_B_mag}, this is expected, but in the case of
 equation \eqref{equ_a_dot_B_mag}, one might have hoped to get $|B|/|v_{\parallel}|$,
 but this is not how the math goes down.  In any case, we should consider ourselves fortunate
@@ -520,7 +556,9 @@ that it doesn't go down this way, as we'll see in equation \eqref{} of the next 
 
 % give |a||b|cos T and |a||b|sin T formulas here?
 
-\subsection{The Geometric Product}
+% Note here that |v^B|^2+|v.B|^2=|v|^2|B|^2 since v_{prp}.v_{prl}=0.
+
+\subsection{The Geometric Product}\label{sec_geo_prod}
 
 By themselves, neither the inner nor the outer product is an invertible
 product; but interesingly, when we combine them into a new product that
@@ -534,9 +572,11 @@ and similarly, we define the geometric product $Bv$ as
 \begin{equation}
 Bv = B\cdot v + B\wedge v.
 \end{equation}
-We define the geometric product to be associative and left and right distributive
-over addition.  Its commutativity will depend upon the elements being taken in the product.
 \end{definition}
+After making this definition, the associative and commutative properties of the geometric product will have
+to be investigated, but it is immediately clear that this product is left and right distributive over
+addition.
+
 As you can see, we use juxtaposition to denote the geometric product, and
 between $v$ and $B$ it is simply the sum of their inner and outer products.\footnote{Using
 Definition~\ref{def_vec_blade_geo_prod}, it is possible to find the geometric
@@ -546,18 +586,19 @@ sum of outer products.}
 
 % note the great leap it was to come up with the GP.
 
-% invertible, zero product property
-
-% juxtaposition
+% invertible, zero product property, uniqueness of inverses
 
 % versors.  psuedo-versors?
 
 % reverse
 
-% versors and outermorphisms
+% versors and outermorphisms (automorphisms)
 
-% show that |vB| = |v||B|
+% show that |vB| = |v||B| ==> zero-prod property
 
 % have section on important identities or have those come along as we go?
+
+% it is easy to show that v.B is a blade by factoring out a sub-algebra's psuedo-scalar
+% then use zero-prod property
 
 \end{document}
