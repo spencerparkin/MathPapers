@@ -59,32 +59,39 @@ A proper subgroup $H$ of a group $G$ is called {\it maximal} if there is no
 subgroup $K$ such that $H\subset K\subset G$.  Prove that $Q$ under
 addition has no maximal subgroups.
 
-For any $q\in Q$, let $Z(q)$ denote the set $\{zq|z\in\Z\}$.
-Then for any proper subgroup $H$ of the rationals $Q$ under addition,
-we will assume that there exists $q\in Q-H$ such that $Z(q)\cap H$ is the trivial
-subgroup of $Q$.  (How might I prove that this is true, if it's true?  It is
-easy to show that $H$ has no upper bound on the set of its non-members in $Q$.
-We can then find a finite sequence of any length where the elements are evenly spaced
-and the sequence misses $H$ altogether.  But none of these has the form $Z(q)$ for some $q\in Q-H$.)
+This is a very difficult problem, and after giving it a great deal of thought,
+the best I can come up with so far is the following hypothesis.
 
-Now if $q\in Q-H$, it is easy to show that $H+Z(q)$
-properly contains $H$ and is a subgroup of $Q$.
-Let $q\in Q-H$ be an element of $Q$ such that $Z(q)\cap H$
-is the trivial group.  This can be done by our assumption above.
-What remains to be shown is that $H+Z(q)$ is a proper
-subgroup of $Q$.  Suppose $Q=H+Z(q)$.
-Notice that $q/2\not\in H$, (since $q/2\in H$ would imply that $q\in H$), and $q/2\not\in Z(q)$.
-Yet we must have $q/2=zq+h$ for some $h\in H$ and $z\in\Z$.
-Rearranging, we have $2h=(1-2z)q$.  Now since $2h\in H$
-and $(1-2z)q\in Z(q)$, we must have $2h=(1-2z)q\in Z(q)\cap H$ which
-implies that $h=0$ and $q=0$.  But this contradicts the facts that
-$q\not\in H$ and $q/2\not\in Z(q)$.  So $H+Z(q)$ is a proper subgroup of $Q$.
+Let $H$ be any subgroup of $Q$ and
+let $B$ be a subset of $H$ of smallest possible cardinality such that
+\begin{equation*}
+H=\{z_1b_1+\dots+z_kb_k|z_i\in Z, b_i\in B,k\in Z^{+}\}.
+\end{equation*}
+Call such a subset $B$ of $H$ a basis for $H$.  If $B$ is of finite
+cardinality $k$, then we may write
+\begin{equation*}
+H = \langle b_1,\dots,b_k\rangle.
+\end{equation*}
+It is easy to show that if $B$ is of finite cardinality, then $H$ is a proper
+subgroup of $Q$.  Also, if $B$ is a basis for $Q$, then $B$ is infinite.
+The converse of either of these statements, however, is not obvious.
+Let's suppose for the moment, however, that $H$ is a proper subgroup
+of $Q$ if and only if $B$ is of finite cardinality.
+If then $H$ is a proper subgroup of $Q$ and we let $q\in Q-H$, it is clear that
+\begin{equation*}
+\langle b_1,\dots,b_k\rangle+\langle q\rangle=\langle b_1,\dots,b_k,q\rangle
+\end{equation*}
+is a subgroup of $Q$ that properly contains $H$.  That it is a proper subgroup
+of $Q$ follows from our assumption above and a realization that a basis
+for $H+\langle q\rangle$ is $B\cup\{q\}$, which is clearly finite.
 
-I have found a major problem with the assumption made in this proof.
-Notice that all subgroups $H$ of $Q$ have principle subgroups,
-(subgroups of the form $Z(q)$ for $q\in H$.)  And yet, for
-any two rationals $q,p\in Q$, the intersection $Z(q)\cap Z(p)$
-is never trivial!  In fact, it's another group of the form $Z(r)$
-for some $r\in Q$.
+Notice that all subgroups of $Q$ of the form $\langle q\rangle$ for some non-zero $q\in Q$
+are minimal subgroups of $Q$ isomoprhic to $Z$.
+
+Can an example be found that disproves the assumption?  Can the assumption
+be proved?  One approach to proving it is to take a subgroup $H$ of $Q$
+having an infinite basis $B$ and showing that for any $q\in Q$, we have $q\in H$.
+This would show that $H=Q$.  It may be easy to show that $q$ is always a limit
+point of $H$, but this does not imply membership in $H$.
 
 \end{document}
