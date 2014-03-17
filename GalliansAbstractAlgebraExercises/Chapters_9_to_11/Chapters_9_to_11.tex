@@ -59,47 +59,33 @@ A proper subgroup $H$ of a group $G$ is called {\it maximal} if there is no
 subgroup $K$ such that $H\subset K\subset G$.  Prove that $Q$ under
 addition has no maximal subgroups.
 
-This is a very difficult problem, and after giving it a great deal of thought,
-the best I can come up with so far is the following hypothesis.
-
-Let $H$ be any subgroup of $Q$ and
-let $B$ be a subset of $H$ of smallest possible cardinality such that
+Let $H$ be any non-trivial, proper subgroup of $Q$.  Then, if $h\in Q$ is also a
+member of $H$, then so is any integer multiple of $h$.  In other words,
 \begin{equation*}
-H=\{z_1b_1+\dots+z_kb_k|z_i\in Z, b_i\in B,k\in Z^{+}\}.
+hZ=\{zh|z\in Z\}\subseteq H.
 \end{equation*}
-Call such a subset $B$ of $H$ a basis for $H$.  If $B$ is of finite
-cardinality $k$, then we may write
-\begin{equation*}
-H = \langle b_1,\dots,b_k\rangle.
-\end{equation*}
-It is easy to show that if $B$ is of finite cardinality, then $H$ is a proper
-subgroup of $Q$.  Also, if $B$ is a basis for $Q$, then $B$ is infinite.
-The converse of either of these statements, however, is not obvious.
-Let's suppose for the moment, however, that $H$ is a proper subgroup
-of $Q$ if and only if $B$ is of finite cardinality.
-If then $H$ is a proper subgroup of $Q$ and we let $q\in Q-H$, it is clear that
-\begin{equation*}
-\langle b_1,\dots,b_k\rangle+\langle q\rangle=\langle b_1,\dots,b_k,q\rangle
-\end{equation*}
-is a subgroup of $Q$ that properly contains $H$.  That it is a proper subgroup
-of $Q$ follows from our assumption above and a realization that a basis
-for $H+\langle q\rangle$ is $B\cup\{q\}$, which is clearly finite.
+Furthermore, $hZ$ is a subgroup of $H$. Anyhow, we have shown that any non-trivial subgroup
+of $Q$ is infinite.
 
-Notice that all subgroups of $Q$ of the form $\langle q\rangle$ for some non-zero $q\in Q$
-are minimal subgroups of $Q$ isomoprhic to $Z$.
-
-Can an example be found that disproves the assumption?  Can the assumption
-be proved?  One approach to proving it is to take a subgroup $H$ of $Q$
-having an infinite basis $B$ and showing that for any $q\in Q$, we have $q\in H$.
-This would show that $H=Q$.  It may be easy to show that $q$ is always a limit
-point of $H$, but this does not imply membership in $H$.
-
-After some thought, I see that this approach doesn't work at all.
-I can think of many proper subgroups of $Q$ for which no basis
-can exist.  Consider, for example,
+Now, since $H$ is a proper subgroup of $Q$, there exists $r\in Q\backslash H$.
+If we wanted to form a subgroup of $Q$ containing $H$ and $r$, then it must
+contain at least $H$ and $rZ$.  Letting $H+rZ$ denote the set
 \begin{equation*}
-\langle q\rangle+\langle q/2\rangle+\langle q/2^2\rangle+\langle q/2^3\rangle+\dots,
+H+rZ=\{h+zr|h\in H,z\in Z\},
 \end{equation*}
-where $q\in Q$.  There is no basis for this subgroup of $Q$.
+it is not hard to show that $H+rZ$ is a subgroup of $Q$ properly containing $H$.
+What remains to be shown, however, is that $H+rZ$ is a proper subgroup of $Q$.
+
+I am completely stumped!  Here are some thoughts.
+
+Intuitively, it should be impossible for a proper subgroup $H$ of $Q$ to
+complete $Q$ by throwing in a single element $r\in Q\backslash H$.
+What may perhaps help us realize this is a consideration of what was
+added to $H$ by throwing in $r$.  This is precisely the set of
+elements
+\begin{equation*}
+(H+rZ)\backslash H = \{h+s|h\in H,s\in rZ\backslash H\} = H+rZ\backslash H.
+\end{equation*}
+Notice that $H\cap rZ$ is a non-trivial subgroup of $Q$.
 
 \end{document}
