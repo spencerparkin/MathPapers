@@ -40,10 +40,9 @@ Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
 \dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Versors are found in a geometric algebra that,
-when applied to elements of that algebra that are representative
-of various algebraic surfaces in a constrained way, perform a non-uniform scaling
-of those surfaces.
+It is shown that for every non-uniform scale transformation, a versor
+exists in a geometric algebra that can perform this transformation
+on any algebraic surface.  Some implications and generalizations of this find are discussed.
 \end{abstract}
 
 \keywords{Algebraic Surface, Conformal Model, Non-Uniform Scale, Geometric Algebra}
@@ -52,8 +51,9 @@ of those surfaces.
 
 \section{Motivation}
 
-Non-uniform scale is one of the outstanding problems of geometric algebra.
-As noted in the beginning of \cite{Goldman}, $4\times 4$ matrices have been a standard
+The question of existence of non-uniform scale versors is one of the outstanding problems of geometric algebra,
+and one that stands in the way of geometric algebra competing against existing and well-proven transformation models.
+As noted in the beginning of \cite{Goldman}, $4\times 4$ matrices have long-time been a standard
 in computer graphics for representing affine and projective transformations, but an
 equivilant model for such transformations in a more modern setting has yet to emerge
 as a considerable replacement.  This paper does not purport to provide such a setting,
@@ -62,8 +62,9 @@ An upcoming paper by an author of \cite{Dorst07} may provide an even better solu
 
 \section{The Result}
 
-The result of this paper is simply a corollary to that of \cite{Parkin13}, but to see how,
-we must first constrain the way that we represent $n$-dimensional algebraic surfaces of up to degree $m$
+The result\footnote{To understand this paper, the reader must be familiar
+with \cite{Parkin13}.} of this paper is simply a corollary to that of \cite{Parkin13}, but to see how,
+we must first constrain the way in which we represent $n$-dimensional algebraic surfaces of up to degree $m$
 in the Mother Minkowski algebra of order $m$.\footnote{Recall that such representations are not unique, and so
 we have the flexibility to choose our representations carefully.} What we do is let $n\leq m$, and
 reserve certain subalgebras of our mother algebra for use in specific dimensions.
@@ -87,24 +88,24 @@ and let $[\G^k]$ denote the set of indices over which $\G_i\subseteq\G^k$.)
 An example may be warrented at this point.  Let $n=3$ and consider the
 polynomial given by
 \begin{equation}\label{equ_example_poly}
-f(x) = 3x_1^2x_2x_3^4 + 4x_1x_2^5 - 7x_3^2,
+f(x) = 3x_1^2x_2x_3^4 + 4x_1x_2^3 - 7x_3^2,
 \end{equation}
 where $x_k$ is notation for $x_k=x\cdot e_k$.  We will represent the
 surface that is the zero set of this polynomial using an $m$-vector
-in a Mother Minkowski algebra of order $m=2+5+4=11$.  The first
-2 subalgebras are reserved for dimension 1, the next 5 for dimension
+in a Mother Minkowski algebra of order $m=2+3+4=9$.  The first
+2 subalgebras are reserved for dimension 1, the next 3 for dimension
 2, and the last 4 for dimension 3.  The $m$-vector $B$
 representing this surface is then given by
-\begin{align*}
-B &= 3e_{(1,2),1}\wedge e_{3,2}\wedge \nvai_{(4,5,6,7)} \wedge e_{(8,9,10),3} \wedge \nvai_{11} \\
- &+ 4e_{1,1}\wedge\nvai_2\wedge e_{(3,4,5,6,7),2}\wedge\nvai_{(8,9,10,11)} \\
- &- 7\nvai_{(1,2,3,4,5,6,7)}\wedge e_{(8,9),3}\wedge\nvai_{(10,11)}.
+\begin{align}
+B &= 3e_{12,1}\wedge e_{3,2}\wedge \nvai_{45} \wedge e_{6789,3}\nonumber \\
+ &- 4e_{1,1}\wedge\nvai_2\wedge e_{345,2}\wedge\nvai_{6789}\nonumber \\
+ &+7\nvai_{12345}\wedge e_{67,3}\wedge\nvai_{89}.\label{equ_B_example}
 % Check signs.
-\end{align*}
+\end{align}
 Here, notation is a challenge.  The vector $e_{i,j}$ denotes the $j^{th}$ euclidean basis vector
 in the $i^{th}$ subalgebra.  We then define
 \begin{equation*}
-e_{(i_1,i_2,\dots,i_r),j} = e_{i_1,j}\wedge e_{i_2,j}\wedge\dots\wedge e_{i_r,j}.
+e_{i_1i_2\dots i_r,j} = e_{i_1,j}\wedge e_{i_2,j}\wedge\dots\wedge e_{i_r,j}.
 \end{equation*}
 The notation for $\nvai$ is similar.
 
@@ -115,20 +116,23 @@ is given by the set of all solutions to the equation
 \end{equation}
 Recall that $p_k(x)=\nvao_k+x_k+\frac{1}{2}x^2\nvai_k$.
 Of course, we could have represented $f$ in a mother algebra of order $\deg f=7$,
-but it will soon become clear why we needed our algebra $\G$ to be of order $m=11$.
+but it will soon become clear why we needed our algebra $\G$ to be of order $m=9$.
+
+Before moving on, notice that for $[\G^1]=\{1,2\}$, $[\G^2]=\{3,4,5\}$ and
+$[\G^3]=\{6,7,8,9\}$.
 
 Returning from the example, suppose now we have an $m$-vector $B$ representative
 of any polynomial $f:\R^n\to\R$ under the constraint thus illustrated.  Seeing that
 the zero set of $f$ is the set of solutions to equation \eqref{equ_surface_rep},
 we make the simple observation that if $D$ is a versor taken from a subalgebra $\G^k$,
-and further, $D$ is the product of the same dilation versor $D_i$ found in each subalgebra
+and further, $D$ is the product of the same origin-centered dilation versor $D_i$ found in each subalgebra
 $\G_i$ contained in $\G^k$, (see \cite{Dorst07} for an explanation of dilation versors),
 which is to say that $D=\prod_{i\in [\G^k]} D_i$,
 then the non-uniform scale of $f$ in the dimension of $k$ by the scale of each
 $D_i$ is given by the set of solutions to the equation
 \begin{align}
-  & \pm \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge\bigwedge_{i\in[\G^k]} D_i^{-1}p_i(x)D_i\cdot B \nonumber \\
- =\; & \pm\bigwedge_{i\not\in [\G^k]} p_i(x)\wedge D^{-1}\left(\bigwedge_{i\in [\G^k]} p_i(x)\right)D\cdot B = 0.\label{equ_non_uniform_scale_construction}
+  & \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge\bigwedge_{i\in[\G^k]} D_i^{-1}p_i(x)D_i\cdot B \nonumber \\
+ =\; & \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge D^{-1}\left(\bigwedge_{i\in [\G^k]} p_i(x)\right)D\cdot B = 0.\label{equ_non_uniform_scale_construction}
 \end{align}
 Now realize that for all $i\not\in[\G^k]$, $D$ leaves $p_i(x)$ invariant.  That is,
 \begin{equation*}
@@ -140,6 +144,24 @@ may be rewritten as
 \bigwedge_{k=1}^m p_k(x)\cdot DBD^{-1},
 \end{equation*}
 showing that $D$, when applied to $B$, performs a non-uniform scaling of the surface of $f$.
+
+Putting this result into practice, let us apply a non-uniform scale transformation
+to the polynomial in equation \eqref{equ_example_poly}.  Suppose we wish
+to scale the surface represented by this polynomial by a factor of 2 in the $e_2$ dimension.
+Letting $D_k=(\nvao_k-\nvai_k)\left(\nvao_k-\frac{1}{2}\nvai_k\right)$, the non-uniform
+scale versor $D$ we
+want is $D=D_3D_4D_5$.  Then, using $B$ in equation \eqref{equ_B_example}, we find that
+\begin{align}
+\frac{1}{2^3}DBD^{-1} &= \frac{3}{2}e_{12,1}\wedge \nvai_{45}\wedge e_{6789,3}\nonumber \\
+ &-\frac{4}{2^3}e_{1,1}\wedge\nvai_2\wedge e_{345,2}\wedge\nvai_{6789}\nonumber \\
+ &+7\nvai_{12345}\wedge e_{67,3}\wedge \nvai_{89},\label{equ_check_result}
+\end{align}
+which is just what we would hope to get when checking this against the
+polynomial $f\left(x_1e_1+\frac{1}{2}x_2e_2+x_3e_3\right)$.\footnote{The present author
+used symbolic computation software to make the calculatin in equation \eqref{equ_check_result}.
+This software can be found at \url{https://github.com/spencerparkin/GAVisTool}, though it
+is not recommended for general use.}  Notice that the $1/2^3$ factor on the left-hand
+side homogenizes $DBD^{-1}$.
 
 \section{Closing Remarks}
 
@@ -157,11 +179,32 @@ Considering the former for a moment, it's possible that in some cases these are 
 Then, since reflections give us rotations, it's not surprising that shears may be a bit
 more fundamental than rotations as hinted at by the clever paper \cite{Paeth90}.
 
+In any case, it might now be possible to show that any affine transformation
+has an associated versor in our mother algebra that performs
+this transformation on an algebraic surface.  This would be interesting,
+because the set of all algebraic surfaces of a certain degree are classified by defining an
+equivilance relation on this set which states that two surfaces, (in our case, $m$-vectors),
+are equivilant if and only if there exists an affine transformation, (in our case, an inner
+automorphism of the versor group of our mother algebra), that takes one of these
+surfaces to the other.  The versor that would take any algebraic surface to the
+principle representative of its equivilance class would represent an important transformation,
+the decomposition of which would probably reveal the defining characteristics of the surface.
+In any event, it is not at all clear
+whether geometric algebra is the right tool for studying such equivilance classes.
+Showing any of this is well beyond the present author's capabilities.
+
 \begin{thebibliography}{9}
 
 \bibitem{Paeth90}
 A. Paeth, {\it A Fast Algorithm for General Raster Rotation},
 Graphics gems, Academic Press Professional, (1990), p. 179-195.
+
+\bibitem{Garrity13}
+G. Garrity, et. al., {\it Algebraic Geometry, A Problem Solving Approach},
+Student Mathematical Library, IAS/Park City Mathematical Subseries, Vol. 66, (2013).
+
+\bibitem{Gallian12}
+J. Gallian, {\it Contemporary Abstract Algebra}, Cengage Learning, 2012.
 
 \bibitem{Dorst07}
 L. Dorst, D. Fontijne and S. Mann, {\it Geometric algebra for computer
@@ -173,7 +216,7 @@ in the Homogeneous Model of the Clifford Algebra for 3-Dimensional Euclidean Spa
 Blah, (Year).
 
 \bibitem{Parkin13}
-S. Parkin, {\it Mother Minkowski Algebra Of Order $M$}.
+S. Parkin, {\it The Mother Minkowski Algebra Of Order $M$}.
 Advances in Applied Clifford Algebras (2013).
 
 \end{thebibliography}
