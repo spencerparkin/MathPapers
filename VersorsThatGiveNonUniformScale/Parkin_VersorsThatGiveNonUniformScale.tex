@@ -191,13 +191,40 @@ principle representative of its equivalence class would represent an important t
 the decomposition of which would probably reveal the defining characteristics of the surface.
 In any event, it is not at all clear
 whether geometric algebra is the right tool for studying such equivalence classes.
-Showing any of this is well beyond the present author's capabilities.
+Showing any of this is well beyond the this author's capabilities.
+
+Lastly, the apparent ``coordinitis,'' (see \cite{Hestenes92}), suffered by this and \cite{Parkin13} should
+be addressed.  Polynomials are inherently non-coordinate-free, and so, naturally, a study of their zero sets
+in the framework of geometric algebra is not always free of coordinates either.  Despite this,
+if one begins with a coordinate-free formulation of a surface, $\bigwedge p_k(x)$ can often be
+factored out of it in terms of the inner product in a coordinte-free manner.  For example, many quadrics
+characterized by a scalar $\lambda$, center $c$, radius $r$ and unit-length vector $v$, are solutions in $x$ to the
+coordinate-free equation
+\begin{equation*}
+(x-c)^2+\lambda((x-c)\cdot v)^2 - r^2 = 0,
+\end{equation*}
+which, when expanded, becomes
+\begin{equation*}
+x^2+\lambda (x\cdot v)^2 - 2x\cdot (c+\lambda (c\cdot v)v)+c^2+\lambda(c\cdot v)^2 - r^2 = 0,
+\end{equation*}
+out of which may be factored $p_1(x)\wedge p_2(x)$ to get
+\begin{equation*}
+p_1p_2\cdot(-\Omega-\lambda v_1v_2-2(c+\lambda(c\cdot v)v)_1\nvai_2-(c^2+\lambda (c\cdot v)^2-r^2)\nvai_{12})=0,
+\end{equation*}
+where the constant $\Omega$ is given by $\sum_{i=1}^n e_{12,i}$.
+(Recall that the subscripts can act as outermorphisms, and so have algebraic properties.  See the
+admittedly poor paper \cite{Parkin13_2}.)
+The usefulness, if any, of these forms remains to be seen.
 
 \begin{thebibliography}{9}
 
 \bibitem{Paeth90}
 A. Paeth, {\it A Fast Algorithm for General Raster Rotation},
 Graphics gems, Academic Press Professional, (1990), p. 179-195.
+
+\bibitem{Hestenes92}
+D. Hestenes, {\it Mathematical Viruses}, Clifford Algebras and their
+Applications in Mathematical Physics, Vol. 47, (1992), p. 3-16.
 
 \bibitem{Garrity13}
 G. Garrity, et. al., {\it Algebraic Geometry, A Problem Solving Approach},
@@ -213,10 +240,14 @@ science}. Morgan Kaufmann, 2007.
 \bibitem{Goldman}
 R. Goldman, X. Jia, {\it Representing Perspective Projections as Rotors
 in the Homogeneous Model of the Clifford Algebra for 3-Dimensional Euclidean Space}
-Blah, (Year).
+Conference of Applied Geometric Algebras in Computer Science and Engineering, (2012).
 
 \bibitem{Parkin13}
 S. Parkin, {\it The Mother Minkowski Algebra Of Order $M$}.
+Advances in Applied Clifford Algebras (2013).
+
+\bibitem{Parkin13_2}
+S. Parkin, {\it The Intersection Of Rays With Algebraic Surfaces}.
 Advances in Applied Clifford Algebras (2013).
 
 \end{thebibliography}
