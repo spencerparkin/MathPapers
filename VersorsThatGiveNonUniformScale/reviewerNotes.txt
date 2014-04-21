@@ -1,0 +1,31 @@
+Reviewer #1: General Comments
+
+     The purpose of this paper is to show how to represent non-uniform scaling by versors in an extension of the conformal model of Clifford algebra.
+
+    The results in this paper are interesting and novel, and the paper is short and to the point.  Therefore I would like to see this paper published.  However, this paper has several flaws that need to be fixed before publication.
+
+    First, rotors representing non-uniform scaling for vectors in affine or projective spaces are provided in: 
+	C. Doran, D. Hestenes, F. Sommen, and N. Van Acker. Lie groups as spin groups. Journal of Mathematical Physics, 34(8):3642-3669, 1993.
+Unlike the current author, Doran et al are not working in an extension of the conformal model of Clifford algebra.  Nevertheless, their results should certainly be cited in the Introduction and the differences between their results and the authors results should be briefly explained.  In fact the speculation on page 4 that it might now be possible to show that any affine transformation has an associated versor in our mother algebra cries out for a comparison to the paper of Doran et al, where the authors indeed show that any affine transformation has an associated rotor albeit not in the conformal model.
+
+    Second, the author relies heavily on a description of what he calls the Mother Minkowski Algebra, which appears in one of his previous papers.  To clarify his approach in this paper, a brief description of this mother algebra emphasizing that it is an extension of the conformal model would be very helpful here and should be included in Section 2.
+
+    There are also a few minor typos and grammatical mistakes that need to be corrected.  I list these errors below.
+
+Specific Comments
+
+Page 2
+Line 3:  for any integer ? for each integer (FIXED)
+Last Line:  representative of ? representing  {Thou shall not change a verb into a noun.} (FIXED)
+
+Page 3
+Equation (2.5):  The factor e_3,2 is missing from the first term on the right-hand side. (FIXED)
+Line 3 from bottom:  the non-uniform scale operation ? non-uniform scaling {non-uniform scaling is an operation, so the word operation here is redundant} (FIXED)
+Footnote, Line 1:  calculatin ? calculation (FIXED)
+
+Page 4
+Second full Paragraph, Lines 9, 10: What is the meaning of the phrase:  the principle representative of its equivalence class. (FIXED?)
+
+Page 5
+Reference 6:  The correct title is: Perspective Projection in the Homogeneous and Conformal
+(FIXED)

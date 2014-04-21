@@ -42,23 +42,32 @@ Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
 \begin{abstract}
 It is shown that for every non-uniform scale transformation, a versor
 exists in a geometric algebra that can perform this transformation
-on any algebraic surface.  Some implications and generalizations of this find are discussed.
+on any algebraic surface.  Some implications and generalizations of this find are discussed,
+as well as the possibility of acquiring all affine transformations as versors applicable
+to any algebraic surface.
 \end{abstract}
 
 \keywords{Algebraic Surface, Conformal Model, Non-Uniform Scale, Geometric Algebra}
 
 \maketitle
 
-\section{Motivation}
+\section{Motivation And Review}
 
 The question of existence of non-uniform scale versors is one of the outstanding problems of geometric algebra,
 and one that stands in the way of geometric algebra competing against existing and well-proven transformation models.
-As noted in the beginning of \cite{Goldman}, $4\times 4$ matrices have long-time been a standard
+As noted in the beginning of \cite{Goldman12}, $4\times 4$ matrices have long-time been a standard
 in computer graphics for representing affine and projective transformations, but an
 equivalent yet hopefully more capable and universally compatible model for such transformations in a more modern setting has yet to emerge
 as a considerable replacement.  This paper does not purport to provide such a setting,
 but it does offer a potential solution to the non-uniform scale problem.
 An upcoming paper by an author of \cite{Dorst07} may provide an even better solution.
+
+Being dependent on \cite{Parkin13}, a quick review is in order before we begin.
+In \cite{Parkin13} and this paper we work in a geometric algebra that is simply
+the external direct product of $m$ copies of a Minkowski algebra $\G$, which
+may be denoted by $\bigoplus_{i=1}^m \G_i$.  We will be interested in the $m$-vectors
+taken from $\bigwedge_{i=1}^m \G_i$ as being representative of algebraic surfaces
+of up to degree $m$ by equation \eqref{equ_surface_rep} below.
 
 \section{The Result}
 
@@ -69,7 +78,7 @@ in the Mother Minkowski algebra of order $m$.\footnote{Recall that such represen
 we have the flexibility to choose our representations carefully.} What we do is let $n\leq m$, and
 reserve certain subalgebras of our mother algebra for use in specific dimensions.
 To see what is meant by this, let $f:\R^n\to\R$ be a polynomial in whose zero set
-we are interested.  Now define, for any integer $k\in[1,n]$, the polynomial $f_k:\R\to\R$ as
+we are interested.  Now define, for each integer $k\in[1,n]$, the polynomial $f_k:\R\to\R$ as
 \begin{equation*}
 f_k(\lambda)=f(e_1+e_2+\dots+\lambda e_k+\dots +e_{n-1}+e_n).
 \end{equation*}
@@ -121,8 +130,8 @@ but it will soon become clear why we needed our algebra $\G$ to be of order $m=9
 Before moving on, notice that $[\G^1]=\{1,2\}$, $[\G^2]=\{3,4,5\}$ and
 $[\G^3]=\{6,7,8,9\}$.
 
-Returning from the example, suppose now we have an $m$-vector $B$ representative
-of any polynomial $f:\R^n\to\R$ under the constraint thus illustrated.  Seeing that
+Returning from the example, suppose now we have an $m$-vector $B$ representing
+any polynomial $f:\R^n\to\R$ under the constraint thus illustrated.  Seeing that
 the zero set of $f$ is the set of solutions to equation \eqref{equ_surface_rep},
 we make the simple observation that if $D$ is a versor taken from a subalgebra $\G^k$,
 and further, $D$ is the product of the same origin-centered dilation versor $D_i$ found in each subalgebra
@@ -163,21 +172,12 @@ This software can be found at \url{https://github.com/spencerparkin/GAVisTool}, 
 is not recommended for general use.}  Notice that the $1/2^3$ factor on the left-hand
 side homogenizes $DBD^{-1}$.
 
-\section{Closing Remarks}
+\section{Discussion}
 
-Though we have now shown that versors performing the non-unform scale operation
+Though we have now shown that versors performing non-unform scaling
 exist, seeing that their application requires a great deal of cumbersome convention and notation,
 a question of their practicality immediately arises.  It's certainly not practical on paper, but
 perhaps such versors may find applications on the computer.
-
-Another immediate observation we can make about the result of this paper is that it
-easily generalizes to the idea of a non-uniform ``X'', where ``X'' may be replaced here
-by any one of the conformal transformations.  Since all such transformations may be
-decomposed as one or more planar reflections and spherical inversions, the two fundamental
-transformations to consider here are non-uniform reflections and non-uniform inversions.
-Considering the former for a moment, it's possible that in some cases these are shears.
-Then, since reflections give us rotations, it's not surprising that shears may be a bit
-more fundamental than rotations as hinted at by the clever paper \cite{Paeth90}.
 
 In any case, it might now be possible to show that any affine transformation
 has an associated versor in our mother algebra that performs
@@ -187,11 +187,73 @@ equivalence relation on this set which states that two surfaces, (in our case, $
 are equivalent if and only if there exists an affine transformation, (in our case, an inner
 automorphism of the versor group of our mother algebra), that takes one of these
 surfaces to the other.  The versor that would take any algebraic surface to the
-principle representative of its equivalence class would represent an important transformation,
-the decomposition of which would probably reveal the defining characteristics of the surface.
-In any event, it is not at all clear
+principle representative of its equivalence class would represent an important transformation.\footnote{The
+principle representatives are the origin-centered, axis-aligned surfaces having unit characteristics where possible
+without loss of generality.}
+It is not at all clear, however,
 whether geometric algebra is the right tool for studying such equivalence classes.
-Showing any of this is well beyond this author's capabilities.
+As far as the mother Minkowski algebra is concerned, the only transformation we yet lack
+is that of shear.
+
+In an initial search for shear, an immediate and possibly helpful observation we can make about the result of this paper is that it
+easily generalizes to the idea of a non-uniform ``X'', where ``X'' may be replaced here
+by any one of the conformal transformations.  Since all such transformations may be
+decomposed as one or more planar reflections and spherical inversions, the two fundamental
+transformations to consider here are non-uniform reflections and non-uniform inversions.
+We first note that, without loss of generality, we need only consider reflections and inversions
+about the origin, since any problem can be translated into and out of this situation.
+Secondly, we can rule out non-uniform inversions right away, since they can't be any more helpful
+to us than non-uniform dilations.  This leaves non-uniform reflections.
+
+A quick analysis of the 2-dimensional cases shows that a point undergoing this operation
+in the horizontal dimension with a plane having a unit-normal determined by an angle $\theta$ undergoes the same
+transformation illustrated by the following matrix equation.
+\begin{equation*}
+\left[\begin{array}{cc} -\cos 2\theta & -\sin 2\theta \\ 0 & 1 \end{array}\right]
+\left[\begin{array}{c} x \\ y \end{array}\right] =
+\left[\begin{array}{c} -(\cos 2\theta)x - (\sin 2\theta)y \\ y \end{array}\right]
+\end{equation*}
+This bears some semblance of shear but clearly misses the mark.
+
+\section{Comparison And Possible Reconciliation}
+
+A review of an early draft of this paper rightly pointed out the work of \cite{DoranHestenes93} as providing
+all affine transformations for points in affine spaces.
+In writing \cite{Parkin13}, however, the author, in his weakness, was only able to take away from \cite{DoranHestenes93}
+the idea of ``gluing'' $m$ geometric algebras together to form a mother algebra
+with added structure making the representation of surfaces by $m$-vectors in
+that algebra a natural consequence.\footnote{Through personal communication
+with David Hestenes, (an author of \cite{DoranHestenes93}), I suggested the representation scheme of \cite{Parkin13}, after which he pointed me
+to the paper \cite{DoranHestenes93} as having already explored similar propositions.}  Once done, one can then leverage the known transformations
+available in the geometric algebra that was replicated to form the mother algebra.
+In the case of \cite{Parkin13}, it was the algebra of the conformal model; so, naturally, all surfaces
+became subject to the conformal transformations.
+
+The soon to be published paper \cite{GoldmanNotYet}, however, makes many of the ideas of \cite{DoranHestenes93} more
+accessible to the average reader.  It even features a method of representing quadric
+surfaces in a way similar to that found in \cite{Parkin13}, with the only drawback being
+that it does not generally preserve the sandwich operation of versors on quadrics.  To solve this problem,
+extend the representation scheme to the set of all algebraic surfaces of degree $m$, and gain
+all of the affine transformations, the following proposition is made, even if at the cost of the
+bloat created by \cite{Parkin13} and exacerbated by the present paper.\footnote{Here, ``bloat'' refers
+to the excessive use of dimension.}
+
+The paper \cite{GoldmanNotYet} uses an algebra denoted by $W\oplus W^*$ and shows that versors
+in this algebra give the affine transformations on points in the vector space generating $W$.
+Leveraging this algebra as was done with the conformal model in \cite{Parkin13}, we can represent
+surfaces of degree $m$ as $m$-vectors in the subalgebra $\bigoplus_{i=1}^m W_i$ of
+the mother algebra
+\begin{equation*}
+\bigoplus_{i=1}^m W_i\oplus W_i^* = \bigoplus_{i=1}^m W_i\oplus\bigoplus_{i=1}^m W_i^*.
+\end{equation*}
+Specifically, we would be interested in the $m$-vectors taken from $\bigwedge_{i=1}^m W_i$.
+
+Seeing that any further
+details of this idea would warrant a paper of its own, let us leave it at that.  Seeing that it would not at all be hard for
+anyone familiar with \cite{Parkin13} and \cite{GoldmanNotYet} to fill in such details in the absence of such a paper,
+it may not at all be warranted.
+
+\section{Closing Remarks}
 
 Lastly, the apparent ``coordinitis,'' (see \cite{Hestenes92}), suffered by this paper and \cite{Parkin13} should
 be addressed.  Polynomials are inherently non-coordinate-free; and so, naturally, a study of their zero sets
@@ -216,7 +278,14 @@ where the constant $\Omega$ is given by $\sum_{i=1}^n e_{12,i}$.
 admittedly poor paper \cite{Parkin13_2}.)
 The usefulness, if any, of these forms remains to be seen.
 
-\begin{thebibliography}{9}
+The study of algebraic surfaces using polynomial rings in abstract algebra, (algebraic geometry),
+does not suffer from coordinitis, because it is so abstract.  There is a certain appeal to geometric algebra,
+however, because its language and results, as greatly illustrated by the conformal model, are just down-right fun.
+
+\begin{thebibliography}{10}
+
+\bibitem{DoranHestenes93}
+C. Doran et. al., {\it Lie groups as spin groups}, J. Math. Phys., Vol. 34, (1993).
 
 \bibitem{Paeth90}
 A. Paeth, {\it A Fast Algorithm for General Raster Rotation},
@@ -237,10 +306,13 @@ J. Gallian, {\it Contemporary Abstract Algebra}, Cengage Learning, 2012.
 L. Dorst, D. Fontijne and S. Mann, {\it Geometric algebra for computer
 science}. Morgan Kaufmann, 2007.
 
-\bibitem{Goldman}
-R. Goldman, X. Jia, {\it Representing Perspective Projections as Rotors
-in the Homogeneous Model of the Clifford Algebra for 3-Dimensional Euclidean Space}
+\bibitem{Goldman12}
+R. Goldman, X. Jia, {\it Perspective Projection in the Homogeneous and Conformal}.
 Conference of Applied Geometric Algebras in Computer Science and Engineering, (2012).
+
+\bibitem{GoldmanNotYet}
+R. Goldman, S. Mann, {\it $R(4,4)$ As a Computational Framework for 3-Dimensional Computer Graphics}.
+Advances in Applied Clifford Algebras, Not Yet Published.
 
 \bibitem{Parkin13}
 S. Parkin, {\it The Mother Minkowski Algebra Of Order $M$}.
