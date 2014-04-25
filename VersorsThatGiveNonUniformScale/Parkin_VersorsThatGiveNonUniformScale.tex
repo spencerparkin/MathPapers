@@ -64,7 +64,7 @@ An upcoming paper by an author of \cite{Dorst07} may provide an even better solu
 
 Being dependent on \cite{Parkin13}, a quick review is in order before we begin.
 In \cite{Parkin13} and this paper we work in a geometric algebra that is simply
-the external direct product of $m$ copies of a Minkowski algebra $\G$, which
+the external direct product of $m$ disjoint copies of a Minkowski algebra, which
 may be denoted by $\bigoplus_{i=1}^m \G_i$.  We will be interested in the $m$-vectors
 taken from $\bigwedge_{i=1}^m \G_i$ as being representative of algebraic surfaces
 of up to degree $m$ by equation \eqref{equ_surface_rep} below.
@@ -123,7 +123,8 @@ is given by the set of all solutions to the equation
 \begin{equation}\label{equ_surface_rep}
 \bigwedge_{k=1}^m p_k(x)\cdot B = 0.
 \end{equation}
-Recall that $p_k(x)=\nvao_k+x_k+\frac{1}{2}x^2\nvai_k$.
+Recall that $p_k(x)=\nvao_k+x_k+\frac{1}{2}x^2\nvai_k$, where here,
+$x_k$ denotes the embedding of $x$ in $\V_k$.
 Of course, we could have represented $f$ in a mother algebra of order $\deg f=7$,
 but it will soon become clear why we needed our algebra $\G$ to be of order $m=9$.
 
@@ -141,9 +142,13 @@ then the non-uniform scale of $f$ in the dimension of $k$ by the scale of each
 $D_i$ is given by the set of solutions to the equation
 \begin{align}
   & \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge\bigwedge_{i\in[\G^k]} D_i^{-1}p_i(x)D_i\cdot B \nonumber \\
- =\; & \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge D^{-1}\left(\bigwedge_{i\in [\G^k]} p_i(x)\right)D\cdot B = 0.\label{equ_non_uniform_scale_construction}
+ =\; & \bigwedge_{i\not\in [\G^k]} p_i(x)\wedge D^{-1}\left(\bigwedge_{i\in [\G^k]} p_i(x)\right)D\cdot B = 0,\label{equ_non_uniform_scale_construction}
 \end{align}
-Now realize that for all $i\not\in[\G^k]$, $D$ leaves $p_i(x)$ invariant.  That is,
+since for any $i\neq j$, we have
+\begin{equation*}
+D_j^{-1}p_i(x)D_j=p_i(x).
+\end{equation*}
+Similarly, for all $i\not\in[\G^k]$, $D$ leaves $p_i(x)$ invariant.  That is,
 \begin{equation*}
 D^{-1}p_i(x)D=p_i(x).
 \end{equation*}
