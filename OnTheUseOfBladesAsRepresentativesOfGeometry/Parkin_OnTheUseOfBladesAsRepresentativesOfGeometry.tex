@@ -1,0 +1,162 @@
+\documentclass{birkjour}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{On The Use Of Blades As\\Representatives Of Geometry}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., \\
+Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\keywords{Key words go here...}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+In many models of geometry based upon geometric algebra (see \cite{}), blades are used
+to represent geometries.  Seeing a great deal of commonality between these models, a formal
+treatment of this idea deserves to be given in an abstract setting.\footnote{For example,
+the use of ideals of polynomial rings as representatives of algebraic sets is studied in
+the setting of abstract algebra.}  To the author's knowledge, this is the first treatment of its kind.
+
+\section{Foundation}
+
+To lay the foundation of our work, we introduce $\V$ as denoting an $m$-dimensional vector
+space generating a geometric algebra denoted by $\G$.  We leave the signature of this geometric algebra
+unspecified, but in cases where a proof depends upon signature, one is given as either
+euclidean or non-euclidean.\footnote{The Gram-Schmidt orthogonalization process is applicable
+to all blades taken from and only from geometric algebras having euclidean signatures.}
+The scalars of $\V$, (and therefore $\G$), are taken from the field of real numbers denoted by $\R$.\footnote{To be more abstract,
+we could have used any field with characteristic 1, but there will be no foreseable advantage to doing so in this paper.}
+We will let $\R^n$ denote $n$-dimensional euclidean space,\footnote{Some models of geometry find affine space to be the natural
+space within which to work, but this will not be the case in this paper.} and let $\B$ denote the set of all blades taken from $\G$.
+Lastly, we will let $p:\R^n\to\V$ be an unspecified function we'll use in the following definition which launches us forth into a general
+theory of models of geometry based upon blades in a geometric algebra.  In our abstract setting, the definition of
+this function does not matter.  All that matters is that it is a function.
+
+\begin{defn}[Direct And Dual Representation]\label{def_blade_rep_geo}
+For any blade $B\in\B$, we say that $B$ directly represents the set of all points $x\in\R^n$ such that
+$p(x)\wedge B=0$, and say that $B$ dually represents the set of all points $x\in\R^n$ such that
+$p(x)\cdot B=0$.  For convenience, we introduction the following functions using set-builder notation.
+\begin{align*}
+\gh(B) &= \{x\in\R^n|p(x)\wedge B=0\} \\
+\gd(B) &= \{x\in\R^n|p(x)\cdot B=0\}
+\end{align*}
+\end{defn}
+From Definition~\ref{def_blade_rep_geo}, it's important to take away the realization that a given blade $B\in\B$ represents two geometries
+simultaneously; namely, $\gh(B)$ and $\gd(B)$.  Which geometry we choose to think of $B$ as being a representative of at any given time is completely
+arbitrary.\footnote{In some literature on geometric algebra, a blade $B$ intended to represent some peice of geometry directly or dually
+is referred to as a ``geometry'' or a ``dual geometry,'' respectively.  This is confusing and not practiced in this paper.  A blade is a blade; and when
+we refer to geometry, we will use proper language in identifying what represents it and how it does so.  In this paper, a geometry is a subset of
+$\R^n$ that can be represented dually or directly by some blade $B\in\B$ under Definition~\ref{def_blade_rep_geo}.}
+
+It should also be clear from Definition~\ref{def_blade_rep_geo} that the geometry represented by a blade $B$, (directly or dually), remains invariant
+under any non-zero scaling of the blade $B$.  Something interesting happens, however, when we take the dual of $B$, as our first lemma shows.
+
+\begin{lem}[Dual Something]\label{lem_dual_rep}
+For any subset $S$ of $\R^n$, if there exists $B\in\B$ such that $\gh(B)=S$, then $\gd(BI)=S$, where
+$I$ is the unit psuedo-scalar of $\G$.  Similarly, if there exists $B\in\B$ such that $\gd(B)=S$, then $\gh(BI)=S$.
+\end{lem}
+\begin{proof}
+The first of these two statements is proven by
+\begin{equation*}
+0=p(x)\wedge B=-(p(x)\cdot BI)I\iff p(x)\cdot BI=0,
+\end{equation*}
+while the second is proven by
+\begin{equation*}
+p(x)\cdot B=0\iff 0=(p(x)\cdot B)I=p(x)\wedge BI.
+\end{equation*}
+See identities \eqref{equ_dual_of_v_dot_B} and \eqref{equ_dual_of_v_dot_dual_B} of Section~\ref{sec_useful_identities}.
+\end{proof}
+
+In words, Lemma~\ref{lem_dual_rep} is telling us that for a single given geometry, the algebraic relationship between a
+blade directly (dually) representative of that geometry, and a blade dually (directly) representative of that geometry, is simply
+that, up to scale, they are duals of one another.
+
+Of course, there will also be a geometric relationship between the geometry that is directly represented by a single given
+blade $B\in\B$, and the geometry that is dually represented by $B$, but this depends upon the definition of our function
+$p$, which we choose, in this paper, to leave open for speculation.
+
+% what's next?
+
+% need to cover intersections and union-like operations.
+
+% need to cover existence and uniqueness of irreducible blades...introduce this interms of converse of obvious statement.
+% given algorithm for finding irreducible blade.
+
+% cover transformations by versors and how that relates to understanding the action of a versor on p?
+
+\section{Useful Identities}\label{sec_useful_identities}
+
+In this section we give a number of useful algebraic identities that would otherwise distract us from the flow of the
+paper if given in the main body.  This section is not intended as a complete review of geometric algebra.
+See \cite{} for such a review.
+
+Letting $v\in\V$ and $B\in\B$, recall that
+\begin{equation}\label{equ_v_geoprod_B_identity}
+vB = v\cdot B+v\wedge B.
+\end{equation}
+Also recall that
+\begin{align}
+v\wedge B &= \frac{1}{2}(vB+(-1)^{\grade(B)}Bv),\label{equ_v_wedge_B_identity} \\
+v\cdot B &= \frac{1}{2}(vB-(-1)^{\grade(B)}Bv).\label{equ_v_dot_B_identity}
+\end{align}
+Realizing that $\grade(I)=m$, and that by \eqref{equ_v_geoprod_B_identity}, we have $vI=v\cdot I$, we can use
+equation \eqref{equ_v_dot_B_identity} to establish the commutativity of vectors in $\V$ with the unit psuedo-scalar $I$ as
+\begin{equation}\label{equ_v_commute_I}
+vI = -(-1)^mIv.
+\end{equation}
+Using equation \eqref{equ_v_commute_I} in conjunection with equation \eqref{equ_v_dot_B_identity}, we find that
+\begin{equation}\label{equ_dual_of_v_dot_B}
+(v\cdot B)I = v\wedge BI.
+\end{equation}
+In verifying this identity, it helps to realize that for any integer $k$, $(-1)^k=(-1)^{-k}$.
+Replacing $B$ in equation \eqref{equ_dual_of_v_dot_B} with $BI$, we find that
+\begin{equation}\label{equ_dual_of_v_dot_dual_B}
+v\wedge B = -(v\cdot BI)I.
+\end{equation}
+
+
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+\end{document}
