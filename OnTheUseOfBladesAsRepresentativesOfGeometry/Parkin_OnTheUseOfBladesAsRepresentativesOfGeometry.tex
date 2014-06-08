@@ -107,7 +107,7 @@ while the second is proven by
 \begin{equation*}
 p(x)\cdot B=0\iff 0=(p(x)\cdot B)I=p(x)\wedge BI.
 \end{equation*}
-(See identities \eqref{equ_dual_of_v_dot_B} and \eqref{equ_dual_of_v_dot_dual_B} of Section~\ref{sec_useful_identities}.)
+(See identities \eqref{equ_dual_of_v_dot_B} and \eqref{equ_dual_of_v_dot_dual_B} of Section~\ref{sec_useful_identities}.  Recall the zero-product property of the geometric product.)
 \end{proof}
 
 In other words, Lemma~\ref{lem_dual_rep} is telling us that for a single given geometry, the algebraic relationship between a
@@ -132,17 +132,15 @@ Therefore, for any geometric set $S$, we can claim the existence of a blade $B\i
 
 Having now defined the notion of a geometric set, we now consider the properties of such sets.
 
-\begin{lem}[The Intersection Of Two Geometric Sets Is A Geometric Set]
+\begin{thm}[The Intersection Of Two Geometric Sets Is A Geometric Set]
 If $R,S\subset\R^n$ are a pair of geometric sets, then $R\cap S$ is also a geometric set.
-\end{lem}
+\end{thm}
 \begin{proof}
 The case that $R=S$ is trivial.  So we assume that $R\neq S$.
 Let $A,B\in\B$ be blades such that $\gd(A)=R$ and $\gd(B)=S$.
 Then, since $R\neq S$, we have $A\wedge B\neq 0$.  (Not obvious!  Prove it!)
 Go on...
 \end{proof}
-
-
 
 % need to cover intersections and union-like operations.
 
@@ -159,10 +157,16 @@ Go on...
 
 % are these geo sets forming a group using inner automorphisms?
 
+\section{Concluding Remarks}
+
+% may want to ask what else might be missing; i don't know
+% don't babble.
+
 \section{Useful Identities And Lemmas}\label{sec_useful_identities}
 
-In this section we give a number of useful algebraic identities and results that would otherwise distract us from the flow of the
-paper if given in the main body.\footnote{This section is not intended as a complete or comprehensive review of geometric algebra.
+In this section we give a number of useful algebraic identities and lemmas that would
+otherwise distract us from the flow of the paper if given in the main body.\footnote{This
+section is not intended as a complete or comprehensive review of geometric algebra.
 See \cite{} for such a review.}
 
 Letting $v\in\V$ and $B\in\B$, recall that
@@ -180,7 +184,7 @@ equation \eqref{equ_v_dot_B_identity} to establish the commutativity of vectors 
 \begin{equation}\label{equ_v_commute_I}
 vI = -(-1)^mIv.
 \end{equation}
-Using equation \eqref{equ_v_commute_I} in conjunection with equation \eqref{equ_v_dot_B_identity}, we find that
+Using equation \eqref{equ_v_commute_I} in conjunction with equation \eqref{equ_v_dot_B_identity}, we find that
 \begin{equation}\label{equ_dual_of_v_dot_B}
 (v\cdot B)I = v\wedge BI.
 \end{equation}
@@ -198,10 +202,10 @@ found where for each such vector $v$, we have $v\wedge B=0$.
 \begin{lem}
 For any non-zero blade $C\in\B$, if $A,B\in\B$ are blades such that
 $C=A\wedge B$, then for all $v\in\V$ such that $v\wedge C=0$, we have
-$v\wedge A=0$ or $v\wedge B=0$.
+$v\wedge A=0$ or $v\wedge B=0$, exclusively.
 \end{lem}
 \begin{proof}
-It is clear for at least one $D\in\{A,B\}$, we have $v\wedge D=0$.
+It is clear that for at least one $D\in\{A,B\}$, we have $v\wedge D=0$.
 Suppose $v\wedge A=0$ and $v\wedge B=0$.  Then there exist blades $A',B'\in\B$
 such that $A=v\wedge A'$ and $B=v\wedge B'$.  It then follows that
 $C=v\wedge A'\wedge v\wedge B'=0$, which is a contradiction.
@@ -220,7 +224,7 @@ C = \lambda\bigwedge_{i=1}^t c_i.
 The case of $t=1$ is trivial.  We now proceed by strong induction on $t>1$.
 Let $A,B\in\B$ be blades of positive grades $r$ and $s$, respectively, such
 that $C=A\wedge B$.  Then, by Lemma~\ref{}, we can partition the set $\{c_i\}_{i=1}^t$
-into two subsets $\{a_i\}_{i=1}^r$ and $\{b_i\}_{i=1}^s$, where for all
+into two subsets $\{a_i\}_{i=1}^r$ and $\{b_i\}_{i=1}^s$, ($r+s=t$), where for all
 integers $1\leq i\leq r$, we have $a_i\wedge A=0$, and for all integers $1\leq i\leq s$,
 we have $b_i\wedge B=0$.  Then, by our inductive hypothesis, there exist scalars $\alpha,\beta\in\R$
 such that $A=\alpha\bigwedge_{i=1}^r a_i$ and $B=\beta\bigwedge_{i=1}^s b_i$.
@@ -232,9 +236,9 @@ which completes the proof by induction.
 \end{proof}
 
 Returning to the product $v\cdot B$, an alternative expansion is given by
-\begin{equation*}
+\begin{equation}\label{equ_v_dot_B_sum}
 v\cdot B = -\sum_{i=1}^s (-1)^i(v\cdot b_i)B_i,
-\end{equation*}
+\end{equation}
 where $B$ is factored as $\bigwedge_{i=1}^s b_i$, and we define $B_i$ as
 \begin{equation*}
 B_i = \bigwedge_{j=1,j\neq i}^s b_i.
@@ -252,14 +256,14 @@ A_r\cdot (a_r\cdot B) & \mbox{if $r\leq s$,} \\
 \end{array}\right.
 \end{equation*}
 
-Interestingly, though it is not at all obvious from equation \eqref{}, the product
+Interestingly, though it is not at all obvious from equation \eqref{equ_v_dot_B_sum}, the product
 $v\cdot B$ is a blade.  It is clearly homogeneous of grade $s-1$, but it is not
 immediately clear that it is a blade.  To see that it is a blade, let $\beta=\prod_{i=1}^s v\cdot b_i$,
 and let $\beta_i$ be given by
 \begin{equation*}
 \beta_i=\prod_{j=1,j\neq i}v\cdot b_j.
 \end{equation*}
-(If $\beta=0$, the following argument can be reduced to a smaller, equivilant case; so
+(If $\beta=0$, the following argument can be reduced to a smaller yet similar case; so
 we assume $\beta\neq 0$.)
 Then, letting $c_i=\beta_1b_1-(-1)^i\beta_ib_i$, notice that for all integers $1<i\leq s$,
 we have
@@ -275,17 +279,29 @@ v\cdot B = \lambda\bigwedge_{i=2}^s c_i,
 \end{equation*}
 showing that $v\cdot B$ is indeed a blade of grade $s-1$.
 
-\begin{lem}
+\begin{lem}\label{lem_B_i_lin_indep}
 For a non-zero $s$-blade $B$ factored as $\bigwedge_{i=1}^s b_i$, the set of
 $(s-1)$-blades $\{B_i\}_{i=1}^s$ is linearly independent.
 \end{lem}
 \begin{proof}
-It is clear that the set of $1$-blades $\{b_i\}_{i=1}^s$ is linearly independent.  Go on...
+Suppose there exists a non-trivial set of $s$ scalars $\{\beta_i\}_{i=1}^s$
+such that $0 = \sum_{i=1}^s\beta_i B_i$.
+Then, without loss of generality, suppose that $\beta_s\neq 0$, and rearrange
+our equation as $-\beta_sB_s=\sum_{i=1}^{s-1}\beta_iB_i$.  Now notice
+that while $b_s\wedge-\beta_sB_s\neq 0$, we have $b_s\wedge\sum_{i=1}^{s-1}\beta_iB_i=0$,
+which is a contradiction.
 \end{proof}
 
-Note that a much simpler proof of Lemma~\ref{} could have been given under the assumption of a euclidean signature,
-in which case, the Gram-Schmidt orthogonalization process would have allowed us to assume, without loss
-of generality, an orthogonal factorization of the blade $B$.
+Note that a perhaps more elegant proof of Lemma~\ref{lem_B_i_lin_indep} could have been given
+under the assumption
+of a euclidean signature; in which case, the Gram-Schmidt orthogonalization process would have
+allowed us to choose, without loss of generality, an orthogonal factorization of the blade $B$.
+Doing so, $B$ becomes the versor $\prod_{i=1}^s b_i$, and we may write
+\begin{equation*}
+0 = \sum_{i=1}^s \beta_iB_i \iff
+0=\left(\sum_{i=1}^s\beta_iB_i\right)B = -\sum_{i=1}^s(-1)^{s-i}B_i^2\beta_ib_i.
+\end{equation*}
+
 
 % may want (a.b)=(VaV^-1).(VbV^-1) lemma
 
