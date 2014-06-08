@@ -198,44 +198,31 @@ Recall that in the case that $v\wedge B$ vanishes, we can say that $v$ is
 in the vector space spanned by any factorization of $B$.  Furthermore,
 if $B$ is an $s$-blade, at most $s$ linearly independent vectors can be
 found where for each such vector $v$, we have $v\wedge B=0$.
+Lastly, if $v\wedge B=0$, then there exists a blade $A\in\B$, possibly
+of grade zero, such that $B=v\wedge A$.
+
+% The following notion is FALSE!  Don't make the mistake of believing it.
+%For any non-zero blade $C\in\B$, if $A,B\in\B$ are blades such that
+%$C=A\wedge B$, then for all $v\in\V$ such that $v\wedge C=0$, we have
+%$v\wedge A=0$ or $v\wedge B=0$, exclusively.
 
 \begin{lem}
-For any non-zero blade $C\in\B$, if $A,B\in\B$ are blades such that
-$C=A\wedge B$, then for all $v\in\V$ such that $v\wedge C=0$, we have
-$v\wedge A=0$ or $v\wedge B=0$, exclusively.
-\end{lem}
-\begin{proof}
-It is clear that for at least one $D\in\{A,B\}$, we have $v\wedge D=0$.
-Suppose $v\wedge A=0$ and $v\wedge B=0$.  Then there exist blades $A',B'\in\B$
-such that $A=v\wedge A'$ and $B=v\wedge B'$.  It then follows that
-$C=v\wedge A'\wedge v\wedge B'=0$, which is a contradiction.
-We can now conclude that for exactly one $D\in\{A,B\}$, we have $v\wedge D=0$.
-\end{proof}
-
-\begin{lem}
-If $C\in\B$ is a non-zero blade of grade $t>0$ and $\{c_i\}_{i=1}^t$ is a linearly
-independent set of $t$ vectors such that for all $v\in\{c_i\}_{i=1}^t$, we have
-$v\wedge C=0$, then there exists $\lambda\in\R$ such that
+If $B\in\B$ is a non-zero blade of grade $s>0$ and $\{b_i\}_{i=1}^s$ is a linearly
+independent set of $s$ vectors such that for all $v\in\{b_i\}_{i=1}^s$, we have
+$v\wedge B=0$, then there exists $\lambda\in\R$ such that
 \begin{equation*}
-C = \lambda\bigwedge_{i=1}^t c_i.
+B = \lambda\bigwedge_{i=1}^s b_i.
 \end{equation*}
 \end{lem}
 \begin{proof}
-The case of $t=1$ is trivial.  We now proceed by strong induction on $t>1$.
-Let $A,B\in\B$ be blades of positive grades $r$ and $s$, respectively, such
-that $C=A\wedge B$.  Then, by Lemma~\ref{}, we can partition the set $\{c_i\}_{i=1}^t$
-into two subsets $\{a_i\}_{i=1}^r$ and $\{b_i\}_{i=1}^s$, ($r+s=t$), where for all
-integers $1\leq i\leq r$, we have $a_i\wedge A=0$, and for all integers $1\leq i\leq s$,
-we have $b_i\wedge B=0$.  Then, by our inductive hypothesis, there exist scalars $\alpha,\beta\in\R$
-such that $A=\alpha\bigwedge_{i=1}^r a_i$ and $B=\beta\bigwedge_{i=1}^s b_i$.
-Letting $\lambda=\alpha\beta$, we now have
-\begin{equation*}
-C = \lambda A\wedge B=\lambda\bigwedge_{i=1}^t c_i,
-\end{equation*}
-which completes the proof by induction.
+The case $s=1$ is trivial.  We now proceed by induction on $s>1$.
+Seeing that $b_s\wedge B=0$, there exists $A\in\B$ of positive grade
+such that $B=A\wedge b_s$.  Go on...
+% Can we claim that the rest of the vectors are in A?
 \end{proof}
 
-Returning to the product $v\cdot B$, an alternative expansion is given by
+Returning to the product $v\cdot B$ given in equation \eqref{equ_v_dot_B_identity},
+an alternative expansion is given by
 \begin{equation}\label{equ_v_dot_B_sum}
 v\cdot B = -\sum_{i=1}^s (-1)^i(v\cdot b_i)B_i,
 \end{equation}
@@ -265,17 +252,17 @@ and let $\beta_i$ be given by
 \end{equation*}
 (If $\beta=0$, the following argument can be reduced to a smaller yet similar case; so
 we assume $\beta\neq 0$.)
-Then, letting $c_i=\beta_1b_1-(-1)^i\beta_ib_i$, notice that for all integers $1<i\leq s$,
+Then, letting $v_i=\beta_1b_1-(-1)^i\beta_ib_i$, notice that for all integers $1<i\leq s$,
 we have
 \begin{equation*}
-c_i\wedge (v\cdot B)=\beta B-\beta B=0.
+v_i\wedge (v\cdot B)=\beta B-\beta B=0.
 \end{equation*}
 Seeing now that the linear independence of the set of $s-1$ vectors
-$\{c_i\}_{i=2}^s$ follows from that of the set of $s$ vectors $\{b_i\}_{i=1}^s$,
+$\{v_i\}_{i=2}^s$ follows from that of the set of $s$ vectors $\{b_i\}_{i=1}^s$,
 we can invoke Lemma~\ref{} in claiming that for some non-zero scalar $\lambda\in\R$,
 we have
 \begin{equation*}
-v\cdot B = \lambda\bigwedge_{i=2}^s c_i,
+v\cdot B = \lambda\bigwedge_{i=2}^s v_i,
 \end{equation*}
 showing that $v\cdot B$ is indeed a blade of grade $s-1$.
 
