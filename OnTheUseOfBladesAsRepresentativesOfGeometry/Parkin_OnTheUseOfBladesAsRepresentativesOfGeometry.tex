@@ -75,8 +75,7 @@ We will let $\R^n$ denote $n$-dimensional euclidean space,\footnote{Some models 
 space within which to work, but this will not be the case in this paper.} and let $\B$ denote the set of all blades taken from $\G$.
 Lastly, we will let $p:\R^n\to\V$ be an unspecified, yet well-defined function that we'll use in the following definition and
 throughout the remainder of this paper.\footnote{By leaving $p$ unspecified, we're abstracting away the definition of the function.
-We only care that it is a well-defined function.  In some parts of this paper, we will consider the cases where $p$ takes on some desirable
-properties.}
+We only care that it is a well-defined function.}
 
 \begin{defn}[Direct And Dual Representation]\label{def_blade_rep_geo}
 For any blade $B\in\B$, we say that $B$ directly represents the set of all points $x\in\R^n$ such that
@@ -138,7 +137,7 @@ If $R,S\subset\R^n$ are a pair of geometric sets, then $R\cap S$ is also a geome
 \begin{proof}
 The case that $R=S$ is trivial.  So we assume that $R\neq S$.
 Let $A,B\in\B$ be blades such that $\gd(A)=R$ and $\gd(B)=S$.
-Then, since $R\neq S$, we have $A\wedge B\neq 0$.  (Not obvious!  Prove it!)
+Then, since $R\neq S$, we have $A\wedge B\neq 0$.  (This is most likely false.)
 Go on...
 \end{proof}
 
@@ -198,28 +197,31 @@ Recall that in the case that $v\wedge B$ vanishes, we can say that $v$ is
 in the vector space spanned by any factorization of $B$.  Furthermore,
 if $B$ is an $s$-blade, at most $s$ linearly independent vectors can be
 found where for each such vector $v$, we have $v\wedge B=0$.
-Lastly, if $v\wedge B=0$, then there exists a blade $A\in\B$, possibly
-of grade zero, such that $B=v\wedge A$.
-
-% The following notion is FALSE!  Don't make the mistake of believing it.
-%For any non-zero blade $C\in\B$, if $A,B\in\B$ are blades such that
-%$C=A\wedge B$, then for all $v\in\V$ such that $v\wedge C=0$, we have
-%$v\wedge A=0$ or $v\wedge B=0$, exclusively.
 
 \begin{lem}
-If $B\in\B$ is a non-zero blade of grade $s>0$ and $\{b_i\}_{i=1}^s$ is a linearly
-independent set of $s$ vectors such that for all $v\in\{b_i\}_{i=1}^s$, we have
-$v\wedge B=0$, then there exists $\lambda\in\R$ such that
+If $C\in\B$ is a non-zero blade of grade $t>0$ and $B\in\B$ is a blade
+of grade $s\leq t$ such that for all $v\in\V$, we have
 \begin{equation*}
-B = \lambda\bigwedge_{i=1}^s b_i.
+v\wedge B=0\implies v\wedge C=0,
+\end{equation*}
+then there exists an $r$-blade $A\in\B$, with $r=s-t$, such that
+\begin{equation*}
+C = A\wedge B.
 \end{equation*}
 \end{lem}
 \begin{proof}
-The case $s=1$ is trivial.  We now proceed by induction on $s>1$.
-Seeing that $b_s\wedge B=0$, there exists $A\in\B$ of positive grade
-such that $B=A\wedge b_s$.  Go on...
-% Can we claim that the rest of the vectors are in A?
 \end{proof}
+
+A special case of Lemma~\ref{} arrises often enough that it is worth our attention.
+It is given as the following corollary.
+\begin{cor}
+If $C\in\B$ is a non-zero blade of grade $t>0$ and $\{v_i\}_{i=1}^t$ is a set
+of $t$ linearly independent vectors such that for all $v\in\{v_i\}_{i=1}^t$,
+we have $v\wedge C=0$, then there exists $\lambda\in\R$ such that
+\begin{equation*}
+C = \lambda\bigwedge_{i=1}^t v_i.
+\end{equation*}
+\end{cor}
 
 Returning to the product $v\cdot B$ given in equation \eqref{equ_v_dot_B_identity},
 an alternative expansion is given by
@@ -243,7 +245,8 @@ A_r\cdot (a_r\cdot B) & \mbox{if $r\leq s$,} \\
 \end{array}\right.
 \end{equation*}
 
-Interestingly, though it is not at all obvious from equation \eqref{equ_v_dot_B_sum}, the product
+Interestingly, though it is not at all obvious from equation \eqref{equ_v_dot_B_sum}
+or \eqref{equ_v_dot_B_identity}, the product
 $v\cdot B$ is a blade.  It is clearly homogeneous of grade $s-1$, but it is not
 immediately clear that it is a blade.  To see that it is a blade, let $\beta=\prod_{i=1}^s v\cdot b_i$,
 and let $\beta_i$ be given by
