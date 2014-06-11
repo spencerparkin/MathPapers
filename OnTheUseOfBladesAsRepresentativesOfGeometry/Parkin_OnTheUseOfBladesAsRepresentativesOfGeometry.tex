@@ -117,44 +117,51 @@ Of course, there will also be a geometric relationship between the geometry that
 blade $B\in\B$, and the geometry that is dually represented by $B$, but this depends upon the definition of our function
 $p$, which we choose, in this paper, to leave open to speculation.
 
-With Lemma~\ref{lem_dual_rep} in hand, geometric algebra's equivilant of an algebraic set may be given as follows.\footnote{If $p$ is
+With Lemma~\ref{lem_dual_rep} in hand, geometric algebra's equivalent of an algebraic set may be given as follows.\footnote{If $p$ is
 defined appropriately, geometric sets are algebraic sets.}
 
 \begin{defn}[Geometric Set]\label{def_geo_set}
 A subset $S\subset\R^n$ for which there exists a blade $B\in\B$ such that $\gh(B)=S$ is what we'll refer to as a ``geometric set.''
 \end{defn}
 
-By Lemma~\ref{lem_dual_rep}, it is easy to see that Definition~\ref{def_geo_set} is equivilant to a version of itself that replaces $\gh$ with $\gd$.
+By Lemma~\ref{lem_dual_rep}, it is easy to see that Definition~\ref{def_geo_set} is equivalent to a version of itself that replaces $\gh$ with $\gd$.
 Therefore, for any geometric set $S$, we can claim the existence of a blade $B\in\B$ such that $\gh(B)=S$ or $\gd(B)=S$.
 
-\section{Properties Of Geometric Sets}
+We will let $G\subset\R^n$ denote the set of all geometric sets.  For any set $S\in G$, we will let $S^*$ denote the dual geometric
+set of $S$.  Specifically, if $B\in\B$ is a blade such that $S=\gh(B)$, then $S^*=\gd(B)$.  Equivalently, if $S=\gd(B)$, then $S^*=\gh(B)$.
 
-Having now defined the notion of a geometric set, we now consider the properties of such sets.
-
-\begin{thm}[The Intersection Of Two Geometric Sets Is A Geometric Set]
-If $R,S\subset\R^n$ are a pair of geometric sets, then $R\cap S$ is also a geometric set.
-\end{thm}
-\begin{proof}
-The case that $R=S$ is trivial.  So we assume that $R\neq S$.
-Let $A,B\in\B$ be blades such that $\gd(A)=R$ and $\gd(B)=S$.
-Then, since $R\neq S$, we have $A\wedge B\neq 0$.  (This is most likely false.)
-Go on...
-\end{proof}
-
-% need to cover intersections and union-like operations.
+\section{A Fundamental Theorem Of Geometric Set Representation}
 
 % need to cover existence and uniqueness of irreducible blades...introduce this in terms of converse of obvious statement: A=LB ==> gh(A)=gh(B).  (liken to nullzensnats)
 % state as theorem.
 % give algorithm for finding irreducible blade.
 
-% cover transformations by versors and how that relates to understanding the action of a versor on p?
-% p must have desirable property.  (form preserving versors)
+\section{Properties Of Geometric Sets}
+
+Before a theorem about intersections of geometric sets can happen, we have to establish a statement
+about when the outer product of two blades is non-zero in terms of the geometric sets represented by
+those blades.  This may not be possible without a definition of $p$.
+
+\begin{thm}[Intersection Of Geometric Sets]
+If $R,S\in G$ are geometric sets such that $R^*\cap S^*=\emptyset$,
+then $R\cap S$ is a geometric set.
+\end{thm}
+\begin{proof}
+Even with the FTGSR, this is too far of a stretch, because we don't know when we get a linearly
+independent set from a set of points in space.
+\end{proof}
+
+% need to cover intersections and union-like operations.
 
 % can take anything from CGAIntro.pdf?
 
-\section{Transforming Geometric Sets}
+\section{Transformations Of Geometric Sets}
+
+% cover transformations by versors and how that relates to understanding the action of a versor on p?
+% p must have desirable property.  (form preserving versors)  no, versor has the property of preserving p.
 
 % are these geo sets forming a group using inner automorphisms?
+% can make topology out of intersections and unions of geometric sets?  no, probably not.
 
 \section{Concluding Remarks}
 
