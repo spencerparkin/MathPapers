@@ -123,7 +123,7 @@ With Lemma~\ref{lem_dual_rep} in hand, geometric algebra's equivalent of an alge
 defined appropriately, geometric sets are algebraic sets.}
 
 \begin{defn}[Geometric Set]\label{def_geo_set}
-A subset $R\subset\R^n$ for which there exists a blade $A\in\B$ such that $\gh(A)=R$ is what we'll refer to as a ``geometric set.''
+A subset $R\subset\R^n$ for which there exists a blade $A\in\B$ such that $\gh(A)=R$ is what we'll refer to as a {\it geometric set}.
 \end{defn}
 
 By Lemma~\ref{lem_dual_rep}, it is easy to see that Definition~\ref{def_geo_set} is equivalent to a version of itself that replaces $\gh$ with $\gd$.
@@ -138,7 +138,41 @@ set of $R$.  Specifically, if $A\in\B$ is a blade such that $R=\gh(A)$, then $R^
 % state as theorem.
 % give algorithm for finding irreducible blade.
 
-\section{Properties Of Geometric Sets}
+It was mentioned earlier that for any pair of blades $A,B\in\B$ with $\lambda\in\R$ such that $A=\lambda B$, we have
+$\gh(A)=\gh(B)$.  There often being a need to algebraically relate two independently made formulations of the same geometric
+set, an investigation of the converse of this statement leads us to an important theorem about
+geometric set representation.
+
+\begin{defn}[Irreducible/Reducible Blade]
+Given an $r$-blade $A\in\B$, if there does not exist an $s$-blade $B\in\B$ with $s<r$ such
+that $\gh(A)=\gh(B)$, then $A$ is what we'll refer to as an {\it irreducible} blade.  A blade that is
+not irredicuble is {\it reducible}.
+\end{defn}
+
+Define vacuous blade here?
+
+\begin{lem}
+If $A\in\B$ is an irreducible $r$-blade, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subset\R^n$
+and a scalar $\alpha\in\R$ such that
+\begin{equation*}
+A = \alpha\bigwedge_{i=1}^r p(x_i).
+\end{equation*}
+\end{lem}
+\begin{proof}
+This is not so obvious at all.  Maybe it's not true.
+\end{proof}
+
+\begin{lem}
+If $A\in\B$ is an irreducible blade, and $B\in\B$ is any blade such that $\gh(A)=\gh(B)$, then
+for all $v\in\V$, we have $v\wedge A=0\implies v\wedge B=0$.
+\end{lem}
+
+\begin{thm}
+For every geometric set $R\in G$, there exists, up to scale, a unique, irreducible blade $A\in\B$ such that
+$\gh(A)=R$.
+\end{thm}
+
+\section{The Intersection Property Of Geometric Sets}
 
 Before a theorem about intersections of geometric sets can happen, we have to establish a statement
 about when the outer product of two blades is non-zero in terms of the geometric sets represented by
@@ -160,7 +194,7 @@ exist a blade $A\in\B$ such that $\gh(A)=R\cap S$?
 
 % can take anything from CGAIntro.pdf?
 
-\section{Transformations Of Geometric Sets}
+\section{Geometric Set Transformations}
 
 % cover transformations by versors and how that relates to understanding the action of a versor on p?
 % p must have desirable property.  (form preserving versors)  no, versor has the property of preserving p.
