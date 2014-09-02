@@ -1,0 +1,337 @@
+\documentclass{birkjour}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{An Introduction To Geometric Sets}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., \\
+Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\keywords{Key words go here...}
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Motivation}
+
+% relate to algebraic geometry here
+
+\subsection{Conventions}
+
+This paper uses capital letters $A,B,C$ to denote blades of various grades,
+while using lower case letters $a,b,c$ to denote vectors.  Scalars are written
+using greek letters $\alpha,\beta,\gamma$.  Grades of blades $A,B,C$ are
+denoted by lower case letters $r,s,t$, respectively.  Lower case letters $i,j,k$ are
+used as indices.  Capital letters $R,S,T$
+are used to denote subsets of interest of $n$-dimensional euclidean space $\R^n$.
+Lower case letters $x,y,z$ are reserved for denoting points taken from $\R^n$.
+We will use $\G$ to denote our geometric algebra, and $\V$ to denote an $m$-dimensional vector
+space generating it.  $\B$ will denote the set of all blades taken from $\G$.  The
+scalars of $\V$, and therefore $\G$, are taken from the field of real numbers $\R$.
+The capital letter $I$ will be used to denote the unit psuedo-scalar of $\G$.  We assume
+that $I$ is invertible with respect to the geometric product.
+
+We will let the geometric product take precedence over the inner and outer products,
+and the outer product take precedence over the inner product.
+
+No particular signature of our geometric algebra $\G$ is assumed in this paper.
+
+\section{Preliminaries}
+
+The results of this paper will depend upon the following preliminary material.
+If desired, the reader is welcome to skip this material and refer back to it only as needed.
+
+\subsection{Identities}
+
+Given a vector $a\in\V$ and a blade $A\in\B$, central to all of geometric algebra is the identity
+\begin{equation}\label{equ_vec_blade_geo_prod}
+aA = a\cdot A + a\wedge A.
+\end{equation}
+The inner and outer products of \eqref{equ_vec_blade_geo_prod} may be written in terms
+of the geometric product as
+\begin{align}
+a\wedge A &= \frac{1}{2}\left(aA + (-1)^rAa\right),\label{equ_vec_blade_outer_prod} \\
+a\cdot A &= \frac{1}{2}\left(aA - (-1)^rAa\right),\label{equ_vec_blade_inner_prod}
+\end{align}
+where $r=\grade(A)$.  Then, realizing that $m=\grade(I)$, and that by \eqref{equ_vec_blade_geo_prod},
+we have $vI=v\cdot I$, we can use equation \eqref{equ_vec_blade_inner_prod} to establish the
+commutativity of vectors in $\V$ with the unit psuedo-scalar $I$ as
+\begin{equation}\label{equ_blade_psuedo_scalar_commutativity}
+aI = -(-1)^mIa.
+\end{equation}
+Using equation \eqref{equ_blade_psuedo_scalar_commutativity} in conjunction with equation \eqref{equ_vec_blade_inner_prod},
+we find that
+\begin{equation}\label{equ_vec_blade_inner_prod_dual}
+(a\cdot A)I=a\wedge AI.
+\end{equation}
+(In verifying this identity, it helps to realize that for any integer $i$, we have $(-1)^i=(-1)^{-i}$.)
+Replacing $A$ in equation \eqref{equ_vec_blade_inner_prod_dual} with $AI$, we find that
+\begin{equation}\label{equ_vec_blade_outer_prod_dual}
+(a\wedge A)I=a\cdot AI.
+\end{equation}
+
+Refering to \eqref{equ_vec_blade_inner_prod}, another important formulation of the inner product between a vector and a blade
+is given by
+\begin{equation}\label{equ_vec_blade_inner_prod_series}
+a\cdot A=-\sum_{i=1}^r(-1)^i(a\cdot a_i)A_i,
+\end{equation}
+where $A$ is factored as $\bigwedge_{i=1}^r a_i$, and we define $A_i$ as
+\begin{equation}
+A_i=\bigwedge_{j=1,j\neq i}^r a_i.
+\end{equation}
+This leads to the following recursive formulation.
+\begin{equation}
+a\cdot A = (a\cdot a_1)A_1-a_1\wedge(a\cdot A_1)
+\end{equation}
+If a blade $B\in\B$ has grade $s$ and factorization $\bigwedge_{i=1}^s b_i$, then we can express
+the product $A\cdot B$ recursively as
+\begin{equation}
+A\cdot B = \left\{\begin{array}{ll}
+A_r\cdot(a_r\cdot B) & \mbox{if $r\leq s$,} \\
+(A\cdot b_1)\cdot B_1 & \mbox{if $r\geq s$.}
+\end{array}\right.
+\end{equation}
+
+\subsection{Lemmas}
+
+The following lemmas will help us prove the results of this paper.
+
+\begin{lem}\label{lem_desired_blade_factorization}
+If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{b_i\}_{i=1}^r$ is a set
+of $r$ linearly independent vectors such that for all $b\in\{b_i\}_{i=1}^r$, we have
+$b\wedge A=0$, then there exists a scalar $\beta\in\R$ such that
+\begin{equation}\label{equ_desired_blade_factorization}
+A=\beta\bigwedge_{i=1}^r b_i.
+\end{equation}
+\end{lem}
+\begin{proof}
+Letting $\bigwedge_{i=1}^r a_i$ be a factorization of the $r$-blade $A$, it is clear
+that if $b_i\wedge A=0$, then there exists a set of $r$ scalars $\{\alpha_{i,j}\}_{j=1}^r$
+such that
+\begin{equation}
+b_i=\sum_{j=1}^r\alpha_{i,j}a_i.
+\end{equation}
+We then have
+\begin{equation}
+\bigwedge_{i=1}^r b_i=(\det M)\bigwedge_{i=1}^r a_i,
+\end{equation}
+where the $r\times r$ matrix $M$ is given by
+\begin{equation}
+M = \left[\begin{array}{cccc}
+\alpha_{1,1} & \alpha_{1,2} & \dots & \alpha_{1,r} \\
+\alpha_{2,1} & \alpha_{2,2} & \dots & \alpha_{2,r} \\
+\vdots & \vdots & \ddots & \vdots \\
+\alpha_{r,1} & \alpha_{r,2} & \dots & \alpha_{r,r}
+\end{array}\right].
+\end{equation}
+Now since $\{b_i\}_{i=1}^r$ is a linearly independent set of vectors,
+$\det M\neq 0$, and we may choose $\beta=(\det M)^{-1}$ and
+equation \eqref{equ_desired_blade_factorization} now holds.
+\end{proof}
+
+\begin{lem}
+Generalize the previous lemma to the case when the number of linearly independent vectors
+is less than the grade of the blade in question.
+\end{lem}
+\begin{proof}
+\end{proof}
+
+\begin{lem}\label{lem_lin_indep_blades}
+For a non-zero $r$-blade $A$ factored as $\bigwedge_{i=1}^r a_i$, the set of
+$(r-1)$-blades $\{A_i\}_{i=1}^r$ is linearly independent.
+\end{lem}
+\begin{proof}
+Suppose there exists a non-trivial set of $r$ scalars $\{\alpha_i\}_{i=1}^r$
+such that $0 = \sum_{i=1}^r\alpha_i A_i$.
+Then, without loss of generality, suppose that $\alpha_r\neq 0$, and rearrange
+our equation as $-\alpha_rA_r=\sum_{i=1}^{r-1}\alpha_iA_i$.  Now notice
+that while $a_r\wedge-\alpha_rA_r\neq 0$, we have $a_r\wedge\sum_{i=1}^{r-1}\alpha_iA_i=0$,
+which is a contradiction.
+\end{proof}
+
+Note that a perhaps more elegant proof of Lemma~\ref{lem_lin_indep_blades} could have been given
+under the assumption
+of a euclidean signature; in which case, the Gram-Schmidt orthogonalization process would have
+allowed us to choose, without loss of generality, an orthogonal factorization of the blade $A$.
+Doing so, $A$ becomes the versor $\prod_{i=1}^r a_i$, and we may write
+\begin{equation}
+0 = \sum_{i=1}^r \alpha_iA_i \iff
+0=\left(\sum_{i=1}^r\alpha_iA_i\right)A = -\sum_{i=1}^r(-1)^{r-i}A_i^2\alpha_ia_i.
+\end{equation}
+
+\begin{lem}[The Zero Product Property]\label{lem_zero_prod_property}
+For any two non-zero blades $A,B\in\B$ of grades $r$ and $s$, respectively, if $AB=0$ and at least one of $A$ and $B$
+is invertible, then at least one of $A$ and $B$ is zero.
+\end{lem}
+\begin{proof}
+Without loss of generality, suppose $B^{-1}$ exists.  We then see that
+\begin{equation}
+A=ABB^{-1}=0B^{-1}=0.
+\end{equation}
+\end{proof}
+
+Notice the requirment here of Lemma~\ref{lem_zero_prod_property} that at least one of $A$ and $B$ be invertible.
+This requirement comes about in consideration of the square of a non-zero null-vector.
+
+\section{Results}
+
+\subsection{Foundation}
+
+Our discussion begins with a non-zero function $p:\R^n\to\V$.  No definition
+of this function will be given.
+
+\begin{defn}[Direct And Dual Representation]\label{def_gh_and_gd}
+For the two functions $\gh:\B\to\R^n$ and $\gd:\B\to\R^n$, given by
+\begin{align}
+\gh(A) &= \{x\in\R^n|p(x)\wedge A=0\},\\
+\gd(A) &= \{x\in\R^n|p(x)\cdot A=0\},
+\end{align}
+we say that $A$ directly represents the set of points $\gh(A)$ and
+dually represents the set of points $\gd(A)$.
+\end{defn}
+
+From Definition~\ref{def_gh_and_gd}, it is important to take away the realization that a given blade $A\in\B$
+represents two subsets of $\R^n$ simultaneously; namely, $\gh(A)$ and $gd(A)$.  Which we choose
+to think of $A$ as being a representative of at any given time is completely arbitrary.
+
+It should also be clear from Definition~\ref{def_gh_and_gd} that the subset of $\R^n$ represented by a
+blade $A$, (directly or dually), remains invariant under any non-zero scaling of the blade $A$.
+
+Finally, now enters this paper's object of study: the {\it geometric set}.
+
+\begin{defn}[Geometric Set]\label{def_geo_set}
+A subset $R\subset\R^n$ for which there exists a blade $A\in\B$ such that $\gh(A)=R$ is what
+we'll refer to as a {\it geometric set}.
+\end{defn}
+
+In the course of our study, we will find the concept of {\it irreducibility} important.
+
+\begin{defn}[Irreducible/Reducible Blade]\label{def_irreducible_blade}
+Given an $r$-blade $A\in\B$, if there does not exist an $s$-blade $B\in\B$ with $s<r$
+such that $\gh(A)=\gh(B)$, then $A$ is what we'll refer to as an {\it irreducible} blade.
+A blade that is not irreducible is referred to as {\it reducible}.
+\end{defn}
+
+\subsection{Consequences}
+
+Having given the definitions in the previous section, we may focus now on the results that follow
+from these definitions.
+
+\begin{lem}[Dual Relationship Between Representations]\label{lem_dual_relationship_in_rep}
+For any geometric set $R\subset\R^n$, if $A\in\B$ is a blade such that $\gh(A)=R$,
+then $\gd(AI)=R$, and similarly, if $A\in\B$ is a blade such that $\gd(A)=R$, then $\gh(AI)=R$.
+\end{lem}
+\begin{proof}
+By the identity of equation \eqref{equ_vec_blade_outer_prod_dual}, and Lemma~\ref{lem_zero_prod_property},
+the first of these two latter statements is proven by
+\begin{equation}
+0=p(x)\wedge A=-(p(x)\cdot AI)I\iff p(x)\cdot AI=0,
+\end{equation}
+while the second, by the identity of equation \eqref{equ_vec_blade_inner_prod_dual},
+and again Lemma~\ref{lem_zero_prod_property}, is proven by
+\begin{equation}
+p(x)\cdot A=0\iff 0=(p(x)\cdot A)I=p(x)\wedge AI.
+\end{equation}
+\end{proof}
+
+In other words, Lemma~\ref{lem_dual_relationship_in_rep} is telling us that for a single given geometric set, the
+algebraic relationship between a blade directly (dually) representative of that set,
+and a blade dually (directly) representative of that set, is simply that, up to scale, they
+are duals of one another.
+
+Of course, there will also be a geometric relationship between the geometry that is directly represented by a single
+given blade $A\in\B$, and the geometry that is dually represented by $A$, but this would depend upon how we choose to define
+the function $p:\R^n\to\V$.
+
+\begin{lem}
+For any geometric set $R\subset\R^n$, there exists a blade $A\in\B$ such that
+$\gd(A)=R$.
+\end{lem}
+
+\begin{lem}
+For all non-zero blades $A\in\B$, we have $\gh(A)\cap\gd(A)=\emptyset$.
+\end{lem}
+
+\begin{lem}
+If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subset\R^n$
+and a scalar $\alpha\in\R$ such that
+\begin{equation*}
+A=\alpha\bigwedge_{i=1}^r p(x_i).
+\end{equation*}
+\end{lem}
+\begin{proof}
+Let $j$ be the largest integer for which there exists a set of $j$ points $\{x_i\}_{i=1}^j\subset\gh(A)$ such that
+$\bigwedge_{i=1}^j p(x_i)=0$.  Clearly $j\geq 1$, because $\gh(A)$ is non-empty; and clearly $j\leq r$ because of
+the requirement that for each $x\in\{x_i\}_{i=1}^j$, we have $p(x)\wedge A=0$.  Now if $j=r$, we're
+done by Lemma~\ref{lem_desired_blade_factorization}.  Therefore,
+suppose $j<r$.  In this case, there must exist, by Lemma~\ref{}, a factorization of $A$ of the form
+\begin{equation}
+A=B\wedge\bigwedge_{i=1}^j p(x_i),
+\end{equation}
+where $B$ is a blade of grade $r-j$.  But it must now follow that $\gh(B)=\emptyset$ and
+therefore
+\begin{equation}
+\gh(A)=\gh\left(\bigwedge_{i=1}^j p(x_i)\right),
+\end{equation}
+which contradicts the irreducibility of the blade $A$.
+\end{proof}
+
+% important question comes about while considering converse of A=lB ==> gh(A)=gh(B)
+% we often want to algebraic relate independently formulated geometric sets.
+
+\begin{thm}[The Fundamental Theorem Of Geometric Set Representation]
+For every geometric set $R\subset\R^n$, there exists, up to scale, a unique,
+irreducible blade $A\in\B$ such that $\gh(A)=R$.
+\end{thm}
+
+% note that this is similar to the nulzinsnatch of algebraic geometry which states
+% that there is a unique radical ideal representative of every algebraic set.
+
+% talk about unions and intersections of geometric sets
+
+% conclude that there may be more to learn about geometric sets.
+
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+\end{document}
