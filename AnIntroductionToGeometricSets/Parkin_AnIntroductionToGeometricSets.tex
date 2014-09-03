@@ -141,9 +141,10 @@ The following lemmas will help us prove the results of this paper.
 \begin{lem}[Found Factorization Of Blade]\label{lem_desired_blade_factorization}
 If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{c_i\}_{i=1}^r$ is a set
 of $r$ linearly independent vectors such that for all $c\in\{c_i\}_{i=1}^r$, we have
-$c\wedge A=0$, then there exists a scalar $\beta\in\R$ such that
+$c\wedge A=0$, then there exists a scalar $\beta\in\R$ such that $A=\beta C$,
+where $C$ is an $r$-blade given by
 \begin{equation}\label{equ_desired_blade_factorization}
-A=\beta\bigwedge_{i=1}^r c_i.
+C=\bigwedge_{i=1}^r c_i.
 \end{equation}
 \end{lem}
 \begin{proof}
@@ -176,9 +177,9 @@ Our next lemma is a generalization of Lemma~\ref{lem_desired_blade_factorization
 \begin{lem}[Found Partial/Full Factorization Of Blade]\label{lem_desired_partial_blade_factorization}
 If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{c_i\}_{i=1}^t$ is a set of $t\leq r$ linearly
 independent vectors such that for all $c\in\{c_i\}_{i=1}^t$, we have $c\wedge A=0$, then there
-exists a blade $B\in\B$ of grade $r-s$ such that
+exists a blade $B\in\B$ of grade $r-t$ such that $A=B\wedge C$, where $C$ is a $t$-blade given by
 \begin{equation}
-A = B\wedge\bigwedge_{i=1}^t c_i.
+C = \bigwedge_{i=1}^t c_i.
 \end{equation}
 \end{lem}
 \begin{proof}
@@ -204,10 +205,11 @@ under the assumption
 of a euclidean signature; in which case, the Gram-Schmidt orthogonalization process would have
 allowed us to choose, without loss of generality, an orthogonal factorization of the blade $A$.
 Doing so, $A$ becomes the versor $\prod_{i=1}^r a_i$, and we may write
-\begin{equation}
+\begin{equation}\label{equ_elegant_proof_of_A_i_lin_indep}
 0 = \sum_{i=1}^r \alpha_iA_i \iff
 0=\left(\sum_{i=1}^r\alpha_iA_i\right)A = -\sum_{i=1}^r(-1)^{r-i}A_i^2\alpha_ia_i.
 \end{equation}
+The use of equation \eqref{equ_elegant_proof_of_A_i_lin_indep} would depend, in part, upon Lemma~\ref{lem_zero_prod_property} to follow.
 
 \begin{lem}[The Zero Product Property]\label{lem_zero_prod_property}
 For any two non-zero blades $A,B\in\B$ of grades $r$ and $s$, respectively, if $AB=0$ and at least one of $A$ and $B$
@@ -380,14 +382,15 @@ The applicability of Theorem~\ref{thm_geo_set_rep} comes in realizing that each 
 % that there is a unique radical ideal representative of every algebraic set.
 
 % talk about unions and intersections of geometric sets
+% is the intersection of two geometric sets always a geometric set?
 
 % talk about versor actions on p telling us about versor actions on any geometric set.
 
 \subsection{Example}
 
-% conclude that there may be more to learn about geometric sets.
-
 \section{Closing}
+
+% conclude that there may be more to learn about geometric sets.
 
 \begin{thebibliography}{9}
 
