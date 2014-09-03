@@ -151,7 +151,7 @@ C=\bigwedge_{i=1}^r c_i.
 Letting $\bigwedge_{i=1}^r a_i$ be a factorization of the $r$-blade $A$, it is clear
 that if $c_i\wedge A=0$, then there exists a set of $r$ scalars $\{\gamma_{i,j}\}_{j=1}^r$
 such that
-\begin{equation}
+\begin{equation}\label{equ_c_i}
 c_i=\sum_{j=1}^r\gamma_{i,j}a_i.
 \end{equation}
 We then have
@@ -183,6 +183,21 @@ C = \bigwedge_{i=1}^t c_i.
 \end{equation}
 \end{lem}
 \begin{proof}
+The case of $t=r$ being handled by Lemma~\ref{lem_desired_blade_factorization}, and the
+case of $r=1$ being trivial, we may assume that $0<t<r$.  Then, letting $\bigwedge_{i=1}^r a_i$
+be a factorization of the $r$-blade $A$, it is clear that if $c_i\wedge A=0$, then there exists a
+set of $r$ scalars $\{\gamma_{i,j}\}_{j=1}^r$ such that equation \eqref{equ_c_i} again holds.
+Furthermore, we can assume, without loss of generality, that for each $c_i$, $\gamma_{i,i}\neq 0$.
+We then have
+\begin{equation}
+\bigwedge_{i=1}^t c_i = \gamma\bigwedge_{i=1}^t a_i + Q,
+\end{equation}
+where $\gamma=\prod_{i=1}^t\gamma_{i,i}$ and $Q$ represents the remaining terms in the
+expansion of $C$.  Letting
+\begin{equation}
+B=(-1)^{t(r-t)}\gamma^{-1}\bigwedge_{i=t+1}^r a_i,
+\end{equation}
+it follows now that $A=B\wedge C$, since $B\wedge Q=0$.
 \end{proof}
 
 % may want to note that 0-blades in outer, inner and geometric products reduce to scalar-blade product
