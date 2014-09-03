@@ -65,7 +65,8 @@ using greek letters $\alpha,\beta,\gamma$.  Grades of blades $A,B,C$ are usually
 denoted by lower case letters $r,s,t$, respectively, unlesss stated otherwise.  Lower case letters $i,j,k$ are
 used as indices.  Capital letters $R,S,T$
 are used to denote subsets of interest of $n$-dimensional euclidean space $\R^n$.
-Lower case letters $x,y,z$ are reserved for denoting points taken from $\R^n$.
+Lower case letters $x,y,z$ are reserved for denoting points taken from $\R^n$.  We
+let $P(\R^n)$ denote the power set of $\R^n$.
 We will use $\G$ to denote our geometric algebra, and $\V$ to denote an $m$-dimensional vector
 space generating it.  $\B$ will denote the set of all blades taken from $\G$.  The
 scalars of $\V$, and therefore $\G$, are taken from the field of real numbers $\R$.
@@ -226,12 +227,12 @@ This requirement comes about in consideration of the square of a non-zero null-v
 
 \subsection{Foundation}
 
-Our discussion begins with a non-zero, well-defined, yet undefined function $p:\R^n\to\V$.
+Our discussion begins with a non-zero, undefined function $p:\R^n\to\V$.\footnote{By definition, a function is well-defined even if it is left unspecified.}
 By leaving this function undefined, the results to follow generalize to the homogeneous model, conformal model,
 and any other model of geometry that is based upon the use of blades as representatives of geometry.
 
 \begin{defn}[Direct And Dual Representation]\label{def_gh_and_gd}
-For the two functions $\gh:\B\to\R^n$ and $\gd:\B\to\R^n$, given by
+For the two functions $\gh:\B\to P(\R^n)$ and $\gd:\B\to P(\R^n)$, given by
 \begin{align}
 \gh(A) &= \{x\in\R^n|p(x)\wedge A=0\},\\
 \gd(A) &= \{x\in\R^n|p(x)\cdot A=0\},
@@ -289,20 +290,35 @@ algebraic relationship between a blade directly (dually) representative of that 
 and a blade dually (directly) representative of that set, is simply that, up to scale, they
 are duals of one another.
 
-Of course, there will also be a geometric relationship between the geometry that is directly represented by a single
-given blade $A\in\B$, and the geometry that is dually represented by $A$, but this would depend upon how we choose to define
+Of course, there will also be a geometric relationship between the geometric set that is directly represented by a single
+given blade $A\in\B$, and the geometric set that is dually represented by $A$, but this would depend upon how we choose to define
 the function $p:\R^n\to\V$.
 
 \begin{lem}
 For any geometric set $R\subset\R^n$, there exists a blade $A\in\B$ such that
 $\gd(A)=R$.
 \end{lem}
+\begin{proof}
+Letting $B\in\B$ be a blade such that $\gh(B)=R$, simply let $A=BI$, and our
+lemma goes through by Lemma~\ref{lem_dual_relationship_in_rep}.
+\end{proof}
 
 \begin{lem}
-For all non-zero blades $A\in\B$, we have $\gh(A)\cap\gd(A)=\emptyset$.
+For all invertible blades $A\in\B$, we have
+\begin{equation}
+\gh(A)\cap\gd(A)=\emptyset.
+\end{equation}
 \end{lem}
+\begin{proof}
+Supposing $x\in\gh(A)\cap\gd(A)$, we see that
+\begin{equation}
+0 = p(x)\cdot A + p(x)\wedge A = p(x)A,
+\end{equation}
+but $p(x)$ is non-zero and $A$ is invertible and therefore non-zero.  We therefore reach a
+contradiction by Lemma~\ref{lem_zero_prod_property}.
+\end{proof}
 
-\begin{lem}\label{lem_factorization_of_irreducible_blades}
+\begin{lem}[The Point-Fitting Lemma]\label{lem_factorization_of_irreducible_blades}
 If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subset\R^n$
 and a scalar $\alpha\in\R$ such that
 \begin{equation}
@@ -316,7 +332,7 @@ Clearly $t\geq 1$, because $\gh(A)$ is non-empty; and clearly $t\leq r$ because 
 the requirement that $\{p(x_i)\}_{i=1}^t$ be a linearly independent set with each $p(x_i)\wedge A=0$.  Now if $t=r$, we're
 done by Lemma~\ref{lem_desired_blade_factorization}.  Therefore,
 supposing $t<r$, there must exist, by Lemma~\ref{lem_desired_partial_blade_factorization}, a factorization of $A$ of the form
-$A=B\wedge C$, where $B$ is a blade of grade $r-t$, and $C$ is an $t$-blade given by
+$A=B\wedge C$, where $B$ is a blade of grade $r-t$, and $C$ is a $t$-blade given by
 \begin{equation}
 C=\bigwedge_{i=1}^t p(x_i),
 \end{equation}
@@ -327,10 +343,13 @@ that $\gh(C)\subseteq\gh(A)$, because $C$ is a subspace of $A$.
 It now follows that $\gh(A)=\gh(C)$, which contradicts the irreducibility of the blade $A$.
 \end{proof}
 
-Notice that in the proof of Lemma~\ref{} that $\gh(B)=\emptyset$.  It is important to realize, however,
+Notice that in the proof of Lemma~\ref{lem_factorization_of_irreducible_blades} that $\gh(B)=\emptyset$.  It is important to realize, however,
 that although there is no point $x\in\gh(A)$ such that $x\in\gh(B)$, this does not imply that $x\in\gh(C)$,
 despite the correctness of this conclusion.\footnote{For example, $(e_1+e_2)\wedge e_1\wedge e_2=0$,
 yet $e_1+e_2$ is not in the sub-space spanned by $e_1$, nor that of $e_2$.}
+
+Interestingly, Lemma~\ref{lem_factorization_of_irreducible_blades} shows us that every geometric set is determined by a finite subset of its points.
+One could say that the geometric set is fit to these points.
 
 It was noted earlier that if $A,B\in\B$ are blades such that for a scalar $\beta\in\R$,
 we have $A=\beta B$, then $\gh(A)=\gh(B)$.  The converse of this statement, however,
