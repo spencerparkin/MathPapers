@@ -76,7 +76,13 @@ that $I$ is invertible with respect to the geometric product.
 We will let the geometric product take precedence over the inner and outer products,
 and the inner product take precedence over the outer product.
 
-No specific signature of our geometric algebra $\G$ is assumed in this paper.
+No specific signature of our geometric algebra $\G$ is assumed in this paper unless
+one is given in a special case.
+
+At times a blade $A$ may be referred to as a subspace.  The notion of blades as being
+representatives of subspaces of $\V$ is a common practice and is employed throughout this paper.
+It may also be said that a blade $A$ is a subspace of some other blade $B$; in which case,
+it can be understood that for all vectors $a\in\V$ such that $a\wedge A=0$, we have $a\wedge B=0$.
 
 \section{Preliminaries}
 
@@ -378,10 +384,19 @@ irreducible blade $A\in\B$ such that $\gh(A)=R$.  Moreover, this blade $A$ is a
 subspace of every blade $B$ directly representative of $R$.
 \end{thm}
 \begin{proof}
-First show that we can always reduce a reducible blade to an irreducible blade.
+By the proof of Lemma~\ref{lem_factorization_of_irreducible_blades}, it is not hard to see that, given any blade $B\in\B$ directly
+representative of the geometric set $R$, a subspace $A$ of $B$ can be found that is
+also representative of $R$ while having the property of being irreducible.
 
-Use Lemma~\ref{lem_factorization_of_irreducible_blades} to prove that two
-found irreducible blades directly representative of $R$ share each other's factorization, up to scale.
+Suppose now that $A$ and $A'$ are two independently found blades directly representative of $R$
+and each irreducible.  It can be easily understood that $\grade(A)=\grade(A')$ by Defintion~\ref{def_irreducible_blade}.
+By Lemma~\ref{lem_factorization_of_irreducible_blades}, the $r$-blade $A$ has a factorization
+of the form $\alpha\bigwedge_{i=1}^r p(x_i)$.  But now for each $x_i$, we have $p(x_i)\wedge A'=0$; so by
+Lemma~\ref{lem_desired_blade_factorization}, there exists a scalar $\alpha'\in\R$ such that $A'=\alpha'\bigwedge_{i=1}^r p(x_i)$.
+It is clear now that
+\begin{equation}
+A = \frac{\alpha}{\alpha'}A'.
+\end{equation}
 \end{proof}
 
 The importance of Theorem~\ref{thm_geo_set_rep} can be realized
