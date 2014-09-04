@@ -385,7 +385,7 @@ It now follows that $\gh(A)=\gh(C)$, which contradicts the irreducibility of the
 
 Notice that in the proof of Lemma~\ref{lem_factorization_of_irreducible_blades} that $\gh(B)=\emptyset$.  It is important to realize, however,
 that although there is no point $x\in\gh(A)$ such that $x\in\gh(B)$, this does not imply that $x\in\gh(C)$.
-To see why, consider equation \eqref{equ_geo_set_union} below.\footnote{Looking at it another way,
+To see why, consider equation \eqref{equ_geo_set_union} below.\footnote{Put another way,
 realize that while $(e_1+e_2)\wedge e_1\wedge e_2=0$, the vector $e_1+e_2$ is not in the subspace
 spanned by $e_1$, nor that of $e_2$.}
 
@@ -472,20 +472,41 @@ In this section we will take an interest in the set of all versors of $\G$ that 
 of our function $p:\R^n\to\V$.
 \begin{defn}
 A versor $V\in\G$ with the property that for all $x\in\R^n$, there exists a unique $y\in\R^n$ and
-$\lambda\in\R$ such that
+$\gamma\in\R$ such that
 \begin{equation}\label{equ_vpv_p}
-V^{-1}p(x)V = \lambda p(y),
+V^{-1}p(x)V = \gamma p(y),
 \end{equation}
-is what we will refer to as a {\it geometric versor}.
+is what we will refer to as a {\it preservative versor}.
 \end{defn}
 
-The significance of such versors is that the question of how a they transform a geometric set
+The significance of such versors is that the question of how they transform a geometric set
 from $\gh(A)$ to $\gh(VAV^{-1})$ is reduced to the question
 of how the versor maps points from $\R^n$ to $\R^n$ through our function $p:\R^n\to\V$
 as mapping a point $x\in\R^n$ to the point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
 
+The following lemma shows us that in considering the transformation of a geometric set
+by a preservative versor, we need only look at the irreducible blades directly representative of that geometric set.
+
+\begin{lem}
+Let $V\in\G$ be a preservative versor.
+Then for every blade $A\in\B$, if $C\in\B$ is an irreducible blade such that $\gh(A)=\gh(C)$, then
+\begin{equation}\label{equ_transformed_reducible_is_transformed_irreducible}
+\gh(VAV^{-1})=\gh(VCV^{-1}).
+\end{equation}
+\end{lem}
+\begin{proof}
+Letting $A=B\wedge C$ by Lemma~\ref{lem_desired_partial_blade_factorization}, consider the equation
+\begin{equation}
+VAV^{-1} = VBV^{-1}\wedge VCV^{-1}.
+\end{equation}
+What we must show now is
+that $VCV^{-1}$ is, in terms of dimension, the largest irreducible subspace of $VAV^{-1}$.  Supposing for the moment that it isn't,
+this would allow us, by the preservative property of $V$, to easily find an irreducible subspace of $A$ that is larger than that of $C$,
+which contradicts the fact that $C$ is the largest irreducible subspace of $A$.
+\end{proof}
+
 \begin{lem}\label{lem_empty_blade_transforms_as_empty_blade}
-Let $V\in\G$ be a geometric versor and $A\in\B$.  Then if $\gh(A)=\emptyset$, we have
+Let $V\in\G$ be a preservative versor and $A\in\B$.  Then if $\gh(A)=\emptyset$, we have
 \begin{equation}
 \gh(VAV^{-1})=\emptyset.
 \end{equation}
@@ -493,32 +514,11 @@ Let $V\in\G$ be a geometric versor and $A\in\B$.  Then if $\gh(A)=\emptyset$, we
 \begin{proof}
 Showing the contrapositive of our lemma, let $x\in\gh(VAV^{-1})$.  Then, by Lemma~\ref{lem_desired_partial_blade_factorization},
 there exists a blade $B\in\B$ such that $VAV^{-1}=B\wedge p(x)$.  We then see that for
-some $y\in\R^n$ and a scalar $\lambda\in\R$, we have
+some $y\in\R^n$ and a scalar $\gamma\in\R$, we have
 \begin{equation}
-A = V^{-1}(B\wedge p(x))V = V^{-1}BV\wedge V^{-1}p(x)V = V^{-1}BV\wedge \lambda p(y).
+A = V^{-1}(B\wedge p(x))V = V^{-1}BV\wedge V^{-1}p(x)V = V^{-1}BV\wedge \gamma p(y).
 \end{equation}
 We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
-\end{proof}
-
-What Lemma~\ref{lem_empty_blade_transforms_as_empty_blade} does for us is help us show that in considering the transformation of a geometric set
-by a geometric versor, we need only look at the irreducible blades directly representative of that geometric set.
-
-\begin{lem}
-Let $V\in\G$ be a geometric versor.
-Then for every blade $A\in\B$, if $C\in\B$ is an irreducible blade such that $\gh(A)=\gh(C)$, then
-\begin{equation}\label{equ_transformed_reducible_is_transformed_irreducible}
-\gh(VAV^{-1})=\gh(VCV^{-1}).
-\end{equation}
-\end{lem}
-\begin{proof}
-Letting $A=B\wedge C$ by Lemma~\ref{lem_desired_partial_blade_factorization}, notice that $\gh(B)=\emptyset$.
-Considering now
-\begin{equation}
-VAV^{-1} = VBV^{-1}\wedge VCV^{-1},
-\end{equation}
-we see, by Lemma~\ref{lem_empty_blade_transforms_as_empty_blade}, that $\gh(VBV^{-1})=\emptyset$.  All that remains then to be shown is
-that $VCV^{-1}$ is, in terms of dimension, the largest irreducible subspace of $VAV^{-1}$.  But the
-only way it couldn't be is if there existed a point $x\in\gh(VBV^{-1})$.  Equation \eqref{equ_transformed_reducible_is_transformed_irreducible} now follows.
 \end{proof}
 
 \subsection{Example}
