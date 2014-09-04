@@ -3,6 +3,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{algpseudocode}
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
@@ -500,6 +501,7 @@ Letting $A=B\wedge C$ by Lemma~\ref{lem_desired_partial_blade_factorization}, co
 \begin{equation}
 VAV^{-1} = VBV^{-1}\wedge VCV^{-1}.
 \end{equation}
+Notice that $VCV^{-1}$ is an irreducible blade by the preservative property of $V$.
 What we must show now is
 that $VCV^{-1}$ is, in terms of dimension, the largest irreducible subspace of $VAV^{-1}$.  Supposing for the moment that it isn't,
 this would allow us, by the preservative property of $V$, to easily find an irreducible subspace of $A$ that is larger than that of $C$,
@@ -522,19 +524,53 @@ A = V^{-1}(B\wedge p(x))V = V^{-1}BV\wedge V^{-1}p(x)V = V^{-1}BV\wedge \gamma p
 We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
 \end{proof}
 
+\subsection{Reduction}
+
+In the special case of a geometric algebra $\G$ having a euclidean signature, (no null vectors),
+an algorithm for reducing a given blade $A\in\B$ is given as follows.
+
+\begin{algorithmic}
+\Function{Reduce}{$A$}
+	\State $x\gets$\Call{FindAnyPoint}{$A$}
+	\If{$p(x)\wedge A=0$}
+		\State\Return $p(x)\,\wedge\,$\Call{Reduce}{$p(x)^{-1}\cdot A$}
+	\EndIf
+	\State\Return $1$
+\EndFunction
+\end{algorithmic}
+Here, the function ``FindAnyPoint'' tries to find, (perhaps using methods of calculus), and return any point in $\gh(A)$.
+If it fails, the returned point is not in $\gh(A)$.
+
+To see that the function ``Reduce'' above is correct, we first realize that if $p(x)\wedge A=0$,
+then there exists a factorization of $A$ of the form $A=p(x)\wedge B$ for some blade $B\in\B$
+of grade $r-1$.
+Then, by the Gram-Schmidt orthogonalization process, (which is always
+applicable in geometric algebras with euclidean signatures), we can rewrite $A$ as a versor,
+giving us $A=p(x)B$.  It then follows that
+\begin{equation}
+p(x)^{-1}\cdot A = \langle p(x)^{-1}p(x) B\rangle_{r-1}=B.
+\end{equation}
+
+Notice that the algorithm above is simply a factorization algorithm that is looking for
+vector factors of a specific form; and that it may terminate before the blade is fully factored;
+in which case, the given blade $A$ was reducible.  A version of this algorithm that works
+in any geometric algebra may be adaptable from one given in \cite{}.
+
 \subsection{Example}
 
 % give example with plane and cylinder.
 
-\subsection{Reduction}
+%\section{Closing}
 
-% give algorithm for euclidean signature case
-
-\section{Closing}
+%There are a few remarks to be made in closing.
 
 % conclude that there may be more to learn about geometric sets.
 
 % vacuous blades can additional information that may be reasonable transformed by versors.
+% reducible blades may contain more info.  for example, tangent-point versus point.
+
+%I was told that a reformulation of the algebraic geometry in terms of geometric algebra could
+%possibly enrich the subject.  I believe this to be a naive and unrealistic expectation of geometric algebra.
 
 \begin{thebibliography}{9}
 
