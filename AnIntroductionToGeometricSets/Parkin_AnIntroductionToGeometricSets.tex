@@ -301,6 +301,10 @@ A blade that is not irreducible is referred to as {\it reducible}.
 Having given the definitions in the previous section, we may now focus on the results that follow
 from these definitions.
 
+\subsubsection{Representation}
+
+Our initial developments explore the representations of geometric sets.
+
 \begin{lem}[Dual Relationship Between Representations]\label{lem_dual_relationship_in_rep}
 For any geometric set $R\subset\R^n$, if $A\in\B$ is a blade such that $\gh(A)=R$,
 then $\gd(AI)=R$, and similarly, if $A\in\B$ is a blade such that $\gd(A)=R$, then $\gh(AI)=R$.
@@ -336,6 +340,9 @@ Letting $B\in\B$ be a blade such that $\gh(B)=R$, simply let $A=BI$, and our
 lemma goes through by Lemma~\ref{lem_dual_relationship_in_rep}.
 \end{proof}
 
+Our next lemma shows that there is no overlap between the geometric sets dually and directly
+represented by a blade.
+
 \begin{lem}
 For all invertible blades $A\in\B$, we have
 \begin{equation}
@@ -353,9 +360,9 @@ contradiction by Lemma~\ref{lem_zero_prod_property}.
 
 \begin{lem}[The Point-Fitting Lemma]\label{lem_factorization_of_irreducible_blades}
 If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subset\R^n$
-and a scalar $\alpha\in\R$ such that
+and a scalar $\beta\in\R$ such that
 \begin{equation}
-A=\alpha\bigwedge_{i=1}^r p(x_i).
+A=\beta\bigwedge_{i=1}^r p(x_i).
 \end{equation}
 \end{lem}
 \begin{proof}
@@ -421,29 +428,43 @@ The applicability of Theorem~\ref{thm_geo_set_rep} comes in realizing that each 
 The counter-part of Theorem~\ref{thm_geo_set_rep} in algebraic geometry is Hilbert's Nullstellensatz, (see \cite{}),
 which states, in layman's terms, that for every algebraic set, there exists a unique radical ideal representative of that set.
 
-Speaking of algebraic sets, knowing that the intersection of any two such sets is also algebraic, one must wonder
-if there is an analogous result with regards to geometric sets.
+\subsubsection{Operations}
 
-\begin{thm}
-For every pair of geometric sets $R,S\subset\R^n$, the intersection $R\cap S$ is also a geometric set.
-\end{thm}
+Speaking of algebraic sets, knowing that the intersection or union of any two such sets is also algebraic,
+one must wonder if there is an analogous result with regards to geometric sets.  It is easy to find a counter-example
+in the conformal model showing that the union of two geometric sets need not be geometric.
+Proving or disproving that the intersection of any two geometric sets is geometric, however, is not obvious.
+In any case, the following lemma gives us some insight into the union and intersection of geometric sets.
 
-% talk about unions and intersections of geometric sets
-% is the intersection of two geometric sets always a geometric set?
+\begin{lem}
+For blades $B,C\in\B$, if a non-zero blade $A\in\B$ has a factorization $A=B\wedge C$, then
+\begin{align}
+\gh(A) &\supseteq \gh(B)\cup\gh(C), \\
+\gd(A) &= \gd(B)\cap\gd(C).
+\end{align}
+\end{lem}
+\begin{proof}
+\end{proof}
 
-% talk about versor actions on p telling us about versor actions on any geometric set.
+\subsubsection{Transformations}
+
+% show that vacuous blades always transform as vacuous blades?  define vacuous blade?
+
+% talk about p-preserving versor actions on p telling us about versor actions on any geometric set due to
+% outermorphic property and irreducible form with p-factorization.
+% look at other paper for some notes
 
 \subsection{Example}
 
+% give example with plane and cylinder.
+
 \subsection{Reduction}
 
-% given algorithm for euclidean signature case
+% give algorithm for euclidean signature case
 
 \section{Closing}
 
 % conclude that there may be more to learn about geometric sets.
-
-% mention affine space?
 
 \begin{thebibliography}{9}
 
