@@ -43,9 +43,11 @@ Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-A general study of geometric models based upon the idea of using blades of a geometric algebra
+A generalized model of geometry based upon the idea of using blades of a geometric algebra
 as representatives of geometry is developed.  Similar to the idea of an algebraic set, the main object of study
 becomes the notion of a geometric set.  Results about geometric sets are obtained, and their implications discussed.
+Being a generalization, results obtained are immediately applicable to well-known models of geometry,
+including the homogeneous and conformal models.
 \end{abstract}
 
 \keywords{Geometric Algebra, Model Of Geometry, Geometric Set}
@@ -54,8 +56,7 @@ becomes the notion of a geometric set.  Results about geometric sets are obtaine
 
 \section{Introduction}
 
-This paper is a formal treatment of the generalization of geometric models
-based upon the idea of using blades of a geometric algebra as representatives of geometry.
+This paper studies a generalization of well-known models of geometry.
 Specific examples include the homogeneous and conformal models, (see \cite{}),
 which have received much attention in recent years.
 
@@ -154,7 +155,7 @@ A_r\cdot(a_r\cdot B) & \mbox{if $r\leq s$,} \\
 
 \subsection{Lemmas}
 
-The following lemmas will help us prove the results of this paper.
+The following lemmas will become instrumental in the remainder of this paper.
 
 \begin{lem}[Found Factorization Of Blade]\label{lem_desired_blade_factorization}
 If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{c_i\}_{i=1}^r$ is a set
@@ -245,7 +246,7 @@ Doing so, $A$ becomes the versor $\prod_{i=1}^r a_i$, and we may write
 The use of equation \eqref{equ_elegant_proof_of_A_i_lin_indep} would depend, in part, upon Lemma~\ref{lem_zero_prod_property} to follow.
 
 \begin{lem}[The Zero Product Property]\label{lem_zero_prod_property}
-For any two non-zero blades $A,B\in\B$ of grades $r$ and $s$, respectively, if $AB=0$ and at least one of $A$ and $B$
+For any two blades $A,B\in\B$ of grades $r$ and $s$, respectively, if $AB=0$ and at least one of $A$ and $B$
 is invertible, then at least one of $A$ and $B$ is zero.
 \end{lem}
 \begin{proof}
@@ -264,7 +265,8 @@ This requirement comes about in consideration of the square of a non-zero null-v
 
 Our discussion begins with a non-zero, undefined function $p:\R^n\to\V$.\footnote{By definition, a function is well-defined even if it is left unspecified.}
 By leaving this function undefined, the results to follow generalize to the homogeneous model, conformal model,
-and any other model of geometry that is based upon the use of blades as representatives of geometry.
+and any other model of geometry that is based upon the use of blades as representatives of geometry in the
+following manner.
 
 \begin{defn}[Direct And Dual Representation]\label{def_gh_and_gd}
 For the two functions $\gh:\B\to P(\R^n)$ and $\gd:\B\to P(\R^n)$, given by
@@ -283,14 +285,14 @@ to think of $A$ as being a representative of at any given time is completely arb
 It should also be clear from Definition~\ref{def_gh_and_gd} that the subset of $\R^n$ represented by a
 blade $A$, (directly or dually), remains invariant under any non-zero scaling of the blade $A$.
 
-Finally, now enters this paper's object of study: the {\it geometric set}.
+At last, now enters this paper's object of study: the {\it geometric set}.
 
 \begin{defn}[Geometric Set]\label{def_geo_set}
 A subset $R\subset\R^n$ for which there exists a blade $A\in\B$ such that $\gh(A)=R$ is what
 we'll refer to as a {\it geometric set}.
 \end{defn}
 
-In the course of our study, we will find the concept of {\it irreducibility} important.
+In the course of our study, we will find significant the following concept of {\it irreducibility}.
 
 \begin{defn}[Irreducible/Reducible Blade]\label{def_irreducible_blade}
 Given an $r$-blade $A\in\B$, if there does not exist an $s$-blade $B\in\B$ with $s<r$
@@ -343,7 +345,7 @@ lemma goes through by Lemma~\ref{lem_dual_relationship_in_rep}.
 \end{proof}
 
 Our next lemma shows that there is no overlap between the geometric sets dually and directly
-represented by a blade.
+represented by an invertible blade.
 
 \begin{lem}
 For all invertible blades $A\in\B$, we have
@@ -378,9 +380,9 @@ $A=B\wedge C$, where $B$ is a blade of grade $r-t$, and $C$ is a $t$-blade given
 \begin{equation}
 C=\bigwedge_{i=1}^t p(x_i),
 \end{equation}
-Now realize that $\gh(A)\subseteq\gh(C)$ or else $t$ is not the largest of its kind\footnote{Suppose
+Now realize that $\gh(A)\subseteq\gh(C)$ or else $t$ is not the largest of its kind,\footnote{Suppose
 there exists $x\in\gh(A)$ with $x\not\in\gh(C)$.  Then $p(x)\wedge C\neq 0$ and we have found $t+1$
-points, (namely, those in $\{x\}\cup\{x_i\}_{i=1}^t$), for which the set of vectors $\{p(x)\}\cup\{p(x_i)\}_{i=1}^t$ is a linearly independent set.}, and
+points, (namely, those in $\{x\}\cup\{x_i\}_{i=1}^t$), for which the set of vectors $\{p(x)\}\cup\{p(x_i)\}_{i=1}^t$ is a linearly independent set.} and
 that $\gh(C)\subseteq\gh(A)$, because $C$ is a subspace of $A$.
 It now follows that $\gh(A)=\gh(C)$, which contradicts the irreducibility of the blade $A$.
 \end{proof}
@@ -396,12 +398,12 @@ set is determined by a finite subset of its points.  For any given definition of
 would make knowing, for any given set of points $\{x_i\}$, when $\bigwedge_i p(x_i)\neq 0$,
 an important result to establish.
 
-It was noted earlier that if $A,B\in\B$ are blades such that for a scalar $\beta\in\R$,
-we have $A=\beta B$, then $\gh(A)=\gh(B)$.  The converse of this statement, however,
+It was noted earlier that if $A,B\in\B$ are blades such that there exists a scalar $\beta\in\R$ giving us
+$A=\beta B$, then $\gh(A)=\gh(B)$.  The converse of this statement, however,
 is not generally true, but leads us to an important and fundamental theorem.
 
 \begin{thm}[The Fundamental Theorem Of Geometric Set Representation]\label{thm_geo_set_rep}
-For every geometric set $R\subset\R^n$, there exists, up to scale, a unique,
+For every non-empty geometric set $R\subset\R^n$, there exists, up to scale, a unique,
 irreducible blade $A\in\B$ such that $\gh(A)=R$.  Moreover, this blade $A$ is a
 subspace of every blade $B$ directly representative of $R$.
 \end{thm}
@@ -413,11 +415,11 @@ also representative of $R$ while having the property of being irreducible.
 Suppose now that $A$ and $A'$ are two independently found blades directly representative of $R$
 and each irreducible.  It can be easily understood that $\grade(A)=\grade(A')$ by Defintion~\ref{def_irreducible_blade}.
 By Lemma~\ref{lem_factorization_of_irreducible_blades}, the $r$-blade $A$ has a factorization
-of the form $\alpha\bigwedge_{i=1}^r p(x_i)$.  But now for each $x_i$, we have $p(x_i)\wedge A'=0$; so by
-Lemma~\ref{lem_desired_blade_factorization}, there exists a scalar $\alpha'\in\R$ such that $A'=\alpha'\bigwedge_{i=1}^r p(x_i)$.
+of the form $\beta\bigwedge_{i=1}^r p(x_i)$.  But now for each $x_i$, we have $p(x_i)\wedge A'=0$; so by
+Lemma~\ref{lem_desired_blade_factorization}, there exists a scalar $\beta'\in\R$ such that $A'=\beta'\bigwedge_{i=1}^r p(x_i)$.
 It is clear now that
 \begin{equation}
-A = \frac{\alpha}{\alpha'}A'.
+A = \frac{\beta}{\beta'}A'.
 \end{equation}
 \end{proof}
 
@@ -432,7 +434,7 @@ The applicability of Theorem~\ref{thm_geo_set_rep} comes in realizing that each 
 Reducible blades directly representative of the same geometric set may sometimes be equated as scalar multiples
 of one another, but this is not always possible.
 
-The counter-part of Theorem~\ref{thm_geo_set_rep} in algebraic geometry is Hilbert's Nullstellensatz, (see \cite{}),
+The counter-part of Theorem~\ref{thm_geo_set_rep} in algebraic geometry may be Hilbert's Nullstellensatz, (see \cite{}),
 which implies that for every algebraic set, there exists a unique radical ideal representative of that set.
 
 \subsubsection{Intersections/Unions}
@@ -488,11 +490,11 @@ of how the versor maps points from $\R^n$ to $\R^n$ through our function $p:\R^n
 as mapping a point $x\in\R^n$ to the point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
 
 The following lemma shows us that in considering the transformation of a geometric set
-by a preservative versor, we need only look at the irreducible blades directly representative of that geometric set.
+by a preservative versor, we need only look at the irreducible blades directly representative of that set.
 
 \begin{lem}
-Let $V\in\G$ be a preservative versor.
-Then for every blade $A\in\B$, if $C\in\B$ is an irreducible blade such that $\gh(A)=\gh(C)$, then
+Let $V\in\G$ be a preservative versor and $A\in\B$.
+Then if $C\in\B$ is an irreducible blade such that $\gh(A)=\gh(C)$, then
 \begin{equation}\label{equ_transformed_reducible_is_transformed_irreducible}
 \gh(VAV^{-1})=\gh(VCV^{-1}).
 \end{equation}
@@ -534,7 +536,7 @@ an algorithm for reducing a given blade $A\in\B$ is given as follows.
 \Function{Reduce}{$A$}
 	\State $x\gets$\Call{FindAnyPoint}{$A$}
 	\If{$p(x)\wedge A=0$}
-		\State\Return $p(x)\,\wedge\,$\Call{Reduce}{$p(x)^{-1}\cdot A$}
+		\State\Return $p(x)\,\wedge\,$\Call{Reduce}{$p(x)\cdot A$}
 	\EndIf
 	\State\Return $1$
 \EndFunction
@@ -549,8 +551,10 @@ Then, by the Gram-Schmidt orthogonalization process, (which is always
 applicable in geometric algebras with euclidean signatures), we can rewrite $A$ as a versor,
 giving us $A=p(x)B$.  It then follows that
 \begin{equation}
-p(x)^{-1}\cdot A = \langle p(x)^{-1}p(x) B\rangle_{r-1}=B.
+p(x)\cdot A = \langle p(x)^2 B\rangle_{r-1}=|p(x)|^2 B.
 \end{equation}
+
+% More rigor is needed to prove correctness here.
 
 Notice that the algorithm above is simply a factorization algorithm that is looking for
 vector factors of a specific form; and that it may terminate before the blade is fully factored;
@@ -586,9 +590,9 @@ Given a blade $A\in\B$ known to dually represent such a shape in this plane, one
 \begin{align}
 h &= (-e_{31}\cdot A)(2e_{37}\cdot A)^{-1}\label{equ_decompose_first} \\
 k &= (-e_{32}\cdot A)(2e_{38}\cdot A)^{-1} \\
-\lambda &= (h^2e_{37}+k^2e_{38}-e_{30})\cdot A \\
-a &= \sqrt{\lambda(e_{37}\cdot A)^{-1}} \\
-b &= \sqrt{\lambda(e_{38}\cdot A)^{-1}}\label{equ_decompose_last}
+\alpha &= (h^2e_{37}+k^2e_{38}-e_{30})\cdot A \\
+a &= \sqrt{\alpha(e_{37}\cdot A)^{-1}} \\
+b &= \sqrt{\alpha(e_{38}\cdot A)^{-1}}\label{equ_decompose_last}
 \end{align}
 (Here, $e_{ijk\dots}=e_ie_je_k\dots$.)
 The problem with this idea is that it can be easily shown that $E\wedge e_3$ is a reducible blade; and therefore,
@@ -647,7 +651,7 @@ we may find that more advanced models of geometry use multi-vectors generally
 for such a purpose, or something other than geometric algebra altogether.
 
 Lastly, there has even been a
-lofty and naive expectation among geometric algebraist, (the present author not included),
+lofty and naive expectation among geometric algebraists, (the present author not included),
 that a reformulation of algebraic geometry in terms of geometric algebra would somehow enrich the subject
 in ways beyond the current capabilities of abstract algebra.  However, even with a limited understanding
 of algebraic geometry, it is abundantly clear that this notion is absurd.  Nevertheless,
