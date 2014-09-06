@@ -482,18 +482,46 @@ If, on the other hand, $B\wedge C=0$, we can come to no such conclusion.
 In this section we will take an interest in the set of all versors of $\G$ that preserve the form
 of our function $p:\R^n\to\V$.
 \begin{defn}
-A versor $V\in\G$ with the property that for all $x\in\R^n$, there exists a unique $y\in\R^n$ and
-$\gamma\in\R$ such that
+A versor $V\in\G$ with the property that for all $x\in\R^n$, there exists one and only one
+pairing of a point $y\in\R^n$ and a scalar $\gamma\in\R$ such that
 \begin{equation}\label{equ_vpv_p}
 V^{-1}p(x)V = \gamma p(y),
 \end{equation}
 is what we will refer to as a {\it preservative versor}.
 \end{defn}
 
-The significance of such versors is that the question of how they transform a geometric set
-from $\gh(A)$ to $\gh(VAV^{-1})$ is reduced to the question
-of how the versor maps points from $\R^n$ to $\R^n$ through our function $p:\R^n\to\V$
-as mapping a point $x\in\R^n$ to the point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
+\begin{defn}
+For any preservative versor $V\in\G$, we let $V_p:\R^n\to\R^n$ denote
+the function induced by $V$ through $p:\R^n\to\V$ as mapping any point $x\in\R^n$
+to the corresponding point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
+\end{defn}
+
+Notice that $V_p$ in Definition~\ref{} is a well defined function.  Also note that
+if a versor $V\in\G$ is preservative and $V_p$ is bijective, then
+$V^{-1}$ is preservative.  If $V$ is preservative and $V^{-1}$ is preservative,
+then $V_p$ is bijective.  If $V_p$ is bijective, then $V_p^{-1} = (V^{-1})_p$.
+(These statements need verification!)
+
+\begin{lem}
+if $V\in\G$ is a preservative versor, $V_p$ is a bijective mapping, and $A\in\B$ with $\gh(A)\neq\emptyset$, then
+\begin{equation}
+\gh(VAV^{-1}) = V_p^{-1}(\gh(A)).
+\end{equation}
+\end{lem}
+\begin{proof}
+For any point $x\in\R^n$, let $y=V_p(x)$.  Notice that $\gh(VAV^{-1})$ is non-empty by
+the preservative property of $V$.
+Then, if $x\in\gh(VAV^{-1})$, then there exists, by Lemma~\ref{}, a blade $B\in\B$ such that
+$VAV^{-1}=B\wedge p(x)$, and we have $A=V^{-1}BV\wedge\gamma p(y)$, showing that
+$y\in\gh(A)$ and therefore $x\in V_p^{-1}(\gh(A))$.  If $x\in V^{-1}(\gh(A))$, then
+$y\in\gh(A)$ and there exists, again by Lemma~\ref{}, a blade $B\in\B$ such that
+$A=B\wedge p(y)$, and we have $VAV^{-1}\wedge\gamma^{-1}p(x)$, showing that
+$x\in\gh(VAV^{-1})$.
+\end{proof}
+
+Lemma~\ref{} shows us that the problem of determining how a given preservative
+versor $V\in\G$ transforms a geometric set reduces to the problem of determining
+how the function $V_p:\R^n\to\R^n$ transform space.
 
 The following lemma shows us that in considering the transformation of a geometric set
 by a preservative versor, we need only look at the irreducible blades directly representative of that set.
@@ -517,6 +545,12 @@ this would allow us, by the preservative property of $V$, to easily find an irre
 which contradicts the fact that $C$ is the largest irreducible subspace of $A$.
 \end{proof}
 
+Alternatively, we could have used Lemma~\ref{} to prove Lemma~\ref{} by noticing
+that
+\begin{equation}
+\gh(VAV^{-1})=V_p^{-1}(\gh(A))=V_p^{-1}(\gh(C))=\gh(VCV^{-1}).
+\end{equation}
+
 \begin{lem}\label{lem_empty_blade_transforms_as_empty_blade}
 Let $V\in\G$ be a preservative versor and $A\in\B$.  Then if $\gh(A)=\emptyset$, we have
 \begin{equation}
@@ -527,9 +561,7 @@ Let $V\in\G$ be a preservative versor and $A\in\B$.  Then if $\gh(A)=\emptyset$,
 Showing the contrapositive of our lemma, let $x\in\gh(VAV^{-1})$.  Then, by Lemma~\ref{lem_desired_partial_blade_factorization},
 there exists a blade $B\in\B$ such that $VAV^{-1}=B\wedge p(x)$.  We then see that for
 some $y\in\R^n$ and a scalar $\gamma\in\R$, we have
-\begin{equation}
-A = V^{-1}(B\wedge p(x))V = V^{-1}BV\wedge V^{-1}p(x)V = V^{-1}BV\wedge \gamma p(y).
-\end{equation}
+$A = V^{-1}BV\wedge \gamma p(y)$.
 We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
 \end{proof}
 
@@ -537,6 +569,9 @@ We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
 
 In the special case of a geometric algebra $\G$ having a euclidean signature, (no null vectors),
 an algorithm for reducing a given blade $A\in\B$ is given as follows.
+
+The following algorithm is wrong.  It will terminate, but we don't know that the result is
+the largest irreducible subspace of the given blade.
 
 \begin{algorithmic}
 \Function{Reduce}{$A$}
