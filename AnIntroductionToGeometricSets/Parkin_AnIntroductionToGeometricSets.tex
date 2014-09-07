@@ -47,7 +47,7 @@ A generalized model of geometry based upon the idea of using blades of a geometr
 as representatives of geometry is developed.  Similar to the idea of an algebraic set, the main object of study
 becomes the notion of a geometric set.  Results about geometric sets are obtained, and their implications discussed.
 Being a generalization, results obtained are immediately applicable to well-known models of geometry,
-including the homogeneous and conformal models, as well as any specific future models that fall
+including the homogeneous and conformal models, as well as any specific future model that falls
 under the generalization.
 \end{abstract}
 
@@ -166,9 +166,12 @@ The following lemmas will become instrumental in the remainder of this paper.
 \begin{lem}[Found Factorization Of Blade]\label{lem_desired_blade_factorization}
 If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{c_i\}_{i=1}^r$ is a set
 of $r$ linearly independent vectors such that for all $c\in\{c_i\}_{i=1}^r$, we have
-$c\wedge A=0$, then there exists a scalar $\beta\in\R$ such that $A=\beta C$,
-where $C$ is an $r$-blade given by
+$c\wedge A=0$, then there exists a scalar $\beta\in\R$ such that
 \begin{equation}\label{equ_desired_blade_factorization}
+A = \beta C,
+\end{equation}
+where the $r$-blade $C$ is given by
+\begin{equation}
 C=\bigwedge_{i=1}^r c_i.
 \end{equation}
 \end{lem}
@@ -202,7 +205,11 @@ Our next lemma is a generalization of Lemma~\ref{lem_desired_blade_factorization
 \begin{lem}[Found Partial/Full Factorization Of Blade]\label{lem_desired_partial_blade_factorization}
 If $A\in\B$ is a non-zero blade of grade $r>0$ and $\{c_i\}_{i=1}^t$ is a set of $t\leq r$ linearly
 independent vectors such that for all $c\in\{c_i\}_{i=1}^t$, we have $c\wedge A=0$, then there
-exists a blade $B\in\B$ of grade $r-t$ such that $A=B\wedge C$, where $C$ is a $t$-blade given by
+exists a blade $B\in\B$ of grade $r-t$ such that
+\begin{equation}\label{equ_desired_partial_blade_factorization}
+A=B\wedge C,
+\end{equation}
+where $C$ is a $t$-blade given by
 \begin{equation}
 C = \bigwedge_{i=1}^t c_i.
 \end{equation}
@@ -222,7 +229,7 @@ expansion of $C$.  Letting
 \begin{equation}
 B=(-1)^{t(r-t)}\gamma^{-1}\bigwedge_{i=t+1}^r a_i,
 \end{equation}
-it follows now that $A=B\wedge C$, since $B\wedge Q=0$.
+it follows now that equation \eqref{equ_desired_partial_blade_factorization} holds, since $B\wedge Q=0$.
 \end{proof}
 
 % may want to note that 0-blades in outer, inner and geometric products reduce to scalar-blade product
@@ -567,11 +574,12 @@ We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
 
 \subsection{Reduction}
 
-In the special case of a geometric algebra $\G$ having a euclidean signature, (no null vectors),
-an algorithm for reducing a given blade $A\in\B$ is given as follows.
-
-The following algorithm is wrong.  It will terminate, but we don't know that the result is
-the largest irreducible subspace of the given blade.
+Interestingly, while Theorem~\ref{thm_geo_set_rep} showed the existence and uniquness of irreducible blades,
+the problem of fully reducing a given blade, or the problem of verifying that a given blade is fully reduced, yet still
+representative of a given geometric set, has no obvious solution.  To illustrate this, let us assume, for this section,
+that $\G$ has a euclidean signature.
+(There are now no null-vectors in $\G$.)  Under this assumption, consider the following algorithm which
+attempts to fully reduce a given blade $A$.
 
 \begin{algorithmic}
 \Function{Reduce}{$A$}
@@ -585,22 +593,23 @@ the largest irreducible subspace of the given blade.
 Here, the function ``FindAnyPoint'' tries to find, (perhaps using methods of calculus), and return any point in $\gh(A)$.
 If it fails, the returned point is not in $\gh(A)$.
 
-To see that the function ``Reduce'' above is correct, we first realize that if $p(x)\wedge A=0$,
-then there exists a factorization of $A$ of the form $A=p(x)\wedge B$ for some blade $B\in\B$
-of grade $r-1$.
-Then, by the Gram-Schmidt orthogonalization process, (which is always
-applicable in geometric algebras with euclidean signatures), we can rewrite $A$ as a versor,
-giving us $A=p(x)B$.  It then follows that
+Working in a geometric algebra with a euclidean signature, if for the $r$-blade $A$, we have $p(x)\wedge A=0$,
+there exists an $(r-1)$-blade $C\in\B$ such that $p(x)\cdot C=0$ and $A=p(x)\wedge C=p(x)C$.  (The
+Gram-Schmidt orthogonalization process is always applicable in euclidean geometric algebras.)
+It then follows that
 \begin{equation}
-p(x)\cdot A = \langle p(x)^2 B\rangle_{r-1}=|p(x)|^2 B.
+p(x)\cdot A = \langle p(x)^2 C\rangle_{r-1}=|p(x)|^2 C.
 \end{equation}
 
-% More rigor is needed to prove correctness here.
+The algorithm ``Reduce'' above is simply a factorization algorithm that is looking for
+vector factors of a specific form.  By design, it may terminate before the blade is fully factored;
+in which case, a reduction of the blade $A$ may have been found.  It is clear, however,
+by Lemma~\ref{lem_factorization_of_irreducible_blades},
+that this algorithm is capable of finding the irreducible blade $B$ directly representative of the
+same geometric set that is directly represented by the given blade $A$, but it can only guarentee
+that $\gh(B)\subseteq\gh(A)$.
 
-Notice that the algorithm above is simply a factorization algorithm that is looking for
-vector factors of a specific form; and that it may terminate before the blade is fully factored;
-in which case, the given blade $A$ was reducible.  A version of this algorithm that works
-in any geometric algebra may be adaptable from one given in \cite{Fontijne10}.
+
 
 \subsection{Example}
 
@@ -667,15 +676,23 @@ Fully reducing $AI$, we get the 5-blade $C'$, given by
 \begin{equation}
 C' = e_{01267} - e_{01268} + e_{12678} = e_{126}\wedge(e_0+e_8)\wedge(e_8-e_7).
 \end{equation}
-Then, by Theorem~\ref{thm_geo_set_rep}, this must be a subspace of $(E\wedge e_3)I$.
-Sure enough, we have
+To prove that this really is the full reduction of our blade $AI$, Theorem~\ref{thm_geo_set_rep}
+allows that we verify just two conditions.
+First, that $\gh(C')=\gh(AI)$, which can be done with symbolic computation software.
+And secondly, that $C'$ is irreducible, which follows immediately by construction.
+The blade $C'$ was constructed by choosing 5 points on the circle, and then using a software
+program to expand the outer product of the image of those points under $p:\R^n\to\V$.
+
+Then, by Theorem~\ref{thm_geo_set_rep} once more, this blade $C'$ must be a subspace
+of $(E\wedge e_3)I$.  Sure enough, we have
 \begin{equation}
 (e_{459}\wedge C')I = \alpha E\wedge e_3,
 \end{equation}
 and we get the unit circle in the $x_3=0$ plane, centered at origin.
 
 The lesson learned here is that we can always make use of a canonical form if we first
-fully reduce the blade we wish to decompose.  Sometimes, however, this is undesirable.
+fully reduce the blade we wish to decompose.\footnote{Unfortunately, as noted
+earlier, the problem of fully reducing a blade remains as yet unresolved.}  Sometimes, however, this is undesirable.
 For example, if we were to fully reduce a blade directly representative of a tangent
 point in the conformal model, then we would be left with an ordinary point and lose the tangential information.
 This brings up the point that a blade may embed within it more information than just the geometric
