@@ -383,7 +383,7 @@ A=\beta\bigwedge_{i=1}^r p(x_i).
 \end{equation}
 \end{lem}
 \begin{proof}
-Let $t$ be the largest integer for which there exists a set of $t$ points $\{x_i\}_{i=1}^t\subset\gh(A)$ such that
+Let $t$ be the largest integer for which there exists a set of $t$ points $\{x_i\}_{i=1}^t\subseteq\gh(A)$ such that
 $\bigwedge_{i=1}^t p(x_i)\neq 0$.
 Clearly $t\geq 1$, because $\gh(A)$ is non-empty; and clearly $t\leq r$ because of
 the requirement that $\{p(x_i)\}_{i=1}^t$ be a linearly independent set with each $p(x_i)\wedge A=0$.  Now if $t=r$, we're
@@ -443,7 +443,8 @@ relating two independently made formulations
 of a given geometric set.  For example, we may equate the intersection of two spheres as some
 scalar multiple of the canonical intersection of a sphere centered on a plane.  The former formulation
 is what we may wish to calculate, while the latter formulation lends itself to analysis through decomposition.
-The applicability of Theorem~\ref{thm_geo_set_rep} comes in realizing that each formulation is irreducible.
+The applicability of Theorem~\ref{thm_geo_set_rep} comes in realizing that each formulation, (or the
+dual of each formulation), is irreducible.
 Reducible blades directly representative of the same geometric set may sometimes be equated as scalar multiples
 of one another, but this is not always possible.
 
