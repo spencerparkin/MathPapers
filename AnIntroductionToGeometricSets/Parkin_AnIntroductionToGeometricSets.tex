@@ -137,7 +137,7 @@ Replacing $A$ in equation \eqref{equ_vec_blade_inner_prod_dual} with $AI$, we fi
 (a\wedge A)I=a\cdot AI.
 \end{equation}
 
-Refering back to equation \eqref{equ_vec_blade_inner_prod}, another important formulation of the inner product between a vector and a blade
+Referring back to equation \eqref{equ_vec_blade_inner_prod}, another important formulation of the inner product between a vector and a blade
 is given by
 \begin{equation}\label{equ_vec_blade_inner_prod_series}
 a\cdot A=-\sum_{i=1}^r(-1)^i(a\cdot a_i)A_i,
@@ -426,7 +426,7 @@ representative of the geometric set $R$, a subspace $A$ of $B$ can be found that
 also representative of $R$ while having the property of being irreducible.
 
 Suppose now that $A$ and $A'$ are two independently found blades directly representative of $R$
-and each irreducible.  It can be easily understood that $\grade(A)=\grade(A')$ by Defintion~\ref{def_irreducible_blade}.
+and each irreducible.  It can be easily understood that $\grade(A)=\grade(A')$ by Definition~\ref{def_irreducible_blade}.
 By Lemma~\ref{lem_factorization_of_irreducible_blades}, the $r$-blade $A$ has a factorization
 of the form $\beta\bigwedge_{i=1}^r p(x_i)$.  But now for each $x_i$, we have $p(x_i)\wedge A'=0$; so by
 Lemma~\ref{lem_desired_blade_factorization}, there exists a scalar $\beta'\in\R$ such that $A'=\beta'\bigwedge_{i=1}^r p(x_i)$.
@@ -604,7 +604,7 @@ By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 
 \subsection{Reduction}
 
-Interestingly, while Theorem~\ref{thm_geo_set_rep} showed the existence and uniquness of irreducible blades,
+Interestingly, while Theorem~\ref{thm_geo_set_rep} showed the existence and uniqueness of irreducible blades,
 the problem of fully reducing a given blade has no obvious solution.  To illustrate this, let us assume, for this section,
 that $\G$ has a euclidean signature.
 (There are now no null-vectors in $\G$.)  Under this assumption, consider the following algorithm which
@@ -635,7 +635,7 @@ The algorithm ``Reduce'' above is simply a factorization algorithm that is looki
 vector factors of a specific form.  By design, it may terminate before the blade is fully factored;
 in which case, a reduction $B$ of the blade $A$ may have been found.  Though $B$, the returned blade,
 is clearly irreducible, it is not clear whether $B$ directly represents the same geometric set that is
-directly represented by $A$.  The algorithm can only guarentee
+directly represented by $A$.  The algorithm can only guarantee
 that $\gh(B)\subseteq\gh(A)$, because we can't be sure that $B$ is the largest irreducible subspace of $A$.
 
 A correct algorithm would be as follows.
