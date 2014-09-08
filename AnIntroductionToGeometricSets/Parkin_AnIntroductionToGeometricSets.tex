@@ -497,86 +497,77 @@ V^{-1}p(x)V = \gamma p(y),
 is what we will refer to as a {\it preservative versor}.
 \end{defn}
 
-\begin{defn}
+\begin{defn}\label{def_preservative_versor}
 For any preservative versor $V\in\G$, we let $V_p:\R^n\to\R^n$ denote
 the function induced by $V$ through $p:\R^n\to\V$ as mapping any point $x\in\R^n$
 to the corresponding point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
 \end{defn}
 
-Notice that $V_p$ in Definition~\ref{} is a well defined function.  Also note that
-if a versor $V\in\G$ is preservative and $V_p$ is bijective, then
-$V^{-1}$ is preservative.  If $V$ is preservative and $V^{-1}$ is preservative,
-then $V_p$ is bijective.  If $V_p$ is bijective, then $V_p^{-1} = (V^{-1})_p$.
-(These statements need verification!)
+Notice that $V_p$ in Definition~\ref{def_preservative_versor} is a well defined function.
 
-\begin{lem}
-if $V\in\G$ is a preservative versor, $V_p$ is a bijective mapping, and $A\in\B$ with $\gh(A)\neq\emptyset$, then
+\begin{thm}\label{thm_how_preservative_versor_transforms}
+If $V\in\G$ is a preservative versor, and we have $A\in\B$ with $\gh(A)\neq\emptyset$, then
 \begin{equation}
-\gh(VAV^{-1}) = V_p^{-1}(\gh(A)).
+\gh(VAV^{-1}) = V_p^{-1}(\gh(A)) = \{x\in\R^n|V_p(x)\in\gh(A)\}.
 \end{equation}
-\end{lem}
+\end{thm}
 \begin{proof}
-For any point $x\in\R^n$, let $y=V_p(x)$.  Notice that $\gh(VAV^{-1})$ is non-empty by
-the preservative property of $V$.
-Then, if $x\in\gh(VAV^{-1})$, then there exists, by Lemma~\ref{}, a blade $B\in\B$ such that
-$VAV^{-1}=B\wedge p(x)$, and we have $A=V^{-1}BV\wedge\gamma p(y)$, showing that
-$y\in\gh(A)$ and therefore $x\in V_p^{-1}(\gh(A))$.  If $x\in V^{-1}(\gh(A))$, then
-$y\in\gh(A)$ and there exists, again by Lemma~\ref{}, a blade $B\in\B$ such that
-$A=B\wedge p(y)$, and we have $VAV^{-1}\wedge\gamma^{-1}p(x)$, showing that
-$x\in\gh(VAV^{-1})$.
+We first realize that $x\in\gh(VAV^{-1})$ if and only if there exists a blade $B\in\B$
+such that $VAV^{-1}=B\wedge p(x)$.  We then notice that, for a scalar $\gamma\in\R$,
+we have $A=V^{-1}BV\wedge\gamma p(V_p(x))$ if and only if $V_p(x)\in\gh(A)$.
+In each direction, note the use of Lemma~\ref{lem_desired_partial_blade_factorization}.
 \end{proof}
 
-Lemma~\ref{} shows us that the problem of determining how a given preservative
+Theorem~\ref{thm_how_preservative_versor_transforms} shows us that the
+problem of determining how a given preservative
 versor $V\in\G$ transforms a geometric set reduces to the problem of determining
 how the function $V_p:\R^n\to\R^n$ transform space.
 
-The following lemma shows us that in considering the transformation of a geometric set
-by a preservative versor, we need only look at the irreducible blades directly representative of that set.
-
-\begin{lem}
-Let $V\in\G$ be a preservative versor and $A\in\B$.
-Then if $C\in\B$ is an irreducible blade such that $\gh(A)=\gh(C)$, then
-\begin{equation}\label{equ_transformed_reducible_is_transformed_irreducible}
+\begin{cor}
+If $V\in\G$ is a preservative versor and $A,B\in\B$ are any pair
+of blades such that $\gh(A)=\gh(B)$, then
+\begin{equation}
 \gh(VAV^{-1})=\gh(VCV^{-1}).
 \end{equation}
-\end{lem}
+\end{cor}
 \begin{proof}
-Letting $A=B\wedge C$ by Lemma~\ref{lem_desired_partial_blade_factorization}, consider the equation
-\begin{equation}
-VAV^{-1} = VBV^{-1}\wedge VCV^{-1}.
-\end{equation}
-Notice that $VCV^{-1}$ is an irreducible blade by the preservative property of $V$.
-What we must show now is
-that $VCV^{-1}$ is, in terms of dimension, the largest irreducible subspace of $VAV^{-1}$.  Supposing for the moment that it isn't,
-this would allow us, by the preservative property of $V$, to easily find an irreducible subspace of $A$ that is larger than that of $C$,
-which contradicts the fact that $C$ is the largest irreducible subspace of $A$.
-\end{proof}
-
-Alternatively, we could have used Lemma~\ref{} to prove Lemma~\ref{} by noticing
-that
+By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 \begin{equation}
 \gh(VAV^{-1})=V_p^{-1}(\gh(A))=V_p^{-1}(\gh(C))=\gh(VCV^{-1}).
 \end{equation}
+\end{proof}
 
-\begin{lem}\label{lem_empty_blade_transforms_as_empty_blade}
-Let $V\in\G$ be a preservative versor and $A\in\B$.  Then if $\gh(A)=\emptyset$, we have
+\begin{cor}
+If $V\in\G$ is a preservative versor, and $A\in\B$ is a blade such that $\gh(A)=\emptyset$, then
 \begin{equation}
 \gh(VAV^{-1})=\emptyset.
 \end{equation}
+\end{cor}
+\begin{proof}
+By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
+\begin{equation}
+\gh(VAV^{-1})=V_p^{-1}(\gh(A))=V_p^{-1}(\emptyset)=\emptyset.
+\end{equation}
+\end{proof}
+
+\begin{lem}
+If for every irreducible blade $A\in\B$ of grade 1, we have $|\gh(A)|=1$, then
+for every preservative versor $V\in\G$, the function $V_p$ is injective.
 \end{lem}
 \begin{proof}
-Showing the contrapositive of our lemma, let $x\in\gh(VAV^{-1})$.  Then, by Lemma~\ref{lem_desired_partial_blade_factorization},
-there exists a blade $B\in\B$ such that $VAV^{-1}=B\wedge p(x)$.  We then see that for
-some $y\in\R^n$ and a scalar $\gamma\in\R$, we have
-$A = V^{-1}BV\wedge \gamma p(y)$.
-We now see that $y\in\gh(A)$, showing that $\gh(A)$ is non-empty.
+For any $y\in V_p(\R^n)$, let $x_1,x_2\in\R^n$ be a pair of points,
+and $\gamma_1,\gamma_2\in\R$ be a pair of scalars
+such that $V^{-1}p(x_1)V=\gamma_1p(y)$ and $V^{-1}p(x_2)V=\gamma_2p(y)$.
+It then follows that
+\begin{equation}
+p(x_1)=\frac{\gamma_1}{\gamma_2}p(x_2) \implies p(x_1)\wedge p(x_2)=0 \implies x_1\in\gh(p(x_2))=\{x_2\}.
+\end{equation}
 \end{proof}
 
 \subsection{Reduction}
 
 Interestingly, while Theorem~\ref{thm_geo_set_rep} showed the existence and uniquness of irreducible blades,
-the problem of fully reducing a given blade, or the problem of verifying that a given blade is fully reduced, yet still
-representative of a given geometric set, has no obvious solution.  To illustrate this, let us assume, for this section,
+the problem of fully reducing a given blade has no obvious solution.  To illustrate this, let us assume, for this section,
 that $\G$ has a euclidean signature.
 (There are now no null-vectors in $\G$.)  Under this assumption, consider the following algorithm which
 attempts to fully reduce a given blade $A$.
@@ -590,8 +581,8 @@ attempts to fully reduce a given blade $A$.
 	\State\Return $1$
 \EndFunction
 \end{algorithmic}
-Here, the function ``FindAnyPoint'' tries to find, (perhaps using methods of calculus), and return any point in $\gh(A)$.
-If it fails, the returned point is not in $\gh(A)$.
+Here, the function ``FindAnyPoint'' finds, (perhaps using methods of calculus), and returns any point in $\gh(A)$.
+If no such point can be found, any point is returned.
 
 Working in a geometric algebra with a euclidean signature, if for the $r$-blade $A$, we have $p(x)\wedge A=0$,
 there exists an $(r-1)$-blade $C\in\B$ such that $p(x)\cdot C=0$ and $A=p(x)\wedge C=p(x)C$.  (The
@@ -607,9 +598,7 @@ in which case, a reduction of the blade $A$ may have been found.  It is clear, h
 by Lemma~\ref{lem_factorization_of_irreducible_blades},
 that this algorithm is capable of finding the irreducible blade $B$ directly representative of the
 same geometric set that is directly represented by the given blade $A$, but it can only guarentee
-that $\gh(B)\subseteq\gh(A)$.
-
-
+that $\gh(B)\subseteq\gh(A)$.  How can we be sure that $B$ is the largest irreducible subspace of $A$?
 
 \subsection{Example}
 
