@@ -505,26 +505,62 @@ to the corresponding point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
 
 Notice that $V_p$ in Definition~\ref{def_preservative_versor} is a well defined function.
 
+\begin{lem}\label{lem_when_V_p_is_a_bijection}
+If $V\in\G$ is a preservative versor, and $V^{-1}$ is also preservative, then
+$V_p$ is one-to-one and onto $\R^n$.
+\end{lem}
+\begin{proof}
+For any $y\in V_p(\R^n)$, let $x_1,x_2\in\R^n$ be a pair of points,
+and $\gamma_1,\gamma_2\in\R$ be a pair of non-zero scalars
+such that $V^{-1}p(x_1)V=\gamma_1p(y)$ and $V^{-1}p(x_2)V=\gamma_2p(y)$.
+Rearranging these equations, we find that $Vp(y)V^{-1}=\gamma_1^{-1}p(x_1)$
+and $Vp(y)V^{-1}=\gamma_2^{-1}p(x_2)$.  It then follows, by the
+preservative property of $V^{-1}$, that
+$\gamma_1=\gamma_2$ and $x_1=x_2$.
+
+Now for any $y\in\R^n$, we know, by the preservative property of $V^{-1}$,
+that there exists a non-zero $\gamma\in\R$ and a point $x\in\R^n$ such that
+$Vp(y)V^{-1}=\gamma p(x)$.  Rearranging, we find that
+\begin{equation}
+V^{-1}p(x)V=\gamma^{-1}p(y)\implies V_p(x)=y.
+\end{equation}
+\end{proof}
+
+Notice that if a versor $V\in\G$ is preservative, and $V^{-1}$ is preservative,
+then $V_p^{-1}=(V^{-1})_p$.
+
 \begin{thm}\label{thm_how_preservative_versor_transforms}
-If $V\in\G$ is a preservative versor, and we have $A\in\B$ with $\gh(A)\neq\emptyset$, then
+If $V\in\G$ is a preservative versor, and $V^{-1}$ is also preservative,
+and we have $A\in\B$ with $\gh(A)\neq\emptyset$, then
 \begin{equation}
 \gh(VAV^{-1}) = V_p^{-1}(\gh(A)) = \{x\in\R^n|V_p(x)\in\gh(A)\}.
 \end{equation}
 \end{thm}
 \begin{proof}
-We first realize that $x\in\gh(VAV^{-1})$ if and only if there exists a blade $B\in\B$
-such that $VAV^{-1}=B\wedge p(x)$.  We then notice that, for a scalar $\gamma\in\R$,
-we have $A=V^{-1}BV\wedge\gamma p(V_p(x))$ if and only if $V_p(x)\in\gh(A)$.
+If $x\in\gh(VAV^{-1})$, then there exists a blade $B\in\B$
+such that $VAV^{-1}=B\wedge p(x)$.  Then, for a non-zero scalar $\gamma\in\R$,
+we have
+\begin{equation}
+A=V^{-1}BV\wedge\gamma p(V_p(x))\implies V_p(x)\in\gh(A).
+\end{equation}
+
+If $V_p(x)\in\gh(A)$, then there exists a blade $B\in\B$
+such that $A = B\wedge p(V_p(x))$.  Then, for a non-zero scalar $\gamma\in\R$,
+we have, by Lemma~\ref{lem_when_V_p_is_a_bijection},
+\begin{equation}
+VAV^{-1}=VBV^{-1}\wedge\gamma p(x)\implies x\in\gh(VAV^{-1}).
+\end{equation}
+
 In each direction, note the use of Lemma~\ref{lem_desired_partial_blade_factorization}.
 \end{proof}
 
 Theorem~\ref{thm_how_preservative_versor_transforms} shows us that the
 problem of determining how a given preservative
 versor $V\in\G$ transforms a geometric set reduces to the problem of determining
-how the function $V_p:\R^n\to\R^n$ transform space.
+how the function $V_p:\R^n\to\R^n$ transform space, provided $V^{-1}$ is preservative too.
 
 \begin{cor}
-If $V\in\G$ is a preservative versor and $A,B\in\B$ are any pair
+If $V\in\G$ is a preservative versor, and $V^{-1}$ is preservative, and $A,B\in\B$ are any pair
 of blades such that $\gh(A)=\gh(B)$, then
 \begin{equation}
 \gh(VAV^{-1})=\gh(VCV^{-1}).
@@ -538,7 +574,8 @@ By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 \end{proof}
 
 \begin{cor}
-If $V\in\G$ is a preservative versor, and $A\in\B$ is a blade such that $\gh(A)=\emptyset$, then
+If $V\in\G$ is a preservative versor, and $V^{-1}$ is preservative,
+and $A\in\B$ is a blade such that $\gh(A)=\emptyset$, then
 \begin{equation}
 \gh(VAV^{-1})=\emptyset.
 \end{equation}
@@ -550,19 +587,19 @@ By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 \end{equation}
 \end{proof}
 
-\begin{lem}
-If for every irreducible blade $A\in\B$ of grade 1, we have $|\gh(A)|=1$, then
-for every preservative versor $V\in\G$, the function $V_p$ is injective.
-\end{lem}
-\begin{proof}
-For any $y\in V_p(\R^n)$, let $x_1,x_2\in\R^n$ be a pair of points,
-and $\gamma_1,\gamma_2\in\R$ be a pair of scalars
-such that $V^{-1}p(x_1)V=\gamma_1p(y)$ and $V^{-1}p(x_2)V=\gamma_2p(y)$.
-It then follows that
-\begin{equation}
-p(x_1)=\frac{\gamma_1}{\gamma_2}p(x_2) \implies p(x_1)\wedge p(x_2)=0 \implies x_1\in\gh(p(x_2))=\{x_2\}.
-\end{equation}
-\end{proof}
+%\begin{lem}
+%If for every irreducible blade $A\in\B$ of grade 1, we have $|\gh(A)|=1$, then
+%for every preservative versor $V\in\G$, the function $V_p$ is one-to-one.
+%\end{lem}
+%\begin{proof}
+%For any $y\in V_p(\R^n)$, let $x_1,x_2\in\R^n$ be a pair of points,
+%and $\gamma_1,\gamma_2\in\R$ be a pair of non-zero scalars
+%such that $V^{-1}p(x_1)V=\gamma_1p(y)$ and $V^{-1}p(x_2)V=\gamma_2p(y)$.
+%It then follows that
+%\begin{equation}
+%p(x_1)=\frac{\gamma_1}{\gamma_2}p(x_2) \implies p(x_1)\wedge p(x_2)=0 \implies x_1\in\gh(p(x_2))=\{x_2\}.
+%\end{equation}
+%\end{proof}
 
 \subsection{Reduction}
 
