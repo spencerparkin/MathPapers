@@ -376,7 +376,7 @@ contradiction by Lemma~\ref{lem_zero_prod_property}.
 \end{proof}
 
 \begin{lem}[The Point-Fitting Lemma]\label{lem_factorization_of_irreducible_blades}
-If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subset\R^n$
+If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subseteq\gh(A)$
 and a scalar $\beta\in\R$ such that
 \begin{equation}
 A=\beta\bigwedge_{i=1}^r p(x_i).
@@ -490,7 +490,7 @@ discount the possibility of such a conclusion.
 
 In this section we will take an interest in the set of all versors of $\G$ that preserve the form
 of our function $p:\R^n\to\V$.
-\begin{defn}
+\begin{defn}\label{def_preservative_versor}
 A versor $V\in\G$ with the property that for all $x\in\R^n$, there exists one and only one
 pairing of a point $y\in\R^n$ and a scalar $\gamma\in\R$ such that
 \begin{equation}\label{equ_vpv_p}
@@ -499,19 +499,24 @@ V^{-1}p(x)V = \gamma p(y),
 is what we will refer to as a {\it preservative versor}.
 \end{defn}
 
-\begin{defn}\label{def_preservative_versor}
+From Definition~\ref{def_preservative_versor}, it is easy to see that $\gamma\in\R$ must be non-zero.
+
+\begin{defn}\label{def_preservative_versor_induced_func}
 For any preservative versor $V\in\G$, we let $V_p:\R^n\to\R^n$ denote
 the function induced by $V$ through $p:\R^n\to\V$ as mapping any point $x\in\R^n$
 to the corresponding point $y\in\R^n$ satisfying equation \eqref{equ_vpv_p}.
 \end{defn}
 
-Notice that $V_p$ in Definition~\ref{def_preservative_versor} is a well defined function.
+Notice that $V_p$ in Definition~\ref{def_preservative_versor_induced_func} is a well defined function.
 
 \begin{lem}\label{lem_when_V_p_is_a_bijection}
-If $V\in\G$ is a preservative versor, and $V^{-1}$ is also preservative, then
-$V_p$ is one-to-one and onto $\R^n$.
+If $V\in\G$ is a preservative versor, then $V^{-1}$ is a preservative versor
+if and only if $V_p$ is one-to-one and onto $\R^n$.
 \end{lem}
 \begin{proof}
+Given that $V$ is a preservative versor, we first show that
+if $V^{-1}$ is a preservative versor, then $V_p$ is one-to-one and onto $\R^n$.
+
 For any $y\in V_p(\R^n)$, let $x_1,x_2\in\R^n$ be a pair of points,
 and $\gamma_1,\gamma_2\in\R$ be a pair of non-zero scalars
 such that $V^{-1}p(x_1)V=\gamma_1p(y)$ and $V^{-1}p(x_2)V=\gamma_2p(y)$.
@@ -526,6 +531,17 @@ $Vp(y)V^{-1}=\gamma p(x)$.  Rearranging, we find that
 \begin{equation}
 V^{-1}p(x)V=\gamma^{-1}p(y)\implies V_p(x)=y.
 \end{equation}
+
+Given that $V$ is a preservative versor, we now show that
+if $V_p$ is one-to-one and onto $\R^n$, then $V^{-1}$ is a preservative versor.
+
+Rearranging equation \eqref{equ_vpv_p}, we get
+\begin{equation}\label{equ_vpv_p_rearranged}
+Vp(y)V^{-1} = \gamma^{-1}p(x).
+\end{equation}
+Now simply realize that since $V_p$ is one-to-one and onto $\R^n$, for every $y\in\R^n$,
+there exists a unique pair of a point $x\in\R^n$ and a non-zero scalar $\gamma\in\R$ such that
+equation \eqref{equ_vpv_p_rearranged} holds.
 \end{proof}
 
 Notice that if a versor $V\in\G$ is preservative, and $V^{-1}$ is preservative,
