@@ -90,7 +90,8 @@ We will use $\G$ to denote our geometric algebra, and $\V$ to denote an $m$-dime
 space generating it.  $\B$ will denote the set of all blades taken from $\G$.  The
 scalars of $\V$, and therefore $\G$, are taken from the field of real numbers $\R$.
 The capital letter $I$ will be used to denote the unit pseudo-scalar of $\G$.  We assume
-that $I$ is invertible with respect to the geometric product.
+that $I$ is invertible with respect to the geometric product.  Furthermore, we'll assume, without
+loss of generality, that $I^{-1}=-I$.
 
 We will let the geometric product take precedence over the inner and outer products,
 and the inner product take precedence over the outer product.
@@ -581,13 +582,13 @@ how the function $V_p:\R^n\to\R^n$ transform space, provided $V^{-1}$ is preserv
 If $V\in\G$ is a preservative versor, and $V^{-1}$ is preservative, and $A,B\in\B$ are any pair
 of blades such that $\gh(A)=\gh(B)$, then
 \begin{equation}
-\gh(VAV^{-1})=\gh(VCV^{-1}).
+\gh(VAV^{-1})=\gh(VBV^{-1}).
 \end{equation}
 \end{cor}
 \begin{proof}
 By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 \begin{equation}
-\gh(VAV^{-1})=V_p^{-1}(\gh(A))=V_p^{-1}(\gh(C))=\gh(VCV^{-1}).
+\gh(VAV^{-1})=V_p^{-1}(\gh(A))=V_p^{-1}(\gh(B))=\gh(VBV^{-1}).
 \end{equation}
 \end{proof}
 
