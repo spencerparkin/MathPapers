@@ -377,13 +377,14 @@ contradiction by Lemma~\ref{lem_zero_prod_property}.
 \end{proof}
 
 \begin{lem}[The Point-Fitting Lemma]\label{lem_factorization_of_irreducible_blades}
-If $A\in\B$ is an irreducible $r$-blade with $\gh(A)\neq\emptyset$, then there exists a set of $r$ points $\{x_i\}_{i=1}^r\subseteq\gh(A)$
-and a scalar $\beta\in\R$ such that
-\begin{equation}
+An $r$-blade $A\in\B$ with $\gh(A)\neq\emptyset$ is irreducible if and only if there exists a set of $r$ points
+$\{x_i\}_{i=1}^r\subseteq\gh(A)$ and a scalar $\beta\in\R$ such that
+\begin{equation}\label{equ_point_fit_factorization}
 A=\beta\bigwedge_{i=1}^r p(x_i).
 \end{equation}
 \end{lem}
 \begin{proof}
+Suppose first that $A$ is irreducible.
 Let $t$ be the largest integer for which there exists a set of $t$ points $\{x_i\}_{i=1}^t\subseteq\gh(A)$ such that
 $\bigwedge_{i=1}^t p(x_i)\neq 0$.
 Clearly $t\geq 1$, because $\gh(A)$ is non-empty; and clearly $t\leq r$ because of
@@ -399,6 +400,10 @@ there exists $x\in\gh(A)$ with $x\not\in\gh(C)$.  Then $p(x)\wedge C\neq 0$ and 
 points, (namely, those in $\{x\}\cup\{x_i\}_{i=1}^t$), for which the set of vectors $\{p(x)\}\cup\{p(x_i)\}_{i=1}^t$ is a linearly independent set.} and
 that $\gh(C)\subseteq\gh(A)$, because $C$ is a subspace of $A$.
 It now follows that $\gh(A)=\gh(C)$, which contradicts the irreducibility of the blade $A$.
+
+Now suppose that $A$ has the factorization given in equation \eqref{equ_point_fit_factorization}.
+Then if $B\in\B$ is an $s$-blade with $0<s<r$ such that $\gh(A)=\gh(B)$, we must have, for all $x\in\{x_i\}_{i=1}^r$,
+$p(x)\wedge B=0$, but this is impossible, since $\bigwedge_{i=1}^r p(x_i)\neq 0$.
 \end{proof}
 
 Notice that in the proof of Lemma~\ref{lem_factorization_of_irreducible_blades} that $\gh(B)=\emptyset$.  It is important to realize, however,
@@ -747,7 +752,7 @@ C' = e_{01267} - e_{01268} + e_{12678} = e_{126}\wedge(e_0+e_8)\wedge(e_8-e_7).
 To prove that this really is the full reduction of our blade $AI$, Theorem~\ref{thm_geo_set_rep}
 allows that we verify just two conditions.
 First, that $\gh(C')=\gh(AI)$, which can be done with symbolic computation software.
-And secondly, that $C'$ is irreducible, which follows immediately by construction.
+And secondly, that $C'$ is irreducible, which follows immediately by construction and Lemma~\ref{lem_factorization_of_irreducible_blades}.
 The blade $C'$ was constructed by choosing 5 points on the circle, and then using a software
 program to expand the outer product of the image of those points under $p:\R^n\to\V$.
 
