@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{algpseudocode}
+\usepackage{graphicx}
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
@@ -252,7 +253,8 @@ Note that a perhaps more elegant proof of Lemma~\ref{lem_lin_indep_blades} could
 under the assumption
 of a euclidean signature; in which case, the Gram-Schmidt orthogonalization process would have
 allowed us to choose, without loss of generality, an orthogonal factorization of the blade $A$.
-Doing so, $A$ becomes the versor $\prod_{i=1}^r a_i$, and we may write
+Doing so, $A$ becomes the versor\footnote{Recall that a versor is any multivector that can
+be written as the geometric product of one or more invertible vectors.} $\prod_{i=1}^r a_i$, and we may write
 \begin{equation}\label{equ_elegant_proof_of_A_i_lin_indep}
 0 = \sum_{i=1}^r \alpha_iA_i \iff
 0=\left(\sum_{i=1}^r\alpha_iA_i\right)A = -\sum_{i=1}^r(-1)^{r-i}A_i^2\alpha_ia_i.
@@ -280,7 +282,13 @@ This requirement comes about in consideration of the square of a non-zero null-v
 Our discussion begins with a non-zero, undefined function $p:\R^n\to\V$.\footnote{By definition, a function is well-defined even if it is left unspecified.}
 By leaving this function undefined, the results to follow generalize to the homogeneous model, conformal model,
 and any other model of geometry that is based upon the use of blades as representatives of geometry in the
-following manner.
+following manner.\footnote{For example, if we let
+\begin{equation}\label{equ_p_conformal}
+p(x)=\nvao+x+\frac{1}{2}x^2\nvai,
+\end{equation}
+we get the conformal model,
+but by leaving our function $p:\R^n\to\V$ unspecified, we work in a generalization of which the conformal model
+is simply a special case.}
 
 \begin{defn}[Direct And Dual Representation]\label{def_gh_and_gd}
 For the two functions $\gh:\B\to P(\R^n)$ and $\gd:\B\to P(\R^n)$, given by
@@ -289,7 +297,9 @@ For the two functions $\gh:\B\to P(\R^n)$ and $\gd:\B\to P(\R^n)$, given by
 \gd(A) &= \{x\in\R^n|p(x)\cdot A=0\},
 \end{align}
 we say that $A$ directly represents the set of points $\gh(A)$ and
-dually represents the set of points $\gd(A)$.
+dually represents the set of points $\gd(A)$.\footnote{In the conformal model, since
+$p(\R^n)$ is the set of all null-vectors taken from $\V$, $\gh(A)$ is the outer product
+null-space of $A$, and $\gd(A)$ is the inner product null-space of $A$.}
 \end{defn}
 
 From Definition~\ref{def_gh_and_gd} it is important to take away the realization that a given blade $A\in\B$
@@ -493,6 +503,11 @@ representative of the intersection $\gd(B)\cap\gd(C)$, showing that it is a geom
 If, on the other hand, $B\wedge C=0$, we cannot come to such a conclusion, nor we can we
 discount the possibility of such a conclusion.
 
+Lastly, notice that if for any vector $a\in\V$, we can say that $p(x)\cdot a$ is a polynomial in $x$,
+then for any blade $A\in\B$, the geometric set $\gd(A)$, by Lemma~\ref{lem_union_intersect},
+is also algebraic.  Indeed, since any algebraic set is finitely generated (see \cite[p.~204]{Garrity13}), every such set is also geometric.
+Not every geometric set, however, is algebraic, since $p(x)\cdot a$ need not be a polynomial in $x$.
+
 \subsubsection{Transformations}
 
 In this section we will take an interest in the set of all versors of $\G$ that preserve the form
@@ -507,6 +522,37 @@ is what we will refer to as a {\it preservative versor}.
 \end{defn}
 
 From Definition~\ref{def_preservative_versor} it is easy to see that $\gamma\in\R$ must be non-zero.
+
+Examples of preservative versors are readily available from the conformal model.  Indeed,
+it would be instructive to give such an example before moving on.  Doing so, consider
+Figure~\ref{fig_spherical_inversion}.
+
+\begin{figure}\label{fig_spherical_inversion}
+\centering
+\includegraphics[scale=0.3]{SphericalInversion}
+\caption{The inversion $a$ (or $b$) of a point $b$ (or $a$) about a sphere with radius $r$.}
+\end{figure}
+
+Using what we know about similar triangles, it is not hard to show that
+\begin{equation*}
+b=(1-\gamma)c+\gamma a,
+\end{equation*}
+where $\gamma$ is given by
+\begin{equation*}
+\gamma = \left(\frac{r}{|c-a|}\right)^2=\left(\frac{|c-b|}{r}\right)^2.
+\end{equation*}
+Letting $p:\R^n\to\V$ be defined as it is in equation \eqref{equ_p_conformal}, we find that
+\begin{equation*}
+\sigma p(a)\sigma^{-1}=-\gamma^{-1}p(b),
+\end{equation*}
+where $\sigma$ is given by
+\begin{equation*}
+\sigma = p(c)-\frac{1}{2}r^2\nvai.
+\end{equation*}
+The vector $\sigma$, therefore, is an example of a preservative versor.  In fact, it is
+not hard to show that every versor of the conformal model is preservative.
+Letting $V$ be a versor of the conformal model, simply show that $Vp(x)V^{-1}$ is null,
+and therefore of the form $\lambda p(y)$.
 
 \begin{defn}\label{def_preservative_versor_induced_func}
 For any preservative versor $V\in\G$, we let $V_p:\R^n\to\R^n$ denote
