@@ -29,9 +29,12 @@
 \begin{document}
 \maketitle
 
-Geometric algebra (GA) is easy and you can be up and running with it quickly!  The key is to
-simply understand the basic definitions and identities of the algebra.  From these a number
-of simple results can be deduced.  We begin with a few simple definitions from linear algebra (LA).
+Geometric algebra (GA) takes a bit of time and effort to learn.  If one can
+understand a few basic definitions and identities of the algebra, (along with the
+properties of its various products and how they're related to one another), then
+from these a number of simple results can be deduced, and one is well on his
+or her way to a productive understanding of GA.
+We begin with a few simple definitions from linear algebra (LA).
 
 \section{Definitions of LA}
 
@@ -313,7 +316,9 @@ entire product, leaves $B$ unchanged.  That is, we have
 \begin{equation}\label{equ_adj_trans}
 B = -v_1\wedge v_2\wedge\dots\wedge v_{i+1}\wedge v_i\wedge\dots\wedge v_k,
 \end{equation}
-where $1\leq i<k$.  We'll return to the geometric significance of this momentarily.
+where $1\leq i<k$.  (Here, $v_{i-1}$ comes before $v_{i+1}$ in the product,
+if $i>1$; and $v_{i+2}$ comes after $v_i$, if $i<k-1$.)
+We'll return to the geometric significance of this momentarily.
 
 Considering now $\V$ to be a Euclidean vector space, all vectors $v\in\V$ have
 a Euclidean interpretation.  That is, we can think of $v$ as being a directed
@@ -497,7 +502,7 @@ Given $v$, to find $v_{\parallel}$ and $v_{\perp}$, we're looking for
 the unique pair of such vectors with the property that $v=v_{\parallel}+v_{\perp}$,
 that $v_{||}\in B$, and that for all $b\in B$, we have $b\cdot v_{\perp}=0$.
 
-% Can we prove uniqueness now?
+% A proof of existence and uniquness now would be nice.
 
 Intuitively, equation \eqref{equ_v_op_B} is showing us that
 the only contribution of $v$ in the product $v\wedge B$
@@ -582,7 +587,7 @@ between $v$ and $B$ it is simply the sum of their inner and outer products.\foot
 Definition~\ref{def_vec_blade_geo_prod}, it is possible to find the geometric
 product of any two blades of various grades by rewriting each blade as a sum of geometric products,
 expanding the product, and then converting each geometric product back into a
-sum of outer products.}
+sum of outer products.} % Remove this footnote and make it a subsection or something.
 
 % note the great leap it was to come up with the GP.
 
