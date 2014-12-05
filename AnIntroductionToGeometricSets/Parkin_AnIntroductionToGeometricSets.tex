@@ -92,7 +92,7 @@ space generating it.  $\B$ will denote the set of all blades taken from $\G$.  T
 scalars of $\V$, and therefore $\G$, are taken from the field of real numbers $\R$.
 The capital letter $I$ will be used to denote the unit pseudo-scalar of $\G$.  We assume
 that $I$ is invertible with respect to the geometric product.  Furthermore, we'll assume, without
-loss of generality, that $I^{-1}=-I$.
+loss of generality in this paper, that $I^{-1}=-I$.
 
 We will let the geometric product take precedence over the inner and outer products,
 and the outer product take precedence over the inner product.
@@ -112,7 +112,7 @@ If desired, the reader is welcome to skip this material and refer back to it onl
 
 \subsection{Identities}
 
-Given a vector $a\in\V$ and a blade $A\in\B$, central to all of geometric algebra is the identity
+Given a vector $a\in\V$ and a blade $A\in\B$, central to all of geometric algebra is the definition
 \begin{equation}\label{equ_vec_blade_geo_prod}
 aA = a\cdot A + a\wedge A.
 \end{equation}
@@ -124,7 +124,7 @@ a\cdot A &= \frac{1}{2}\left(aA - (-1)^rAa\right),\label{equ_vec_blade_inner_pro
 \end{align}
 where $r=\grade(A)$.  Then, realizing that $m=\grade(I)$, and that by \eqref{equ_vec_blade_geo_prod},
 we have $aI=a\cdot I$, we can use equation \eqref{equ_vec_blade_inner_prod} to establish the
-commutativity of vectors in $\V$ with the unit pseudo-scalar $I$ as
+commutativity of vectors in $\V$ with the unit pseudo-scalar $I$ in the geometric product as
 \begin{equation}\label{equ_blade_psuedo_scalar_commutativity}
 aI = -(-1)^mIa.
 \end{equation}
@@ -279,7 +279,7 @@ This requirement comes about in consideration of the square of a non-zero null-v
 
 \subsection{Foundation}
 
-Our discussion begins with a non-zero, undefined function $p:\R^n\to\V$.\footnote{By definition, a function is well-defined even if it is left unspecified.}
+Our discussion begins with an unspecified, yet non-zero function $p:\R^n\to\V$.\footnote{By definition, a function is well-defined even if it is left unspecified.}
 By leaving this function undefined, the results to follow generalize to the homogeneous model, conformal model,
 and any other model of geometry that is based upon the use of blades as representatives of geometry in the
 following manner.\footnote{For example, if we let
@@ -336,7 +336,7 @@ from these definitions.
 
 \subsubsection{Representation}
 
-Our initial developments reveal results about the representations of geometric sets.
+Our initial developments reveal something about the representations of geometric sets.
 
 \begin{lem}[Dual Relationship Between Representations]\label{lem_dual_relationship_in_rep}
 For any geometric set $R\subset\R^n$, if $A\in\B$ is a blade such that $\gh(A)=R$,
@@ -547,18 +547,18 @@ where $\gamma$ is given by
 \gamma = \left(\frac{r}{|c-a|}\right)^2=\left(\frac{|c-b|}{r}\right)^2.
 \end{equation*}
 Letting $p:\R^n\to\V$ be defined as it is in equation \eqref{equ_p_conformal}, we find that
-\begin{equation*}
-\sigma p(a)\sigma^{-1}=-\gamma^{-1}p(b),
-\end{equation*}
+\begin{equation}
+\sigma p(a)\sigma^{-1}=-\gamma^{-1}p(b),\label{equ_spherical_inversion}
+\end{equation}
 where $\sigma$ is given by
 \begin{equation*}
 \sigma = p(c)-\frac{1}{2}r^2\nvai.
 \end{equation*}
-The vector $\sigma$, therefore, is an example of a preservative versor.  In fact, it is
+Then, realizing that for all distinct points $x,y\in\R^n$, we have $p(x)\wedge p(y)\neq 0$,
+equation \eqref{equ_spherical_inversion} shows that the vector $\sigma$ a preservative versor.  In fact, it is
 not hard to show that every versor of the conformal model is preservative.
-Letting $V$ be a versor of the conformal model, simply show that $Vp(x)V^{-1}$ is null,
-and therefore of the form $\lambda p(y)$.  Then notice that for any two distinct points $x,y\in\R^n$,
-we have $p(x)\wedge p(y)\neq 0$.
+Letting $V$ be a versor of the conformal model, simply notice that $Vp(x)V^{-1}$ is a null vector,
+and therefore of the form $\lambda p(y)$.
 
 \begin{defn}\label{def_preservative_versor_induced_func}
 For any preservative versor $V\in\G$, we let $V_p:\R^n\to\R^n$ denote
@@ -681,7 +681,7 @@ By Theorem~\ref{thm_how_preservative_versor_transforms}, we simply notice that
 \subsection{Reduction}
 
 Interestingly, while Theorem~\ref{thm_geo_set_rep} showed the existence and uniqueness of irreducible blades,
-the problem of fully reducing a given blade has no obvious solution.  To illustrate this, let us assume, for this section,
+the problem of fully reducing a given blade appears to have no obvious solution.  To illustrate this, let us assume, for this section,
 that $\G$ has a euclidean signature.
 (There are now no null-vectors in $\G$.)  Under this assumption, consider the following algorithm which
 attempts to fully reduce a given blade $A$.
@@ -806,8 +806,8 @@ To prove that this really is the full reduction of our blade $AI$, Theorem~\ref{
 allows that we verify just two conditions.
 First, that $\gh(C')=\gh(AI)$, which can be done with symbolic computation software.
 And secondly, that $C'$ is irreducible, which follows immediately by construction and Lemma~\ref{lem_factorization_of_irreducible_blades}.
-The blade $C'$ was constructed by choosing 5 points on the circle, and then using a software
-program to expand the outer product of the image of those points under $p:\R^n\to\V$.
+The blade $C'$ was constructed by choosing 5 points on the circle, and then using software
+to expand the outer product of the image of those points under $p:\R^n\to\V$.
 
 Then, by Theorem~\ref{thm_geo_set_rep} once more, this blade $C'$ must be a subspace
 of $(E\wedge e_3)I$.  Sure enough, we have
@@ -819,7 +819,7 @@ and we get $\alpha=1$ with the unit circle in the $x_3=0$ plane, centered at ori
 
 The lesson learned here is that we can always make use of a canonical form if we first
 fully reduce the blade we wish to decompose.\footnote{Unfortunately, as noted
-earlier, the problem of fully reducing a blade remains as yet unresolved.}  Sometimes, however, this is undesirable.
+earlier, the problem of fully reducing a blade is not easy.}  Sometimes, however, this is undesirable.
 For example, if we were to fully reduce a blade directly representative of a tangent
 point in the conformal model, then we would be left with an ordinary point and lose the tangential information.
 This brings up the point that a blade may embed within it more information than just the geometric
@@ -867,7 +867,8 @@ In closing, a few remarks might be made.  First, there are surely more results t
 about geometric sets in an abstract setting.  The advantage to seeking out such
 results is that they will be applicable to any model of geometry we invent
 in geometric algebra that uses blades to represent subsets of $\R^n$ as we have
-done in this paper.  On the other hand,
+done in this paper.\footnote{By studying an abstract model of geometry, this may also help us know what
+to look for when trying to construct a specific example of such.}  On the other hand,
 we may find that more advanced models of geometry use multi-vectors generally
 for such a purpose, or something other than geometric algebra altogether.
 As shown in \cite{Parkin13}, multivectors homogeneous of a grade $s$ are
@@ -886,7 +887,7 @@ contributions to the study of solution sets of algebraic equations.
 An end will now be made by saying that, as with any paper, a great deal of care has been taken to insure
 the accuracy of every
 equation and every claim.  Nevertheless, in my weakness and lack of mathematical maturity,
-if you've found a mistake, (or two, or more), hopefully they can be easily
+if you've found a mistake, (or two, or three, or more), hopefully they can be easily
 corrected without invalidating the main results of the paper.
 
 \begin{thebibliography}{9}
