@@ -1,0 +1,119 @@
+\documentclass{birkjour}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+\newcommand{\meet}{{\it meet}\;}
+\newcommand{\join}{{\it join}\;}
+\newcommand{\vecspace}{\overline}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{Further Treatment Of Geometric Sets}
+
+\author{Spencer T. Parkin}
+\address{102 W. 500 S., \\
+Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+%\keywords{Geometric Algebra, Model Of Geometry, Geometric Set}
+
+\maketitle
+
+\section{Introduction}
+
+We let $P(\V)$ denote the set of all possible vector sub-spaces of $\V$,
+not the power-set of $\V$.
+
+\section{The Meet And Join Of Vector Sub-Spaces}
+
+An excellent treatment of \meet and \join is given in \cite{}.
+Unlike \cite{}, however, here we will not, as they said, abuse language by referring to
+any blade as a vector sub-space.\footnote{The present author has abused language
+in this way in other writings, but repents of this, at least in the present paper.}  In an attempt to be as rigorous as possible,
+we will introduce a function $\vecspace{B}:\B\to P(\V)$, and, for any blade $B$, only refer to
+$\vecspace{B}(B)$ as a vector sub-space.  For convenience in notation, we write $\vecspace{B}$ instead
+of $\vecspace{B}(B)$.
+\begin{defn}
+For any blade $B\in\B$, we define the function $\vecspace{B}:\B\to P(\V)$ as
+\begin{equation}
+\vecspace{B} = \{x\in\V|x\wedge B=0\}.
+\end{equation}
+\end{defn}
+
+In light of Definition~\ref{}, it is important to realize that for any two blades $A,B\in\B$,
+and a vector sub-space $V\subseteq\V$, if we have $\vecspace{A}=V$ and $\vecspace{B}=V$, then there
+exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
+
+As operations (or well defined functions), \meet and \join operate on vector spaces, not blades.
+We therefore do not speak of taking the \meet or \join of two blades.  Rather, the blades of a geometric
+algebra will help us calculate the \meet and \join of vector sub-spaces represented by those blades.
+
+\begin{defn}[The \meet of two vector sub-spaces]\label{def_meet}
+For any two blades $A,B\in\B$, the \meet $M$ of $\vecspace{A}$ and $\vecspace{B}$ is the
+vector space given by
+\begin{equation}
+M = \vecspace{A}\cap \vecspace{B} = \{x\in\V|\mbox{$x\in \vecspace{A}$ and $x\in \vecspace{B}$}\}.
+\end{equation}
+\end{defn}
+From Defintion~\ref{def_meet}, we see that the \meet of two vector subspaces
+is the largest common sub-space.  Notice that \meet is clearly communtative.
+
+\begin{defn}[The \join of two vector sub-spaces]\label{def_join}
+For any two blades $A,B\in\B$, the \join $J$ of $\vecspace{A}$ and $\vecspace{B}$ is the
+vector space given by
+\begin{equation}
+J = \vecspace{A}+\vecspace{B} = \{x_1+x_2\in\V|\mbox{$x_1\in \vecspace{A}$ and $x_2\in \vecspace{B}$}\}.
+\end{equation}
+\end{defn}
+From Definition~\ref{def_join}, we see that the \join of two vector spaces
+is the smallest common super-space.  Notice here too the commutativity of \join.
+
+Note that some care should be taken with Definition~\ref{def_meet} and
+Definition~\ref{def_join} by easily verifying that $M$ and $J$ each satisfy the
+necessary properties of a vector space.
+Also note that any pair of blades, each representative of the same \meet or \join, are clearly
+scalar multiples of one another.
+
+At this point, a natural question arrises.  Given two blades $A,B\in\B$, how do we find a blade
+$C\in\B$ such that $\vecspace{C}=\vecspace{A}\cap\vecspace{B}$ and $\vecspace{C}=\vecspace{A}+\vecspace{B}$?
+Do this in terms of orthogonal complement...define that first...
+
+% citation: http://www.geometricalgebra.net/downloads/meet_and_join_by_grunberg_20080328.pdf
+
+\end{document}
