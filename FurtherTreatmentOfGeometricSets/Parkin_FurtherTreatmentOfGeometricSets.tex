@@ -21,6 +21,8 @@
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\G}{\mathbb{G}}
 \newcommand{\V}{\mathbb{V}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\J}{\mathbb{J}}
 \newcommand{\gd}{\dot{g}}
 \newcommand{\gh}{\hat{g}}
 \newcommand{\Gd}{\dot{G}}
@@ -28,16 +30,17 @@
 \newcommand{\nvai}{\infty}
 \newcommand{\nvao}{o}
 \newcommand{\grade}{\mbox{grade}}
-
 \newcommand{\meet}{{\it meet}\;}
 \newcommand{\join}{{\it join}\;}
-\newcommand{\vecspace}{\overline}
+\newcommand{\vd}{\dot{v}}
+\newcommand{\vh}{\hat{v}}
+\newcommand{\reverse}{\tilde}
 
 %\received{}\accepted{}
 
 \begin{document}
 
-\title{Further Treatment Of Geometric Sets}
+\title{The Meet, Join, And Geometric Sets}
 
 \author{Spencer T. Parkin}
 \address{102 W. 500 S., \\
@@ -48,7 +51,9 @@ Salt Lake City, UT  84101} \email{spencerparkin@outlook.com}
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Abstract goes here...
+A follow-up to \cite{}, this paper shows that the intersection of
+any two goemetric sets is geometric, then goes on to consider other
+results about geometric sets in terms of the \meet and \join operations.
 \end{abstract}
 
 %\keywords{Geometric Algebra, Model Of Geometry, Geometric Set}
@@ -57,63 +62,108 @@ Abstract goes here...
 
 \section{Introduction}
 
-We let $P(\V)$ denote the set of all possible vector sub-spaces of $\V$,
-not the power-set of $\V$.
+In \cite{} the notion of a geometric set was introduced, and it was shown that under
+some circumstances, the intersection of two geometric sets is geometric.  In this paper
+we show that this is the case under all circumstances.
+
+All conventions and notation used in \cite{} are carried forward here, and
+so for brevity, will not be needlessly repeated.
 
 \section{The Meet And Join Of Vector Sub-Spaces}
 
 An excellent treatment of \meet and \join is given in \cite{}.
 Unlike \cite{}, however, here we will not, as they said, abuse language by referring to
 any blade as a vector sub-space.\footnote{The present author has abused language
-in this way in other writings, but repents of this, at least in the present paper.}  In an attempt to be as rigorous as possible,
-we will introduce a function $\vecspace{B}:\B\to P(\V)$, and, for any blade $B$, only refer to
-$\vecspace{B}(B)$ as a vector sub-space.  For convenience in notation, we write $\vecspace{B}$ instead
-of $\vecspace{B}(B)$.
+in this way in other writings, but now repents of this, at least in the present paper.}  In an attempt to be as
+rigorous as possible, we will introduce the following definition.
 \begin{defn}
-For any blade $B\in\B$, we define the function $\vecspace{B}:\B\to P(\V)$ as
-\begin{equation}
-\vecspace{B} = \{x\in\V|x\wedge B=0\}.
-\end{equation}
+For any blade $B\in\B$, we let
+\begin{align}
+\vh(B) &= \{v\in\V|v\wedge B=0\}, \\
+\vd(B) &= \{v\in\V|v\cdot B=0\}.
+\end{align}
 \end{defn}
 
-In light of Definition~\ref{}, it is important to realize that for any two blades $A,B\in\B$,
-and a vector sub-space $V\subseteq\V$, if we have $\vecspace{A}=V$ and $\vecspace{B}=V$, then there
-exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
+Realize that for any two blades $A,B\in\B$, we have $\vh(A)=\vh(B)$ if and only if
+there exists a scalar $\lambda\in\R$ such that $A=\lambda B$.
 
-As operations (or well defined functions), \meet and \join operate on vector spaces, not blades.
+As operations (as well defined functions), \meet and \join operate on vector spaces, not blades.
 We therefore do not speak of taking the \meet or \join of two blades.  Rather, the blades of a geometric
 algebra will help us calculate the \meet and \join of vector sub-spaces represented by those blades.
 
 \begin{defn}[The \meet of two vector sub-spaces]\label{def_meet}
-For any two blades $A,B\in\B$, the \meet $M$ of $\vecspace{A}$ and $\vecspace{B}$ is the
+For any two blades $A,B\in\B$, the \meet $\M$ of $\vh(A)$ and $\vh(B)$ is the
 vector space given by
 \begin{equation}
-M = \vecspace{A}\cap \vecspace{B} = \{x\in\V|\mbox{$x\in \vecspace{A}$ and $x\in \vecspace{B}$}\}.
+\M = \vh(A)\cap \vh(B) = \{x\in\V|\mbox{$x\in\vh(A)$ and $x\in\vh(B)$}\}.
 \end{equation}
 \end{defn}
-From Defintion~\ref{def_meet}, we see that the \meet of two vector subspaces
+From Defintion~\ref{def_meet} we see that the \meet of two vector subspaces
 is the largest common sub-space.  Notice that \meet is clearly communtative.
 
 \begin{defn}[The \join of two vector sub-spaces]\label{def_join}
-For any two blades $A,B\in\B$, the \join $J$ of $\vecspace{A}$ and $\vecspace{B}$ is the
+For any two blades $A,B\in\B$, the \join $\J$ of $\vh(A)$ and $\vh(B)$ is the
 vector space given by
 \begin{equation}
-J = \vecspace{A}+\vecspace{B} = \{x_1+x_2\in\V|\mbox{$x_1\in \vecspace{A}$ and $x_2\in \vecspace{B}$}\}.
+\J = \vh(A)+\vh(B) = \{x_1+x_2\in\V|\mbox{$x_1\in\vh(A)$ and $x_2\in\vh(B)$}\}.
 \end{equation}
 \end{defn}
-From Definition~\ref{def_join}, we see that the \join of two vector spaces
+From Definition~\ref{def_join} we see that the \join of two vector spaces
 is the smallest common super-space.  Notice here too the commutativity of \join.
 
-Note that some care should be taken with Definition~\ref{def_meet} and
-Definition~\ref{def_join} by easily verifying that $M$ and $J$ each satisfy the
+Some care should be taken with Definition~\ref{def_meet} and
+Definition~\ref{def_join} by easily verifying that $\M$ and $\J$ each satisfy the
 necessary properties of a vector space.
-Also note that any pair of blades, each representative of the same \meet or \join, are clearly
-scalar multiples of one another.
 
-At this point, a natural question arrises.  Given two blades $A,B\in\B$, how do we find a blade
-$C\in\B$ such that $\vecspace{C}=\vecspace{A}\cap\vecspace{B}$ and $\vecspace{C}=\vecspace{A}+\vecspace{B}$?
-Do this in terms of orthogonal complement...define that first...
+At this point a natural question arrises.  Given two blades $A,B\in\B$, how do we find blades
+$M,J\in\B$ such that $\vh(M)=\vh(A)\cap\vh(B)$ and $\vh(J)=\vh(A)+\vh(B)$?
+While it is not immediately clear if a closed-form formula exists for an $M$ or a $J$ in terms
+of $A$ and $B$, \cite{} shows that there are many identities that relate all four blades,
+and \cite{} gives an algorithm for calculating the \join of any two given blades.  Once the
+\join is known, it is then easy to calculate the \meet, and vice-versa.
+In any case, this paper is merely concerned with the realization that
+there must exist blades $A',B'\in\B$ such that
+\begin{equation}
+\vh(J) = \vh(A'\wedge M\wedge B'),
+\end{equation}
+where $A'\wedge M=A$ and $M\wedge B'=B$.
 
 % citation: http://www.geometricalgebra.net/downloads/meet_and_join_by_grunberg_20080328.pdf
+
+\section{The Intersection Of Geometric Sets}
+
+We now come to the main result of this paper, stated with the following theorem.
+
+\begin{thm}
+The intersection of any two geometric sets is geometric.
+\end{thm}
+\begin{proof}
+For any pair of geometric sets $R$ and $S$, let $A,B\in\B$ be a pair of blades
+such that $\gd(A)=R$ and $\gd(B)=S$.  In the case that $A\wedge B\neq 0$,
+we have
+\begin{equation}
+\gd(A\wedge B)=R\cap S.
+\end{equation}
+On the other hand, if $A\wedge B=0$, consider a blade $J$ given by
+\begin{equation}
+J = A'\wedge M\wedge B',
+\end{equation}
+where $A'\wedge M=A$ and $M\wedge B'=B$.  In this case, we have
+\begin{align}
+\gd(J) &= \gd(A')\cap\gd(M)\cap\gd(B') \\
+ &=(\gd(A')\cap\gd(M))\cap(\gd(M)\cap\gd(B')). \\
+ &= R\cap S.
+\end{align}
+In any case, notice that a blade directly representative of the \join is also a blade dually
+representative of the intersection.
+\end{proof}
+
+Theorem~\ref{} then begs the question, if the \join gives us intersections, what
+does the \meet give us?  It is not hard to see that if blades $A$ and $B$ are directly
+representative of $R$ and $S$, respectively, then $\gh(M)=R\cap S$.  But what
+does the \meet give us if $A$ and $B$ are dually representative of $R$ and $S$?
+This may be the same as asking: what does the \join give us if $A$ and $B$ are directly
+representative of $R$ and $S$?  In that case, one way to proceed is to consider
+irreducible representatives.
 
 \end{document}

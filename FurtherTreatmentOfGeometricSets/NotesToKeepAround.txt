@@ -1,0 +1,36 @@
+\section{Perliminary Material}
+
+Recall that the reverse of any geometric product is simply a geometric product
+taken with the reverse of the same arguments, but in reverse order.  In mathematical
+terms, for any $X,Y\in\G$, we have $(XY)^{\reverse{}}=\reverse{Y}\reverse{X}$.
+This leaves us wondering what to make of the reverse of $X$ and $Y$.
+If $X,Y\in\V$, then $\reverse{X}=X$ and $\reverse{Y}=Y$, and we
+have $(XY)^{\reverse{}}=YX$.  Interestingly, if any one (or both) of $X$ and $Y$ is
+not a vector, we can still boil $(XY)^{\reverse{}}$ down to an element of $\G$.
+This is done by letting the reverse be a linear operator, then by realizing that
+every sum of blades (every multivector) can be rewritten as a sum of geometric
+products, where each product is that of one or more vectors.\footnote{Since
+each vector may or may not be invertible, we can't say that any multivector can
+be rewritten as a sum of versors.}  Indeed, one way to realize the geometric
+product of any two multivectors is two first write each of them as a sum of geometric
+products, distribute, then rewrite the resulting sum of geometric products as a sum of blades.
+\begin{lem}
+For any $s$-blade $B\in\B$ with factorization $B=\bigwedge_{i=1}^s b_i$, we have
+\begin{equation}
+\reverse{B} = \bigwedge_{i=1}^s b_{1+s-i}.
+\end{equation}
+\begin{proof}
+A proof by induction is given.  The case $s=1$ is trivial.  The case $s=2$ is also trivial.
+\begin{align}
+(b_1\wedge b_2)^{\reverse{}} &= (b_1b_2)^{\reverse{}} - b_1\cdot b_2\nonumber \\
+ &= b_2b_1 - b_2\cdot b_1\nonumber \\
+ &= b_2\wedge b_1
+\end{align}
+Now for some fixed integer $s>2$, we assume that our lemma holds for the
+cases $s-1$ and $s-2$.  Doing so, we see that
+\begin{align}
+\reverse{B} &= (b_1B_1)^{\reverse{}} - (b_1\cdot B_1)^{\reverse{}} \\
+ &= \reverse{B_1}b_1 - \reverse{B_1}\cdot b_1 \\
+\end{align}
+\end{proof}
+\end{lem}
