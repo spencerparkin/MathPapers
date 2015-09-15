@@ -1,0 +1,140 @@
+\documentclass{birkjour}
+
+\usepackage{float}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{On The Expansion Of Algebraic Expressions In Geometric Algebra}
+
+\author{Spencer T. Parkin}
+%\address{102 W. 500 S., \\
+%Salt Lake City, UT  84101}
+\email{spencerparkin@outlook.com}
+
+%\subjclass{Primary ; Secondary }
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+
+\keywords{Key words go here...}
+
+\maketitle
+
+\section{Introduction}
+
+While the expansion of algebraic expressions taken from, say, a polynomial ring, are found as a trivial matter
+of applying the associative and distributive properties, and combining like-terms, it is interesting to note
+that this is certainly not true of expressions taken from a geometric algebra.  In this paper, a general
+stratagy, or algorithm, if you will, is given for the expansion of such expressions, and it is shown that
+it is perhaps just as natural to write an element of a geometric algebra as a sum of ``cursors'' as it is to
+write such an element as a sum of blades.  The term ``cursor'' is introduced in Table~\ref{tbl_terms} below,
+along with similar, traditional terms found in geometric algebra.
+
+\begin{table}[H]\label{tbl_terms}\caption{Terms used in GA}
+\begin{tabular}{p{1cm}p{9cm}}
+Term & Definition \\
+\hline
+Blade & The outer product of zero or more linearly-independent vectors. \\
+Versor & The geometric product of zero or more invertible vectors. \\
+Cursor & The geometric product of zero or more vectors, not necessarily invertible.
+\end{tabular}
+\end{table}
+
+From these it is clear that every versor is a cursor, but the converse is not generally true.
+
+The concept of grade will be carried forward in this paper from blades to cursors.  As an $n$-blade
+refers to a blade of grade $n$, we will let an $n$-cursor refer to a cursor of grade $n$; that is, a geometric
+product of precisely $n$ vectors, none of which need be invertible.  Note that blades of grade zero
+are indistinguishable from cursors of grade zero, each denoting the set of all scalars.
+
+\section{Symmetry Between The Outer And Geometric Products}
+
+As will be shown by the various identities established in this section, there is perhaps a lot more in
+common between the outer and geometric products than one might think.  Certainly the outer and
+inner products play a complementary role in the building up or tearing down of blades, respectively, but from a
+purely algebraic perspective, consider the following well-known definition of the geometric product
+between two vectors.
+\begin{equation}
+ab = a\cdot b + a\wedge b
+\end{equation}
+The right-hand side of equation \eqref{} is a sum of blades, while the left-hand side is a sum of cursors;
+in this case, exactly one; namely, $ab$.  Thus, the element $ab$ appears naturally in blade and cursor form,
+but what of the element $a\wedge b$?  Rearranging \eqref{}, we simply find that
+\begin{equation}
+a\wedge b = -a\cdot b + ab,
+\end{equation}
+showing that it too may be written as a sum of blades or that of cursors.
+
+\subsection{From Inner Product To Sum Of Blades}
+
+Letting $v$ denote a vector, and $B_r$ a blade of grade $r$ having factorization
+\begin{equation}
+B_r = \bigwedge_{i=1}^r b_i,
+\end{equation}
+recall that
+\begin{align}
+v\cdot B_r &= \frac{1}{2}(vB_r-(-1)^rB_rv), \\
+v\wedge B_r &= \frac{1}{2}(vB_r+(-1)^rB_rv).
+\end{align}
+From these it is clear that
+\begin{equation}
+vB_r = v\cdot B_r + v\wedge B_r.
+\end{equation}
+Now letting $a,b$ denote vectors, it is not hard to show that
+\begin{equation}
+a\cdot(b\wedge B_r) - b\cdot(a\wedge B_r) = (a\cdot b)B_r.
+\end{equation}
+Similarly, it can be shown (prove it) that
+\begin{equation}
+a\wedge(b\cdot B_r) - b\wedge(a\cdot B_r) = (a\cdot b)B_r.
+\end{equation}
+
+Wishing now to express $v\cdot B_r$ as a sum of blades, we will find, using
+the princple of mathematical induction, that for all integers $r\geq 1$, we have
+\begin{equation}
+a\cdot B_r = -\sum_{i=1}^r(-1)^r(a\cdot b_i)\bigwedge_{j=1,j\neq i}^rb_j.
+\end{equation}
+Notice that this equation holds in the case $r=1$ if we let an empty wedge product
+denote the multiplicative identity.  Assuming now our inductive hypothesis, we find that
+
+%(v\cdot B_{r-1})\wedge b_r - (-1)^r(a\cdot b_r)B_{r-1}.
+%\end{equation}
+
+\subsection{From Inner Product To Sum Of Cursors}
+
+\section{The Expansion Algorithm}
+
+% The algorithm will be trivial, even if not very efficient in practice.
+% For any outer product, we convert its operands to sums of blades, then distribute.
+% For any geometric product, we convert its operands to sums of cursors, then distribute.
+% For any inner product, we apply an identity as formulated above.
+
+\end{document}
