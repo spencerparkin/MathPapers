@@ -102,8 +102,8 @@ is to show that while every element has a sum-of-blades form, it too has a sum-o
 
 \subsection{From Inner Product To Sum Of Blades}
 
-Letting $v$ denote a vector and $B_r$ a blade of grade $r$ having the factorization
-given in equation \eqref{equ_B_r}, we wish here to express the inner product $v\cdot B_r$ as a sum of blades.
+Letting $a$ denote a vector and $B_r$ a blade of grade $r$ having the factorization
+given in equation \eqref{equ_B_r}, we wish here to express the inner product $a\cdot B_r$ as a sum of blades.
 Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
 \begin{align}
 a\cdot B_r
@@ -128,7 +128,7 @@ argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
 
 \subsection{From Inner Product To Sum Of Mercers}
 
-Letting $v$ denote a vector and $M_r$ a mercer of rank $r$ having the factorization
+Letting $a$ denote a vector and $M_r$ a mercer of rank $r$ having the factorization
 given in equation \eqref{equ_M_r},
 we wish here to express the inner product $v\cdot M_r$ as a sum of mercers.
 
@@ -164,24 +164,24 @@ Identities used in this paper are thrown into this appendix so as not to encumbe
 
 \subsection{Identities Involving Blades}
 
-Letting $v$ denote a vector, and $B_r$ a blade of grade $r$ having factorization
+Letting $a$ denote a vector, and $B_r$ a blade of grade $r$ having factorization
 \begin{equation}\label{equ_B_r}
 B_r = \bigwedge_{i=1}^r b_i,
 \end{equation}
 recall that
 \begin{equation}
-vB_r = v\cdot B_r + v\wedge B_r.
+aB_r = a\cdot B_r + a\wedge B_r.
 \end{equation}
-Recalling also the commutativities of $v$ with $B_r$ in the inner and outer products, we find that
+Recalling also the commutativities of $a$ with $B_r$ in the inner and outer products, we find that
 \begin{align}
-v\cdot B_r &= \frac{1}{2}(vB_r-(-1)^rB_rv),\label{equ_v_dot_Br} \\
-v\wedge B_r &= \frac{1}{2}(vB_r+(-1)^rB_rv).\label{equ_v_wedge_Br}
+a\cdot B_r &= \frac{1}{2}(aB_r-(-1)^rB_ra),\label{equ_a_dot_Br} \\
+a\wedge B_r &= \frac{1}{2}(aB_r+(-1)^rB_ra).\label{equ_a_wedge_Br}
 \end{align}
 Now letting $a$ and $b$ each denote a vector, it is not hard to show that
 \begin{equation}\label{equ_a_dot_b_Br_identity}
 a\cdot(b\wedge B_r) + b\wedge(a\cdot B_r) = (a\cdot b)B_r.
 \end{equation}
-To that end, we apply equations \eqref{equ_v_dot_Br} and \eqref{equ_v_wedge_Br} in writing
+To that end, we apply equations \eqref{equ_a_dot_Br} and \eqref{equ_a_wedge_Br} in writing
 \begin{align*}
 a\cdot(b\wedge B_r)
  &= \frac{1}{2}\left(a\frac{1}{2}\left(bB_r + (-1)^rB_rb\right)-(-1)^{r+1}\frac{1}{2}\left(bB_r+(-1)^rB_rb\right)a\right) \\
@@ -199,7 +199,7 @@ Similarly, we must note that
 \begin{equation}
 a\cdot(b\cdot B) = -b\cdot(a\cdot B).
 \end{equation}
-To see this, we apply equation \eqref{equ_v_dot_Br} in writing
+To see this, we apply equation \eqref{equ_a_dot_Br} in writing
 \begin{align*}
 a\cdot(b\cdot B_r)
  &= \frac{1}{2}\left(a\frac{1}{2}\left(bB_r-(-1)^rB_rb\right)-(-1)^{r-1}\frac{1}{2}\left(bB_r-(-1)^rB_rb\right)a\right) \\
