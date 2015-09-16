@@ -172,10 +172,22 @@ recall that
 \begin{equation}
 aB_r = a\cdot B_r + a\wedge B_r.
 \end{equation}
-Recalling also the commutativities of $a$ with $B_r$ in the inner and outer products, we find that
+Recalling also the commutativities of $a$ with $B_r$ in the inner and outer products as
 \begin{align}
-a\cdot B_r &= \frac{1}{2}(aB_r-(-1)^rB_ra),\label{equ_a_dot_Br} \\
-a\wedge B_r &= \frac{1}{2}(aB_r+(-1)^rB_ra).\label{equ_a_wedge_Br}
+a\cdot B_r &= -(-1)^r B_r\cdot a,\label{equ_a_dot_Br_commutativity} \\
+a\wedge B_r &= (-1)^r B_r\wedge a,\label{equ_a_wedge_Br_commutativity}
+\end{align}
+we find that
+\begin{align}
+a\cdot B_r &= \frac{1}{2}a\cdot B_r - \frac{1}{2}(-1)^r B_r\cdot a\nonumber \\
+ &= \frac{1}{2}(aB_r - a\wedge B_r - (-1)^r(B_ra - B_r\wedge a))\nonumber \\
+ &= \frac{1}{2}(aB_r-(-1)^rB_ra),\label{equ_a_dot_Br}
+\end{align}
+and that
+\begin{align}
+a\wedge B_r &= \frac{1}{2}a\wedge B_r + \frac{1}{2}(-1)^r B_r\wedge a\nonumber \\
+ &= \frac{1}{2}(aB_r - a\cdot B_r + (-1)^r(B_ra - B_r\cdot a))\nonumber \\
+ &= \frac{1}{2}(aB_r+(-1)^rB_ra).\label{equ_a_wedge_Br}
 \end{align}
 Now letting $a$ and $b$ each denote a vector, it is not hard to show that
 \begin{equation}\label{equ_a_dot_b_Br_identity}
@@ -258,5 +270,21 @@ Notice that we might also have written equation \eqref{equ_Mr_split} as
 \begin{equation*}
 M_r = M_{r-1}m_r = M_{r-1}\cdot m_r + M_{r-1}\wedge m_r - \langle M_r\rangle_0 m_r.
 \end{equation*}
+
+Now let $a$ be a vector, and convince yourself that
+\begin{equation}
+a\wedge M_r = \left\{\begin{array}{ll}
+-(-1)^r M_r\wedge a, & \mbox{if $r$ even,} \\
+(-1)^r M_r\wedge a, & \mbox{if $r$ odd,}
+\end{array}\right.
+\end{equation}
+and that
+\begin{equation}
+a\cdot M_r = \left\{\begin{array}{ll}
+(-1)^r M_r\cdot a, & \mbox{if $r$ even,} \\
+-(-1)^r M_r\cdot a, & \mbox{if $r$ odd.}
+\end{array}\right.
+\end{equation}
+Refer to equations \eqref{equ_a_dot_Br_commutativity} and \eqref{equ_a_wedge_Br_commutativity} to see this.
 
 \end{document}
