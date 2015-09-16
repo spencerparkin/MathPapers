@@ -75,7 +75,11 @@ From these it is clear that every versor is a mercer, but not every mercer is a 
 Similar to the concept of grade, that of rank will be introduced in this paper with respect to mercers.  As an $n$-blade
 refers to a blade of grade $n$, we will let an $n$-mercer refer to a mercer of rank $n$; that is, a geometric
 product of precisely $n$ vectors.  Note that blades of grade zero
-are indistinguishable from mercers of the same rank as each denote the set of all scalars.
+are indistinguishable from mercers of the same rank as each denotes the set of all scalars.
+
+Unlike versors, note that mercers do not form a group by simple reason that not every
+mercer is invertible with respect to the geometric product.  They are important to study, none-the-less,
+because they appear more often in consideration of the typical expression taken from a geometric algebra.
 
 \section{Symmetry Between The Outer And Geometric Products}
 
@@ -83,18 +87,18 @@ As will be shown by the results established in this section, there is perhaps a 
 common between the outer and geometric products than one might think.  Certainly the outer and
 inner products play a complementary role in the building up or tearing down of blades, respectively, but from a
 purely algebraic perspective, consider the following well-known definition of the geometric product
-between two vectors.
-\begin{equation}
+between two vectors $a$ and $b$.
+\begin{equation}\label{equ_ab_is_a_dot_b_and_a_wedge_b}
 ab = a\cdot b + a\wedge b
 \end{equation}
-The right-hand side of equation \eqref{} is a sum of blades, while the left-hand side is a sum of mercers;
+The right-hand side of equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} is a sum of blades, while the left-hand side is a sum of mercers;
 in this case, exactly one; namely, $ab$.  Thus, the element $ab$ appears naturally in a sum-of-blades and
-that-of-mercers form, but what of the element $a\wedge b$?  Rearranging \eqref{}, we simply find that
+that-of-mercers form, but what of the element $a\wedge b$?  Rearranging \eqref{equ_ab_is_a_dot_b_and_a_wedge_b}, we simply find that
 \begin{equation}
 a\wedge b = -a\cdot b + ab,
 \end{equation}
 showing that it too may be written as a sum of blades or that of mercers.  In fine, one aim of this paper
-is to show that while every element has a sum-of-blades forms, it too has a sum-of-mercers form.
+is to show that while every element has a sum-of-blades form, it too has a sum-of-mercers form.
 
 \subsection{From Inner Product To Sum Of Blades}
 
@@ -130,6 +134,9 @@ we wish here to express the inner product $v\cdot M_r$ as a sum of mercers.
 
 \section{The Expansion Algorithm}
 
+% Although, with the exception of the inner-product, the products of GA are generally associative,
+% we can impose an arbitrary order on each operation so that any expression becomes a binary tree.
+
 % Note that one of the hurtles in learning GA that the new-comer has is often being confronted
 % with expression for which he or she is at a loss to deal with.  Until one builds up a repretwar of
 % of useful identities and propreties of the various products in various contexts, ...
@@ -143,7 +150,9 @@ we wish here to express the inner product $v\cdot M_r$ as a sum of mercers.
 
 % The tree just collapses where at each stage, the leaf nodes are either sums of mersors or sums of blades.
 % Since the initial leaf nodes are clearly one or the other, and we can always collaps the tree down to a
-% single node, this shows that every element can be written in one form or the other...not there yet.
+% single node, this shows that every element can be written in one form or the other.  Any element can
+% be written in any of the two forms, because we can convert from one form to the other, and this operation
+% is also a basis for the collapsing algorithm.
 
 % Write psuedo-code?  Reduce to binary tree case.
 
@@ -215,9 +224,39 @@ but the justification for some intermediate steps is not immediately clear.
 
 \subsection{Identities Involving Mercers}
 
-Letting $v$ denote a vector, and $M_r$ a mercer of rank $r$ having factorization
+Letting $M_r$ denote a mercer of rank $r$ having factorization
 \begin{equation}\label{equ_M_r}
 M_r = \prod_{i=1}^r m_i,
 \end{equation}
+recall that
+\begin{equation*}
+M_r = \sum_{i=1}^r\left\langle M_r\right\rangle_i,
+\end{equation*}
+where here we're making use of the angled-brackets notation $\langle\cdot\rangle_i$ which takes the grade $i$ part of
+what it encloses.  (Note that this requires us to visualize the expansion of the enclosure as a sum of blades.)  To be more precise,
+if $M_r$ is a mercer of even rank, (if $r$ is even), then
+\begin{equation}\label{equ_Mr_even}
+M_r = \sum_{i=0}^{r/2}\left\langle M_r\right\rangle_{2i},
+\end{equation}
+while if $M_r$ is a mercer of odd rank, we have
+\begin{equation}\label{equ_Mr_odd}
+M_r = \sum_{i=1}^{(r+1)/2}\left\langle M_r\right\rangle_{2i-1}.
+\end{equation}
+To see this, consider first the trivial case of $r=0$; then, for any $r>0$, the equation
+\begin{equation}\label{equ_Mr_split}
+M_r = M_{r-1}m_r = \langle M_{r-1}\rangle_1^r\cdot m_r + \langle M_{r-1}\rangle_1^r\wedge m_r + \langle M_{r-1}\rangle_0 m_r.
+\end{equation}
+Here we have extended our notation $\langle\cdot\rangle_i^j$ to mean a culling of all enclosed blades not of a grade falling
+in the interval $[i,j]$.
+
+An inductive hypothesis can now be stated that equations \eqref{equ_Mr_even} and \eqref{equ_Mr_odd} hold for $r-1$.
+If $r$ is even, then, by our inductive hypothesis, $M_{r-1}$, when expanded as a sum of blades, consists only of blades of odd grade,
+and it is clear that equation \eqref{equ_Mr_split} becomes \eqref{equ_Mr_even}.  If $r$ is odd, then, by our inductive hypothesis, $M_{r-1}$, when expanded as
+a sum of blades, consists only of blades of even grade, and it is clear that equation \eqref{equ_Mr_split} becomes \eqref{equ_Mr_odd}.
+
+Notice that we might also have written equation \eqref{equ_Mr_split} as
+\begin{equation*}
+M_r = M_{r-1}m_r = M_{r-1}\cdot m_r + M_{r-1}\wedge m_r - \langle M_r\rangle_0 m_r.
+\end{equation*}
 
 \end{document}
