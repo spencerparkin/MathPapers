@@ -114,7 +114,7 @@ a\cdot B_r
  &= (a\cdot B_{r-1})\wedge b_r - (-1)^r(a\cdot b_r)B_{r-1}.\label{equ_a_dot_Br_recursive}
 \end{align}
 Here, we've gone from equation \eqref{a_dot_Br_stepA} to that of \eqref{a_dot_Br_stepB} by
-applying the identity given in equation \eqref{equ_a_dot_b_Br_identity}.
+applying the identity given in equation \eqref{equ_a_dot_b_wedge_Br_identity}.
 
 Applied recursively, it is easy to see here from equation \eqref{equ_a_dot_Br_recursive} that the expansion of
 $a\cdot B_r$ as a sum of blades is given by
@@ -130,7 +130,24 @@ argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
 
 Letting $a$ denote a vector and $M_r$ a mercer of rank $r$ having the factorization
 given in equation \eqref{equ_M_r},
-we wish here to express the inner product $v\cdot M_r$ as a sum of mercers.
+we wish here to express the inner product $a\cdot M_r$ as a sum of mercers.
+Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
+\begin{align}
+a\cdot M_r &= a\cdot (M_{r-1}m_r)\nonumber \\
+ &= a\cdot((\langle M_{r-1}\rangle_0 + \langle M_{r-1}\rangle_1 + \langle M_{r-1}\rangle_2^r)m_r)\nonumber \\
+ &= \langle M_{r-1}\rangle_0a\cdot m_r + (\langle M_{r-1}\rangle_1\cdot m_r)a\nonumber \\
+ &+ (a\cdot\langle M_{r-1}\rangle_1)m_r - (a\cdot m_r)\langle M_{r-1}\rangle_1 + a\cdot(\langle M_{r-1}\rangle_2^rm_r).
+\end{align}
+We will return to this equation momentarily.  Until then, to ease notation, let us write $M=\langle M_{r-1}\rangle_2^r$ and see that
+\begin{align}
+a\cdot(Mm_r)
+ &= a\cdot(M\cdot m_r + M\wedge m_r)\nonumber \\
+ &= -(-1)^{r-1}a\cdot(m_r\cdot M) + (-1)^{r-1}a\cdot(m_r\wedge M)\nonumber \\
+ &= (-1)^rm_r\cdot(a\cdot M) - (-1)^r\left[-m_r\wedge(a\cdot M)+(a\cdot m_r)M\right]\nonumber \\
+ &= (a\cdot M)\cdot m_r + (a\cdot M)\wedge m_r - (-1)^r(a\cdot m_r)M\nonumber \\
+ &= (a\cdot M)m_r - (-1)^r(a\cdot m_r)M.
+\end{align}
+Note here our use of equations \eqref{equ_a_dot_b_dot_Br_identity} and \eqref{equ_a_dot_b_wedge_Br_identity} to arrive at \eqref{}.
 
 \section{The Expansion Algorithm}
 
@@ -189,8 +206,8 @@ a\wedge B_r &= \frac{1}{2}a\wedge B_r + \frac{1}{2}(-1)^r B_r\wedge a\nonumber \
  &= \frac{1}{2}(aB_r - a\cdot B_r + (-1)^r(B_ra - B_r\cdot a))\nonumber \\
  &= \frac{1}{2}(aB_r+(-1)^rB_ra).\label{equ_a_wedge_Br}
 \end{align}
-Now letting $a$ and $b$ each denote a vector, it is not hard to show that
-\begin{equation}\label{equ_a_dot_b_Br_identity}
+Now letting $a$ and $b$ each denote a vector, it is not hard to show that for all $r\geq 1$, we have
+\begin{equation}\label{equ_a_dot_b_wedge_Br_identity}
 a\cdot(b\wedge B_r) + b\wedge(a\cdot B_r) = (a\cdot b)B_r.
 \end{equation}
 To that end, we apply equations \eqref{equ_a_dot_Br} and \eqref{equ_a_wedge_Br} in writing
@@ -207,9 +224,9 @@ from which it is easy to see that
 a\cdot(b\wedge B_r)+b\wedge(a\cdot B_r) &= \frac{1}{4}(ab+ba)B_r + \frac{1}{4}B_r(ba+ab) \\
  &= \frac{1}{2}(a\cdot b)B_r + \frac{1}{2}B_r(b\cdot a) = (a\cdot b)B_r.
 \end{align*}
-Similarly, we must note that
-\begin{equation}
-a\cdot(b\cdot B) = -b\cdot(a\cdot B).
+Similarly, we must note that for all $r>1$, we have
+\begin{equation}\label{equ_a_dot_b_dot_Br_identity}
+a\cdot(b\cdot B_r) = -b\cdot(a\cdot B_r).
 \end{equation}
 To see this, we apply equation \eqref{equ_a_dot_Br} in writing
 \begin{align*}
@@ -272,19 +289,10 @@ M_r = M_{r-1}m_r = M_{r-1}\cdot m_r + M_{r-1}\wedge m_r - \langle M_r\rangle_0 m
 \end{equation*}
 
 Now let $a$ be a vector, and convince yourself that
-\begin{equation}
-a\wedge M_r = \left\{\begin{array}{ll}
--(-1)^r M_r\wedge a, & \mbox{if $r$ even,} \\
-(-1)^r M_r\wedge a, & \mbox{if $r$ odd,}
-\end{array}\right.
-\end{equation}
-and that
-\begin{equation}
-a\cdot M_r = \left\{\begin{array}{ll}
-(-1)^r M_r\cdot a, & \mbox{if $r$ even,} \\
--(-1)^r M_r\cdot a, & \mbox{if $r$ odd.}
-\end{array}\right.
-\end{equation}
+\begin{align}
+a\cdot M_r &= -(-1)^r M_r\cdot a,\label{equ_a_dot_Mr_commutativity} \\
+a\wedge M_r &= (-1)^r M_r\wedge a.\label{equ_a_wedge_Mr_commutativity}
+\end{align}
 Refer to equations \eqref{equ_a_dot_Br_commutativity} and \eqref{equ_a_wedge_Br_commutativity} to see this.
 
 \end{document}
