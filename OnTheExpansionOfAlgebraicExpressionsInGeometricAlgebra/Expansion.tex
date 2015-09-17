@@ -78,7 +78,7 @@ product of precisely $n$ vectors.  Note that blades of grade zero
 are indistinguishable from mercers of the same rank as each denotes the set of all scalars.
 
 Unlike versors, note that mercers do not form a group by simple reason that not every
-mercer is invertible with respect to the geometric product.  They are important to study, none-the-less,
+mercer is invertible with respect to the geometric product.  They are important to study, however,
 because they appear more often in consideration of the typical expression taken from a geometric algebra.
 
 \section{Symmetry Between The Outer And Geometric Products}
@@ -100,11 +100,7 @@ a\wedge b = -a\cdot b + ab,
 showing that it too may be written as a sum of blades or that of mercers.  In fine, one aim of this paper
 is to show that while every element has a sum-of-blades form, they too each have a sum-of-mercers form.
 
-%\subsection{From Geometric Product To Sum Of Blades}
-
-%\subsection{From Outer Product To Sum Of Mercers}
-
-\subsection{From Inner Product To Sum Of Blades}
+\subsection{The Inner Product And Sums Of Blades}
 
 Letting $a$ denote a vector and $B_r$ a blade of grade $r$ having the factorization
 given in equation \eqref{equ_B_r}, we wish here to express the inner product $a\cdot B_r$ as a sum of blades.
@@ -130,7 +126,7 @@ argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
 
 % We're not done here.  We need to address (a^b^c^...).B_r = (a.(b.(c. ... B_r)...)).
 
-\subsection{From Inner Product To Sum Of Mercers}
+\subsection{The Inner Product And Sums Of Mercers}
 
 Letting $a$ denote a vector and $M_r$ a mercer of rank $r$ having the factorization
 given in equation \eqref{equ_M_r},
@@ -140,18 +136,35 @@ Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
 a\cdot M_r &= a\cdot (M_{r-1}m_r)\nonumber \\
  &= a\cdot((\langle M_{r-1}\rangle_0 + \langle M_{r-1}\rangle_1 + \langle M_{r-1}\rangle_2^r)m_r)\nonumber \\
  &= \langle M_{r-1}\rangle_0a\cdot m_r + (\langle M_{r-1}\rangle_1\cdot m_r)a\nonumber \\
- &+ (a\cdot\langle M_{r-1}\rangle_1)m_r - (a\cdot m_r)\langle M_{r-1}\rangle_1 + a\cdot(\langle M_{r-1}\rangle_2^rm_r).
+ &+ (a\cdot\langle M_{r-1}\rangle_1)m_r - (a\cdot m_r)\langle M_{r-1}\rangle_1 + a\cdot(\langle M_{r-1}\rangle_2^rm_r).\label{equ_a_dot_Mr_stepA}
 \end{align}
 We will return to this equation momentarily.  Until then, to ease notation, let us write $M=\langle M_{r-1}\rangle_2^r$ and see that
 \begin{align}
 a\cdot(Mm_r)
  &= a\cdot(M\cdot m_r + M\wedge m_r)\nonumber \\
- &= -(-1)^{r-1}a\cdot(m_r\cdot M) + (-1)^{r-1}a\cdot(m_r\wedge M)\nonumber \\
- &= (-1)^rm_r\cdot(a\cdot M) - (-1)^r\left[-m_r\wedge(a\cdot M)+(a\cdot m_r)M\right]\nonumber \\
+ &= -(-1)^{r-1}a\cdot(m_r\cdot M) + (-1)^{r-1}a\cdot(m_r\wedge M)\label{equ_a_dot_Mr_stepB} \\
+ &= (-1)^rm_r\cdot(a\cdot M) - (-1)^r\left[-m_r\wedge(a\cdot M)+(a\cdot m_r)M\right]\label{equ_a_dot_Mr_stepC} \\
  &= (a\cdot M)\cdot m_r + (a\cdot M)\wedge m_r - (-1)^r(a\cdot m_r)M\nonumber \\
- &= (a\cdot M)m_r - (-1)^r(a\cdot m_r)M.
+ &= (a\cdot M)m_r - (-1)^r(a\cdot m_r)M.\label{equ_a_dot_Mr_stepD}
 \end{align}
-Note here our use of equations \eqref{equ_a_dot_b_dot_Br_identity} and \eqref{equ_a_dot_b_wedge_Br_identity} to arrive at \eqref{}.
+Note here our use of equations \eqref{equ_a_dot_b_dot_Br_identity} and \eqref{equ_a_dot_b_wedge_Br_identity} to
+arrive at equation \eqref{equ_a_dot_Mr_stepC} from \eqref{equ_a_dot_Mr_stepB}.
+
+Returning now to equation \eqref{equ_a_dot_Mr_stepA}, if we plug equation \eqref{equ_a_dot_Mr_stepD} into it
+under the assumption that $r$ is odd, we get
+\begin{equation}
+a\cdot M_r = (a\cdot M_{r-1})m_r + (a\cdot m_r)M_{r-1} - \langle M_{r-1}\rangle_0am_r.
+\end{equation}
+And if we plug equation \eqref{equ_a_dot_Mr_stepD} into equation \eqref{equ_a_dot_Mr_stepA} under the assumption
+that $r$ is even, we get
+\begin{equation}
+a\cdot M_r = (a\cdot M_{r-1})m_r - (a\cdot m_r)M_{r-1} + (\langle M_{r-1}\rangle_1\cdot m_r)a.
+\end{equation}
+It then follows, despite the parity of $r$, that
+\begin{align}
+a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
+ &- \langle M_{r-1}\rangle_0am_r + (\langle M_{r-1}\rangle_1\cdot m_r)a.
+\end{align}
 
 \section{The Expansion Algorithm}
 
