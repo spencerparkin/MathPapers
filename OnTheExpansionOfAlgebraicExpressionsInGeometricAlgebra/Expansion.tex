@@ -52,8 +52,9 @@ Abstract goes here...
 
 While the expansion of algebraic expressions taken from, say, a polynomial ring, are found as a trivial matter
 of applying the associative and distributive properties, and combining like-terms, it is interesting to note
-that this is certainly not true of expressions taken from a geometric algebra.  In this paper, a general
-stratagy, or algorithm, if you will, is given for the expansion of such expressions, and it is shown that
+that this is certainly not true of expressions taken from a geometric algebra.\footnote{Factoring may be thought of as the problem opposite of and more
+interesting than that of expansion.  In geometric algebra, however, expansion is not entirely trivial, and therefore a subject of interest.}
+In this paper, a general stratagy, or algorithm, if you will, is given for the expansion of such expressions, and it is shown that
 it is perhaps just as natural to write an element of a geometric algebra as a sum of ``mercers'' as it is to
 write such an element as a sum of blades.  The term ``mercer'' is introduced in Table~\ref{tbl_terms} below,
 along with similar, traditional terms found in geometric algebra.\footnote{The term ``versor'' was avoided in
@@ -77,9 +78,10 @@ refers to a blade of grade $n$, we will let an $n$-mercer refer to a mercer of r
 product of precisely $n$ vectors.  Note that blades of grade zero
 are indistinguishable from mercers of the same rank as each denotes the set of all scalars.
 
-Unlike versors, note that mercers do not form a group by simple reason that not every
+Unlike versors, note that mercers do not form a group over the geometric product by simple reason that not every
 mercer is invertible with respect to the geometric product.  They are important to study, however,
 because they appear more often in consideration of the typical expression taken from a geometric algebra.
+Put a better way, versors are a special case of mercer, and we want to keep our discussion as generally applicable as possible.
 
 \section{Symmetry Between The Outer And Geometric Products}
 
@@ -93,12 +95,16 @@ ab = a\cdot b + a\wedge b
 \end{equation}
 The right-hand side of equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} is a sum of blades, while the left-hand side is a sum of mercers;
 in this case, exactly one; namely, $ab$.  Thus, the element $ab$ appears naturally in a sum-of-blades and
-that-of-mercers form, but what of the element $a\wedge b$?  Rearranging \eqref{equ_ab_is_a_dot_b_and_a_wedge_b}, we simply find that
-\begin{equation}
+sum-of-mercers form, but what of the element $a\wedge b$?  Rearranging \eqref{equ_ab_is_a_dot_b_and_a_wedge_b}, we simply find that
+\begin{equation}\label{equ_a_wedge_b_is_neg_a_dot_b_and_ab}
 a\wedge b = -a\cdot b + ab,
 \end{equation}
 showing that it too may be written as a sum of blades or that of mercers.  In fine, one aim of this paper
 is to show that while every element has a sum-of-blades form, they too each have a sum-of-mercers form.
+
+\subsection{From Mercer To Sum Of Blades}
+
+\subsection{From Blade To Sum Of Mercers}
 
 \subsection{The Inner Product And Sums Of Blades}
 
@@ -119,10 +125,13 @@ applying the identity given in equation \eqref{equ_a_dot_b_wedge_Br_identity}.
 Applied recursively, it is easy to see here from equation \eqref{equ_a_dot_Br_recursive} that the expansion of
 $a\cdot B_r$ as a sum of blades is given by
 \begin{equation}\label{equ_a_dot_Br_sum_of_blades}
-a\cdot B_r = -\sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{j=1,j\neq i}^r b_j.
+a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{j=1,j\neq i}^r b_j.
 \end{equation}
-One might also simply use equation \eqref{equ_a_dot_Br_recursive} to given an inductive
+One might also simply use equation \eqref{equ_a_dot_Br_recursive} to give an inductive
 argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
+
+Notice that for all $r>0$, the term $\langle B_r\rangle_0a$ vanishes in equation \eqref{equ_a_dot_Br_sum_of_blades},
+yet its presence allows us the case $r=0$ if we define the summation to be zero in the vacuous case.
 
 % We're not done here.  We need to address (a^b^c^...).B_r = (a.(b.(c. ... B_r)...)).
 
@@ -163,8 +172,20 @@ a\cdot M_r = (a\cdot M_{r-1})m_r - (a\cdot m_r)M_{r-1} + (\langle M_{r-1}\rangle
 It then follows, despite the parity of $r$, that
 \begin{align}
 a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
- &- \langle M_{r-1}\rangle_0am_r + (\langle M_{r-1}\rangle_1\cdot m_r)a.
+ &- \langle M_{r-1}\rangle_0am_r + (\langle M_{r-1}\rangle_1\cdot m_r)a.\label{equ_a_dot_Mr_recursive}
 \end{align}
+Applied recursively, it is now easy to see here from equation \eqref{equ_a_dot_Mr_recursive} that the expansion of
+$a\cdot M_r$ as a sum of mercers is given by
+\begin{equation}\label{equ_a_dot_Mr_sum_of_mercers}
+a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^r(a\cdot m_i)\prod_{j=1,j\neq i}^rm_j.
+\end{equation}
+To see this, consider an inductive argument.  The cases $r=0$ and $r=1$ follow trivially by inspection.
+Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_mercers} holds for a fixed case $r-1$.
+Go on...
+
+It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_mercers} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
+Indeed, the outer and geometric products do appear to have some natural symmetry between them.  But this really shouldn't be
+too supprising after one compares equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} to that of \eqref{equ_a_wedge_b_is_neg_a_dot_b_and_ab}.
 
 \section{The Expansion Algorithm}
 
