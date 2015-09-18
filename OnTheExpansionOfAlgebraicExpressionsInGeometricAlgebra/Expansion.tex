@@ -202,7 +202,7 @@ B_r = B_{r-1}b_r - (-1)^rb_r\cdot B_{r-1}.
 \end{equation}
 
 But what of an explicit formula for the expansion of $B_r$ as a sum of mercers, and that of $M_r$ as a sum of blades?
-Surely such formulas exist, and are likely isomorphic to another in the sense that the outer and geometric products
+Surely such formulas exist, and are likely, up to sign, isomorphic to another in the sense that the outer and geometric products
 are interchangable, as is the case between equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_mercers}.
 That withstanding, and at the expense of slowing our expansion
 algorithm down with the need to do more collection than would otherwise be necessary, here, in this paper, we're going to rely on equation \eqref{} above and
@@ -217,6 +217,8 @@ $B_{r-1}$ will be a sum of mercers, while $M_{r-1}$ will be a sum of blades.
 For those disapointed with not finding an explicit formula here for the expansion of blades,
 an interesting one is found in \cite[p.~86]{DoranLasenby03} and can be derived by a
 repeated application of equation \eqref{equ_a_wedge_Br}.\footnote{Note that in the cited edition, $1/r!$ should be replaced with $1/2^{r-1}$.}
+
+% There is surely a way to do a similar thing to get an sum of blades expansion of a mercer, no?
 
 Before leavintg this section, it is worth mentioning something here about existence and uniqueness.
 It is clear, by the generation of all elements of a geometric algebra from a given vector space, that every element of such an algebra
@@ -301,6 +303,11 @@ Go on...
 % It might be noted that the reverse can be now be fully justifiably applied to any element of GA.
 % Note that the reverse is defined as a linear operator that operates only on geometric products.
 % It says nothing of the outer product or inner products.  So we can fully justify it by knowing each ele can be a sum of mercers.
+
+% In an actual implementation, i may provide an ability to convert from tree to sum-of-X, and vice-versa.
+% At a more granular level, just provide a sum that can contain a mix of mercers and blades, (it need not be
+% homogeneous of mercers or that of blades), then deal with
+% each distributed product involving just a pair of sub-products, either of which being a blade or mercer.
 
 \section{Appendix Of Identities}
 
