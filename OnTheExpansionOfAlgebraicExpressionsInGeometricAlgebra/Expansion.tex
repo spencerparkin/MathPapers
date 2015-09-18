@@ -228,31 +228,34 @@ left as an open problem.
 
 \section{The Expansion Algorithm}
 
-% Although, with the exception of the inner-product, the products of GA are generally associative,
-% we can impose an arbitrary order on each operation so that any expression becomes a binary tree.
+We have now established enough identities to give an expansion algorithm here capable of expanding
+any expression from geometric algebra that we could throw at it.  This is a worth-while cause as many
+new-comers to geometric algebra will attest that, all-to-often, in their travels through GA-land, they're
+confronted with a sub-expression that stumps them.  It is only until one builds up a sufficient repertwar of
+formulas and identities in geometric algebra that these obsticals can become readily defeated.
+Lastly, before we begin, it should be noted that while the algorithm presented here is certainly not the most efficient
+means of expanding any given expression, it will be correct, and at least give some direction on how each
+situation might be dealt with.
 
-% Note that one of the hurtles in learning GA that the new-comer has is often being confronted
-% with expression for which he or she is at a loss to deal with.  Until one builds up a repretwar of
-% of useful identities and propreties of the various products in various contexts, ...
-
-% Here we also prove that every element has a sum-of-mercers form through the correctness of the algorithm.
+Although, with the exception of the inner-product, the operations of geometric algebra are generally associative,
+realize that we can impose an arbitrary order on each operation so that any expression becomes a binary tree.
+Furthermore, every such tree has the proprety that while the internal nodes are operations, the leaf nodes
+are elements of our geometric algebra in either a sum-of-blades or sum-of-mercers form.  Our algorithm
+will proceed by simply collapsing each internal node to such a leaf, there-by preserving this proprety of the
+entire tree at each step.  The algorithm clearly terminates when all but the root node remains, which will clearly be
+in one of the two desired forms.  Since converting between these two forms is an operation fundamental to
+the algorithm, we can also use it to transform our final result into the desired form.
 
 % The algorithm will be trivial, even if not very efficient in practice.
 % For any outer product, we convert its operands to sums of blades, then distribute.
 % For any geometric product, we convert its operands to sums of mercers, then distribute.
 % For any inner product, we apply an identity as formulated above.
 
-% The tree just collapses where at each stage, the leaf nodes are either sums of mersors or sums of blades.
-% Since the initial leaf nodes are clearly one or the other, and we can always collaps the tree down to a
-% single node, this shows that every element can be written in one form or the other.  Any element can
-% be written in any of the two forms, because we can convert from one form to the other, and this operation
-% is also a basis for the collapsing algorithm.
-
 % Write psuedo-code?  Reduce to binary tree case.
 
-% It might be noted that the reverse can be now fully justifiably applied to any element of GA.
-
-% The algorithm shows that every expression can be boiled down to a sum of blades or sum of mercers.
+% It might be noted that the reverse can be now be fully justifiably applied to any element of GA.
+% Note that the reverse is defined as a linear operator that operates only on geometric products.
+% It says nothing of the outer product or inner products.  So we can fully justify it by knowing each ele can be a sum of mercers.
 
 \section{Appendix Of Identities}
 
