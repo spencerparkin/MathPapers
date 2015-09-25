@@ -56,10 +56,10 @@ of applying the associative and distributive properties, and combining like-term
 that this is certainly not true of expressions taken from a geometric algebra.\footnote{Factoring may be thought of as the problem opposite of and more
 interesting than that of expansion.  In geometric algebra, however, expansion is not entirely trivial, and therefore a subject of interest.}
 In this paper, a general stratagy, or algorithm, if you will, is given for the expansion of such expressions, and it is shown that
-it is perhaps just as natural to write an element of a geometric algebra as a sum of ``mercers'' as it is to
-write such an element as a sum of blades.  The term ``mercer'' is introduced in Table~\ref{tbl_terms} below,
+it is perhaps just as natural to write an element of a geometric algebra as a sum of ``spades'' as it is to
+write such an element as a sum of blades.  The term ``spade'' is introduced in Table~\ref{tbl_terms} below,
 along with similar, traditional terms found in geometric algebra.\footnote{The term ``versor'' was avoided in
-this paper in favour of ``mercer'' as a matter of rigour.  Not knowing a term for the algebraic form in question, and not finding
+this paper in favour of ``spade'' as a matter of rigour.  Not knowing a term for the algebraic form in question, and not finding
 one in the literature, one was made up.}
 
 \begin{table}[H]\label{tbl_terms}\caption{Terms used in GA}
@@ -68,21 +68,21 @@ Term & Definition \\
 \hline
 Blade & The outer product of zero or more linearly-independent vectors. \\
 Versor & The geometric product of zero or more invertible vectors, not necessarily forming a linearly-independent set. \\
-Mercer & The geometric product of zero or more vectors, not necessarily invertible and not necessarily forming a linearly-independent set.
+Spade & The geometric product of zero or more vectors, not necessarily invertible and not necessarily forming a linearly-independent set.
 \end{tabular}
 \end{table}
 
-From these it is clear that every versor is a mercer, but not every mercer is a versor.
+From these it is clear that every versor is a spade, but not every spade is a versor.
 
-Similar to the concept of grade, that of rank will be introduced in this paper with respect to mercers.  As an $n$-blade
-refers to a blade of grade $n$, we will let an $n$-mercer refer to a mercer of rank $n$; that is, a geometric
+Similar to the concept of grade, that of rank will be introduced in this paper with respect to spades.  As an $n$-blade
+refers to a blade of grade $n$, we will let an $n$-spade refer to a spade of rank $n$; that is, a geometric
 product of precisely $n$ vectors.  Note that blades of grade zero
-are indistinguishable from mercers of the same rank as each denotes the set of all scalars.
+are indistinguishable from spades of the same rank as each denotes the set of all scalars.
 
-Unlike versors, note that mercers do not form a group over the geometric product by simple reason that not every
-mercer is invertible with respect to the geometric product.  They are important to study, however,
+Unlike versors, note that spades do not form a group over the geometric product by simple reason that not every
+spade is invertible with respect to the geometric product.  They are important to study, however,
 because they appear more often in consideration of the typical expression taken from a geometric algebra.
-Put a better way, versors are a special case of mercer, and we want to keep our discussion as generally applicable as possible.
+Put a better way, versors are a special case of spade, and we want to keep our discussion as generally applicable as possible.
 
 \section{Symmetry Between The Outer And Geometric Products}
 
@@ -94,14 +94,14 @@ between two vectors $a$ and $b$.
 \begin{equation}\label{equ_ab_is_a_dot_b_and_a_wedge_b}
 ab = a\cdot b + a\wedge b
 \end{equation}
-The right-hand side of equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} is a sum of blades, while the left-hand side is a sum of mercers;
+The right-hand side of equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} is a sum of blades, while the left-hand side is a sum of spades;
 in this case, exactly one; namely, $ab$.  Thus, the element $ab$ appears naturally in a sum-of-blades and
-sum-of-mercers form, but what of the element $a\wedge b$?  Rearranging \eqref{equ_ab_is_a_dot_b_and_a_wedge_b}, we simply find that
+sum-of-spades form, but what of the element $a\wedge b$?  Rearranging \eqref{equ_ab_is_a_dot_b_and_a_wedge_b}, we simply find that
 \begin{equation}\label{equ_a_wedge_b_is_neg_a_dot_b_and_ab}
 a\wedge b = -a\cdot b + ab,
 \end{equation}
-showing that it too may be written as a sum of blades or that of mercers.  Indeed, one aim of this paper
-is to show that while every element has a sum-of-blades form, they too each have a sum-of-mercers form.
+showing that it too may be written as a sum of blades or that of spades.  Indeed, one aim of this paper
+is to show that while every element has a sum-of-blades form, they too each have a sum-of-spades form.
 
 \subsection{The Inner Product And Sums Of Blades}
 
@@ -132,11 +132,11 @@ yet its presence allows us the case $r=0$ if we define the summation to be zero 
 
 % We're not done here.  We need to address (a^b^c^...).B_r = (a.(b.(c. ... B_r)...)).
 
-\subsection{The Inner Product And Sums Of Mercers}
+\subsection{The Inner Product And Sums Of Spades}
 
-Letting $a$ denote a vector and $M_r$ a mercer of rank $r$ having the factorization
+Letting $a$ denote a vector and $M_r$ a spade of rank $r$ having the factorization
 given in equation \eqref{equ_M_r},
-we wish here to express the inner product $a\cdot M_r$ as a sum of mercers.
+we wish here to express the inner product $a\cdot M_r$ as a sum of spades.
 Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
 \begin{align}
 a\cdot M_r &= a\cdot (M_{r-1}m_r)\nonumber \\
@@ -174,59 +174,59 @@ a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
 Note the use of equation \eqref{equ_gr_zero_part_of_Mr} here in our arrival at equation \eqref{equ_a_dot_Mr_recursive}.
 
 Applied recursively, it is now easy to see from equation \eqref{equ_a_dot_Mr_recursive} that the expansion of
-$a\cdot M_r$ as a sum of mercers is given by
-\begin{equation}\label{equ_a_dot_Mr_sum_of_mercers}
+$a\cdot M_r$ as a sum of spades is given by
+\begin{equation}\label{equ_a_dot_Mr_sum_of_spades}
 a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^r(a\cdot m_i)\prod_{j=1,j\neq i}^rm_j.
 \end{equation}
 To see this, consider an inductive argument.  The cases $r=0$ and $r=1$ follow trivially by inspection.
-Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_mercers} holds for a fixed case $r-1$.
-Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_mercers},
-adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_mercers}, thereby completing
+Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_spades} holds for a fixed case $r-1$.
+Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_spades},
+adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_spades}, thereby completing
 our proof by induction.
 
-It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_mercers} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
+It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
 Indeed, the outer and geometric products do appear to have some natural symmetry between them.  But perhaps this really shouldn't be
 too supprising after one compares equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} with that of \eqref{equ_a_wedge_b_is_neg_a_dot_b_and_ab}.
 
 % We're not done here.  We need to address (abc...).M_r = (a.(b.(c. ... M_r)...)).
 
-\subsection{The Expansion Of Blades And Mercers}
+\subsection{The Expansion Of Blades And Spades}
 
 To show even more symmetry between the outer and geometric products, here we wish to explore the expanion of
-blades as sums of mercers, and that of mercers as sums of blades.
+blades as sums of spades, and that of spades as sums of blades.
 In the latter case it is shown by equations \eqref{equ_Mr_even} and \eqref{equ_Mr_odd} what grades of blades we may expect in the sum.
-In the former case we can expect a similar result in terms of the ranks of mercers appearing in the sum by simply
+In the former case we can expect a similar result in terms of the ranks of spades appearing in the sum by simply
 considering the equation
 \begin{equation}\label{equ_exp_Br_recursive}
 B_r = B_{r-1}b_r - (-1)^rb_r\cdot B_{r-1}.
 \end{equation}
 
-But what of an explicit formula for the expansion of $B_r$ as a sum of mercers, and that of $M_r$ as a sum of blades?
+But what of an explicit formula for the expansion of $B_r$ as a sum of spades, and that of $M_r$ as a sum of blades?
 Surely such formulas exist, and are likely, up to sign, isomorphic to another in the sense that the outer and geometric products
-are interchangable, as is the case between equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_mercers}.
+are interchangable, as is the case between equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_spades}.
 That withstanding, and at the expense of slowing our expansion
 algorithm down with the need to do more collection than would otherwise be necessary, here, in this paper, we're going to rely on equation \eqref{} above and
-equation \eqref{} below to recursively generate the expansions of blades and mercers.
+equation \eqref{} below to recursively generate the expansions of blades and spades.
 \begin{equation}\label{equ_exp_Mr_recursive}
 M_r = \langle M_{r-1}\rangle_1^r\wedge m_r + (-1)^rm_r \cdot M_{r-1}.
 \end{equation}
-Notice that equation \eqref{equ_exp_Br_recursive} must be used in conjunction with equation \eqref{equ_a_dot_Mr_sum_of_mercers}, while
+Notice that equation \eqref{equ_exp_Br_recursive} must be used in conjunction with equation \eqref{equ_a_dot_Mr_sum_of_spades}, while
 equation \eqref{equ_exp_Mr_recursive} must be used in conjunction with equation \eqref{equ_a_dot_Br_sum_of_blades}.  Realize that, recursively,
-$B_{r-1}$ will be a sum of mercers, while $M_{r-1}$ will be a sum of blades.
+$B_{r-1}$ will be a sum of spades, while $M_{r-1}$ will be a sum of blades.
 
 For those disapointed with not finding an explicit formula here for the expansion of blades,
 an interesting one is found in \cite[p.~86]{DoranLasenby03} and can be derived by a
 repeated application of equation \eqref{equ_a_wedge_Br}.\footnote{Note that in the cited edition, $1/r!$ should be replaced with $1/2^{r-1}$.}
 
-% There is surely a way to do a similar thing to get an sum of blades expansion of a mercer, no?
+% There is surely a way to do a similar thing to get an sum of blades expansion of a spade, no?
 
 Before leavintg this section, it is worth mentioning something here about existence and uniqueness.
 It is clear, by the generation of all elements of a geometric algebra from a given vector space, that every element of such an algebra
 has a sum-of-blades form.  Furthermore, if we restrict ourselves to a set of basis blades for
 our geometric algebra that has been reduced to a linearly independent set, and sort all sums and products where possible,
-then the form is unique.  As for the sum-of-mercers form, it is
+then the form is unique.  As for the sum-of-spades form, it is
 clear that every element of a geometric algebra has such a form, because every blade can be rewritten
-as a sum of mercers.  The question of under what conditions we can insure a uniqueness of this form, however, is
+as a sum of spades.  The question of under what conditions we can insure a uniqueness of this form, however, is
 left as an open problem.
 
 \section{The Expansion Algorithm}
@@ -243,7 +243,7 @@ situation might be dealt with.
 Although, with the exception of the inner-product, the operations of geometric algebra are generally associative,
 realize that we can impose an arbitrary order on each operation so that any expression becomes a binary tree.
 Furthermore, every such tree has the proprety that while the internal nodes are operations, the leaf nodes
-are elements of our geometric algebra in either a sum-of-blades or sum-of-mercers form.  Our algorithm
+are elements of our geometric algebra in either a sum-of-blades or sum-of-spades form.  Our algorithm
 will proceed by simply collapsing each internal node to such a leaf, there-by preserving this proprety of the
 entire tree at each step.  The algorithm clearly terminates when all but the root node remains, which will clearly be
 in one of the two desired forms.  Since converting between these two forms is an operation fundamental to
@@ -296,18 +296,18 @@ the algorithm, we can also use it to transform our final result into the desired
 \end{algorithmic}
 
 Note here that the primary input and output of every function called above is a tree-node housing a data-structure
-that is specifically designed to represent a sum of blades or sum of mercers.
+that is specifically designed to represent a sum of blades or sum of spades.
 
 Go on...
 
 % It might be noted that the reverse can be now be fully justifiably applied to any element of GA.
 % Note that the reverse is defined as a linear operator that operates only on geometric products.
-% It says nothing of the outer product or inner products.  So we can fully justify it by knowing each ele can be a sum of mercers.
+% It says nothing of the outer product or inner products.  So we can fully justify it by knowing each ele can be a sum of spades.
 
 % In an actual implementation, i may provide an ability to convert from tree to sum-of-X, and vice-versa.
-% At a more granular level, just provide a sum that can contain a mix of mercers and blades, (it need not be
-% homogeneous of mercers or that of blades), then deal with
-% each distributed product involving just a pair of sub-products, either of which being a blade or mercer.
+% At a more granular level, just provide a sum that can contain a mix of spades and blades, (it need not be
+% homogeneous of spades or that of blades), then deal with
+% each distributed product involving just a pair of sub-products, either of which being a blade or spade.
 
 \section{Appendix Of Identities}
 
@@ -385,9 +385,9 @@ a\cdot(b\cdot B_r) = (a\wedge b)\cdot B_r = -(b\wedge a)\cdot B_r = -b\cdot(a\cd
 \end{equation*}
 but the justification for some intermediate steps is not immediately clear.
 
-\subsection{Identities Involving Mercers}
+\subsection{Identities Involving Spades}
 
-Letting $M_r$ denote a mercer of rank $r$ having factorization
+Letting $M_r$ denote a spade of rank $r$ having factorization
 \begin{equation}\label{equ_M_r}
 M_r = \prod_{i=1}^r m_i,
 \end{equation}
@@ -397,11 +397,11 @@ M_r = \sum_{i=1}^r\left\langle M_r\right\rangle_i,
 \end{equation*}
 where here we're making use of the angled-brackets notation $\langle\cdot\rangle_i$ which takes the grade $i$ part of
 what it encloses.  (Note that this requires us to visualize the expansion of the enclosure as a sum of blades.)  To be more precise,
-if $M_r$ is a mercer of even rank, (if $r$ is even), then
+if $M_r$ is a spade of even rank, (if $r$ is even), then
 \begin{equation}\label{equ_Mr_even}
 M_r = \sum_{i=0}^{r/2}\left\langle M_r\right\rangle_{2i},
 \end{equation}
-while if $M_r$ is a mercer of odd rank, we have
+while if $M_r$ is a spade of odd rank, we have
 \begin{equation}\label{equ_Mr_odd}
 M_r = \sum_{i=1}^{(r+1)/2}\left\langle M_r\right\rangle_{2i-1}.
 \end{equation}
