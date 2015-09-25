@@ -134,10 +134,32 @@ a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{j=
 One might also simply use equation \eqref{equ_a_dot_Br_recursive} to give an inductive
 argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
 
+% Can we prove this is a blade of grade r-1?
+
 Notice that for all $r>0$, the term $\langle B_r\rangle_0a$ vanishes in equation \eqref{equ_a_dot_Br_sum_of_blades},
 yet its presence allows us the case $r=0$ if we define the summation to be zero in the vacuous case.
 
-% We're not done here.  We need to address (a^b^c^...).B_r = (a.(b.(c. ... B_r)...)).
+Recall now that for any pair of blades $B_r,C_s$, of grades $r$ and $s$, respectively, that
+\begin{equation*}
+B_r\cdot C_s = \langle B_rC_s\rangle_{|r-s|}.
+\end{equation*}
+It is not hard to show that the part of smallest possible grade that can appear in the expansion of $B_rC_s$ is $|r-s|$.
+Suppose $r<s$ and consider rewriting $B_r$ as a sum of spades.  Then, the
+spade of highest possible rank is no greater than $r$, showing that by equation \eqref{equ_a_dot_Br_sum_of_blades}
+the grade of $s$ can be diminished by at most $r$.  Similarly, if $s<r$, the grade $r$ can be diminished by at most $s$.
+
+So to calculate $B_r\cdot C_s$, we could rewrite each of $B_r$ and $C_s$ as sums of spades, distribute, and
+then rewrite the resulting sum of spades as a sum of blades, but this, as in many other similar cases, would be highly innefficient in the face of
+an identity that could take us to the desired result without the need to convert to and from a sum-of-spades form.
+Hoping for a better way, we, for all $1<r\leq s$, write
+\begin{align}
+B_r\cdot C_s &= \langle B_rC_s\rangle_{s-r}\nonumber \\
+ &= \langle (B_{r-1}\wedge b_r)C_s\rangle_{s-r} + \langle (B_{r-1}\cdot b_r)C_s\rangle_{s-r}\nonumber \\
+ &= \langle B_{r-1}b_rC_s\rangle_{s-r}\nonumber \\
+ &= \langle B_{r-1}(b_r\cdot C_s)\rangle_{s-r} + \langle B_{r-1}(b_r\wedge C_s)\rangle_{s-r}\nonumber \\
+ &= B_{r-1}\cdot(b_r\cdot C_s).
+\end{align}
+We need to justify why we need $r\leq s$ here, but I'm too tired to figure it out at the moment.
 
 \subsection{The Inner Product And Sums Of Spades}
 
@@ -190,6 +212,8 @@ Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_spade
 Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_spades},
 adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_spades}, thereby completing
 our proof by induction.
+
+% Can we show that a.M_r is a spade of rank r-1?
 
 It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
 Indeed, the outer and geometric products do appear to have some natural symmetry between them.  But perhaps this really shouldn't be
