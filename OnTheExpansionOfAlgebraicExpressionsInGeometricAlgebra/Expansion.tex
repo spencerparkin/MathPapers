@@ -52,7 +52,7 @@ Abstract goes here...
 \section{Introduction}
 
 While the expansion of algebraic expressions taken from, say, a polynomial ring, are found as a trivial matter
-of applying the associative and distributive properties, and combining like-terms, it is interesting to note
+of applying the associative, commutative and distributive properties, and combining like-terms, it is interesting to note
 that this is certainly not true of expressions taken from a geometric algebra.\footnote{Factoring may be thought of as the problem opposite of and more
 interesting than that of expansion.  In geometric algebra, however, expansion is not entirely trivial, and therefore a subject of interest.}
 In this paper, a general stratagy, or algorithm, if you will, is given for the expansion of such expressions, and it is shown that
@@ -86,9 +86,10 @@ spade is invertible with respect to the geometric product.  They are important t
 because they appear more often in consideration of the typical expression taken from a geometric algebra.
 Put a better way, versors are a special case of spade, and we want to keep our discussion as generally applicable as possible.
 
-As this paper moves along, references will be made to Section~\ref{sec_identities_appendix}, which the reader may wish to skim before continuing.
+As this paper moves along, references will be made to Section~\ref{sec_identities_appendix}, which readers less familiar with geometric
+algebra may wish to visit before continuing.
 No axiomatic development of geometric algebra is given in this paper, but Section~\ref{sec_identities_appendix} does serve to releave the main
-body of the paper from finer details that would otherwise complicate and obfuscate the derivisions being made.  For an axiomatic
+body of the paper from finer details that would otherwise complicate or obfuscate the derivisions being made.  For an axiomatic
 development of geometric algebra, see \cite{}.
 
 \section{Symmetry Between The Outer And Geometric Products}
@@ -108,7 +109,9 @@ sum-of-spades form, but what of the element $a\wedge b$?  Rearranging \eqref{equ
 a\wedge b = -a\cdot b + ab,
 \end{equation}
 showing that it too may be written as a sum of blades or that of spades.  Indeed, one aim of this paper
-is to show that while every element has a sum-of-blades form, they too each have a sum-of-spades form.
+is to show that the sum-of-spades form of every element is as natural and perhaps as important as its sum-of-blades form.
+Existence of the sum-of-spades form for every element is easily proven, as we'll see by equation \eqref{} later on.  Nothing
+of uniquess of either form up to scale and term-ordering is addressed in this paper, but may be worth investigation.
 
 \subsection{The Inner Product And Sums Of Blades}
 
@@ -126,18 +129,37 @@ a\cdot B_r
 Here, we've gone from equation \eqref{a_dot_Br_stepA} to that of \eqref{a_dot_Br_stepB} by
 applying the identity given in equation \eqref{equ_a_dot_b_wedge_Br_identity}.
 
-Applied recursively, it is easy to see here from equation \eqref{equ_a_dot_Br_recursive} that the expansion of
+Applied recursively, it is easy to see here from equation \eqref{equ_a_dot_Br_recursive} that an expansion of
 $a\cdot B_r$ as a sum of blades is given by
 \begin{equation}\label{equ_a_dot_Br_sum_of_blades}
-a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{j=1,j\neq i}^r b_j.
+a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{\substack{j=1\\j\neq i}}^r b_j.
 \end{equation}
 One might also simply use equation \eqref{equ_a_dot_Br_recursive} to give an inductive
 argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
 
-% Can we prove this is a blade of grade r-1?
-
 Notice that for all $r>0$, the term $\langle B_r\rangle_0a$ vanishes in equation \eqref{equ_a_dot_Br_sum_of_blades},
 yet its presence allows us the case $r=0$ if we define the summation to be zero in the vacuous case.
+
+Having established equation \eqref{equ_a_dot_Br_sum_of_blades}, we must now show that $a\cdot B_r$ is,
+although it is certainly not immediately obvious, a blade of grade $r-1$.  To that end, we write, for all $r>1$,
+\begin{equation*}
+a\cdot B_r = (a\cdot B_{r-1})\wedge\left(b_r - \frac{a\cdot b_r}{a\cdot b_{r-1}}b_{r-1}\right),
+\end{equation*}
+with the understanding that if $a\cdot b_{r-1}$ is zero, we can anti-commute vector factors in equation \eqref{equ_a_dot_Br_sum_of_blades}
+until this is the case, or else $a\cdot B_r$ is zero anyway.
+An inductive argument can now be easily made that $a\cdot B_r$ is indeed a blade of grade $r-1$.
+Notice that this proof works in any geometric algebra, regardless of the associated bilinear form.  In a euclidean geometric
+algebra, an easier proof is had by writing
+\begin{equation*}
+a\cdot B_r = (a_{\perp} + a_{\parallel})\cdot B_r = a_{\parallel}\cdot B_r,
+\end{equation*}
+where $a_{\perp}$ is the orthogonal rejection $a$ from $B_r$, while $a_{\parallel}$ is the
+orthogonal projection of $a$ down onto $B_r$.  The blade $B_r$ can now be orthogonalized,
+with $a_{\parallel}$ as a principle factor, using the Gram-Schmidt orthogonalization process.\footnote{This process
+cannot always be performed on blades taken from a non-euclidean geometric algebra.  To see this, consider rewriting
+$a\wedge b$ as $a\wedge(b+\lambda a)$ where $a\cdot(b+\lambda a)=0$.  In a non-euclidean geometric algebra,
+no such scalar $\lambda$ may exist.  For a description of the Gram-Schmidt process, see \cite{}.}
+This factor then falls out quite easily, and we're left with a blade of grade $r-1$.
 
 Recall now that for any pair of blades $B_r,C_s$, of grades $r$ and $s$, respectively, that
 \begin{equation*}
@@ -145,11 +167,11 @@ B_r\cdot C_s = \langle B_rC_s\rangle_{|r-s|}.
 \end{equation*}
 It is not hard to show that the part of smallest possible grade that can appear in the expansion of $B_rC_s$ is $|r-s|$.
 Suppose $r<s$ and consider rewriting $B_r$ as a sum of spades.  Then, the
-spade of highest possible rank is no greater than $r$, showing that by equation \eqref{equ_a_dot_Br_sum_of_blades}
-the grade of $s$ can be diminished by at most $r$.  Similarly, if $s<r$, the grade $r$ can be diminished by at most $s$.
+spade of highest possible rank appearing in the sum is no greater than $r$, showing that by equation \eqref{equ_a_dot_Br_sum_of_blades}
+the grade $s$ can be diminished by at most $r$.  Similarly, if $s<r$, the grade $r$ can be diminished by at most $s$.
 
 So to calculate $B_r\cdot C_s$, we could rewrite each of $B_r$ and $C_s$ as sums of spades, distribute, and
-then rewrite the resulting sum of spades as a sum of blades, but this, as in many other similar cases, would be highly innefficient in the face of
+then rewrite the resulting sum of spades as a sum of blades; but this, as in many other similar cases, would be highly innefficient in the face of
 an identity that could take us to the desired result without the need to convert to and from a sum-of-spades form.
 Hoping for a better way, we, for all $1<r\leq s$, write
 \begin{align}
@@ -157,9 +179,41 @@ B_r\cdot C_s &= \langle B_rC_s\rangle_{s-r}\nonumber \\
  &= \langle (B_{r-1}\wedge b_r)C_s\rangle_{s-r} + \langle (B_{r-1}\cdot b_r)C_s\rangle_{s-r}\nonumber \\
  &= \langle B_{r-1}b_rC_s\rangle_{s-r}\nonumber \\
  &= \langle B_{r-1}(b_r\cdot C_s)\rangle_{s-r} + \langle B_{r-1}(b_r\wedge C_s)\rangle_{s-r}\nonumber \\
- &= B_{r-1}\cdot(b_r\cdot C_s).
+ &= B_{r-1}\cdot(b_r\cdot C_s).\label{equ_B_r_dot_C_s_r_less_s}
 \end{align}
-We need to justify why we need $r\leq s$ here, but I'm too tired to figure it out at the moment.
+To see this, we begin by noting that since $r\leq s$, we know that
+\begin{equation*}
+\langle(B_{r-1}\cdot b_r)C_s\rangle_{s-r}=0
+\end{equation*}
+as its only possible non-zero part of smallest grade would have grade
+\begin{equation*}
+|(r-2)-s|=s-r+2.
+\end{equation*}
+Similarly, we know that
+\begin{equation*}
+\langle B_{r-1}(b_r\wedge C_s)\rangle_{s-r}=0
+\end{equation*}
+as its only possible non-zero part of smallest grade would have grade
+\begin{equation*}
+|(r-1)-(s+1)| = s-r+2.
+\end{equation*}
+Lastly, we know that
+\begin{equation*}
+\langle B_{r-1}(b_r\cdot C_s)\rangle_{s-r} = B_{r-1}\cdot(b_r\cdot C_s),
+\end{equation*}
+by reason that
+\begin{equation*}
+|(r-1)-(s-1)|=s-r.
+\end{equation*}
+Similar reasoning as what led us to equation \eqref{equ_B_r_dot_C_s_r_less_s} also leads us to equation \eqref{equ_B_r_dot_C_s_s_less_r}.
+For all $1<s\leq r$, we have
+\begin{equation}\label{equ_B_r_dot_C_s_s_less_r}
+B_r\cdot C_s = (B_r\cdot c_1)\cdot\bigwedge_{i=2}^s c_i.
+\end{equation}
+
+At this point we have covered everything we would need to know to take any sum of blades in the inner
+product with any other such sum and produce yet another sum of blades.  Now we move on with a consideration
+of the inner product and sums of spades.
 
 \subsection{The Inner Product And Sums Of Spades}
 
@@ -202,10 +256,11 @@ a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
 \end{align}
 Note the use of equation \eqref{equ_gr_zero_part_of_Mr} here in our arrival at equation \eqref{equ_a_dot_Mr_recursive}.
 
-Applied recursively, it is now easy to see from equation \eqref{equ_a_dot_Mr_recursive} that the expansion of
-$a\cdot M_r$ as a sum of spades is given by
+Applied recursively, it is now easy to see from equation \eqref{equ_a_dot_Mr_recursive} that an expansion of
+$a\cdot M_r$ as a sum of spades is given by\footnote{Interestingly, equation \eqref{equ_a_dot_Mr_sum_of_spades} shows
+that spades, like blades, are natural represenatives of geometric sets.  An explanation of geometric sets is given in \cite{}.}
 \begin{equation}\label{equ_a_dot_Mr_sum_of_spades}
-a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^r(a\cdot m_i)\prod_{j=1,j\neq i}^rm_j.
+a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^r(a\cdot m_i)\prod_{\substack{j=1\\j\neq i}}^rm_j.
 \end{equation}
 To see this, consider an inductive argument.  The cases $r=0$ and $r=1$ follow trivially by inspection.
 Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_spades} holds for a fixed case $r-1$.
@@ -216,8 +271,8 @@ our proof by induction.
 % Can we show that a.M_r is a spade of rank r-1?
 
 It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
-Indeed, the outer and geometric products do appear to have some natural symmetry between them.  But perhaps this really shouldn't be
-too supprising after one compares equation \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} with that of \eqref{equ_a_wedge_b_is_neg_a_dot_b_and_ab}.
+Indeed, the outer and geometric products do appear to have some natural symmetry between them.  But perhaps this really shouldn't have been
+too supprising after comparing equations \eqref{equ_ab_is_a_dot_b_and_a_wedge_b} and \eqref{equ_a_wedge_b_is_neg_a_dot_b_and_ab}.
 
 % We're not done here.  We need to address (abc...).M_r = (a.(b.(c. ... M_r)...)).
 
