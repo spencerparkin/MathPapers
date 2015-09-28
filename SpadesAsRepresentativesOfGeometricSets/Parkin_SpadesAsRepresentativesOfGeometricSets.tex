@@ -50,8 +50,9 @@ Abstract...
 
 \section{Introduction And Motivation}
 
-In \cite{Parkin15} it was shown how \emph{blades} taken from a geometric algebra may be representative of geometric sets.
-In this paper we show how \emph{spades} taken from a geometric algebra may also be representative of such sets.
+In \cite{Parkin15} it was shown how \emph{blades} taken from a geometric algebra are representative of geometric sets.
+In this paper we show how \emph{spades} taken from a geometric algebra may serve as alternative means of representing of such sets.
+We'll find that this has some interesting applications in the conformal model.
 
 So what is a spade?  Table~\ref{tbl_terms} below gives a definition of this new term among a few of its traditional counter-parts.
 
@@ -96,7 +97,7 @@ that a representation of geometric sets can be accomplished by spades as well as
 Letting $p:\R^n\to\V$ be a non-zero, vector-valued function from an $n$-dimensional space\footnote{The field of real numbers $\R$ is most typically used.
 However, there are often advantages to using the complex numbers $\C$ instead as they form an algebraicly closed field.} to the vector
 space $\V$ generating our geometric algebra $\G$, recall from \cite{Parkin15} the characterization of a geometric set as being the largest sub-set of $\R^n$
-over which $p$ vanishes in the inner product with any given blade $B_r\in\G$ of grade $r>0$.  In set builder notation, we would write
+over which $p$ vanishes in the inner product with any given blade $B_r\in\G$ of grade $r>0$.  In set-builder notation, we would write
 \begin{equation*}\label{equ_indirect_blade_def}
 \gd(B_r) = \{x\in\R^n|p(x)\cdot B_r=0\}.
 \end{equation*}
@@ -127,7 +128,19 @@ In \cite{Parkin15} the concept of irreducibility was established, and it was sho
 geometric set, there existed, up to scale, a unique irreducible blade representative of that set.
 This irreducible blade is also a sub-space of every other blade representative of the same set.
 Having now a direct (equation \eqref{equ_direct_spade_def}) and indirect (equation \eqref{equ_indirect_spade_def}) way of representing geometric sets with spades,
-it stands to reason whether there exists a similar result concerning spades.
+it stands to reason whether there exists a similar result concerning them.
+
+% Leaverage what we know about irreducible blades?  The corresponding spade may be irreducible.
+
+% Also show that spades transform the same way blades do.  It's actually easier than the outermorphic property.
+
+% Prove something set-theoretic about the resulting geometric set indirectly represented by spades taken in the geometric product.
+% I think the result just always contains the intersection.  What can there be said about the direct representation?
+
+\section{Applications In The Conformal Model}
+
+After all that's been said, why might we care to use spades in place of blades?  Well, here, while investigating the use of
+spades in the conformal model, each example will illustrate the potential advantage that doing so may have.
 
 \section{Proof Of Identities}
 
