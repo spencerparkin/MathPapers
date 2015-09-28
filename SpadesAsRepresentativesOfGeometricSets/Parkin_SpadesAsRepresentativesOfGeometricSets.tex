@@ -1,0 +1,123 @@
+\documentclass{birkjour}
+
+\usepackage{float}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{Spades As Representatives Of Geometric Sets}
+
+\author{Spencer T. Parkin}
+\email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\keywords{Key words...}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+In \cite{Parkin15} it was shown how \emph{blades} taken from a geometric algebra may be representative of geometric sets.
+In this paper we show how \emph{spades} taken from a geometric algebra may also be representative of such sets.
+
+So what is a spade?  Table~\ref{tbl_terms} to follow gives a definition of this new term among a few of its traditional counter-parts.
+
+\begin{table}[H]\label{tbl_terms}\caption{A few terms used in GA}
+\begin{tabular}{p{1cm}p{9cm}}
+Term & Definition \\
+\hline
+Blade & An outer product of zero or more linearly-independent vectors. \\
+Versor & A geometric product of zero or more invertible vectors, not necessarily forming a linearly-independent set. \\
+Spade & A geometric product of zero or more vectors, not necessarily forming a linearly-independent set.
+\end{tabular}
+\end{table}
+
+The difference between ``versor'' and ``spade'' is a subtle one, but important.  We will not require that each vector
+in the product be invertible.  It is the invertibility of the geometric product, however, that provides us with perhaps the
+greatest motivation to use spades, as apposed to blades, as representatives of geometric sets.
+
+Similar to the concept of grade, that of rank will be introduced in this paper with respect to spades.  As an $r$-blade
+refers to a blade of grade $r$, we will let an $r$-spade refer to a spade of rank $r$.  If an element of a geomtric
+algebra can be written as any geometric product of vectors, then it is a spade.  The rank of that spade is then the smallest
+possible number of vectors for which it can be written as such a product.\footnote{While the correctness of many identities of this paper
+do not require a spade to be written in the most compact form, the concept of rank would be ill-defined without its consideration.}   Note that blades of grade zero
+are indistinguishable from spades of the same rank as each denotes the set of all scalars.
+
+\section{Representation By Blades And Spades}
+
+Letting $a$ denote a vector, and $B_r$ a blade of grade $r$ having factorization $\bigwedge_{i=1}^r b_i$, recall
+the following identity, albeit in what may be a slightly unfamiliar form.
+\begin{equation}\label{equ_a_dot_Br_sum_of_blades}
+a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{\substack{j=1\\j\neq i}}^rb_i
+\end{equation}
+Fascinatingly, replacing every instance of the outer product in equation \eqref{equ_a_dot_Br_sum_of_blades} with
+a geometric product gives us a new identity, equation \eqref{equ_a_dot_Mr_sum_of_spades}, which does indeed hold.  Letting $M_r$ denote
+a spade of at most rank $r$, having a factorization of $\prod_{i=1}^r m_i$, we have
+\begin{equation}\label{equ_a_dot_Mr_sum_of_spades}
+a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot m_i)\prod_{\substack{j=1\\j\neq i}}^rm_j.
+\end{equation}
+At this point it is immediately clear by a comparison of equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_spades}
+that a representation of geometric sets can be accomplished by spades as well as by blades.  We now go on to formalize this notion.
+
+Letting $p:\R^n\to\V$ be a vector-valued function from an $n$-dimensional space\footnote{The field of real numbers $\R$ is most typically used.
+However, there are often advantages to using the complex numbers $\C$ instead as they form an algebraicly closed field.} to the vector
+space $\V$ generating our geometric algebra $\G$, recall from \cite{Parkin15} the characterization of a geometric set as being the largest sub-set of $\R^n$
+over which $p$ vanishes in the inner product with any given blade $B_r\in\G$ of grade $r>0$.  In set builder notation, we would write
+\begin{equation*}
+\gd(B_r) = \{x\in\R^n|p(x)\cdot B_r=0\}.
+\end{equation*}
+Now letting each $m_i=b_i$, and defining
+\begin{equation*}
+\Gd(M_r) = \{x\in\R^n|p(x)\cdot M_r=\langle M_r\rangle_0p(x)\},
+\end{equation*}
+we see, by equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_spades}, that
+\begin{equation*}
+\Gd(M_r) = \bigcap_{i=1}^r\Gd(m_i) = \bigcap_{i=1}^r\gd(b_i) = \gd(B_r).
+\end{equation*}
+This shows that every geometric set has a spade representative of that set.
+
+\section{Proof Of Identities}
+
+\begin{thebibliography}{9}
+
+\bibitem{Parkin15}
+S. Parkin,
+\emph{An Introduction To Geometric Sets}.
+Advances in Applied Clifford Algebras, Volume 25, Issue Unknown, pp. 639-655, 2015.
+
+\end{thebibliography}
+
+\end{document}
