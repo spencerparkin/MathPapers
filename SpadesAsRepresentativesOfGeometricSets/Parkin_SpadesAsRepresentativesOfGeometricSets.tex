@@ -53,7 +53,7 @@ Abstract...
 In \cite{Parkin15} it was shown how \emph{blades} taken from a geometric algebra may be representative of geometric sets.
 In this paper we show how \emph{spades} taken from a geometric algebra may also be representative of such sets.
 
-So what is a spade?  Table~\ref{tbl_terms} to follow gives a definition of this new term among a few of its traditional counter-parts.
+So what is a spade?  Table~\ref{tbl_terms} below gives a definition of this new term among a few of its traditional counter-parts.
 
 \begin{table}[H]\label{tbl_terms}\caption{A few terms used in GA}
 \begin{tabular}{p{1cm}p{9cm}}
@@ -74,7 +74,8 @@ refers to a blade of grade $r$, we will let an $r$-spade refer to a spade of ran
 algebra can be written as any geometric product of vectors, then it is a spade.  The rank of that spade is then the smallest
 possible number of vectors for which it can be written as such a product.\footnote{While the correctness of many identities of this paper
 do not require a spade to be written in the most compact form, the concept of rank would be ill-defined without its consideration.}   Note that blades of grade zero
-are indistinguishable from spades of the same rank as each denotes the set of all scalars.
+are indistinguishable from spades of the same rank as each denotes the set of all scalars.  Similarly, blades of grade one and spades of rank one
+each refer to the set of all vectors.
 
 \section{Representation By Blades And Spades}
 
@@ -92,24 +93,56 @@ a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot m_i)\prod_{\subst
 At this point it is immediately clear by a comparison of equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_spades}
 that a representation of geometric sets can be accomplished by spades as well as by blades.  We now go on to formalize this notion.
 
-Letting $p:\R^n\to\V$ be a vector-valued function from an $n$-dimensional space\footnote{The field of real numbers $\R$ is most typically used.
+Letting $p:\R^n\to\V$ be a non-zero, vector-valued function from an $n$-dimensional space\footnote{The field of real numbers $\R$ is most typically used.
 However, there are often advantages to using the complex numbers $\C$ instead as they form an algebraicly closed field.} to the vector
 space $\V$ generating our geometric algebra $\G$, recall from \cite{Parkin15} the characterization of a geometric set as being the largest sub-set of $\R^n$
 over which $p$ vanishes in the inner product with any given blade $B_r\in\G$ of grade $r>0$.  In set builder notation, we would write
-\begin{equation*}
+\begin{equation*}\label{equ_indirect_blade_def}
 \gd(B_r) = \{x\in\R^n|p(x)\cdot B_r=0\}.
 \end{equation*}
-Now letting each $m_i=b_i$, and defining
-\begin{equation*}
+Now, letting each $m_i=b_i$, and defining
+\begin{equation}\label{equ_indirect_spade_def}
 \Gd(M_r) = \{x\in\R^n|p(x)\cdot M_r=\langle M_r\rangle_0p(x)\},
-\end{equation*}
+\end{equation}
 we see, by equations \eqref{equ_a_dot_Br_sum_of_blades} and \eqref{equ_a_dot_Mr_sum_of_spades}, that
-\begin{equation*}
+\begin{equation*}\label{equ_direct_blade_def}
 \Gd(M_r) = \bigcap_{i=1}^r\Gd(m_i) = \bigcap_{i=1}^r\gd(b_i) = \gd(B_r).
 \end{equation*}
-This shows that every geometric set has a spade representative of that set.
+This shows that, under the definition given by equation \eqref{equ_indirect_spade_def}, every geometric set has a spade representative as well as that of a blade.
+
+Recalling now that
+\begin{equation}\label{equ_direct_blade_def}
+\gh(B_r) = \{x\in\R^n|p(x)\wedge B_r=0\},
+\end{equation}
+it is not hard to show that $\gh(B_r)=\gd(B_rI)$,
+where $I$ is the unit-psuedo-scalar of our geometric algebra $\G$.
+In the case that $M_rI$ is also a spade, this prompts in us an investigation of $\Gd(M_rI)$.
+If $I$ is a spade, then clearly $M_rI$ is a spade, and one of rank at most $q+r$, where $q=\grade(I)$.
+Using equation \eqref{}, we then find that $\Gd(M_rI)=\Gh(M_r)$, where
+\begin{equation}\label{equ_direct_spade_def}
+\Gh(M_r) = \{x\in\R^n|p(x)\wedge M_r=(-1)^q\langle M_r\rangle_q p(x)\}.
+\end{equation}
+
+In \cite{Parkin15} the concept of irreducibility was established, and it was shown that for every
+geometric set, there existed, up to scale, a unique irreducible blade representative of that set.
+This irreducible blade is also a sub-space of every other blade representative of the same set.
+Having now a direct (equation \eqref{equ_direct_spade_def}) and indirect (equation \eqref{equ_indirect_spade_def}) way of representing geometric sets with spades,
+it stands to reason whether there exists a similar result concerning spades.
 
 \section{Proof Of Identities}
+
+% Gory details.
+
+% Be sure to double check all calculations here and my treatment of grade-k parts as k-blades when they are actually k-vectors.
+% That may work out okay, due to linearity.
+
+\begin{equation}
+a\cdot B_rI = (a\wedge B_r)I
+\end{equation}
+
+\begin{equation}
+a\cdot M_rI = (a\wedge M_r)I
+\end{equation}
 
 \begin{thebibliography}{9}
 
