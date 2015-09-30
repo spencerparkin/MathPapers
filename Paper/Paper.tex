@@ -1,0 +1,156 @@
+\documentclass{birkjour}
+
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+\newcommand{\rank}{\mbox{rank}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{Untitled}
+
+\author{Spencer T. Parkin}
+\email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\keywords{Key words...}
+
+\maketitle
+
+\begin{defn}[Spade]\label{def_spade}
+An element $M\in\G$ is a \emph{spade} if it can be written as the geometric
+product of zero or more vectors.
+\end{defn}
+
+It follows from Definition~\ref{def_spade} that all versors are spades, but not all spades are versors.
+Furthermore, while the set of all spades of $\G$ enjoys closure under the geometric product, this set,
+unlike the set of versors of $\G$, does not form a group.
+
+\begin{defn}[Spade Rank/Compact Spade Form]\label{def_spader_rank}
+The \emph{rank} of a spade $M\in\G$, denoted $\rank(M)$, is the smallest number of vectors for which $M$ can
+be written as a geometric product of such.  If a spade $M_r\in\G$ has factorization
+\begin{equation*}
+M_r=\prod_{i=1}^r m_i,
+\end{equation*}
+we say that it is written in \emph{compact form} if $\rank(M_r)=r$.
+\end{defn}
+
+Many identities involving a spade $M_r$ hold whether or not it is written in compact form.
+
+\begin{defn}[Dull/Sharp Spade]
+A spade $M\in\G$ is \emph{sharp} if the grade $\rank(M)$ part of $M$ is non-zero, and \emph{dull} otherwise.
+\end{defn}
+
+If $M_r$ is a sharp blade written in compact form, it then follows that
+\begin{equation*}
+\langle M_r\rangle_r = \bigwedge_{i=1}^r m_i.
+\end{equation*}
+
+\begin{defn}[Ideal Spade Form]
+Letting $M_r^{(i)}$ denote the spade
+\begin{equation*}
+M_r^{(i)}=\prod_{\substack{j=1\\j\neq i}}^r m_j,
+\end{equation*}
+a spade $M_r\in\G$ is written in \emph{ideal form} when the set of $r$ spades $\{M_r^{(i)}\}_{i=1}^r$
+is a linearly independent set.
+\end{defn}
+
+Clearly, every spade can be written in compact form.
+At this point, however, it is not clear whether every spade can be written in ideal form.
+We will address this in Lemma~\ref{}.
+
+\begin{lem}\label{lem_lin_indep_blades}
+For every non-zero $r$-blade $B_r\in\G$, having factgorization
+\begin{equation*}
+B_r = \bigwedge_{i=1}^r b_i,
+\end{equation*}
+the set of $(r-1)$-blades $\{B_r^{(i)}\}_{i=1}^r$, where
+\begin{equation*}
+B_r^{(i)}=\bigwedge_{\substack{j=1\\j\neq i}}^r b_j,
+\end{equation*}
+is a linearly independent set.
+\end{lem}
+\begin{proof}
+Supposing to the contrary, let
+\begin{equation*}
+B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\beta_i B_r^{(i)}.
+\end{equation*}
+Now notice that while $0\neq B_r=B_{r-1}\wedge b_r$, we have $B_r^{(r)}\wedge b_r=0$, which
+is clearly a contradiction.
+\end{proof}
+
+\begin{lem}\label{lem_solution_intersection}
+Given any spade $M_r$, the set of all solution sets $\{\alpha_i\}_{i=1}^r$ of the equation
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i M_r^{(i)}
+\end{equation*}
+is the intersection of all sets of solution sets of the equations
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j,
+\end{equation*}
+for all integers $j\in[0,r]$.
+\end{lem}
+\begin{proof}
+This is a simple consequence of there being no possibility of cancelation between elements of differing grade.
+\end{proof}
+
+\begin{lem}\label{lem_lin_indep_sharp_blades}
+Every sharp spade written in compact form is also written in ideal form.
+\end{lem}
+\begin{proof}
+Let $M_r$ be a sharp spade written in compact form.  It follows that
+$\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, and so any
+one of its subsets is also linearly independent.  By Lemma~\ref{lem_lin_indep_blades},
+it now follows that $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+The linear independence of the set $\{M_r^{(i)}\}_{i=1}^r$ now follows by Lemma~\ref{lem_solution_intersection}.
+\end{proof}
+
+% M_r compact ==> M_{r-1} compact
+% M_r sharp ==> M_{r-1} sharp?  Yes, clearly.
+
+\pagebreak
+\begin{lem}
+If $M_r$ is a dull spade written in compact form, but $M_{r-1}$ is sharp, then
+$M_r$ is also written in ideal form.
+\end{lem}
+\begin{proof}
+Being careful, it should be possible to find the expansion of $\langle M_r\rangle_{r-2}$.
+\end{proof}
+
+\begin{thm}
+Every spade, sharp or dull, written in compact form is also written in ideal form.
+\end{thm}
+\begin{proof}
+\end{proof}
+
+\end{document}
