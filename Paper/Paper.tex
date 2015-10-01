@@ -101,12 +101,15 @@ B_r^{(i)}=\bigwedge_{\substack{j=1\\j\neq i}}^r b_j,
 is a linearly independent set.
 \end{lem}
 \begin{proof}
-Supposing to the contrary, let
+Supposing to the contrary, and without loss of generality, let
 \begin{equation*}
-B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\beta_i B_r^{(i)}.
+B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i B_r^{(i)}.
 \end{equation*}
-Now notice that while $0\neq B_r=B_{r-1}\wedge b_r$, we have $B_r^{(r)}\wedge b_r=0$, which
-is clearly a contradiction.
+Now notice that
+\begin{equation*}
+0\neq B_r = B_{r-1}\wedge b_r = B_r^{(r)}\wedge b_r = \left(\sum_{i=1}^{r-1}\alpha_i B_r^{(i)}\right)\wedge b_r = 0,
+\end{equation*}
+which is clearly a contradiction.
 \end{proof}
 
 \begin{lem}\label{lem_solution_intersection}
@@ -125,10 +128,10 @@ This is a simple consequence of there being no possibility of cancelation betwee
 \end{proof}
 
 \begin{lem}\label{lem_lin_indep_sharp_blades}
-Every sharp spade written in compact form is also written in ideal form.
+Every sharp spade having rank greater than one, and written in compact form, is also written in ideal form.
 \end{lem}
 \begin{proof}
-Let $M_r$ be a sharp spade written in compact form.  It follows that
+Let $M_r$ be a sharp spade written in compact form with $r>1$.  It follows that
 $\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, and so any
 one of its subsets is also linearly independent.  By Lemma~\ref{lem_lin_indep_blades},
 it now follows that $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
@@ -138,7 +141,6 @@ The linear independence of the set $\{M_r^{(i)}\}_{i=1}^r$ now follows by Lemma~
 % M_r compact ==> M_{r-1} compact
 % M_r sharp ==> M_{r-1} sharp?  Yes, clearly.
 
-\pagebreak
 \begin{lem}
 If $M_r$ is a dull spade written in compact form, but $M_{r-1}$ is sharp, then
 $M_r$ is also written in ideal form.
@@ -147,10 +149,10 @@ $M_r$ is also written in ideal form.
 Being careful, it should be possible to find the expansion of $\langle M_r\rangle_{r-2}$.
 \end{proof}
 
-\begin{thm}
-Every spade, sharp or dull, written in compact form is also written in ideal form.
-\end{thm}
-\begin{proof}
-\end{proof}
+%\begin{thm}
+%Every spade, sharp or dull, written in compact form is also written in ideal form.
+%\end{thm}
+%\begin{proof}
+%\end{proof}
 
 \end{document}
