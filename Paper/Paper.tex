@@ -90,7 +90,7 @@ At this point, however, it is not clear whether every spade can be written in id
 We will address this in Lemma~\ref{}.
 
 \begin{lem}\label{lem_lin_indep_blades}
-For every non-zero $r$-blade $B_r\in\G$, having factgorization
+For every non-zero $r$-blade $B_r\in\G$, with $r>1$, and having factorization
 \begin{equation*}
 B_r = \bigwedge_{i=1}^r b_i,
 \end{equation*}
@@ -103,7 +103,7 @@ is a linearly independent set.
 \begin{proof}
 Supposing to the contrary, and without loss of generality, let
 \begin{equation*}
-B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i B_r^{(i)}.
+B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i B_r^{(i)} = \left(\sum_{i=1}^{r-1}\alpha_i B_{r-1}^{(i)}\right)\wedge b_r.
 \end{equation*}
 Now notice that
 \begin{equation*}
@@ -117,42 +117,36 @@ Given any spade $M_r$, the set of all solution sets $\{\alpha_i\}_{i=1}^r$ of th
 \begin{equation*}
 0 = \sum_{i=1}^r\alpha_i M_r^{(i)}
 \end{equation*}
-is the intersection of all sets of solution sets of the equations
+is, for all integers $j\in[0,r]$, the intersection of all sets of solution sets of the equations
 \begin{equation*}
-0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j,
+0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j.
 \end{equation*}
-for all integers $j\in[0,r]$.
 \end{lem}
 \begin{proof}
 This is a simple consequence of there being no possibility of cancelation between elements of differing grade.
 \end{proof}
 
-\begin{lem}\label{lem_lin_indep_sharp_blades}
-Every sharp spade having rank greater than one, and written in compact form, is also written in ideal form.
-\end{lem}
-\begin{proof}
-Let $M_r$ be a sharp spade written in compact form with $r>1$.  It follows that
-$\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, and so any
-one of its subsets is also linearly independent.  By Lemma~\ref{lem_lin_indep_blades},
-it now follows that $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
-The linear independence of the set $\{M_r^{(i)}\}_{i=1}^r$ now follows by Lemma~\ref{lem_solution_intersection}.
-\end{proof}
-
 % M_r compact ==> M_{r-1} compact
 % M_r sharp ==> M_{r-1} sharp?  Yes, clearly.
 
-\begin{lem}
-If $M_r$ is a dull spade written in compact form, but $M_{r-1}$ is sharp, then
-$M_r$ is also written in ideal form.
+\begin{lem}\label{lem_lin_indep_spades}
+Every spade, sharp or dull, of rank $r>1$, that is written in compact form is also written in ideal form.
 \end{lem}
 \begin{proof}
-Being careful, it should be possible to find the expansion of $\langle M_r\rangle_{r-2}$.
-\end{proof}
+Supposing to the contrary, and without loss of generlaity, let
+\begin{equation*}
+M_{r-1} = M_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i M_r^{(i)}.
+\end{equation*}
+Now, by Lemma~\ref{lem_solution_intersection}, we need only show that
+for some integer $j\in[0,r-1]$, there is no solution in each $\alpha_i$ to the equation
+\begin{equation*}
+\langle M_{r-1}\rangle_j = \langle M_r^{(r)}\rangle_j = \sum_{i=1}^{r-1}\alpha_i \langle M_r^{(i)}\rangle_j.
+\end{equation*}
+In the case that $M_r$ is sharp, it follows that for each $i\in[1,r]$ that $M_r^{(i)}$ is sharp, and
+we reach the same contradiction here for $j=r-1$ as we did in Lemma~\ref{lem_lin_indep_blades}.
 
-%\begin{thm}
-%Every spade, sharp or dull, written in compact form is also written in ideal form.
-%\end{thm}
-%\begin{proof}
-%\end{proof}
+Suppose now that $M_r$ is dull, but $M_{r-1}$ is sharp.  This is very hard...
+
+\end{proof}
 
 \end{document}
