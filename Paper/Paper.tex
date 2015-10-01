@@ -86,8 +86,7 @@ is a linearly independent set.
 \end{defn}
 
 Clearly, every spade can be written in compact form.
-At this point, however, it is not clear whether every spade can be written in ideal form.
-We will address this in Lemma~\ref{}.
+It is not clear, however, whether every spade can be written in ideal form.
 
 \begin{lem}\label{lem_lin_indep_blades}
 For every non-zero $r$-blade $B_r\in\G$, with $r>1$, and having factorization
@@ -129,24 +128,21 @@ This is a simple consequence of there being no possibility of cancelation betwee
 % M_r compact ==> M_{r-1} compact
 % M_r sharp ==> M_{r-1} sharp?  Yes, clearly.
 
-\begin{lem}\label{lem_lin_indep_spades}
-Every spade, sharp or dull, of rank $r>1$, that is written in compact form is also written in ideal form.
+\begin{lem}\label{lem_lin_indep_sharp_blades}
+Every sharp spade having rank greater than one, and written in compact form, is also written in ideal form.
 \end{lem}
 \begin{proof}
-Supposing to the contrary, and without loss of generlaity, let
-\begin{equation*}
-M_{r-1} = M_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i M_r^{(i)}.
-\end{equation*}
-Now, by Lemma~\ref{lem_solution_intersection}, we need only show that
-for some integer $j\in[0,r-1]$, there is no solution in each $\alpha_i$ to the equation
-\begin{equation*}
-\langle M_{r-1}\rangle_j = \langle M_r^{(r)}\rangle_j = \sum_{i=1}^{r-1}\alpha_i \langle M_r^{(i)}\rangle_j.
-\end{equation*}
-In the case that $M_r$ is sharp, it follows that for each $i\in[1,r]$ that $M_r^{(i)}$ is sharp, and
-we reach the same contradiction here for $j=r-1$ as we did in Lemma~\ref{lem_lin_indep_blades}.
-
-Suppose now that $M_r$ is dull, but $M_{r-1}$ is sharp.  This is very hard...
-
+Let $M_r$ be a sharp spade written in compact form with $r>1$.  It follows that
+$\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, and so any
+one of its subsets is also linearly independent.  By Lemma~\ref{lem_lin_indep_blades},
+it now follows that $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+The linear independence of the set $\{M_r^{(i)}\}_{i=1}^r$ now follows by Lemma~\ref{lem_solution_intersection}.
 \end{proof}
+
+Although it is likely that every spade, dull or sharp, written in compact form is also written in ideal form, proof
+of this statement will have to remain an open question as the present author was enable to resolve it.
+Notice that if $a,b\in\V$ are a pair of non-parallel, yet non-perpendicular vectors, then $aba$ is a dull spade of rank 3,
+and it is easy to show that it is in ideal form, which is to say that there is no non-trivial linear combination of $ab$ and $ba$
+that vanishes.
 
 \end{document}
