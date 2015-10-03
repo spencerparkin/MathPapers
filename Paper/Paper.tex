@@ -57,7 +57,8 @@ Furthermore, while the set of all spades of $\G$ enjoys closure under the geomet
 unlike the set of versors of $\G$, does not form a group.
 
 \begin{defn}[Spade Rank/Compact Spade Form]\label{def_spader_rank}
-The \emph{rank} of a spade $M\in\G$, denoted $\rank(M)$, is the smallest number of vectors for which $M$ can
+The \emph{rank} of a spade $M\in\G$, denoted $\rank(M)$, is the smallest number\footnote{This smallest number exists
+by the well-ordering principle.  See \cite{}.} of vectors for which $M$ can
 be written as a geometric product of such.  If a spade $M_r\in\G$ has factorization
 \begin{equation*}
 M_r=\prod_{i=1}^r m_i,
@@ -66,34 +67,25 @@ we say that it is written in \emph{compact form} if $\rank(M_r)=r$.
 \end{defn}
 
 Many identities involving a spade $M_r$ hold whether or not it is written in compact form.
+It is even more important, however, to realize that every spade $M_r$ can be rewritten in a compact form
+if not already in such a form.
 
-\begin{defn}[Dull/Sharp Spade]
-A spade $M\in\G$ is \emph{sharp} if the grade $\rank(M)$ part of $M$ is non-zero, and \emph{dull} otherwise.
-\end{defn}
-
-If $M_r$ is a sharp blade written in compact form, it then follows that
+\begin{lem}\label{lem_compact_lin_indep}
+For any given spade $M_r\in\G$, $\rank(M_r)=r$ if and only if
 \begin{equation*}
 \langle M_r\rangle_r = \bigwedge_{i=1}^r m_i.
 \end{equation*}
+\end{lem}
+\begin{proof}
+One direction is trivial.  The other is not!
+\end{proof}
 
-\begin{defn}[Ideal Spade Form]
-Letting $M_r^{(i)}$ denote the spade
-\begin{equation*}
-M_r^{(i)}=\prod_{\substack{j=1\\j\neq i}}^r m_j,
-\end{equation*}
-a spade $M_r\in\G$ is written in \emph{ideal form} when the set of $r$ spades $\{M_r^{(i)}\}_{i=1}^r$
-is a linearly independent set.
-\end{defn}
-
-Clearly, every spade can be written in compact form.
-It is not clear, however, whether every spade can be written in ideal form.
-
-\begin{lem}\label{lem_lin_indep_blades}
-For every non-zero $r$-blade $B_r\in\G$, with $r>1$, and having factorization
+\begin{lem}\label{lem_lin_indep_subblades}
+For every non-zero $r$-blade $B_r\in\G$ with $r>1$, and having factorization
 \begin{equation*}
 B_r = \bigwedge_{i=1}^r b_i,
 \end{equation*}
-the set of $(r-1)$-blades $\{B_r^{(i)}\}_{i=1}^r$, where
+the set of $(r-1)$-blades $\{B_r^{(i)}\}_{i=1}^r$, where the notation $B_r^{(i)}$ is given by
 \begin{equation*}
 B_r^{(i)}=\bigwedge_{\substack{j=1\\j\neq i}}^r b_j,
 \end{equation*}
@@ -118,31 +110,25 @@ Given any spade $M_r$, the set of all solution sets $\{\alpha_i\}_{i=1}^r$ of th
 \end{equation*}
 is, for all integers $j\in[0,r]$, the intersection of all sets of solution sets of the equations
 \begin{equation*}
-0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j.
+0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j,
+\end{equation*}
+where the notation $M_r^{(i)}$ is given by
+\begin{equation*}
+M_r^{(i)}=\prod_{\substack{j=1\\j\neq i}}^r m_j.
 \end{equation*}
 \end{lem}
 \begin{proof}
-This is a simple consequence of there being no possibility of cancelation between elements of differing grade.
+This is a simple consequence of there being no possibility of interference between elements of differing grade.
 \end{proof}
 
-% M_r compact ==> M_{r-1} compact
-% M_r sharp ==> M_{r-1} sharp?  Yes, clearly.
-
-\begin{lem}\label{lem_lin_indep_sharp_blades}
-Every sharp spade having rank greater than one, and written in compact form, is also written in ideal form.
+\begin{lem}
+For any given spade $M_r\in\G$ with $r>1$, if $\rank(M_r)=r$, then
+the set of spades $\{M_r^{(i)}\}_{i=1}^r$ is a linearly independent set.
 \end{lem}
 \begin{proof}
-Let $M_r$ be a sharp spade written in compact form with $r>1$.  It follows that
-$\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, and so any
-one of its subsets is also linearly independent.  By Lemma~\ref{lem_lin_indep_blades},
-it now follows that $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
-The linear independence of the set $\{M_r^{(i)}\}_{i=1}^r$ now follows by Lemma~\ref{lem_solution_intersection}.
+This follows easily in consideration of lemmas \ref{lem_compact_lin_indep}, \ref{lem_lin_indep_subblades} and \ref{lem_solution_intersection}.
 \end{proof}
 
-Although it is likely that every spade, dull or sharp, written in compact form is also written in ideal form, proof
-of this statement will have to remain an open question as the present author was enable to resolve it.
-Notice that if $a,b\in\V$ are a pair of non-parallel, yet non-perpendicular vectors, then $aba$ is a dull spade of rank 3,
-and it is easy to show that it is in ideal form, which is to say that there is no non-trivial linear combination of $ab$ and $ba$
-that vanishes.
+% Make use of <*>_a^b = sum_i <*>_i notation later on.
 
 \end{document}
