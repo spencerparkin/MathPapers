@@ -47,6 +47,10 @@ Abstract...
 
 \maketitle
 
+\section{A Treatment Of Spades}
+
+In what follows we will let $\V$ denote a vector space generating our geometric algebra $\G$.
+
 \begin{defn}[Spade]\label{def_spade}
 An element $M\in\G$ is a \emph{spade} if it can be written as the geometric
 product of zero or more vectors.
@@ -56,29 +60,65 @@ It follows from Definition~\ref{def_spade} that all versors are spades, but not 
 Furthermore, while the set of all spades of $\G$ enjoys closure under the geometric product, this set,
 unlike the set of versors of $\G$, does not form a group.
 
-\begin{defn}[Spade Rank/Compact Spade Form]\label{def_spader_rank}
-The \emph{rank} of a spade $M\in\G$, denoted $\rank(M)$, is the smallest number\footnote{This smallest number exists
-by the well-ordering principle.  See \cite{}.} of vectors for which $M$ can
+\begin{defn}[Spade Rank]\label{def_spader_rank}
+The \emph{rank} of a spade $M_r\in\G$, denoted $\rank(M_r)$, is the smallest number\footnote{This smallest number exists
+by the well-ordering principle.  See \cite{}.} of vectors for which $M_r$ can
 be written as a geometric product of such.  If a spade $M_r\in\G$ has factorization
-\begin{equation*}
+\begin{equation}\label{equ_M_r_factorization}
 M_r=\prod_{i=1}^r m_i,
-\end{equation*}
-we say that it is written in \emph{compact form} if $\rank(M_r)=r$.
+\end{equation}
+then it is not necessarily the case that $\rank(M_r)=r$.  However, such a factorization does exist.  Clearly, it
+would not be unique.
 \end{defn}
 
-Many identities involving a spade $M_r$ hold whether or not it is written in compact form.
-It is even more important, however, to realize that every spade $M_r$ can be rewritten in a compact form
-if not already in such a form.
+Many identities involving a spade $M_r$ hold whether or not $\rank(M_r)=r$.
+In any case, we will become interested in precisely what we can say about the
+vectors in $\{m_i\}_{i=1}^r$ when $\rank(M_r)$ is $r$.
 
-\begin{lem}\label{lem_compact_lin_indep}
-For any given spade $M_r\in\G$, $\rank(M_r)=r$ if and only if
+\begin{prop}\label{prop_spade_lin_indep}
+For any given non-zero spade $M_r\in\G$ with $r>0$,
 \begin{equation*}
-\langle M_r\rangle_r = \bigwedge_{i=1}^r m_i.
+\mbox{$\rank(M_r)=r$ if and only if $0\neq\bigwedge_{i=1}^r m_i$.}
 \end{equation*}
-\end{lem}
-\begin{proof}
-One direction is trivial.  The other is not!
-\end{proof}
+\end{prop}
+
+One direction of Proposition~\ref{prop_spade_lin_indep} is trivial to prove.  The other is not.  An outline of a proof follows.
+
+Given a spade $M_r\in\G$ with factorization \eqref{equ_M_r_factorization}, the set of $r$ vectors $\{m_i\}_{i=1}^r$
+is either a linearly independent set, or a linearly dependent set.  In the former case, it is clear that $\rank(M_r)=r$,
+because $0\neq\bigwedge_{i=1}^r m_i=\langle M_r\rangle_r$.
+In the latter case, we must show that $\rank(M_r)<r$.  To that end, let $s$ be the largest integer with $1\leq s<r$ such that
+$\{m_i\}_{i=1}^s$ is a linearly independent set, and write
+\begin{equation*}
+\left\langle\prod_{i=1}^{s+1} m_i\right\rangle_{s-1}=\left\langle\left(\prod_{i=1}^s m_i\right)\sum_{i=1}^s\alpha_i m_i\right\rangle_{s-1} = \sum_{i=1}^s\beta_i\bigwedge_{\substack{j=1\\j\neq i}}^s m_j.
+\end{equation*}
+Just as not all scalars $\alpha_i$ are necessarily non-zero, we may not have all scalars $\beta_i$ non-zero.
+Assuming for the moment that each $\beta_i$ is non-zero, we may write the grade $s-1$ part as the following $(s-1)$-blade.
+\begin{equation*}
+\sum_{i=1}^s\beta_i\bigwedge_{\substack{j=1\\j\neq i}}^s m_j = \beta_1\bigwedge_{i=1}^{s-1} n_i,
+\end{equation*}
+where each $n_i$ is given by
+\begin{equation*}
+n_i = m_{i+1}+\frac{\beta_{i+1}}{\beta_i}m_i.
+\end{equation*}
+In any case, even if some $\beta_i$ are zero, we can still come up with the $(s-1)$-blade that is the grade $s-1$ part of $\prod_{i=1}^{s+1} m_i$
+in terms of vectors $n_i$.
+
+With this $(s-1)$-blade in hand, we now must solve, for each integer $k$, the system of equations given by
+\begin{equation}\label{equ_system}
+\left\langle\prod_{i=1}^{s+1} m_i\right\rangle_{s-1-2k} = \beta_1\left\langle\prod_{i=1}^{s-1}\left(n_i+\sum_{j=1}^{i-1}\gamma_{i,j} n_j\right)\right\rangle_{s-1-2k}.
+\end{equation}
+If a solution in the variables $\gamma_{i,j}$ can be found, then we have shown that our geometric product of $r$ vectors can be rewritten as a geometric product of $r-2$ vectors.
+We then continue this process until the set of vectors taken in the geometric product becomes a linearly independent set.
+
+The proof outlined above is an algorithm for finding one of the smallest possible factorizations of the spade $M_r$; and consequently, its rank.  The truthfulness of Proposition~\ref{prop_spade_lin_indep} hinges on the idea
+that a solution to the system of equations \eqref{equ_system} can always be found.
+
+Keeping in mind the Jewish proverb, ``for example is not proof,'' the following examples are instructive.\footnote{Of course, while attempting to prove a generality,
+a single supporting example is not a proof; but when attempting to disprove a generality, a counter-example is plenty proof.  This author has failed to find
+a counter-example to Proposition~\ref{prop_spade_lin_indep}.}
+
+Give examples here...
 
 \begin{lem}\label{lem_lin_indep_subblades}
 For every non-zero $r$-blade $B_r\in\G$ with $r>1$, and having factorization
@@ -126,7 +166,7 @@ For any given spade $M_r\in\G$ with $r>1$, if $\rank(M_r)=r$, then
 the set of spades $\{M_r^{(i)}\}_{i=1}^r$ is a linearly independent set.
 \end{lem}
 \begin{proof}
-This follows easily in consideration of lemmas \ref{lem_compact_lin_indep}, \ref{lem_lin_indep_subblades} and \ref{lem_solution_intersection}.
+This follows easily in consideration of Proposition~\ref{prop_spade_lin_indep} with Lemma~\ref{lem_lin_indep_subblades} and Lemma~\ref{lem_solution_intersection}.
 \end{proof}
 
 % Make use of <*>_a^b = sum_i <*>_i notation later on.
