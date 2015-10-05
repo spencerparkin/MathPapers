@@ -47,9 +47,28 @@ Abstract...
 
 \maketitle
 
-\section{A Treatment Of Spades}
+\section{Introduction And Motivation}
 
-In what follows we will let $\V$ denote a vector space generating our geometric algebra $\G$.
+It is well-known that \emph{blades} taken from a geometric algebra are, under a given definition (such as
+those given in \cite{Parkin15}), apt representatives of geometry.  The set of all blades being closed under the
+meet and join operations, one must consider what this means for the geometries represented by them.
+As it turns out, these operations allow us to intersect geometries and build them up as fitting the points of others.
+Furthermore, blades are subject to the outermorphic property of the sandwitch-product between a versor and its inverse.
+All sorts of wonderful transformations on the geometries represented by blades have been discovered when taken
+in this product with versors (see \cite{}).  % Ref paper that finds all classic transformations in versors.
+
+Thus seeing that a particular means of geometric representation lends itself to desirable algebraic proprties, and
+therefore desirable geometric properties, alternative means of geometric representation are worth exploring.
+Indeed, in this paper, we find that \emph{spades} taken from a geometric algebra are, under a similar definition,
+also apt representative of geometry. The set of all spades is closed under the geometric product.  Unlike
+the meet and join operations, the geometric product enjoys the potential of invertability.  Furthermore, we'll find
+out that spades, like blades, are also subject to the outermorphic proprety of the sandwitch-product between a versor
+and its inverse.
+
+Throughout this paper we simply let $\V$ denote a vector space generating the geometric algebra $\G$ within
+which we work.
+
+\section{A Treatment Of Spades}
 
 \begin{defn}[Spade]\label{def_spade}
 An element $M\in\G$ is a \emph{spade} if it can be written as the geometric
@@ -58,7 +77,8 @@ product of zero or more vectors.
 
 It follows from Definition~\ref{def_spade} that all versors are spades, but not all spades are versors.
 Furthermore, while the set of all spades of $\G$ enjoys closure under the geometric product, this set,
-unlike the set of versors of $\G$, does not form a group.
+unlike the set of versors of $\G$, does not form a group.  We can also say that all null-versors are spades,
+but not all spades are null-versors.
 
 \begin{defn}[Spade Rank]\label{def_spader_rank}
 The \emph{rank} of a spade $M_r\in\G$, denoted $\rank(M_r)$, is the smallest number\footnote{This smallest number exists
@@ -75,6 +95,12 @@ Many identities involving a spade $M_r$ hold whether or not $\rank(M_r)=r$.
 In any case, we will become interested in precisely what we can say about the
 vectors in $\{m_i\}_{i=1}^r$ when $\rank(M_r)$ is $r$.
 
+\begin{defn}[Dull/Sharp Spade]
+For any given spade $M_r\in\G$, we say that $M_r$ is \emph{sharp} if and only if
+$\langle M_r\rangle_s\neq 0$, where $s=\rank(M_r)$, and \emph{dull} otherwise.
+\end{defn}
+The following proposition is the claim that all spades are sharp.
+
 \begin{prop}\label{prop_spade_lin_indep}
 For any given non-zero spade $M_r\in\G$ with $r>0$,
 \begin{equation*}
@@ -82,7 +108,7 @@ For any given non-zero spade $M_r\in\G$ with $r>0$,
 \end{equation*}
 \end{prop}
 
-One direction of Proposition~\ref{prop_spade_lin_indep} is trivial to prove.  The other is not.  An outline of a proof follows.
+While one direction of Proposition~\ref{prop_spade_lin_indep} is trivial to prove, the other, most decidedly, is not!  An outline of a proof follows.
 
 Given a spade $M_r\in\G$ with factorization \eqref{equ_M_r_factorization}, the set of $r$ vectors $\{m_i\}_{i=1}^r$
 is either a linearly independent set, or a linearly dependent set.  In the former case, it is clear that $\rank(M_r)=r$,
@@ -95,9 +121,9 @@ $\{m_i\}_{i=1}^s$ is a linearly independent set, and write
 Just as not all scalars $\alpha_i$ are necessarily non-zero, we may not have all scalars $\beta_i$ non-zero.
 Assuming for the moment that each $\beta_i$ is non-zero, we may write the grade $s-1$ part as the following $(s-1)$-blade.
 \begin{equation*}
-\sum_{i=1}^s\beta_i\bigwedge_{\substack{j=1\\j\neq i}}^s m_j = \beta_1\bigwedge_{i=1}^{s-1} n_i,
+\sum_{i=1}^s\beta_i\bigwedge_{\substack{j=1\\j\neq i}}^s m_j = \bigwedge_{i=1}^{s-1} n_i,
 \end{equation*}
-where each $n_i$ is given by
+where $n_1=\beta_1m_2 + \beta_2m_1$, and each of the remaining $n_i$ are given by
 \begin{equation*}
 n_i = m_{i+1}+\frac{\beta_{i+1}}{\beta_i}m_i.
 \end{equation*}
@@ -106,20 +132,32 @@ in terms of vectors $n_i$.
 
 With this $(s-1)$-blade in hand, we now must solve, for each integer $k$, the system of equations given by
 \begin{equation}\label{equ_system}
-\left\langle\prod_{i=1}^{s+1} m_i\right\rangle_{s-1-2k} = \beta_1\left\langle\prod_{i=1}^{s-1}\left(n_i+\sum_{j=1}^{i-1}\gamma_{i,j} n_j\right)\right\rangle_{s-1-2k}.
+\left\langle\prod_{i=1}^{s+1} m_i\right\rangle_{s-1-2k} = \left\langle\prod_{i=1}^{s-1}\left(n_i+\sum_{j=1}^{i-1}\gamma_{i,j} n_j\right)\right\rangle_{s-1-2k}.
 \end{equation}
+It is clear that any choice for the scalars $\gamma_{i,j}$ is acceptable in the case $k=0$.
+
 If a solution in the variables $\gamma_{i,j}$ can be found, then we have shown that our geometric product of $r$ vectors can be rewritten as a geometric product of $r-2$ vectors.
 We then continue this process until the set of vectors taken in the geometric product becomes a linearly independent set.
 
 The proof outlined above is an algorithm for finding one of the smallest possible factorizations of the spade $M_r$; and consequently, its rank.  The truthfulness of Proposition~\ref{prop_spade_lin_indep} hinges on the idea
-that a solution to the system of equations \eqref{equ_system} can always be found.  The presence of null-vectors possibly jepardizing the
-existence of any such solution, the proposition may only hold in a euclidean geometric algebra.  (Try $aba$ where $a$ is null.)
+that a solution to the system of equations \eqref{equ_system} can always be found.  The presence of null-vectors may be trouble-some.
 
-Keeping in mind the Jewish proverb, ``for example is not proof,'' the following examples are instructive.\footnote{Of course, while attempting to prove a generality,
-a single supporting example is not a proof; but when attempting to disprove a generality, a counter-example is plenty proof.  This author has failed to find
-a counter-example to Proposition~\ref{prop_spade_lin_indep}.}
+\begin{lem}\label{lem_no_dup_in_factorization}
+For any given spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)<r$.
+\end{lem}
+\begin{proof}
+This is trivial in the case that $j=i+1$.  In the case that $j=i+2$, simply notice that
+\begin{equation*}
+m_im_{i+1}m_j = m_im_{i+1}m_i = 2(m_i\cdot m_{i+1})m_i-m_i^2 m_{i+1}.
+\end{equation*}
+In the case that $j>i+2$, we see that
+\begin{equation*}
+m_i\left(\prod_{k=i+1}^{j-1}m_k\right)m_j = m_i^2\prod_{k=i+1}^{j-1}m_im_km_i^{-1}.
+\end{equation*}
+\end{proof}
 
-Give examples here...
+Lemma~\ref{lem_no_dup_in_factorization} is an interesting observation and implies that every spade written in the most compact form is square-free in the
+sense that the square of no spade will appear in the factorization.  It is still, however, a far cry from helping us prove Proposition~\ref{prop_spade_lin_indep}.
 
 \begin{lem}\label{lem_lin_indep_subblades}
 For every non-zero $r$-blade $B_r\in\G$ with $r>1$, and having factorization
@@ -171,5 +209,19 @@ This follows easily in consideration of Proposition~\ref{prop_spade_lin_indep} w
 \end{proof}
 
 % Make use of <*>_a^b = sum_i <*>_i notation later on.
+
+\begin{thebibliography}{9}
+
+\bibitem{Parkin15}
+S. Parkin,
+\emph{An Introduction To Geometric Sets}.
+Advances in Applied Clifford Algebras, Volume 25, Issue Unknown, pp. 639-655, 2015.
+
+% Ref Geo Alg with App in Eng
+% Ref New Foundations For Classical Mechanics
+% Ref GA For Physists
+% Ref GA For CS
+
+\end{thebibliography}
 
 \end{document}
