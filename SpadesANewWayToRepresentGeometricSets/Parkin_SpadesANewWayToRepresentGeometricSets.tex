@@ -33,7 +33,7 @@
 
 \begin{document}
 
-\title{Spades\\
+\title{Spades (Draft!)\\
 \large A New Way To Represent Geometric Sets}
 
 \author{Spencer T. Parkin}
@@ -220,7 +220,7 @@ is given by
 \begin{equation*}
 A = \bigcap_{i=1}^k A_k.
 \end{equation*}
-Thus, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+Therefore, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
 Now since $0\neq\bigwedge_{i=1}^r m_i$, it is clear that
 \begin{equation*}
 \langle M_r^{(i)}\rangle_{r-1} = \bigwedge_{\substack{j=1\\j\neq i}}^r m_i.
@@ -445,6 +445,28 @@ our proof by induction.
 
 It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
 One equation is had by the other by a replacement of all outer products with geometric products, or vice-versa.
+
+Having shown that $a\cdot B_r$ was a blade of grade $r-1$, we must consider here whether $a\cdot M_r$ can be written
+as a product of $r-1$ vectors.  With that in mind, we write
+\begin{align}
+a\cdot M_r - \langle M_r\rangle_0a &= \sum_{i=1}^r\alpha_i M_r^{(i)}\nonumber \\
+ &= \left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]\left(m_r + \alpha_r\left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]^{-1}M_{r-1}\right),\label{equ_factor_a_dot_M_r}
+\end{align}
+where $\alpha_i=-(-1)^i(a\cdot m_i)$.  Now, if an inverse of $a\cdot M_{r-1}-\langle M_{r-1}\rangle_0a$ does exist, then
+it is probably of the form
+\begin{equation*}
+\left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]^{-1} = \sum_{i=1}^{r-1}\beta_i\left(M_{r-1}^{(i)}\right)^{\sim}.
+\end{equation*}
+Assuming a solution to this equation in each $\beta_i$ exists, we can go on to write
+\begin{equation*}
+\sum_{i=1}^{r-1}\beta_i\left(M_{r-1}^{(i)}\right)^{\sim}M_{r-1} = \sum_{i=1}^{r-1}\beta_i \left(\prod_{j=1}^{i-1}m_i^2\right)\tilde{V}_{i+1}m_iV_{i+1},
+\end{equation*}
+where $V_i$ is given by
+\begin{equation*}
+V_i = \sum_{j=i}^{r-1} m_i.
+\end{equation*}
+Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vector could be factored
+out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
 
 At last we have now enough ground covered to begin a treatment of geometric set representation by blades and spades.
 
