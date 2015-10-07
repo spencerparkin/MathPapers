@@ -33,8 +33,7 @@
 
 \begin{document}
 
-\title{Spades (Draft!)\\
-\large A New Way To Represent Geometric Sets}
+\title{Spades,\\A New Way To Represent Geometric Sets}
 
 \author{Spencer T. Parkin}
 \email{spencerparkin@outlook.com}
@@ -79,7 +78,7 @@ that each vector in the factorization of a spade be invertible, this justifies t
 
 \section{Geometric Sets}
 
-We must begin with a review of geometric sets.  Given an $n$-dimensional space $\F^n$, we let $p:\F^n\to\V$ be a vector-valued
+We must begin with a review of geometric sets.  Given an $n$-dimensional space $\F^n$, we let $p:\F^n\to\V$ be a non-zero, vector-valued
 function mapping points in $\F^n$ to vectors in a vector space $\V$ generating our geometric algebra $\G$.  With this in hand,
 we are ready for the following definition.
 \begin{defn}[Geometric Set]\label{def_geo_set}
@@ -132,6 +131,25 @@ We see now that the set of all solutions to equation \eqref{lem_geo_set_lin_dep}
 \bigcap_{i=1}^s\left\{x\in\F^n\left|p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)=0\right.\right\},
 \end{equation*}
 which is clearly a geometric set by Definition~\ref{def_geo_set}.
+\end{proof}
+
+\begin{lem}\label{lem_solution_intersection}
+If $\{E_i\}_{i=1}^r$ is any set of $r$ elements taken from our geometric algebra $\G$, then the set $A$ of all solutions in each $\alpha_i$
+to the equation
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i E_i
+\end{equation*}
+is given by
+\begin{equation*}
+A = \bigcap_{k=1}^r A_k,
+\end{equation*}
+where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k$, given by
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i\langle E_i\rangle_k.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Show it.
 \end{proof}
 
 \section{Perliminary Material}
@@ -207,20 +225,7 @@ M_r^{(i)} = \prod_{\substack{j=1\\j\neq i}}^r m_i,
 if $0\neq\bigwedge_{i=1}^r m_i$, then the set $\{M_r^{(i)}\}_{i=1}^r$ is a linearly independent set.
 \end{lem}
 \begin{proof}
-We first consider, for all $j\in[0,r]$, the $j$ equations given by
-\begin{equation*}
-0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j.
-\end{equation*}
-Letting $A_k$ denote the set of all solutions in each $\alpha_i$ to equation $j$, it is clear that
-the set of all solutions $A$ in each $\alpha_i$ to the equation
-\begin{equation*}
-0 = \sum_{i=1}^r\alpha_i M_r^{(i)}
-\end{equation*}
-is given by
-\begin{equation*}
-A = \bigcap_{i=1}^k A_k.
-\end{equation*}
-Therefore, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+By Lemma~\ref{lem_solution_intersection}, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
 Now since $0\neq\bigwedge_{i=1}^r m_i$, it is clear that
 \begin{equation*}
 \langle M_r^{(i)}\rangle_{r-1} = \bigwedge_{\substack{j=1\\j\neq i}}^r m_i.
@@ -468,11 +473,30 @@ V_i = \sum_{j=i}^{r-1} m_i.
 Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vector could be factored
 out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
 
+\section{Blades And Spades As Representatives Of Geometric Sets}
+
 At last we have now enough ground covered to begin a treatment of geometric set representation by blades and spades.
+We start by showing that any element $E$ of $\G$ is representative of a geometric set as follows.
 
-\section{Blades As Representatives Of Geometric Sets}
+\begin{defn}
+We define the function $\gd:\G\to P(\F^n)$ as
+\begin{equation*}
+\gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\}.
+\end{equation*}
+\end{defn}
 
-\section{Spades As Representatives Of Geometric Sets}
+\begin{lem}
+For any element $E\in\G$, the set $g(E)$ is a geometric set.
+\end{lem}
+\begin{proof}
+\end{proof}
+
+\begin{lem}
+If $B_r$ is an $r$-blade and $M_r$ is a spade with $\langle M_r\rangle_r\neq 0$, then we have
+\begin{equation*}
+\gd(B_r)=\gd(M_r).
+\end{equation*}
+\end{lem}
 
 \begin{thebibliography}{9}
 
