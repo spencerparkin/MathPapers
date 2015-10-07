@@ -1,0 +1,265 @@
+\documentclass{birkjour}
+
+\usepackage{float}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+\newcommand{\rank}{\mbox{rank}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{Spades\\
+\large A New Way To Represent Geometric Sets}
+
+\author{Spencer T. Parkin}
+\email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\keywords{Key words...}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+Traditionally, \emph{blades} are used, in places such as the conformal model, to represent geometric sets in geometric algebra.\footnote{A formal
+treatment of geometric sets in an abstract setting is given in \cite{Parkin15}.  Geometric sets are a generalization of algebraic sets.}  Doing so,
+the meet and join operations become the principle
+means by which geometries are combined or intersected into new geometries.  In this paper we show that \emph{spades} may also be used
+to represent geometric sets; and in so doing, the geometric product becomes the principle means by which geometries are combined or intersected
+to make new geometries.
+
+The term ``spade'' requires some explanation. See Table~\ref{tbl_terms} below.
+
+\begin{table}[H]\label{tbl_terms}\caption{A few terms used in GA}
+\begin{tabular}{p{2cm}p{9cm}}
+Term & Definition \\
+\hline
+Blade & An outer product of zero or more linearly-independent vectors. \\
+Versor & A geometric product of zero or more \emph{invertible} vectors, not necessarily forming a linearly-independent set. \\
+Spade & A geometric product of zero or more vectors, not necessarily forming a linearly-independent set.\\
+Null Versor & A geometric product of one or more vectors where at least one of them is null.\\
+\end{tabular}
+\end{table}
+
+From these definitions it is clear that every versor is a spade, but not every spade is a versor.  The definition of a versor,
+which can be found in \cite[p. 90]{Perwass09}, is well established and engrained in the literature just as it is written in Table~\ref{tbl_terms}.  Not requiring
+that each vector in the factorization of a spade be invertible, this justifies the new term.
+
+\section{Geometric Sets}
+
+We must begin with a review of geometric sets.  Given an $n$-dimensional space $\F^n$, we let $p:\F^n\to\V$ be a vector-valued
+function mapping points in $\F^n$ to vectors in a vector space $\V$ generating our geometric algebra $\G$.  With this in hand,
+we are ready for the following definition.
+\begin{defn}[Geometric Set]\label{def_geo_set}
+A subset $S$ of $\F^n$ is a \emph{geometric set} if and only if there exists a set of $r$ vectors $\{v_i\}_{i=1}^r\subset\V$, such that
+\begin{equation*}
+S = \{x\in\F^n|\mbox{$p(x)\cdot v_i$ for all $i\in[1,r]$}\} = \bigcap_{i=1}^r \{x\in\F^n|p(x)\cdot v_i=0\}.
+\end{equation*}
+\end{defn}
+If each expression $p(x)\cdot v_i$ is a polynomial in the components of $x$, then it is easy to see that, in this case, geometric sets are algebraic.
+By the Hilbert Basis Theorem (see \cite[p. 204]{Garrity13}), $r$ needs not be infinite.  This is good news for us, as we'll see, since we'll eventually want to show
+that every algebraic set can be represented by a blade of grade $r$.
+
+\begin{lem}\label{lem_geo_set_lin_indep}
+If $\{E_i\}_{i=1}^r$ is any linearly independent set of elements taken from $\G$, then the set of all
+solutions in $\F^n$ to the equation
+\begin{equation}\label{equ_geo_set}
+0 = \sum_{i=1}^r (p(x)\cdot v_i)E_i
+\end{equation}
+is a geometric set.
+\end{lem}
+\begin{proof}
+Being a linearly independent set of elements, the only linear combination of these elements that vanishes is the trivial linear combination.
+It follows that for each integer $i\in[1,r]$, we must have $p(x)\cdot v_i=0$.
+\end{proof}
+
+\begin{lem}\label{lem_geo_set_lin_dep}
+If $\{E_i\}_{i=1}^r$ is any sequence of elements taken from $\G$, then the set of all solutions in $\F^n$ to equation \eqref{equ_geo_set}
+is a geometric set.
+\end{lem}
+\begin{proof}
+If $\{E_i\}_{i=1}^r$ is a linearly independent set, then we're done by Lemma~\ref{lem_geo_set_lin_indep}.
+Supposing to the contrary, and without loss of generality, we can let $s$ be an integer with $1\leq s<r$ such that
+$\{E_i\}_{i=1}^s$ is a linearly independent set, and
+\begin{equation*}
+\mbox{span}\{E_i\}_{i=1}^r = \mbox{span}\{E_i\}_{i=1}^s.
+\end{equation*}
+Now for each integer $i\in[s+1,r]$, write $E_i$ as a linear combination of the elements in $\{E_i\}_{i=1}^s$ as
+\begin{equation*}
+E_i = \sum_{j=1}^s\alpha_{i,j} E_j.
+\end{equation*}
+Having done so, we see now that equation \eqref{lem_geo_set_lin_dep} becomes
+\begin{align*}
+0 &= \sum_{i=1}^r(p(x)\cdot v_i)E_i \\
+ &= \sum_{i=1}^s(p(x)\cdot v_i)E_i + \sum_{i=s+1}^r(p(x)\cdot v_i)\sum_{j=1}^s\alpha_{i,j}E_j \\
+ &= \sum_{i=1}^s\left[p(x)\cdot v_i-\sum_{j=s+1}^r\alpha_{j,i}(p(x)\cdot v_j)\right]E_i \\
+ &= \sum_{i=1}^s\left[p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)\right]E_i.
+\end{align*}
+We see now that the set of all solutions to equation \eqref{lem_geo_set_lin_dep} is given by
+\begin{equation*}
+\bigcap_{i=1}^s\left\{x\in\F^n\left|p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)=0\right.\right\},
+\end{equation*}
+which is clearly a geometric set by Definition~\ref{def_geo_set}.
+\end{proof}
+
+\section{Perliminary Material}
+
+Before we can show how blades and spades can represent geometric sets, we need to lay some ground work
+with the following definitions, lemmas, and identities.
+
+Though already given in Table~\ref{tbl_terms}, the term spade deserves its own formal definition as follows.
+\begin{defn}[Spade]
+An element $M_r\in\G$ is called a \emph{spade} if and only if there exists a set of $r$ vectors $\{m_i\}_{i=1}^r$
+such that it may be written as
+\begin{equation*}
+M_r = \prod_{i=1}^r m_i.
+\end{equation*}
+\end{defn}
+It is easy to show that spades, like blades, to not have unique factorizations.  Unlike blades, however, the
+size of a spade's factorization can very.  This leads us to the following definition.
+\begin{defn}[Spade Rank]
+Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$ is the
+smallest integer $s\leq r$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.\footnote{This smallest integer $s$ exists by the well-ordering principle.}
+\end{defn}
+It is clear that if $\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, then $\rank(M_r)=r$.  The converse of this statement, however,
+is not so easily proven (or disproved) and of such considerable importance to the theory of spades in geometric algebra, that, if proven, would
+be elevated to the level of theorem.  For now, however, the following lemma is offered.
+\begin{lem}\label{lem_spade_no_dup_in_factorization}
+For any given invertible spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)<r$.
+\end{lem}
+\begin{proof}
+This is trivial in the case that $j=i+1$.  In the case that $j=i+2$, simply notice that
+\begin{equation*}
+m_im_{i+1}m_j = m_im_{i+1}m_i = 2(m_i\cdot m_{i+1})m_i-m_i^2 m_{i+1}.
+\end{equation*}
+In the case that $j>i+2$, we see that
+\begin{equation*}
+m_i\left(\prod_{k=i+1}^{j-1}m_k\right)m_j = m_i^2\prod_{k=i+1}^{j-1}m_im_km_i^{-1}.
+\end{equation*}
+\end{proof}
+
+For completeness, we now give a formal definition of a blade.
+\begin{defn}[Blade]
+An element $B_r\in\G$ is called an $r$-\emph{blade} if and only if there exists a linearly independent set of $r$
+vectors $\{b_i\}_{i=1}^r$ such that
+\begin{equation*}
+B_r = \bigwedge_{i=1}^r b_i.
+\end{equation*}
+\end{defn}
+
+\begin{lem}\label{lem_lin_indep_subblades}
+Letting $B_r^{(i)}$ denote the $(r-1)$-blade
+\begin{equation*}
+B_r^{(i)} = \bigwedge_{\substack{j=1\\j\neq i}}^r b_i,
+\end{equation*}
+the set of $r$ blades $\{B_r^{(i)}\}_{i=1}^r$ is linearly independent.
+\end{lem}
+\begin{proof}
+Supposing to the contrary, and without loss of generality, let
+\begin{equation*}
+B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i B_r^{(i)} = \left(\sum_{i=1}^{r-1}\alpha_i B_{r-1}^{(i)}\right)\wedge b_r.
+\end{equation*}
+Now notice that
+\begin{equation*}
+0\neq B_r = B_{r-1}\wedge b_r = B_r^{(r)}\wedge b_r = \left(\sum_{i=1}^{r-1}\alpha_i B_r^{(i)}\right)\wedge b_r = 0,
+\end{equation*}
+which is clearly a contradiction.
+\end{proof}
+
+We will need a result similar to Lemma~\ref{lem_lin_indep_subblades} as concerning spades.  It is as follows.
+\begin{lem}\label{lem_lin_indep_subspades}
+Letting $M_r^{(i)}$ denote the spade
+\begin{equation*}
+M_r^{(i)} = \prod_{\substack{j=1\\j\neq i}}^r m_i,
+\end{equation*}
+if $0\neq\bigwedge_{i=1}^r m_i$, then the set $\{M_r^{(i)}\}_{i=1}^r$ is a linearly independent set.
+\end{lem}
+\begin{proof}
+We first consider, for all $j\in[0,r]$, the $j$ equations given by
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i\langle M_r^{(i)}\rangle_j.
+\end{equation*}
+Letting $A_k$ denote the set of all solutions in each $\alpha_i$ to equation $j$, it is clear that
+the set of all solutions $A$ in each $\alpha_i$ to the equation
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i M_r^{(i)}
+\end{equation*}
+is given by
+\begin{equation*}
+A = \bigcap_{i=1}^k A_k.
+\end{equation*}
+Thus, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+Now since $0\neq\bigwedge_{i=1}^r m_i$, it is clear that
+\begin{equation*}
+\langle M_r^{(i)}\rangle_{r-1} = \bigwedge_{\substack{j=1\\j\neq i}}^r m_i.
+\end{equation*}
+Seeing this, the linear independence of the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ follows immediately
+from Lemma~\ref{lem_lin_indep_subblades}.
+\end{proof}
+
+\section{Blades As Representatives Of Geometric Sets}
+
+\section{Spades As Representatives Of Geometric Sets}
+
+\begin{thebibliography}{9}
+
+\bibitem{Parkin15}
+S. Parkin,
+\emph{An Introduction To Geometric Sets}.
+Advances in Applied Clifford Algebras, Volume 25, Issue Unknown, pp. 639-655, 2015.
+
+\bibitem{Perwass09}
+C. Perwass,
+\emph{Geometric Algebra with Applications in Engineering}
+Springer-Verlag Berlin Heidelberg, 2009.
+
+\bibitem{Garrity13}
+T. Garrity, et. al.,
+\emph{Algebraic Geometry, A Problem Solving Approach}
+American Mathematical Society, Institute for Advanced Study
+
+\bibitem{Hestenes99}
+D. Hestenes,
+\emph{New Foundations for Classical Mechanics}
+Kluwer Academic Publishers, 1999.
+
+\bibitem{Doran03}
+C. Doran, et. al.,
+\emph{Geometric Algebra for Physicists}
+Cambridge University Press, 2003.
+
+\end{thebibliography}
+
+\end{document}
