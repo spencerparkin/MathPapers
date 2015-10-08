@@ -33,7 +33,7 @@
 
 \begin{document}
 
-\title{Spades,\\A New Way To Represent Geometric Sets}
+\title{Spades -- A New Way To Represent Geometric Sets}
 
 \author{Spencer T. Parkin}
 \email{spencerparkin@outlook.com}
@@ -83,13 +83,14 @@ function mapping points in $\F^n$ to vectors in a vector space $\V$ generating o
 we are ready for the following definition.
 \begin{defn}[Geometric Set]\label{def_geo_set}
 A subset $S$ of $\F^n$ is a \emph{geometric set} if and only if there exists a set of $r$ vectors $\{v_i\}_{i=1}^r\subset\V$, such that
-\begin{equation*}
+\begin{equation}\label{equ_geo_set_def}
 S = \{x\in\F^n|\mbox{$p(x)\cdot v_i$ for all $i\in[1,r]$}\} = \bigcap_{i=1}^r \{x\in\F^n|p(x)\cdot v_i=0\}.
-\end{equation*}
+\end{equation}
+The integer $r$ may be finite or infinite.
 \end{defn}
 If each expression $p(x)\cdot v_i$ is a polynomial in the components of $x$, then it is easy to see that, in this case, geometric sets are algebraic.
-By the Hilbert Basis Theorem (see \cite[p. 204]{Garrity13}), $r$ needs not be infinite.  This is good news for us, as we'll see, since we'll eventually want to show
-that every algebraic set can be represented by a blade of grade $r$.
+
+Note that it should be immediately clear from Definition~\ref{def_geo_set} that the intersection of any two geometric sets is geometric.
 
 \begin{lem}\label{lem_geo_set_lin_indep}
 If $\{E_i\}_{i=1}^r$ is any linearly independent set of elements taken from $\G$, then the set of all
@@ -143,7 +144,7 @@ is given by
 \begin{equation*}
 A = \bigcap_{k=1}^r A_k,
 \end{equation*}
-where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k$, given by
+where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k\in[0,\dim(\V)]$, given by
 \begin{equation*}
 0 = \sum_{i=1}^r\alpha_i\langle E_i\rangle_k.
 \end{equation*}
@@ -168,11 +169,11 @@ M_r = \prod_{i=1}^r m_i.
 It is easy to show that spades, like blades, to not have unique factorizations.  Unlike blades, however, the
 size of a spade's factorization can very.  This leads us to the following definition.
 \begin{defn}[Spade Rank]
-Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$ is the
-smallest integer $s\leq r$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.\footnote{This smallest integer $s$ exists by the well-ordering principle.}
+Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$, is the
+smallest integer $s\in[0,r]$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.
 \end{defn}
 It is clear that if $\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, then $\rank(M_r)=r$.  The converse of this statement, however,
-is not so easily proven (or disproved) and of such considerable importance to the theory of spades in geometric algebra, that, if proven, would
+is not so easily proven (or disproven) and of such considerable importance to the theory of spades in geometric algebra, that, if proven, would
 be elevated to the level of theorem.  For now, however, the following lemma is offered.
 \begin{lem}\label{lem_spade_no_dup_in_factorization}
 For any given invertible spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)<r$.
@@ -479,24 +480,47 @@ At last we have now enough ground covered to begin a treatment of geometric set 
 We start by showing that any element $E$ of $\G$ is representative of a geometric set as follows.
 
 \begin{defn}
-We define the function $\gd:\G\to P(\F^n)$ as
+Letting the function $\gd:\G\to P(\F^n)$ be defined as
 \begin{equation*}
-\gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\}.
+\gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\},
 \end{equation*}
+we call $\gd(E)$ the geometric set represented by $E$.
 \end{defn}
 
 \begin{lem}
-For any element $E\in\G$, the set $g(E)$ is a geometric set.
+For any element $E\in\G$, the set $\gd(E)$ is a geometric set.
 \end{lem}
 \begin{proof}
+If it can be shown, for every integer $k\in[0,\dim(\V)]$, that $\gd(\langle E\rangle_k)$ is a geometric set,
+then $\gd(E)$ is a geometric set by Lemma~\ref{lem_solution_intersection}.  (Recall that the intersection
+of any two geometric sets is geometric.)
+
+The case $k=0$ is trivial.  Letting $k>0$, it is clear by equation \eqref{equ_a_dot_Br_sum_of_blades} that
+\begin{equation*}
+0 = p(x)\cdot\langle E\rangle_k = \sum_i (p(x)\cdot v_i)V_i,
+\end{equation*}
+where each $V_i$ is a blade of grade $k-1$.  We now see that the set of all solutions $x$
+to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
 \end{proof}
 
 \begin{lem}
-If $B_r$ is an $r$-blade and $M_r$ is a spade with $\langle M_r\rangle_r\neq 0$, then we have
+Setup $p$.
+Then, for every algebraic set $S$, there exists a blade $B_r\in\G$ representative of it.
+\end{lem}
+\begin{proof}
+By the Hilbert Basis Theorem (see \cite[p. 204]{Garrity13}), there exists a finite
+set of $r$ vectors $\{v_i\}_{i=1}^r\subset\V$ such that $S$ is given by equation \eqref{equ_geo_set_def}.
+It's now trivial to show that this can be reduced to any linearly independent set that spans this set of vectors.
+Now form that blade.
+\end{proof}
+
+\begin{lem}
+If $B_r$ is an $r$-blade and $M_r$ is a spade with $\langle M_r\rangle_r=\lambda B_r$, then we have
 \begin{equation*}
 \gd(B_r)=\gd(M_r).
 \end{equation*}
 \end{lem}
+This is dumb.  Spades are dumb.  Why do we even care?
 
 \begin{thebibliography}{9}
 
