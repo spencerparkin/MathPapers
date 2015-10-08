@@ -575,24 +575,27 @@ See \cite[p. 88]{Doran03}.
 
 Lemma~\ref{lem_convert_blade_to_spade} now begs the question of how we might convert a spade representation into that of a blade.
 
-\begin{lem}
-If $M_r\in\G$ is a spade and $\langle M_r\rangle_s$ is the highest, non-zero grade part of $M_r$, then
+\begin{lem}\label{lem_convert_spade_to_blade_when_lin_indep}
+If $M_r\in\G$ is a spade with $0\neq\bigwedge_{i=1}^r m_i$, then
 \begin{equation*}
-\gd(M_r) = \gd(\langle M_r\rangle_s).
+\gd(M_r) = \gd(\langle M_r\rangle_r).
 \end{equation*}
 \end{lem}
-
+\begin{proof}
+By Lemma~\ref{lem_lin_indep_subspades} and equation \eqref{equ_a_dot_Mr_sum_of_spades}, we see that
 \begin{equation*}
-\gd(M_r) = \bigcap_{i=0}^r \gd(\langle M_r\rangle_i).
+\gd(M_r) = G(\{m_i\}_{i=1}^r) = \gd\left(\bigwedge_{i=1}^r m_r\right) = \gd(\langle M_r\rangle_r).
 \end{equation*}
+\end{proof}
 
-What if $\gd(\langle M_r\rangle_i)\subset\gd(\langle M_r\rangle_j)$ where $i>j$?
+It is instructive to examine an alternative proof of Lemma~\ref{lem_convert_spade_to_blade_when_lin_indep}.  Notice that if $\{m_i\}_{i=1}^r$
+is a linearly independent set, then for every $s$-blade $B_s$ appearing in the expansion of $M_r$,
+where $s\leq r$, we know that $B_s$ is a subspace of $\langle M_r\rangle_r$.  It then follows that
+for all $s\leq r$, we have $\gd(\langle M_r\rangle_r)\subseteq\gd(\langle M_r\rangle_s)$, and
+so the result goes through by Lemma~\ref{lem_intersect_grade_parts}.
 
-If $a\cdot B=0$ and $C$ is a subspace of $B$, then $a\cdot C=0$.
-
-If $i<j$, is $\langle M_r\rangle_i$ a subspace of $\langle M_r\rangle_j$?
-
-Easy to show that all parts of spade are blades.  Show nested subspace sequence.  That may turn out to be harder than I thought.
+Of course, what is unsatisfactory about Lemma~\ref{lem_convert_spade_to_blade_when_lin_indep} is
+that it is not always the case that $0\neq\bigwedge_{i=1}^r m_i$.
 
 \subsection{What Blades Can Do For Us}
 
