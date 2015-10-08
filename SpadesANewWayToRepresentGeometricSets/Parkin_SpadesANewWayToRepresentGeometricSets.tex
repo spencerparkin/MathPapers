@@ -171,6 +171,16 @@ where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k\i
 Show it.
 \end{proof}
 
+\begin{lem}\label{lem_intersect_grade_parts}
+For any element $E\in\G$, we have
+\begin{equation*}
+\gd(E) = \bigcap_{i=0}^{\dim\V}\gd(\langle E\rangle_i).
+\end{equation*}
+\end{lem}
+\begin{proof}
+This follows immediately from Lemma~\ref{lem_solution_intersection}.
+\end{proof}
+
 \section{Perliminary Material}
 
 Before we can show how blades and spades can represent geometric sets, we need to lay some ground work
@@ -510,10 +520,7 @@ For any element $E\in\G$, the set $\gd(E)$ is a geometric set.
 \end{lem}
 \begin{proof}
 If it can be shown, for every integer $k\in[0,\dim(\V)]$, that $\gd(\langle E\rangle_k)$ is a geometric set,
-then $\gd(E)$ is a geometric set by Lemma~\ref{lem_solution_intersection}, since
-\begin{equation*}
-\gd(E) = \bigcap_{k=1}^{\dim{\V}}\gd(\langle E\rangle_k).
-\end{equation*}
+then $\gd(E)$ is a geometric set by Lemma~\ref{lem_intersect_grade_parts}.
 The case $k=0$ is trivial.  Letting $k>0$, it is clear by equation \eqref{equ_a_dot_Br_sum_of_blades} that
 \begin{equation*}
 0 = p(x)\cdot\langle E\rangle_k = \sum_i (p(x)\cdot v_i)B_i,
