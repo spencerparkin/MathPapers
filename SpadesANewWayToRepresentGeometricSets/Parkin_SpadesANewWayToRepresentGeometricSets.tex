@@ -1,0 +1,557 @@
+\documentclass{birkjour}
+
+\usepackage{float}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\gd}{\dot{g}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\Gd}{\dot{G}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\nvai}{\infty}
+\newcommand{\nvao}{o}
+\newcommand{\grade}{\mbox{grade}}
+\newcommand{\rank}{\mbox{rank}}
+
+%\received{}\accepted{}
+
+\begin{document}
+
+\title{Spades -- A New Way To Represent Geometric Sets}
+
+\author{Spencer T. Parkin}
+\email{spencerparkin@outlook.com}
+
+%\subjclass{Primary 14J70; Secondary 14J29}
+
+%\dedicatory{To my dear wife Melinda.}
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\keywords{Key words...}
+
+\maketitle
+
+\section{Introduction And Motivation}
+
+Traditionally, \emph{blades} are used, in places such as the conformal model, to represent geometric sets in geometric algebra.\footnote{A formal
+treatment of geometric sets in an abstract setting is given in \cite{Parkin15}.  Geometric sets are a generalization of algebraic sets.}  Doing so,
+the meet and join operations become the principle
+means by which geometries are combined or intersected to form new geometries.  In this paper we show that \emph{spades} may also be used
+to represent geometric sets; and in so doing, the geometric product becomes the principle means by which geometries are combined or intersected
+to form new geometries.
+
+Of course, the term ``spade'' requires some explanation. See Table~\ref{tbl_terms} below.
+
+\begin{table}[H]\label{tbl_terms}\caption{A few terms used in GA}
+\begin{tabular}{p{2cm}p{9cm}}
+Term & Definition \\
+\hline
+Blade & An outer product of zero or more linearly-independent vectors. \\
+Versor & A geometric product of zero or more \emph{invertible} vectors, not necessarily forming a linearly-independent set. \\
+Spade & A geometric product of zero or more vectors, not necessarily forming a linearly-independent set.\\
+Null Versor & A geometric product of one or more vectors where at least one of them is null.\\
+\end{tabular}
+\end{table}
+
+From these definitions it is clear that every versor is a spade, but not every spade is a versor.  The definition of a versor,
+which can be found in \cite[p. 90]{Perwass09}, is well established and engrained in the literature just as it is written in Table~\ref{tbl_terms}.  Not requiring
+that each vector in the factorization of a spade be invertible, this justifies the new term.
+
+\section{Geometric Sets}
+
+We must begin with a review of geometric sets.  Given an $n$-dimensional space $\F^n$, we let $p:\F^n\to\V$ be a non-zero, vector-valued
+function mapping points in $\F^n$ to vectors in a vector space $\V$ generating our geometric algebra $\G$.  With this in hand,
+we are ready for the following definition.
+\begin{defn}[Geometric Set]\label{def_geo_set}
+A subset $S$ of $\F^n$ is a \emph{geometric set} if and only if there exists a set of $r$ vectors $\{v_i\}_{i=1}^r\subset\V$, such that
+\begin{equation}\label{equ_geo_set_def}
+S = \{x\in\F^n|\mbox{$p(x)\cdot v_i$ for all $i\in[1,r]$}\} = \bigcap_{i=1}^r \{x\in\F^n|p(x)\cdot v_i=0\}.
+\end{equation}
+The integer $r$ may be finite or infinite.
+\end{defn}
+If each expression $p(x)\cdot v_i$ is a polynomial in the components of $x$, then it is easy to see that, in this case, geometric sets are algebraic.
+
+Note that it should be immediately clear from Definition~\ref{def_geo_set} that the intersection of any two geometric sets is geometric.
+
+\begin{lem}\label{lem_geo_set_lin_indep}
+If $\{E_i\}_{i=1}^r$ is any linearly independent set of elements taken from $\G$, then the set of all
+solutions in $\F^n$ to the equation
+\begin{equation}\label{equ_geo_set}
+0 = \sum_{i=1}^r (p(x)\cdot v_i)E_i
+\end{equation}
+is a geometric set.
+\end{lem}
+\begin{proof}
+Being a linearly independent set of elements, the only linear combination of these elements that vanishes is the trivial linear combination.
+It follows that for each integer $i\in[1,r]$, we must have $p(x)\cdot v_i=0$.
+\end{proof}
+
+\begin{lem}\label{lem_geo_set_lin_dep}
+If $\{E_i\}_{i=1}^r$ is any sequence of elements taken from $\G$, then the set of all solutions in $\F^n$ to equation \eqref{equ_geo_set}
+is a geometric set.
+\end{lem}
+\begin{proof}
+If $\{E_i\}_{i=1}^r$ is a linearly independent set, then we're done by Lemma~\ref{lem_geo_set_lin_indep}.
+Supposing to the contrary, and without loss of generality, we can let $s$ be an integer with $1\leq s<r$ such that
+$\{E_i\}_{i=1}^s$ is a linearly independent set, and
+\begin{equation*}
+\mbox{span}\{E_i\}_{i=1}^r = \mbox{span}\{E_i\}_{i=1}^s.
+\end{equation*}
+Now for each integer $i\in[s+1,r]$, write $E_i$ as a linear combination of the elements in $\{E_i\}_{i=1}^s$ as
+\begin{equation*}
+E_i = \sum_{j=1}^s\alpha_{i,j} E_j.
+\end{equation*}
+Having done so, we see now that equation \eqref{lem_geo_set_lin_dep} becomes
+\begin{align*}
+0 &= \sum_{i=1}^r(p(x)\cdot v_i)E_i \\
+ &= \sum_{i=1}^s(p(x)\cdot v_i)E_i + \sum_{i=s+1}^r(p(x)\cdot v_i)\sum_{j=1}^s\alpha_{i,j}E_j \\
+ &= \sum_{i=1}^s\left[p(x)\cdot v_i-\sum_{j=s+1}^r\alpha_{j,i}(p(x)\cdot v_j)\right]E_i \\
+ &= \sum_{i=1}^s\left[p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)\right]E_i.
+\end{align*}
+We see now that the set of all solutions to equation \eqref{lem_geo_set_lin_dep} is given by
+\begin{equation*}
+\bigcap_{i=1}^s\left\{x\in\F^n\left|p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)=0\right.\right\},
+\end{equation*}
+which is clearly a geometric set by Definition~\ref{def_geo_set}.
+\end{proof}
+
+\begin{lem}\label{lem_solution_intersection}
+If $\{E_i\}_{i=1}^r$ is any set of $r$ elements taken from our geometric algebra $\G$, then the set $A$ of all solutions in each $\alpha_i$
+to the equation
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i E_i
+\end{equation*}
+is given by
+\begin{equation*}
+A = \bigcap_{k=1}^r A_k,
+\end{equation*}
+where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k\in[0,\dim(\V)]$, given by
+\begin{equation*}
+0 = \sum_{i=1}^r\alpha_i\langle E_i\rangle_k.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Show it.
+\end{proof}
+
+\section{Perliminary Material}
+
+Before we can show how blades and spades can represent geometric sets, we need to lay some ground work
+with the following definitions, lemmas, and identities.
+
+Though already given in Table~\ref{tbl_terms}, the term spade deserves its own formal definition as follows.
+\begin{defn}[Spade]
+An element $M_r\in\G$ is called a \emph{spade} if and only if there exists a set of $r$ vectors $\{m_i\}_{i=1}^r$
+such that it may be written as
+\begin{equation}\label{equ_M_r}
+M_r = \prod_{i=1}^r m_i.
+\end{equation}
+\end{defn}
+It is easy to show that spades, like blades, to not have unique factorizations.  Unlike blades, however, the
+size of a spade's factorization can very.  This leads us to the following definition.
+\begin{defn}[Spade Rank]
+Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$, is the
+smallest integer $s\in[0,r]$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.
+\end{defn}
+It is clear that if $\{m_i\}_{i=1}^r$ is a linearly independent set of vectors, then $\rank(M_r)=r$.  The converse of this statement, however,
+is not so easily proven (or disproven) and of such considerable importance to the theory of spades in geometric algebra, that, if proven, would
+be elevated to the level of theorem.  For now, however, the following lemma is offered.
+\begin{lem}\label{lem_spade_no_dup_in_factorization}
+For any given invertible spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)<r$.
+\end{lem}
+\begin{proof}
+This is trivial in the case that $j=i+1$.  In the case that $j=i+2$, simply notice that
+\begin{equation*}
+m_im_{i+1}m_j = m_im_{i+1}m_i = 2(m_i\cdot m_{i+1})m_i-m_i^2 m_{i+1}.
+\end{equation*}
+In the case that $j>i+2$, we see that
+\begin{equation*}
+m_i\left(\prod_{k=i+1}^{j-1}m_k\right)m_j = m_i^2\prod_{k=i+1}^{j-1}m_im_km_i^{-1}.
+\end{equation*}
+\end{proof}
+
+For completeness, we now give a formal definition of a blade.
+\begin{defn}[Blade]
+An element $B_r\in\G$ is called an $r$-\emph{blade} if and only if there exists a linearly independent set of $r$
+vectors $\{b_i\}_{i=1}^r$ such that
+\begin{equation}\label{equ_B_r}
+B_r = \bigwedge_{i=1}^r b_i.
+\end{equation}
+\end{defn}
+
+\begin{lem}\label{lem_lin_indep_subblades}
+Letting $B_r^{(i)}$ denote the $(r-1)$-blade
+\begin{equation*}
+B_r^{(i)} = \bigwedge_{\substack{j=1\\j\neq i}}^r b_i,
+\end{equation*}
+the set of $r$ blades $\{B_r^{(i)}\}_{i=1}^r$ is linearly independent.
+\end{lem}
+\begin{proof}
+Supposing to the contrary, and without loss of generality, let
+\begin{equation*}
+B_{r-1} = B_r^{(r)} = \sum_{i=1}^{r-1}\alpha_i B_r^{(i)} = \left(\sum_{i=1}^{r-1}\alpha_i B_{r-1}^{(i)}\right)\wedge b_r.
+\end{equation*}
+Now notice that
+\begin{equation*}
+0\neq B_r = B_{r-1}\wedge b_r = B_r^{(r)}\wedge b_r = \left(\sum_{i=1}^{r-1}\alpha_i B_r^{(i)}\right)\wedge b_r = 0,
+\end{equation*}
+which is clearly a contradiction.
+\end{proof}
+
+We will need a result similar to Lemma~\ref{lem_lin_indep_subblades} as concerning spades.  It is as follows.
+\begin{lem}\label{lem_lin_indep_subspades}
+Letting $M_r^{(i)}$ denote the spade
+\begin{equation*}
+M_r^{(i)} = \prod_{\substack{j=1\\j\neq i}}^r m_i,
+\end{equation*}
+if $0\neq\bigwedge_{i=1}^r m_i$, then the set $\{M_r^{(i)}\}_{i=1}^r$ is a linearly independent set.
+\end{lem}
+\begin{proof}
+By Lemma~\ref{lem_solution_intersection}, it suffices to show that the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ is a linearly independent set.
+Now since $0\neq\bigwedge_{i=1}^r m_i$, it is clear that
+\begin{equation*}
+\langle M_r^{(i)}\rangle_{r-1} = \bigwedge_{\substack{j=1\\j\neq i}}^r m_i.
+\end{equation*}
+Seeing this, the linear independence of the set $\{\langle M_r^{(i)}\rangle_{r-1}\}_{i=1}^r$ follows immediately
+from Lemma~\ref{lem_lin_indep_subblades}.
+\end{proof}
+
+We turn now to the establishment of some identities that will be important to our cause.
+
+\subsection{Identities Involving Blades}
+
+Letting $a$ denote a vector, and $B_r$ a blade of grade $r$ having the factorization
+given in equation \eqref{equ_B_r}, recall that
+\begin{equation}\label{equ_aBr_is_a_dot_Br_and_a_wedge_Br}
+aB_r = a\cdot B_r + a\wedge B_r.
+\end{equation}
+Recalling also the commutativities of $a$ with $B_r$ in the inner and outer products as
+\begin{align}
+a\cdot B_r &= -(-1)^r B_r\cdot a,\label{equ_a_dot_Br_commutativity} \\
+a\wedge B_r &= (-1)^r B_r\wedge a,\label{equ_a_wedge_Br_commutativity}
+\end{align}
+we find that
+\begin{align}
+a\cdot B_r &= \frac{1}{2}a\cdot B_r - \frac{1}{2}(-1)^r B_r\cdot a\nonumber \\
+ &= \frac{1}{2}(aB_r - a\wedge B_r - (-1)^r(B_ra - B_r\wedge a))\nonumber \\
+ &= \frac{1}{2}(aB_r-(-1)^rB_ra),\label{equ_a_dot_Br}
+\end{align}
+and that
+\begin{align}
+a\wedge B_r &= \frac{1}{2}a\wedge B_r + \frac{1}{2}(-1)^r B_r\wedge a\nonumber \\
+ &= \frac{1}{2}(aB_r - a\cdot B_r + (-1)^r(B_ra - B_r\cdot a))\nonumber \\
+ &= \frac{1}{2}(aB_r+(-1)^rB_ra).\label{equ_a_wedge_Br}
+\end{align}
+Now letting $a$ and $b$ each denote a vector, it is not hard to show that for all $r\geq 1$, we have
+\begin{equation}\label{equ_a_dot_b_wedge_Br_identity}
+a\cdot(b\wedge B_r) + b\wedge(a\cdot B_r) = (a\cdot b)B_r.
+\end{equation}
+To that end, we apply equations \eqref{equ_a_dot_Br} and \eqref{equ_a_wedge_Br} in writing
+\begin{align*}
+a\cdot(b\wedge B_r)
+ &= \frac{1}{2}\left(a\frac{1}{2}\left(bB_r + (-1)^rB_rb\right)-(-1)^{r+1}\frac{1}{2}\left(bB_r+(-1)^rB_rb\right)a\right) \\
+ &= \frac{1}{4}\left(baB_r + (-1)^raB_rb + (-1)^rbB_ra + B_rba\right), \\
+b\wedge(a\cdot B_r)
+ &= \frac{1}{2}\left(b\frac{1}{2}\left(aB_r-(-1)^rB_ra\right)+(-1)^{r-1}\frac{1}{2}\left(aB_r-(-1)^rB_ra\right)b\right) \\
+ &= \frac{1}{4}\left(baB_r - (-1)^rbB_ra - (-1)^raB_rb + B_rab\right),
+\end{align*}
+from which it is easy to see that
+\begin{align*}
+a\cdot(b\wedge B_r)+b\wedge(a\cdot B_r) &= \frac{1}{4}(ab+ba)B_r + \frac{1}{4}B_r(ba+ab) \\
+ &= \frac{1}{2}(a\cdot b)B_r + \frac{1}{2}B_r(b\cdot a) = (a\cdot b)B_r.
+\end{align*}
+Similarly, we must note that for all $r>1$, we have
+\begin{equation}\label{equ_a_dot_b_dot_Br_identity}
+a\cdot(b\cdot B_r) = -b\cdot(a\cdot B_r).
+\end{equation}
+To see this, we apply equation \eqref{equ_a_dot_Br} in writing
+\begin{align*}
+a\cdot(b\cdot B_r)
+ &= \frac{1}{2}\left(a\frac{1}{2}\left(bB_r-(-1)^rB_rb\right)-(-1)^{r-1}\frac{1}{2}\left(bB_r-(-1)^rB_rb\right)a\right) \\
+ &= \frac{1}{4}\left(abB_r - (-1)^raB_rb + (-1)^rbB_ra - B_rba\right),
+\end{align*}
+Then, by substitution, we can immediately write
+\begin{equation*}
+b\cdot(a\cdot B_r) = \frac{1}{4}\left(baB_r - (-1)^rbB_ra + (-1)^raB_rb - B_rab\right).
+\end{equation*}
+Adding these, we then see that
+\begin{align*}
+a\cdot (b\cdot B)+b\cdot(a\cdot B)
+ &= \frac{1}{4}\left(abB_r+baB_r\right)-\frac{1}{4}\left(B_rba+B_rab\right) \\
+ &= \frac{1}{4}\left(ab+ba\right)B_r-\frac{1}{4}B_r\left(ba+ab\right) \\
+ &= \frac{1}{2}(a\cdot b)B_r - \frac{1}{2}B_r(b\cdot a) = 0.
+\end{align*}
+Note that we may have arrived at this conclusion sooner had we written
+\begin{equation*}
+a\cdot(b\cdot B_r) = (a\wedge b)\cdot B_r = -(b\wedge a)\cdot B_r = -b\cdot(a\cdot B_r).
+\end{equation*}
+
+We now wish to express the inner product $a\cdot B_r$ as a sum of blades.
+Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
+\begin{align}
+a\cdot B_r
+ &= a\cdot(B_{r-1}\wedge b_r)\nonumber \\
+ &= (-1)^{r-1}a\cdot(b_r\wedge B_{r-1})\label{a_dot_Br_stepA} \\
+ &= -(-1)^r\left(-b_r\wedge(a\cdot B_{r-1})+(a\cdot b_r)B_{r-1}\right)\label{a_dot_Br_stepB} \\
+ &= -(-1)^r\left(-(-1)^r(a\cdot B_{r-1})\wedge b_r+(a\cdot b_r)B_{r-1}\right)\nonumber \\
+ &= (a\cdot B_{r-1})\wedge b_r - (-1)^r(a\cdot b_r)B_{r-1}.\label{equ_a_dot_Br_recursive}
+\end{align}
+Here, we've gone from equation \eqref{a_dot_Br_stepA} to that of \eqref{a_dot_Br_stepB} by
+applying the identity given in equation \eqref{equ_a_dot_b_wedge_Br_identity}.
+
+Applied recursively, it is easy to see here from equation \eqref{equ_a_dot_Br_recursive} that an expansion of
+$a\cdot B_r$ as a sum of blades is given by
+\begin{equation}\label{equ_a_dot_Br_sum_of_blades}
+a\cdot B_r = \langle B_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot b_i)\bigwedge_{\substack{j=1\\j\neq i}}^r b_j.
+\end{equation}
+One might also simply use equation \eqref{equ_a_dot_Br_recursive} to give an inductive
+argument of equation \eqref{equ_a_dot_Br_sum_of_blades}.
+
+Notice that for all $r>0$, the term $\langle B_r\rangle_0a$ vanishes in equation \eqref{equ_a_dot_Br_sum_of_blades},
+yet its presence allows us the case $r=0$ if we define the summation to be zero in the vacuous case.
+
+Having established equation \eqref{equ_a_dot_Br_sum_of_blades}, it is instructive to show that $a\cdot B_r$ is,
+although it is certainly not immediately obvious, a blade of grade $r-1$.  To that end, we write, for all $r>1$,
+\begin{equation*}
+a\cdot B_r = (a\cdot B_{r-1})\wedge\left(b_r - \frac{a\cdot b_r}{a\cdot b_{r-1}}b_{r-1}\right),
+\end{equation*}
+with the understanding that if $a\cdot b_{r-1}$ is zero, we can anti-commute vector factors in equation \eqref{equ_a_dot_Br_sum_of_blades}
+until this is the case, or else $a\cdot B_r$ is zero anyway.
+An inductive argument can now be easily made that $a\cdot B_r$ is indeed a blade of grade $r-1$.
+Notice that this proof works in any geometric algebra, regardless of the associated bilinear form.  In a euclidean geometric
+algebra, an easier proof is had by writing
+\begin{equation*}
+a\cdot B_r = (a_{\perp} + a_{\parallel})\cdot B_r = a_{\parallel}\cdot B_r,
+\end{equation*}
+where $a_{\perp}$ is the orthogonal rejection $a$ from $B_r$, while $a_{\parallel}$ is the
+orthogonal projection of $a$ down onto $B_r$.  The blade $B_r$ can now be orthogonalized,
+with $a_{\parallel}$ as a principle factor, using the Gram-Schmidt orthogonalization process.\footnote{This process
+cannot always be performed on blades taken from a non-euclidean geometric algebra.  To see this, consider rewriting
+$a\wedge b$ as $a\wedge(b+\lambda a)$ where $a\cdot(b+\lambda a)=0$.  In a non-euclidean geometric algebra,
+no such scalar $\lambda$ may exist due to $a$ being null.  For a description of the Gram-Schmidt process, see \cite{}.
+An alternative for blades can be found in \cite[p. 88]{Doran03}.}
+This factor then falls out quite easily, and we're left with a blade of grade $r-1$.
+
+\subsection{Identities Involving Spades}
+
+Letting $M_r$ denote a spade having the factorization given in equation \eqref{equ_M_r}, recall that
+\begin{equation*}
+M_r = \sum_{i=1}^r\left\langle M_r\right\rangle_i,
+\end{equation*}
+To be more precise, if $r$ is even,
+\begin{equation}\label{equ_Mr_even}
+M_r = \sum_{i=0}^{r/2}\left\langle M_r\right\rangle_{2i},
+\end{equation}
+while if $r$ is odd, we have
+\begin{equation}\label{equ_Mr_odd}
+M_r = \sum_{i=1}^{(r+1)/2}\left\langle M_r\right\rangle_{2i-1}.
+\end{equation}
+To see this, consider first the trivial case of $r=0$; then, for any $r>0$, the equation
+\begin{equation}\label{equ_Mr_split}
+M_r = M_{r-1}m_r = \langle M_{r-1}\rangle_1^r\cdot m_r + \langle M_{r-1}\rangle_1^r\wedge m_r + \langle M_{r-1}\rangle_0 m_r.
+\end{equation}
+Here we have extended our notation $\langle\cdot\rangle_i^j$ to mean a culling of all enclosed blades not of a grade falling
+in the interval $[i,j]$.  Put another way, we have
+\begin{equation*}
+\langle M_r\rangle_i^j = \sum_{k=i}^j\langle M_r\rangle_k.
+\end{equation*}
+
+An inductive hypothesis can now be stated that equations \eqref{equ_Mr_even} and \eqref{equ_Mr_odd} hold for $r-1$.
+If $r$ is even, then, by our inductive hypothesis, $M_{r-1}$, when expanded as a sum of blades, consists only of blades of odd grade,
+and it is clear that equation \eqref{equ_Mr_split} becomes \eqref{equ_Mr_even}.  If $r$ is odd, then, by our inductive hypothesis, $M_{r-1}$, when expanded as
+a sum of blades, consists only of blades of even grade, and it is clear that equation \eqref{equ_Mr_split} becomes \eqref{equ_Mr_odd}.
+
+Now let $a$ be a vector, and convince yourself that
+\begin{align}
+a\cdot M_r &= -(-1)^r M_r\cdot a,\label{equ_a_dot_Mr_commutativity} \\
+a\wedge M_r &= (-1)^r M_r\wedge a.\label{equ_a_wedge_Mr_commutativity}
+\end{align}
+Refer to equations \eqref{equ_a_dot_Br_commutativity} and \eqref{equ_a_wedge_Br_commutativity} to see this.
+
+We now turn our attention to the following identity.
+\begin{equation}\label{equ_gr_zero_part_of_Mr}
+\langle M_r\rangle_0 = \langle M_{r-1}\rangle_1\cdot m_r
+\end{equation}
+Note that this is trivial in the case that $r$ is odd, since neither $M_r$ nor $M_{r-1}$ have parts of grade zero nor one, respectively.
+Letting $r$ be even, we write
+\begin{equation*}
+M_r = M_{r-1}m_r = M_{r-1}\cdot m_r + M_{r-1}\wedge m_r - \langle M_r\rangle_0 m_r.
+\end{equation*}
+Now taking the grade zero part of both sides, we get
+\begin{equation*}
+\langle M_r\rangle_0 = \langle M_{r-1}\cdot m_r\rangle_0 = \langle M_{r-1}\rangle_1\cdot m_r.
+\end{equation*}
+
+We now wish to express the inner product $a\cdot M_r$ as a sum of spades.
+Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
+\begin{align}
+a\cdot M_r &= a\cdot (M_{r-1}m_r)\nonumber \\
+ &= a\cdot((\langle M_{r-1}\rangle_0 + \langle M_{r-1}\rangle_1 + \langle M_{r-1}\rangle_2^r)m_r)\nonumber \\
+ &= \langle M_{r-1}\rangle_0a\cdot m_r + (\langle M_{r-1}\rangle_1\cdot m_r)a\nonumber \\
+ &+ (a\cdot\langle M_{r-1}\rangle_1)m_r - (a\cdot m_r)\langle M_{r-1}\rangle_1 + a\cdot(\langle M_{r-1}\rangle_2^rm_r).\label{equ_a_dot_Mr_stepA}
+\end{align}
+We will return to this equation momentarily.  Until then, to ease notation, let us write $M=\langle M_{r-1}\rangle_2^r$ and see that
+\begin{align}
+a\cdot(Mm_r)
+ &= a\cdot(M\cdot m_r + M\wedge m_r)\nonumber \\
+ &= -(-1)^{r-1}a\cdot(m_r\cdot M) + (-1)^{r-1}a\cdot(m_r\wedge M)\label{equ_a_dot_Mr_stepB} \\
+ &= (-1)^rm_r\cdot(a\cdot M) - (-1)^r\left[-m_r\wedge(a\cdot M)+(a\cdot m_r)M\right]\label{equ_a_dot_Mr_stepC} \\
+ &= (a\cdot M)\cdot m_r + (a\cdot M)\wedge m_r - (-1)^r(a\cdot m_r)M\nonumber \\
+ &= (a\cdot M)m_r - (-1)^r(a\cdot m_r)M.\label{equ_a_dot_Mr_stepD}
+\end{align}
+Note here our use of equations \eqref{equ_a_dot_b_dot_Br_identity} and \eqref{equ_a_dot_b_wedge_Br_identity} to
+arrive at equation \eqref{equ_a_dot_Mr_stepC} from \eqref{equ_a_dot_Mr_stepB}.
+
+Returning now to equation \eqref{equ_a_dot_Mr_stepA}, if we plug equation \eqref{equ_a_dot_Mr_stepD} into it
+under the assumption that $r$ is odd, we get
+\begin{equation}
+a\cdot M_r = (a\cdot M_{r-1})m_r + (a\cdot m_r)M_{r-1} - \langle M_{r-1}\rangle_0am_r.
+\end{equation}
+And if we plug equation \eqref{equ_a_dot_Mr_stepD} into equation \eqref{equ_a_dot_Mr_stepA} under the assumption
+that $r$ is even, we get
+\begin{equation}
+a\cdot M_r = (a\cdot M_{r-1})m_r - (a\cdot m_r)M_{r-1} + (\langle M_{r-1}\rangle_1\cdot m_r)a.
+\end{equation}
+It then follows, despite the parity of $r$, that
+\begin{align}
+a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
+ &- \langle M_{r-1}\rangle_0am_r + \langle M_r\rangle_0a.\label{equ_a_dot_Mr_recursive}
+\end{align}
+Note the use of equation \eqref{equ_gr_zero_part_of_Mr} here in our arrival at equation \eqref{equ_a_dot_Mr_recursive}.
+
+Applied recursively, it is now easy to see from equation \eqref{equ_a_dot_Mr_recursive} that an expansion of
+$a\cdot M_r$ as a sum of spades is given by
+\begin{equation}\label{equ_a_dot_Mr_sum_of_spades}
+a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot m_i)\prod_{\substack{j=1\\j\neq i}}^rm_j.
+\end{equation}
+To see this, consider an inductive argument.  The cases $r=0$ and $r=1$ follow trivially by inspection.
+Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_spades} holds for a fixed case $r-1$.
+Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_spades},
+adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_spades}, thereby completing
+our proof by induction.
+
+It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
+One equation is had by the other by a replacement of all outer products with geometric products, or vice-versa.
+
+Having shown that $a\cdot B_r$ was a blade of grade $r-1$, we must consider here whether $a\cdot M_r$ can be written
+as a product of $r-1$ vectors.  With that in mind, we write
+\begin{align}
+a\cdot M_r - \langle M_r\rangle_0a &= \sum_{i=1}^r\alpha_i M_r^{(i)}\nonumber \\
+ &= \left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]\left(m_r + \alpha_r\left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]^{-1}M_{r-1}\right),\label{equ_factor_a_dot_M_r}
+\end{align}
+where $\alpha_i=-(-1)^i(a\cdot m_i)$.  Now, if an inverse of $a\cdot M_{r-1}-\langle M_{r-1}\rangle_0a$ does exist, then
+it is probably of the form
+\begin{equation*}
+\left[\sum_{i=1}^{r-1}\alpha_iM_{r-1}^{(i)}\right]^{-1} = \sum_{i=1}^{r-1}\beta_i\left(M_{r-1}^{(i)}\right)^{\sim}.
+\end{equation*}
+Assuming a solution to this equation in each $\beta_i$ exists, we can go on to write
+\begin{equation*}
+\sum_{i=1}^{r-1}\beta_i\left(M_{r-1}^{(i)}\right)^{\sim}M_{r-1} = \sum_{i=1}^{r-1}\beta_i \left(\prod_{j=1}^{i-1}m_i^2\right)\tilde{V}_{i+1}m_iV_{i+1},
+\end{equation*}
+where $V_i$ is given by
+\begin{equation*}
+V_i = \sum_{j=i}^{r-1} m_i.
+\end{equation*}
+Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vector could be factored
+out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
+
+\section{Blades And Spades As Representatives Of Geometric Sets}
+
+At last we have now enough ground covered to begin a treatment of geometric set representation by blades and spades.
+We start by showing that any element $E$ of $\G$ is representative of a geometric set as follows.
+
+\begin{defn}
+Letting the function $\gd:\G\to P(\F^n)$ be defined as
+\begin{equation*}
+\gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\},
+\end{equation*}
+we call $\gd(E)$ the geometric set represented by $E$.
+\end{defn}
+
+\begin{lem}
+For any element $E\in\G$, the set $\gd(E)$ is a geometric set.
+\end{lem}
+\begin{proof}
+If it can be shown, for every integer $k\in[0,\dim(\V)]$, that $\gd(\langle E\rangle_k)$ is a geometric set,
+then $\gd(E)$ is a geometric set by Lemma~\ref{lem_solution_intersection}.  (Recall that the intersection
+of any two geometric sets is geometric.)
+
+The case $k=0$ is trivial.  Letting $k>0$, it is clear by equation \eqref{equ_a_dot_Br_sum_of_blades} that
+\begin{equation*}
+0 = p(x)\cdot\langle E\rangle_k = \sum_i (p(x)\cdot v_i)V_i,
+\end{equation*}
+where each $V_i$ is a blade of grade $k-1$.  We now see that the set of all solutions $x$
+to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
+\end{proof}
+
+\begin{lem}
+Setup $p$.
+Then, for every algebraic set $S$, there exists a blade $B_r\in\G$ representative of it.
+\end{lem}
+\begin{proof}
+By the Hilbert Basis Theorem (see \cite[p. 204]{Garrity13}), there exists a finite
+set of $r$ vectors $\{v_i\}_{i=1}^r\subset\V$ such that $S$ is given by equation \eqref{equ_geo_set_def}.
+It's now trivial to show that this can be reduced to any linearly independent set that spans this set of vectors.
+Now form that blade.
+\end{proof}
+
+\begin{lem}
+If $B_r$ is an $r$-blade and $M_r$ is a spade with $\langle M_r\rangle_r=\lambda B_r$, then we have
+\begin{equation*}
+\gd(B_r)=\gd(M_r).
+\end{equation*}
+\end{lem}
+This is dumb.  Spades are dumb.  Why do we even care?
+
+So any multivector represents a geometric set.  Do blades represent a strict subset of all geometric sets?  Do spades?
+Are the set of all geometric sets represented by blades the same as spades?
+
+\begin{thebibliography}{9}
+
+\bibitem{Parkin15}
+S. Parkin,
+\emph{An Introduction To Geometric Sets}.
+Advances in Applied Clifford Algebras, Volume 25, Issue Unknown, pp. 639-655, 2015.
+
+\bibitem{Perwass09}
+C. Perwass,
+\emph{Geometric Algebra with Applications in Engineering}
+Springer-Verlag Berlin Heidelberg, 2009.
+
+\bibitem{Garrity13}
+T. Garrity, et. al.,
+\emph{Algebraic Geometry, A Problem Solving Approach}
+American Mathematical Society, Institute for Advanced Study
+
+\bibitem{Hestenes99}
+D. Hestenes,
+\emph{New Foundations for Classical Mechanics}
+Kluwer Academic Publishers, 1999.
+
+\bibitem{Doran03}
+C. Doran, et. al.,
+\emph{Geometric Algebra for Physicists}
+Cambridge University Press, 2003.
+
+\end{thebibliography}
+
+\end{document}
