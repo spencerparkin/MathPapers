@@ -93,7 +93,7 @@ If each expression $p(x)\cdot v_i$ is a polynomial in the components of $x$, the
 
 \begin{lem}\label{lem_geo_set_lin_indep}
 If $\{E_i\}_{i=1}^r$ is any linearly independent set of elements taken from $\G$, then the set of all
-solutions in $\F^n$ to the equation
+solutions in $x$ to the equation
 \begin{equation}\label{equ_geo_set}
 0 = \sum_{i=1}^r (p(x)\cdot v_i)E_i
 \end{equation}
@@ -105,7 +105,8 @@ It then follows that for each integer $i\in[1,r]$, we must have $p(x)\cdot v_i=0
 \end{proof}
 
 \begin{lem}\label{lem_geo_set_lin_dep}
-If $\{E_i\}_{i=1}^r$ is any sequence of elements taken from $\G$, then the set of all solutions in $\F^n$ to equation \eqref{equ_geo_set}
+If $\{E_i\}_{i=1}^r$ is any sequence of elements taken from $\G$ such that for all integers $i\in[1,r]$, we have
+$\langle E_i\rangle_0=0$ and $E_i\neq 0$, then the set of all solutions in $x$ to equation \eqref{equ_geo_set}
 is a geometric set.
 \end{lem}
 \begin{proof}
@@ -123,12 +124,12 @@ Having done so, we see that equation \eqref{lem_geo_set_lin_dep} becomes
 \begin{align*}
 0 &= \sum_{i=1}^r(p(x)\cdot v_i)E_i \\
  &= \sum_{i=1}^s(p(x)\cdot v_i)E_i + \sum_{i=s+1}^r(p(x)\cdot v_i)\sum_{j=1}^s\alpha_{i,j}E_j \\
- &= \sum_{i=1}^s\left[p(x)\cdot v_i-\sum_{j=s+1}^r\alpha_{j,i}(p(x)\cdot v_j)\right]E_i \\
- &= \sum_{i=1}^s\left[p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)\right]E_i.
+ &= \sum_{i=1}^s\left[p(x)\cdot v_i+\sum_{j=s+1}^r\alpha_{j,i}(p(x)\cdot v_j)\right]E_i \\
+ &= \sum_{i=1}^s\left[p(x)\cdot\left(v_i+\sum_{j=s+1}^r\alpha_{j,i}v_i\right)\right]E_i.
 \end{align*}
 We see now that the set of all solutions to equation \eqref{lem_geo_set_lin_dep} is given by
 \begin{equation*}
-\bigcap_{i=1}^s\left\{x\in\F^n\left|p(x)\cdot\left(v_i-\sum_{j=s+1}^r\alpha_{j,i}v_i\right)=0\right.\right\},
+\bigcap_{i=1}^s\left\{x\in\F^n\left|p(x)\cdot\left(v_i+\sum_{j=s+1}^r\alpha_{j,i}v_i\right)=0\right.\right\},
 \end{equation*}
 which is clearly a geometric set by Definition~\ref{def_geo_set}.
 \end{proof}
@@ -156,7 +157,7 @@ Therefore, $x\in G(\{v_i\}_{i=1}^s)$.
 If $\dim\V$ is finite, then for any set of vectors $\{v_i\}$ taken from $\V$, there exists a finite subset $\{v_{k_i}\}\subset\{v_i\}$
 with $0\neq\bigwedge_i v_{k_i}$ such that
 \begin{equation*}
-G(\{v_i\}) = G(\{v_{k_i}\}_k).
+G(\{v_i\}) = G(\{v_{k_i}\}).
 \end{equation*}
 \end{lem}
 \begin{proof}
@@ -178,23 +179,13 @@ is given by
 \begin{equation*}
 A = \bigcap_{k=1}^r A_k,
 \end{equation*}
-where each $A_k$ is the set of all solutions in each $\alpha_i$ to equation $k\in[0,\dim(\V)]$, given by
+where each $A_k$ is the set of all solutions in each $\alpha_{i,k}$ to equation $k\in[0,\dim(\V)]$, given by
 \begin{equation*}
-0 = \sum_{i=1}^r\alpha_i\langle E_i\rangle_k.
+0 = \sum_{i=1}^r\alpha_{i,k}\langle E_i\rangle_k.
 \end{equation*}
 \end{lem}
 \begin{proof}
 Show it.
-\end{proof}
-
-\begin{lem}\label{lem_intersect_grade_parts}
-For any element $E\in\G$, we have
-\begin{equation*}
-\gd(E) = \bigcap_{i=0}^{\dim\V}\gd(\langle E\rangle_i).
-\end{equation*}
-\end{lem}
-\begin{proof}
-This follows immediately from Lemma~\ref{lem_solution_intersection}.
 \end{proof}
 
 \section{Perliminary Material}
@@ -531,6 +522,16 @@ Letting the function $\gd:\G\to P(\F^n)$ be defined as
 we call $\gd(E)$ the geometric set represented by $E$.
 \end{defn}
 
+\begin{lem}\label{lem_intersect_grade_parts}
+For any element $E\in\G$, we have
+\begin{equation*}
+\gd(E) = \bigcap_{i=0}^{\dim\V}\gd(\langle E\rangle_i).
+\end{equation*}
+\end{lem}
+\begin{proof}
+This follows immediately from Lemma~\ref{lem_solution_intersection}.
+\end{proof}
+
 \begin{lem}
 For any element $E\in\G$, the set $\gd(E)$ is a geometric set.
 \end{lem}
@@ -541,7 +542,8 @@ The case $k=0$ is trivial.  Letting $k>0$, it is clear by equation \eqref{equ_a_
 \begin{equation*}
 0 = p(x)\cdot\langle E\rangle_k = \sum_i (p(x)\cdot v_i)B_i,
 \end{equation*}
-where each $B_i$ is a blade of grade $k-1$.  We now see that the set of all solutions $x$
+where each $B_i$ is a blade of grade $k-1$.  If $k=1$, $p(x)$ factors out of the sum, and we clearly get a geometric
+set.  If $k>1$, then we see that the set of all solutions $x$
 to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
 \end{proof}
 
