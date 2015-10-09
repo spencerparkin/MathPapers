@@ -574,7 +574,7 @@ that we could have otherwise represented using any other type of element of $\G$
 lemma that the same holds true for spades, the question of which type we use (blades or spades?) depends
 on what each representation can do for us.
 
-\begin{lem}\label{lem_convert_blade_to_spade}
+\begin{lem}\label{lem_spade_for_blade}
 For every blade $B_r\in\G$, there exists a spade $M_r\in\G$ such that $\gd(M_r)=\gd(B_r)$.
 \end{lem}
 \begin{proof}
@@ -589,9 +589,7 @@ In a non-euclidean geometric algebra, an orthogonal factorization can still be f
 See \cite[p. 88]{Doran03}.
 \end{proof}
 
-Lemma~\ref{lem_convert_blade_to_spade} now begs the question of how we might convert a spade representation into that of a blade.
-
-\begin{lem}\label{lem_convert_spade_to_blade_when_lin_indep}
+\begin{lem}\label{lem_blade_for_spade_almost}
 If $M_r\in\G$ is a spade with $0\neq\bigwedge_{i=1}^r m_i$, then
 \begin{equation*}
 \gd(M_r) = \gd(\langle M_r\rangle_r).
@@ -610,10 +608,11 @@ where $s\leq r$, we know that $B_s$ is a subspace of $\langle M_r\rangle_r$.  It
 for all $s\leq r$, we have $\gd(\langle M_r\rangle_r)\subseteq\gd(\langle M_r\rangle_s)$, and
 so the result goes through by Lemma~\ref{lem_intersect_grade_parts}.
 
-Of course, what is unsatisfactory about Lemma~\ref{lem_convert_spade_to_blade_when_lin_indep} is
-that it is not always the case that $0\neq\bigwedge_{i=1}^r m_i$.
+Notice that Lemma~\ref{lem_blade_for_spade_almost} shows us how we can convert a blade representation
+into that of a spade.  We first factor the blade (see \cite[p. 533]{Dorst07}), then simply take the geometric
+product of that factorization.
 
-Find recursive algorithm for the conversion?
+But how do we convert a spade representation into that of a blade?
 
 \subsection{What Blades Can Do For Us}
 
@@ -653,6 +652,11 @@ Kluwer Academic Publishers, 1999.
 C. Doran, et. al.,
 \emph{Geometric Algebra for Physicists}
 Cambridge University Press, 2003.
+
+\bibitem{Dorst07}
+L. Dorst, et. al.,
+\emph{Geometric Algebra for Computer Science}
+Morgan Kaufmann Publishers, 2007.
 
 \end{thebibliography}
 
