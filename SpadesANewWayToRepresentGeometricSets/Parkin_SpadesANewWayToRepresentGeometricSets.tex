@@ -210,7 +210,7 @@ smallest integer $s\in[0,r]$ such that $M_r$ may be rewritten as a geometric pro
 Clearly, if $0\neq\bigwedge_{i=1}^r m_i=\langle M_r\rangle_r$, then $\rank(M_r)=r$.
 The converse of this statement, however is not immediately clear, to say the least.
 In other words, if $0=\bigwedge_{i=1}^r m_i=\langle M_r\rangle_r$, then there does not
-appear to be any easy proof that $\rank(M_r)<r$.  For now, we will have to make due with the following lemma.
+appear to be any easy proof that $\rank(M_r)<r$.  We will return to this later on; but for now, we will have to make due with the following lemma.
 \begin{lem}\label{lem_spade_no_dup_in_factorization}
 For any given invertible spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)\leq r-2$.
 \end{lem}
@@ -519,7 +519,7 @@ Letting the function $\gd:\G\to P(\F^n)$ be defined as
 \begin{equation*}
 \gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\},
 \end{equation*}
-we call $\gd(E)$ the geometric set represented by $E$.
+we call $\gd(E)$ \emph{the geometric set represented by $E$}.
 \end{defn}
 
 \begin{lem}\label{lem_intersect_grade_parts}
@@ -548,28 +548,31 @@ to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
 \end{proof}
 
 \begin{lem}\label{lem_all_geo_sets_rep_by_blades}
-If $\dim\V$ is finite, then for every geometric set that can be represented by an element $E\in\G$,
-there exists an $r$-blade $B_r\in\G$ such that $\gd(E)=\gd(B_r)$.
+For every geometric set $S$, there exists an element $E\in\G$ such that $\gd(E)=S$.
+Foreover, we can always find $E$ as a blade in $\G$.
 \end{lem}
 \begin{proof}
-By Lemma~\ref{lem_reduce_inf_vec_set}, any set of vectors generating the geometric
-set represented by $E$ can be reduced to a finite subset $\{b_i\}_{i=1}^r$ of
-$r$ linearly independent vectors.  Now let $B_r=\bigwedge_{i=1}^r b_i$.
-\end{proof}
+If $\dim\V$ is finite, then, by Lemma~\ref{lem_reduce_inf_vec_set}, any set of vectors generating the geometric
+set $S$ may be reduced to a finite subset $\{v_i\}_{i=1}^s$.
+We then have $S=\gd(\bigwedge_{i=1}^s v_i)$.
 
-The next lemma becomes useful in the case that our vector space $\V$ is of infinite dimension.
+If $\dim\V$ is infinite, then we must consider blades of infinite grade as the dimension
+of the vector space spanned by the set of vectors $\{v_i\}$ generating $S$ may be infinite.
+\end{proof}
 
 \begin{lem}
 If for every vector $v\in\V$, the expression $p(x)\cdot v$ is a polynomial in the components of $x$,
-then for every algebraic set $G(\{v_i\})$, where $\{v_i\}\subseteq\V$, there exists an $r$-blade $B_r\in\G$ such that
-$G(\{v_i\})=\gd(B_r)$.
+then for every algebraic set $G(\{v_i\})$, where $\{v_i\}\subseteq\V$, there exists an $s$-blade $B_s\in\G$ such that
+$G(\{v_i\})=\gd(B_s)$.
 \end{lem}
 \begin{proof}
 By the Hilbert Basis Theorem (see \cite[p. 204]{Garrity13}), there exists a finite subset $\{v_i\}_{i=1}^r\subset\{v_i\}$
 such that $G(\{v_i\}_{i=1}^r)=G(\{v_i\})$.  Then, by Lemma~\ref{lem_reduce_vec_set}, a linearly independent subset $\{v_i\}_{i=1}^s$
 of $\{v_i\}_{i=1}^r$ can be found such that $G(\{v_i\}_{i=1}^s)=G(\{v_i\}_{i=1}^r)$.
-Lastly, we see that $G(\{v_i\}_{i=1}^s)=\gd(\bigwedge_{i=1}^s v_i)$.
+Lastly, we see that $G(\{v_i\}_{i=1}^s)=\gd(\bigwedge_{i=1}^s v_i)$.  Now let $B_s=\bigwedge_{i=1}^s v_i$.
 \end{proof}
+
+We will assume a finite-dimensional vector space $\V$ from here on.
 
 Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades}, it is telling us that if we only use blades to represent geometric sets, then we're not missing out on any geometric sets
 that we could have otherwise represented using any other type of element of $\G$.  Seeing by our next
@@ -585,10 +588,17 @@ of $B_r$ so that
 \begin{equation*}
 B_r = \bigwedge_{i=1}^r b_i = \prod_{i=1}^r b_i.
 \end{equation*}
-Now simply let each $m_i=b_i$.
 
 In a non-euclidean geometric algebra, an orthogonal factorization can still be found.
 See \cite[p. 88]{Doran03}.
+\end{proof}
+
+\begin{lem}\label{lem_blade_for_spade}
+For every spade $M_r\in\G$, there exists a blade $B_r\in\G$ such that $\gh(B_r)=\gh(M_r)$.
+\end{lem}
+\begin{proof}
+By Lemma~\ref{lem_all_geo_sets_rep_by_blades} and Lemma~\ref{lem_spade_for_blade}, there exists, for every geometric set, a spade $M_r$
+representative of that set.  The statement of the lemma no follows by invoking Lemma~\ref{lem_all_geo_sets_rep_by_blades} again.
 \end{proof}
 
 \begin{lem}\label{lem_blade_for_spade_almost}
@@ -604,7 +614,7 @@ By Lemma~\ref{lem_lin_indep_subspades} and equation \eqref{equ_a_dot_Mr_sum_of_s
 \end{equation*}
 \end{proof}
 
-It is instructive to examine an alternative proof of Lemma~\ref{lem_convert_spade_to_blade_when_lin_indep}.  Notice that if $\{m_i\}_{i=1}^r$
+It is instructive to examine an alternative proof of Lemma~\ref{lem_blade_for_spade_almost}.  Notice that if $\{m_i\}_{i=1}^r$
 is a linearly independent set, then for every $s$-blade $B_s$ appearing in the expansion of $M_r$,
 where $s\leq r$, we know that $B_s$ is a subspace of $\langle M_r\rangle_r$.  It then follows that
 for all $s\leq r$, we have $\gd(\langle M_r\rangle_r)\subseteq\gd(\langle M_r\rangle_s)$, and
