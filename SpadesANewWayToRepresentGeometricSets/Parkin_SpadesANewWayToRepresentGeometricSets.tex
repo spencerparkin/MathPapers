@@ -33,7 +33,7 @@
 
 \begin{document}
 
-\title{Spades -- A New Way To Represent Geometric Sets}
+\title{Representing Geometry In Geometric Algebra}
 
 \author{Spencer T. Parkin}
 \email{spencerparkin@outlook.com}
@@ -43,19 +43,14 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-Abstract...
+The aim of this paper is to show that, like blades, versors are natural representatives of geometry in geometric algebra.
+In doing so, we find a definition that allows any element of the algebra to represent some subset of space.
+Reasons for using versors in place of blades are discussed an analyzed.
 \end{abstract}
 
-\keywords{Geometry, Algebraic Set, Geometric Set, Blade, Spade, Versor, Conformal Model, Homogeneous Model, Geometric Algebra, Algebraic Geometry}
+\keywords{Geometry, Algebraic Set, Geometric Set, Blade, Versor, Conformal Model, Homogeneous Model, Geometric Algebra, Algebraic Geometry}
 
 \maketitle
-
-\section{Introduction And Motivation}
-
-This paper shows that we need not limit our selves in geometric algebra to representation of geometry by blades only.
-The aim of this paper is to show that any element of a geometric algebra should be considered a representative, and
-that by so doing, we open up a whole new set of operations we can perform that combine two or more geometries
-together into a new one having geometric significance (e.g., incidence) with respect to the geometries taken in the operation.
 
 \section{Geometric Sets}
 
@@ -169,30 +164,34 @@ where each $A_k$ is the set of all solutions in each $\alpha_{i,k}$ to equation 
 Show it.
 \end{proof}
 
-\section{Perliminary Material}
+\section{Ground Work}
 
-Before we can show how blades and spades can represent geometric sets, we need to lay some ground work
+Before we can show how blades and versors can represent geometric sets, we need to lay some ground work
 with the following definitions, lemmas, and identities.
 
-Though already given in Table~\ref{tbl_terms}, the term spade deserves its own formal definition as follows.
-\begin{defn}[Spade]
-An element $M_r\in\G$ is called a \emph{spade} if and only if there exists a set of $r$ vectors $\{m_i\}_{i=1}^r$
+In this paper, we will use the following definition for the term ``versor.''
+\begin{defn}[Versor]
+An element $M_r\in\G$ is called a \emph{versor} if and only if there exists a set of $r$ vectors $\{m_i\}_{i=1}^r$
 such that it may be written as
 \begin{equation}\label{equ_M_r}
 M_r = \prod_{i=1}^r m_i.
 \end{equation}
 \end{defn}
-It is easy to show that spades, like blades, to not have unique factorizations.  Unlike blades, however, the
-size of a spade's factorization can very.  This leads us to the following definition.
-\begin{defn}[Spade Rank]\label{def_spade_rank}
-Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$, is the
+Note that we do not require each $m_i$ to be invertible.  If we do, we will say that the
+versor is invertible.  If we require that at least one of the $m_i$ be null, we will say that
+the versor is null.
+
+It is easy to show that versors, like blades, do not have unique factorizations.  Unlike blades, however, the
+size of a versor's factorization can very.  This leads us to the following definition.
+\begin{defn}[Versor Rank]\label{def_versor_rank}
+Given any versor $M_r\in\G$, the rank of the versor $M_r$, denoted $\rank(M_r)$, is the
 smallest integer $s\in[0,r]$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.
 \end{defn}
 
-It is clear from Definition~\ref{def_spade_rank} that a lower bound on the rank of any spade
+It is clear from Definition~\ref{def_versor_rank} that a lower bound on the rank of any versor
 is the highest grade part appearing in its expansion.  An upper bound on the rank is given by
-the size of any factorization of the spade we may have.  We will return to the concept of spade
-rank once we have developed more results about spades.
+the size of any factorization of the versor we may have.  We will return to the concept of versor
+rank once we have developed more results about versors.
 
 For completeness, we now give a formal definition of a blade.
 \begin{defn}[Blade]
@@ -222,9 +221,9 @@ Now notice that
 which is clearly a contradiction.
 \end{proof}
 
-We will need a result similar to Lemma~\ref{lem_lin_indep_subblades} as concerning spades.  It is as follows.
+We will need a result similar to Lemma~\ref{lem_lin_indep_subblades} as concerns versors.  It is as follows.
 \begin{lem}\label{lem_lin_indep_subspades}
-Letting $M_r^{(i)}$ denote the spade
+Letting $M_r^{(i)}$ denote the versor
 \begin{equation*}
 M_r^{(i)} = \prod_{\substack{j=1\\j\neq i}}^r m_i,
 \end{equation*}
@@ -353,7 +352,7 @@ $a\wedge b$ as $a\wedge(b+\lambda a)$ where $a\cdot(b+\lambda a)=0$.  In a non-e
 no such scalar $\lambda$ may exist due to $a$ being null.  For a description of the Gram-Schmidt process, see \cite{}.}
 This factor then falls out quite easily, and we're left with a blade of grade $r-1$.
 
-Letting $M_r$ denote a spade having the factorization given in equation \eqref{equ_M_r}, recall that
+Letting $M_r$ denote a versor having the factorization given in equation \eqref{equ_M_r}, recall that
 \begin{equation*}
 M_r = \sum_{i=1}^r\left\langle M_r\right\rangle_i,
 \end{equation*}
@@ -401,7 +400,7 @@ Now taking the grade zero part of both sides, we get
 \langle M_r\rangle_0 = \langle M_{r-1}\cdot m_r\rangle_0 = \langle M_{r-1}\rangle_1\cdot m_r.
 \end{equation*}
 
-We now wish to express the inner product $a\cdot M_r$ as a sum of spades.
+We now wish to express the inner product $a\cdot M_r$ as a sum of versors.
 Since the case $r=1$ is trivial, we begin by writing, for all $r>1$,
 \begin{align}
 a\cdot M_r &= a\cdot (M_{r-1}m_r)\nonumber \\
@@ -439,17 +438,17 @@ a\cdot M_r &= (a\cdot M_{r-1})m_r - (-1)^r(a\cdot m_r)M_{r-1}\nonumber \\
 Note the use of equation \eqref{equ_gr_zero_part_of_Mr} here in our arrival at equation \eqref{equ_a_dot_Mr_recursive}.
 
 Applied recursively, it is now easy to see from equation \eqref{equ_a_dot_Mr_recursive} that an expansion of
-$a\cdot M_r$ as a sum of spades is given by
-\begin{equation}\label{equ_a_dot_Mr_sum_of_spades}
+$a\cdot M_r$ as a sum of versors is given by
+\begin{equation}\label{equ_a_dot_Mr_sum_of_versors}
 a\cdot M_r = \langle M_r\rangle_0a - \sum_{i=1}^r(-1)^i(a\cdot m_i)\prod_{\substack{j=1\\j\neq i}}^rm_j.
 \end{equation}
 To see this, consider an inductive argument.  The cases $r=0$ and $r=1$ follow trivially by inspection.
-Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_spades} holds for a fixed case $r-1$.
-Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_spades},
-adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_spades}, thereby completing
+Now make the inductive hypothesis that equation \eqref{equ_a_dot_Mr_sum_of_versors} holds for a fixed case $r-1$.
+Then, applying the recursive formula \eqref{equ_a_dot_Mr_recursive} to the equation in \eqref{equ_a_dot_Mr_sum_of_versors},
+adjusted for the case $a\cdot M_{r-1}$, we get equation \eqref{equ_a_dot_Mr_sum_of_versors}, thereby completing
 our proof by induction.
 
-It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_spades} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
+It is very interesting now to compare this equation \eqref{equ_a_dot_Mr_sum_of_versors} with that of \eqref{equ_a_dot_Br_sum_of_blades}.
 One equation is had by the other by a replacement of all outer products with geometric products, or vice-versa.
 
 Having shown that $a\cdot B_r$ was a blade of grade $r-1$, we must consider here whether $a\cdot M_r$ can be written
@@ -475,10 +474,10 @@ Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vect
 out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
 The next lemma shows that this can happen when $a\wedge\langle M_r\rangle_r=0$ and $\langle M_r\rangle_r\neq 0$.
 
-We finally returning now to the concept of spade rank.  The proof of the following lemma is pieced together
+We finally return now to the concept of versor rank.  The proof of the following lemma is pieced together
 from the factorization algorithm given in \cite[p. 108]{Perwass09}.
-\begin{lem}\label{lem_spade_rank_iff_lin_indep}
-For every invertible spade $M_r$, we have
+\begin{lem}\label{lem_versor_rank_iff_lin_indep}
+For every invertible versor $M_r$, we have
 \begin{equation*}
 \mbox{$0\neq\bigwedge_{i=1}^r m_i$ if and only if $\rank(M_r)=r$.}
 \end{equation*}
@@ -487,7 +486,7 @@ For every invertible spade $M_r$, we have
 One direction being trivial, we only show here that if $\rank(M_r)=r$, then
 the set of vectors $\{m_i\}_{i=1}^r$ is a linearly independent set.
 
-Let $M\in\G$ be any non-zero spade of $\G$ with an unknown factorization,
+Let $M\in\G$ be any non-zero versor of $\G$ with an unknown factorization,
 and let $r$ be the largest integer for which $\langle M\rangle_r\neq 0$.
 The integer $r$ being a lower-bound on the rank of $M$, if a factorization $M_r$
 of $M$ of size $r$ can be found, then we have found the rank of $M=M_r$; namely, $r$.
@@ -505,18 +504,18 @@ we finally arrive at
 m_r\cdot m_{r-1}\cdot\dots\cdot m_2\cdot m_1\cdot M=m_rm_{r-1}\dotsm_2m_1M,
 \end{equation*}
 where here, the associativity of the inner product is understood, the left-hand side is clearly a non-zero scalar we'll call $\lambda$,
-and the right-hand side a spade.  It then follows that
+and the right-hand side a versor.  It then follows that
 \begin{equation*}
 M^{-1} = \lambda^{-1}\tilde{M_r}\implies M_r = \lambda(M^{-1})^{\sim},
 \end{equation*}
 showing that we have found a factorization of $M_r$, as desired.
 \end{proof}
 Note here our requirement that $M_r$ be invertible.  It is very likely, however,
-that the statement of Lemma~\ref{lem_spade_rank_iff_lin_indep} also holds true for null spades too.
+that the statement of Lemma~\ref{lem_versor_rank_iff_lin_indep} also holds true for null versors too.
 
-\section{Blades And Spades As Representatives Of Geometric Sets}
+\section{Blades And Versors As Representatives Of Geometric Sets}
 
-At last we now have enough ground covered to begin a treatment of geometric set representation by blades and spades.
+At last we now have enough ground covered to begin a treatment of geometric set representation by blades and versors.
 We start by showing that any element $E$ of $\G$ is representative of a geometric set as follows.
 
 \begin{defn}\label{def_geo_set_rep_by_E}
@@ -556,9 +555,9 @@ set.  If $k>1$, then we see that the set of all solutions $x$
 to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
 \end{proof}
 
-\begin{lem}\label{lem_all_geo_sets_rep_by_blades_or_spades}
+\begin{lem}\label{lem_all_geo_sets_rep_by_blades_or_versors}
 For every geometric set $S$, there exists an element $E\in\G$ such that $\gd(E)=S$.
-Moreover, we can always find $E$ as a blade or spade in $\G$.
+Moreover, we can always find $E$ as a blade or versor in $\G$.
 \end{lem}
 \begin{proof}
 If $\dim\V$ is finite, then, by Lemma~\ref{lem_reduce_inf_vec_set}, any set of vectors generating the geometric
@@ -568,9 +567,9 @@ We then have
 S=\gd\left(\bigwedge_{i=1}^s v_i\right) = \gd\left(\prod_{i=1}^s v_i\right).
 \end{equation*}
 To see this, consider equation \eqref{equ_a_dot_Br_sum_of_blades} with Lemma~\ref{lem_lin_indep_subblades},
-and equation \eqref{equ_a_dot_Mr_sum_of_spades} with Lemma~\ref{lem_lin_indep_subspades}.
+and equation \eqref{equ_a_dot_Mr_sum_of_versors} with Lemma~\ref{lem_lin_indep_subspades}.
 
-If $\dim\V$ is infinite, then we must consider blades of infinite grade, or spades of infinite rank, as the dimension
+If $\dim\V$ is infinite, then we must consider blades of infinite grade, or versors of infinite rank, as the dimension
 of the vector space spanned by the set of vectors $\{v_i\}$ generating $S$ may be infinite.
 \end{proof}
 
@@ -598,26 +597,26 @@ Lastly, we see that $G(\{v_i\}_{i=1}^s)=\gd(\bigwedge_{i=1}^s v_i)$.  Now let $B
 
 We will assume a finite-dimensional vector space $\V$ from here on.
 
-Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades}, it is telling us that if we only use blades, or only use spades, to represent geometric sets,
+Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_versors}, it is telling us that if we only use blades, or only use versors, to represent geometric sets,
 then we don't fail to generate any geometric set
 that we could have otherwise represented using any other type of element of $\G$.  That said, we cannot overlook the potential advantages
 of using all elements of $\G$ to represent geometric sets.  To do so, however, requires that we know how to convert the general multivector
-representation into that of the blade or spade, as each of these lends itself to methods of decomposition and analysis.  But first, let's
-consider the conversion process between blades and spades.
+representation into that of the blade or versor, as each of these lends itself to methods of decomposition and analysis.  But first, let's
+consider the conversion process between blades and versors.
 
-The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} shows that if we know
-any factorization of a blade, then we can easily formulate a spade representing the same geometric set
+The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_versors} shows that if we know
+any factorization of a blade, then we can easily formulate a versor representing the same geometric set
 by simply taking the vector factors together in the geometric product.\footnote{A treatment of blade factorization can be found in \cite[p. 533]{Dorst07}.}
-This, however, does not work in reverse.  Not every spade factorization is linearly independent; but,
-as the proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} also shows, if we can find such a factorization, then we can likewise convert a spade
-to a blade representing the same geometric set by simply taking the vector factors together in the outer product.\footnote{A treatment of spade factorization can be found in \cite[p. 107]{Perwass09}.}
-If we want the associated blade, however, there is no need to factor the spade!
-By Lemma~\ref{lem_spade_rank_iff_lin_indep}, we simply take the highest grade part of the spade's expansion.
-To find the associated spade, there is no need to factor a blade if we know it to already have a pair-wise orthogonalize factorization.\footnote{A treatment of blade orthogonalization is given in \cite[p. 88]{Doran03}.}
+This, however, does not work in reverse.  Not every versor factorization is linearly independent; but,
+as the proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_versors} also shows, if we can find such a factorization, then we can likewise convert a versor
+to a blade representing the same geometric set by simply taking the vector factors together in the outer product.\footnote{A treatment of versor factorization can be found in \cite[p. 107]{Perwass09}.}
+If we want the associated blade, however, there is no need to factor the versor!
+By Lemma~\ref{lem_versor_rank_iff_lin_indep}, we simply take the highest grade part of the versor's expansion.
+To find the associated versor, there is no need to factor a blade if we know it to already have a pair-wise orthogonalize factorization.\footnote{A treatment of blade orthogonalization is given in \cite[p. 88]{Doran03}.}
 
 % Meet, join, geometric product, duals...?
 
-% Don't use the stupid term spade.  No one will like that.
+% Don't use the stupid term versor.  No one will like that.
 
 \section{Examples In The Conformal Model}
 
