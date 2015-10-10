@@ -589,6 +589,16 @@ If $\dim\V$ is infinite, then we must consider blades of infinite grade, or spad
 of the vector space spanned by the set of vectors $\{v_i\}$ generating $S$ may be infinite.
 \end{proof}
 
+Another way to see that $S=\gd(\prod_{i=1}^s v_i)$ is to notice that
+since $\{v_i\}_{i=1}^s$
+is a linearly independent set, then for every $r$-blade $B_r$ appearing in the expansion of $\prod_{i=1}^s v_i$,
+where $r\leq s$, we know that $B_r$ is a subspace of $B_s=\left\langle\prod_{i=1}^s v_i\right\rangle_s$.  It then follows that
+for all $r\leq s$, we have
+\begin{equation*}
+\gd\left(B_r\right)\subseteq\gd\left(B_s\right),
+\end{equation*}
+and so our result also goes through by Lemma~\ref{lem_intersect_grade_parts}.
+
 \begin{lem}
 If for every vector $v\in\V$, the expression $p(x)\cdot v$ is a polynomial in the components of $x$,
 then for every algebraic set $G(\{v_i\})$, where $\{v_i\}\subseteq\V$, there exists an $s$-blade $B_s\in\G$ such that
