@@ -547,16 +547,21 @@ set.  If $k>1$, then we see that the set of all solutions $x$
 to this equation gives us a geometric set by Lemma~\ref{lem_geo_set_lin_dep}.
 \end{proof}
 
-\begin{lem}\label{lem_all_geo_sets_rep_by_blades}
+\begin{lem}\label{lem_all_geo_sets_rep_by_blades_or_spades}
 For every geometric set $S$, there exists an element $E\in\G$ such that $\gd(E)=S$.
-Foreover, we can always find $E$ as a blade in $\G$.
+Moreover, we can always find $E$ as a blade or spade in $\G$.
 \end{lem}
 \begin{proof}
 If $\dim\V$ is finite, then, by Lemma~\ref{lem_reduce_inf_vec_set}, any set of vectors generating the geometric
 set $S$ may be reduced to a finite subset $\{v_i\}_{i=1}^s$.
-We then have $S=\gd(\bigwedge_{i=1}^s v_i)$.
+We then have
+\begin{equation*}
+S=\gd\left(\bigwedge_{i=1}^s v_i\right) = \gd\left(\prod_{i=1}^s v_i\right).
+\end{equation*}
+To see this, consider equation \eqref{equ_a_dot_Br_sum_of_blades} with Lemma~\ref{lem_lin_indep_subblades},
+and equation \eqref{equ_a_dot_Mr_sum_of_spades} with Lemma~\ref{lem_lin_indep_subspades}.
 
-If $\dim\V$ is infinite, then we must consider blades of infinite grade as the dimension
+If $\dim\V$ is infinite, then we must consider blades of infinite grade, or spades of infinite rank, as the dimension
 of the vector space spanned by the set of vectors $\{v_i\}$ generating $S$ may be infinite.
 \end{proof}
 
@@ -574,65 +579,39 @@ Lastly, we see that $G(\{v_i\}_{i=1}^s)=\gd(\bigwedge_{i=1}^s v_i)$.  Now let $B
 
 We will assume a finite-dimensional vector space $\V$ from here on.
 
-Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades}, it is telling us that if we only use blades to represent geometric sets, then we're not missing out on any geometric sets
-that we could have otherwise represented using any other type of element of $\G$.  Seeing by our next
-lemma that the same holds true for spades, the question of which type we use (blades or spades?) depends
-on what each representation can do for us.
+Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades}, it is telling us that if we only use blades, or only use spades, to represent geometric sets,
+then we're not missing out on any geometric sets
+that we could have otherwise represented using any other type of element of $\G$.  As each representation lends
+itself to its own desirable properties, which we choose may depend on what type of problem we want to solve.
 
-\begin{lem}\label{lem_spade_for_blade}
-For every blade $B_r\in\G$, there exists a spade $M_r\in\G$ such that $\gd(M_r)=\gd(B_r)$.
-\end{lem}
-\begin{proof}
-In a euclidean geometric algebra, the Gram-Schmidt process allows us to find an orthogonal factoriztion
-of $B_r$ so that
+\subsection{Converting Between Spade And Blade Representations}
+
+% Gram-Schmidt orthogonalization in euclidean geometric algebras...
+%In a non-euclidean geometric algebra, an orthogonal factorization can still be found.
+%See \cite[p. 88]{Doran03}.
+
+The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} shows that if we know
+any factorization of a blade, then we can easily formulate a spade representing the same geometric set
+by simply taking the vector factors together in the geometric product.
+This, however, does not work in reverse.  Not every spade factorization is linearly independent; but,
+as the proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} also shows, if we can find such a factorization, then we can likewise convert a spade
+to a blade representing the same geometric set by simply taking the vector factors together in the outer product.
+Put another way, we can make the observation that if $M_r\in\G$ is a spade with $0\neq\bigwedge_{i=1}^r m_i$, then
 \begin{equation*}
-B_r = \bigwedge_{i=1}^r b_i = \prod_{i=1}^r b_i.
+\gd(M_r) = \gd(\langle M_r\rangle_r) = \gd\left(\bigwedge_{i=1}^r m_i\right).
 \end{equation*}
-
-In a non-euclidean geometric algebra, an orthogonal factorization can still be found.
-See \cite[p. 88]{Doran03}.
-\end{proof}
-
-\begin{lem}\label{lem_blade_for_spade}
-For every spade $M_r\in\G$, there exists a blade $B_r\in\G$ such that $\gh(B_r)=\gh(M_r)$.
-\end{lem}
-\begin{proof}
-By Lemma~\ref{lem_all_geo_sets_rep_by_blades} and Lemma~\ref{lem_spade_for_blade}, there exists, for every geometric set, a spade $M_r$
-representative of that set.  The statement of the lemma no follows by invoking Lemma~\ref{lem_all_geo_sets_rep_by_blades} again.
-\end{proof}
-
-\begin{lem}\label{lem_blade_for_spade_almost}
-If $M_r\in\G$ is a spade with $0\neq\bigwedge_{i=1}^r m_i$, then
-\begin{equation*}
-\gd(M_r) = \gd(\langle M_r\rangle_r).
-\end{equation*}
-\end{lem}
-\begin{proof}
-By Lemma~\ref{lem_lin_indep_subspades} and equation \eqref{equ_a_dot_Mr_sum_of_spades}, we see that
-\begin{equation*}
-\gd(M_r) = G(\{m_i\}_{i=1}^r) = \gd\left(\bigwedge_{i=1}^r m_r\right) = \gd(\langle M_r\rangle_r).
-\end{equation*}
-\end{proof}
-
-It is instructive to examine an alternative proof of Lemma~\ref{lem_blade_for_spade_almost}.  Notice that if $\{m_i\}_{i=1}^r$
+Notice that if $\{m_i\}_{i=1}^r$
 is a linearly independent set, then for every $s$-blade $B_s$ appearing in the expansion of $M_r$,
 where $s\leq r$, we know that $B_s$ is a subspace of $\langle M_r\rangle_r$.  It then follows that
 for all $s\leq r$, we have $\gd(\langle M_r\rangle_r)\subseteq\gd(\langle M_r\rangle_s)$, and
-so the result goes through by Lemma~\ref{lem_intersect_grade_parts}.
+so our observation also goes through by Lemma~\ref{lem_intersect_grade_parts}.
 
-Notice that Lemma~\ref{lem_blade_for_spade_almost} shows us how we can convert a blade representation
-into that of a spade.  We first factor the blade (see \cite[p. 533]{Dorst07}), then simply take the geometric
-product of that factorization.
+A treatment of blade factorization can be found in \cite[p. 533]{Dorst07}.  A treatment of
+spade factorization can be found in \cite[p. 107]{Perwass09}.
 
-But how do we convert a spade representation into that of a blade?
+Does he find a linearly independent factorization?
 
-\subsection{What Blades Can Do For Us}
-
-Talk about meet and join...
-
-\subsection{What Spades Can Do For Us}
-
-Can we learn anything new here?!
+% Meet, join, geometric product, duals...?
 
 \section{Examples In The Conformal Model}
 
