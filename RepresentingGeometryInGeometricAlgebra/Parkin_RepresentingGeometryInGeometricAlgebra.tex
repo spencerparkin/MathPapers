@@ -43,10 +43,9 @@
 %\dedicatory{To my dear wife Melinda.}
 
 \begin{abstract}
-The aim of this paper is to show that, like blades, versors are natural representatives of geometry in geometric algebra.
+The aim of this paper is to show that versors, like blades, are natural representatives of geometry in geometric algebra.
 In doing so, we extend the usual definition of how a blade represents geometry to one in which
 any element of the algebra may serve as such a representative.
-Reasons for using versors in place of blades are discussed and analyzed.
 \end{abstract}
 
 \keywords{Geometry, Algebraic Set, Geometric Set, Blade, Versor, Conformal Model, Homogeneous Model, Geometric Algebra, Algebraic Geometry}
@@ -600,10 +599,7 @@ We will assume a finite-dimensional vector space $\V$ from here on.
 
 Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_versors}, it is telling us that if we only use blades, or only use versors, to represent geometric sets,
 then we don't fail to generate any geometric set
-that we could have otherwise represented using any other type of element of $\G$.  That said, we cannot overlook the potential advantages
-of using all elements of $\G$ to represent geometric sets.  To do so, however, requires that we know how to convert the general multivector
-representation into that of the blade or versor, as each of these lends itself to methods of decomposition and analysis.  But first, let's
-consider the conversion process between blades and versors.
+that we could have otherwise represented using any other type of element of $\G$.
 
 The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_versors} shows that if we know
 any factorization of a blade, then we can easily formulate a versor representing the same geometric set
@@ -615,9 +611,16 @@ If we want the associated blade, however, there is no need to factor the versor!
 By Lemma~\ref{lem_versor_rank_iff_lin_indep}, we simply take the highest grade part of the versor's expansion.
 To find the associated versor, there is no need to factor a blade if we know it to already have a pair-wise orthogonalize factorization.\footnote{A treatment of blade orthogonalization is given in \cite[p. 88]{Doran03}.}
 
+% Must address direct representation.  So far, only used indirect representation.  Is it going to work?
+
+% Meet is computed by geometric product of orthogonalized blades -- easy to show?  What does the geometric product do for us generally -- hard question.  Consider simple case of tacking on a vector to a l.i. set, where the vec is in the space spanned by that set.
+% Using versors, all of group theory brought to bear on geometries.  Normal subgroups?  Special types of groups?  Isomorphisms?  Homomorphisms?
+
 % Meet, join, geometric product, duals...?
 
-% Don't use the stupid term versor.  No one will like that.
+% Reducible blades arrise when geometry is not characterized using the entire OPNS of blades.  This is
+% when p(x) for all x does not expore every possible vector.  For all v, there must be an x such that v=p(x).
+% May want to study the reduction of blades for algebraic sets as removing zeros of multiplicity.  Use vandermonde matrix result in algorithms book to show linearly independent set/irreducible form.
 
 \section{Examples In The Conformal Model}
 
