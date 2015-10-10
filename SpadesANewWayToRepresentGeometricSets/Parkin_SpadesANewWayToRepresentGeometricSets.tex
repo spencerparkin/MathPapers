@@ -538,13 +538,17 @@ that the statement of Lemma~\ref{lem_spade_rank_iff_lin_indep} also holds true f
 At last we now have enough ground covered to begin a treatment of geometric set representation by blades and spades.
 We start by showing that any element $E$ of $\G$ is representative of a geometric set as follows.
 
-\begin{defn}
+\begin{defn}\label{def_geo_set_rep_by_E}
 Letting the function $\gd:\G\to P(\F^n)$ be defined as
 \begin{equation*}
 \gd(E) = \{x\in\F^n|p(x)\cdot E=\langle E\rangle_0p(x)\},
 \end{equation*}
 we call $\gd(E)$ \emph{the geometric set represented by $E$}.
 \end{defn}
+
+Notice that Definition~\ref{def_geo_set_rep_by_E} does not exactly use the concept of
+the inner-product null-space as found in \cite{}.  The reason for this becomes apparent
+in the following lemma.
 
 \begin{lem}\label{lem_intersect_grade_parts}
 For any element $E\in\G$, we have
@@ -614,10 +618,11 @@ Lastly, we see that $G(\{v_i\}_{i=1}^s)=\gd(\bigwedge_{i=1}^s v_i)$.  Now let $B
 We will assume a finite-dimensional vector space $\V$ from here on.
 
 Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades}, it is telling us that if we only use blades, or only use spades, to represent geometric sets,
-then we're not missing out on any geometric sets
-that we could have otherwise represented using any other type of element of $\G$.  As each representation lends
-itself to its own desirable properties, which we choose may depend on how we think about a particular problem and what we know
-we can accomplish with either representation method.
+then we don't fail to generate any geometric set
+that we could have otherwise represented using any other type of element of $\G$.  That said, we cannot overlook the potential advantages
+of using all elements of $\G$ to represent geometric sets.  To do so, however, requires that we know how to convert the general multivector
+representation into that of the blade or spade, as each of which lends itself to methods of decomposition and analysis.  But first, let's
+consider the conversion process between blades and spades.
 
 The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} shows that if we know
 any factorization of a blade, then we can easily formulate a spade representing the same geometric set
