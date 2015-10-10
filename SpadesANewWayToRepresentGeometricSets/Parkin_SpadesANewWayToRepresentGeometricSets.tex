@@ -203,27 +203,15 @@ M_r = \prod_{i=1}^r m_i.
 \end{defn}
 It is easy to show that spades, like blades, to not have unique factorizations.  Unlike blades, however, the
 size of a spade's factorization can very.  This leads us to the following definition.
-\begin{defn}[Spade Rank]
+\begin{defn}[Spade Rank]\label{def_spade_rank}
 Given any spade $M_r\in\G$, the rank of the spade $M_r$, denoted $\rank(M_r)$, is the
 smallest integer $s\in[0,r]$ such that $M_r$ may be rewritten as a geometric product of $s$ vectors.
 \end{defn}
-Clearly, if $0\neq\bigwedge_{i=1}^r m_i=\langle M_r\rangle_r$, then $\rank(M_r)=r$.
-The converse of this statement, however is not immediately clear, to say the least.
-In other words, if $0=\bigwedge_{i=1}^r m_i=\langle M_r\rangle_r$, then there does not
-appear to be any easy proof that $\rank(M_r)<r$.  We will return to this later on; but for now, we will have to make due with the following lemma.
-\begin{lem}\label{lem_spade_no_dup_in_factorization}
-For any given invertible spade $M_r\in\G$, if there exist integers $1\leq i<j\leq r$ such that $m_i=m_j$, and $m_i$ is invertible, then $\rank(M_r)\leq r-2$.
-\end{lem}
-\begin{proof}
-This is trivial in the case that $j=i+1$.  In the case that $j=i+2$, simply notice that
-\begin{equation*}
-m_im_{i+1}m_j = m_im_{i+1}m_i = 2(m_i\cdot m_{i+1})m_i-m_i^2 m_{i+1}.
-\end{equation*}
-In the case that $j>i+2$, we see that
-\begin{equation*}
-m_i\left(\prod_{k=i+1}^{j-1}m_k\right)m_j = m_i^2\prod_{k=i+1}^{j-1}m_im_km_i^{-1}.
-\end{equation*}
-\end{proof}
+
+It is clear from Definition~\ref{def_spade_rank} that a lower bound on the rank of any spade
+is the highest grade part appearing in its expansion.  An upper bound on the rank is given by
+the size of any factorization of the spade we may have.  We will return to the concept of spade
+rank once we have developed more results about spades.
 
 For completeness, we now give a formal definition of a blade.
 \begin{defn}[Blade]
@@ -272,8 +260,6 @@ from Lemma~\ref{lem_lin_indep_subblades}.
 \end{proof}
 
 We turn now to the establishment of some identities that will be important to our cause.
-
-\subsection{Identities Involving Blades}
 
 Letting $a$ denote a vector, and $B_r$ a blade of grade $r$ having the factorization
 given in equation \eqref{equ_B_r}, recall that
@@ -385,8 +371,6 @@ cannot always be performed on blades taken from a non-euclidean geometric algebr
 $a\wedge b$ as $a\wedge(b+\lambda a)$ where $a\cdot(b+\lambda a)=0$.  In a non-euclidean geometric algebra,
 no such scalar $\lambda$ may exist due to $a$ being null.  For a description of the Gram-Schmidt process, see \cite{}.}
 This factor then falls out quite easily, and we're left with a blade of grade $r-1$.
-
-\subsection{Identities Involving Spades}
 
 Letting $M_r$ denote a spade having the factorization given in equation \eqref{equ_M_r}, recall that
 \begin{equation*}
@@ -509,6 +493,43 @@ V_i = \sum_{j=i}^{r-1} m_i.
 Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vector could be factored
 out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
 
+Finally returning now to the concept of spade rank, the proof of the following lemma is pieced together
+from the factorization algorithm given in \cite[p. 108]{Perwass09}.
+\begin{lem}\label{lem_spade_rank_iff_lin_indep}
+For every invertible spade $M_r$, we have
+\begin{equation*}
+\mbox{$0\neq\bigwedge_{i=1}^r m_i$ if and only if $\rank(M_r)=r$.}
+\end{equation*}
+\end{lem}
+\begin{proof}
+One direction being trivial, we only show here that if $\rank(M_r)=r$, then
+the set of vectors $\{m_i\}_{i=1}^r$ is a linearly independent set.
+
+Let $M\in\G$ be any non-zero spade of $\G$ with an unknown factorization,
+and let $r$ be the largest integer for which $\langle M\rangle_r\neq 0$.
+The integer $r$ being a lower-bound on the rank of $M$, if a factorization $M_r$
+of $M$ of size $r$ can be found, then we have found the rank of $M=M_r$; namely, $r$.
+This factorization must then be linearly-independent, because it generates $\langle M\rangle_r$,
+which is clearly a blade of grade $r$.
+
+The case $r=0$ is trivial, so letting $r>0$,
+there exists a vector $m_1$ such that $m_1\wedge\langle M\rangle_r=0$
+and $m_1\cdot\langle M\rangle_r\neq 0$, and therefore, since $\langle M\rangle_{r-1}=0$,
+we have $m_1\cdot M = m_1M$.  The highest non-zero grade part of $m_1M$ being $r-1$,
+find another vector $m_2$ such that $m_2\cdot(m_1\cdot M)=m_2m_1M$ having highest grade
+part $r-2$.  Continuing on in this fashion,
+we finally arrive at
+\begin{equation*}
+m_r\cdot m_{r-1}\cdot\dots\cdot m_2\cdot m_1\cdot M=m_rm_{r-1}\dotsm_2m_1M,
+\end{equation*}
+where here, the associativity of the inner product is understood, the left-hand side is clearly a non-zero scalar we'll call $\lambda$,
+and the right-hand side a spade.  It then follows that
+\begin{equation*}
+M^{-1} = \lambda^{-1}\tilde{M_r}\implies M_r = \lambda(M^{-1})^{\sim},
+\end{equation*}
+showing that we have found a factorization of $M_r$, as desired.
+\end{proof}
+
 \section{Blades And Spades As Representatives Of Geometric Sets}
 
 At last we have now enough ground covered to begin a treatment of geometric set representation by blades and spades.
@@ -553,7 +574,7 @@ Moreover, we can always find $E$ as a blade or spade in $\G$.
 \end{lem}
 \begin{proof}
 If $\dim\V$ is finite, then, by Lemma~\ref{lem_reduce_inf_vec_set}, any set of vectors generating the geometric
-set $S$ may be reduced to a finite subset $\{v_i\}_{i=1}^s$.
+set $S$ may be reduced to a finite, linearly independent subset $\{v_i\}_{i=1}^s$.
 We then have
 \begin{equation*}
 S=\gd\left(\bigwedge_{i=1}^s v_i\right) = \gd\left(\prod_{i=1}^s v_i\right).
@@ -582,7 +603,8 @@ We will assume a finite-dimensional vector space $\V$ from here on.
 Returning to Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades}, it is telling us that if we only use blades, or only use spades, to represent geometric sets,
 then we're not missing out on any geometric sets
 that we could have otherwise represented using any other type of element of $\G$.  As each representation lends
-itself to its own desirable properties, which we choose may depend on what type of problem we want to solve.
+itself to its own desirable properties, which we choose to think about a particular problem and what we know
+we can accomplish with either representation method.
 
 \subsection{Converting Between Spade And Blade Representations}
 
@@ -592,10 +614,10 @@ itself to its own desirable properties, which we choose may depend on what type 
 
 The proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} shows that if we know
 any factorization of a blade, then we can easily formulate a spade representing the same geometric set
-by simply taking the vector factors together in the geometric product.
+by simply taking the vector factors together in the geometric product.\footnote{A treatment of blade factorization can be found in \cite[p. 533]{Dorst07}.}
 This, however, does not work in reverse.  Not every spade factorization is linearly independent; but,
 as the proof of Lemma~\ref{lem_all_geo_sets_rep_by_blades_or_spades} also shows, if we can find such a factorization, then we can likewise convert a spade
-to a blade representing the same geometric set by simply taking the vector factors together in the outer product.
+to a blade representing the same geometric set by simply taking the vector factors together in the outer product.\footnote{A treatment of spade factorization can be found in \cite[p. 107]{Perwass09}.}
 Put another way, we can make the observation that if $M_r\in\G$ is a spade with $0\neq\bigwedge_{i=1}^r m_i$, then
 \begin{equation*}
 \gd(M_r) = \gd(\langle M_r\rangle_r) = \gd\left(\bigwedge_{i=1}^r m_i\right).
@@ -606,10 +628,9 @@ where $s\leq r$, we know that $B_s$ is a subspace of $\langle M_r\rangle_r$.  It
 for all $s\leq r$, we have $\gd(\langle M_r\rangle_r)\subseteq\gd(\langle M_r\rangle_s)$, and
 so our observation also goes through by Lemma~\ref{lem_intersect_grade_parts}.
 
-A treatment of blade factorization can be found in \cite[p. 533]{Dorst07}.  A treatment of
-spade factorization can be found in \cite[p. 107]{Perwass09}.
-
-Does he find a linearly independent factorization?
+Given a blade, if we want the associated spade, we must factor it, if it is not already orthogonalized.
+Converting from a spade to a blade, however, is much easier.  By Lemma~\ref{lem_spade_rank_iff_lin_indep},
+we simply take the highest grade part of the spade's expansion.  
 
 % Meet, join, geometric product, duals...?
 
