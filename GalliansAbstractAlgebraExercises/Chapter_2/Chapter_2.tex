@@ -99,7 +99,7 @@ that $ba=x=ab$.
 \section*{Problem 15}
 
 (Law of Exponents for Abelian Groups)  Let $a$ and $b$ be elements of an
-Abelian group and let $n$ be any integer.  show that $(ab)^n=a^nb^n$.
+Abelian group and let $n$ be any integer.  Show that $(ab)^n=a^nb^n$.
 Is this also true for non-Abelian groups?
 
 Clearly this holds for the case $n=1$, even in non-Abelian groups.
@@ -194,5 +194,18 @@ It has been shown in the text that $U(n)$ is a group for all $n>1$.
 It suffices to show that $\{1,2,\dots,n-1\}=U(n)$ in the case that
 $n$ is prime.  To see this, simply notice that when $n$ is prime,
 all integers in $\{1,2,\dots,n-1\}$ are coprime with $n$.
+
+\section*{Problem 36}
+
+In a finite group, show that the number of nonidentity elements that satisfy
+the equation $x^5=e$ is a multiple of $4$.
+
+If $x$ is a non-identity element satisfying the equation $x^5=e$, it can be shown
+that the set of all powers of $x$ generates 4 distinct non-identity solutions to this equation.
+Furthermore, any power of any such solution (i.e., any power of any element in $\{x,x^2,x^3,x^4\}$) does not generate any new solution
+to the equation.  Thus, non-identity solutions to $x^5=e$ must come in multiples of 4.
+
+For each nonidentity element $x$ satisfying the equation $x^5=e$, the set
+$\{e,x,x^2,x^3,x^4\}$ is a cyclic subgroup of order 5.
 
 \end{document}
