@@ -1,0 +1,232 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 9 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+%\section*{Problem 3}
+%
+%Show that if $G$ is the internal direct product of $H_1, H_2, \dots, H_n$ and
+%$i\neq j$ with $1\leq i\leq n$, $1\leq j\leq n$, then $H_i\cap H_j=\{e\}$.
+%
+%Without loss of generality, let $1\leq i<j\leq n$.
+%Suppose $h\in H_i\cap H_j$ where $h\neq e$.
+%Then $e^{i-1}he^{j-i-1}=h\in H_1H_2\dots H_{j-1}$ and $h\in H_j$.
+%But the definition of the internal direct product $H_1\times H_2\times\dots\times H_n$
+%requires $(H_1H_2\dots H_{j-1})\cap H_j=\{e\}$.  The result now follows
+%by contradiction.
+%
+%It should be noted that the converse is not nessisarily true.
+%Counter example?
+
+\section*{Problem 36}
+
+Determine all subgroups of $\mathbb{R}^*$ (nonzero reals under multiplication) of index 2.
+
+$\mathbb{R}^*$ is Abelian, and therefore so is any one of its subgroups.
+But Abelian groups are also normal, so all subgroups of $\mathbb{R}^*$ are normal.
+Suppose $S$ is a subgroup of $\mathbb{R}^*$ where $|\mathbb{R}^*:S|=2$.
+Then $|\mathbb{R}^*/S|=2$, and so the only non-identity coset has order 2.
+Surely the identity coset raised to the power of 2 is the identity coset
+as well.  So let $aS$, where $a\in\mathbb{R}^*$, be any coset in
+$\mathbb{R}^*/S$, and we see that $(aS)^2=a^2S=S\implies a^2\in S$, showing that
+the square of every non-zero real number is in $S$.  Therefore, $\mathbb{R}^+\subseteq S$.
+Suppose $\mathbb{R}^+\subset S$.  It follows that $S=\mathbb{R}^*$ by closure since in that case
+$S$ must contain an negative real number.  So by contradiction, $S=\mathbb{R}^+$ is
+the only subgroup of $\mathbb{R}^*$ having an index of 2.
+
+\section*{Problem 38}
+
+Let $H$ be a normal subgroup of $G$ and let $a$ belong to $G$.
+If the element $aH$ has order 3 in the group $G/H$ and $|H|=10$,
+what are the possibilities for the order of $a$?
+
+We see that $a^3\in H$ since $(aH)^3=a^3H=H$.  Then by LaGrange's Theorem,
+$|a^3|$ divides $|H|=10$.  So the possibilities for $|a^3|$ are 1, 2, 5,
+and 10.  Using Theorem 4.1, $|a|/|a^3|=\gcd(|a|,3)$, showing that $|a|$
+must be a multiple of $|a^3|$.  Letting $|a|=k|a^3|$, we see that
+$k=\gcd(k|a^3|,3)$.  If $|a^3|=1$, $k=3$ works.  If $|a^3|=2$, then
+$k=1$ works.  If $|a^3|=5$, then $k=1,3$ work again.  If $|a^3|=10$,
+then $k=1,3$ work yet again.  So the choices for $|a|$ are 2, 3, 5,
+10, 15, and 30.  I'm not sure how to narrow it down further.
+
+\section*{Problem 40}
+
+An element is called a square if it can be expressed in the form $b^2$
+for some $b$.  Suppose that $G$ is an Abelian group and $H$ is a subgroup
+of $G$.  If every element of $H$ is a square and every element of $G/H$
+is a square, prove that every element of $G$ is a square.
+
+First note that $H$, being a subgroup of an Abelian group, must itself
+be Abelian, and therefore a normal subgroup of $G$ so that $G/H$ makes sense.
+
+What we want to show is that for any element $g\in G$, there exists an
+element $g'\in G$ such that $g=(g')^2$.  Consider the coset $gH$.  We know
+that there exists $a\in G$ such that $(aH)^2=a^2H=gH$.  So there is a pair
+$h_1,h_2\in H$ such that $a^2h_1=gh_2$.  But each of these are squares,
+so let $h_1=(h_1')^2$ and $h_2=(h_2')^2$ and we have $a^2(h_1')^2=g(h_2')^2$.
+Rearranging this, and using the Abelian property of $G$, we get
+$g = (ah_1'h_2'^{-1})^2$ showing that $g$ is the square of some element in $G$.
+
+\section*{Problem 46}
+
+Let $G$ be an Abelian group and let $H$ be the subgroup consisting of all
+elements of $G$ that have finite order.  Prove that every nonidentity element
+in $G/H$ has infinite order.
+
+First let us show that $H$ is a subgroup of $G$.  Notice that $e\in H$ since $|e|=1$
+so that $H$ is non-empty.  Now choose $a,b\in H$.
+Then the order of $|ab^{-1}|\leq|a||b^{-1}|=|a||b|$, since
+$(ab^{-1})^{|a||b^{-1}|}=(a^{|a|})^{|b^{-1}|}((b^{-1})^{|b^{-1}|})^{|a|}=e$, by
+the Abelian property of $G$.  This shows that $ab^{-1}\in H$.
+So $H$ is a subgroup of $G$ by the one-step subgroup test.
+
+If $G$ is a finite group, then $H=G$, and $G/H=\{eH\}$ so that there are
+no nonidentity elements.  We therefore only care about infinite groups $G$.
+
+Recall that the representatives of a coset are all members of the coset.
+
+If $G$ is an infinite group, then all representatives of the identity
+coset of $G/H$, (all elements of $H$), are the elements of $G$ having finite order.
+For every other coset in $G/H$, their representatives have infinite order.
+If $G=H$, then $G/H=\{eH\}$ as before, and we're done.  Suppose $H\subset G$.
+Let $a\in G-H$ so that $aH$ is a nonidentity element of $G/H$.
+Then $a$ has infinite order, and we need to show that no power
+of $a$ has finite order, or else we would have $(aH)^n=a^nH=H$ for some
+integer $n>1$.  Suppose this is so.  Then $a^n\in H$ so that $|a^n|<\infty$.
+But then $(a^n)^{|a^n|}=a^{n|a^n|}=e$, contradicting the fact that $|a|=\infty$.
+
+\section*{Problem 50}
+
+Show that the intersection of two normal subgroups of $G$ is a normal subgroup of $G$.
+
+First let us show that the intersection of two subgroups $A$ and $B$ of $G$ is a subgroup of $G$.
+Notice that $e\in A\cap B$.  Let $a,b\in A\cap B$.
+This implies that $a,b\in A\implies ab^{-1}\in A$, and that $a,b\in B\implies ab^{-1}\in B$.
+Therefore, $ab^{-1}\in A\cap B$, and the intersection of $A$ and $B$ is a subgroup of $G$
+by the one-step subgroup test.
+
+Now notice that for all $g\in G$, we have $gA=Ag$ and $gB=Bg$.
+Therefore...
+\begin{equation*}
+g(A\cap B) = gA\cap gB = Ag\cap Bg = (A\cap B)g
+\end{equation*}
+...showing that all right cosets of the intersection are equal to all left
+cosets of the intersection.  $A\cap B$ is therefore a normal subgroup of $G$ also.
+
+\section*{Problem 56}
+
+Let $G$ be a group and let $G'$ be the subgroup of $G$ generated by the
+set $S=\{x^{-1}y^{-1}xy:x,y\in G\}$.  Do some proofs about it.
+
+First, for any $g\in G'$, define the notation $S_g$ to be the ordered set of elements
+in $S$ whose product is $g$, so we can write $g=\prod_{s\in S_g}s$.  This is an ordered product
+using the operation of $G$ and the order of $S_g$.
+Let $-S_g$ denote $S_g$ in the reverse order.
+
+Let's show that the commutator $G'$ generated by $S$ is
+a subgroup of $G$.
+Notice that $e\in S$ and $S\subseteq G'\subseteq G$ by definition and
+the closure of $G$.
+The closure of $G'$ is easy to see, since the product of two products
+from $S$ is yet another product from $S$.  What remains to be shown is
+that $G'$ is closed under the operation of taking inverses.  Notice
+that $S$ is closed under this operation since if $x,y\in G$, then
+$(x^{-1}y^{-1}xy)^{-1}=y^{-1}x^{-1}yx\in S$.  Now let $g\in G'$.
+Then $g^{-1}=\prod_{a\in-S_g}a^{-1}\in G'$ since $g^{-1}$ is
+the product of elements in $S$.  So $G'$ is a subgroup of $G$ by
+the two-step subgroup test.
+
+Now let's show that $G'$ is a characteristic subgroup of $G$.  We need to
+show that if $\phi$ is an automorphism of $G$, then
+$\phi(G')=G'$.  Notice that it suffices to show that $\phi(G')\subseteq G'$
+since the proof of this also shows that
+$\phi^{-1}(G')\subseteq G'\implies \phi(G')\supseteq G'$.
+Let $s\in S$.  Then there exists $x,y\in G$ such that $s=x^{-1}y^{-1}xy$
+and we see that $\phi(s)=\phi(x)^{-1}\phi(y)^{-1}\phi(x)\phi(y)\in S$ by
+the definition of $S$ and the properties of $\phi$.
+Now let $g\in G'$ so that $g=\prod_{s\in S_g}s$.
+Then $\phi(g) = \prod_{s\in S_g}\phi(s)\in G'$.
+
+\subsection*{Part a.}
+
+Prove that $G'$ is normal in $G$.
+
+Let $g\in G'$ so that $g=\prod_{a\in S_g}a$.
+We want to show that for all $b\in G$, that $bgb^{-1}\in G'$.
+The proof would then follow by the normal subgroup test.
+Since $bgb^{-1}=\prod_{a\in S_g}bab^{-1}$, it suffices to show
+that $bab^{-1}\in S$ for any $a\in S_g$.  Let $a=x^{-1}y^{-1}xy$ for some $x,y\in G$.
+Then $bab^{-1} = u^{-1}v^{-1}uv$ where $u^{-1}=bx^{-1}b^{-1}$ and
+$v^{-1}=by^{-1}b^{-1}$.  We see now that $bab^{-1}\in S$ since $u,v\in G$
+by the closure of $G$.  This completes the proof.
+
+\subsection*{Part b.}
+
+Prove that $G/G'$ is Abelian.
+
+What we want to show is that for any $a,b\in G$, that
+$(aG')(bG') = (bG')(aG')$.  This is true if and only
+if $(ab)G'=(ba)G'$.  Using Property 4 of the Lemma for cosets,
+this is true if and only if $(ab)^{-1}ba=b^{-1}a^{-1}ba\in G'$.
+But this must be true since $b^{-1}a^{-1}ba\in S$ and $S\subseteq G'$.
+This completes the proof.
+
+\subsection*{Part c.}
+
+If $G/N$ is Abelian, prove that $G'\leq N$.
+
+If it can be shown that $S\subseteq N$, then the proof follows
+from being able to find any element of $G'$ in $N$ by using the
+closure property of $N$.  In other words, if $S\subseteq N$, by the closure
+of $N$, the group generated by $S$, namely $G'$, must be in $N$.
+
+To show that $S\subseteq N$, let $a,b\in G$, and note that...
+\begin{equation*}
+(aN)(bN)=(bN)(aN)\implies (ab)N=(ba)N\implies b^{-1}a^{-1}ba\in N
+\end{equation*}
+...by the Abelian property of $G/N$.  This shows that any element of
+$S$ is in $N$.  This completes the proof.
+
+\subsection*{Part d.}
+
+Prove that if $H$ is a subgroup of $G$ and $G'\leq H$, then $H$ is normal in $G$.
+
+Let $g\in G$ and let $a\in H\subseteq G$.
+Then $(ga)G' = (ag)G'$ since $(ga)^{-1}ag = a^{-1}g^{-1}ag\in S\subseteq G'$.
+Then $(ag)G'=G'(ag)$ since $G'$ is normal in $G$ by part a. above.
+We now see that...
+\begin{equation*}
+gH = \bigcup_{a\in H}(ga)G'=\bigcup_{a\in H}G'(ag)=Hg
+\end{equation*}
+...showing that $H$ is normal in $G$.  This is what we wanted.
+
+\section*{Problem 62}
+
+Show that if $N$ is a characteristic subgroup of $G$, then $N$ is a normal subgroup of $G$.
+
+Let $a\in G$ and define $\phi(x)=axa^{-1}$ to be the inner automorphism of $G$ induced by $a$.
+Since $N$ is a characteristic subgroup of $G$, we have $aNa^{-1}=\phi(N)=N\implies aN=Na$,
+showing that $N$ is a normal subgroup of $G$.
+
+\section*{Problem 66}
+
+If $H$ is a normal subgroup of $G$ and $|H|=2$, prove that $H$ is
+contained in the center of $G$.
+
+By LaGrange's Theorem, $H=\langle h\rangle$ for some $h\in G$ of order 2,
+and so $H=\{e,h\}$.  Now since $H$ is normal in $G$, for all $g\in G$,
+we have $gH=Hg$.  But this must mean that for all $g\in G$, $ge=eg$ and
+$gh=hg$, because we can't ever have $ge=hg$, since this implies that $h=e$.
+We can now conclude that $h$ commutes with all other elements in $G$.
+This is also true of $e$, so all elements of $H$ commute with all elements
+of $G$, and so, by definition, $H$ must be contained in the center of $G$.
+
+\end{document}

@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 15 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+\section*{Problem 8}
+
+Prove that every ring homomorphism $\phi$ from $\Z_n$ to itself
+has the form $\phi(x)=ax$, where $a^2=a$.
+
+Let $\phi:\Z_n\to\Z_n$ be a homomorphism.  Then since
+$\phi(x)=\phi(1)x$, we see that $\phi$ is defined in terms of
+what it maps $\phi(1)$ to.  Let $\phi(1)=a$.
+Then $\phi(1)\phi(1)=\phi((1)(1))=\phi(1)\implies a^2=a$.
+I believe that this proof works for any homomorphism from $\Z_n$
+to $\Z_m$ where $m\geq n$.  So all such homomorphisms have the form $\phi(x)=ax$
+where $a$ is an idempotent of $\Z_m$.  Conversely, if $a$ is an idempotent
+of $\Z_m$, then $\phi(x)=ax$ will be a homomorphism from $\Z_n$ to $\Z_m$,
+since $\phi(xy)=axy=a^2xy=axay=\phi(x)\phi(y)$ and
+$\phi(x+y)=a(x+y)=ax+ay=\phi(x)+\phi(y)$.
+
+\section*{Problem 12}
+
+Let $\Z[\sqrt{2}]=\{a+b\sqrt{2}:a,b\in\Z\}$.  Let
+$\left\{\left[\begin{array}{cc}a&2b\\b&a\end{array}\right]:a,b\in\Z\right\}$.
+Show that $\Z[\sqrt{2}]$ and $H$ are isomorphic as rings.
+
+The obvious bijective mapping to try is $a+b\sqrt{2}\to\left[\begin{array}{cc}a&2b\\b&a\end{array}\right]$.
+It's easy to see that this preserves addition.  The following shows
+that it preserves multiplication.  Let $a,b,c,d\in\Z$.
+\begin{align*}
+(a+b\sqrt{2})(c+d\sqrt{2}) &= ac+2bd+(ad+bc)\sqrt{2} \\
+ &\to\left[\begin{array}{cc}ac+2bd&2(ad+bc)\\ad+bc&ac+2bd\end{array}\right] \\
+ &=\left[\begin{array}{cc}ac+2bd&2ad+2bc\\bc+ad&2bd+ac\end{array}\right] \\
+ &=\left[\begin{array}{cc}a&2b\\b&a\end{array}\right]
+\left[\begin{array}{cc}c&2d\\d&c\end{array}\right]
+\end{align*}
+It now follows that since $\Z[\sqrt{2}]$ is a ring, then so must the above
+set of $2\times 2$ matrices be.
+
+\section*{Problem 20}
+
+Determine all ring homomorphisms from $\Z_6$ to $\Z_6$.  Determine all
+ring homorphisms from $\Z_{20}$ to $\Z_{30}$.
+
+By problem 8 above, we need only find the idempotents of $\Z_6$ and $\Z_{30}$.
+For $\Z_6$ we have 0, 1, and 3.  For $\Z_{30}$ we have 0, 1, 6, 10, 15, 16,
+21, and 25.
+
+\pagebreak
+\section*{Problem 22}
+
+Suppose $\phi$ is a ring homorphism from $\Z\oplus\Z$ into $\Z\oplus\Z$.
+What are the possibilities for $\phi((1,0))$?
+
+Let $(a,b)$ be what we choose to map $\phi((1,0))$ to.
+Then for all integers $n$, we have
+$(a,b)=\phi((1,0))=\phi((1,0)^n)=(\phi((1,0)))^n=(a,b)^n$.
+So $(a,b)$ must be all multiplicative powers of itself.
+This narrows the candidates down to $(0,0)$, $(1,0)$, $(0,1)$,
+and $(1,1)$.  I don't see how using any one of these candidates
+would lead to a contradiction.
+
+\section*{Problem 24}
+
+Recall that a ring element $a$ is called an idempotent if $a^2=a$.
+Prove that a ring homomorphism carries an idempotent to an idempotent.
+
+Let $a$ be an idempotent of a ring from which $\phi$ is a homomorphism
+to some other ring.
+We need to show that $\phi(a)$ is an idempotent.
+This follows from $(\phi(a))^2=\phi(a^2)=\phi(a)$.
+
+\section*{Problem 28}
+
+Prove that the sum of the squares of three consecutive integers cannot be a square.
+
+We must show that there does not exist a solution in whole numbers
+to the diophantine equation $(x+1)^2+x+(x-1)^2=y^2$.
+This reduces to $3x^2+2=y^2\implies x^2=(y^2-2)/3\implies y^2\equiv 2\pmod{3}$.
+Clearly, $y^2\not\equiv 2\pmod{3}$ when $y$ is 0, 1, or 2, so there is
+no solution for all $y$.  It follows that there is no solution to our original
+diophantine equation.
+
+\section*{Problem 34}
+
+Let $n$ be an integer with decimal representation $a_ka_{k-1}\dots a_1a_0$.
+Prove that $n$ is divisible by 4 if and only if $a_1a_0$ is divisible by 4.
+
+If $k<2$, then it's trivial.  Suppose $k\geq 2$.
+Then working in modulo 4 we have...
+\begin{equation*}
+\sum_{i=0}^k 10^ia_i\equiv 0\iff
+a_110+a_0+\sum_{i=2}^k (4\cdot 2^{i-2}\cdot 5^i)a_i\equiv 0\iff
+10a_1+a_0\equiv 0
+\end{equation*}
+
+\section*{Problem 42}
+
+A principle ideal ring $R$ is a commutative ring with the
+property that every ideal has the
+form $\langle a\rangle=\{ar:r\in R\}$ for some $a\in R$.
+Show that the homomorphic image of a principle ideal ring
+is a principle ideal ring.
+
+Let $\phi$ be a homomorphism from a principle ring $R$ to some other ring.
+By Theorem 15.1, $\phi(R)$ is a ring.
+Let $S$ be an ideal of $\phi(R)$.  Also by Theorem 15.1, we see
+that $\phi^{-1}(S)$ is an ideal of $R$, and so it is a principle ideal of $R$.
+Let $a\in R$ such that $\phi^{-1}(S)=\langle a\rangle$.  Then...
+\begin{align*}
+S = \phi(\langle a\rangle) &= \{\phi(ar):r\in R\} \\
+ &= \{\phi(a)\phi(r):r\in R\} \\
+ &= \{\phi(a)r':r'\in\phi(R)\} \\
+ &= \langle\phi(a)\rangle
+\end{align*}
+...showing that $S$ is a principle ideal.  We've now shown that all
+ideals of $\phi(R)$ are principle ideals, so $\phi(R)$ is a principle
+ideal ring.
+
+\section*{Problem 56}
+
+Give an example of a ring without unity that is contained in a field.
+
+Notice that $\{0\}\subset\Z_2$.
+
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 22 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\GF}{\mbox{GF}}
+
+\section*{Problem 6}
+
+Prove that the rings $\Z_3[x]/\langle x^2+x+2\rangle$ and $\Z_3[x]\langle x^2+2x+2\rangle$
+are isomorphic.
+
+Both rings are fields, because $x^2+x+2$ and $x^2+2x+2$ are irreducible over $\Z_3$.
+Furthermore, they are both finite fields of order $2^3$.  So by Theorem 22.1,
+we have
+\begin{equation*}
+\Z_3[x]\langle x^2+x+2\rangle\approx\GF(2^3)\approx\Z_3[x]\langle x^2+2x+2\rangle.
+\end{equation*}
+
+\section*{Problem 8}
+
+Determine the possible finite fields whose largest proper subfield is $\GF(2^5)$.
+
+By Theorem 22.3, if $k>1$, then finite fields of the form $\GF(2^{5k})$ have
+$\GF(2^5)$ as a proper subfield.  For $\GF(2^5)$ to be the largest proper subfield
+of $\GF(2^{5k})$, we need $k\leq 5$.  So the possible fields are $\GF(2^{10})$,
+$\GF(2^{15})$, $\GF(2^{20})$, and $\GF(2^{25})$.
+
+\section*{Problem 12}
+
+Without actually calculating $|x|$, explain why $x$ is a generator of the
+cyclic group $(\Z_2[x]/\langle x^5+x^3+1\rangle)^{*}$.
+
+It is not obvious to me why $x$ must be a generator of the cyclic group,
+but I can show that it is a generator.  Since the order of the cyclic group
+is $2^5$, it follows that $x$ is a generator of the group if $x^8\neq 1$ and
+$x^{16}\neq 1$.  Long division shows that $x^8$ modulo $x^5+x^3+1$ is $x^4+x^3+x$,
+and $x^{16}$ modulo $x^5+x^3+1$ is $x^3+x^2$, if I didn't make a mistake.
+
+\section*{Problem 18}
+
+Show that any finite subgroup of the multiplicative group of a field is cyclic.
+
+Let $F$ be a field and let $G$ be a subgroup of $F^{*}$.
+If we can show that $G\cup\{0\}$ is a finite field, then it follows
+from Theorem 22.2 that $G$ is cyclic.  It suffices to show that $G\cup\{0\}$
+is an additive subgroup of $F$.  I have no idea how to show this.
+
+\section*{Problem 24}
+
+If $p(x)$ is a polynomial in $\Z_p[x]$ with no multiple zeros, show that $p(x)$
+divides $x^{p^n}-x$ for some $n$.
+
+We want to find an integer $n$ so that the splitting field of $p(x)$ over
+$\Z_p$ is a subfield of the splitting field for $x^{p^n}-x$ over $\Z_p$.
+But notice that the splitting field for $p(x)$ over $\Z_p$ is a finite
+field, and therefore has the form $\GF(p^m)$ since $\GF(p)\approx\Z_p$ is
+one of its subfields.  So choose $n=m$, and we're done, because every
+element in $\GF(p^n)$ will be a zero (once) of $x^{p^n}-x$, and every element
+in a subset of $\GF(p^n)$ will be a zero (once) of $p(x)$.
+
+\section*{Problem 26}
+
+Let $f(x)$ be a cubic irreducible over $\Z_p$, where $p$ is prime.  Prove that
+the splitting field of $f(x)$ over $\Z_p$ has order $p^3$ or $p^6$.
+
+If $\Z_p[x]/\langle f(x)\rangle\approx\GF(p^3)$ contains all of the zeros
+of $f(x)$, then we have found the splitting field of $f(x)$ over $\Z_p$.
+If not, then only one zero of $f(x)$ will be in $\GF(p^3)$.  (If two
+zeros of $f(x)$ were in $\GF(p^3)$, then the third would be also, since
+two linear factors could be factored out of the cubic, giving us the third linear factor
+for free.)  Let $p(x)$ be the irreducible quadratic factor of $f(x)$ in $\GF(p^3)$.
+Then $\GF(p^3)/\langle p(x)\rangle\approx\GF((p^3)^2)$ is the splitting field
+for $f(x)$ over $\Z_p$, because throwing in one zero of a quadratic will throw
+in the other zero also.
+
+\section*{Problem 28}
+
+Suppose that $F$ is a field of order $2^{10}$ and $F^{*}=\langle\alpha\rangle$.
+List the elements of each subfield of $F$.
+
+\begin{align*}
+\GF(2^{10}) &= \{0\}\cup\langle\alpha\rangle \\
+\GF(2^5) &= \{0\}\cup\langle\alpha^{33}\rangle \\
+\GF(2^2) &= \{0\}\cup\langle\alpha^{341}\rangle \\
+\GF(2) &= \{0,1\}
+\end{align*}
+
+\end{document}

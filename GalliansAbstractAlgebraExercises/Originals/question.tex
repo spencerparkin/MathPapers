@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{When does an irreducible split\\in a simple algebraic extension?}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Aut}{\mbox{Aut}}
+
+Let $F$ be a field with characteristic zero, and let $p(x)$ be an irreducible
+polynomial of degree $n$ over $F$.  If $a$ is a zero of $p(x)$ in some extension field
+of $F$, then some or all of the other $n-1$ zeros of $p(x)$ may be found in $F(a)$.
+When can all zeros of $p(x)$ be found in $F(a)$?
+
+If we let $\{a_1,a_2,a_3,\dots,a_n\}$ be the set of zeros of $p(x)$ in the
+splitting field of $p(x)$ over $F$, then we know that all $n$ simple algebraic
+extensions are isomorphic to one another.
+\begin{equation*}
+F(a_1)\approx F(a_2)\approx F(a_3)\approx\dots\approx F(a_n).
+\end{equation*}
+For any $i\neq j$, if we look at the natural isomorphism from
+$F(a_i)$ to $F(a_j)$, (using the First Isomorphism Theorem for Rings),
+we see that it maps $a_i$ to $a_j$.  This is not very helpful.
+So let $\{\phi_k:F(a_1)\to F(a_k)\}_{k=1}^n$ be a set of isomorphisms.
+(Set builder notation was not used here.)
+What we would like is for all $i\neq j$, to have
+\begin{equation*}
+\phi^{-1}_i(a_i)\neq \phi^{-1}_j(a_j).
+\end{equation*}
+It would then follow that $p(x)$ splits in $F(a_1)$.  Now, because
+all simple algebraic extensions of $F$ (with respect to $p(x)$) are
+isomorphic to one another, what we want to investigate is the
+group of all automorphisms of $F(a)$, where $a$ is any zero of $p(x)$ in
+an extension field of $F$.
+
+Suppose that $\Aut\{F(a)\}$ is a cyclic group of order $n$.  If $\phi$
+is the generator of the group, then $\phi(a)$, $\phi(\phi(a))$, and
+so on, are all distinct zeros of $p(x)$ in $F(a)[x]$.  This is because
+\begin{equation*}
+p(\phi'(a))=\phi'(p(a))=\phi'(0)=0,
+\end{equation*}
+where $\phi'$ is any automorphism in $\Aut\{F(a)\}$.
+
+\end{document}

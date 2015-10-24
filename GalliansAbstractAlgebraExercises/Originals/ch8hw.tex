@@ -1,0 +1,311 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 8 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\lcm}{\mbox{lcm}}
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\aut}{\mbox{Aut}}
+
+Let $G$ be a group.  Then when $k$ is a positive integer, let the notation $G^k$ denote the
+number of elements in $G$ having order $k$.  
+%Notice that if
+%$G$ was a cyclic group of order $n$, then $G^n=\phi(n)$, where $\phi$
+%is Euler's phi function.
+%By Theorem 4.4, if $k$ divides $n$, then $G^k=\phi(k)$.
+%For any group $G$, $G^1=1$ since the identity is the only
+%element of order 1.
+
+\section*{Problem 4}
+
+Show that $G\oplus H$ is Abelian if and only if $G$ and $H$ are Abelian.
+
+Suppose $G$ and $H$ are Abelian.  Let $a=(a_G,a_H)\in G\oplus H$ and
+$b=(b_G,b_H)\in G\oplus H$.  Then...
+\begin{equation*}
+ab = (a_G,a_H)(b_G,b_H)
+ = (a_Gb_G,a_Hb_H)
+ = (b_Ga_G,b_Ha_H)
+ = (b_G,b_H)(a_G,a_H)
+ = ba
+\end{equation*}
+...showing that $G\oplus H$ is Abelian.  Now suppose $G\oplus H$ is
+Abelian and let $a$ and $b$ be as before.  Then...
+\begin{equation*}
+(a_Gb_G,a_Hb_H)
+ = (a_G,a_H)(b_G,b_H)
+ = (b_G,b_H)(a_G,a_H)
+ = (b_Ga_G,b_Ha_H)
+\end{equation*}
+This implies that $a_Gb_G = b_Ga_G$ showing that $G$ is Abelian, and
+that $a_Hb_H = b_Ha_H$ showing that $H$ is Abelian.  Recall that we
+could choose any element from $G\oplus H$ that we wanted.
+
+\section*{Problem 6}
+
+Prove, by comparing orders of elements, that $\Z_8\oplus \Z_2$ is not
+isomorphic to $\Z_4\oplus \Z_4$.
+
+The possible orders of elements in $\Z_8\oplus Z_2$ come from
+$\lcm(\{1,2,4,8\},\{1,2\})$, and the possible orders of elements
+in $\Z_4\oplus \Z_4$ come from $\lcm(\{1,2,4\},\{1,2,4\})$.
+Notice that $|(1,0)|=8$ in $\Z_8\oplus Z_2$, while there can
+be no element of this order in $\Z_4\oplus \Z_4$.  Since isomorphisms
+preserve orders, there is no isomorphism between these two groups.
+
+\section*{Problem 10}
+
+How many elements of order 9 does $\Z_3\oplus \Z_9$ have?  Don't use a
+brute force attack.
+
+We want to find all the ways that $\lcm(\{1,3\},\{1,3,9\})=9$.
+We only get 9 when 9 is used as one of the arguments here.
+So the answer is $\Z_3^1 \Z_9^9 + \Z_3^3 \Z_9^9 = (1)(6)+(2)(6)=18$.
+
+\section*{Problem 14}
+
+Suppose $G_1\approx G_2$ and $H_1\approx H_2$.  Prove that
+$G_1\oplus H_1\approx G_2\oplus H_2$.
+
+Let $\alpha:G_1\to G_2$ be the isomorphism from $G_1$ to $G_2$, and
+let $\beta:H_1\to H_2$ be the isomorphism from $H_1$ to $H_2$.
+Then define $\gamma:G_1\oplus H_1\to G_2\oplus H_2$ as
+$\gamma((x,y))=(\alpha(x),\beta(y))$.  The one-to-one, onto, and
+operation preserving properties of $\gamma$ will now fall out of
+$\alpha$ and $\beta$.
+
+Let $a=(x_1,y_1)\in G_1\oplus H_1$ and $b=(x_2,y_2)\in G_1\oplus H_1$.
+\begin{multline*}
+\gamma(ab) = \gamma((x_1,y_1)(x_2,y_2)) = \gamma((x_1y_1,x_2y_2))
+ = (\alpha(x_1x_2),\beta(y_1y_2)) \\
+ = (\alpha(x_1)\alpha(x_2),\beta(y_1)\beta(y_2))
+ = (\alpha(x_1),\beta(y_1))(\alpha(x_2),\beta(y_2)) = \gamma(a)\gamma(b)
+\end{multline*}
+This shows that $\gamma$ is operation preserving.  Using $a$ and $b$ again,
+suppose that $\gamma(a)=\gamma(b)$.  This implies that
+$(\alpha(x_1),\beta(y_1))=(\alpha(x_2),\beta(y_2))$ which implies that
+$\alpha(x_1)=\alpha(x_2)\implies x_1=x_2$ and $\beta(y_1)=\beta(y_2)\implies y_1=y_2$.
+This then implies that $a=(x_1,y_1)=(x_2,y_2)=b$, showing that $\gamma$
+is one-to-one.
+
+Now choose $(a,b)\in G_2\oplus H_2$.  Then choose $(\alpha^{-1}(a),\beta^{-1}(b))\in G_1\oplus H_1$
+so that...
+\begin{equation*}
+\gamma((\alpha^{-1}(a),\beta^{-1}(b))) = (\alpha(\alpha^{-1}(a)),\beta(\beta^{-1}(b)))
+ = (a,b)
+\end{equation*}
+...showing that $\gamma$ is onto.  We've now shown enough to show that
+$\gamma$ is an isomorphism from $G_1\oplus H_1$ to $G_2\oplus H_2$.
+Notice that the result could be generalized to arbitrarily sized direct products.
+That is, $G_1\approx H_1$, ..., $G_n\approx H_n$ implies that
+$G_1\oplus\dots\oplus G_n\approx H_1\oplus\dots\oplus H_n$.  In fact,
+given any direct product, you can probably swap out components of the
+product for groups that are isomorphic to the group you're swapping out,
+and keep all the group theoretic properties.
+
+\section*{Problem 16}
+
+Determine the number of elements of order 15 and the
+number of cyclic subgroups of order 15 in $\Z_{30}\oplus\Z_{20}$.
+
+By Lagrange's Theorem, the order of an element divides the order of the group.
+So, using Theorem 8.1, we're looking for all the ways in which we can have...
+\begin{equation*}
+15 = \lcm(\{1,2,3,5,6,10,15,30\},\{1,2,4,5,10,20\})
+\end{equation*}
+Eliminating the arguments that can never be multiples of 15, this reduces to...
+\begin{equation*}
+15 = \lcm(\{1,3,5,15\},\{1,5\})
+\end{equation*}
+We can now break this into the cases $15=\lcm(3,5)$, and $15=\lcm(15,\{1,5\})$.
+In the former case, it happens $\Z_{30}^3\Z_{20}^5=\phi(3)\phi(5)=8$ times,
+and in the latter case, it happens
+$\Z_{30}^{15}\Z_{20}^1+\Z_{30}^{15}\Z_{20}^5=\phi(15)\phi(1)+\phi(15)\phi(5)=40$.
+So the total number of elements of order 15 in $\Z_{30}\oplus\Z_{20}$ is 48.
+We can use any one of these 48 elements of order 15 to generate a cyclic subgroup
+of order 15.  Each such subgroup will then have $\phi(15)=8$ generators.
+Since no two such subgroups can share a generator, there are $48/8=6$ cyclic
+subgroups of order 15 in $\Z_{30}\oplus\Z_{20}$.
+
+\section*{Problem 20}
+
+The group $S_3\oplus\Z_2$ is isomorphic to one of the groups: $\Z_{12}$,
+$\Z_6\oplus\Z_2$, $A_4$, and $D_6$.  Determine which one by elimination.
+
+Notice that $S_3\not\approx\Z_6$ so we can eliminate $\Z_6\oplus\Z_2$.
+Also, $S_3\oplus\Z_2$ has no generator, so we can eliminate $\Z_{12}$.
+Then, the number of elements in $A_4$ satisfying the equation $x^2=e$
+is 4 by Table 5.1.  But there are at least 8 solutions to this equation
+in $S_3\oplus\Z_2$.  All that remains is $D_6$, so it must be the one
+isomorphic to $S_3\oplus\Z_2$.
+
+\section*{Problem 22}
+
+Find a subgroup of $\Z_4\oplus\Z_2$ that is not of the form $H\oplus K$,
+where $H$ is a subgroup of $\Z_4$ and $K$ is a subgroup of $\Z_2$.
+
+Notice that $\{(0,0),(1,1),(2,0),(3,1)\}$ is a proper subgroup of
+$\Z_4\oplus\Z_2$ while it uses every element in $\Z_4$ and $\Z_2$.
+So it can't be of the undesired form.
+
+\section*{Problem 28}
+
+Find a subgroup of $\Z_{12}\oplus\Z_4\oplus\Z_{15}$ that is of order 9.
+
+Using Corollary 2 of Theorem 8.2, we see that...
+\begin{equation*}
+\Z_{12}\oplus\Z_4\oplus\Z_{15}\approx\Z_3\oplus\Z_4\oplus\Z_4\oplus\Z_3\oplus\Z_5
+\end{equation*}
+...since $\gcd(3,4)=1$ and $\gcd(3,5)=1$.
+Then all elements of the form $\{(a,0,0,b,0):a,b\in\Z_3\}$ is a subgroup of order 9, and
+the group $\Z_3\oplus\Z_3$ is isomorphic to it.  We recall that isomorphisms
+preserve subgroups.  So we can find a subgroup of order 9 in $\Z_{12}\oplus\Z_4\oplus\Z_{15}$.
+Let $\phi$ be an isomorphism from $\Z_3\oplus\Z_4\oplus\Z_4\oplus\Z_3\oplus\Z_5$ to
+$\Z_{12}\oplus\Z_4\oplus\Z_{15}$.  Then $\phi(\{(a,0,0,b,0):a,b\in\Z_3\})$ is a subgroup
+of order 9 in $\Z_{12}\oplus\Z_4\oplus\Z_{15}$.  (Here we used the notation
+$\phi(G)=\{\phi(g):g\in G\}$.)
+
+\section*{Problem 42}
+
+Find an isomorphism from $\Z_{12}$ to $\Z_4\oplus\Z_3$.
+
+We know that such an isomorphism exists by Corollary 2 of Theorem 8.2,
+since $\gcd(4,3)=1$.
+So let $\phi:\Z_{12}\to\Z_4\oplus\Z_3$ be one of the isomorphisms.
+Since by the operation preserving property of $\phi$ we
+have $\phi(x)=(\phi(1))^x$, the function $\phi$ is defined in terms
+of what it maps 1 to.
+Since $\Z_{12}$ is cyclic, so must $\Z_4\oplus\Z_3$ be.  So 1, being
+a generator of $\Z_{12}$, must map to a generator of $\Z_4\oplus\Z_3$.
+Let $\phi(1)=(1,1)$ and so define $\phi(x)=(1,1)^x$.
+
+Let $a,b\in\Z_{12}$.  Then
+$\phi(ab)=(1,1)^{ab}=(1^{ab},1^{ab})=(1^a1^b,1^a1^b)=(1^a,1^a)(1^b,1^b)=(1,1)^a(1,1)^b=\phi(a)\phi(b)$
+so that $\phi$ is operation preserving.
+Suppose $\phi(a)=\phi(b)$.  Then $(1,1)^a=(1,1)^b\implies a\equiv b\pmod{12}$
+by Theorem 4.1.  But since, WLOG, $0\leq a\leq b<12$, we must have $a=b$,
+showing that $\phi$ is one-to-one.  Then since $\phi$ is one-to-one from
+a finite set to one with the same cardinality, it is also onto.  We can
+now say that $\phi$ is an isomorphism of the type we were looking for.
+
+\section*{Problem 44}
+
+Suppose that $\phi$ is an isomorphism from $\Z_3\oplus\Z_5$ to $\Z_{15}$ and
+$\phi(2,3)=2$.  Find the element in $\Z_3\oplus\Z_5$ that maps to 1.
+
+Since $\Z_3\oplus\Z_5\approx\Z_{15}$, it is cyclic, and it has a generator.
+Let $g$ be the generator in $\Z_3\oplus\Z_5$ such that $\phi(g)=1$.
+Then $2=1^2=(\phi(g))^2 = \phi(g^2) = \phi((2,3))\implies g^2=(2,3)$.
+Then $g=(1,4)$ is a solution.  This must be the only solution since
+there can be only one generator that maps to 1 in $\Z_{15}$.
+
+\section*{Problem 46}
+
+Let $G=\{ax^2+bx+c:a,b,c\in\Z_3\}$.  Add elements to $G$ as you would
+polynomials with integer coeficients, except use modulo 3 addition.
+Prove that $G$ is isomorphic to $\Z_3\oplus\Z_3\oplus\Z_3$.  Generalize.
+
+Let us show that $\phi(ax^2+bx+c)=(a,b,c)$ is an isomorphism from
+$G$ to $\Z_3\oplus\Z_3\oplus\Z_3$.  Notice that the function is well
+defined, one-to-one, and onto, since a polynomial is uniquely
+determined by its coeficients.  What remains to be shown is that the
+mapping is operation preserving...
+\begin{align*}
+\phi((a_1x^2+b_1x+c_1)+(a_2x^2+b_2x+c_2))
+ &= \phi((a_1+a_2)x^2+(b_1+b_2)x+(c_1+c_2)) \\
+ &= (a_1+a_2,b_1+b_2,c_1+c_2) \\
+ &= (a_1,b_1,c_1)(a_2,b_2,c_2) \\
+ &= \phi(a_1x^2+b_1x+c_1)\phi(a_2x^2+b_2x+c_2)
+\end{align*}
+
+As a generalization of the problem...
+\begin{equation*}
+\left\{\sum_{k=0}^{n-1}a_kx^k:a_k\in\Z_m\right\}\approx\bigoplus_{k=1}^n\Z_m
+\end{equation*}
+Notice that $n$ need not be equal to $m$, and the operation for elements of the
+set on the LHS is the addition of polynomials with integer coeficients, except using
+modulo $m$ addition.
+
+\section*{Problem 50}
+
+Express $U(165)$ as an external direct product of cyclic groups of the form $\Z_n$.
+\begin{equation*}
+U(165)=U(3\cdot 5\cdot 11)\approx U(3)\oplus U(5)\oplus U(11)\approx\Z_2\oplus\Z_4\oplus\Z_{10}
+\end{equation*}
+
+\section*{Problem 52}
+
+Without doing any calculations in $\aut(\Z_{20})$, determine how many elements
+of $\aut(\Z_{20})$ have order 4.  How many have order 2?
+
+By Theorem 6.5, $\aut(\Z_{20})\approx U(20)$.
+Then by Theorem 8.3, $U(20)\approx U(4)\oplus U(5)$, since $\gcd(4,5)=1$.
+Then $U(4)\oplus U(5)\approx\Z_2\oplus\Z_4$ by Gauss.
+So the number of elements of order 4 in $\Z_2\oplus\Z_4$ is
+the number of such elements in $\aut(\Z_{20})$.
+By Theorem 8.1, we want to count all the ways in which we can
+have $4=\lcm(\{1,2\},\{1,2,4\})$.  This reduces to the cases
+$4=\lcm(\{1,2\},4)$.  This can happen $\Z_2^1\Z_4^4+\Z_2^2\Z_4^4=
+\phi(1)\phi(4)+\phi(2)\phi(4)=4$ different ways.
+
+Counting the elements of order 2, we want $2=\lcm(\{1,2\},\{1,2\})$.
+This can happen
+$\Z_2^1\Z_4^2+\Z_2^2\Z_4^1+\Z_2^2\Z_4^2=\phi(1)\phi(2)+\phi(2)\phi(1)+\phi(2)\phi(2)=3$
+different ways.
+
+\section*{Problem 58}
+
+Use the results presented in this chapter to prove that $U(144)$ is
+isomorphic to $U(140)$.
+\begin{equation*}
+U(144)\approx U(2^4)\oplus U(3^2)\approx
+\Z_2\oplus\Z_4\oplus\Z_6\approx
+U(2^2)\oplus U(5)\oplus U(7)\approx U(140)
+\end{equation*}
+Thanks, Gauss.
+
+\section*{Problem 64}
+
+Show that no $U$-group has order 14.
+
+Suppose that there exists a natural number $n$ such that $|U(n)|=14$.
+Let $n=p_1^{a_1}p_2^{a_2}\dots p_k^{a_k}$ be the prime factorization of $n$.
+Then by Theorem 8.3 we see that...
+\begin{equation*}
+U(n)\approx U(p_1^{a_1})\oplus U(p_2^{a_2})\oplus\dots\oplus U(p_k^{a_k})
+\end{equation*}
+Then by Carl Gauss, if $n$ is even, let $p_1=2$, and then we have...
+\begin{equation*}
+U(n)\approx(\Z_2\oplus\Z_{2^{a_1-2}})\oplus\Z_{p_2^{a_2-1}(p_2-1)}\oplus
+\Z_{p_3^{a_3-1}(p_3-1)}\oplus\dots\oplus\Z_{p_k^{a_k-1}(p_k-1)}
+\end{equation*}
+...otherwise, if $n$ is odd, we have...
+\begin{equation*}
+U(n)\approx\Z_{p_1^{a_1-1}(p_1-1)}\oplus
+\Z_{p_2^{a_2-1}(p_2-1)}\oplus\dots\oplus\Z_{p_k^{a_k-1}(p_k-1)}
+\end{equation*}
+But in either case, (since $2\cdot 2^{a_1-2}=2^{a_1-1}(2-1)$), we see that...
+\begin{align*}
+\phi(n)=|U(n)| &= p_1^{a_1-1}(p_1-1)p_2^{a_2-1}(p_2-1)\dots p_k^{a_k-1}(p_k-1) \\
+ &= p_1^{a_1-1}p_2^{a_2-1}\dots p_k^{a_k-1}(p_1-1)(p_2-1)\dots(p_k-1) \\
+ &= n\frac{(p_1-1)(p_2-1)\dots(p_k-1)}{p_1p_2\dots p_k}
+\end{align*}
+This then implies that...
+\begin{equation*}
+n = 14\frac{p_1p_2\dots p_k}{(p_1-1)(p_2-1)\dots(p_k-1)}
+\end{equation*}
+Here, if $p_1\neq 2$, we'll have an odd number in the numerator
+of the quotient, and an even number in the denominator.  The denominator
+must then divide 14.  But 14 cannot be written as the product of even
+numbers less than 14.  So we're stuck.  Also, $\phi(2^r)=2^{r-1}$ and
+14 is not a power of 2.
+\end{document}

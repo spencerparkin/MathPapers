@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 21 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\section*{Problem 4}
+
+Let $E$ be an algebraic extension of $F$.  If every polynomial in $F[x]$
+splits in $E$, show that $E$ is algebraically closed.
+
+Suppose that $K$ is a non-trivial algebraic extension of $E$ and
+let $a\in K\backslash E$.  By Theorem 21.7, $K$ is an algebraic extension
+of $F$.  It follows that $a$ is the zero of some non-constant polynomial
+over $F$.  But then since $a\not\in E$, this contradicts the fact that
+every polynomial over $F$ splits in $E$.
+
+\section*{Problem 8}
+
+Find the degree and a basis for $\Q(\sqrt{3}+\sqrt{5})$ over $Q(\sqrt{15})$.
+Find the degree and a basis for $\Q(\sqrt{2},\sqrt[3]{2},\sqrt[4]{2})$ over $\Q$.
+
+It was shown in the text that $\Q(\sqrt{3}+\sqrt{5})=\Q(\sqrt{3},\sqrt{5})$.
+We then find that $\{1,\sqrt{3}\}$ is a basis for $\Q(\sqrt{3})$ over $\Q$, and
+$\{1,\sqrt{5}\}$ as a basis for $\Q(\sqrt{3})(\sqrt{5})$ over $\Q(\sqrt{3})$.
+Applying Theorem 21.5, we find that a basis for $\Q(\sqrt{3},\sqrt{5})$
+is $\{1,\sqrt{3},\sqrt{5},\sqrt{15}\}$ over $\Q$.  We also see that
+$4=[\Q(\sqrt{3},\sqrt{5}):\Q]=[\Q(\sqrt{3},\sqrt{5}):\Q(\sqrt{3})][\Q(\sqrt{3}):\Q]=2\cdot 2$.
+
+The minimal polynomial for $\sqrt[4]{2}$ over $\Q$ is $x^4-2$.  So a basis
+for $\Q(\sqrt[4]{2})$ is $\{1,2^{1/4},2^{1/2},2^{3/4}\}$ over $\Q$.  So by
+adding $\sqrt[4]{2}$, we have inadvertantly added $\sqrt{2}$ in the process.
+It follows that $\Q(\sqrt{2},\sqrt[3]{2},\sqrt[4]{2})=\Q(\sqrt[3]{2},\sqrt[4]{2})$.
+Using the same idea, it is clear that $\Q(\sqrt[2]{2},\sqrt[4]{2})\subseteq\Q(\sqrt[12]{2})$,
+but equality depends on whether $\sqrt[12]{2}$ is a primitive element of
+$\Q(\sqrt[2]{2},\sqrt[4]{2})$.  Using Example 8 of Chapter 20, and the proof of Theorem 21.6,
+this is the case if and only if the equation
+\begin{equation*}
+\sqrt[12]{2}=\frac{\omega_3^i2^{1/3}-2^{1/3}}{2^{1/4}-\omega_4^j2^{1/4}}
+\end{equation*}
+has no integer solution with $i\geq 1$ and $j>1$, where $\omega_n$ is the
+$n$th root of unity.  After some algebra, we get
+\begin{equation*}
+2=\omega_4^j+\omega_3^i.
+\end{equation*}
+Clearly, the only solution to this is $i=j=0$, but we must have $i,j\geq 1$.
+We can now say, by Theorem 21.6, that $\Q(\sqrt[2]{2},\sqrt[4]{2})=\Q(\sqrt[12]{2})$,
+and a basis for it is $\{1,2^{1/12},2^{2/12},\dots,2^{11/12}\}$ over $\Q$.
+The degree of $\Q(\sqrt[12]{2})$ over $\Q$ is 12.
+
+\pagebreak
+\section*{Problem 10}
+
+Let $a$ be a complex number that is algebraic over $\Q$ and let $p(x)$
+denote the minimal polynomial for $a$ over $\Q$.  Show that $\sqrt{a}$
+is algebraic over $\Q$.
+
+Let $x$ be transcendental over $\Q$, and suppose that $x^2$ is algebraic
+over $\Q$.  Then there exists $f(x)=a_nx^n+\dots+a_1x+a_0\in\Q[x]$ such
+that $f(x^2)=0$.  But then this implies that $g(x)=a_nx^{2n}+\dots+a_1x^2+a_0\in\Q[x]$
+has $x$ as one of its zeros.  By contradiction, $x^2$ is transcendental over
+$\Q$ as well.
+
+Suppose $\sqrt{a}$ is transcendental over $\Q$.  It follows by the preceding argument
+that $a$ is transcendental over $\Q$, but this is another contradiction, so
+$\sqrt{a}$ is algebraic over $\Q$.
+
+I suspect this proof is in error since I didn't use the fact that $a$ is complex,
+and I didn't use $p(x)$.  It is also not generally true that $(\sqrt{a})^2=a$.
+
+\section*{Problem 12}
+
+Find an example of a field $F$ and elements $a$ and $b$ from
+some extension field such that $F(a,b)\neq F(a)$, $F(a,b)\neq F(b)$, and
+$[F(a,b):F]<[F(a):F][F(b):F]$.
+
+Consider $F=\Q$, $a=\sqrt[4]{2}$, and $b=\sqrt[6]{2}$.  The minimial polynomials
+for $a$ and $b$ over $F$ are $x^4-2$ and $x^6-2$, respectively.  This also means that they are
+both irreducible over $\Q$, as they should be.  
+But notice that $x^4-2=(x^2-\sqrt{2})(x^2+\sqrt{2})$ is not irreducible over $\Q(\sqrt[6]{2})$
+and $x^6-2=(x^3-\sqrt{2})(x^3+\sqrt{2})$ is not irreducible over $\Q(\sqrt[4]{2})$, because
+both $\Q(\sqrt[6]{2})$ and $\Q(\sqrt[4]{2})$ contain $\sqrt{2}$.
+This shows that $[F(a,b):F(b)]<[F(a):F]$ and $[F(a,b):F(a)]<[F(b):F]$, because the
+jump in dimension from $F(a)$ to $F(a,b)$ or $F(b)$ to $F(a,b)$ is done by moding-out by
+an irreducible of lesser degree than the irreducible we would mod-out by to jump
+from $F$ to $F(a)$ or $F$ to $F(b)$.
+Using Theorem 21.5, we finally have
+\begin{equation*}
+[F(a,b):F]=[F(a,b):F(b)][F(b):F]<[F(a):F][F(b):F].
+\end{equation*}
+%Another way to think about this is to consider forming the basis for $F(a,b)$ over $F$
+%as the product of the basis for $F(a)$ and $F(b)$ over $F$.  Because both
+%basis contain $\sqrt{2}$, the product will be linearly dependent until we
+%throw out $2=2^{1/2}2^{1/2}$ and perhaps a few other elements.
+
+\section*{Problem 14}
+
+Find the minimal polynomial for $\sqrt{-3}+\sqrt{2}$ over $\Q$.
+
+It's not hard to find that $\frac{(x^2+1)^2}{4}+6=0$.  Expanding this out and making it monic,
+we get the polynomial $x^4+2x^2+25$.  Let us show that this is the minimal
+polynomal for $\sqrt{-3}+\sqrt{2}$ over $\Q$
+by showing that it is irreducible over $\Q$.
+Using the contrapositive of Theorem 17.2, this is irreducible over $\Q$ if it is
+irreducible over $\Z$.  I have failed to determine if this is so or not.
+
+\section*{Problem 16}
+
+Find the minimal polynomial for $\sqrt[3]{2}+\sqrt[3]{4}$ over $\Q$.
+
+\section*{Problem 22}
+
+Let $f(x)$ be a nonzero element of $F[x]$.
+If $a$ belongs to some extension of $F$ and $f(a)$ is algebraic over $F$,
+prove that $a$ is algebraic over $F$.
+
+Since $f(a)$ is algebraic over $F$, there exists non-constant $g(x)\in F[x]$
+such that $g(f(a))=0$.  But then $g(f(x))\in F[x]$ is a non-constant polynomial
+having $a$ as a zero.  This shows that $a$ is algebraic over $F$.
+
+\section*{Problem 26}
+
+Let $a$ be a complex zero of $x^2+x+1$ over $\Q$.  Prove that $\Q(\sqrt{a})=\Q(a)$.
+
+Since $a=\sqrt{a}\cdot\sqrt{a}\in\Q(\sqrt{a})$ and $\Q\subset\Q(\sqrt{a})$, it
+is clear that $\Q(\sqrt{a})\subseteq\Q(a)$.
+Now because we have a quadratic irreducible, throwing in one zero gives us the other.
+So in this case, $a$ and its conjugate are in $\Q(a)$.
+The quadratic formula gives us $a=e^{\pm i2\pi/3}$.  
+If $a=e^{i2\pi/3}$, then the square root of $a$ is easily found
+in $\Q(a)$ as $-a^2=-e^{i4\pi/3}=e^{i\pi/3}=\sqrt{e^{i2\pi/3}}=\sqrt{a}$.
+If $a=e^{-i2\pi/3}$, then we also find that $-a^2=\sqrt{a}$.
+We can now conclude that $\Q(a)\subseteq\Q(\sqrt{a})$, and this completes the proof.
+
+\section*{Problem 30}
+
+Let $a$ be a positive real number and let $n$ be an integer greater than 1.
+Prove or disprove that $[\Q(a^{1/n}):\Q]=n$.
+
+If $a=4$ and $n=2$, then $[\Q(4^{1/2}):\Q]=[\Q(2):\Q]=[\Q:\Q]=1\neq 2$.  So the
+statement is false.
+
+We might also run into problems if $a=\pi$, I think.
+
+\section*{Problem 32}
+
+Let $f(x)$ and $g(x)$ be irreducible polynomials over a field $F$ and let $a$
+and $b$ belong to some extension $E$ of $F$.  If $a$ is a zero of $f(x)$ and $b$
+is a zero of $g(x)$, show that $f(x)$ is irreducible over $F(b)$ if and only if
+$g(x)$ is irreducible over $F(a)$.
+
+Notice that if we prove one direction, then we have proven the other direction as well.
+
+Let $f(x)$ have degree $n$ and $g(x)$ have degree $m$.
+Suppose that $f(x)$ is irreducible over $F(b)$.  This implies
+that $[F(b)(a):F(b)]=n$.  Then since clearly $[F(b):F]=m$,
+we have $[F(b)(a):F]=[F(b)(a):F(b)][F(a):F]=mn$, by Theorem 21.5.
+Assume now that $g(x)$ is reducible over $F(a)$.  Let $p(x)$ be an
+irreducible factor of $g(x)$ over $F(a)$ that has $b$ as a zero in some extension of $F$.
+Then since the degree of $p(x)$ is less than $m$, we see that
+$[F(a)(b):F(a)]<m$.  Then since clearly $[F(a):F]=n$,
+we have $[F(a)(b):F]=[F(a)(b):F(a)][F(b):F]<mn$, by Theorem 21.5 again.
+Recalling that $F(a)(b)=F(a,b)=F(b)(a)$, we see now that we
+have reached a contradiction about the dimension of $F(a,b)$ over $F$.
+It now follows now that $g(x)$ is irreducible over $F(a)$.
+
+\section*{Problem 34}
+
+Prove that $\Q(\sqrt{2},\sqrt[3]{2})=\Q(\sqrt[6]{2})$.
+
+We want to show that $\sqrt[6]{2}$ is a primitive element of $\Q(\sqrt{2},\sqrt[3]{2})$.
+Using the proof of Theorem 21.6, we need to show that there is no $i\geq 1$ and $j>1$
+such that
+\begin{equation*}
+\sqrt[6]{2}=\frac{\omega_2^i2^{1/2}-2^{1/2}}{2^{1/3}-\omega_3^j2^{1/3}}.
+\end{equation*}
+The proof of this is just like the one given in Problem 8 above.  We have to remember
+that this works because $x^2-2$ and $x^3-2$ are the minimal polynomials for $\sqrt{2}$
+and $\sqrt[3]{2}$, respectively, over $\Q$.
+
+\end{document}

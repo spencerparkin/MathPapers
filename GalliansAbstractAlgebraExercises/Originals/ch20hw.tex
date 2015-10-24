@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 20 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\section*{Problem 8}
+
+Let $F=\Z_2$ and let $f(x)=x^3+x+1\in F[x]$.  Suppose that $a$ is a zero of
+$f(x)$ in some extension of $F$.  How many elements does $F(a)$ have?
+Express each member of $F(a)$ in terms of $a$.  Write out a complete
+multiplication table for $F(a)$.
+
+We see that $f(x)$ is irreducible over $F$ since $\deg f(x)=3$ and it
+has no zeros in $F$.  Using Theorem 20.3, we can find an extension
+field of $F$ where $f(x)$ factors into a product of linear factors,
+namely $F[x]/\langle f(x)\rangle\approx F(a)$.  This will also be
+the smallest extension of $F$ containing all zeros of $f(x)$.
+By the same theorem, $\{1,a,a^2\}$ is a basis for this extension
+field over $F$.  That is, $F[x]/\langle f(x)\rangle\approx\{c_0+c_1a+c_2a^2:c_{0,1,2}\in F\}$.
+
+The first and second rows and columns of the $8\times 8$ multiplication table
+are boring, so here is the $6\times 6$ lower-right hand corner of that table.
+\begin{equation*}
+\begin{array}{cccccccc}
+ & \vline & a & 1+a & a^2 & 1+a^2 & a+a^2 & 1+a+a^2 \\
+\hline
+a & \vline & a^2 & \cdot & \cdot & \cdot & \cdot & \cdot \\
+1+a & \vline & a+a^2 & 1+a^2 & \cdot & \cdot & \cdot & \cdot \\
+a^2 & \vline & a+1 & 1+a+a^2 & a+a^2 & \cdot & \cdot & \cdot \\
+1+a^2 & \vline & 1 & a^2 & a & 1+a+a^2 & \cdot & \cdot \\
+a+a^2 & \vline & 1+a+a^2 & 1 & 1+a^2 & 1+a & a & \cdot \\
+1+a+a^2 & \vline & 1+a^2 & a & 1 & a+a^2 & a^2 & 1+a
+\end{array}
+\end{equation*}
+It is lower triangular because it is equal to its transpose.
+
+\section*{Problem 12}
+
+Let $F=\Q(\pi^3)$.  Find a basis for $F(\pi)$ over $F$.
+
+Without reading Chapter 21, I have no idea what $\Q(\pi^3)$
+looks like, but all we need to know is that it contains $\pi^3$,
+does not contain $\pi$, and contains the rationals.
+Now let $p(x)=x^3-\pi^3\in F[x]$.  By Theorem 17.1, this is
+irreducible over $F$.  We can now appeal to Theorem 20.3 to
+find that $F[x]/\langle p(x)\rangle\approx F(\pi)$, and
+a basis for this field is given by $\{1,\pi,\pi^2\}$ over $F$.
+
+\section*{Problem 16}
+
+Suppose that $\beta$ is a zero of $f(x)=x^4+x+1$ in some field extension $E$
+of $\Z_2$.  Write $f(x)$ as a product of linear factors in $E[x]$.
+
+Some work shows that $f(x)$ is irreducible over $\Z_2$, and so it is clear that
+$f(x)$ has no zeros in $\Z_2$.  Using Theorem 20.3, we see that the smallest
+extension field of $\Z_2$ containing all zeros of $f(x)$ is given by
+$\Z_2[x]/\langle f(x)\rangle\approx \Z_2(\beta)$,
+and is spanned by the basis $\{1,\beta,\beta^2,\beta^3\}$
+over $\Z_2$.  It follows that $\Z_2[x]/\langle f(x)\rangle$ is a splitting field
+for $f(x)$ over $\Z_2$.
+
+Let us now write $f(x)$ as a product of linear factors in $\Z_2(\beta)[x]$.
+Clearly, $x+\beta$ is a factor of $f(x)$.  A lot of work on scratch paper shows that
+$f(x)$ factors as...
+\begin{equation*}
+(x+\beta)(x+\beta+1)(x+\beta^2)(x+\beta^2+1)
+\end{equation*}
+
+\section*{Problem 20}
+
+Let $F$ be a field, and let $a$ and $b$ belong to $F$ with $a\neq 0$.
+If $c$ belongs to some extension of $F$, prove that $F(c)=F(ac+b)$.
+
+To show that $F(c)\subseteq F(ac+b)$, we must show that $c\in F(ac+b)$.
+This is clearly true since $-b\in F(ac+b)$ and $a^{-1}\in F(ac+b)$ so
+that $c=a^{-1}((ac+b)-b)\in F(ac+b)$.
+
+To show that $F(ac+b)\subseteq F(c)$, we must show that $ac+b\in F(c)$.
+This is clearly true since $a,b,c\in F(c)$ so that $ac+b\in F(c)$.
+
+\section*{Problem 22}
+
+Show that if $f(x)$ and $g(x)$ are relatively prime in $F[x]$,
+they are relatively prime in $K[x]$, where $K$ is any extension field of $F$.
+
+Because $f(x)$ and $g(x)$ are relatively prime, there exist polynomials
+$r(x),s(x)\in F[x]$ such that $f(x)r(x)+g(x)s(x)=1$.
+Now suppose that there exists $h(x)\in K[x]$ with $h(x)\not\in F[x]$
+such that $f(x)=f'(x)h(x)$
+and $g(x)=g'(x)h(x)$ for polynomials $f'(x),g'(x)\in K[x]$.
+It follows that...
+\begin{equation*}
+f'(x)h(x)r(x)+g'(x)h(x)s(x)=h(x)(f'(x)r(x)+g'(x)s(x))=1
+\end{equation*}
+But then this implies that $\deg h(x)=0$ and therefore $h(x)\in F[x]$.
+The result now follows by contradiction.
+
+\section*{Problem 26}
+
+Express $x^8-x$ as a product irreducibles over $\Z_2$.
+
+Notice that $x^8-x=x^8+x$.  We factored this in the last exam.
+The result was...
+\begin{equation*}
+x(x+1)(x^3+x+1)(x^3+x^2+1)
+\end{equation*}
+
+\section*{Problem 30}
+
+Show that $x^4+x+1$ over $\Z_2$ does not have any multiple zeros in any
+field extension of $\Z_2$.
+
+This result follows directly from the results of Problem 16 above.
+In Problem 16, we were general enough in determining the complete
+factorization of this polynomial over its splitting field over $\Z_2$.
+By the Corollary of Theorem 20.4, splitting fields are unique.
+So any field containing all of the zeros of this polynomial will
+contain a subfield isomorphic to its splitting field over $\Z_2$.
+
+If there is a hole in my logic here, we can appeal to the Corollary
+of Theorem 20.9.  In Problem 16, we found this polynomial's complete
+factorization over its splitting field and saw no multiple zeros.
+
+\section*{Problem 32}
+
+Show that $x^{21}+2x^9+1$ has multiple zeros in some extension of $\Z_3$.
+
+Because $\Z_3$ has characteristic 3, we can apply Theorem 20.6.
+Let $f(x)=x^{21}+2x^9+1$ and let $g(x)=x^7+2x^3+1$.
+Then $f(x)=g(x^3)$, and so $f(x)$ has a multiple zero.
+
+\pagebreak
+\section*{Problem 34}
+
+Find the splitting field for $f(x)=(x^2+x+2)(x^2+2x+2)$ over $\Z_3[x]$.
+Write $f(x)$ as a product of linear factors.
+
+Clearly both quadratic factors are irreducible over $\Z_3$.
+Using the result of Problem 24, a splitting field of $f(x)$ over $\Z_3$
+is $\Z_3(a)(b)$, where $a$ is a zero of $x^2+x+2$ in some extension of
+$\Z_3$, and $b$ is a zero of $x^2+2x+2$ in some extension of $\Z_3$.
+
+By Theorem 20.3, we have $\Z_3(a)\approx \Z_3[x]/\langle x^2+x+2\rangle$,
+where $\{1,a\}$ is a basis for it over $\Z_3$.  Using Theorem 20.3 again,
+we have $\Z_3(a)(b)\approx\Z_3(a)[x]/\langle x^2+2x+2\rangle$ where
+$\{1,b\}$ is a basis for it over $\Z_3(a)$.  Using the proof of Theorem 21.5,
+a basis for $\Z_3(a)(b)$ is $\{1,a,b,ab\}$ over $\Z_3$.
+
+At this point, let us reason that because $x^2+x+2$ splits in $\Z_3(a)$
+and $x^2+2x+2$ splits in $\Z_3(b)$, we can factor them in their respective splitting fields,
+and trust that the product of these factorizations is the factorization of $f(x)$
+over $\Z_3(a,b)[x]$.  After working it out on scratch paper, I get...
+\begin{equation*}
+f(x)=(x+2a)(x+a+1)(x+2b)(x+b+2)
+\end{equation*}
+I think this works because $\Z_3(a)$ and $\Z_3(b)$ are subfields of $\Z_3(a,b)$.
+
+\end{document}

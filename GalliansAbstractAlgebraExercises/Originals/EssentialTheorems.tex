@@ -1,0 +1,311 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Essential Theorems in Abstract Algebra}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Ker}{\mbox{Ker}\,}
+\newcommand{\Char}{\mbox{char}\,}
+
+\section*{The One-Step Subgroup Test}
+
+A nonempty subset $H$ of a group $G$ is a subgroup
+of $G$ if $ab^{-1}$ is in $H$ whenever $a$ and $b$
+are in $H$.
+
+\section*{The Fundamental Theorem of Cyclic Groups}
+
+Every subgroup of a cyclic group is cyclic.
+If $|\langle a\rangle|=n$, then for each
+positive divisor $k$ of $n$, $\langle a\rangle$
+has exactly one subgroup of order $k$ and no others.
+
+If a group is of prime order, then it is cyclic.
+This is easy to see since by Lagrange's Theorem,
+the order of every element must divide the order
+of the group.  Notice that any nonidentity element
+must be a generator of a group of prime order.
+
+All cyclic groups are Abelian.  This is easy to
+see since all cyclic groups are isomorphic to
+one of the $\Z_n$ groups, which are Abelian.
+
+\section*{Lagrange's Theorem}
+
+In a finite group the order of a subgroup divides the
+order of the group.  The converse of this theorem applies
+to all Abelian groups.  The Sylow Theorem's provide
+partial converses to this theorem for non-Abelian groups.
+
+\section*{Normal Subgroup Test}
+
+A subgroup $H$ of $G$ is normal in $G$ if and only if
+$xHx^{-1}\subseteq H$ for all $x\in G$.
+
+A normal subgroup is a subgroup $H$ of $G$ where
+$aH=Ha$ for all $a\in G$.  That is, the left cosets
+are equal to the right cosets.  This is needed to
+prove that the coset multiplication operation is well defined
+on factor groups.  If $H$ is normal in $G$, then
+$G/H$ is a factor group with elements $aH$ for all $a\in G$.
+Two cosets $aH$ and $bH$ are equal if and only if $a^{-1}b\in H$.
+
+Recall that $xHx^{-1}$ denotes the set $\{xhx^{-1}:h\in H\}$.
+
+Notice that all subgroups of an Abelian group are normal.
+
+\section*{The $G/Z$ Theorem}
+
+Let $G$ be a group and let $Z(G)$ be the center of $G$.
+If $G/Z(G)$ is cyclic, then $G$ is Abelian.
+
+Recall that $Z(G)$ denotes the subgroup of $G$ consisting
+of all elements of $G$ that commute with all other
+elements of $G$.  That is, $Z(G)=\{a\in G:\mbox{$ax=xa$ for all $x\in G$}\}$.
+
+This theorem is not hard to prove.  The contrapositive
+is used most often in practice.
+
+\section*{The Number of Elements in $HK$}
+
+Let $H$ and $K$ be subgroups of a finite group $G$.
+It then follows that
+\begin{equation*}
+|HK|=\frac{|H||K|}{|H\cap K|}.
+\end{equation*}
+It would be a good idea to prove this for yourself.
+Notice that $HK$ is not always a subgroup of $G$.
+If it can be shown that $HK=KH$, then $HK$ is
+a subgroup of $G$.
+
+\section*{First Isomorphism Theorem}
+
+If $\phi$ is a group homomorphism from $G$ to a group, then
+$G/\Ker\phi\approx\phi(G)$.
+
+A group homomorphism is a function from one group into another
+that is operation preserving.  That is $\phi(ab)=\phi(a)\phi(b)$
+for all $a,b\in G$, assuming $\phi$ is defined on the group $G$.
+Notice that the operation in $\phi(ab)$ is that of $G$ and
+the operation in $\phi(a)\phi(b)$ is that of $\bar{G}$, assuming
+$\phi$ is a $\bar{G}$ valued function, where $\bar{G}$ is some group.
+
+The kernal of a homomorphism $\phi:G\to\bar{G}$, denoted
+$\ker\phi$ is the set $\{x\in G:\phi(x)=\bar{e}\}$, where
+$\bar{e}$ is the identity element of $\bar{G}$.  Kernels
+of homomorphisms are normal subgroups.  The factor group
+made by moding about by the kernel of a homomprhism is
+isomorphic to the image of the homomorphism.  Homomorphisms
+are tools that can be used to gain insight into the structure
+of a group.
+
+Let $a,b\in G$.  Recall that $\phi(a)=\phi(b)$
+if and only if $a\Ker\phi=b\Ker\phi$ if and only
+if $a^{-1}b\in\Ker\phi$.
+
+Also recall that if $\phi(g)=g'$, then
+$\phi^{-1}(g')=\{x\in G:\phi(x)=g'\}=g\Ker\phi$.
+
+Lastly, recall that if $|g|$ is finite, then
+$|\phi(g)|$ divides $|g|$.
+
+The order of the image of a homomorphism divides the
+order of homomorphisms domain and codomain.
+
+Every normal subgroup is the kernel of some homomorphism.
+In fact, if $N$ is a normal subgroup of $G$, then the
+kernal of the homomorphism defined by $\phi(g)=gN$
+has $N$ as its kernel.  Notice that $\phi$ maps
+elements from $G$ to the factor group $G/N$.
+So the kernel of $\phi$ is all $g\in G$
+such that $gH=H\implies g\in H$.
+
+\section*{The Fundamental Theorem of Finite Abelian Groups}
+
+Every finite Abelian group is a direct product of cyclic groups of
+prime power order.  To classify non-Abelian groups, we need the
+Sylow Theorems.
+
+\section*{The Subring Test}
+
+A nonempty subset $S$ of a ring $R$ is a subring if
+$a-b$ and $ab$ are in $S$ whenever $a$ and $B$ are in $S$.
+
+The first part is the One-Step Subgroup Test, making sure
+that $S$ is a subgroup $R$, since we can think of rings,
+under just the addition operation, as Abelian groups.
+The second part makes sure that $S$ is closed under the
+multiplication of $R$.
+
+Recall that rings are not in general commutative and
+the multiplication of rings is left and right
+distributive over addition.  Rings also need not
+have a multiplicative identity and even with such
+an elements, not all nonzero ring elements
+need have a multiplicative inverse.
+
+\section*{The Ideal Test}
+
+A nonempty subset $A$ of a ring $R$ is an ideal if $a-b\in A$
+whenever $a$ and $b$ are in $A$; and $ra$ and $ar$
+are in $A$ whenever $a\in A$ and $r\in R$.
+
+Again, the first part here is the One-Step Subgroup Test.
+The second part verifies not only closure, but that the
+subring absorbs elements of $R$, making it an ideal.
+We can take rings and modout by ideals just as we can
+take groups and modout by normal subgroups.
+
+\section*{The Characteristic of an Integral Domain}
+
+The characteristic of an integral domain is zero or prime.
+
+An integral domain is a commutative ring with unity and
+no zero divisors.  If the product of two nonzero elements
+is zero, then each of these is a zero divisor.
+It is easy to show that integral domains have the cancelation
+property.  That is, if $ab=ac\implies b=c$, assuming $a\neq 0$.
+Notice that all fields are integral domains.
+
+The characteristic of an integral domain $R$, denoted
+$\Char R$, is the least positive integer $n$ such that
+all elements raised to the additive power of $n$ are the
+additive identity.  If no such integer exists, then
+$\Char R=0$.
+
+We have a theorem that states that finite integral domains
+are fields.  Infinite integral domains are not always fields.
+Recall that $\Z_p$, where $p$ is prime, is a field under
+addition and multiplication modulo $p$.
+
+\section*{$R/A$ is a Field if and only if $A$ is Maximal}
+
+Let $R$ be a commutative ring with unity and let $A$
+be an ideal of $R$.  Then $R/A$ is a field if and only if
+$A$ is maximal.
+
+A field is a commutative ring with unity where all nonzero
+elements are units (have multiplicative inverses).
+
+An ideal $A$ is maximal in a ring $R$ if the only
+proper ideal containing $A$ is $R$.  A common way
+to show that a given subring $A$ is a maximal ideal is to let
+there be a proper ideal $A'$ containing $A$, show
+that $A'$ contains 1, and then it follows that $A'=R$.
+
+\section*{First Isomorphism Theorem for Rings}
+
+If $\phi$ is a ring homomorphism from $R$ to a ring,
+then $R/\Ker\phi\approx\phi(R)$.
+
+A homomorphism is a function from one ring into
+another that preserves both ring operations.
+
+Ring homomorphisms map subrings to subrings.
+The pullbacks of ideals under homomorphisms are ideals.
+
+A lot of generalizations from The First Isomorphism
+Theorem for Groups carry over to rings.
+
+\section*{$F[x]/\langle p(x)\rangle$ is a Field}
+
+Let $F$ be a field and $p(x)$ an irreducible polynomial over $F$.
+Then $F[x]/\langle p(x)\rangle$ is a field.
+
+Recall that $F[x]$ denotes the ring of polynomials over
+$F$.  That is, all polynomials having coeficients taken
+from $F$.  Notice that $F[x]$ is not a field because
+not all nonzero elements have multiplicative inverses.
+If $F$ is a field, then $F[x]$ is a principle ideal domain.
+A prinpcle ideal domain $R$ is an integral domain, (which
+is a commutative ring), such that every ideal
+has the form $\langle a\rangle=\{ra:r\in R\}$.
+
+An irreducible polynomial $p(x)$ in a polynomial ring $F[x]$
+is a polynomial that cannot be factored into the product
+of two or more polynomials having positive degree.
+For a polynomial $p(x)\in F[x]$, we have a theorem that
+tells us that $\langle p(x)\rangle$ is a maximal ideal
+in $F[x]$ if and only if $p(x)$ is irreducible over $F$.
+This is how the above theorem is proved.
+
+Notice that, in a sense, $F[x]/\langle p(x)\rangle$
+contains $F$ as a subfield.
+
+\section*{The Fundamental Theorem of Field Theory}
+
+Let $F$ be a field and let $f(x)$ be a nonconstant
+polynomial in $F[x]$.  Then there is an extension field
+$E$ of $F$ in which $f(x)$ has a zero.
+
+What we do is start with a polynomial in $F[x]$ of
+degree $n$ that has less than $n$ zeros in $F$.
+Choose an irreducible factor $p(x)$ of $f(x)$.
+We want to extend $F$ to a field $E$ containing
+$F$ such that $p(x)$ as at least one zero.
+We claim that $E\approx F[x]/\langle p(x)\rangle$
+is such a field.  To show that this is so,
+see that $x+\langle p(x)\rangle$ is a
+zero of $p(x)$ in $F[x]/\langle p(x)\rangle$.
+
+\section*{$[K:F]=[K:E][E:F]$}
+
+If $K$ is a finite extension field of a field $E$ and $E$ is
+a finite extension field of the field $F$, then
+$[K:F]=[K:E][E:F]$.
+
+Recall that $[E:F]$ denotes the dimension $E$ has as a vector
+space over $F$.  It is said to be the degree $E$ has over $F$
+as an extension field of $F$.  Say we modout by an irreducible
+polynomial $p(x)$ in $F[x]$ of degree $n$ to get $E$.
+Then for some zero $a$ of $p(x)$ in $E$, we can express
+$E$ as a vector space over $F$ having basis $\{1,a,a^2,\dots,a^{n-1}\}$.
+
+\section*{The Structure of Finite Fields}
+
+The set of nonzero elements of a finite field is a cyclic
+group under multiplication.
+
+If $F$ is a finite field, we usually let $F^*$ denote
+the cyclic group $F\backslash\{0\}$ under multiplication.
+
+\section*{Sylow's First Theorem}
+
+Let $G$ be a finite group and $p$ a prime.
+If $p^k$ divides $|G|$, then $G$ has a subgroup of order $p^k$.
+
+\section*{Sylow's Second Theorem}
+
+If $H$ is a subgroup of a finite group $G$ and $|H|$ is a power
+of a prime $p$, then $H$ is contained in some Sylow $p$-subgroup
+of $G$.
+
+\section*{Sylow's Third Theorem}
+
+The number of Sylow $p$-subgroups of $G$ is congruent
+to one modulo $p$ and divides $|G|$.  Furthermore,
+any two Sylow $p$-subgroups of $G$ are conjugate.
+
+A Sylow $p$-subgroup of $G$ is a subgroup of $G$
+having order $p^k$ where $p^{k+1}$ does not divide $|G|$.
+This means that $k$ is as large as possible.
+
+Two subgroups $H$ and $K$ of a group $G$ are conjugates
+of one another if there exists $g\in G$ such that
+$H=gKg^{-1}$.
+All conjugate pairs are isomorphic to one another.
+
+If it can be shown that there is only one Sylow $p$-subgroup
+for a given $p$, then it is a normal subgroup.
+
+\end{document}

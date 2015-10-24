@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+\section*{Problem 1}
+
+Prove or disprove: The groups $\Z_4\oplus\Z_{15}$ and
+$\Z_6\oplus\Z_{10}$ are isomorphic.
+
+Notice that $\gcd(4,15)=1$, but $\gcd(6,10)\neq 1$.
+Therefore, $\Z_4\oplus\Z_{15}$ is cyclic, but $\Z_6\oplus\Z_{10}$ is not.
+So they're not isomorphic to one another.
+
+\section*{Problem 2}
+
+Let $A$ be a non-empty set and let $G$ be the set of all subsets of $A$.
+Define addition of sets by $X+Y=(X\cup Y)-(X\cap Y)$, where $X,Y\in G$.
+Prove that $(G,+)$ forms an Abelian group.
+
+The commutativity of the operation follows directly
+from the commutativity of the union operation between
+sets.  To see this, rewrite the symmetric difference as...
+\begin{equation*}
+X+Y=(X-Y)\cup(Y-X)
+\end{equation*}
+It is now clear that $X+Y=Y+X$.
+To see closure, notice that...
+\begin{equation*}
+(X-Y)\cup(Y-X)\subseteq X\cup Y\subseteq A
+\end{equation*}
+The additive inverse is clearly $\emptyset$, since
+$X+\emptyset=(X-\emptyset)\cup(\emptyset-X)=X\cup\emptyset=X$.
+To find the additive inverse of $X$, we note that
+$\emptyset=X+X^{-1}=(X-X^{-1})\cup(X^{-1}-X)$ implies that
+$X-X^{-1}=\emptyset$ and $X^{-1}-X=\emptyset$.  
+Therefore, $X=X^{-1}$ for all $X\in G$.
+
+To show associativity, let $Z\in G$, and consider the following figure.
+\begin{center}
+\includegraphics{venndiagram.ps}
+\end{center}
+In the first part of the venn diagrams above we evalulate $(X+Y)+Z$.
+After convincing yourself that the result is correct, it is easy
+to see in the second part the evalulation of $X+(Y+Z)$,
+and indeed, we see that $(X+Y)+Z=X+(Y+Z)$.
+
+We've now shown enough to be able to say that $G$ is an Abelian group
+under the symmetric difference operation.
+
+\section*{Problem 3}
+
+Let $G$ be an Abelian group of odd order.  Show that the product of all
+elements of $G$ is the identity.
+
+If $G=\{e\}$, then we're done.  So suppose $G\neq\{e\}$.
+Let $\{a_k\}_{k=1}^n$ be the set of all non-identity elements of $G$.
+Notice that $n$ is an even number.
+By LaGrange's Theorem, no element of $G$ generates a cyclic subgroup
+of order 2, since $|G|$ is odd.  So there are no elements of order 2, and therefore,
+no element is its own inverse.  Let us now evaluate the product
+$a_1a_2\dots a_n$.  Notice that $a_1^{-1}=a_k$ where $k\neq 1$.
+Without loss of generality, suppose $k=n$.  Using the Abelian property of $G$,
+we may then rewrite
+our product as $a_1a_na_2a_3\dots a_{n-1}=a_2a_3\dots a_{n-1}$.
+The product now has $n-2$ terms in it.  Now suppose $a_2^{-1}=a_{n-1}$
+and we get $a_2a_{n-1}a_3a_4\dots a_{n-2}=a_3a_4\dots a_{n-2}$, and
+there are $n-4$ terms left.  Continue this process until there are
+no more terms.  We will arive at the identity since $n$ is even.
+
+\section*{Problem 4}
+
+Let $H$ and $K$ be subgroups of $G$ and let $a\in G$.
+The double coset of $H$ and $K$ in $G$ is defined by
+$HaK=\{hak:h\in H,k\in K\}$.  Show that for $a,b\in G$,
+either $HaK=HbK$ or $HaK\cap HbK=\emptyset$.
+
+It should be clear
+that for all $a,b,c\in G$, that $H(acb)K=(Ha)c(bK)$, showing that
+we can relate double cosets back to left and right cosets.
+This lets us re-use what we already know about single cosets.
+
+It suffices to show that if $HaK\cap HbK\neq\emptyset$, then
+$HaK=HbK$.  So let $x\in HaK\cap HbK$.  Then there exists
+$h_1,h_2\in H$ and $k_1,k_2\in K$ such that $x=h_1ak_1$
+and $x=h_2bk_2$.  Writing $a$ in terms of $b$ we get
+$a=h_1^{-1}h_2bk_2k_1^{-1}$.  We then have...
+\begin{equation*}
+HaK=H(h_1^{-1}h_2bk_2k_1^{-1})K=(Hh_1^{-1}h_2)b(k_2k_1^{-1}K)=HbK
+\end{equation*}
+...since $h_1^{-1}h_2\in H$ and $k_2k_1^{-1}\in K$.
+
+\section*{Problem 5}
+
+Let $I=\langle a+bi\rangle$ be an ideal of $\Z[i]$.  Prove that the
+additive order of $1+I$ in $\Z[i]/I$ divides $a^2+b^2$.
+
+To be clear, let us note that $I=\{r(a+bi):r\in\Z[i]\}$.
+It is then clear that $0\in I$ and $a+bi\in I$.
+So we have $a+bi+I=0+I\implies a+I=-bi+I\implies a^2+I=-b^2+I\implies a^2+b^2+I=0+I$.
+Then since $(1+I)^n=n+I$, it follows that $(1+I)^{a^2+b^2}=0+I$.
+So by Corollary 2 of Theorem 4.1, we see that $|1+I|$ must divide $a^2+b^2$.
+
+\section*{Problem 6}
+
+Let $S$ be a subring of $R$ and let 1 be the multiplicative identity of $R$
+and let $1'$ be the multiplicative identity in $S$.  Prove that if $1\neq 1'$,
+then $1'$ is a divisor of zero.  Assume $1'\neq 0$.
+
+It suffices to show that every element in $S-\{0\}$ is a zero divisor in $R$.
+For all $x\in S-\{0\}$, we have $x1'=x$ as well as $x1=x$.
+Then $x1'=x1\implies 0=x1'-x1=x(1'-1)$ shows that $x$ is a zero divisor,
+since $1'-1\neq 0$.  Now since $1'\in S-\{0\}$, we know that $1'$ is a
+zero divisor.
+
+\section*{Problem 7}
+
+Let $R$ be a ring and let $I$ be an ideal of $R$.  Show that $R/I$
+is commutative if and only if $rs-sr\in I$ for all $r$ and $s$ in $R$.
+
+\begin{equation*}
+(s+I)(r+I)=(r+I)(s+I)\iff sr+I=rs+I\iff rs-sr\in I
+\end{equation*}
+
+\end{document}

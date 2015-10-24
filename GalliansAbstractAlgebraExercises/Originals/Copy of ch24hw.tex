@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 24 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\cl}{\mbox{cl}}
+
+\section*{Problem 2}
+
+Calculate all conjugacy classes for the quaternions.
+
+Some work shows that the conjugacy classes are
+\begin{equation*}
+\{e\},\{a,a^3\},\{a^2\},\{b,ba^2\},\{ba,ba^3\}.
+\end{equation*}
+
+\section*{Problem 8}
+
+Find all Sylow 3-subgroups of $A_4$.
+
+The group $A_4$ has order $4!/2=24=2^3\cdot 3$, so we're looking for
+all subgroups of order 3.  Since 3 is prime, all such subgroups are cyclic.
+So the set of subgroups is given by
+$\{\langle a\rangle|\mbox{$a\in A_4$ and $|a|=3$}\}$.
+Using Table 5.1, these groups are given by
+\begin{align*}
+\{\alpha_1,\alpha_5,\alpha_9\},\\
+\{\alpha_1,\alpha_6,\alpha_{11}\},\\
+\{\alpha_1,\alpha_7,\alpha_{12}\},\\
+\{\alpha_1,\alpha_8,\alpha_{12}\}.
+\end{align*}
+This was given away in Example 2 of the chapter.
+
+\section*{Problem 12}
+
+Show that every group of order 56 has a proper nontrivial normal subgroup.
+
+By Sylow's First Theorem, there is at least one subgroup of order 7.
+By Sylow's Third Theorem, the number of such subgroups is congruent
+to 1 modulo 7 and divides 56.  The only possible number of such
+subgroups is therefore 1 or 8.  If there is only 1 subgroup of order 7,
+then it is a nontrivial normal subgroup by the corollary to Sylow's
+Third Theorem.  If there are 8 subgroups of order 7, then because
+they are cyclic, they account for $8\cdot(7-1)=48$ distinct elements,
+leaving $56-48=8$ remaining elements, including the identity element.
+It follows that these 8 elements must form a subgroup of order 8,
+By Sylow's First Theorem.
+Furthermore, this is the only subgroup of order 8, because every
+one of the 48 elements previously mentioned have order 7, and 7 does
+not divide 8.
+
+\section*{Problem 13}
+
+What is the smallest composite integer $n$ such that there
+is a unique group of order $n$?
+
+For groups of order 4, 8, 9, and 12, they could all be
+cyclic or the external direct product of cyclic groups that results
+in a non-cyclic group.  This is because they can all be written as
+the product of two non-trivial and non-coprime divisors.
+
+For groups of order 6, 10, and 14, blah.
+
+Now notice that all groups of order 15 are cyclic by Theorem 24.6.
+
+\section*{Problem 17}
+
+How many Sylow 3-subgroups of $S_5$ are there?  Exhibit five.
+
+By Sylow's Third Theorem, there are 1, 4, 10, or 40 of them.  Since
+we're asked to exhibit five of them, there must be 10 or 40.
+If there are 40 subgroups of order 3, then there are 80 elements
+of order 3.
+
+\section*{Problem 24}
+
+Prove that a group of order 105 contains a subgroup of order 35.
+
+By Sylow's First Theorem, there is a subgroup of order 5, and a subgroup
+of order 7.  By Sylow's Third Theorem, there
+may be at most 21 groups of order 5, and 15 groups of order 7.  Suppose there
+are more than one of both types of subgroups.  Since these are cyclic
+of prime order, this would generate
+$21\cdot(5-1)=84$ elements of order 5,
+and $15\cdot(7-1)=90$ elements of order 7.  But $84+90>105$, so at least one
+of these two types of subgroup is unique, and therefore normal by the corollary to
+Sylow's Third Theorem.
+It then follows by the result of Exercise 51 on
+Page 194, that if $H$ is a subgroup of order 5, and $K$ is a subgroup of order 7,
+then $HK$ is a subgroup of $G$, since at least one of $H$ and $K$ is normal.
+Now notice that $|HK|=|H||K|/|H\cap K|$, but $H\cap K=\{e\}$ since $H$ and $K$
+are cyclic groups of distinct prime orders.  It follows that $|HK|=|H||K|=5\cdot 7=35$,
+which is what we wanted.
+
+\section*{Problem 25}
+
+Prove that a subgroup of order 595 has a normal Sylow 17-subgroup.
+
+\section*{Problem 28}
+
+\section*{Problem 40}
+
+Let $p$ be prime.  If the order of every element of a finite group $G$ is a
+power of $p$, prove that $|G|$ is a power of $p$.
+
+Suppose $|G|$ has a prime $q$ other than $p$ in its factorization.
+Then by Sylow's First Theorem, there must exist a cyclic subgroup of
+order $q$, and its generator is an element of order $q$, contradicting
+the fact that all elements of $G$ have orders that are powers of $p$.
+So $p$ is the only prime in the factorization of $|G|$, and so $|G|$
+is a power of $p$.
+
+\section*{Lemma 1 for Problem 41}
+
+Let $H$ and $K$ be subgroups of a group $G$ and conjugate in $G$.
+Then $H$ and $K$ are isomorphic.
+
+Proof: By hypothesis, there exists $g\in G$ such that $H=gKg^{-1}$.
+Define $\phi:K\to H$ by $\phi(k)=gkg^{-1}$.  Letting $x,y\in K$,
+we see that
+\begin{equation*}
+x=y\iff gxg^{-1}=gyg^{-1}\iff\phi(x)=\phi(y),
+\end{equation*}
+showing that $\phi$ is well defined and one-to-one.  We then see that
+\begin{equation*}
+\phi(xy)=gxyg^{-1}=gxg^{-1}gyg^{-1}=\phi(x)\phi(y),
+\end{equation*}
+showing that $\phi$ is operation preserving.  Now let $h\in H\subseteq gKg^{-1}$.
+Then there exists $k\in K$ such that $h=gkg^{-1}$, and so $\phi(k)=h$, showing
+that $\phi$ is onto.  We have now shown that $\phi$ is an isomorphism between
+$H$ and $K$.
+
+Notice that $H$ and $K$ are not necessarily the same subset of $G$.
+
+\section*{Lemma 2 for Problem 41}
+
+Let $H$ be a subgroup of a group $G$.  Then for any $g\in G$,
+the subset $gHg^{-1}$ of $G$ is a conjugate of $H$ in $G$.
+
+Proof:  We first show that $gHg^{-1}$ is a subgroup of $G$.
+Clearly, $e\in gHg^{-1}$.  Now let $a,b\in gHg^{-1}$.  Then
+there exists $h_a,h_b\in H$ such that $a=gh_ag^{-1}$ and $b=gh_bg^{-1}$.
+Then we have
+\begin{equation*}
+ab^{-1}=gh_ag^{-1}(gh_bg^{-1})^{-1}=gh_ag^{-1}gh_b^{-1}g^{-1}=gh_ah_b^{-1}g^{-1}
+\in gHg^{-1},
+\end{equation*}
+showing that $gHg^{-1}$ is a subgroup of $G$ by the one-step subgroup test.
+
+We now show that the subgroups $H$ and $gHg^{-1}$ of $G$ are conjugate in $G$.
+Notice that $H$ and $gHg^{-1}$ have the same cardinality.  If $h_1,h_2\in H$
+where $h_1\neq h_2$, and $gh_1g^{-1}=gh_2g^{-1}$, then we have a contradiction.
+Choosing $g\in G$, we see that $g^{-1}(gHg^{-1})g=(g^{-1}g)H(g^{-1}g)=H$.
+
+Notice that if $H$ is a normal subgroup of $G$, then $H=gHg^{-1}$, but
+in general, we can only say that $H\approx gHg^{-1}$.
+
+\section*{Problem 41}
+
+For each prime $p$, prove that all Sylow $p$-subgroups of a finite group
+are isomorphic.
+
+It is easy to show that if two subgroups of a group are conjugates of one
+another, then they are isomorphic.  (See Lemma 1 above.)
+What is hard to show is that if
+$K$ is a Sylow $p$-subgroup of a group $G$, then all other Sylow
+$p$-subgroups have the form $gKg^{-1}$, where $g\in G$.  Clearly, by Lemma 2
+above, every
+member of the set $\{gKg^{-1}|g\in G\}$ is a subgroup of $G$, has
+the same order as $K$, and is isomorphic
+to all other members, but does this set contain all such subgroups?
+I do not know!  It is not obvious to me!
+
+This was proven in the second paragraph of the proof of Sylow's
+3rd Theorem, though the fact was used in the proof of Sylow's 2nd Theorem.
+Grrr.
+
+\end{document}

@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\section*{Problem 1}
+
+Let $G$ denote the multiplicative subgroup
+$\{1,-1,i,-i\}$ of $\C^*$.  Define $\theta:\Z\to G$
+by $\theta(n)=i^n$, for each $n\in\Z$.
+Show that $\theta$ is a homomorphism and determine $\ker(\theta)$.
+
+Suppose for the moment that $\theta(n)=g^n$ for any $g\in G$
+where $G$ is any group.  Then $\theta$ is clearly a homomorphism
+from $\Z$ to $G$ since $\theta(a+b)=g^{a+b}=g^ag^b=\theta(a)\theta(b)$.
+
+Returning to the originally defined $\theta$,
+notice that $\theta(\Z)=G$.
+Specifically, $G=\langle i\rangle\approx\Z_4$ under the
+mapping $\exp(i\pi z/2)\to z$, where $z\in\Z_4$.
+To determine $\ker(\theta)$, notice that all elements in
+$G$ are of the from $i^{4q+r}$, where $q,r\in\Z$, and $0\leq r< 4$.
+We want $i^{4q+r}=1$.  Since $i^0=1$, we see that
+$4q+r\equiv 0\pmod{4}$ by Theorem 4.1.
+This requires $r=0$.  So we see that $\ker(\theta)=4\Z=\{4z:z\in\Z\}$.
+
+\section*{Problem 2}
+
+Let $a$ belong to a ring $R$.  Let $S=\{x\in R:ax=0\}$.
+Show that $S$ is a subring of $R$.
+
+Note that $0\in S$ since $a0=0$, so $S$ is not empty.
+Let $u,v\in S$.  Then $a(u-v)=au-av=0-0=0$ and $a(uv)=(au)v=0v=0$,
+showing that $u-v\in S$ and $uv\in S$.  So $S$ is a subring of
+$R$ by the subring test.
+
+\section*{Problem 3}
+
+Let $\phi$ be a homomorphism of $U(36)$ into $U(36)$ such that
+$\ker(\phi)=\{1,13,25\}$.  Suppose $\phi(5)=17$.
+Determine all elements in $U(36)$ that map to 17.
+
+It follows directly from Property 6 of Theorem 10.1 that
+$\phi^{-1}(17)=5\ker(\phi)=\{5,29,17\}$.  If further justification is
+needed, then I would appeal to my limited intuition of homomorphisms.
+Homomorphisms create a bijective map of a factor group of the domain to
+a subgroup of the codomain.  So the inverse image of an element in the range
+of the homomorphism should be a multiple of the kernel.
+
+\section*{Problem 4}
+
+Let $H$ be a normal subgroup of a group $G$, and let $m=|G:H|$.
+Show that $a^m\in H$ for every $a\in G$.
+
+For any $a\in G$, choose $aH\in G/H$.  Notice that $m=|G/H|$.
+Then by Corollary 4 of LaGrange's Theorem, $a^mH = (aH)^m = H\implies a^m\in H$.
+
+\pagebreak
+\section*{Problem 5 (Short version)}
+
+For a given $n\in\N$, how many elements in the group
+$\Q/\Z$ have order $n$?
+
+The case $n=1$ is clear, so let $n>1$.
+Let $C_n$ denote the set of all cosets in $\Q/\Z$ having order $n$.
+It is proposed that 
+$C_{n>1}=\{(a/n)\Z:a\in U(n)\}$.  It would
+then follow that $|U(n)|$ is the answer to the question.
+To verify this, notice that every coset not
+in $C_n$ has one of two forms.  It is either $(a/n)\Z$
+where $a\not\in U(n)$ with $\gcd(a,n)=1$, or it is $(a/m)\Z$
+where $m\neq n$ and $\gcd(a,m)=1$.  In the former case,
+$(a/n)\Z\in C_n$ since $a$ must be congruent modulo $n$
+to an element $a'\in U(n)$.  Therefore, $(a'/n)\Z=(a/n)\Z$
+since $a'\equiv a\pmod{n}$, showing that $a'/n-a/n=(a'-a)/n=\in\Z$.
+In the latter case, $|(a/m)\Z|\neq n$.  This is clear if $m<n$.
+If $m>n$, then since $a$ and $m$ are coprime, the first $n$
+multiples of $a$ will not produce a complete system of residues
+modulo $m$.  Er, this needs some work.
+
+\section*{Problem 6}
+
+Let $E$ be the set of even integers with the usual addition,
+but define multiplication $*$ by $a*b=\frac{1}{2}(ab)$,
+for all $a,b\in E$ ($ab$ is usual multiplication).
+Prove that $E$ with $+,*$ is a ring and find the unity of $E$.
+
+It's clear that $E$ is an Abelian group under addition.
+What remains to be shown is that $E$ is closed under the
+operation $*$, that $*$ is associative, and that $*$ is
+distributive over addition.
+Closure follows from the fact that the product of two even
+numbers is divisible by 4, so that after dividing out by 2,
+the result is still even.  Let $a,b,c\in E$.
+Proofs of associativity and distributivity now follow.
+\begin{equation*}
+a*(b*c)=\frac{1}{2}a\left(\frac{1}{2}bc\right)
+ = \frac{1}{4}abc
+ = \frac{1}{2}\left(\frac{1}{2}ab\right)c = (a*b)*c
+\end{equation*}
+\begin{equation*}
+a*(b+c)=\frac{1}{2}a(b+c)=\frac{1}{2}(ab+ac)=\frac{1}{2}ab+\frac{1}{2}ac=a*b+a*c
+\end{equation*}
+Proof of right distributivity is similar to that of left distributivity.
+Now notice that $2*a=(1/2)2a=a$, showing that 2 is the unity of $E$.
+
+\section*{Problem 7}
+
+Let $G$ be a group of order $pq$ where $p$ and $q$ are not necessarily distinct primes.
+Prove that the order of the center of $G$, $Z(G)$, is 1 or $pq$.
+
+Our only choices for $|Z(G)|$ are 1, $p$, $q$, and $pq$, by LaGrange's Theorem.
+If $G$ is Abelian, then $Z(G)=G\implies |Z(G)|=pq$.
+If $G$ is not Abelian, then $G/Z(G)$ is not cyclic by Theorem 9.3.
+Suppose $|Z(G)|=p$.  Then $|G/Z(G)|=pq/p=q$, and it follows from
+Corollary 3 of LaGrange's Theorem that $G/Z(G)$ is cyclic.
+By contradiction, $|Z(G)|\neq p$.  This same line of reasoning
+can be used to show that $|Z(G)|\neq q$.  So the choices we're left with are
+$|Z(G)|=1$ or $|Z(G)|=pq$.
+
+\pagebreak
+\section*{Problem 8}
+
+Let $H$ be a subgroup of $G$.  Prove that $H$ is a normal subgroup of $G$
+if and only if for all $a,b\in G$, $ab\in H\implies ba\in H$.
+
+Suppose $H$ is a normal subgroup of $G$.
+Then $ab\in H\implies H=abH=(aH)(bH)=(bH)(aH)=baH\implies ba\in H$.
+Here we used the fact that inverses commute with one another.
+We needed the normality of $H$ so that we could work in the group $G/H$.
+
+Now suppose $ab\in H\implies ba\in H$.  
+Let $g\in G$ and $h\in H$.  Then $g^{-1}(gh)\in H\implies (gh)g^{-1}\in H$,
+showing that $H$ is normal in $G$ by the normal subgroup test.
+
+\section*{Problem 5 (Long version)}
+
+For a given $n\in\N$, how many elements in the group
+$\Q/\Z$ have order $n$?
+
+Let $C_n$ denote the set of all cosets in $\Q/\Z$ having order $n$.
+It will first be shown that
+$C_n=\{(a/n)\Z:\mbox{$a\in\Z^*$ and $\gcd(a,n)=1$}\}$ for all $n\in\N$.
+We'll then count the number of elements in $C_n$.
+
+Let $c\in C_n$.  Then $c^n=((a/n)\Z)^n=a\Z=\Z$ since $a\in\Z$.
+This shows that $|c|\leq n$.  If $n>1$, let $0<k<n$.
+Then clearly, $c^k=(ka/n)\Z\neq\Z$, since $n$ does not divide $ak$.
+To see this, realize that $a$ and $n$ are coprime.  Therefore, the first $n$
+non-negative multiples of $a$ are needed to generate a complete system
+of residues modulo $n$.
+The first $n-1$ such multiples are non-zero modulo $n$.
+So we now have $|c|=n$.
+
+Now since every rational number can be written in lowest terms,
+it is clear that $\Q/\Z=\bigcup_{n\in\N}C_n$, since this explores
+every possible fraction in lowest terms.
+Let $c\in\Q/\Z-C_n$ and suppose $|c|=n$.
+But then this means that $c\in C_m$ for some $m\neq n$,
+and therefore $|c|=m$.  By contradiction,
+it follows that $C_n$ contains all cosets of order $n$.
+
+For a given $n\in\N$, we now want to count the number of cosets
+in $C_n$.  Clearly $C_1=\{\Z\}$ and so $|C_1|=1$.  So let $n>1$.
+Notice that if $0<a<n$, then
+$(a/n)\Z=((a+kn)/n)\Z$ for all integers $k$ since
+$a/n-(a+kn)/n=a/n-a/n-k=-k\in\Z$.
+This shows that
+$C_n=\{(a/n)\Z:\mbox{$0<a<n$ and $\gcd(a,n)=1$}\}$.
+It is now clear that $|C_n|=\phi(n)$, where $\phi$ is
+Euler's phi-function.
+
+\end{document}

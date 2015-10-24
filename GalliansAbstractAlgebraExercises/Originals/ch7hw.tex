@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 7 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\orb}{\mbox{orb}}
+
+\section*{Problem 1}
+
+Let $H=\{(1),(12)(34),(13)(24),(14)(23)\}$.  Find the left cosets of $H$
+in $A_4$.
+
+By Theorem 3.3, $H$ is a subgroup of $A_4$.  Then by Corollary 1 of Theorem 7.1,
+there are $|A_4:H|=|A_4|/|H|=12/4=3$ cosets for us to find.  $H$ is one of them.
+The other two are given by...
+\begin{align*}
+(123)H=\{(123),(134),(243),(142)\} \\
+(132)H=\{(132),(234),(124),(143)\}
+\end{align*}
+
+\section*{Problem 2}
+
+Let $H$ be as in Problem 1.  How many left cosets of $H$ in $S_4$ are there?
+
+Since $H$ is a subgroup of $S_4$, the answer is $|S_4:H|=|S_4|/|H|=4!/4=3!=6$.
+
+\section*{Problem 3}
+
+Let $H=\{0,\pm 3, \pm 6, \pm 9, \dots\}$.  Find al the left cosets of $H$ in $Z$.
+
+There are 3 of them: $0+H$, $1+H$, and $2+H$.
+
+\section*{Problem 4}
+
+Rewrite the condition $a^{-1}b\in H$ given in property 4 of the lemma on
+page 138 in additive notation.  Assume that the group is Abelian.
+
+$aH=bH$ if and only if $b-a\in H$.
+
+\section*{Problem 5}
+
+Let $H$ be as in Problem 3.  Use Problem 4 to decide whether or not the
+some cosets of $H$ are the same.
+
+Notice that $H$ is Abelian.
+Is it true that $11+H=17+H$?  Well, $17-11=6\in H$, so yes.
+Is it true that $-1+H=6+H$?  Well, $6-(-1)=7\not\in H$, so no.
+Is it true that $7+H=23+H$?  Well, $23-7=16\not\in H$, so no.
+
+\section*{Problem 6}
+
+Let $n$ be a positive integer.  Let $H=\{0,\pm n,\pm 2n,\pm 3n,\dots\}$.
+Find all left cosets of $H$ in $\mathbb{Z}$.  How many are there?
+
+There are $n$ cosets: $\{k+H\}_{k=0}^{n-1}$.
+
+\section*{Problem 7}
+
+Find all of the left cosets of $\{1,11\}$ in $U(30)$.
+
+They are $\{1,11\}$, $\{7,17\}$, $\{13,23\}$, and $\{19,29\}$.
+
+\section*{Problem 8}
+
+Suppose that $a$ has order 15.  Find all of the left cosets of $\langle a^5\rangle$ in
+$\langle a\rangle$.
+
+Let $G_k=\{a^k,a^{5+k},a^{10+k}\}$.  Then the set of cosets is $\{G_k\}_{k=0}^4$.
+
+\section*{Problem 9}
+
+Let $|a|=30$.  How many left cosets of $\langle a^4\rangle$ in $\langle a\rangle$ are there?
+List them.
+
+There are two of them.
+\begin{align*}
+\langle a^4\rangle &= \{e,a^4,a^8,a^{12},a^{16},a^{20},a^{24},a^{28},a^2,a^6,a^{10},a^{14},a^{18},
+a^{22},a^{26}\} \\
+a\langle a^4\rangle &= \{a,a^5,a^9,a^{13},a^{17},a^{21},a^{25},a^{29},a^3,a^7,a^{11},a^{15},a^{19},
+a^{23},a^{27}\}
+\end{align*}
+
+\section*{Problem 12}
+
+Let $\mathbb{C}^{*}$ be the group of non-zero complex numbers under multiplication
+and let $H=\{a+bi\in\mathbb{C}^{*}:a^2+b^2=1\}$.  Give a geometric description
+of the cosets of $H$.
+
+The geometric interpretation of complex multiplication describes the result as
+a diolation and rotation.  $H$ is all the points on the unit circle.  Any coset
+of $H$ in $G$ would then be a circle with a different radius.  Diolating a circle
+changes its radius, while rotating it has no affect.
+
+\section*{Problem 14}
+
+Suppose that $K$ is a proper subgroup of $H$ and $H$ is a proper subgroup of
+$G$.  If $|K|=42$ and $|G|=420$, what are the possible orders of $H$?
+
+By Lagrange's Theorem we must have $2\cdot 3\cdot 7$ divide $|H|$
+and $|H|$ divide $2^2\cdot 3\cdot 5\cdot 7$.
+So I believe the choices are...
+\begin{align*}
+|H|&=2\cdot 3\cdot 5\cdot 7 = 210 \\
+|H|&=2^2\cdot 3\cdot 7 = 84
+\end{align*}
+
+\section*{Problem 15}
+
+Suppose that $|G|=pq$, where $p$ and $q$ are prime.  Prove that
+every proper subgroup of $G$ is cyclic.
+
+By Lagrange's Theorem, the possible orders of proper subgroups of $G$ are 1, $p$, and $q$.
+In the first case, $G=\langle e\rangle$.  In the other cases $G$
+is cyclic by Corollary 3 of Theorem 7.1.  Also, every non-identity element of
+a group of prime order is a generator of that group.
+
+\section*{Problem 17}
+
+Compute $5^{15}\mod 7$ and $7^{13}\mod 11$.
+
+Using Fermat's Little Theorem...
+\begin{align*}
+5^{15}&=5(5^7)^2\equiv 5(5^2)\equiv 5\cdot 4\equiv 6\pmod{7} \\
+7^{13}&=7^{11}7^2\equiv 7\cdot 7^2\equiv 7\cdot 5\equiv 2\pmod{11}
+\end{align*}
+
+\section*{Problem 18}
+
+Use Corollary 2 of Lagrange's Theorem (Theorem 7.1) to prove that
+the order of $U(n)$ is even when $n>2$.
+
+Notice that for all $n>2$ we have $\gcd(n-1,n)=1$ so that $n-1$ is in $U(n)$.
+Then $(n-1)^2=n^2-2n+1\equiv 1\pmod{n}$, showing that $|(n-1)|=2$, since $n>2$.  So by Corollary
+2 of Lagrange's Theorem, 2 divides $|U(n)|$.
+
+\section*{Problem 20}
+
+Suppose $H$ and $K$ are subgroups of a group $G$.  If $|H|=12$ and $|K|=35$,
+find $|H\cap K|$.
+
+Notice that $e\in H\cap K$ so that it's non-empty.  Now let $a,b\in H\cap K$.
+Then $ab\in H$ and $ab\in K$ implies that $ab\in H\cap K$ so that by Theorem
+3.3, $H\cap K$ is a group.  Further more, since $H\cap K\subseteq H$ and
+$H\cap K\subset K$, we see that $H\cap K$ is a subgroup of each of these.
+So by Lagrange's Theorem, $|H\cap K|$ must divide $|H|$ and $|K|$.
+But $\gcd(|H|,|K|)=1$.  Therefore, $|H\cap K|=1$ and we see that $H\cap K=\{e\}$.
+
+\section*{Problem 24}
+
+Let $G$ be a group of order 25.  Prove that $G$ is cyclic or $g^5=e$ for all
+$g\in G$.
+
+If $G$ is cyclic, then we're done.  Suppose $G$ is not cyclic.  By Lagrange's Theorem,
+$|g|$ divides $|G|=5^2$ for all $g\in G$.  We also know that $5^0<|g|<5^2$ for all
+non-identity elements of $G$, since $G$ does not have a generator.
+It follows that all non-identity elements of $G$
+have order 5.  Then since $e^5=e$, we have $g^5=e$ for all $g\in G$.
+
+\section*{Problem 27}
+
+Let $H$ and $K$ be subgroups of a finite group $G$ with $H\subseteq K\subseteq G$.
+Prove that $|G:H|=|G:K||K:H|$.
+
+This follows directly from Corollary 1 of Lagrange's Theorem.
+\begin{equation*}
+|G:H|=\frac{|G|}{|H|}=\frac{|G|}{|K|}\cdot\frac{|K|}{|H|}=|G:K||K:H|
+\end{equation*}
+
+\section*{Problem 31}
+
+Let $G=\{(1),(12)(34),(1234)(56),(13)(24),(1432)(56),(56)(13),(14)(23),(24)(56)\}$.
+Find stabalizers and oribts.
+
+\begin{align*}
+\stab_G(1) &= \{(1),(24)(56)\} \\
+\orb_G(1) &= \{1,2,3,4\} \\
+\stab_G(3) &= \{(1),(24)(56)\} \\
+\orb_G(3) &= \{3,4,2,1\} \\
+\stab_G(5) &= \{(1),(12)(34),(13)(24),(14)(23)\} \\
+\orb_G(5) &= \{5,6\}
+\end{align*}
+
+\section*{Problem 32}
+
+Prove that 3, 5, and 7 are the only three consecutive odd integers that
+are prime.
+
+After declaring 3 as prime, every third number is divisible by 3.
+Enumerating the odd integers starting with 3, we have $3+2k$ for
+$k=0,1,2,\dots$.  Since $k$ is divisible by 3 every third integer,
+$3|(3+2k)$ every third odd integer for $k=0,1,2,\dots$.
+This leaves only the possibility of two consecutive odd integers being prime.
+
+\section*{Problem 36}
+
+Let $G$ be a finite Abelian group and let $n$ be a positive integer that is
+relatively prime to $|G|$.  Show that the mapping $a\to a^n$ is an automorphism
+of $G$.
+
+Let $a,b\in G$.
+The mapping is operation preserving by the Abelian property of $G$ since
+$(ab)^n=a^nb^n$.  Now let $a^n=b^n$.  This implies that $a^n(b^{-1})^n=(ab^{-1})^n=e$
+by the Abelian property of $G$.  We now know that $n=k|ab^{-1}|$ for some integer $k$.
+But by Lagrange's Theorem, $|ab^{-1}|$ divides $|G|$ while by the problem statement, we must
+have $\gcd(k|ab^{-1}|,|G|)=1$.  Suppose $ab^{-1}\neq e$.  Then $|ab^{-1}|>1$ and
+therefore $\gcd(k|ab^{-1}|,|G|)>1$.  So by contradiction $ab^{-1}=e$.  This then implies
+that $a=b$, and we see that the mapping is one-to-one.  Since the mapping is one-to-one
+from a finite set to itself, it is also onto.  We've now shown enough to say that
+the mapping is an automorphism of $G$.
+
+\section*{Problem 40}
+
+Let $G$ be the group of rotations of a plane about a point $P$ in the plane.
+Thinking of $G$ as a group of permutations of the plane, describe the orbit
+of a point $Q$ in the plane.
+
+If $Q\neq P$, then would the orbit of $Q$ be the circle in the plane determined
+by $P$ and $Q$ where $P$ is the center and $Q$ is on the perimeter.
+If $Q=P$, then the orbit of $Q$ would just be $P$.
+
+\end{document}

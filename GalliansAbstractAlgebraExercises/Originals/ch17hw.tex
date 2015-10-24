@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 17 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+\section*{Problem 50 (of Chapter 15)}
+
+Show that $\Q[\sqrt{2}]$ is not ring-isomorphic to $\Q[\sqrt{5}]$.
+
+Suppse $\phi:\Q[\sqrt{2}]\to\Q[\sqrt{5}]$ is such an isomorphism.
+Then we must have $\phi(1)=1$, and consequently, $\phi(2)=2$.
+Let $\phi(\sqrt{2})=a+b\sqrt{5}$ for some $a,b\in\Q$.
+Then $2=\phi(2)=\phi(\sqrt{2})\phi(\sqrt{2})=(a+b\sqrt{5})^2=a^2+5b^2+2ab\sqrt{5}$
+implies that $a^2+5b^2=2$ while $2ab=0$.  Since $\Q$ is an integral domain, this
+implies that at least one of $a$ and $b$ is zero.  They can't both be zero.  If $b=0$,
+then $a^2=2$ has no solution in $\Q$.  If $a=0$, then $5b^2=2$ has no solution in $\Q$.
+So no such isomorphism can exist.
+
+\section*{Problem 6}
+
+Suppose that $f(x)\in\Z_p[x]$ and is irreducible over $\Z_p$, where $p$ is prime.
+If $\deg f(x)=n$, prove that $\Z_p[x]/\langle f(x)\rangle$ is a field with $p^n$ elements.
+
+That $\Z_p[x]/\langle f(x)\rangle$ is a field follows directly from Corollary 1 of Theorem 17.5.
+Let $g(x)\in\Z_p[x]$.
+Then since $\Z_p$ is a field, we may use the division algorithm to rewrite $g(x)+\langle f(x)\rangle$
+as $f(x)q(x)+r(x)+\langle f(x)\rangle$ for some $q(x),r(x)\in\Z_p[x]$ where $\deg r(x)<n$.
+So the coset reduces to $r(x)+\langle f(x)\rangle$ and has the form $a_{n-1}x^{n-1}+\dots+a_1x+a_0$,
+where the coeficients are taken from $\Z_p$.  Since there are $n$ coeficients, the number of possible
+cosets is $p^n$.
+
+\section*{Problem 10}
+
+Is $x^5+9x^4+12x^2+6$ irreducible over $\Q$?
+Yes, according to Eisenstein's criterion.  Use $p=3$.
+
+Is $x^4+x+1$ irreducible over $\Q$?  This was shown to be
+irreducible over $\Z_2$ in example 7 of the text.  So it is
+irreducible over $\Q$ by the Mod $2$ Irreducibility Test.
+
+Is $x^4+3x^2+3$ irreducible over $\Q$?  Yes.  Use Eisenstein's criterion
+with $p=3$ again.
+
+Is $x^5+5x^2+1$ irreducible over $\Q$?  It is by the Mod 2 Irreducibility Test if
+we can show that $x^5+x^2+1$ is irreducible over $\Z_2$.  Since $x^5+x^2+1$
+has no zeros in $\Z_2$, it has no linear factors.  If it has no linear factor,
+then it has no quartic factor.
+Having a cubic factor implies
+having a quadratic factor, and vice-versa, so we need only check that it has no quadratic
+factor.  The only quadratic factor without a zero is $x^2+x+1$, and long division shows that
+this does not divide $x^5+x+1$ in $\Z_2$.  So $x^5+x+1$ is irreducibile over $\Z_2$.
+
+Is $(5/2)x^5+(9/2)x^4+15x^3+(3/7)x^2+6x+3/14$ irreducible over $\Q$?
+By Theorem 17.2, this is irreducible over $\Q$ if $35x^5+63x^4+210x^3+6x^2+84x+3$
+is irreducible over $\Z$.  But instead of trying to show this, we'll show
+that it is irreducible over $\Q$.  The result will follow because the polynomial
+over $\Z$ is a non-zero constant multiple of the polynomial over $\Q$.
+So using $p=3$ with Eisentein's Criterion,
+we see that the polynomial over $\Z$ isn't reducible over $\Q$.
+
+\section*{Problem 14}
+
+Let $f(x)=x^3+x^2+x+1\in\Z_2[x]$.  Write $f(x)$ as a product of irreducible polynomials over $\Z_2$.
+
+I get $f(x)=(x-1)^2(x+1)$.
+
+\section*{Problem 16}
+
+Let $p$ be prime.  Determine the number of irreducible polynomials over $\Z_p$ of
+the form $x^2+ax+b$.  Determine the number of irreducible quadratic polynomials over $\Z_p$.
+
+Let us count the number of reducible polynomials over $\Z_p$ of the form $x^2+ax+b$.
+This is the number of polynomials over $\Z_p$ of the form $(x+u)(x+v)$, where $u,v\in\Z_p$
+are distinct (not counting to order), and where $u=v$.  So we have $\binom{p}{2}+p$ choices.  Then since
+there are a total of $p^2$ polynomials of the form $x^2+ax+b$, the number of irreducible polynomials
+over $\Z_p$ is $p^2-p-\binom{p}{2}$.
+
+In terms of the previous result, I think that the number of irreducible quadratic polynomials over $\Z_p$
+is $(p-1)\left(p^2-p-\binom{p}{2}\right)$.
+
+%...this has to be wrong...
+%Let us now count the number of reducible polynomials over $\Z_p$ of the form $nx^2+ax+b$ where
+%$n\neq 1$.  This is the number of polynomials over $\Z_p$ of the form $(nx+u)(x+v)$, where $u,v\in\Z_p$
+%are distinct (counting order), and where $u=v$.  So we have $p(p-1)+p=p^2$ choices over $p-1$ choices for $n$,
+%giving us a total of $(p-1)p^2=p^3-p^2$.  
+%So we can now calculate the number of irreducible quadratics over $\Z_p$ as
+%$p^3-(p^3-p^2)+p^2-p-\binom{p}{2}=2p^2-p-\binom{p}{2}$.
+
+\section*{Problem 22}
+
+Given that $\pi$ is not the zero of a polynomial (nonzero) with rational
+coeficients, prove that $\pi^2$ cannot be written in the form $a\pi+b$, where
+$a$ and $b$ are rational.
+
+Suppose $\pi^2$ can be written in the said form.  Then $\pi^2-a\pi-b=0$ and we see
+that $\pi$ is a zero of the polynomial $x^2-ax-b$, which has rational coeficients.
+The proof now follows by contradiction.
+
+\section*{Problem 24}
+
+State the necessary and sufficient conditions for the quadratic formula to yield the zeros of a
+quadratic from $\Z_p[x]$, where $p$ is an odd prime.
+
+I believe that the quadratic formula works in $\Z_p$ since it's a field.
+If the descriminant $b^2-4ac$
+is not a perfect square, then the quadratic has no zeros.  In $\Z_2$ this is never
+a problem since everything in $\Z_2$ is a perfect square.  This, however, may not
+be the case in $\Z_p$ where $p$ is an odd prime.  But again, if the square root
+of the descriminant doesn't exist, then there just aren't any zeros of the
+quadratic in $\Z_p$.
+
+\section*{Problem 26}
+
+Let $F$ be a field and $f(x)\in F[x]$.  Show that, as far as deciding upon the
+irreducibility of $f(x)$ over $F$ is concerned, we may assume that $f(x)$ is
+monic.
+
+Let's not assume that $f(x)$ is monic.  Let $a\in F$ be the leading coeficient
+of $f(x)$ and define $g(x)=a^{-1}f(x)$.  Then $g(x)$ is monic, and we need to
+show that $g(x)$ is irreducible if and only if $f(x)$ is irreducible.
+Suppse $g(x)=g_1(x)g_2(x)$ is reducible.  Then $f(x)=ag_1(x)g_2(x)$ is reducible.
+Conversely, suppose $f(x)=f_1(x)f_2(x)$ is reducible.
+Then $g(x)=a^{-1}f_1(x)f_2(x)$ is reducible.
+
+\end{document}

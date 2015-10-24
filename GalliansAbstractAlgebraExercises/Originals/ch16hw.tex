@@ -1,0 +1,258 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 16 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+\section*{Problem 10}
+
+If the rings $R$ and $S$ are isomorphic, show that $R[x]$ and $S[x]$
+are isomorphic.
+
+Let $\phi:R\to S$ be an isomorphism from $R$ to $S$.
+Then let $\Phi:R[x]\to S[x]$ be defined as
+$\Phi(f(x))=\phi(a_n)x^n+\dots+\phi(a_0)$
+where $f(x)=a_nx^n+\dots+a_0$.  The bijectivity of
+$\Phi$ follows directly from that of $\phi$, as will as the operation
+preserving properties.  For addition we have...
+\begin{align*}
+\Phi(f(x)+g(x))&=\phi(a_n+b_n)x^n+\dots+\phi(a_0+b_0) \\
+ &= (\phi(a_n)+\phi(b_n))x^n+\dots+\phi(a_0)+\phi(b_0) \\
+ &= \Phi(f(x))+\Phi(g(x))
+\end{align*}
+...where $g(x)=b_nx^n+\dots+b_0$.  For multiplication we have...
+\begin{equation*}
+\Phi(f(x)g(x))=\phi(c_{m+n})x^{m+n}+\dots+\phi(c_0)=\Phi(f(x))\Phi(g(x))
+\end{equation*}
+...since...
+\begin{equation*}
+\phi(c_k)=\phi(a_kb_0+\dots+a_0b_k)=\phi(a_k)\phi(b_0)+\dots+\phi(a_0)\phi(b_k)
+\end{equation*}
+
+\section*{Problem 16}
+
+Show that Corollary 3 of Theorem 16.2 is false for any commutative ring that
+has a zero divisor.
+
+The corollary states that a polynomial of degree $n$ over a field
+has at most $n$ zeros.
+So let $R$ be a commutative ring with a zero divisor.  Let $a\in R$
+be that zero divisor, and find non-zero $b\in R$ such that $ab=0$.
+Now choose $bx\in R[x]$.  This has degree 1 while $a$ and $0$
+are both zeros of it.
+
+\section*{Problem 18}
+
+Prove that the ideal $\langle x\rangle$ in $\Q[x]$ is maximal.
+
+Consider the factor ring $\Q[x]/\langle x\rangle$.
+Let $f(x),g(x)\in\Q[x]$ and recall that
+$f(x)+\langle x\rangle=g(x)+\langle x\rangle$ if and only if
+$f(x)-g(x)\in\langle x\rangle$, showing that the elements of
+$\Q[x]/\langle x\rangle$ are uniquely determined by the
+constant term of the coset representative.  In other words,
+$f(x)+\langle x\rangle=g(x)+\langle x\rangle$ if and only if
+the constant term of $f(x)$ is equal to the constant term of $g(x)$.
+It should be
+clear now that $\Q[x]/\langle x\rangle\approx\Q$, and since
+$\Q$ is a field, so is $\Q[x]/\langle x\rangle$.
+It now follows from Theorem 14.4 that $\langle x\rangle$ is maximal.
+
+Alternatively, suppose $I$ is an ideal of $\Q[x]$ that properly
+contains $\langle x\rangle$.  Then there must exists a polynomial $f(x)$
+in $I$ having a non-zero constant term $q$.  By Theorem 16.2,
+there exists $g(x)\in\Q[x]$ such that $f(x)=xg(x)+q$.
+Then $q^{-1}f(x)\in I$ since $I$ is an ideal, and clearly $xq^{-1}g(x)\in I$
+since $I$ contains $\langle x\rangle$.  It follows that
+$1=q^{-1}f(x)-xq^{-1}g(x)\in I$, showing that $I$ absorbs all elements
+of $\Q[x]$ and therefore $\Q[x]=I$.  Since the only ideal properly
+containing $\langle x\rangle$ is $\Q[x]$, the ideal $\langle x\rangle$
+must be maximal in $\Q[x]$.
+
+\section*{Problem 22}
+
+Prove that $\Z[x]$ is not a principle ideal domain.
+
+It suffices to show that the ideal $I=\langle x,2\rangle$ of $\Z[x]$
+is not a principle ideal.
+Suppose there exists $f(x)\in\Z[x]$ such that $I=\langle f(x)\rangle$.
+Then $f(x)$ is a factor or every polynomial in $I$.
+Since $2\in I$, we must have $f(x)=1$ or $f(x)=2$.
+Suppose the former case.  Then $I=\Z[x]$.  But $I$ is the set of all
+polynomials in $\Z[x]$ having an even constant term, so $I\subset\Z[x]$.
+By contradiction, we must have $f(x)=2$.  But this doesn't work either
+since the non-constant terms of a polynomial in $I$ may be odd.
+
+\section*{Problem 24}
+
+Let $f(x)\in\R[x]$.  Suppose that $f(a)=0$ but $f'(a)\neq 0$.
+Show that $a$ is a zero of $f(x)$ of multiplicity 1.
+
+It follows from the hypothesis that $x-a$ is a factor of $f(x)$.  So there exists
+$g(x)\in\R[x]$ such that $f(x)=(x-a)g(x)$, showing that
+$a$ is a zero of $f(x)$ with a multiplicity of at least 1.
+Now write $f'(x)=g(x)+(x-a)g'(x)$ using the product rule.
+Then since $g(a)=g(a)+(a-a)g'(a)=f'(a)\neq 0$, we see that $x-a$ is
+not a factor of $g(x)$.  It follows that $a$ is a zero of $f(x)$
+with a multiplicity of at most 1.  This completes the proof.
+
+\section*{Problem 28}
+
+Let $F$ be a field and let $f(x)=a_nx^n+a_{n-1}x^{n-1}\dots+a_0\in F[x]$.
+Prove that $x-1$ is a factor of $f(x)$ if and only if $a_n+a_{n-1}+\dots+a_0=0$.
+
+Dividing $x-1$ into $f(x)$ gives us the following.
+\begin{equation*}
+\sum_{k=0}^na_kx^k=(x-1)\sum_{i=0}^{n-1}x^i\sum_{j=i+1}^na_j+\sum_{k=0}^na_k
+\end{equation*}
+It should now be clear that if $x-1$ is a factor of $f(x)$, then
+$a_n+a_{n-1}+\dots+a_0=0$, and that if $a_n+a_{n-1}+\dots+a_0=0$,
+then $x-1$ is a factor of $f(x)$.  We needed $F$ to be a field in order
+to guarentee that the division algorithm gave us a unique quotient and remainder.
+
+\section*{Problem 31}
+
+For every prime $p$, show that $x^{p-1}-1=(x-1)(x-2)\dots(x-(p-1))$ in $\Z_p$.
+
+It suffices to show that $x^{p-1}-1$ is divisible by $x-k$ for all
+$k=1,2,\dots,p-1$.  Long division shows us that when we reduce
+$x^{p-1}-1$ modulo $x-k$, we get a remainder of $k^{p-1}-1$.
+By Fermat's Little Theorem, this is zero in $\Z_p$.
+
+\section*{Problem 32}
+
+For every integer $n>1$, prove that $(n-1)!\equiv n-1\pmod{n}$ if
+and only if $n$ is prime.
+
+I cheated and looked up the answer in my number theory text.
+Here is an explanation using abstract algebra.
+We first show that the only elements of $\Z_n$ that
+are there own inverse are $1$ and $n-1$ if $n$ is prime.
+If $n$ is prime, then $\Z_n$ is a field and therefore an
+integral domain.  So if $z\in\Z_n$
+with $z^2=1$, then $(z-1)(z+1)=0$ implies that $z=1$ or $z=n-1$.
+
+Notice that $(n-1)!\equiv n-1\pmod{n}$ when $n=2$.
+Now let $n$ be an odd prime and consider the product $(n-2)(n-3)\dots (3)(2)$.
+There are an even number of terms in this product and we can break it down
+into distinct pairs of inverses since no term is its own inverse and every
+term has an inverse.
+This shows that the product is unity.  It follows that $(n-1)!=n-1$ in $\Z_n$.
+
+The other direction was not given in my number theory text.
+So here is an idea.  If $n=2$, then we're done.  So let $n>2$.
+We know that $n$ and $n-1$ have no common factors.
+Since $(n-1)!\equiv n-1\pmod{n}$, it follows that $(n-1)!$
+and $n$ have no common factors.  This means that $n-k$ does
+not divide $n$ for all $k=1,2,\dots,n-2$.  We now see that $n$
+is prime by definition.
+
+To make the preceding argument clearer, suppose $a\equiv b\pmod{n}$,
+and that $a$ and $n$ have no common divisor.  Now assume there exists an
+integer $d$ dividing $b$ and $n$.  Then there is an integer $k$ such that
+$a=b+kn$, but then $d|(b+kn)\implies d|a$.  By contradiction, $b$ and $n$
+are also relatively prime.
+
+\section*{Problem 34}
+
+Find the remainder upon dividing $98!$ by 101.
+
+Let us first show that for every prime $p$, we have $(p-2)!\equiv 1\pmod{p}$.
+By problem 31, $(p-2)!=(p-1)(p^{p-1}-1)=p^p-p-p^{p-1}+1=1$ in $\Z_p$.
+
+So since 101 is prime,
+$(99)(98!)=(101-2)!\equiv 1\pmod{101}$, and we see that the
+answer to our question is the multiplicative inverse of 99 in $\Z_{101}$.
+Fermat's Little Theorem tells us that $99\cdot 99^{101-2}\equiv 1\pmod{101}$,
+so the answer is $50=99^{99}$ in $\Z_{101}$.  I needed my calculator to
+compute this, unfortunately.  Modular exponentiation can help if no
+calculator is available.
+
+\section*{Problem 40}
+
+Prove that $\Q[x]/\langle x^2-2\rangle$ is ring-isomorphic to
+$\Q[\sqrt{2}]=\{a+b\sqrt{2}:a,b\in\Q\}$.
+
+Let $I=\langle x^2-2\rangle$ and let $f(x)\in\Q[x]$ and consider the tipical
+coset $f(x)+I$ in $\Q[x]/I$.
+Since $\Q$ is a field, we may apply the division algorithm to see
+that $f(x)+I=(x^2-2)q(x)+r(x)+I$,
+where $q(x),r(x)\in\Q[x]$ and $\deg r(x)<2$.
+But $(x^2-2)q(x)\in I$, so
+$f(x)+I=r(x)+I$, showing
+that elements of the factor ring have the form $bx+a+I$,
+where $a,b\in\Q$.  Does a pair of rational numbers $(a,b)$ uniquely determine
+an element of the factor ring?
+Well, if $bx+a+I=dx+c+I$, then
+$(b-d)x+a-c\in I$ which implies that $b=d$ and $a=c$, since all elements
+of $I$ are divisible by $x^2-2$.
+
+Define the mapping
+$\phi:\Q[x]/I\to\Q[\sqrt{2}]$ by
+$\phi(f(x)+I)=b\sqrt{2}+a$.  It is clear that this function
+is well defined and injective.
+Let us show that $\phi$ is surjective.
+If we want $\phi(f(x)+I)=b\sqrt{2}+a$, then choose
+$f(x)=x^2+bx+a-2$.
+Let $g(x)=dx+c$ with $c,d\in\Q$.
+We now show that $\phi$ is operation preserving.
+\begin{align*}
+\phi(f(x)+g(x)+I)
+&=\phi((b+d)x+a+c+I)\\
+&=(b+d)\sqrt{2}+a+c \\
+&=b\sqrt{2}+a+d\sqrt{2}+c \\
+&=\phi(f(x)+I)+\phi(g(x)+I)
+\end{align*}
+Before showing the preservation of multiplication, notice that
+$0+I=x^2-2+I\implies
+2+I=x^2+I$.  Then...
+\begin{align*}
+\phi(f(x)g(x)+I) &= \phi((bx+a)(dx+c)+I) \\
+ &= \phi(bdx^2+ac+(bc+ad)x+I) \\
+ &= \phi((bc+ad)x+ac+2bd+I) \\
+ &= (bc+ad)\sqrt{2}+ac+2bd \\
+ &= (b\sqrt{2}+a)(d\sqrt{2}+c) \\
+ &= \phi(f(x)+I)\phi(g(x)+I)
+\end{align*}
+
+\pagebreak
+\section*{Problem 42}
+
+Let $F$ be a field and let $I=\{f(x)\in F[x]:\mbox{$f(a)=0$ for all $a\in F$}\}$.
+Prove that $I$ is an ideal of $F[x]$.  Prove that $I$ is infinite when $F$ is finite
+and $I=\{0\}$ when $F$ is infinite.
+
+Notice that $\{0\}\subseteq I$, so that $I$ is non-empty.
+Let $f(x),g(x)\in I$.  Then for all $a\in F$, clearly $f(a)-g(a)=0-0=0$, showing
+that $f(x)-g(x)\in I$.  Now let $f(x)\in I$ and $g(x)\in F[x]$.
+Then for all $a\in F$, clearly $f(a)g(a)=0g(a)=0$, showing that $I$ absorbs
+elements from $F[x]$.  We can now conclude that $I$ is an ideal of $F[x]$.
+
+Let $F=\{a_0,a_1,\dots,a_{n-1}\}$ be a finite field.  Then it's
+easy to see that $f(x)\in I$ where
+$f(x)=\prod_{k=0}^{n-1}(x-a_k)$.  Further more, $g_k(x)=(f(x))^k$ is a sequence
+of distinct polynomials in $I$, showing that $I$ is infinite.
+
+Let $F$ be an infinite field.  Notice that $f(x)=0$ is in $I$, showing that
+$I$ is non-empty.  Now let $f(x)\in I$ and suppose $f$ has a degree.
+Given any sequence $a_k$
+taken from $F$, we may factor $f(x)$ as $g(x)\prod_{k=0}^{n-1}(x-a_k)$, where
+$g(x)\in F[x]$ and $n$ is arbitrarily large.
+This shows that the degree of $f$ is indeterminant (or infinite), which
+contradicts the assumption that $f$ has a degree.  Therefore, there are
+no polynomials in $I$ with a degree, and $I=\{0\}$.
+
+\end{document}

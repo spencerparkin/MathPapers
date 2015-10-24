@@ -1,0 +1,283 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 5 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\stab}{\mbox{stab}}
+
+\section*{Problem 2}
+
+What is the order of a $k$-cycle $(a_0a_1\dots a_{k-1})$?
+
+Let $\alpha=(a_0a_1\dots a_{k-1})$ and choose any integer $i\in[0,k-1]$.
+Notice that $\alpha(a_i)=a_{i+1\mod k}$.  Fix the natural number $j$
+and suppose that $\alpha^j(a_i)=a_{i+j\mod k}$.  Then...
+\begin{equation*}
+\alpha^{j+1}(a_j) = \alpha(\alpha^j(a_i)) = \alpha(a_{i+j\mod k}) = a_{i+j+1\mod k}
+\end{equation*}
+...so that by induction we may unfix $j$.  Then since the least positive integer $j$
+such that $a_i=a_{i+j\mod k}$ is $k$, we see that the least positive integer $j$
+such that $a_i=\alpha^j(a_i)$ is $k$.  We can now conclude that $|\alpha|=k$.
+
+\section*{Problem 5}
+
+What is the order of the product of a pair of disjoint cycles of lengths 4
+and 6?
+
+Theorem 5.3 says it's $\lcm(4,6)=12$.
+
+\section*{Problem 6}
+
+Show that $A_8$ contains an element of order 15.
+
+Notice that $(123)(45678)\in S_8$ and has order $\lcm(3,5)=15$.
+Now notice that $(123)(45678)=(13)(12)(48)(47)(46)(45)\in A_8$.
+
+\section*{Problem 10}
+
+Show that a function from a finite set $S$ to itself is one-to-one if and only if
+it is onto.  Is this true when $S$ is infinite?
+
+Let $f:S\to S$ be the function in question.
+Define the notation $f(S)$ to mean the set $\{f(s):s\in S\}$.
+
+Let $f$ be onto and suppose $f$ is not one-to-one.  Then there exists two or
+more elements of $S$ that have the same functional value.  This then implies
+that $f(S)$ is a proper subset of $S$.  Now choose
+$y\in S-f(S)$ and we see that while $y\in S$,
+there does not exist $x\in S$ such that $f(x)=y$.  This contradicts the
+fact that $f$ is onto.  Therefore, $f$ is one-to-one.
+
+Let $f$ be one-to-one and suppose $f$ is not onto.  Again, this implies that
+$f(S)$ is a proper subset of $S$, and this implies that $|f(S)|<|S|$ so that
+by the pigeon hole principle, there must exist distinct elements $x,y\in S$ such
+that $f(x)=f(y)$.  This contradicts the fact that $f$ is one-to-one.  Therefore,
+$f$ is onto.
+
+One of the reasons this theorem fails in the case of $S$ being infinite comes
+from the fact that we can find one-to-one and onto mappings between a subset of
+an infinite set and the infinite set.  For example, let $f(x)=\tan(x)$.  Then
+$f:(-\pi/2,\pi/2)\to\mathbb{R}$ is a one-to-one and onto mapping, but when we
+extend the function to $f:\mathbb{R}\to\mathbb{R}$, it fails to continue to be one-to-one.
+
+\section*{Problem 13}
+
+Prove that the set of even permutations of $S_n$ forms a subgroup of $S_n$.
+
+Let the set in question be denoted by $E$.  Notice that $\epsilon\in E$ and
+that $E$ is a finite set since $S_n$ is finite.
+Then by Theorem 3.3, we need only show that $E$ is closed under the operation
+of $S_n$.  Let $a,b\in E$.  Then $a$ and $b$ are even permutations of $S_n$.
+Let $a$ be written as $2m$ 2-cycles and let $b$ be written as $2n$ 2-cycles.
+Then we can write $ab$ as $2m+2n=2(m+n)$ 2-cycles when we concatinate the
+2-cycle forms of $a$ and $b$.  By Theorem 5.5, all
+other ways of writing $ab$ in 2-cycle form have an even number of 2-cycles.
+Then since $ab\in S_n$ by the closure of $S_n$, we must have $ab\in E$.
+
+\section*{Problem 14}
+
+In $S_n$, let $\alpha$ be an $r$-cycle, $\beta$ be an $s$-cycle, and $\gamma$ be
+a $t$-cycle.  Then $\alpha\beta$ is even if and only if $r+s$ is blank, and $\alpha\beta\gamma$
+is even if and only if $r+s+t$ is blank.
+
+Given any $r$-cycle such as $\alpha$, if $r>1$,
+we can always decompose it into a product of $r-1$ 2-cycles using the method
+illustrated in the proof of Theorem 5.4.
+\begin{equation*}
+\alpha = (a_1a_2\dots a_r) = (a_1a_r)(a_1a_{r-1})\dots(a_1a_2)
+\end{equation*}
+Theorem 5.5 then tells us that every docomposition of $\alpha$ into a product of
+2-cycles will have the same parity as $r-1$.  So for $\alpha\beta$ to have an
+even 2-cycle decomposition, we need $r-1+s-1=r+s-2$ to be even, which is so if and only
+if $r+s$ is even.  This is seen when we think about concatinating the 2-cycle decompositions
+of $\alpha$ and $\beta$, and again falling back on Theorem 5.5.
+
+Using the same line of reasoning for the other blank, we see that $\alpha\beta\gamma$
+is even if and only if $r-1+s-1+t-1=r+s+t-3$ is even, which is so if and only if $r+s+t$
+is odd.
+
+\section*{Problem 15}
+
+Let $\alpha$ and $\beta$ belong to $S_n$.  Prove that $\alpha\beta$ is even if and only if
+$\alpha$ and $\beta$ are both even or both odd.
+
+Using the results of Problem 14, if $\alpha$ is an $r$-cycle and $\beta$ is an $s$-cycle,
+then $\alpha\beta$ is even if and only if $r+s$ is even, which is so if and only if
+$r$ and $s$ have the same parity.
+
+\section*{Problem 16}
+
+Associate an even permutation with the number $+1$ and an odd permutation with
+the number $-1$.  Draw an analogy between stuff.
+
+The parity of the product of two permutations can now be found by examining the
+sign of the product of their associated numbers $\pm 1$.  This follows from
+Theorem 5.5.
+
+\section*{Problem 19}
+
+Show that if $H$ is a subgroup of $S_n$, then either every member of $H$ is an
+even permutation or exactly half of the members are even.
+
+Suppose $H$ contains only even members.  This is entirely possible since
+we don't run into any problems with closure under the group operation,
+or problems with closure under the taking of inverses.  We also see that
+the identity permutation is in $H$ since it is even.
+
+Now suppose that not all members of $H$ are even.  Let $x\in H$ be an
+odd permutation.  Then $xy$ is a new odd permutation for all $y\in H$ where
+$y$ is an even permutation.  So there are at least as many odd permutations
+as there are even permutations in $H$.  Using the same trick, notice that
+$xy$ is a new even permutation for all $y\in H$ where $y$ is an odd permutation.
+So there are at least as many even permutations as there are odd permutations in $H$.
+It now follows that the number of even permutations in $H$,
+and the number odd permutations in $H$ is the same.
+
+My proof may be flawed here because I did not make use of the fact that
+$H$ is a subgroup of $S_n$.  I only relied upon the fact that $H$ is a
+group of permutations.
+
+\section*{Problem 21}
+
+Do the odd permutations in $S_n$ form a group?
+
+No, because we fail to have closure.  The product of two odd permutations is an even permutation.
+
+\section*{Problem 22}
+
+Let $\alpha$ and $\beta$ belong to $S_n$.  Prove that $\alpha^{-1}\beta^{-1}\alpha\beta$
+is an even permutation.
+
+Since $\alpha^{-1}\alpha=\epsilon$ is an even permutation, we see that $\alpha$ and
+$\alpha^{-1}$ have the same parity.  Let $r$ be an integer having the same parity
+as $\alpha$, and let $s$ be an integer having the same parity as $\beta$.
+Then $\alpha^{-1}\beta^{-1}\alpha\beta$ has the same parity as
+$r+s+r+s = 2r+2s = 2(r+s)$, which must be even.
+
+\section*{Problem 27}
+
+Let $\beta\in S_7$ and suppose $\beta^4=(2143567)$.  Find $\beta$.
+
+Even using Theorem 4.2, I cannot come to a solid conclusion that $|\beta|=7$.
+If I could, then $\beta = \beta\beta^{|\beta|} = \beta^8 = (\beta^4)^2$,
+and it's an easy calculation from there.  All I can conclude is that
+$|\beta|=7\gcd(7k,4)$ for some positive integer $k$.  The only possible choices
+are $|\beta|=7$, $|\beta|=14$, and $|\beta|=28$, I think.  I'm not sure how
+to rule out the last two.
+
+\section*{Problem 28}
+
+Let $\beta=(123)(145)$.  Write $\beta^{99}$ in disjoint cycle form.
+
+Fortunately, $\beta=(14523)$ can be written as a single cycle.
+Notice that $|\beta|=5$, so we see that
+$\beta^{99} = \beta^{18\cdot 5+4} = (\beta^5)^{18}\beta^4=\epsilon^{18}\beta^4=\beta^4$.
+Some work then shows that $\beta^4=(13254)$.
+
+\section*{Problem 30}
+
+What cycle is $(a_1a_2\dots a_n)^{-1}$?
+
+Notice that...
+\begin{equation*}
+\epsilon = (a_1a_2\dots a_n)(a_na_{n-1}\dots a_1)
+\end{equation*}
+...because the right-hand cycle sends $a_k$ to $a_{k-1}$ (wrapping subscripts), while
+the left-hand cycle sends $a_{k-1}$ back to $a_k$.
+So we see that...
+\begin{equation*}
+(a_1a_2\dots a_n)^{-1} = (a_na_{n-1}\dots a_1)
+\end{equation*}
+
+\section*{Problem 31}
+
+Let $G$ be a group of permutations on a set $X$.  Let $a\in X$ and
+define $\stab(a)=\{\alpha\in G:\alpha(a)=a\}$.  Prove that $\stab(a)$
+is a subgroup of $G$.
+
+Notice that by definition $\stab(a)\subseteq G$ and that $\stab(a)\neq\emptyset$
+since $\epsilon\in\stab(a)$.  Now let $x,y\in\stab(a)$.  Then since $y$ fixes $a$,
+so does $y^{-1}$.  Then since $x$ and $y^{-1}$ fix $a$, so does $xy^{-1}$.
+Then since $xy^{-1}\in G$ we have $xy^{-1}\in\stab(a)$.  We can now conclude by
+the one-step subgroup test that $\stab(a)$ is a subgroup of $G$.
+
+\section*{Problem 37}
+
+Suppose that $\beta$ is a 10-cycle.  For which integers $i$ between 2 and 10
+is $\beta^i$ also a 10-cycle?
+
+I believe that the answer is all integers $2\leq i\leq 10$ where $\gcd(i,10)=1$.
+The cycle multiplication will result in a single cycle of length 10 only if
+$\{0,1,2,\dots,9\}=\{0,0+i,0+2i,\dots,0+9i\}$.  We can now generalize this
+result to any $r$-cycle.
+
+\section*{Problem 38}
+
+In $S_3$, find elements $\alpha$ and $\beta$ such that $|\alpha|=2$,
+$|\beta|=2$, and $|\alpha\beta|=3$.
+
+Choose $\alpha=(12)$ and $\beta=(23)$.  Then $|(12)(23)|=|(123)|=3$.
+
+\section*{Problem 39}
+
+Find group elements $\alpha$ and $\beta$ such that $|\alpha|=3$,
+$|\beta|=3$, and $|\alpha\beta|=5$.
+
+Choose $\alpha=(123)$ and $\beta=(345)$, both from $S_5$.
+Then $|(123)(345)|=|(12345)|=5$.
+
+\section*{Problem 41}
+
+Prove that $S_n$ is non-Abelian for all $n\geq 3$.
+
+Here we can re-use Example 1.  Let $\alpha=(123)\in S_n$
+and $\beta=(13)\in S_n$.  Then...
+\begin{equation*}
+\alpha\beta = (23) \neq (12) = \beta\alpha
+\end{equation*}
+Here we're taking advantage of the cycle notation in that
+numbers we fail to write down are assumed to permute to themselves.
+
+\section*{Problem 42}
+
+Let $\alpha$ and $\beta$ belong to $S_n$.  Prove that $\beta\alpha\beta^{-1}$ and
+$\alpha$ are both even or both odd.
+
+Since $\beta\beta^{-1}=\epsilon$, $\beta$ and $\beta^{-1}$ have the same parity.
+Let $r$ be an integer with the same parity as $\alpha$ and $s$ be an integer
+with the same parity as $\beta$.  Then the parity of $\beta\alpha\beta^{-1}$
+is $s+r+s = 2s+r$ which has the same parity has $r$.
+
+\section*{Problem 46}
+
+Show that for $n\geq 3$, $Z(S_n)=\{\epsilon\}$.
+
+Let $x\in S_n$ where $x\neq\epsilon$.  We now need to find an element $y\in S_n$
+with which $x$ does not commute.  We will construct the permutation $y$.
+Let $a,b,c\in\{1,2,\dots,n\}$ where each is
+distinct from the others.  We can do this because $n\geq 3$.  Suppose that $x(a)=b$
+and choose $y(b)=c$ so that $yx(a)=c$.  We now want to choose $y(a)$ such that
+$xy(a)\neq c$.  If $x(b)=c$, choose $y(a)=c$.  If $x(c)=c$, choose $y(a)=b$.
+
+\section*{Problem 52}
+
+Let $G$ be a group.  Prove or disprove that $H=\{g^2:g\in G\}$ is a subgroup
+of $G$.
+
+Let $G=A_4$.  Then everything in $H$ must be decomposable into a number of
+2-cycles that is divisible by 4.  This is because $g^2$ is the concatination
+of two permutations of even parity.
+Now choose $(123),(234)\in A_4$ and calculate
+$(123)^2(234)^2 = (13)(24)$.  This is not in $H$ since its parity is 2 and 2
+isn't divisible by 4.
+
+\end{document}

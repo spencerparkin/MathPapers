@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 32 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\gal}{\mbox{Gal}}
+
+I was not able to do all problems.
+
+%\section*{Problem 1}
+%
+%Let $E$ be an extension field of $\Q$.  Show that any automorphism of $E$
+%acts as the identity on $\Q$.
+%
+%Let $\phi$ be an automorphism of $E$.  We must have $\phi(0)=0$ and
+%$\phi(1)=1$.  Let $z\in\Z$.  Then we have
+%\begin{equation*}
+%\phi(z)=\phi(\underbrace{1+\dots+1}_z)=\underbrace{\phi(1)+\dots+\phi(1)}_z=
+%\underbrace{1+\dots+1}_z=z.
+%\end{equation*}
+%This shows that $\phi$ fixes the integers.  Now let $a,b\in\Z$ with $b\neq 0$.
+%Then $\phi(a/b)=\phi(a)/\phi(b)=a/b$, showing that $\phi$ fixes the rationals
+%as well.
+%
+%\section*{Problem 3}
+%
+%Let $E$ be a field extension of the field $F$.  Show that the automorphism
+%group of $E$ fixing $F$ is indeed a group.
+%
+%The identity automorphism is in the set.  Function composition is associative.
+%The composition of automorphism functions of $E$ fixing $F$ form automorphisms
+%of $E$ that fix $F$.
+%The inverse of every automorphism function is its inverse as a group element.
+
+\section*{Problem 4}
+
+Given that the automorphism group of $\Q(\sqrt{2},\sqrt{5},\sqrt{7})$ is
+isomorphic to $\Z_2\oplus\Z_2\oplus\Z_2$, determine the number of subfields
+of $\Q(\sqrt{2},\sqrt{5},\sqrt{7})$ that have degree 4 over $\Q$.
+
+Let $F=\Q$, $E=\Q(\sqrt{2},\sqrt{5},\sqrt{7})$, and $K$ be a subfield
+of $E$ containing $F$.  Then by hypothesis, we have
+$|\gal(E/F)|=|\Z_2\oplus\Z_2\oplus\Z_2|=8$, and we want $[K:F]=4$.
+So by Theorem 32.1, we have
+$[K:F]=|\gal(E/F)|/|\gal(E/K)|\implies 4=8/|\gal(E/K)|\implies 4=8/[E:K]$,
+so we want to count the number of fields $K$ where $[E:K]=2$.
+Well, I believe that $E$ has dimension 2 over $\Q(\sqrt{2},\sqrt{5})$,
+$\Q(\sqrt{2},\sqrt{7})$, and $\Q(\sqrt{5},\sqrt{7})$.  So there are
+at least 3 of them.
+
+%\section*{Problem 5}
+%
+%Let $E$ be a field extension of a field $F$ and let $H$ be a subgroup of
+%$\gal(E/F)$.  Show that the fixed field of $H$ is indeed a field.
+%
+%By definition, we have $H=\{x\in E:\mbox{$x=\phi(x)$ for all $\phi\in H$}\}$.
+%Notice that if $H$ is a field, then it is a subfield of $E$.  So we can
+%use a subfield test.  Let $x,y\in H$.  Then $\phi(x-y)=\phi(x)-\phi(y)=x-y$,
+%showing that $x-y\in H$, and $\phi(xy)=\phi(x)\phi(y)=xy$, showing that $xy\in H$.
+%So $H$ is a subring of $E$.  Unity is in $H$.  What remains to be shown is that
+%every element of $H$ is a unit.  Notice that $\phi(x^{-1})=\phi(x)^{-1}=x^{-1}$,
+%so that $x^{-1}\in H$, so every member of $H$ has a multiplicative inverse.
+
+%\section*{Problem 6}
+%
+%Let $E$ be the splitting field of $x^4+1$ over $\Q$.  Find $\gal(E/\Q)$.
+%Find all subfields of $E$.  Find the automorphisms of $E$ that have fixed
+%fields $\Q(\sqrt{2})$, $\Q(\sqrt{-2})$, and $\Q(i)$.  Is there an automorphism
+%of $E$ whose fixed field is $\Q$?
+%
+%I have no clue.
+
+\section*{Problem 8}
+
+Show that the Galois group of a polynomial of degree $n$ has order dividing $n!$.
+
+Let $E$ be the splitting field of a polynomial $f(x)$ of degree $n$
+over the field $F$.  The Galois group of $f(x)$ is then $\gal(E/F)$.
+If $F$ is a field of characteristic 0 or a finite field, then by
+Theorem 32.1, we have $[E:F]=|\gal(E/F)|$.  Clearly, $[E:F]\leq n$,
+because in the worst case, $f(x)$ is irreducible over $F$, and $[E:F]=n$.
+In all other cases, $[E:F]<n$, because we mod-out by an irreducible of
+degree less than $n$ to extend $F$ to $E$.
+It follows that $|\gal(E/F)|\leq n$, and so divides $n!$.
+
+There is a problem here.  Mod-ing out by an irreducible does not throw
+in all of the zeros of that polynomial.  We went over this in class.
+Maybe we can use The Primitive Element Theorem here.
+Let $a_1,a_2,\dots,a_n$ be the roots of $f(x)$.
+Then $F(a_1,a_2,\dots,a_n)$ is the splitting field of $f(x)$ over $F$.
+Using Theorem 21.6, there exists $a$ in the splitting field of $f(x)$
+such that $F(a_1,a_2,\dots,a_n)=F(a)$.  We now want to convince ourselves
+that $a$ has a degree less than or equal to $n$ over $F$.  It would
+then follow that $|\gal(E/F)|=[E:F]=[F(a):F]\leq n$, but I don't know.
+Is $a$ a root of $f(x)$?  I don't see why it would be.  It doesn't have to be.
+
+\section*{Problem 16}
+
+Suppose that $E$ is the splitting field of some polynomial over a field
+$F$ of characteristic 0.  If $[E:F]$ is finite, show that there is only
+a finite number of fields between $E$ and $F$.
+
+Using Theorem 32.1, we have $|\gal(E/F)|=[E:F]<\infty$.  So there are
+only a finite number of subgroups of $\gal(E/F)$.  Using Theorem 32.1 again,
+the number of fields between $E$ and $F$ is finite, because there is a one-to-one
+correspondence between them and the subgroups of $\gal(E/F)$.
+
+I didn't use eveything in the hypothesis here, so maybe something is missing here.
+
+\end{document}

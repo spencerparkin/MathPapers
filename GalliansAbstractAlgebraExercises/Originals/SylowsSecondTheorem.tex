@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\section*{Conjugate Subgroups}
+
+Let $H$ and $K$ be subgroups of a group $G$.  We say that
+$H$ and $K$ are conjugate in $G$ if there is an element $g$ in $G$
+such that $H=gKg^{-1}=\{gkg^{-1}:k\in K\}$.
+
+\subsection*{Conjugate Subgroups are Isomorphic}
+
+Let $H$ and $K$ be subgroups of $G$ and conjugate in a group $G$.
+Then $H$ and $K$ are isomorphic.
+
+Proof: By hypothesis, there exists $g\in G$ such that $H=gKg^{-1}$.
+Define $\phi:K\to H$ by $\phi(k)=gkg^{-1}$.  Letting $x,y\in K$,
+we see that
+\begin{equation*}
+x=y\iff gxg^{-1}=gyg^{-1}\iff\phi(x)=\phi(y),
+\end{equation*}
+showing that $\phi$ is well defined and one-to-one.  We then see that
+\begin{equation*}
+\phi(xy)=gxyg^{-1}=gxg^{-1}gyg^{-1}=\phi(x)\phi(y),
+\end{equation*}
+showing that $\phi$ is operation preserving.  Now let $h\in H\subseteq gKg^{-1}$.
+Then there exists $k\in K$ such that $h=gkg^{-1}$, and so $\phi(k)=h$, showing
+that $\phi$ is onto.  We have now shown that $\phi$ is an isomorphism between
+$H$ and $K$.
+
+Notice that $H$ and $K$ are not necessarily the same subset of $G$.
+
+\subsection*{Conjugation}
+
+Let $H$ be a subgroup of a group $G$.  Then for any $g\in G$,
+the subset $gHg^{-1}$ of $G$ is a conjugate of $H$ in $G$.
+
+Proof:  We first show that $gHg^{-1}$ is a subgroup of $G$.
+Clearly, $e\in gHg^{-1}$.  Now let $a,b\in gHg^{-1}$.  Then
+there exists $h_a,h_b\in H$ such that $a=gh_ag^{-1}$ and $b=gh_bg^{-1}$.
+Then we have
+\begin{equation*}
+ab^{-1}=gh_ag^{-1}(gh_bg^{-1})^{-1}=gh_ag^{-1}gh_b^{-1}g^{-1}=gh_ah_b^{-1}g^{-1}
+\in gHg^{-1},
+\end{equation*}
+showing that $gHg^{-1}$ is a subgroup of $G$ by the one-step subgroup test.
+
+We now show that the subgroups $H$ and $gHg^{-1}$ of $G$ are conjugate in $G$.
+Notice that $H$ and $gHg^{-1}$ have the same cardinality.  If $h_1,h_2\in H$
+where $h_1\neq h_2$, and $gh_1g^{-1}=gh_2g^{-1}$, then we have a contradiction.
+Choosing $g\in G$, we see that $g^{-1}(gHg^{-1})g=(g^{-1}g)H(g^{-1}g)=H$.
+
+Notice that if $H$ is a normal subgroup of $G$, then $H=gHg^{-1}$, but
+in general, we can only say that $H\approx gHg^{-1}$.
+
+Now let $H$ and $K$ be subgroups of $G$ and conjugate in $G$.
+Then there exists $g\in G$ such that $H=gKg^{-1}$, and
+we have $H\approx K\approx gKg^{-1}$.  This shows that there
+is an automorphism at work here.
+
+\section*{Page 413, Exercise 9}
+
+Let $K$ be a Sylow $p$-subgroup of a finite group $G$.  Prove that if $x\in N(K)$
+and the order of $x$ is a power of $p$, then $x\in K$.
+
+By Sylow's Second Theorem, the cyclic subgroup $\langle x\rangle$ of $G$ is
+contained in a Sylow $p$-subgroup of $G$.  If we can show that
+$\langle x\rangle$ is a subgroup of $K$, then $x\in K$.
+
+It can be shown that $N(K)$ is a subgroup of $G$ and that $K$ is a normal
+subgroup of $N(K)$.  Since $x\in N(K)$, it is easy to see that
+$\langle x\rangle$ is a subgroup of $N(K)$.  Now using the result of
+Exercise 51 of Page 194, we see that $K\langle x\rangle$ is a subgroup of
+$N(K)$.  Then using the result of Exercise 7 of Page 174, we have
+$|K\langle x\rangle|=|K||\langle x\rangle|/|K\cap\langle x\rangle|$.
+At this point, realize that $|K|=|xKx^{-1}|=|xK|=|Kx|=|K\langle x\rangle|$.
+It follows that $|\langle x\rangle|/|K\cap\langle x\rangle|=1$, which implies
+that $|\langle x\rangle|=|K\cap\langle x\rangle|$, which implies that
+$\langle x\rangle$ is a subgroup of $K$.
+
+\section*{Sylow's Second Theorem}
+
+If $H$ is a subgroup of a finite group $G$ and $|H|$ is a power
+of a prime $p$, then $H$ is contained in some Sylow $p$-subgroup of $G$.
+
+\section*{Proof}
+
+\end{document}

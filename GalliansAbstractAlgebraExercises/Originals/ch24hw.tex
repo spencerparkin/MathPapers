@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 24 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\cl}{\mbox{cl}}
+
+\section*{Problem 2}
+
+Calculate all conjugacy classes for the quaternions.
+
+Some work shows that the conjugacy classes are
+\begin{equation*}
+\{e\},\{a,a^3\},\{a^2\},\{b,ba^2\},\{ba,ba^3\}.
+\end{equation*}
+
+\section*{Problem 8}
+
+Find all Sylow 3-subgroups of $A_4$.
+
+The group $A_4$ has order $4!/2=24=2^3\cdot 3$, so we're looking for
+all subgroups of order 3.  Since 3 is prime, all such subgroups are cyclic.
+So the set of subgroups is given by
+$\{\langle a\rangle|\mbox{$a\in A_4$ and $|a|=3$}\}$.
+Using Table 5.1, these groups are given by
+\begin{align*}
+\{\alpha_1,\alpha_5,\alpha_9\},\\
+\{\alpha_1,\alpha_6,\alpha_{11}\},\\
+\{\alpha_1,\alpha_7,\alpha_{12}\},\\
+\{\alpha_1,\alpha_8,\alpha_{12}\}.
+\end{align*}
+This was given away in Example 2 of the chapter.
+
+\section*{Problem 12}
+
+Show that every group of order 56 has a proper nontrivial normal subgroup.
+
+By Sylow's First Theorem, there is at least one subgroup of order 7.
+By Sylow's Third Theorem, the number of such subgroups is congruent
+to 1 modulo 7 and divides 56.  The only possible number of such
+subgroups is therefore 1 or 8.  If there is only 1 subgroup of order 7,
+then it is a nontrivial normal subgroup by the corollary to Sylow's
+Third Theorem.  If there are 8 subgroups of order 7, then because
+they are cyclic, they account for $8\cdot(7-1)=48$ distinct elements,
+leaving $56-48=8$ remaining elements, including the identity element.
+It follows that these 8 elements must form a subgroup of order 8,
+By Sylow's First Theorem.
+Furthermore, this is the only subgroup of order 8, because every
+one of the 48 elements previously mentioned have order 7, and 7 does
+not divide 8.
+
+\pagebreak
+\section*{Problem 24}
+
+Prove that a group of order 105 contains a subgroup of order 35.
+
+By Sylow's First Theorem, there is a subgroup of order 5, and a subgroup
+of order 7.  By Sylow's Third Theorem, there
+may be at most 21 groups of order 5, and 15 groups of order 7.  Suppose there
+are more than one of both types of subgroups.  Since these are cyclic
+of prime order, this would generate
+$21\cdot(5-1)=84$ elements of order 5,
+and $15\cdot(7-1)=90$ elements of order 7.  But $84+90>105$, so at least one
+of these two types of subgroup is unique, and therefore normal by the corollary to
+Sylow's Third Theorem.
+It then follows by the result of Exercise 51 on
+Page 194, that if $H$ is a subgroup of order 5, and $K$ is a subgroup of order 7,
+then $HK$ is a subgroup of $G$, since at least one of $H$ and $K$ is normal.
+Now notice that $|HK|=|H||K|/|H\cap K|$, but $H\cap K=\{e\}$ since $H$ and $K$
+are cyclic groups of distinct prime orders.  It follows that $|HK|=|H||K|=5\cdot 7=35$,
+which is what we wanted.
+
+\section*{Problem 28}
+
+Suppose that $G$ is a group of order 60 and $G$ has a normal
+subgroup $N$ of order 2.  Show that $G$ has normal subgroups
+of orders 6, 10, and 30.  Show that $G$ has subgroups of
+orders 12 and 20.  Show that $G$ has a cyclic subgroup of order 30.
+
+Cauchy tells us that $G$ has an element $\alpha$ of order 3 and so a
+cyclic subgroup of order 3.  Since $N$ is normal, $N\langle\alpha\rangle$
+is a subgroup of $G$.  Since $N$ is cyclic too, $N\cap\langle\alpha\rangle=\{e\}$,
+and so $|N\langle\alpha\rangle|=|N||\langle\alpha\rangle|=2\cdot 3=6$.
+A similar argument shows that if $\beta$ is an element of order 5, then
+$N\langle\beta\rangle$ is a subgroup of order 10.
+
+If I could make an argument for why there is a normal subgroup of order 5,
+(perhaps it's the only Sylow 5-subgroup), this would imply the existence
+of subgroups of order 30 and 20.
+
+If there was only one Sylow 2-subgroup, it would be normal, and this would
+imply the existence of a subgroup of order 12.
+
+If we could find a homomorphism from $G$ to $G$ whose kernel was $N$,
+then its image would be a subgroup of order 30, but I can't find such
+a homomorphism.  I don't know how to show that there is an element of order 30.
+
+\section*{Problem 40}
+
+Let $p$ be prime.  If the order of every element of a finite group $G$ is a
+power of $p$, prove that $|G|$ is a power of $p$.
+
+Suppose $|G|$ has a prime $q$ other than $p$ in its factorization.
+Then by Sylow's First Theorem, there must exist a cyclic subgroup of
+order $q$, and its generator is an element of order $q$, contradicting
+the fact that all elements of $G$ have orders that are powers of $p$.
+So $p$ is the only prime in the factorization of $|G|$, and so $|G|$
+is a power of $p$.
+
+\section*{Problem 44}
+
+Determine the groups of order 45.
+
+Sylow's Third Theorem tells us that groups of order 45 have 1 subgroup
+of order 5 and 1 subgroup of order 9.  The corollary then tells us that
+these are normal subgroups.  Let $G$ be a group of order 45, and let
+$H$ and $K$ be its normal subgroups of orders 5 and 9, respectively.
+Then these are both normal, and we can describe $G$ as $H\times K$.
+
+\end{document}

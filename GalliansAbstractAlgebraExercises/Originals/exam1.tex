@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\section*{Problem 1}
+
+Let $G$ be an Abelian group.  Let $H$ be a subgroup of $G$.  Define the
+set $S(H)=\{x\in G:x^2\in H\}$.  Prove that $S(H)$ is a subgroup of $G$.
+
+By definition we see that $S(H)$ is a subset of $G$, and that $e\in S(H)$ so
+that $S(H)$ is non-empty.  Let $a,b\in S(H)$.
+Then $a,b\in G$ and $a^2,b^2\in H$.  We then have $ab\in G$ since $G$ is a group,
+and $(ab)^2 = a^2b^2 \in H$ since $H$ is an Abelian group.  (All subgroups
+of an Abelian group are Abelian.)  We now have closure since $ab\in G$ and
+$(ab)^2\in G$ implies that $ab\in S(H)$.
+Now notice that...
+\begin{equation*}
+a\in S(H)\implies a\in G\implies a^{-1}\in G
+\end{equation*}
+...and that...
+\begin{equation*}
+a\in S(H)\implies a^2\in H\implies (a^2)^{-1}\in H\implies (a^{-1})^2\in H
+\end{equation*}
+This shows that $S(H)$ is closed under the operation of taking inverses
+since $a\in S(H)$ implies that $a^{-1}\in G$ and $(a^{-1})^2\in H$.
+We can now conclude by the two-step subgroup test that $S(H)$ is
+a subgroup of $G$.
+
+\section*{Problem 2}
+
+Let $\mathbb{Z}$ have a binary operation $*$ defined such that if $a,b\in\mathbb{Z}$,
+then $a*b=a+b-6$.  Prove or disprove that $\langle\mathbb{Z},*\rangle$ is a group.
+
+It is a group.  First notice that $\mathbb{Z}$ is closed under the operation.
+We then see that $6\in\mathbb{Z}$ is the identity, since for all $a\in\mathbb{Z}$
+we have $a*6=a+6-6=a$.  Then $12-a\in\mathbb{Z}$ is the inverse for any $a\in\mathbb{Z}$
+since $a*(12-a)=a+12-a-6=6$.  What remains to be shown is that the operation is
+associative.
+\begin{equation*}
+(a*b)*c = (a+b-6)+c-6 = a+b+c-12 = a+(b+c-6)-6 = a*(b*c)
+\end{equation*}
+
+\section*{Problem 3}
+
+For $S$ any subset of a group $G$, for $g\in G$ define $gSg^{-1}=\{gsg^{-1}:s\in S\}$.
+For $H$ a subgroup of $G$, define the normalizer of $H$ to be the set
+$N(H)=\{x\in G:xHx^{-1}=H\}$.  Prove that $N(H)$ is a subgroup of $G$.
+
+We first see that $N(H)\subseteq G$ and that $N(H)$ is non-empty since
+$e\in G$ and $eHe^{-1} = H$.  This is easy to see since $eHe^{-1}$
+generates the identity permutation of $H$.
+Now let $a,b\in N(H)$.  Then $ab\in G$ since $G$ is a group.  To show closure,
+what remains to be shown is that...
+\begin{equation*}
+abH(ab)^{-1}=abHb^{-1}a^{-1}=H
+\end{equation*}
+But $b\in N(H)\implies bHb^{-1}=H$ so that we now must show that
+$aHa^{-1}=H$.  But this follows from the fact that $a\in N(H)$.
+To see that $N(H)$ is closed under the operation of taking inverses,
+notice that...
+\begin{equation*}
+a\in N(H)\implies a\in G\implies a^{-1}\in G
+\end{equation*}
+...and that...
+\begin{equation*}
+a\in N(H)\implies aHa^{-1}=H\implies Ha^{-1}=a^{-1}H\implies H=a^{-1}Ha
+\end{equation*}
+To make the notation clearer, notice that the equation $aHa^{-1}=H$ can
+be thought of as $|H|$ simultaneous equations.  Then when we perform algebraic
+manipulations on this equation, we're doing it on all $|H|$ equations simultaneously.
+
+Now since $a\in N(H)$ implies that $a^{-1}\in G$ and $a^{-1}Ha=H$, we see
+that $a^{-1}\in N(H)$.
+We can now conclude by the two-step subgroup test that $N(H)$ is a subgroup of $G$.
+
+\section*{Problem 4}
+
+See last page.
+
+\section*{Problem 5}
+
+In $\mathbb{Z}_{12}$ under addition modulo 12,
+calculate $5^3$ and $9^{-2}$.
+
+\begin{align*}
+5^3 &= 5+5+5 = 15 = 3 \\
+9^{-2} &= (9^{-1})^2 = 3^2 = 3+3 = 6
+\end{align*}
+
+\section*{Problem 6}
+
+See last page.
+
+\section*{Problem 7}
+
+Prove that if a group $G$ has only $G$ and $\{e\}$ as subgroups (and no others),
+then $G$ is a cyclic group.
+
+If $G=\{e\}$, then we're done since $G=\langle e\rangle$.
+Suppose now that there exists $a\in G$ where $a\neq e$.
+By Theorem 3.4, $\langle a\rangle$ is a cyclic subgroup of $G$.
+Then since $\langle a\rangle\neq\{e\}$, we must have $\langle a\rangle=G$.
+It is disturbing to me that every non-identity element of $G$ is a
+generator of $G$.  Suppose that $|a|=\infty$.  Then all powers of $a$
+are distinct group elements.  But by our reasoning above, $\langle a^2\rangle =G$
+while $\langle a^2\rangle$ is a proper subset of $\langle a\rangle$.  No set is
+a proper subset of itself.  So I'm forced to conclude that there are no elements
+of $G$ having infinite order.  Since $|G|=|\langle a\rangle|=|a|<\infty$, we can also
+conclude that $G$ must be a finite cyclic group.  So we now know that...
+\begin{equation*}
+G = \{e,a,a^2,\dots,a^{|a|-1}\}
+\end{equation*}
+But $G=\langle a^k\rangle$ for all integers $0<k<|a|$.  So by Corollary 2 of Theorem 4.2,
+we must have $\gcd(k,|a|)=1$ for all $0<k<|a|$.  This implies that $|a|$ is prime.
+So $G$ must be a cyclic group of prime order if it has any non-identity elements.
+Interesting!
+
+\section*{Problem 8}
+
+List all cyclic subgroups of $U(20)=\{1,3,7,9,11,13,17,19\}$.
+
+\begin{align*}
+\langle 1\rangle &= \{1\} \\
+\langle 3\rangle &= \langle 7\rangle = \{3,9,7,1\} \\
+\langle 9\rangle &= \{9,1\} \\
+\langle 11\rangle &= \{11,1\} \\
+\langle 13\rangle &= \langle 17\rangle = \{13, 9, 17, 1\} \\
+\langle 19\rangle &= \{19, 1\}
+\end{align*}
+
+\section*{Problem 9}
+
+If a group $G$ has exactly 8 elements of order 10, then how many
+different cyclic subgroups of order 10 does $G$ have?
+
+Let $\{a_k\}_{k=1}^8$ be the 8 distinct group elements of $G$ having order 10.
+Then $\{\langle a_k\rangle\}_{k=1}^8$ is a set of 8 distinct cyclic subgroups of
+$G$ having order 10.  So we know that $G$ has at least 8 of them.  Suppose $C$
+is yet another cyclic subgroup of $G$ having order 10.  Let $c\in C$ be the
+generator of $C$.  But $C\subseteq G$ so that $c\in G$, and we know that
+$|c|=10\implies c\in\{a_k\}_{k=1}^8$.
+Therefore, $C\in\{\langle a_k\rangle\}_{k=1}^8$.  By contradiction, there are
+no more cyclic subgroups of order 10.  So there are only 8 of them.
+
+This is totally wrong, especially in light of Problem 7.
+
+\section*{Problem 10}
+
+Let $a$ and $b$ be elements of a group $G$.  Prove that there is an element $x\in G$ such
+that $xax=b$ if and only if $ab=c^2$ for some element $c\in G$.
+
+Suppose there exists an $x\in G$ such that $xax=b$.  This implies that $(ax)^2=axax=ab$
+so that letting $c=ax\in G$ gives us $c^2=ab$ as desired.
+
+Suppose now that there exists $c\in G$ such that $c^2=ab$.  We want to find an $x\in G$
+so that $xax=b\Leftrightarrow (ax)^2=ab=c^2$.  This is so if $ax=c\implies x=a^{-1}c$.
+So letting $x=a^{-1}c\in G$ we see that $xax=a^{-1}caa^{-1}c = a^{-1}c^2= a^{-1}ab = b$
+as desired.
+
+\end{document}

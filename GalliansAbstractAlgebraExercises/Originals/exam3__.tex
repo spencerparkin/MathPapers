@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\GF}{\mbox{GF}}
+\newcommand{\al}{\alpha}
+
+\section*{Problem 1}
+
+Prove that if $E$ is a field extension of a field $F$ with $[E:F]=2$,
+then $E$ is a splitting field of some irreducible polynomial over $F$.
+
+Since $E$ is a finite extension of $F$, we see that $E$ must be an algebraic
+extension of $F$.  Choose $a\in E\backslash F$.  Since $a$ is algebraic
+over $F$, we must have $F(a)\approx F[x]/\langle p(x)\rangle$, where
+$p(x)$ is an irreducible polynomial over $F$ having $a$ as a zero.
+Moreover, $\deg p(x)>1$ since $a\not\in F$, and $\deg p(x)<3$ since
+$[E:F]<3$ and $F(a)\subseteq E$.
+We can now conclude that $\deg p(x)=2$ and so $F(a)=E$.
+What now remains to be shown is that $F(a)$ is the splitting
+field for $p(x)$ over $F$.  Clearly this is the case, because
+throwing one zero of an irreducible quadratic into a field
+automatically throws in the other zero by factorization.
+
+\section*{Problem 2}
+
+If $G$ is a finite solvable group, show that there exist subgroups of
+$G$
+\begin{equation*}
+\{e\}=H_0\subset H_1\subset H_2\subset\dots\subset H_n=G
+\end{equation*}
+such that $H_{i+1}/H_i$ has prime order.
+
+The proof is easy if $G$ is cyclic or Abelian.  So let us
+assume $G$ is non-Abelian.
+
+Since $G$ is solvable, let $\{K_i\}_{i=0}^m$ be a sequence
+of subgroups of $G$ such that
+\begin{equation*}
+\{e\}=K_0\subset K_1\subset K_2\subset\dots\subset K_m=G,
+\end{equation*}
+where, for each $0\leq i<m$, $K_i$ is normal in $K_{i+1}$ and $K_{i+1}/K_i$
+is Abelian.  It suffices to show that for all $0\leq i<m$, if
+$|K_{i+1}/K_i|$ is composite, then there exists a proper normal subgroup $K$
+of $K_{i+1}$ such that $K_i$ is a proper normal subgroup $K$, and $K/K_i$ and
+$K_{i+1}/K$ are both Abelian groups.  Since $G$ is finite, and
+since each insertion is proper, only a finite
+number of insertions into the chain need to happen in order to complete the chain.
+For some $0\leq i<m$, if an insertion between $K_i$ and $K_{i+1}$ cannot be made,
+then $|K_{i+1}/K_i|$ is prime.
+
+Let $0\leq i<m$ such that $|K_{i+1}/K_i|$ is composite.  (If no such $i$ exists,
+then we're done.)  Let $\phi:K_{i+1}\to K_{i+1}/K_i$ be a homomorphism defined by
+$\phi(g)=gK_i$.  Then since $K_{i+1}/K_i$ is Abelian, the converse of LaGrange's
+Theorem applies, and there exists a non-trivial proper subgroup $H$ of $K_{i+1}/K_i$.
+That is, $1<|H|<|K_{i+1}/K_i|=|K_{i+1}|/|K_i|\implies |K_i|<|H||K_i|<|K_{i+1}|$.
+Now let $K=\phi^{-1}(H)$.
+Then by Theorem 10.2, Property 8, we see that $K$ is a normal subgroup
+of $K_{i+1}$ and contains $K_i$.  But notice that $|K|=|H||K_i|$, so
+$K$ is a proper normal subgroup $K_{i+1}$ and properly contains $K_i$.
+Clearly, $K_i$ is a normal subgroup of $K$, because $K_i$ is a normal
+subgroup of $K_{i+1}$.
+
+What remains to be shown is that $K/K_i$ and $K_{i+1}/K$ are both Abelian groups.
+Clearly, $K/K_i$ is Abelian, because $K_{i+1}/K_i$ is Abelian.  Now notice that
+by the Third Isomorphism Theorem, we have $K_{i+1}/K\approx (K_{i+1}/K_i)/(K/K_i)$.
+So it will follow that $K_{i+1}/K$ is Abelian if we can show that
+$(K_{i+1}/K_i)/(K/K_i)$ is Abelian.  This requires that $(ab)^{-1}ba\in K/K_i$
+for all $a,b\in K_{i+1}/K_i$.  Clearly, $(ab)^{-1}ba=K_i\in K/K_i$, because
+$K_{i+1}/K_i$ is Abelian.
+
+\pagebreak
+\section*{Problem 3}
+
+For any $n>1$, prove that the sum of all $n$ complex $n$th roots of unity is zero.
+
+This is trivial when $n$ is even.  Simply evaluate the sum in pairs of opposite
+vertices about the $n$-sided unit polygon.  It is not so obvious when $n$ is odd.
+
+Consider the following identity.
+\begin{equation*}
+x^n-1=(x-1)(x^{n-1}+\dots+x+1)
+\end{equation*}
+Let $x$ be the principle $n$th root of unity.  That is, let $x=e^{2\pi i/n}$.
+It is then clear that $x^n-1=0=(x-1)(x^{n-1}+\dots+x+1)$, and $x-1\neq 0$.
+Then since we are working in an integral domain, there are no zero divisors,
+and we must have $x^{n-1}+\dots+x+1=0$.  Notice that the terms in this
+sum are the $n$th roots of unity.
+
+\section*{Problem 4}
+
+Let $H$ be a normal subgroup of a finite group $G$, and assume $|H|=p^k$
+for some prime $p$.  Prove that $H$ is contained in every Sylow $p$-subgroup of $G$.
+
+By Sylow's Second Theorem, $H$ is contained in at least one of the Sylow
+$p$-subgroups $K$ of $G$.  By Sylow's Third Theorem, any other Sylow $p$-subgroup
+of $G$ has the form $gKg^{-1}$, where $g\in G$.  Since $H$ is normal,
+we have $gHg^{-1}=H$.  Clearly since $H\subseteq K$,
+we must have $gHg^{-1}\subseteq gKg^{-1}$.  It now follows that
+$H\subseteq gKg^{-1}$, and we're done.
+
+\section*{Problem 5}
+
+Let $G$ be a group of order $p^2q^2$, where $p$ and $q$ are primes,
+$p>q$, and $|G|\neq 36=2^2\cdot 3^2$.  Prove that $G$ is not simple.
+
+Clearly, $p\equiv 0\pmod{p}$, and so $p^2\equiv p^2q\equiv p^2q^2\equiv 0\pmod{p}$.
+Suppose $q\equiv 1\pmod{p}$.  This implies that there exists
+some positive integer multiple $k$ of $p$ such that $1+pk=q$.
+But this is impossible since $p>q$.  Now suppose $q^2\equiv 1\pmod{p}$.
+Since $q\not\equiv 1\pmod{p}$, we must have $q\equiv p-1\pmod{p}$,
+since $1$ and $p-1$ are the only elements of $\Z_p$ that are their
+own multiplicative inverse.  This implies that there exists
+some positive integer multiple $k$ of $p$ such that $-1+pk=q$.
+Notice that since $p-q\neq 1$, we have $p>q\implies p-1>q\implies 2p-1>q$,
+showing that $k<2$, requiring we have $k=1$.
+But if $k=1$, then $q=2$ and $p=3$, which is not the case by hypothesis.
+We have now shown that the only divisor of $p^2q^2$ that is congruent
+to 1 modulo $p$ is 1.  It now follows by the Sylow Test for Nonsimplicity
+that $G$ is not simple.
+
+\end{document}

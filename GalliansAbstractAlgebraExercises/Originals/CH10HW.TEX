@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 10 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\section*{Problem 8}
+
+\newcommand{\sgn}{\mbox{sgn}}
+\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\ker}{\mbox{Ker}\;}
+\newcommand{\lcm}{\mbox{lcm}}
+
+Let $G$ be a group of permutations.  For each $\sigma\in G$, define...
+\begin{equation*}
+\sgn(\sigma)=\left\{\begin{array}{ll}+1&\mbox{if $\sigma$ is an even permutation,}\\
+-1&\mbox{if $\sigma$ is an odd permutation.}\end{array}\right.
+\end{equation*}
+Prove that $\sgn$ is a homomorphism from $G$ to the multiplicative group $\{+1,-1\}$.
+What is the kernel?
+
+Let $\alpha:\Z_2\to\{+1,-1\}$ be the isomorphism defined by $\alpha(0)=1$ and $\alpha(1)=-1$,
+and let $\beta:G\to\Z_2$ be a homomorphism defined by...
+\begin{equation*}
+\beta(\sigma) = \left\{\begin{array}{ll}0&\mbox{if $\sigma$ is an even permutation,}\\
+1&\mbox{if $\sigma$ is an odd permutation.}\end{array}\right.
+\end{equation*}
+Clearly, $\beta(xy)=\beta(x)\beta(y)$ by the concatination of 2-cycles and Theorem 5.5.
+Then $\sgn(\sigma)=\alpha\beta(\sigma)$, and we see that
+$\sgn(xy)=\alpha\beta(xy)=\alpha(\beta(x)\beta(y))=\alpha\beta(x)\alpha\beta(y)=\sgn(x)\sgn(y)$,
+showing that $\sgn$ is the homomorphism we wanted.
+
+The kernel of $\sgn$ is the set of all even permutations of $G$.  We know this is a group
+having half the order of $G$.
+
+\section*{Problem 10}
+
+Let $G$ be a subgroup of some dihedral group.  For each $x\in G$, define...
+\begin{equation*}
+\phi(x)=\left\{\begin{array}{ll}+1&\mbox{if $x$ is a rotation,}\\-1&\mbox{if $x$ is a reflection.}\end{array}\right.
+\end{equation*}
+Prove that $\phi$ is a homomorphism from $G$ to the multiplicative group $\{+1,-1\}$.
+What is the kernel of $\phi$?
+
+Obviously, the composition of two rotations is a rotation.  Define the orientation of an $n$-gon as the
+clock-wise or counter-clock-wise ordering of the labelings of its vertices.  Then a rotation
+will not change the orientation, but a reflection will.  Therefore, the composition of a
+rotation and a reflection, (or vice-versa), must be a reflection, and the composition of
+two reflections must be a rotation.
+The homomorphism is now easy to see from the following.
+\begin{align*}
+\phi(RR')=\phi(R'')=+1=(+1)(+1)=\phi(R)\phi(R') \\
+\phi(RF)=\phi(F')=-1=(+1)(-1)=\phi(R)\phi(F) \\
+\phi(FR)=\phi(F')=-1=(-1)(+1)=\phi(F)\phi(R) \\
+\phi(FF')=\phi(R)=+1=(-1)(-1)=\phi(F)\phi(F')
+\end{align*}
+
+The kernel of $\phi$ would be the subgroup of all rotations in $G$.
+
+\section*{Problem 12}
+
+Suppose that $k$ is a divisor of $n$.  Prove that $\Z_n/\langle k\rangle\approx\Z_k$.
+
+Define $\phi:\Z_n\to\Z_k$ by $\phi(z)=z\mod k$.
+Notice that $\phi(Z_n)=\Z_k$ since $k\leq n$.
+Let $x,a,b\in \Z_n$.
+Notice that $k$ divides $x-(a+b)$ if $n$ divides $x-(a+b)$ since $k|n$.
+Therefore, if $x\equiv a+b\pmod{n}$, then $x\equiv a+b\pmod{k}$.
+We then see that $\phi(ab)=\phi(a)\phi(b)$ since $ab\in Z_n$ is congruent modulo $k$ to
+$ab\in Z_k$.
+This shows that $\phi$ is a homomorphism.  Then since $\ker\phi=\langle k\rangle$,
+it follows from Theorem 10.3 that $\Z_n/\langle k\rangle\approx\Z_k$, which is what we wanted.
+
+I believe that cyclic groups of the same order are isomorphic.  So $\langle n/k\rangle\approx\Z_k$.
+We then see that $\Z_n/\langle k\rangle\approx\langle n/k\rangle$.
+%To back the claim, let $A$ and $B$ be cyclic groups of the same order, and let $a$ and $b$
+%be their generators, respectively.  The mapping $a^n\to b^n$, where $n\in\Z$, is then an isomorphism.
+%It's clearly one-to-one and onto.  It's operation preserving since $a^ia^j=a^{i+j}\to b^{i+j}=b^ib^j$.
+
+\section*{Problem 14}
+
+Explain why the correspondence $x\to 3x$ from $\Z_{12}$ to $\Z_{10}$ is not a homorphism.
+
+There are many proofs of this, but I think the best is to show that the mapping fails to
+be operation preserving.  This must be the case if any mapping is not a homomorphism.
+Let $\phi(x)=3x\mod 10$.  Then $\phi((5+7)\mod 12)=\phi(0)=0$, but
+$\phi(5)+\phi(7)=(15+21)\mod 10=6$.
+
+We could also assume that it is a homomorphism.  Then $\ker\phi=\{0,10\}$, but $|\Z_{12}|/2\neq|\Z_{10}|$ when
+they should be equal since $10<12$ and $\gcd(3,10)=1$ showing that $\phi$ is onto $\Z_{10}$.
+
+\section*{Problem 18}
+
+Can there be a homomorphism from $\Z_4\oplus \Z_4$ onto $\Z_8$?
+Can there be a homomorphism from $\Z_{16}$ onto $\Z_2\oplus\Z_2$?
+
+In the first case, no.  There are 4 elements in $\Z_4\oplus \Z_4$ that are their
+own inverses.  If we define $\phi((a,b))=z$, then we must define $\phi((4-a,4-b))=8-z$,
+since $\phi((0,0))$ must be 0.  The only element in $\Z_8$ that is it's own inverse
+is 4.  So we would have to map $(0,0)$, $(0,2)$, $(2,0)$, and $(2,2)$ all to 4,
+but this contradicts the need for $\phi$ to be a 2-to-1 mapping, since $(4\cdot 4)/8=2$.
+
+For the second case, no.  Since $\Z_{16}$ is cyclic, a homomorphism that is onto $\Z_2\oplus\Z_2$ must
+be defined in terms of a generator of $\Z_2\oplus\Z_2$, since $\phi(x)=\phi(1^x)=\phi(1)^x$.
+But $\Z_2\oplus\Z_2$ has no generator, so it's not possible.
+
+\section*{Problem 22}
+
+Suppose that $\phi$ is a homomorphism from a finite group $G$ onto $\bar{G}$ and
+that $\bar{G}$ has an element of order $n$.  Prove that $G$ has an element of
+order $n$.
+
+Since $\phi$ is onto, there exists $g\in G$ such that $\phi(g)=\bar{g}$
+for any $\bar{g}$ in $\bar{G}$.  Let $n$ be the order of $\bar{g}\in\bar{G}$.
+Then $n$ divides $|g|$ by property 3 of by Theorem 10.1.
+So $\langle g\rangle$ is a finite cyclic subgroup of $G$ of an order that is a multiple of $n$.
+It therefore has an element of order $n$ by Theorem 4.3.  Of course, this element has the same
+order in $G$.
+
+\section*{Problem 24}
+
+Suppose that $\phi:\Z_{50}\to\Z_{15}$ is a group homomorphism with $\phi(7)=6$.
+Determine $\phi(x)$, the image of $\phi$, the kernel of $\phi$, and $\phi^{-1}(3)$.
+
+Notice that $\phi(x)=\phi(1^x)=\phi(1)^x$, showing that $\phi(x)$ is defined in terms
+of what it maps 1 to.  Since $6=\phi(7)=\phi(1^7)=\phi(1)^7$, we see that
+$7\phi(1)\equiv 6\pmod{15}$.  Since $\gcd(7,15)=1$, $\phi(1)=3$ is the only solution.
+So we have $\phi(x)=3x\mod 15$.  Then $\phi(\Z_{50})=\{0,3,6,9,12\}$, since 50 is large enough,
+and $\ker\phi=\{z\in\Z_{15}:z\equiv 0\pmod{|\phi(\Z_{50})|}\}=\{0,5,10,\dots,40,45\}$.
+Then since $\phi(1)=3$, we have $\phi^{-1}(3)=1+\ker\phi=\{1,4,7,10,13\}$ by property 6 of Theorem 10.1.
+
+\section*{Problem 26}
+
+Determine all homomorphisms from $\Z_4$ to $\Z_2\oplus\Z_2$.
+
+Let us first find all homomorphisms from $Z_n$ to $G$, where $G$ is any group.
+Since we require $\phi(x)=\phi(1^x)=\phi(1)^x$, any homomorphism of the desired type is
+defined in terms of what it maps 1 to.  Our choices for this are the elements of $G$.
+For which elements of $G$ is $\phi$ a homomorphism?
+Well, notice that $\phi(ab)=\phi(1)^{ab}=\phi(1)^a\phi(1)^b=\phi(a)\phi(b)$.
+So any element of $G$ will work!  Define $\phi_g(x)=g^x$.
+Then the set of all homomorphisms is $\{\phi_g:g\in G\}$.
+
+So to answer the original question, the set of all homomorphisms
+is $\{\phi_g:g\in\Z_2\oplus\Z_2\}$.
+Hopefully I didn't mess up here.
+
+\section*{Problem 40}
+
+If $M$ and $N$ are normal subgroups of $G$
+and $N\leq M$, prove that $(G/N)/(M/N)\approx G/M$.
+
+Define the function $\phi:G/N\to G/M$ as $\phi(gN)=gM$, where $g\in G$.
+Let $a,b\in G$.
+Since $aN=bN\implies a^{-1}b\in N\implies a^{-1}b\in M\implies aM=bM$, we
+see that $\phi$ is well defined.  Then
+$\phi(aNbN)=\phi(abN)=abM=aMbM=\phi(aN)\phi(bN)$
+shows that $\phi$ is operation preserving and therefore a homormophism.
+We can then see that $\ker\phi=\phi^{-1}(M)=\{gN:g\in M\}=M/N$, so that
+our result now follows from The First Isomorphism Theorem.
+
+\section*{Problem 46}
+
+Suppose that $\Z_{10}$ and $\Z_{15}$ are both homomorphic images of a finite group $G$.
+What can we say about $|G|$?
+
+By the corollary of Theorem 10.3, we can say that 10 and 15 divide $|G|$ so that
+$|G|$ is at least $\lcm(10,15)=30$.
+
+\section*{Problem 50}
+
+Show that a homomorphism defined on a cyclic group is completely
+determined by its action on a generator of the group.
+
+Let $G=\langle g\rangle$ be a cyclic group generated by $g$.  Then if $x\in G$,
+then there exists $n\in\Z$ such that $x=g^n$, and $\phi(x)=\phi(g^n)=\phi(g)^n$,
+showing that $\phi$ is defined in terms of what it maps the generator to.
+Refering back to problem 26, we might go on to find all possible homomorphisms
+from a cyclic group to some other group.
+
+\section*{Problem 52}
+
+Let $\alpha$ and $\beta$ be group homomorphisms from $G$ to $\bar{G}$ and let
+$H=\{g\in G:\alpha(g)=\beta(g)\}$.  Prove or disprove that $H$ is a subgroup of $G$.
+
+By property 1 of Theorem 10.2, the images of $\alpha$ and $\beta$ are subgroups of $\bar{G}$.
+In a previous exercise we proved that the intersection of two subgroups is a subgroup.
+So we see that $\alpha(G)\cap\beta(G)$ is a subgroup of $\bar{G}$.
+Now notice that $H=\phi^{-1}(\alpha(G)\cap\beta(G))$ is a subgroup of $G$
+by property 7 of Theorem 10.2.
+
+Where the hell did you get $\phi$ from?!  Idiot!
+
+\section*{Problem 54}
+
+If $H$ and $K$ are normal subgroups of $G$ and $H\cap K=\{e\}$, prove that $G$
+is isomorphic to a subgroup of $G/H\oplus G/K$.
+
+Define $\phi:G\to G/H\oplus G/K$ as $\phi(g)=(gH,gK)$.  Clearly this is a well defined function.
+The following shows that $\phi$ is a homomorphism.
+\begin{equation*}
+\phi(ab) = (abH,abK) = (aHbH,aKbK) = (aH,aK)(aH,bK) = \phi(a)\phi(b)
+\end{equation*}
+It now follows from property 1 of Theorem 10.2 that the image of $\phi$ is
+a subgroup of $G/H\oplus G/K$.  Clearly, $\phi$ is onto its image.  To show
+that $\phi$ is an isomorphism from $G$ to its image, we must show that $\phi$ is one-to-one.
+Suppose $\phi(a)=\phi(b)$.  Then $(aH,aK)=(bH,bK)$, which implies that $a^{-1}b\in H$
+and $a^{-1}b\in K$.  It follows that $a^{-1}b\in H\cap K\implies a^{-1}b=e\implies a=b$.
+We can now say that $G\approx\phi(G)\leq G/H\oplus G/K$.
+
+\end{document}

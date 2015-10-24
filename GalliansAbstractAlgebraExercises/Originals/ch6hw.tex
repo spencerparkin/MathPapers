@@ -1,0 +1,269 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 6 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\aut}{\mbox{Aut}}
+
+\section*{Problem 2}
+
+Find $\aut(\mathbb{Z})$.
+
+Suppose the function $\phi:\mathbb{Z}\to\mathbb{Z}$ is an automorphism
+of $\mathbb{Z}$ under addition.  Let $a\in\mathbb{Z}$, then by the operation
+preserving property of $\phi$, and the method used in Example 5,
+we see that $\phi(a) = a\phi(1)$.  So finding all automorphisms of $\mathbb{Z}$
+is a question of finding all ways of defining $\phi(1)$ such that $\phi$ is
+an automorphism of $\mathbb{Z}$.  Suppose $\phi(1)=0$.  Then $\phi(a)=0$ and
+this doesn't work because $\phi$ does not map $\mathbb{Z}$ onto $\mathbb{Z}$.
+Suppose $|\phi(1)|>1$.  Then, again, we see that $\phi$ does not map $\mathbb{Z}$
+onto $\mathbb{Z}$.  Now suppose that $\phi(1)=1$.  This obviously works since
+then $\phi$ becomes the identity function.  Suppose $\phi(1)=-1$.  This makes
+$\phi$ one-to-one and onto.  Now
+notice that $\phi(a+b) = -(a+b) = (-a) + (-b) = \phi(a)+\phi(b)$.  So $\phi$
+preserves the addition operation.  Define $\phi_k(x)=kx$.
+Then $\aut(\mathbb{Z})=\{\phi_1,\phi_{-1}\}$.
+
+\section*{Problem 3}
+
+Let $\mathbb{R}^{+}$ be the group of positive real numbers under multiplication.
+Show that the mapping $\phi(x)=\sqrt{x}$ is an automorphism of $\mathbb{R}^{+}$.
+
+First note that the domain and codomain of $\phi$ are $\mathbb{R}^{+}$.
+Now let $a,b\in\mathbb{R}^{+}$ and assume $\phi(a)=\phi(b)$.
+This implies that $\sqrt{a}=\sqrt{b}\implies|a|=|b|\implies a=b$, since
+we're confined to the positive reals.  So $\phi$ is one-to-one.
+Now choose $a^2\in\mathbb{R}^{+}$ and we see that $\phi(a^2)=\sqrt{a^2}=|a|=a$
+so that $\phi$ is onto $\mathbb{R}^{+}$.  What remains to be shown is
+operation preservance.
+\begin{equation*}
+\phi(ab) = \sqrt{ab} = \sqrt{a}\sqrt{b} = \phi(a)\phi(b)
+\end{equation*}
+
+\section*{Problem 4}
+
+Show that $U(8)$ is not isomorphic to $U(10)$.
+
+Notice that the square of every element in $U(8)$ is the identity, but that
+this is not the case with $U(10)$.  If $\phi$ was an isomorphism from $U(8)$
+to $U(10)$, then for all $x\in U(8)$, we must have...
+\begin{equation*}
+\phi(e_{U(8)}) = \phi(x^2) = \phi(x)^2 = e_{U(10)}
+\end{equation*}
+But this clearly doesn't happen in the case that $\phi(x)=3$ since $3^2=9$ in $U(10)$.
+
+\section*{Problem 10}
+
+Let $G$ be a group.  Prove that the mapping $\alpha(g)=g^{-1}$ for all $g\in G$
+is an automorphism if and only if $G$ is Abelian.
+
+Suppose $\alpha$ is an automorphism of $G$, and let $a,b\in G$.  Notice that...
+\begin{equation*}
+\alpha(ab) = (ab)^{-1} = b^{-1}a^{-1} = \alpha(b)\alpha(a) = \alpha(ba)
+\end{equation*}
+...where the last equality holds by the operation preserving property of $\alpha$.
+Then since $\alpha$ is one-to-one, we see that $\alpha(ab)=\alpha(ba)\implies ab=ba$,
+showing that $G$ is Abelian.
+
+Now suppose that $G$ is Abelian.  Notice that $\alpha$, as defined above, has
+the correct domain and codomain for it to be an automorphism of $G$.
+Then $\alpha$ must be one-to-one since no two distinct group elements have
+the same inverse.  We then see that $\alpha$ is onto because inverses
+come in pairs of mutual inverses.  So given any element $x$ in the codomain of $\alpha$,
+we see that $\alpha(x^{-1})=(x^{-1})^{-1}=x$.  Let $a,b\in G$.  Then we see that...
+\begin{equation*}
+\alpha(ab) = (ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1} = \alpha(a)\alpha(b)
+\end{equation*}
+...where here we made use of the Abelian property of $G$.  So $\alpha$ is operation
+preserving as well, and so $\alpha$ must be an isomorphism from $G$ to $G$, which
+is what we wanted.
+
+\section*{Problem 14}
+
+Find $\aut(\mathbb{Z}_6)$.
+
+Using Example 13 and Theorem 6.5, define $\phi_k(x)=kx$ and we see that...
+\begin{equation*}
+\aut(\mathbb{Z}_6) = \{\phi_k:k\in U(6)\} = \{\phi_1,\phi_5\}
+\end{equation*}
+
+\section*{Problem 22}
+
+Prove or disprove that $U(20)$ and $U(24)$ are isomorphic.
+
+In $U(24)$, the order of every non-identity element is 2.  This is not the
+case with $U(20)$.  Since an isomorphism preserves the order of elements,
+there cannot exist one between $U(20)$ and $U(24)$.
+
+\section*{Problem 23}
+
+Show that the mapping $\phi(a+bi)=a-bi$ is an automorphism of the group
+of complex numbers under addition.  Show that $\phi$ preserves complex
+multiplication as well.
+
+We see that the domain and codomain of $\phi$ is $\mathbb{C}$.
+Let $x,y\in\mathbb{C}$ where $\phi(x)=\phi(y)$, $x=a+bi$, and $y=c+di$.
+Then the conjugate of $x$ is the conjugate of $y$.  This implies that
+the real and imaginary parts of the conjugates are the same so that
+$a=c$ and $-b=-d\implies b=d$.  But then this implies that the real and
+imaginary parts of $x$ and $y$ are the same so that $x=y$.  So $\phi$ is
+one-to-one.  Using these $x$ and $y$ again, we see that...
+\begin{equation*}
+\phi(x+y) = (a+c)-(b+d)i = (a-bi)+(c-di) = \phi(x)+\phi(y)
+\end{equation*}
+...so that $\phi$ is operation preserving.
+Now choose $a+bi$ in the codomain of $\phi$.  Choose $x=a-bi$ and we see
+that $\phi(x) = a-(-b)i = a+bi$.  So $\phi$ is onto $\mathbb{C}$.
+We've now shown that $\phi$ is an automorphism of $\mathbb{C}$ under addition.
+
+To show that $\phi$ preserves multiplication, we want to show that
+the operations of multiplication and the taking of conjugates can be
+done in either order.  Let $a=re^{ui}$ and $b=Re^{vi}$.  Then...
+\begin{equation*}
+\bar{ab} = rRe^{-(u+v)i} = re^{-ui}Re^{-vi} = \bar{a}\bar{b}
+\end{equation*}
+
+\section*{Problem 25}
+
+Prove that $\mathbb{Z}$ under addition is not isomorphic to $\mathbb{Q}$ under addition.
+
+Assume that $\phi$ is an isomorphism from $\mathbb{Z}$ to $\mathbb{Q}$.  Let $a\in\mathbb{Z}$.
+Then $\phi(a) = a\phi(1)$, and we see that every isomorphism from the integers to the rationals
+must be of the form $\phi(x) = qx$, where $q\in\mathbb{Q}$.  But this function can never
+be onto the rationals.  For example, there does not exist $a\in\mathbb{Z}$ such that
+$\phi(a)=q/2$.
+
+\section*{Problem 28}
+
+Let $\mathbb{R}^n=\{(a_1,a_2,\dots,a_n):a_i\in\mathbb{R}\}$.  Show that the mapping
+$\phi:(a_1,a_2,\dots,a_n)\to(-a_1,-a_2,\dots,-a_n)$ is an automorphism of the group
+$\mathbb{R}^n$ under componentwise addition.  Describe the action of $\phi$ geometrically.
+
+Geometrically, I think that $\phi$ is a reflection about the origin of an $n$-dimensional
+coordinate system.  It may also turn objects inside-out.
+
+To show that $\phi$ is operation preserving, see that...
+\begin{align*}
+\phi((a_1,\dots,a_n)+(b_1,\dots,b_n))
+ &= \phi((a_1+b_1,\dots,a_n+b_n)) \\
+ &= (-a_1-b_1,\dots,-a_n-b_n) \\
+ &= (-a_1,\dots,-a_n)+(-b_1,\dots,-b_n) \\
+ &= \phi((a_1,\dots,a_n))+\phi((b_1,\dots,b_n))
+\end{align*}
+
+To show that $\phi$ is one-to-one, see that...
+\begin{align*}
+\phi((a_1,\dots,a_n))=\phi((b_1,\dots,b_n))
+ &\implies (-a_1,\dots,-a_n) = (-b_1,\dots,-b_n) \\
+ &\implies (a_1,\dots,a_n) = (b_1,\dots,b_n)
+\end{align*}
+
+To show that $\phi$ is onto, see that...
+\begin{equation*}
+\phi(x) = (a_1,\dots,a_n) \implies x = (-a_1,\dots,-a_n)
+\end{equation*}
+
+\section*{Problem 29}
+
+Consider the following statement: The order of a subgroup divides the
+order of the group.  Suppose you could prove this for finite permutation groups.
+Would the statement then be true for all finite groups?
+
+Yes.  The statement is a group theoretic property, and so is preserved by isomorphisms.
+Every group can be viewed as a group of permutations because every group is isomorphic
+to a group of permutations.  This is Caylay's Theorem.
+
+\section*{Problem 30}
+
+Suppose that $G$ is a finite Abelian group and $G$ has no element of order
+2.  Show that the mapping $g\to g^2$ is an automorphism of $G$.  Show, by
+example, that if $G$ is infinite, the mapping need not be an automorphism.
+
+Let $a,b\in G$ and suppose $a^2=b^2$.  Then $a^2(b^{-1})^2 = (ab^{-1})^2=e$, by
+the Abelian property of $G$.
+Since there are no elements of order 2, this implies that $ab^{-1}=e\implies a=b$.
+So the mapping is one-to-one.
+Now since we have a one-to-one mapping from a finite set to itself, that mapping is
+also onto.  (This was proved in a previous exersize.)
+The mapping is clearly operation preserving.
+\begin{equation*}
+a^2b^2 = aabb = abab = (ab)^2
+\end{equation*}
+This holds by the Abelian property of $G$.
+
+Suppose that $G=\mathbb{Z}$ under addition.  It's Abelian and has no element
+of order 2, yet the mapping $g\to g^2$ is not onto $\mathbb{Z}$.
+
+\section*{Problem 32}
+
+Show that the mapping $a\to\log_{10}a$ is an isomorphism from $\mathbb{R}^{+}$ under
+multiplication to $\mathbb{R}$ under addition.
+
+Let $a,b\in\mathbb{R}^{+}$.  Then...
+\begin{equation*}
+\log_{10}a = \log_{10}b\implies 10^{\log_{10}a}=10^{\log_{10}b}\implies a=b
+\end{equation*}
+This shows that the mapping is one-to-one.  Then...
+\begin{equation*}
+\log_{10}(ab) = \log_{10}a + \log_{10}a
+\end{equation*}
+This property of logarithms shows that the mapping is operation preserving.  Now
+choose $a=10^b$.  Then...
+\begin{equation*}
+\log_{10}a = \log_{10}10^b = b\log_{10}10 = b
+\end{equation*}
+This shows that the mapping is onto.  We've now shown everything we need to show
+so that the mapping is an isomorphism from $\mathbb{R}^{+}$ to $\mathbb{R}$.
+
+\section*{Problem 36}
+
+Let $G=\{0,\pm 2, \pm 4, \pm 6, \dots\}$ and $H=\{0,\pm 3,\pm 6,\pm 9, \dots\}$.
+Show that $G$ and $H$ are isomorphic groups under addition.  Does your
+isomorphism preserve multiplication?
+
+Define the notation $G_k$, where $k\in\mathbb{Z}$, to be the
+group $G_k=\{0,\pm k, \pm 2k, \pm 3k, \dots\}$ under addition.
+Then $G=G_2$ and $H=G_3$.  It now suffices to show that $\mathbb{Z}$ is isomorphic
+to $G_k$ since then we would have $G\approx\mathbb{Z}\approx H\implies G\approx H$.
+Consider the mapping $\phi_k:\mathbb{Z}\to G_k$ defined by $\phi_k(z)=kz$.
+Let $a,b\in G_k$.  Assume $\phi_k(a)=\phi_k(b)$.  This implies that $ka=kb\implies a=b$
+so that $\phi_k$ is one-to-one.  Now choose $a=b/k\in\mathbb{Z}$ and we see
+that $\phi_k(a)=k(b/k) = b$ so that $\phi_k$ is onto $G_k$.
+We now see that $\phi_k$ preserves addition since...
+\begin{equation*}
+\phi_k(a+b)=k(a+b) = ka+kb = \phi_k(a)+\phi_k(b)
+\end{equation*}
+An isomorphism from $G_2$ to $G_3$ would be given by $\phi_3\phi_2^{-1}(z)=(3/2)z$.
+This mapping does not preserve multiplication since...
+\begin{equation*}
+\frac{3}{2}ab \neq \left(\frac{3}{2}\right)^2ab
+\end{equation*}
+
+\section*{Problem 40}
+
+Show that every automorphism $\phi$ of the rational numbers $\mathbb{Q}$ under
+addition to itself has the form $\phi(x)=x\phi(1)$.
+
+Let $a/b\in\mathbb{Q}$ where $a,b\in\mathbb{Z}$.  Then...
+\begin{equation*}
+\phi(a/b) = \phi\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_a = a\phi(1/b)
+\end{equation*}
+Now notice that...
+\begin{equation*}
+\phi(1) = \phi\underbrace{\left(\frac{1}{b}+\dots+\frac{1}{b}\right)}_b = b\phi(1/b)\implies
+\phi(1/b) = (1/b)\phi(1)
+\end{equation*}
+Putting it all together we get...
+\begin{equation*}
+\phi(a/b) = a\phi(1/b) = (a/b)\phi(1)
+\end{equation*}
+
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\GF}{\mbox{GF}}
+\newcommand{\al}{\alpha}
+
+\section*{Problem 1}
+
+Show that any automorphism on $\GF(p^n)$ acts as the
+identity on $\GF(p)$.
+
+Let $\phi$ be an automorphism of $\GF(p^n)$ and let $z\in\GF(p)\subseteq\GF(p^n)$.
+Since $\GF(p)\approx\Z_p$, we can think of $z$ as a member of $\Z_p$.
+Now notice that we must have $\phi(0)=0$ and $\phi(1)=1$, because
+0 is the additive identity of $\Z_p$, and 1 is the multiplicative
+identity of $\Z_p^*$.  We then see that for any $z\in\Z_p$, we have
+\begin{equation*}
+\phi(z)=\phi(\underbrace{1+\dots+1}_z)=\underbrace{\phi(1)+\dots+\phi(1)}_z=\underbrace{1+\dots+1}_z=z.
+\end{equation*}
+Notice that not all members of $\GF(p^n)$ can be written as the sum of unities.
+Only the members of $\GF(p)$ can.
+
+%Question: Is an automorphism of a group restricted to a subgroup an automorphism of the subgroup?
+
+%Any automorphism of $\GF(p^n)$ restricted to $\GF(p)$ is
+%an automorphism of $\GF(p)$.  Therefore, it suffices to show
+%that the identity on $\GF(p)$ is the only automorphism
+%of $\GF(p)\approx\Z_p$.  So let us look at any field automorphism
+%$\phi$ of $\Z_p$.  We must have $\phi(0)=0$ and $\phi(1)=1$, because
+%0 is the additive identity of $\Z_p$ and 1 is the multiplicative
+%identity of $\Z_p^*$.
+%We then see that for any $z\in\Z_p$, we have
+%\begin{equation*}
+%\phi(z)=\phi(\underbrace{1+\dots+1}_z)=\underbrace{\phi(1)+\dots+\phi(1)}_z=\underbrace{1+\dots+1}_z=z.
+%\end{equation*}
+%It is important to note that it is not true in generaly that any
+%automorphism of a field extension fixes the extended field.  Where the
+%above proof may fail in that case is in the ability to write $z$ as the sum of ones.
+
+\section*{Problem 2}
+
+Let $F$ be a finite field.  Show that the product of all nonzero elements of $F$ is $-1$.
+
+Wilson's Theorem proves this result for all finite fields of prime order.
+In fact, generalizing Wilson's Theorem to all finite fields can be done
+by generalizing one of its proofs.  If it can be shown that $1$ and $-1$ are
+the only elements of any finite field that are their own multiplicative
+inverse, then the result goes through.  Consider all solutions to
+the equation $x^2-1=0$ in $F$.  Notice that $x^2-1$ splits as $(x-1)(x+1)$ in $F[x]$.
+Now since $F$ is a field, it is also an integral domain.
+So the only solutions to the equation $(x-1)(x+1)=0$ are 1 and $-1$.
+When we now consider the product of all nonzero elements of $F$, we see that
+we can pair every element with its inverse, with the exception
+of 1 and $-1$, reducing the product to $(1)(-1)=-1$ as desired.
+
+\section*{Problem 3}
+
+Consider the polynomial $p(x)=x^3+x+1$ in $\Z_2[x]$.  Show this polynomial is irreducible.
+Let $\alpha$ be a zero of $p(x)$ in some extension field of $\Z_2$.  Write out the
+multiplication table for $\Z_2(\alpha)$.
+
+Since $\deg p(x)<4$ and $p(0)\neq 0$ and $p(1)\neq 0$, we have $p(x)$ irreducible over $\Z_2$.
+Using Theorem 20.3, we have $\Z_2(\alpha)\approx\Z_2[x]/\langle p(x)\rangle$ and
+$\{1,\al,\al^2\}$ as a basis for it over $\Z_2$.
+\begin{equation*}
+\begin{array}{cccccccc}
+ & \vline & \al & \al+1 & \al^2 & \al^2+1 & \al^2+\al & \al^2+\al+1 \\
+\hline
+\al & \vline & \al^2 & \cdot & \cdot & \cdot & \cdot & \cdot \\
+\al+1 & \vline & \al^2+\al & \al^2+1 & \cdot & \cdot & \cdot & \cdot \\
+\al^2 & \vline & \al+1 & \al^2+\al+1 & \al^2+\al & \cdot & \cdot & \cdot \\
+\al^2+1 & \vline & 1 & \al^2 & \al & \al^2+\al+1 & \cdot & \cdot \\
+\al^2+\al & \vline & \al^2+\al+1 & 1 & \al^2+1 & \al+1 & \al & \cdot \\
+\al^2+\al+1 & \vline & \al^2+1 & \al & 1 & \al^2+\al & \al^2 & \al+1
+\end{array}
+\end{equation*}
+
+\section*{Problem 4}
+
+Let $R$ be a commutative ring with unity that has more than one element.
+Prove that if for every nonzero element $a\in R$ we have $aR=R$, then $R$ is a field.
+
+What we need to show is that every nonzero element is a unit.
+By hypothesis, for any $r\in R$, there exists $b\in R$
+such that $ab=r$.  Choosing $r=1$, we see that there
+exists $b\in R$ such that $ab=1$.  But this is true for all $a\in R$.
+So every $a\in R$ is a unit, which is what we wanted to show.
+
+\end{document}

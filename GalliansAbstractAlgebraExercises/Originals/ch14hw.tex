@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 14 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\ann}{\mbox{Ann}}
+
+\section*{Problem 6}
+
+Find all maximal ideals in $\Z_{n>1}$.
+
+Let $\sigma(n)$ denote the number of positive divisors of $n$,
+and let $\{d_k\}_{k=1}^{\sigma(n)}$ be the ordered set of all
+divisors of $n$ such that $d_i<d_j$ for all $1\leq i<j\leq\sigma(n)$.
+(Notice that $d_{\sigma(n)}=n$.)
+Choose any integer $k\in[1,\sigma(n)]$ and let $a\in\langle d_k\rangle$ and $z\in\Z_n$.
+Then $a=i\cdot d_k$ and $z=j\cdot 1$ for some integers $i$ and $j$.
+We then see that $az=(i\cdot d_k)(j\cdot 1)=(i+j)\cdot d_k\in\langle d_k\rangle$.
+The same reasoning shows that $za\in\langle d_k\rangle$.
+It follows that $\langle d_k\rangle$ is an ideal of $\Z_n$ for all $k$.
+Recall that $\{\langle d_k\rangle\}_{k=1}^{\sigma(n)}$ is the set of all
+subrings of $\Z_n$, so we now want to know which of these are maximal.
+If $n$ is prime, then the only maximal ideal is $\langle 0\rangle$.
+Let $n=p_1^{a_1}\dots p_r^{a_r}$ be a composite number having $r$ prime factors.
+It should now be easy to see that $\{\langle p_k\rangle\}_{k=1}^r$ is
+the set of all maximal ideals of $\Z_n$, since at least
+one of these contains any other given
+ideal, and each is properly contained only by $\Z_n$.
+
+\section*{Problem 7}
+
+Let $a$ belong to a commutative ring $R$.  Show that $aR=\{ar:r\in R\}$ is
+an ideal of $R$.  If $R$ is the ring of even integers, list the elements of $4R$.
+
+First note that $\{0\}\subseteq aR\subseteq R$, showing that $aR$ is non-empty.
+Now let $u,v\in aR$.  Then $u=ar_u$ and $v=ar_v$ for some $r_u,r_v\in R$, and
+$u-v=ar_u-ar_v=a(r_u-r_v)\in aR$ since $r_u-r_v\in R$.  Then let $r\in R$,
+and using the commutativity of $R$, we see that $ur=ru=rar_u=arr_u\in aR$
+since $rr_u\in R$.  It follows that $aR$ is an ideal of $R$ by the Ideal Test.
+
+Let $R$ be the ring of even integers.
+Then $4R=\{4r:r\in R\}=\{0,\pm 8, \pm 16, \pm 24, \pm 32, \dots\}$.
+
+\section*{Problem 10}
+
+If $A$ and $B$ are ideals of a ring, show that the sum of $A$ and
+$B$, $A+B=\{a+b:a\in A,b\in B\}$, is an ideal.
+
+Let $u,v\in A+B$.  Then $u=a_u+b_u$ and $v=a_v+b_v$ for some
+$a_u,a_v\in A$ and $b_u,b_v\in B$.  So
+$u-v=(a_u+b_u)-(a_v+b_v)=(a_u-a_v)+(b_u-b_v)\in A+B$ since
+$a_u-a_v\in A$ and $b_u-b_v\in B$.  This shows that $A+B$ is
+a subgroup.
+
+For any $r$ in the ring containing $A$ and $B$,
+let $x\in r(A+B)$.  Then $x=r(a+b)=ra+rb$ for some $a\in A$ and $b\in B$.
+But $ra\in A$ and $rb\in B$, since $A$ and $B$ are ideals.
+It follows that $x\in A+B$.  A similar argument shows that if
+$x\in (A+B)r$, then $x\in A+B$.  We can now say that $A+B$ is ideal.
+
+\section*{Problem 12}
+
+If $A$ and $B$ are ideals of a ring, show that the product of $A$ and $B$,
+$AB=\{a_1b_1+a_2b_2+\dots+a_nb_n:a_i\in A,b_i\in B,n>0\}$, is an ideal.
+
+Let $u,v\in AB$ so that for some $i,j>0$, we have $u=a_1b_1+\dots+a_ib_i$ and
+$v=a_1'b_1'+\dots+a_j'b_j'$.  Write $-v=(-a_1')b_1'+\dots+(-a_j')b_j'$.
+It is then clear that $u-v=u+(-v)\in AB$.
+Now let $r\in R$.  Then $ru=ra_1b_1+\dots+ra_ib_i\in AB$ since
+$ra_k\in A$ for all $1\leq k\leq i$, and $ur=a_1b_1r+\dots+a_ib_ir\in AB$
+since $b_kr\in B$ for all $1\leq k\leq i$.  The proof now follows from
+the Ideal Test.
+
+\section*{Problem 14}
+
+Let $A$ and $B$ be ideals of a ring.  Prove that $AB\subseteq A\cap B$.
+
+Let $x=a_1b_1+a_2b_2+\dots+a_nb_n$ be any element of $AB$.
+Notice that $a_kb_k\in A$ for all $k$ since $A$ is ideal.
+This shows that $x\in A$.
+Then $a_kb_k\in B$ for all $k$ since $B$ is ideal.
+This shows that $x\in B$ also.
+So $x\in A\cap B$.
+
+\section*{Problem 26}
+
+Show that $\R[x]/\langle x^2+1\rangle$ is a field.
+
+It was proven in Example 14 of the text that $\langle x^2+1\rangle$
+is maximal in $\R[x]$.  So it follows directly from Theorem 14.4
+that $\R[x]/\langle x^2+1\rangle$ is a field.
+
+\section*{Problem 28}
+
+Show that $A=\{(3x,y):x,y\in\Z\}$ is a maximal ideal of $\Z\oplus\Z$.
+
+Suppose $B$ is an ideal of $\Z\oplus\Z$ that properly contains $A$.
+Let $b\in B-A$.  Then $b=(u,v)$ where $u\not\equiv 0\pmod{3}$, but
+one of $u\pm 1$ is congruent to 0 modulo 3.  So there must exist $a\in A$ such
+that $a-b=(1,1)$ or $b-a=(1,1)$.  In either case,
+$(1,1)\in B\implies B=\Z\oplus\Z$, since $B$ is ideal.
+We can now say that $A$ is maximal.
+
+\section*{Problem 32}
+
+In $Z[x]$, the ring of polynomials with integer coeficients, let
+$I=\{f(x)\in\Z[x]:f(0)=0\}$.  Prove that $I$ is not a maximal ideal.
+
+It is clear that $I=\langle x\rangle$.
+It was shown in Example 17 of the text that
+$\langle x\rangle$ is an ideal of $\Z[x]$.
+Now notice that $2+\langle x\rangle\in\Z[x]/\langle x\rangle$
+has no multiplicative inverse.  So $\Z[x]/\langle x\rangle$ is
+not a field.  So by Theorem 14.4, $\langle x\rangle$ is not maximal.
+
+\section*{Problem 36}
+
+Prove that $I=\langle 2+2i\rangle$ is not a prime ideal of $\Z[i]$.
+How many elements are in $\Z[i]/I$?  What is the characteristic of $\Z[i]/I$?
+
+Notice that $4\in I$ since $4=(1-i)(2+2i)$.  Then since $4(1+I)=0+I$, we
+need only confirm that $2\not\in I$ to verify that $\Z[i]/I\approx\Z_4$.
+(This reasoning follows from what we know about cyclic subgroups.)
+So assume $2\in I$.  Then there exit integers $a$ and $b$ such that
+$2=(a+bi)(2+2i)\implies 1=a-b+(a+b)i\implies a=1/2\not\in\Z$.
+By contradiction, $2\not\in I$.
+
+To show that $I$ is not prime, notice that $(2+I)^2=0+I$, showing that $\Z[i]/I$
+is not an integral domain.  It follows from Theorem 14.3 that $I$ is not prime.
+Alternatively, notice that while
+$2^2\in I$, we know that $2\not\in I$, showing also that $I$ is not prime.
+
+Since $\Z[i]/I$ is a cyclic group under its addition operation,
+it's characteristic is going to be the order
+of $\Z[i]/I$, which is the order of its generator.  Recall that by LaGrange's
+Theorem, all elements raised to the additive power of the order of the group
+are the additive identity.
+
+\pagebreak
+\section*{Problem 40}
+
+Let $a$ and $b$ belong to a commutative ring $R$.  Prove that $\{x\in R:ax\in bR\}$
+is an ideal.
+
+Let $u$ and $v$ be in this set so that $au,av\in bR$.  Then there exist
+$x_u,x_v\in R$ such that $au=bx_u$ and $av=bx_v$.
+We then see that $a(u-v)=au-av=bx_u-bx_v=b(x_u-x_v)\in bR$, showing that
+$u-v$ is in the said set.  It is therefore a subgroup of $R$.
+We now want to show that the set absorbs elements from $R$.
+So let $r\in R$ and notice that $aur=aru=arbx_u=b(arx_u)\in bR$, showing that
+$ur$ and $ru$ belong to the said set.  The proof now follows from the Ideal Test.
+
+\section*{Problem 42}
+
+Let $R$ be a commutative ring and let $A$ be any subset of $R$.  Show that the
+annihilator of $A$, $\ann(A)=\{r\in R:\mbox{$ra=0$ for all $a\in A$}\}$, is an ideal.
+
+Let $u,v\in\ann(A)$.  Then to show that $u-v$ is an annihilator of $A$,
+notice that $(u-v)a=ua-va=0-0=0$.  For any $r\in R$,
+to show that $ur$ and $ru$ are annihilators of
+$A$, notice that $ura=rua=r0=0$.  The proof now follows from the Ideal Test.
+
+\section*{Problem 52}
+
+Show that $\Z[i]/\langle 1-i\rangle$ is a field.
+How many elements does this field have?
+
+Since $1-i+\langle 1-i\rangle=0+\langle 1-i\rangle\implies 2+\langle
+1-i\rangle=0+\langle 1-i\rangle$, we need only check that $1\not\in\langle 1-i\rangle$
+to show that $\Z[i]/\langle 1-i\rangle\approx\Z_2$.  It would then follow that
+$\Z[i]/\langle 1-i\rangle$ is a field since $\Z_2$ is a field.
+We therefore want to find integers $a$ and $b$ such that
+$(a+bi)(1-i)=1\implies (a+b)+(b-a)i=1$.  This requires $1=a+b$ and $0=-a+b$.
+Adding these equations results in the conclusion that $b=1/2\not\in\Z$.
+The proof now follows by contradiction.
+
+We might also go about proving the result by showing that $\langle 1-i\rangle$
+is maximal in $R[i]$.  It would then follow by Theorem 14.4 that
+$R[i]/\langle 1-i\rangle$ is a field.
+Suppose $I$ is an ideal of $R[i]$ properly containing $\langle 1-i\rangle$.
+To characterize the elements of $I$ not in $\langle 1-i\rangle$, let $u+vi$
+be such an element, and notice that
+$(u+vi)/(1-i)=((u-v)+(u+v)i)/2\not\in R[i]$ implies that $u$ and $v$ have
+different parity.  (Note that complex division is unambiguated by the fact that
+$R[i]$ is a commutative ring.)  Letting $x,y\in\Z$, we now consider two cases.
+In the first case, we have $(2x+1)+2yi\in I\implies 1+2x+2yi+I=0+I\implies 1+I=0+I\implies 1\in I$ since
+$(2x+2yi)/(1-i)=((2x+2y)+(2y-2x)i)/2\in\Z[i]\implies
+2x+2yi\in\langle 1-i\rangle\subset I$.  In the second case, we have
+$2x+(2y+1)i\in I\implies i+2x+2y+I=0+I\implies i+I=0+I\implies 1+I=(i+I)^4=I^4=I
+\implies 1\in I$.  In either case, we have $1\in I$, showing that $I$ absorbs
+all elements of $R[i]$, so that $I=R[i]$.
+
+\end{document}

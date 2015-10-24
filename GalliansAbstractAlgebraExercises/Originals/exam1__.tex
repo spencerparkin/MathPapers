@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+
+\newcommand{\Z}{\mathbb{Z}}
+
+\section*{Problem 1}
+
+Let $N$ be an ideal of a non-commutative ring $R$.  Define the set
+$M=\{r\in R:\mbox{$xr\in N$ for all $x\in R$}\}$.  Show that
+$M$ is an ideal of $R$ that contains $N$.
+
+We see that $N$ is both a right and left sided ideal, because it
+is an ideal of $R$.
+Let $a\in N$.  Then for all $x\in R$, we have $xa\in N$, because
+$N$ is a left sided ideal.  This shows that $N\subseteq M$.
+Now let $a,b\in M$.  Then for all $x\in R$, we see that $x(a-b)=xa-xb\in N\subseteq M$,
+showing that $M$ is a subring of $R$.
+For all $x\in R$, we also have $xa\in N\subseteq M$, showing that $M$
+is a left sided ideal.
+What remains to be shown is that $M$ is a right sided ideal.
+Let $a\in M$ and let $x\in R$.  We want to show that $ax\in M$.
+So for all $y\in R$, we see that $y(ax)=(ya)x\in N$ since $ya\in N$
+and $N$ is a right sided ideal.
+It now follows that $M$ is an ideal of $R$.
+
+\section*{Problem 2}
+
+Let $D$ be a principle ideal domain and let $a\in D$ with $a\neq 0$.
+Show that there are only a finite number of different ideals in $D$
+containing $a$.
+
+Let us first show that $\langle x\rangle=\langle y\rangle$ if and
+only if $x$ and $y$ are associates in $D$.
+
+Let $x=uy$ where $u$ is a unit of $D$.  Suppose $z\in\langle x\rangle$.
+Then there exists $d\in D$ such that $z=dx=duy\in\langle y\rangle$.
+Supposing now that $z\in\langle y\rangle$, we see that there exists
+$d\in D$ such that $z=dy=du^{-1}x\in\langle x\rangle$.  It follows
+that $\langle x\rangle=\langle y\rangle$.
+
+Now suppose $\langle x\rangle=\langle y\rangle$.  Then there exist
+$d_1,d_2\in D$ such that $x=d_1y$ and $y=d_2x$.  So we have
+$x=d_1d_2x\implies 1=d_1d_2$, because $D$ is an integral domain.
+This shows that $d_1$ and $d_2$ are units, and
+it follows that $x$ and $y$ are associates.
+
+Now since $D$ is a principle ideal domain, the set of all
+ideals in $D$ containing $a$ is given by
+$\{\langle g\rangle:\mbox{$g$ divides $a$}\}$.
+Then since $D$ is also a unique factorization domain, we see
+that the number of divisors of $a$ that are unique up to associates
+is limited by the number of ways we can choose irreducible factors from
+the unique factorization of $a$.
+But the number of such choices is finite, since the number of irreducible
+factors of $a$ is finite.  It now follows that the set of
+all ideals containing $a$ is finite.
+
+\section*{Problem 3}
+
+Let $F$ be a field and let $F(x)$ denote the field of quotients of $F[x]$.
+Show that there is no element in $F(x)$ whose square is $x$.
+
+Let $f(x),g(x)\in F[x]$ with $g(x)\neq 0$.  Then $f(x)/g(x)\in F(x)$,
+and we consider whether or not it is possible that
+$((f(x)/g(x))^2=(f(x))^2/(g(x))^2=x/1\implies x(g(x))^2=(f(x))^2$.
+Clearly this is impossible since $\deg x(g(x))^2$ is odd and
+$\deg f(x)^2$ is even.
+
+\section*{Problem 4}
+
+Express $x^8+x$ as a product of irreducible polynomials in $\Z_2[x]$.
+
+Clearly $x^8+x=x(x^7+1)$.  The latter term has a zero of 1, so this
+factors to $x(x-1)(x^6+\dots+1)$.  At this point, if the latter term
+has no linear factors, then it has no quintic factors.  If it has no
+quadratic factors, then it has no quartic factors.  
+Both $x+1$ and $x$ do not divide $x^6+\dots+1$, and no irreducible
+quadratic divides it either.
+Finally, some work shows that $x(x-1)(x^6+\dots+1)$ further factors to...
+\begin{equation*}
+x(x-1)(x^3+x+1)(x^3+x^2+1)
+\end{equation*}
+Since $\Z_2$ is a field, we may apply Theorem 17.1 to show that the remaining
+two factors are irreducible.  Clearly, neither of them have zeros in $\Z_2$,
+so this is the desired factorization.
+
+\section*{Problem 5}
+
+Let $a+b\sqrt{-5}$ be an element of $\Z[\sqrt{-5}]$ with $b\neq 0$.
+Show that $2\not\in\langle a+b\sqrt{-5}\rangle$.
+
+If $2\in\langle a+b\sqrt{-5}\rangle$, then there exists $z\in\Z[\sqrt{-5}]$
+such that $2=z(a+b\sqrt{-5})$.  Then we see that
+$4=N(2)=N(z(a+b\sqrt{-5}))=N(z)N(a+b\sqrt{-5})=N(z)(a^2+5b^2)$, but
+$a^2+5b^2\geq 5$, since $b\neq 0$.  There is no positive integer $N(z)$
+such that $4=N(z)(a^2+5b^2)$, so $2\not\in\langle a+b\sqrt{-5}\rangle$.
+
+\end{document}

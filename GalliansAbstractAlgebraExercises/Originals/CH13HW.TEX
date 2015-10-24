@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 13 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+\section*{Problem 14}
+
+Show that the nilpotent elements of a commutative ring form a subring.
+
+Let $a$ and $b$ be elements of such a ring where $a^m=0$ and $b^n=0$ for some
+$m,n\in\N$.
+Then $(ab)^{mn} = a^{mn}b^{mn} = 0$, by the commutative property of the ring.
+We now want to find a positive integer $k$ such that $(a-b)^k=0$.
+\begin{equation*}
+(a-b)^k = \sum_{i=0}^k\binom{k}{i}(-1)^ia^{k-i}b^i
+\end{equation*}
+For this to be zero, we need to satisfy the condition
+$\max\{k-i,i\}_{i=0}^k\geq\max\{m,n\}$.
+This insures that at least one of $a^{k-i}$ and $b^i$ is zero for all $i$.
+Letting $k=2\max\{m,n\}$ will work.
+The proof now follows from the one-step subring test.
+
+\section*{Problem 16}
+
+A ring element $a$ is called idempotent if $a^2=a$.
+Prove that the only idempotents in an integral domain are 0 and 1.
+
+Suppose $a$ is an element of an integral domain such that $a^2=a$, and
+$a\not\in\{0,1\}$.  Then $a^2=a\implies a^2-a=0\implies a(a-1)=0$.
+It follows that $a-1=0\implies a=1$, since we're in an integral domain.
+The proof now follows by contradiction.
+
+\section*{Problem 26}
+
+Let $R=\{0,2,4,6,8\}$ under addition and multiplication modulo 10.
+Prove that $R$ is a field.
+
+Suppose $ab\equiv 0\pmod{10}$, where $a,b\in R-\{0\}$.
+But this is impossible since 5 appears nowhere in the prime factorization of $ab$.
+This shows that one of $a$ or $b$ must be zero so that $R$ is
+a finite integral domain.  It follows from Theorem 13.2 that
+$R$ is a field.
+
+\section*{Problem 30}
+
+Determine all elements of an integral domain that are their
+own inverses under multiplication.
+
+Suppose $a$ is such an element.  Then $a^2=1\implies 0=a^2-1=(a+1)(a-1)$.
+Because we're in an integral domain, at least one of $a+1$ and $a-1$ must be zero.
+The only possibilities are 1 and $-1$.
+
+\section*{Problem 32}
+
+Find an example of an integral domain and distinct positive integers $m$
+and $n$ such that $a^m=b^m$ and $a^n=b^n$, but $a\neq b$.
+
+Choose $1,2\in\Z_3$.  Then $1^2\equiv 2^2\pmod{3}$ and $1^4\equiv 2^4\pmod{3}$.
+
+\section*{Problem 38}
+
+Suppose that $a$ and $b$ belong to a commutative ring and $ab$ is a zero-divisor.
+Show that either $a$ or $b$ is a zero-divisor.
+
+Suppose that $a\neq 0$ and $b\neq 0$ are not zero-divisors.
+(Note that since $ab$ is a zero-divisor, we have $ab\neq 0$.)
+Let $x\neq 0$ be the element for which $(ab)x=0$.
+Then $a(bx)=0$, but since $bx\neq 0$, this implies that $a$ is a zero-divisor.
+By contradiction, one of $a$ or $b$ is a zero-divisor.
+I don't think that we needed the commutativity of the ring here, but
+we could have gone on to say that $(ax)b=0$ implies that $b$ is a zero-divisor,
+which is another contradiction.
+
+\section*{Problem 44}
+
+Give an example of an infinite integral domain that has characterstic 3.
+
+I think that $\Z_3[x]$ works.
+
+\section*{Problem 46}
+
+Let $R$ be a ring with $m$ elements.  Show that the characteristic of $R$ divides $m$.
+
+Let $R=\{a_1,a_2,\dots,a_m\}$.  Then $\mbox{char}\,R=\lcm(|a_1|,|a_2|,\dots,|a_m|)$.
+Then since for all $1\leq j\leq m$ we have $|a_j|$ divides $m$ by LaGrange's Theorem,
+we see that $\mbox{char}\,R$ must divide $m$ also.
+This can be seen by observing how the $\lcm$ function operates on the prime factorizations
+of its arguments.
+
+\section*{Problem 48}
+
+Find all solutions of $x^2-x+2=0$ over $\Z_3[i]$.
+
+We have...
+\begin{equation*}
+(x-(2+i))(x-(2-i)) = x^2-4x+5 = x^2-x+2 = 0
+\end{equation*}
+Then since $\Z_3[i]$ is an integral domain, we have
+$x=2+i,2-i$ only.
+
+\section*{Problem 54}
+
+Let $F$ be a finite field with $n$ elements.  Prove that $x^{n-1}=1$ for all
+nonzero $x$ in $F$.
+
+Notice that the set $F-\{0\}$ forms a group under the multiplication of $F$,
+since all non-zero elements of $F$ are units.  (This was proven in Problem 22
+of Chapter 12.)  The result now follows directly from Corollary 4 of
+LaGrange's Theorem.
+
+\section*{Problem 58}
+
+Suppose that $F$ is a field with characteristic not 2,
+and that the nonzero elements of $F$ form a cyclic group under multiplication.
+Prove that $F$ is finite.
+
+Assume that $F$ is infinite.  Then $F-\{0\}=\langle g\rangle$ where
+$g\in F$ and all multiplicative powers of $g$ are distinct ring elements.
+Because the characteristic of $F$ is not 2, there exists $f,f'\in F$
+such that $f+f'=0$ while $f\neq f'$.  Without loss of generality,
+let $f=g^i$ and $f'=g^j$ for integers $i<j$.
+Then $g^i+g^j=0\implies g^{i+k}+g^{j+k}=0$ for all integers $k$, since
+we're in a field.  We are now capable of finding the additive inverse
+of any element in $\langle g\rangle$.
+Notice that $-g^i=g^j$, while $-g^j = g^{2j-i}$.  But additive inverses
+come in pairs and they are unique.
+So $-g^i = g^j = -g^{2j-i}\implies g^i=g^{2j-i}$, and we've now
+contradicted the fact that all distinct powers of $g$ are distinct
+group elements.  So $\langle g\rangle$ is finite, and so is $F$.
+
+
+
+\end{document}

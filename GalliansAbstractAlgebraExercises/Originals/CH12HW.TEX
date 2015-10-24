@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Chapter 12 Homework}
+\author{Spencer}
+\addtolength{\oddsidemargin}{-.575in}
+\addtolength{\evensidemargin}{-.575in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.575in}
+\addtolength{\textheight}{1.25in}
+\begin{document}
+\maketitle
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\section*{Problem 14}
+
+Let $a$ and $b$ belong to a ring $R$ and let $m$ be an integer.
+Prove that $m\cdot(ab)=(m\cdot a)b=a(m\cdot b)$.
+
+The case $m=0$ is clear.  Suppose $m>0$.
+\begin{align*}
+(m\cdot a)b &= ((m-1)\cdot a) + ab \\
+ &= ((m-2)\cdot a) + 2\cdot(ab) \\
+ &= ((m-3)\cdot a) + 3\cdot(ab) \\
+ &=\dots \\
+ &= ((m-m)\cdot a) + m\cdot(ab) \\
+ &= m\cdot(ab)
+\end{align*}
+The case of $a(m\cdot b)=m\cdot(ab)$ is proven similarly.
+Now suppose $m<0$.  I assume that in this case, the notation
+$m\cdot x$ reduces to $|m|\cdot(-x)$.
+\begin{align*}
+(m\cdot a)b &= (|m|\cdot(-a))b \\
+ &= ((|m|-1)\cdot(-a))b - ab \\
+ &= ((|m|-2)\cdot(-a))b - 2\cdot(ab) \\
+ &= ((|m|-3)\cdot(-a))b - 3\cdot(ab) \\
+ &=\dots \\
+ &= ((|m|-|m|)\cdot(-a))b - |m|\cdot(ab) \\
+ &= -|m|\cdot(ab) = m\cdot(ab)
+\end{align*}
+Again, the case of $a(m\cdot b)=m\cdot(ab)$ is proven similarly.
+
+\section*{Problem 16}
+
+Show that if $n$ is an integer and $a$ is an element from a ring, then
+$n\cdot(-a)=-(n\cdot a)$.
+
+The case $n=0$ is clear.  Notice that if $n<0$, then
+we have $|n|\cdot a=-(|n|\cdot(-a))$, which is the same idea since we
+need only have $a$ and $-a$ be additive intervses of one another.
+So we will only consider $n>0$.
+Notice that $n\cdot(-a)+n\cdot a=n\cdot(-a+a)$ by the Abelian property
+of the ring with respect to addition.  Then $n\cdot(-a+a)=n\cdot 0=0$,
+showing that $n\cdot(-a)$ is the additive inverse of $n\cdot(-a)$.
+
+\section*{Problem 20}
+
+Describe the elements of $M_2(\Z)$ that have multiplicative inverses.
+
+\begin{equation*}
+\{m\in M_2(\Z):\det m\neq 0\}
+\end{equation*}
+
+\section*{Problem 22}
+
+Let $R$ be a commutative ring with unity and let $U(R)$ denote the set
+of units of $R$.
+Prove that $U(R)$ is a group under the multiplication of $R$.
+
+The unity of $R$ is in $U(R)$.
+Let $a,b\in U(R)$.  Then $a^{-1},b^{-1}\in U(R)$.
+Since $ab^{-1}ba^{-1}=1$, we have $(ab^{-1})^{-1}=ba^{-1}$, showing
+that $ab^{-1}$ is a unity of $R$ and therefore in $U(R)$.
+The proof now follows from the one-step subgroup test.
+
+\section*{Problem 24}
+
+If $R_1,R_2,\dots,R_n$ are commutative rings with unity, show that
+$U(R_1\oplus R_2\oplus\dots\oplus R_n)=U(R_1)\oplus U(R_2)\oplus\dots\oplus U(R_n)$.
+
+We have to show that the operations of taking the direct product of groups and
+collecting the units of a group are commutative.
+If $x\in U(R_1\oplus R_2\oplus\dots\oplus R_n)$, then 
+$x^{-1}\in U(R_1\oplus R_2\oplus\dots\oplus R_n)$, and
+$xx^{-1}=(1_1,1_2,\dots,1_n)$, showing that the components of $x$ must
+be units of their respective rings, so that $x\in U(R_1)\oplus U(R_2)\oplus\dots\oplus U(R_n)$.
+If $x\in U(R_1)\oplus U(R_2)\oplus\dots\oplus U(R_n)$, then
+$x=(x_1,x_2,\dots,x_n)$, and we can find $x^{-1}\in U(R_1)\oplus U(R_2)\oplus\dots\oplus U(R_n)$
+if we let $x^{-1}=(x_1^{-1},x_2^{-1},\dots,x_n^{-1})$.
+This shows that every $x\in U(R_1)\oplus U(R_2)\oplus\dots\oplus U(R_n)$ is
+a unit, so it can be found in $U(R_1\oplus R_2\oplus\dots\oplus R_n)$.
+I'm not entirely satisfied with this explanation, but I think it works.
+(It's too long.)
+
+\section*{Problem 26}
+
+Determine $U(\R[x])$.
+
+Consider the product...
+\begin{equation*}
+(a_m x^m + \dots + a_1 x + a_0)(b_n x^n + \dots + b_1 x + b_0) = (a_mb_nx^{m+n} + \dots + a_0b_0)
+\end{equation*}
+...where $a_m,b_n\neq 0$ and $m,n>0$.
+Notice that the coeficients of the leading and trailing terms will always be a product of
+real numbers.  The coeficients of the middle terms may use some addition so that subtraction
+may give zero coeficients.
+Since $\R$ is an integral domain, we must have $a_mb_n\neq 0$.  But we would need $a_mb_n=0$
+if we wanted the product to be the multiplicative idenity.
+So this only works when $m=n=0$ so that we could have $a_0b_0=1$.
+I think that $U(\R[x])$ is the set of all constant polynomials.
+It might be appropriate to say $U(\R[x])=\R$.
+
+\section*{Problem 30}
+
+Suppose that there is an integer $n>1$ such that $x^n=x$ for all elements
+$x$ of some ring.  If $m$ is a positive integer and $a^m=0$ for some $a$,
+show that $a=0$.
+
+If $m=n$, then it's trivial.
+Supposing that $m<n$ we have $a=a^n=a^{m+k}=a^ma^k=0a^k=0$, where $k$ is a positive integer.
+This shows that if we can find an integer $m\leq n$ such that $a^m=0$, then $a=0$.
+In the case where $m>n$, we will find such a power of $a$.
+Calculate $0=a^m=a^{n+k}=a^na^k=aa^k=a^{k+1}$, where $k$ is a positive integer.
+(Notice that $k+1\leq m$, but if $k+1=m$, then $k+1=n+k\implies n=1$, which can't happen,
+so $k+1<m$.)
+If $k+1\leq n$, then we're done.
+If not, calculate $0=a^{k+1}=a^{n+k'}=a^na^{k'}=aa^{k'}=a^{k'+1}$, where $k'$ is a positive integer.
+(Again, notice that $k'+1<k+1$.)
+If $k'+1\leq n$, then we're done.  If not, continue in a similar manner until we're done.
+The process will terminate since $m$ is finite.
+
+\section*{Problem 32}
+
+Let $n$ be an integer greater than 1.  In a ring in which $x^n=x$ for all $x$,
+show that $ab=0$ implies $ba=0$.
+
+\begin{equation*}
+ba = (ba)^n = b(ab)^{n-1}a = 0
+\end{equation*}
+
+\section*{Problem 36}
+
+Let $m$ and $n$ be positive integers and let $k$ be the least common multiple
+of $m$ and $n$.  Show that $m\Z\cap n\Z=k\Z$.
+
+The intersection of the set of all multiples of $n$ with the set of all multiples of $m$
+will give us the set of all multiples of $m$ and $n$.  This is also the set
+generated by $k$.  Did I miss something?
+
+\section*{Problem 40}
+
+Let $M_2(\Z)$ be the ring of all $2\times 2$ matrices over the integers
+and let $R=\left\{\left[\begin{array}{cc}a&a+b\\a+b&b\end{array}\right]:a,b\in\Z\right\}$.
+Prove or disprove that $R$ is a subring of $M_2(\Z)$.
+
+The following shows that $R$ is not closed under the multiplication of $M_2(\Z)$.
+\begin{equation*}
+\left[\begin{array}{cc}1&1+1\\1+1&1\end{array}\right]
+\left[\begin{array}{cc}1&1+2\\1+2&2\end{array}\right] =
+\left[\begin{array}{cc}7&7\\5&8\end{array}\right]
+\end{equation*}
+Notice that $5\neq 7$.
+
+\section*{Problem 42}
+
+Let $R=\left\{\left[\begin{array}{cc}a&a\\b&b\end{array}\right]:a,b\in\Z\right\}$.
+Prove or disprove that $R$ is a subgring of $M_2(\Z)$.
+
+Notice that $R$ contains the additive identity of $M_2(\Z)$.
+The following shows that $R$ is closed under the subtraction of $M_2(\Z)$.
+\begin{equation*}
+\left[\begin{array}{cc}a&a\\b&b\end{array}\right]-
+\left[\begin{array}{cc}c&c\\d&d\end{array}\right]=
+\left[\begin{array}{cc}a-c&a-c\\b-d&b-d\end{array}\right]
+\end{equation*}
+And the following shows that $R$ is closed under the multiplication of $M_2(\Z)$.
+\begin{equation*}
+\left[\begin{array}{cc}a&a\\b&b\end{array}\right]
+\left[\begin{array}{cc}c&c\\d&d\end{array}\right]=
+\left[\begin{array}{cc}ac+ad&ac+ad\\bc+bd&bc+bd\end{array}\right]
+\end{equation*}
+
+\section*{Problem 50}
+
+Suppose that $R$ is a ring and that $a^2=a$ for all $a$ in $R$.  Show that $R$ is
+commutative.
+
+Let $a,b\in R$.  
+First notice that $-a = (-a)^2 = (-a)(-a) = a^2 = a$, showing that every element
+of $R$ is its own additive inverse.  It then follows that
+$a+b = (a+b)^2 = (a+b)a + (a+b)b = a^2+ba+ab+b^2 = a+ba+ab+b\implies ba+ab=0\implies ba=-ab=ab$.
+
+\end{document}
