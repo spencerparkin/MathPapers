@@ -472,7 +472,6 @@ V_i = \sum_{j=i}^{r-1} m_i.
 \end{equation*}
 Looking back at equation \eqref{equ_factor_a_dot_M_r}, we can see now how a vector could be factored
 out of $a\cdot M_r - \langle M_r\rangle_0a$ in terms of the geometric product.
-The next lemma shows that this can happen when $a\wedge\langle M_r\rangle_r=0$ and $\langle M_r\rangle_r\neq 0$.
 
 We finally return now to the concept of versor rank.  The proof of the following lemma is pieced together
 from the factorization algorithm given in \cite[p. 108]{Perwass09}.
@@ -493,25 +492,29 @@ of $M$ of size $r$ can be found, then we have found the rank of $M=M_r$; namely,
 This factorization must then be linearly-independent, because it generates $\langle M\rangle_r$,
 which is clearly a blade of grade $r$.
 
-The case $r=0$ is trivial, so letting $r>0$,
-there exists a vector $m_1$ such that $m_1\wedge\langle M\rangle_r=0$
-and $m_1\cdot\langle M\rangle_r\neq 0$, and therefore, since $\langle M\rangle_{r-1}=0$,
-we have $m_1\cdot M = m_1M$.  The highest non-zero grade part of $m_1M$ being $r-1$,
-find another vector $m_2$ such that $m_2\cdot(m_1\cdot M)=m_2m_1M$ having highest grade
-part $r-2$.  Continuing on in this fashion,
-we finally arrive at
+The case $r=0$ is trivial; so letting $r>0$,
+there exists a non-zero vector $m_1$ such that $m_1\wedge\langle M\rangle_r=0$;
+and therefore, $m_1M$ is a versor with $\langle m_1M\rangle_{r-1}\neq 0$ with
+$r-1$ being the largest integer for which this is the case.
+If $r-1>0$, we repeat this process with a new vector $m_2$.  Continuing on in this fasion, we find
+that, in general, we have, for a linearly independent set of $r$ vectors $\{m_i\}_{i=1}^r$,
 \begin{equation*}
-m_r\cdot m_{r-1}\cdot\dots\cdot m_2\cdot m_1\cdot M=m_rm_{r-1}\dotsm_2m_1M,
+\left(\prod_{i=1}^r m_i\right)M=\left\langle\left(\prod_{i=1}^r m_i\right)M\right\rangle_0=\lambda\in\R,
 \end{equation*}
-where here, the associativity of the inner product is understood, the left-hand side is clearly a non-zero scalar we'll call $\lambda$,
-and the right-hand side a versor.  It then follows that
+which shows that
 \begin{equation*}
-M^{-1} = \lambda^{-1}\tilde{M_r}\implies M_r = \lambda(M^{-1})^{\sim},
+M^{-1} = \lambda^{-1}\tilde{M_r}\implies M_r = \lambda(M^{-1})^{\sim} = \lambda\prod_{i=1}^r m_{r-i+1},
 \end{equation*}
 showing that we have found a factorization of $M_r$, as desired.
 \end{proof}
 Note here our requirement that $M_r$ be invertible.  It is very likely, however,
-that the statement of Lemma~\ref{lem_versor_rank_iff_lin_indep} also holds true for null versors too.
+that the statement of Lemma~\ref{lem_versor_rank_iff_lin_indep} also holds true for null versors.
+
+It is important to notice that if $M$ is a versor with rank $r$ and $v$ is a vector
+such that $v\wedge\langle M\rangle_r=0$, then it is not necessarily the case
+that $vM = v\cdot M$.  This is because we may have $v\wedge\langle M\rangle_{r-2}\neq 0$.
+Hmmm, if we have $v\wedge\langle M\rangle_{r-2}=0$, is that enough?
+The expansion of $\langle M\rangle_{r-2}$, given a known factorization, is not too hard to find.
 
 \section{Blades And Versors As Representatives Of Geometric Sets}
 
