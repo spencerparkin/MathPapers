@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 2.3 Exercises\\Hertein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 8}
+
+If $G$ is a finite group, show that threre exists a postive integer $N$ such that $a^N=e$
+for all $a\in G$.
+
+It is not hard to show that for every $a\in G$, there exists an integer $k(a)$ such that $a^{k(a)}=e$.
+Further, $a^{nk(a)}=e$ for every integer $n$.  Now let
+\begin{equation*}
+N=\prod_{a\in G} k(a).
+\end{equation*}
+
+\section*{Problem 11}
+
+If $G$ is a group of even order, prove it has an element $a\neq e$ satisfying $a^2=e$.
+
+Clearly $G$ has an odd number of non-identity elements.  Pluck such an element from $G$.
+If $a^2=e$, we're done.  If not, pluck its inverse out of $G$ as well.  This leaves us yet
+a smaller pool of odd elements to choose from.  Continue this process until we either find an
+element being its own inverse, or we're left with just one non-identity element.  Clearly this
+last remaining non-identity element must be its own inverse.
+
+\section*{Exercise 26}
+
+\subsection*{Part (a)}
+
+Let $G$ be the group of all $2\times 2$ matrices $\left(\begin{array}{cc}a&b\\c&d\end{array}\right)$
+where $a$, $b$, $c$, $d$ are integers modulo $p$, $p$ a prime number, such that $ad-bc\neq 0$.
+$G$ forms a group relative to matrix multiplication.  What is $o(G)$?
+
+We find $|G|$ by counting matrices of the said dimension and then subtracting from that the number of
+such being singular.  Clearly there are $p^4$ matrices of the desired dimension.  How many of them are singular?
+The singularity of a $2\times 2$ matrix occurs whenever a row (column) is a scalar multiple of the other row (column).
+Consider the following expression.
+\begin{equation*}
+(1)p^2 + (p-1)p + (p-1)p + (p-1)^2p.
+\end{equation*}
+This expression, having 4 terms, represents 4 cases.  In the first case, one row is zero, leaving $p^2$ choices
+for the other row.  In the second case, a row is axis-aligned in $p-1$ ways with $p$ ways the other row
+is zero or parallel to it.  The third cases is counted like the second, but using the other axis.  In the fourth case,
+there are $(p-1)^2$ ways a row is non-zero and non-axis-aligned with $p$ ways the other row is zero or parallel to it.
+
+Putting it all together, we get
+\begin{equation*}
+|G| = p^4 - p^3 - p^2 + p.
+\end{equation*}
+
+\subsection*{Part (b)}
+
+Let $H$ be the subgroup of the $G$ of part (a) defined by
+\begin{equation*}
+H = \left\{\left.\left(\begin{array}{cc}a&b\\c&d\end{array}\right)\in G\right|ad-bc=1\right\}.
+\end{equation*}
+What is $o(H)$?
+
+Figure it out...
+
+\end{document}
