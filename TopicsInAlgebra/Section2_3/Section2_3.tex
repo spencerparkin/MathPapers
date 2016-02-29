@@ -42,6 +42,66 @@ a smaller pool of odd elements to choose from.  Continue this process until we e
 element being its own inverse, or we're left with just one non-identity element.  Clearly this
 last remaining non-identity element must be its own inverse.
 
+\section*{Problem 14}
+
+Suppose a finite set $G$ is closed under an associative product and that
+both cancellation laws hold in $G$.  Prove that $G$ must be a group.
+
+If $G$ is a singleton set, then its sole element must be identity, and we're done.
+If not, then it is not as yet clear that $G$ has an identity element.
+Letting $a$ be any element of $G$, consider the subset $\{a^i\}_{i=1}^\infty$.  Clearly, since 
+$G$ is finite, this is a finite subset of $G$; and therefore, there exists
+$0<i<j$ such that $a^i=a^j$.  It follows that
+\begin{equation*}
+a^i = a^ia^{j-i},
+\end{equation*}
+and we claim that $a^{j-i}$ is an identity element.  To substantiate this claim, let $b$ be any element
+of $G$, and write
+\begin{equation*}
+ba^{j-i}=c.
+\end{equation*}
+Multiplying both sides by $a^i$ on the right, we obtain
+\begin{equation*}
+ba^j = ca^i,
+\end{equation*}
+and then by the right-cancellation property, $b=c$.  Similarly, we can show that $a^{j-i}$ is an
+identity element on the left using the left-cancellation proprety.
+
+What remains to be shown is that every element has a multiplicative inverse.  Knowing now that
+there is an identity, for any $a\in G$, and by the proof we used to show its existence, we have $a^n=e$ for some positive integer $n$.
+(We found $n=j-i$ in one case above.)
+We can then claim that $a^{n-1}=a^{-1}$.
+
+\section*{Exercise 15}
+
+Show that the nonzero integers less than and relatively prime to $n$ for a group under multilication mod $n$.
+
+(I'm only doing part (b) as it is a generalization of part (a).)
+
+Let's start with closure.  Letting $S(n) = \{0<x<n|(x,n)=1\}$, it is clear that
+for all $x,y\in S(n)$, that $(xy,n)=1$, but we may have $xy\geq n$.
+Noting that there exist integers $u,v\in\Z$ such that
+\begin{equation*}
+xyu + nv = 1,
+\end{equation*}
+we also note that
+\begin{equation*}
+1 = (xy + kn - kn)u + nv = (xy + kn) + (-ku + v)n,
+\end{equation*}
+showing that, for all integers $k$, we have $(xy + kn,n)=1$.  We now have closure.
+
+If we can now show that the cancellation law holds, then the problem goes through by Problem 14.
+To that end, for appropriate $x,y,z\in S(n)$, write
+\begin{equation*}
+xy\equiv xz\pmod{n}.
+\end{equation*}
+This means that $n|x(y-z)$.  But since $(x,n)=1$, we must have $n|(y-z)$, and
+therefore
+\begin{equation*}
+y\equiv z\pmod{n}.
+\end{equation*}
+(Recall Lemma 1.3.3, part 4.)
+
 \section*{Exercise 26}
 
 \subsection*{Part (a)}
