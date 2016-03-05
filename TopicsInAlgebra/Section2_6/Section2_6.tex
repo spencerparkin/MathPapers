@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 2.6 Exercises\\Hertein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+\maketitle
+
+\section*{Thoughts}
+
+Remembering Gallian's book, he shows that the operation Herstein introduces here is well-defined.
+Let $N$ be a normal subgroup of $G$ and define, for any $a,b\in G$,
+\begin{equation*}
+(Na)(Nb)=N(ab).
+\end{equation*}
+Is this a well-defined operation?  Well, $Na=Nb$ if and only if $ab^{-1}\in N$.
+So let $a',b'\in G$ such that $Na=Na'$ and $Nb=Nb'$ and write
+\begin{equation*}
+(Na')(Nb') = N(a'b').
+\end{equation*}
+Can we show that
+\begin{equation*}
+ab(b')^{-1}(a')^{-1} = ab(a'b')^{-1}\in N?
+\end{equation*}
+Well, clearly $n_b=b(b')^{-1}\in N$.  Now since $n_a=a(a')^{-1}\in N$,
+we have
+\begin{equation*}
+ab(b')^{-1}(a')^{-1} = an_b(a')^{-1} = n_a[(a')n_b(a')^{-1}]\in N,
+\end{equation*}
+since $N$ is normal.
+
+\section*{Problem 9}
+
+Suppse $H$ is the only subgroup of order $|H|$ in the finite group $G$.
+Prove that $H$ is a normal subgroup of $G$.
+
+This would follow from proving the following statement.
+If $\{H_i\}$ is a finite set of subgroups of $G$, each of order $n$, then
+for all $g\in G$, and every integer $i$, there exists an integer $j$, such that
+\begin{equation*}
+gH_i = H_jg.
+\end{equation*}
+
+Interestingly, this presents the idea of two subgroups of $G$ being
+co-normal.  Neither is necessarily normal by themselves, but together,
+they're co-normal.
+
+Here's an idea.  Let $H$ be a subroup of $G$.
+Then, for any $g\in G$, let $K$ be the set given by
+\begin{equation*}
+K = \{g^{-1}hg|h\in H\}.
+\end{equation*}
+It is clear that $gK=Hg$.  We now show, whether or not $H$ is
+a normal subgroup of $G$, that $K$ is a subgroup of $G$ having the
+same order as $H$.
+
+Clearly $e\in K$, so $K$ is non-empty.  Closure is trivial, for
+\begin{equation*}
+(g^{-1}h_1g)(g^{-1}h_2g)=g^{-1}h_1h_2g\in K
+\end{equation*}
+since $h_1h_2\in H$.  And then
+\begin{equation*}
+(g^{-1}hg)^{-1} = g^{-1}h^{-1}g\in K
+\end{equation*}
+since $h^{-1}\in H$.
+
+To show now that $|K|=|H|$, let $\phi_g(h)=g^{-1}hg$ and
+write
+\begin{equation*}
+g^{-1}h_1g = g^{_1}h_2g\implies h_1=h_2,
+\end{equation*}
+showing that $\phi_g$ is one-to-one.  Then since $H$ is finite,
+$\phi_g$ is also onto $K$.  It follows that $|K|=|H|$.
+
+Returning to the original problem, we see that $H$ must be normal in $G$,
+because $H$ is the only subgroup of $G$ of its order.  (That is, we must have $K=H$.)
+
+Now, if two subgroups of co-normal, can we make a group out of the
+set of cosets shared between the two subgroups?  I don't see how.
+There are two identity elements.
+
+\end{document}
