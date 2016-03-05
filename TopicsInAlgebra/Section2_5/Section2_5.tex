@@ -122,4 +122,69 @@ It is also possible to show that $x^{-1}y\in H$ if and only if $xH=yH$.
 
 Hmmm...think about it.
 
+\section*{Problem 25}
+
+Let $G$ be an abelian group and suppose that $G$ has elements of orders
+$m$ and $n$, respectively.  Prove that $G$ has an element whose order is the
+least common multiple of $m$ and $n$.
+
+Find $a,b\in G$ such that $|a|=m$ and $|b|=n$, and then let $x=ab$ and $r=\lcm(m,n)$.
+We then see that
+\begin{equation*}
+x^r = (ab)^r = a^rb^r = e^2 = e,
+\end{equation*}
+showing that $|x|$ divides $r$.
+
+I think we now need to show that $a^kb^k=e$ if and only if $a^k=e$ and $b^k=e$.
+One direction is trivial...
+
+\section*{Problem 27}
+
+Prove that any subgroup of a cyclic group is itself a cyclic group.
+
+Let $G=\langle a\rangle$, and let $H$ be a non-trivial subgroup of $G$.
+Notice that all elements in $H$ are of the form $a^k$ for some integer $k$.
+In other words, $H=\{a^{m_i}\}_i$, where $\{m_i\}_i$ is a set of positive integers.
+By the well-ordering principle, this set has a smallest element; call it $m$ and consider $a^m\in H$.
+If $\langle a^m\rangle=H$, then we're done.  If not, then $H-\langle a^m\rangle$ is yet
+another set of elements, each of the form $\{a^{n_i}\}$, where $\{n_i\}_i$ is a set of positive integers.
+By the well-ordering principle, this set has a smallest element; call it $n$ and consider $a^n\in H-\langle a^m\rangle$.
+It should be clear that $m < n < 2m$; from which it follows that
+\begin{equation*}
+0 < n - m < m.
+\end{equation*}
+But now since $a^m,a^n\in H$, we must have
+\begin{equation*}
+e\neq a^n(a^m)^{-1} = a^{n-m}\in H,
+\end{equation*}
+which is a contradiction of the fact that $m$ is the least positive integer for which $a^m\neq e$.
+It follows that $H=\langle a^m\rangle$.
+
+Note: Suppose we look at $a^n\in H$ with $km < n < (k+1)m$, where $k>1$.  Then $a^{n-km}\in H$,
+and $0 < n-km < m$.
+
+\section*{Problem 28}
+
+How many generators does a cyclic group of order $n$ have?
+
+In $\Z_n$, the number of generators is the number of positive integers less than $n$ and
+relatively prime to $n$, denoted $\phi(n)$.  How can we prove this?
+Let $x\in\Z_n$ be such a number, and choose any $y\in\Z_n$.  We want to show that there exists an integer $k$
+such that
+\begin{equation*}
+kx\equiv y\pmod{n}.
+\end{equation*}
+Now since $(x,n)=1$, there exist integers $u,v\in\Z$ such that
+\begin{equation*}
+ux+ vn = 1.
+\end{equation*}
+Multiplying through by $y$, we find that
+\begin{equation*}
+(uy)x + (vy)n = y,
+\end{equation*}
+which shows that $n|(y-kx)$ with $k=uy$.
+
+Thus far we have only shown that the number of generators of $\Z_n$ is at least $\phi(n)$.
+Are there anymore?  Brain farting on how to prove this.
+
 \end{document}
