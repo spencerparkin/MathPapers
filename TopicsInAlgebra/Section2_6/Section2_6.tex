@@ -115,6 +115,75 @@ Now, if two subgroups of co-normal, can we make a group out of the
 set of cosets shared between the two subgroups?  I don't see how.
 There are two identity elements.
 
+\section*{Problem 10}
+
+If $H$ is a subgroup of $G$, let $N(H)=\{g\in G|gHg^{-1}=H\}.$
+
+\subsection*{Part A}
+
+Prove $N(H)$ is a subgroup of $G$.
+
+So $e\in N(H)$ since $eHe^{-1}=H$.  Let $x,y\in N(H)$.
+\begin{equation*}
+xyH(xy)^{-1}=xyHy^{-1}x^{-1} = xHx^{-1}=H,
+\end{equation*}
+so $xy\in N(H)$.  Similarly,
+\begin{equation*}
+xHx^{-1} = H\implies xH=Hx\implies H=x^{-1}Hx,
+\end{equation*}
+so $x^{-1}\in N(H)$.  Note that $H$ did not need to be a normal group for this.
+We got the desired properties by virtue of $x$'s membership in $N(H)$.
+
+\subsection*{Part B}
+
+Prove $H$ is normal in $N(H)$.
+
+Clearly $H\subseteq N(H)$ since for all $h\in H$, $hHh^{-1}=H$ by the cancelation property of groups.
+(For if $hah^{-1}=hbh^{-1}$, then $a=b$.)
+So $H$ is a subgroup of $N(H)$.  Now for $x\in N(H)$ and $h\in H$,
+there exists $h'\in H$ such that $xhx^{-1}=h'$ since $xHx^{-1}=H$.
+
+\subsection*{Part C}
+
+Prove that if $H$ is a normal subgroup of the subgroup $K$ in $G$, then $K\subseteq N(H)$
+(that is, $N(H)$ is the largest subgroup of $G$ in which $H$ is normal.)
+
+(Recall that normality is not a transitive proprety of subgroups.  That is, $A$ normal in $B$, and $B$
+normal in $C$ does not imply that $A$ is normal in $C$.)
+
+For $x\in K$ and $h\in H$, we know that $xHx^{-1}=H$ by Lemma 2.6.1,
+and so this qualifies $x$ for membership in $N(H)$.
+
+\subsection*{Part D}
+
+Prove that $H$ is normal in $G$ if and only if $N(H)=G$.
+
+Let $g\in G$.  If $H$ is normal in $G$, then $gHg^{-1}=H\implies g\in N(H)\implies G\leq N(H)$.
+But now clearly $N(H)\leq G$, so $G=N(G)$.  Now if $N(H)=G$, then
+for all $g\in G$, $gHg^{-1}=H$ implies that $H$ is normal in $G$ by Lemma 2.6.1.
+
+\section*{Problem 11}
+
+If $N$ and $M$ are normal subgroups of $G$, prove that $NM$ is also a normal subgroup of $G$.
+
+Cleaty $e\in NM$, so it is non-empty.  Now for $n,n'\in N$ and $m,m'\in M$, we have
+\begin{equation*}
+nmn'm'=nn''mm'\in NM,
+\end{equation*}
+showing closure.  Here we used the normal proprety of $M$ to say that
+there must exist $n''\in N$ such that $mn'=n''m$.
+We then have
+\begin{equation*}
+(nm)^{-1}=m^{-1}n^{-1}=n'm^{-1}\in NM.
+\end{equation*}
+By the normal property of $M$ again, there must exist $n'\in N$
+such that $m^{-1}n^{-1}=n'm^{-1}$.
+Lastly, we have, for any $g\in G$,
+\begin{equation*}
+gnmg^{-1}=gng^{-1}gmg^{-1}=n'm'\in NM,
+\end{equation*}
+by the normality of $N$ and $M$.
+
 \section*{Problem 12}
 
 Suppose that $N$ and $M$ are two normal subgroups of $G$ and that

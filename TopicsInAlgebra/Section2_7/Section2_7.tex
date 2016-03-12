@@ -4,7 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
-\title{Section 2.7 Exercises\\Hertein's Topics In Algebra}
+\title{Section 2.7 Exercises\\Herstein's Topics In Algebra}
 \author{Spencer T. Parkin}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -22,6 +22,112 @@
 
 \begin{document}
 \maketitle
+
+\section*{Problem 3}
+
+Let $G$ be a finite abelian group of order $|G|$ and suppose the integer
+$n$ is relatively prime to $|G|$.  Prove that every $g\in G$ can be written as
+$g=x^n$ with $x\in G$.
+
+I'm doubtful I could have done this problem without the hint Herstein provides.
+
+Let $\phi:G\to G$ be defined as $\phi(y)=y^n$.  We then easily see that
+\begin{equation*}
+\phi(xy)=(xy)^n=x^ny^n=\phi(x)\phi(y),
+\end{equation*}
+since $G$ is abelian, and so $\phi$ is a homomorphism.
+Consider the kernel of $\phi$.  Note that
+\begin{equation*}
+y^n=e\implies y=e,
+\end{equation*}
+since the order of $y\neq e$ cannot divide a number $n$ that is coprime with $|G|$,
+by Lagrange's theorem.  It follows that $\phi$ is an isomorphism.
+Now since $G$ is finite, we can easily claim that every element has
+the form $x^n$ for some $x\in G$.  (To find such an $x$ for a given $g$,
+just let $x=\phi^{-1}(g)$.)
+
+\section*{Problem 4}
+
+\subsection*{Part A}
+
+Given any group $G$ and a subset $U$, let $\hat{U}$ be the smallest subgroup
+of $G$ which contains $U$.  Prove there is such a subgroup $\hat{U}$ in $G$.
+
+I would write
+\begin{equation*}
+\hat{U}=\{g\in G|g\in\prod_{w\in W}w,W\subseteq V\},
+\end{equation*}
+where the set $V$ is given by
+\begin{equation*}
+V=\{u^z|u\in U,z\in\Z\}.
+\end{equation*}
+I believe this is the smallest subgroup of $G$ containing $U$, because
+no element is added unnecessarily.
+
+One drawback of this formulation, however, is that it makes it difficult to write
+the form of a general element of the group.  If we restrict ourselves to finite or even
+countably infinite subset $U$ of $G$, then we can write a general element $u\in\hat{U}$ as
+\begin{equation*}
+u = \prod_i u_i^{z_i},
+\end{equation*}
+where $\{u_i\}\subseteq U$ and $\{z_i\}\subseteq\Z$ are each finite or countably infinite sequences.
+
+\subsection*{Part B}
+
+If $gug^{-1}\in U$ for all $g\in G$, $u\in U$, prove that $\hat{U}$ is a normal
+subgroup of $G$.
+
+Let $u\in\hat{U}$.  We then see that
+\begin{equation*}
+gug^{-1} = \prod_i gu_i^{z_i}g^{-1} = \prod_i (gu_ig^{-1})^{z_i}\in\hat{U}.
+\end{equation*}
+
+\section{Problem 5}
+
+Let $U=\{xyx^{-1}y^{-1}|x,y\in G\}$.  In this case $\hat{U}$ is usually written $G'$
+and is called the {\it commutator subroup of $G$}.
+
+\subsection*{Part A}
+
+Prove that $G'$ is normal in $G$.
+
+By part B of problem 4, we need only show that for any commuator $u\in U$, and
+any $g\in G$, we have $gug^{-1}\in U$.  Let $u=xyx^{-1}y^{-1}$, and see that
+\begin{equation*}
+gug^{-1}=gxyx^{-1}y^{-1}g^{-1}=(gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}\in U.
+\end{equation*}
+
+\subsection*{Part B}
+
+Prove that $G/G'$ is abelian.
+
+For $a,b\in G$, we have
+\begin{equation*}
+G'aG'b(G'a)^{-1}(G'b)^{-1}=Gaba^{-1}b^{-1}=G\implies G'aG'b=G'bG'a.
+\end{equation*}
+
+\subsection*{Part C}
+
+If $G/N$ is abelian, prove that $N\supseteq G'$.
+
+For all $a,b\in G$,
+\begin{equation*}
+Naba^{-1}b^{-1}=N\implies aba^{-1}b^{-1}\in N\implies G'\subseteq N.
+\end{equation*}
+
+I have to try to say something here concerning the significance of commutator groups.
+For a non-abelian group, this shows that the largest abelian factor group we can find
+is found by mod-ing out by $G'$.  And I remember reading somewhere that the order of
+this factor group in comparison to the order of $G$ is somehow a measure of ``how abelian''
+the group $G$ is.
+
+\subsection*{Part D}
+
+Prove that if $H$ is a subgroup of $G$ and $H\supseteq G'$, then $H$ is normal in $G$.
+
+If $H=G'$, we're done.  So let $H\supset G'$.  Now if $h\in G'$ and $g\in G$,
+clearly $ghg^{-1}\in G'\subset H$ by the normality of $G'$, so let $h\in H-G'$.
+Now since $c=ghg^{-1}h^{-1}\in G'$, we have $ghg^{-1}=ch\in H$ by closure in $H$.
 
 \section*{Problem 17}
 
