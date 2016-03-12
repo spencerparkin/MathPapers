@@ -44,6 +44,27 @@ ab(b')^{-1}(a')^{-1} = an_b(a')^{-1} = n_a[(a')n_b(a')^{-1}]\in N,
 \end{equation*}
 since $N$ is normal.
 
+\section*{Problem 6}
+
+Show that every subgroup of an abelian group is normal.
+
+Let $H$ be a subgroup of an abelian group $G$.
+Then, for any $h\in H$ and $g\in G$, observe that
+\begin{equation*}
+ghg^{-1}=gg^{-1}h = h\in H,
+\end{equation*}
+showing that $H$ is normal in $G$.
+
+\section*{Problem 7}
+
+Is the converse of Problem 6 true?
+
+The converse would read: if every subgroup of a group is normal, then the group is abelian.
+
+I can't find a counter-example, but I'm willing to bet the converse is false.
+
+When $gN=Ng$, this does not require that $gn=ng$ for all $n\in N$.
+
 \section*{Problem 9}
 
 Suppse $H$ is the only subgroup of order $|H|$ in the finite group $G$.
@@ -93,5 +114,28 @@ because $H$ is the only subgroup of $G$ of its order.  (That is, we must have $K
 Now, if two subgroups of co-normal, can we make a group out of the
 set of cosets shared between the two subgroups?  I don't see how.
 There are two identity elements.
+
+\section*{Problem 12}
+
+Suppose that $N$ and $M$ are two normal subgroups of $G$ and that
+$N\cap M=\{e\}$.  Show that for any $n\in N$, $m\in M$, $nm=mn$.
+
+Consider the commutator $nmn^{-1}m^{-1}$.  See that $nmn^{-1}\in M$
+since $M$ is normal; and therefore, the commutator is in $M$.  Similarly,
+see that $mn^{-1}m^{-1}\in N$ since $N$ is normal; and therefore, the
+commutator is in $N$.  It follows that $nmn^{-1}m^{-1}=e$, from which
+the result follows.
+
+\section*{Problem 15}
+
+If $N$ is normal in $G$ and $a\in G$ is of order $o(a)$, prove that the order,
+$m$, of $Na$ in $G/N$ is a dividsor of $o(a)$.
+
+Clearly $(Na)^{|Na|}=N$ by definition of $|Na|$.
+Now observe that $(Na)^{|a|}=Na^{|a|}=Ne=N$.
+We then see that $|Na|$ divides $|a|$ since
+\begin{equation*}
+(Na)^{|Na|}=(Na)^{|a|}=N.
+\end{equation*}
 
 \end{document}

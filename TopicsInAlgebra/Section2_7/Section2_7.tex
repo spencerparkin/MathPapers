@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 2.7 Exercises\\Hertein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 17}
+
+Let $G$ be the group of real numbers under addition and let $N$ be the
+subgroup of $G$ consisting of all the integers.  Prove that $G/N$ is
+isomorphic to the group of all complex numbers of absolute vlaue 1
+under multiplication.
+
+Let $\phi:\R/\Z\to\C$ be defined by
+\begin{equation*}
+\phi(\Z+r) = \exp(2\pi r i).
+\end{equation*}
+Now for any $a,b\in\R$, we have
+\begin{equation*}
+\Z+a=\Z+b \iff a=b+z,
+\end{equation*}
+for some integer $z\in\Z$.  We then have
+\begin{equation*}
+\exp(2\pi a i) = \exp(2\pi(b+z) i) = \exp(2\pi b i)\exp(2\pi z i) = \exp(2\pi b i).
+\end{equation*}
+Thus far we have shown that $\phi$ is well-defined and onto-to-one.
+Clearly $\phi$ is onto $\C$.  Is $\phi$ operation preserving?
+\begin{align*}
+ \phi(\Z+a+\Z+b) &=\phi(\Z+a+b) = \exp(2\pi(a+b)i) \\
+&=\exp(2\pi a i)\exp(2\pi b i) = \phi(\Z+a)\phi(\Z+b)
+\end{align*}
+
+\end{document}
