@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 2.11 Exercises\\Herstein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}{\mbox{Cl}}
+
+\begin{document}
+\maketitle
+
+\section*{Some Thoughts}
+
+It is interesting to observe that for any subgroup $H$ of a group $G$, and any element $g\in G$,
+that $g^{-1}Hg$ is also a subgroup of $G$.  If $H$ is not normal in $G$, then there must exist
+$g\in G$ such that $g^{-1}Hg$ is some subgroup of $G$ other than $H$.
+
+For subgroups $A$ and $B$ of a group $G$, say that $A$ is conjugate to $B$, and write this as $A\sim B$,
+if and only if there exists an element $g\in G$ such that $g^{-1}Ag=B$.  Does this define an equivalence
+relation on the set $S$ of all subgroups of $G$?  Clearly, $A\sim A$ as $e^{-1}Ae=A$.
+And if $g^{-1}Ag=B$, we must have $(g')^{-1}Bg'=A$, where $g'=g^{-1}$; proving $B\sim A$.
+Lastly, $a^{-1}Aa=B$ and $b^{-1}Bb=C$ implies that
+\begin{equation*}
+C=b^{-1}a^{-1}Aab=(ab)^{-1}Aab,
+\end{equation*}
+showing that $A\sim C$.
+It follows now from what we know about equivalence relations that
+\begin{equation*}
+|S|=\sum|\cl(A)|,
+\end{equation*}
+where here, the sum is taken over all equivalence class of $S$, and therefore,
+each $A$ is just one of the possible representatives of each such class.
+
+Let's consider for a moment a subgroup $A$ of $G$ for which $|\cl(A)|=1$.
+It is clear that if $A$ is normal in $G$, then $|\cl(A)|=1$.  What about the converse?
+If $|\cl(A)|=1$, then there does not exist an element $g\in G$ such that $g^{-1}Ag$
+is some subgroup of $G$ other than $A$.  It follows, then, that $g^{-1}Ag=A$ for all
+$g\in G$, and therefore, $A$ is normal in $G$.  We can now say that if $N$ is the
+number of subgroups normal in $G$, then
+\begin{equation*}
+|S|=N+\sum|\cl(A)|,
+\end{equation*}
+where here, each $A$ is not normal in $G$.  We return to this equation later.
+
+Let's now consider, for any subgroup $A$ of $G$, the normalizer of $A$; namely,
+\begin{equation*}
+N(A) = \{g\in G|gAg^{-1}=A\}.
+\end{equation*}
+(This is the largest subgroup of $G$ in which $A$ is normal.  See section 2.6, problem 10.)
+Notice that its right cosets take the form
+\begin{equation*}
+N(A)a = \{g\in G|(ga^{-1})A(ga^{-1})^{-1}=A\}=\{g\in G|g(a^{-1}Aa)g^{-1}=A\}.
+\end{equation*}
+This makes it clear that the number of such cosets is precisely the number of conjugates of $A$.
+We can now say that
+\begin{equation*}
+|\cl(A)|=\frac{|G|}{|N(A)|}.
+\end{equation*}
+
+Now suppose $G$ is a group of prime power order.  Specifically, $|G|=p^n$.
+We then have
+\begin{equation*}
+|S| = \sum\frac{|G|}{|N(A)|}=\sum\frac{p^n}{p^{n_A}}=  N+\sum_{n_A<n}\frac{p^n}{p^{n_A}},
+\end{equation*}
+where for each arbitrarily chosen representative $A$ of each conjugacy class, $p^{n_A}=|N(A)|$.
+(Notice that if $A$ is not normal in $G$, then $|N(A)|<|G|$.)  Interestingly, this shows that
+\begin{equation*}
+|S|\equiv N\pmod{p}.
+\end{equation*}
+I'm not sure what else we might deduce.
+
+\section*{Problem 11}
+
+Using Theorem 2.11.2 as a tool, prove that if $|G|=p^n$, $p$ a prime number,
+then $G$ has a subgroup of order $p^{\alpha}$ for all $0\leq\alpha\leq n$.
+
+If somehow we could always assert the existing of a subgroup $H$ of order $p^{n-1}$,
+then the result would go through by induction.  I cannot see how Theorem 2.11.2 is helpful at all.
+It's telling us that $G$ must have a non-identity element that commutes with all elements of $G$.
+It also tells us that if $G$ is not abelian, then it must have a non-trivial normal subgroup.
+Maybe consider homomorphisms from $G$ to $G$?
+
+\section*{Problem 12}
+
+If $|G|=p^n$, $p$ a prime number, prove that there exist subgroups
+$N_i$, $i=0,1,\dots,r$ (for some $r$) such that $G=N_0\supset N_1\supset N_2\supset\dots\supset N_r=\{e\}$
+where $N_i$ is a normal subgroup of $N_{i-1}$ and where $N_{i-1}/N_i$ is abelian.
+
+By problems 11 and 14, $G$ has a normal subgroup $H$ of order $p^{n-1}$.  Now since $|G/H|=|G|/|H|=p^n/p^{n-1}=p$,
+we see that $G/H$ must be a cyclic group, and therefore abelian.
+Now, of course, we can apply this same reasoning to $H$ in finding a normal subgroup $K$ of $H$ of order $p^{n-2}$,
+and so on.  Since $G$ is of finite order, this nesting of subgroups must terminate at $\{e\}$.
+
+\section*{Problem 14}
+
+Prove that any subgroup of order $p^{n-1}$ in a group $G$ of order $p^n$, $p$ a prime number, is normal in $G$.
+
+If $H$ was such a subgroup of $G$, then it would have $p$ right (or left) cosets in $G$.  Hmmm...
+
+\end{document}
