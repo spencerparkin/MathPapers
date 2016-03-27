@@ -80,7 +80,11 @@ where for each arbitrarily chosen representative $A$ of each conjugacy class, $p
 \begin{equation*}
 |S|\equiv N\pmod{p}.
 \end{equation*}
-I'm not sure what else we might deduce.
+
+Looking ahead to Lemma 2.12.6, let's consider the number of $p$-Sylow subgroups of $G$.
+If $P$ is a $p$-Sylow subgroup of $G$, then by Sylow's Second Theorem, $|Cl(P)|$ accounts
+for all $p$-Sylow subgroups in $G$.  It follows immediately that the number of such
+groups in $G$ is $|G|/|N(P)|$, where $P$ is any such group.
 
 \section*{Problem 11}
 
@@ -113,6 +117,17 @@ By problems 11 and 14, $G$ has a normal subgroup $H$ of order $p^{n-1}$.  Now si
 we see that $G/H$ must be a cyclic group, and therefore abelian.
 Now, of course, we can apply this same reasoning to $H$ in finding a normal subgroup $K$ of $H$ of order $p^{n-2}$,
 and so on.  Since $G$ is of finite order, this nesting of subgroups must terminate at $\{e\}$.
+
+I believe a group $G$, not necessarily of prime order, but having the above properties otherwise,
+is considered to be a solvable group.  It's interesting to consider the solvability of any group.
+By Caylay's theorem, any group $G$ is isomorphic to a subgroup of $A(S)$ for an appropriate set $S$.
+Now if $|S|=n$, let $\emptyset=S_0\subset S_1\subset\dots\subset S_n=S$ be a sequence of $n$ properly nested
+subsets of $S$, and define $H_i=\{\phi\in G|\mbox{for all $x\in S_i$, $\phi(x)=x$}\}$.  It is not hard to see
+that each $H_i$ is a normal subgroup of $G$.
+Further, for any $0\leq i<j\leq n$, notice that $H_j\leq H_i$, and $H_j$ is normal in $H_i$.  So what's to keep
+any group from being solvable?  The only remaining criteria would appear to be the requirement that each $H_j/H_i$ be abelian.
+In this general situation, I'm not sure what we can say, if anything, about how abelian the fractor group $H_j/H_i$ is.
+A measure of that has something to do with its commutator subgroup, I think.
 
 \section*{Problem 14}
 
