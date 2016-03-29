@@ -18,6 +18,7 @@
 \newcommand{\lcm}{\mbox{lcm}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
 
 \begin{document}
 \maketitle
@@ -85,5 +86,63 @@ the size of the internal product.
 We have now shown that the internal product generates $G$, and that every elemetn of $G$ has a
 unique decomposition in terms of one element taken from each Sylow subgroup.  We can now apply
 Theorem 2.13.1 to get the final, desired result.
+
+\section*{Problem 6}
+
+Let $A,B$ be cyclic groups of order $m$ and $n$, respectively.  Prove that
+$A\times B$ is cyclic if and only if $m$ and $n$ are relatively prime.
+
+Suppose $m$ and $n$ are coprime.  Let $a\in A$ and $b\in B$ such that $|a|=m$ and $|b|=n$.
+Then
+\begin{equation*}
+|(a,b)|=\lcm(m,n)=\frac{mn}{\gcd(m,n)}=mn,
+\end{equation*}
+showing that $A\times B$ is cyclic.
+
+Conversly, suppose $A\times B$ is cyclic.  Let $(a,b)\in A\times B$ such that $|(a,b)|=mn$.
+Then
+\begin{equation*}
+mn=|(a,b)|=\lcm(m,n)\implies\gcd(m,n)=1.
+\end{equation*}
+
+\section*{Problem 7}
+
+Use the result of Problem 6 to prove the Chinese Remainder Theorem; namely, if $m$ and $n$
+are relatively prime integers and $u,v$ any two integers, then we can find an integer $x$ such that
+$x\equiv u\mod m$ and $x\equiv v\mod n$.
+
+Without loss of generality, we need only consider any $u\in\Z_m$ and any $v\in\Z_n$.
+Now by Problem 6, since $\gcd(m,n)=1$, we have that $\Z_m\times\Z_n$ is cyclic;
+in fact, $(1,1)$ is a generator, and it is clear that, for any $(u,v)\in\Z_m\times\Z_n=\langle(1,1)\rangle$,
+there must exist an integer $x\in\Z$ such that
+\begin{equation*}
+(1,1)^x=(u,v).
+\end{equation*}
+Translated, this means that $x\equiv u\pmod{m}$ and $x\equiv v\pmod{n}$, as desired.
+
+\section*{Problem 15}
+
+Let $G=A\times A$ where $A$ is cyclic or order $p$, $p$ a prime.  How many automorphisms does $G$ have?
+
+Let's stop to think about $\aut(\Z_n)$.  As I recall, this group is isomorphic to $U(n)$, and so the number of
+automorphisms of $\Z_n$ is $\phi(n)$, the Euler totient function.  So, the number of automprhisms of $A$
+is $p-1$.
+
+Now what about $A\times A$?  It is apparent to me that every non-identity element of this group is
+of order $p$.  And, admittedly, without giving proof, (and so I may be wrong), I believe that there
+exists, for every pair of non-identity elements $(a_1,a_2),(a_3,a_4)\in A\times A$, an automorphism of the group that sends $(a_1,a_2)$
+to $(a_3,a_4)$.  Doing so, however, we do not entirely determine the automorphism.  We, of course, must send
+the identity element to the identity element, but in sending $(a_1,a_2)$ to $(a_3,a_4)$, we determine only
+$p-1$ of the remaining $p^2-1$ elements to be mapped.  In choosing the next mapping, I believe we, again,
+can map any of the remaining $p^2-1-(p-1)$ non-identity elements to any other of such elements not yet mapped
+in the forming image of the homomorphism.  All in all,
+by the multiplication rule of combinatorics, we arrive at
+\begin{equation*}
+|\aut(A\times A)|=\prod_{k=0}^p(p^2-1-k(p-1))^2
+\end{equation*}
+as the number of automorphisms of $A\times A$.  There, however, is definitely some rigor lacking here.
+We can be sure that the mapping is one-to-one and onto, but is it operation preserving?  I don't think there's
+any reason to suppose it's not, because the structure is the same everywhere.  That's the best I can come up
+with for now.
 
 \end{document}
