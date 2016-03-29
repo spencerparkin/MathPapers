@@ -129,20 +129,23 @@ automorphisms of $\Z_n$ is $\phi(n)$, the Euler totient function.  So, the numbe
 is $p-1$.
 
 Now what about $A\times A$?  It is apparent to me that every non-identity element of this group is
-of order $p$.  And, admittedly, without giving proof, (and so I may be wrong), I believe that there
-exists, for every pair of non-identity elements $(a_1,a_2),(a_3,a_4)\in A\times A$, an automorphism of the group that sends $(a_1,a_2)$
-to $(a_3,a_4)$.  Doing so, however, we do not entirely determine the automorphism.  We, of course, must send
-the identity element to the identity element, but in sending $(a_1,a_2)$ to $(a_3,a_4)$, we determine only
-$p-1$ of the remaining $p^2-1$ elements to be mapped.  In choosing the next mapping, I believe we, again,
-can map any of the remaining $p^2-1-(p-1)$ non-identity elements to any other of such elements not yet mapped
-in the forming image of the homomorphism.  All in all,
-by the multiplication rule of combinatorics, we arrive at
+of order $p$.  We can, therefore, begin to construct any automorphism of $A\times A$ by sending
+any non-identity element to another other (or itself), so long as by the end, we have an operation-preserving
+bijection of the group.  Clearly the identity must go to the identity.  This leaves us $p^2-1$ elements to map.
+Then, mapping the first non-identity element actually determines the next $p-1$ mappings, since each
+element has order $p$.  This leaves us $p^2-1-(p-1)$ non-identity elements.  Mapping one of these
+elements to another such, we determine another $p-1$ mapping, but we actually determine more.
+Note that if $a,b\in A\times A$ are distinct elements, then $\langle a\rangle\cap\langle b\rangle=\{(e,e)\}$,
+and $A\times A$ is isomorphic to the inner direct product of $\langle a\rangle$ and $\langle b\rangle$.  This causes us
+to know, for each pair of integers $i,j\in[1,p]$, how our automorphism should map $\phi(a^ib^j)=\phi(a^i)\phi(b^j)$, and so we eat up
+$(p-1)^2$ more mappings.  But now notice that
 \begin{equation*}
-|\aut(A\times A)|=\prod_{k=0}^p(p^2-1-k(p-1))^2
+p^2-1-(p-1)-(p-1)-(p-1)^2 = 0,
 \end{equation*}
-as the number of automorphisms of $A\times A$.  There, however, is definitely some rigor lacking here.
-We can be sure that the mapping is one-to-one and onto, but is it operation preserving?  I don't think there's
-any reason to suppose it's not, because the structure is the same everywhere.  That's the best I can come up
-with for now.
+so we've now completely determined the autormorphism.  How many ways could we have constructed it?
+I believe it is
+\begin{equation*}
+(p^2-1)^2(p^2-1-(p-1))^2 = [p(p^2-1)(p-1)]^2.
+\end{equation*}
 
 \end{document}
