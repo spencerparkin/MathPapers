@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 2.14 Exercises\\Herstein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
+
+\begin{document}
+\maketitle
+
+\section*{Thoughts On Theorem 2.14.1}
+
+Herstein's proof of Theorem 2.14.1 is the hardest yet, but looks so much easier than Gallian's.
+In trying to understand the idea behind his proof, the following may be of interest.
+
+Let $G$ be a finite abelian group having $k$ (normal) subgroups $A_1,\dots,A_k$ such that
+\begin{equation*}
+G=\prod_{i=1}^k A_i,
+\end{equation*}
+and for every $g\in G$, there exists a unique factorization of $g$ in the form
+\begin{equation*}
+g=\prod_{i=1}^k a_i,
+\end{equation*}
+with each $a_i\in A_i$.  Now, for any integer $1\leq j\leq k$, if we consider the factor group
+$G/A_j$, the interesting observation we can make is that
+\begin{equation*}
+G/A_j\approx\prod_{\substack{i=1\\i\neq j}}^k A_i=G_j.
+\end{equation*}
+By Problem 9 of Section 13, and since $G$ is abelian, we can convince ourselves that $G_j$ is an internal direct product of a subgroup of $G$,
+but to convince ourselves of the isomorphism, let us begin by writing down an obvious choice of isomorphism; namely,
+$\phi_j:G_j\to G/A_j$, given by
+\begin{equation*}
+\phi_j(x)=xA_j.
+\end{equation*}
+Is $\phi_j$ an isomorphism?  It's clearly operation-preserving.  Is it onto?  To see that it is, notice that
+\begin{equation*}
+G/A_j=\left\{\left.\left(\prod_{i=1}^k a_i\right)A_j\right|a_i\in A_i\right\}=\left\{\left.\left(\prod_{\substack{i=1\\i\neq j}}^k a_i\right)A_j\right|a_i\in A_i\right\},
+\end{equation*}
+since $G$ is abelian.  We now show that $\phi_j$ is one-to-one.  To that end, for any $x,y\in G$, we know that $xA_j=yA_j$ if and only if
+$y^{-1}x\in A_j$.  Now realize that, since $G_j$ is an internal direct product, we may uniquely factor $y^{-1}x$ as
+\begin{equation*}
+y^{-1}x = \prod_{\substack{i=1\\i\neq j}}^k a_i,
+\end{equation*}
+with each $a_i\in A_i$, but again by Problem 9 of Section 13, we must have
+\begin{equation*}
+A_j\cap\prod_{\substack{i=1\\i\neq j}}^k A_i=\{e\},
+\end{equation*}
+since $G$ is an internal direct product.  Now since $y^{-1}x\in A_j\cap G_j$,
+we must have $y^{-1}x=e$, which is what we needed to get $x=y$.
+
+This result may generalize to $G/A\approx G'$, where
+\begin{equation*}
+A=\prod_{i\in I} A_i,\;\;\;\;G' = \prod_{i\not\in I} A_i,
+\end{equation*}
+where $I$ is some subset of the integers in $[1,k]$.
+
+Returning to Theorem 2.14.1, perhaps there's an easier, somewhat inductive proof.
+The idea is to show that any finite abelian group $G$ can be rewritten as the internal direct
+product of a cyclic subgroup $A$ and some other subgroup $G'$.  We now repeat the process on $G'$.
+After choosing an element $a\in G$ of maximal prime power order for some prime divisor $p$ of $|G|$,
+we can let $A=\langle a\rangle$.  We must now show that $G'$ exists and is isomorphic to $G/A$.
+This may not be so easy.
+
+\end{document}
