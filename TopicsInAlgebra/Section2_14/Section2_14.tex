@@ -49,10 +49,11 @@ $\phi_j:G_j\to G/A_j$, given by
 \end{equation*}
 Is $\phi_j$ an isomorphism?  It's clearly operation-preserving.  Is it onto?  To see that it is, notice that
 \begin{equation*}
-G/A_j=\left\{\left.\left(\prod_{i=1}^k a_i\right)A_j\right|a_i\in A_i\right\}=\left\{\left.\left(\prod_{\substack{i=1\\i\neq j}}^k a_i\right)A_j\right|a_i\in A_i\right\},
+G/A_j=\left\{\left.\left(\prod_{i=1}^k a_i\right)A_j\right|a_i\in A_i\right\}=\left\{\left.\left(\prod_{\substack{i=1\\i\neq j}}^k a_i\right)A_j\right|a_i\in A_i\right\}=\phi_j(G_j),
 \end{equation*}
 since $G$ is abelian.  We now show that $\phi_j$ is one-to-one.  To that end, for any $x,y\in G$, we know that $xA_j=yA_j$ if and only if
-$y^{-1}x\in A_j$.  Now realize that, since $G_j$ is an internal direct product, we may uniquely factor $y^{-1}x$ as
+$y^{-1}x\in A_j$.  (Notice that we can assume $x,y\in G_j$ without loss of generality.)
+Now realize that, since $G_j$ is an internal direct product, we may uniquely factor $y^{-1}x$ as
 \begin{equation*}
 y^{-1}x = \prod_{\substack{i=1\\i\neq j}}^k a_i,
 \end{equation*}
@@ -61,7 +62,7 @@ with each $a_i\in A_i$, but again by Problem 9 of Section 13, we must have
 A_j\cap\prod_{\substack{i=1\\i\neq j}}^k A_i=\{e\},
 \end{equation*}
 since $G$ is an internal direct product.  Now since $y^{-1}x\in A_j\cap G_j$,
-we must have $y^{-1}x=e$, which is what we needed to get $x=y$.
+we must have $y^{-1}x=e$, which is what we need to conclude that $x=y$.
 
 This result may generalize to $G/A\approx G'$, where
 \begin{equation*}
