@@ -29,13 +29,6 @@ The basic idea is to show that every finite abelian group, under some condition,
 factored into the internal direct product of two non-trivial subgroups.  This is then applied recursively
 until the condition fails.  (The condition might be based upon the group having a non-trivial subgroup.)
 
-\begin{lemma}\label{lem_factor_element}
-If $G$ is a finite abelian group having a subgroup $H$,
-then for every element $g\in G$ that can be factored
-as $g=g'h$, where $g'\in G$ and $h\in H-\{e\}$,
-there exists $g''\in G-(H-\{e\})$ and $h'\in H-\{e\}$ such that $g=g''h'$.
-\end{lemma}
-
 \begin{lemma}\label{lem_factor_group}
 If $G$ is a finite abelian group having a subgroup $H$, then
 $G/H$ is isomorphic to a subgroup $K$ of $G$.
@@ -68,9 +61,9 @@ isomorphism from $K$ to $G/H$.
 
 We first show that $\phi(K)=G/H$.  Let $x\in G$ and consider the
 coset $xH$.  If $x\in K$, we're done.  If $x\not\in K$, then $x\in S$,
-and we can invoking Lemma~\ref{lem_factor_element} to say that
-there exists $g''\in K$ such that $x=g''h'$ with $h'\in H$.
-We then have $xH=g''h'H=g''H$, and we have it.
+and we can write it as $x=x'h$ with $x'\in G$ and $h\in H$.
+Then $xh=x'H$, and we're left with the same problem forever and ever with no end.
+Fail!
 
 What remains to be shown now is that $\phi$, when restricted to $K$,
 is ono-to-one.  Let $x,y\in K$ such that $xH=yH$.
