@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{The Fundamental Theorem\\of\\Finite Abelian Groups}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
+
+\begin{document}
+\maketitle
+
+This fundamental theorem is traditionally proven using a greedy-algorithm approach.
+Here we attempt to give a proof based upon a divide-and-conquer approach.
+The basic idea is to show that every finite abelian group, under some condition, can be non-trivially
+factored into the internal direct product of two non-trivial subgroups.  This is then applied recursively
+until the condition fails.  (The condition might be based upon the group having a non-trivial subgroup.)
+
+\begin{lemma}\label{lem_factor_element}
+If $G$ is a finite abelian group having a subgroup $H$,
+then for every element $g\in G$ that can be factored
+as $g=g'h$, where $g'\in G$ and $h\in H-\{e\}$,
+there exists $g''\in G-(H-\{e\})$ and $h'\in H-\{e\}$ such that $g=g''h'$.
+\end{lemma}
+
+\begin{lemma}\label{lem_factor_group}
+If $G$ is a finite abelian group having a subgroup $H$, then
+$G/H$ is isomorphic to a subgroup $K$ of $G$.
+Moreover, $G=KH$, the internal direct product of $K$ and $H$.
+\end{lemma}
+\begin{proof}
+If $H$ is a trivial subgroup, we have nothing to prove,
+so we may assume $H$ is non-trivial.  That said, consider
+the set $S$ given by
+\begin{equation*}
+S = \{g\in G|\mbox{$g=g'h$ where $g'\in G$, $h\in H-\{e\}$}\}.
+\end{equation*}
+We now claim that $K=(G-S)\cup\{e\}$ is a subgroup of $G$.
+If $K=\{e\}$, we're done.  So we may assume $K\supset\{e\}$. Our group $G$ being finite, we
+need only show closure.  Consider a pair of elements $a,b\in K$.
+If either $a$ or $b$ is the identity, or if $a=b^{-1}$, then clearly $ab\in K$.
+We may, therefore, assume that neither of these is the case.
+Now suppose that $ab\in S-\{e\}$.  ($S-\{e\}$ is non-empty, because $H$ is non-trivial.)
+Writing $ab=g'h$, where $g'\in G$ and $h\in H$,
+it follows that $a=(g'b^{-1})h$, placing $a\in S$.  Now since $S\cap K=\{e\}$,
+we must have $a=e$, which contradicts our supposition.
+Therefore, $ab\not\in S-\{e\}$, and we have
+\begin{equation*}
+ab\in G-(S-\{e\})=(G-S)\cup\{e\}=K.
+\end{equation*}
+
+Having now established $K$ as a subgroup of $G$, consider the homomorphism
+$\phi:G\to G/H$ given by $\phi(x)=xH$.  We now contend that $\phi$ is an
+isomorphism from $K$ to $G/H$.
+
+We first show that $\phi(K)=G/H$.  Let $x\in G$ and consider the
+coset $xH$.  If $x\in K$, we're done.  If $x\not\in K$, then $x\in S$,
+and we can invoking Lemma~\ref{lem_factor_element} to say that
+there exists $g''\in K$ such that $x=g''h'$ with $h'\in H$.
+We then have $xH=g''h'H=g''H$, and we have it.
+
+What remains to be shown now is that $\phi$, when restricted to $K$,
+is ono-to-one.  Let $x,y\in K$ such that $xH=yH$.
+It follows that $y^{-1}x\in H$.  Now since $S\supseteq H$, we have $K\cap H=\{e\}$,
+and therefore $y^{-1}x=e\implies x=y$.  We can now conclude that $\phi$
+is the claimed isomorphism.
+
+The second part of our lemma now follows from the fact that
+\begin{equation*}
+|HK|=\frac{|H||K|}{|H\cap K|}=|H||K|,
+\end{equation*}
+while we have just shown that $|K|=|G|/|H|$.
+Seeing that $|HK|=|G|$, we have $G=HK$.
+\end{proof}
+
+We now jump straight to the fundamental theorem by way of Couchy's Theorem.
+
+\begin{theorem}
+Every finite abelian group $G$ is isomorphic to an external direct product
+of cyclic groups.
+\end{theorem}
+\begin{proof}
+If $G$ is of prime order, we're done.  This not being the case, let $p$
+be any prime divisor of $|G|$.  By Couchy's Theorem, there exists an element $a_1\in G$
+of order $p$, and therefore a cyclic subgroup $\langle a_1\rangle$ of $G$ of order $p$.
+Applying Lemma~\ref{lem_factor_group}, we may write
+$G=\langle a_1\rangle K_1$, where $K_1<G$ and has order $|G|/p$.
+Now write $G\approx\langle a_1\rangle\times K_1$ and apply our procedure
+again with $K_1$ to obtain $G\approx\langle a_1\rangle\times\langle a_2\rangle\times K_2$.
+Our group $G$ being of finite order, this process must, for some integer $k$, terminate with
+\begin{equation*}
+G=\langle a_1\rangle\times\dots\times\langle a_k\rangle.
+\end{equation*}
+\end{proof}
+
+There is something wrong here.  The number of non-isomorphic abelian groups of order $p^n$
+is the number of partitions of $n$, but I'm not getting this.
+
+\end{document}
