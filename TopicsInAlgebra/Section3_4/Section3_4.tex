@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 3.4 Exercises\\Herstein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
+
+\begin{document}
+\maketitle
+
+\section*{Thoughts}
+
+Prove: if $\phi$ is a homomorphism from a ring $R$ with unit element 1 onto a ring $R'$ with
+unit element $1'$, and $R'$ is an integral domain, then $\phi(1)=1'$ and $R$ is an integral domain.
+
+Suppose there exists $1'\neq b\in R'$ such that $ba=a$ for all $0'\neq a\in R'$.
+Then $1'a=ba\implies (1'-b)a=0'\implies 1'-b=0'\implies 1'=b$; so the multiplicative
+identity $1'$ in $R'$ is unique.  Now note that since $\phi(1)\phi(a)=\phi(a)$ for all
+$a\in R$, $\phi(1)$ acts as an identity in $R'$; but since there is only one such element in $R'$,
+we must have $\phi(1)=1'$.
+
+To see that $R$ is an integral domain, notice that for all $a,b\in R$, we have
+\begin{equation*}
+0=ab\implies 0'=\phi(ab)=\phi(a)\phi(b)\implies\mbox{$\phi(a)=0'$ or $\phi(b)=0'$},
+\end{equation*}
+which, in turn, implies that $a=0$ or $b=0$.
+
+\section*{Problem 2}
+
+If $F$ is a field, prove its only ideals are $\{0\}$ and $F$ itself.
+
+We first note that for every homomorphism $\phi$ of a ring $R$, we find an ideal of $R$; namely, $\ker\phi$.
+And then for every ideal $I$ of $R$, we find a homomorphism of $R$; namely, $\phi(x)=x+I$.
+So there is a one-to-one correspondence between ideals of $R$ and homomorphisms of $R$.
+
+By Problem 3, any homomorphism of $F$ is trivial.  So if $\phi$ is
+such a homomorphism, it is either $\phi(x)=0$ or $\phi(x)=x$.
+We then find the set of all ideals of $F$ as the kernels of these homomorphisms; which
+are $F$ and $\{0\}$, respectively.
+
+\section*{Problem 3}
+
+Prove that any homomorphism of a field is either an isomorphism or takes each element into $0$.
+
+Let $\phi$ be a homomorphism of a field $F$.  If $\phi(x)=0$, we're done; so assumes this is not the case.
+We can, therefore, claim that there are non-additive-identity elements in $\phi(F)$.  Let $a\in F$ such
+that $\phi(a)$ is such an element.  Now see that $\phi(a)=\phi(a\cdot 1)=\phi(a)\phi(1)$, showing that
+$\phi(1)$ in $\phi(F)$ acts as a multiplicative identity element in the ring that is the homomorphic image of $F$.
+We then find that for any $a\in F$,
+\begin{equation*}
+\phi(1)=\phi(aa^{-1})=\phi(a)\phi(a^{-1})\implies\phi(a)^{-1}=\phi(a^{-1}).
+\end{equation*}
+We can now conclude that $\phi(F)$ is a division ring, and its commutativity would certainly
+follow from that of $F$.  So $\phi(F)$ is a field, and therefore an integral domain.
+Lastly, for any pair of elements $a,b\in F$ such that $\phi(a)=\phi(b)$,
+we have
+\begin{equation*}
+\phi(1)=\phi(a)\phi(b)^{-1}=\phi(ab^{-1}).
+\end{equation*}
+It then follows that $ab^{-1}=1$, since $\phi(F)$ is an integral domain.
+We can now say that $\phi$ is an isomorphism.
+
+\end{document}
