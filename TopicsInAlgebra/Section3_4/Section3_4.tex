@@ -25,8 +25,15 @@
 
 \section*{Thoughts}
 
+It's interesting to note that, by definition, an ideal need not be a subring of a ring.
+But maybe this is always the case?  Let $U$ be an ideal of a ring $R$.
+$U$ is already an additive subgroup of $R$.  To be a subring, we must show that $U$ is a ring.
+I think all that is required at this point is closure under multiplication.  Let $a,b\in U$.  Then for any $r\in R$,
+we have $rab\in U$ since $(ra)b\in U$, and $abr\in U$, since $a(br)\in U$.  So we have closure.
+
 Prove: if $\phi$ is a homomorphism from a ring $R$ with unit element 1 onto a ring $R'$ with
 unit element $1'$, and $R'$ is an integral domain, then $\phi(1)=1'$ and $R$ is an integral domain.
+(Note: Problem 20 says my conditions here are more than sufficient for showing $\phi(1)=1'$.)
 
 Suppose there exists $1'\neq b\in R'$ such that $ba=a$ for all $0'\neq a\in R'$.
 Then $1'a=ba\implies (1'-b)a=0'\implies 1'-b=0'\implies 1'=b$; so the multiplicative
