@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 3.2 Exercises\\Herstein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 3}
+
+find the form of the binomial theorem in a general ring; in other words,
+find an expression for $(a+b)^n$, where $n$ is a positive integer.
+
+This becomes more complicated than the usual binomial theorem because
+we can't take commutativity for granted.
+
+How about
+\begin{equation*}
+(a+b)^n=\sum_{i=0}^{2^n-1}\prod_{j=0}^{i-1} f(\lfloor i2^{-j}\rfloor\mod 2),
+\end{equation*}
+where $x(0)=a$ and $x(1)=b$.
+
+\section*{Problem 4}
+
+If every $x\in R$ satisfies $x^2=x$, prove that $R$ must be commutative.
+
+We have
+\begin{equation*}
+a+b=(a+b)^2=a^2+ab+ba+b^2=a+ab+ba+b\implies 0=ab+ba.
+\end{equation*}
+We then see that
+\begin{equation*}
+ab=-ba=(-ba)^2=(ba)^2=ba.
+\end{equation*}
+
+\section*{Problem 6}
+
+If $D$ is an integral domain and $D$ is of finite characteristic, prove that
+the characteristic of $D$ is a prime number.
+
+Suppose the characteristic of $D$ is composite.  Then it may be written
+as $mn$ where $m$ and $n$ are integers, each greater than one.
+Now since $mn$ is the characteristic of $D$, there must exist at least one $a\in D$
+such that $ma\neq 0$.  Then for all $b\in D$, we have
+\begin{equation*}
+0 = mnab = (ma)(nb)\implies nb = 0,
+\end{equation*}
+since we're workign in an integral domain.  But now we've reached a contradiction
+since $n<mn$.  It follows that the chracteristic of $D$ is not composite, and therefore prime.
+
+\section*{Problem 8}
+
+If $D$ is an integral domain and if $na=0$, for some $a\neq 0$ in $D$ and
+some integer $n\neq 0$, prove that $D$ is of finite characteristic.
+
+Notice that for any $d\in D$, we have
+\begin{equation*}
+0 = d(na) = (nd)a\implies nd=0,
+\end{equation*}
+since $a\neq 0$.  It follows that $n$ is an upper-bound on the characteristic of $D$.
+
+\section*{Problem 9}
+
+If $R$ is a system satisfying all the conditions for a ring with unit element with the possible exception
+of $a+b=b+a$, prove that the axiom $a+b=b+a$ must hold in $R$ and that $R$ is thus a ring.
+
+Given Herstein's hint, this problem isn't hard.  We're showing that when the ring has a multiplicative identity,
+the additive commutativity axiom is superfluous.  Indeed, we see that
+\begin{equation*}
+a+a+b+b=(a+b)(1+1)=a+b+a+b\implies a+b=b+a.
+\end{equation*}
+
+\section*{Problem 10}
+
+Show that the commutative ring $D$ is an integral domain if and only if for
+$a,b,c\in D$ with $a\neq 0$ the relation $ab=ac$ implies that $b=c$.
+
+If $D$ is an integral domain, then
+\begin{equation*}
+ab=ac\implies a(b-c)=0\implies b-c=0\implies b=c,
+\end{equation*}
+since $a\neq 0$.
+On the other hand, let $x,y\in D$ such that $xy=0$.  If $x\neq 0$, then
+\begin{equation*}
+xy = x0\implies y=0.
+\end{equation*}
+Similarly, we can show that if $y\neq 0$, then $x=0$.
+
+\section*{Problem 11}
+
+Prove that Lemma 3.2.2 is false if we drop the assumption that the integral domain is finite.
+
+I think we can just look at the integers $\Z$.  They're clearly an integral domain, and
+perhaps even the motivation behind the general idea of an integral, yet they certainly
+don't form a commutative division ring.
+
+\section*{Problem 12}
+
+Prove that any field is an integral domain.
+
+Let $a,b\in F$ such that $0=ab$.
+If $a\neq 0$, then $a^{-1}\in F$ and
+\begin{equation*}
+0=a^{-1}0=a^{-1}ab = b.
+\end{equation*}
+Similarly, if $b\neq 0$, we can show that $a=0$.
+
+\end{document}
