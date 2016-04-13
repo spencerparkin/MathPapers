@@ -81,16 +81,17 @@ The problem here is that $h$ need not be continuous at $\gamma$.  That is, we ne
 $\lim_{x\to\gamma} h(x)=0$.  The limit may, in fact, not even exist!
 
 Leaving this line of thinking for a moment, can there exist a proper ideal $I$ of $R$ with the
-property that there does not exist $x\in[0,1]$ such that for all $f\in I$, we have $f(x)=0$?
+property that there does not exist $x\in[0,1]$ such that for all $f\in I$, we have $f(x)=0$?\footnote{I suspect that
+in such an ideal we would be able to construct a function that is non-zero on all of $[0,1]$, which would lead us to
+contradict the fact that it's a proper ideal.}
 Let's suppose for the moment that no such ideal can exist.  In that case, we can claim that
 for every proper ideal $I$ of $R$, we must have $V(I)$ non-empty, where this is defined as
 \begin{equation*}
 V(I)=\{x\in[0,1]|\mbox{$f(x)=0$ for all $f\in I$}\}.
 \end{equation*}
 But then we can also establish the relationship that for any two ideals $I,J\subset R$,
-if $V(I)\subset V(J)$, then $I\supset J$.  Also note that if $|V(I)|=1$, then $I=M_{\gamma}$
-with $\gamma\in V(I)$.  This is because the ideal has to contain every function with the zero $\gamma$,
-and no function not having that zero.  Can it be shown that if $|V(I)|>1$, then $I$ is not maximal?
+if $V(I)\subset V(J)$, then $I\supset J$.  If $|V(I)|=1$, then must we have $I=M_{\gamma}$
+with $\gamma\in V(I)$?  Can it be shown that if $|V(I)|>1$, then $I$ is not maximal?
 Note that if $V(I)>1$, then $I$ cannot contain every function of $R$ having one of the zeros in $V(I)$,
 because then it must contain a function that is non-zero on all of $[0,1]$.  (In such a case, $I=R$, and we have $|V(I)|=0$,
 a contradiction.)  For example, if $V(I)=\{\alpha,\beta\}$, we can construct $f:[0,1]\to\R$ that is non-zero on all of $[0,1]$
