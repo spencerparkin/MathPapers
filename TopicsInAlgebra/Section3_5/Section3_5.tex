@@ -51,12 +51,38 @@ and see that
 \begin{equation*}
 \langle a\rangle\cup\langle b\rangle\subseteq I.
 \end{equation*}
-Indeed, if we write
-\begin{equation*}
-I = \bigcup_{a\in S}\langle a\rangle,
-\end{equation*}
-then this clearly holds when $S=I$.  But there are certainly cases where $S$ is a proper subset of $I$.
-I suppose if $S$ is finite, we can say that the ideal $I$ is finitely generated.
+Now let's suppose that $0\neq x\in\langle a\rangle\cap\langle b\rangle$.  Then $x=ua=vb$ for some $u,v\in R$.
+If we were working in a division ring, then $b=v^{-1}ua\implies b\in\langle a\rangle$, which would be a contradiction.
+So in a division ring, $\langle a\rangle\cap\langle b\rangle=\{0\}$.
+
+\section*{Problem 1}
+
+Mimic proof of Lemma 3.5.1.
+
+\section*{Problem 2}
+
+If $R$ has a unit element, it's a division ring by Problem 1.  If it doesn't, then we have to show the other conclusion.
+We might consider an equivalence relation and a counting principle.
+
+\section*{Problem 3}
+
+Let $J$ be the ring of integers, $p$ a prime number, and $\langle p\rangle$ the ideal of $J$
+consisting of all multiples of $p$.
+
+\subsection*{Part A}
+
+Prove that $J/\langle a\rangle$ is isomorphic to $J_p$, the ring of integers mod $p$.
+
+Let $\phi(x)=x+\langle p\rangle$ where $\phi:J_p\to J/\langle p\rangle$.  (Notice that $\phi(x+\langle p\rangle)=x$ is not well defined.)
+Since $\langle p\rangle$ is an ideal of $J$, $\phi$ is a homomorphism.  And since $\ker\phi=\{0\}$,
+it's an isomorphism.
+
+\subsection*{Part B}
+
+Using Theorem 3.5.1 and part A of this problem, show that $J_p$ is a field.
+
+By Example 3.5.1, $\langle p\rangle$ is maximal in $J$.  Then by Theorem 3.5.1, $J/\langle p\rangle$ is a field.
+But since $J/\langle p\rangle\approx J_p$, $J_p$ must be a field also.
 
 \section*{Problem 4}
 
