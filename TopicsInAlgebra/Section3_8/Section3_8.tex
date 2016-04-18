@@ -63,13 +63,27 @@ Since $J[i]$ is a Euclidean ring with unit element, we know by Theorem 3.7.1 tha
 Then by Lemma 3.7.1, we know that any greatest common divisor of $a+bi$ and $c+di$ is a generator
 of the ideal $A$ given by
 \begin{equation*}
-A=\{u(a+bi)+v(c+di)|u,v\in\Z\}.
+A=\{u(a+bi)+v(c+di)|u,v\in J[i]\}.
 \end{equation*}
 That generator being $x+yi$, we must have
 \begin{equation*}
-A=\{(x+yi)(u+vi)|u,v\in\Z\}.
+A=\{(x+yi)(s+ti)|s,t\in\Z\}.
 \end{equation*}
-But I'm not sure how to formulate $x$ and $y$ as a
-function of $a,b,c,d$, if that is even possible.
+Continue on...
+
+\section*{Problem 8}
+
+Determine all prime elements in $J[i]$.
+
+Maybe show that for $a,b\in J[i]$, $\langle a\rangle$ and $\langle b\rangle$ are properly contained
+in the ideal $I$ given by
+\begin{equation*}
+I = \{ua+vb|u,v\in J[i]\},
+\end{equation*}
+if coprime.  Now if $a$ is prime in $J[i]$, then we must have $I=J[i]$.  Where am I going with this?
+I'm trying to find another way to characterize a prime.  I want to say that $a\in J[i]$ is prime
+if and only if blank, where blank is something other than the definition.  By definition, $a\in J[i]$
+is prime if whenever we write $a=uv$ for $u,v\in J[i]$, we have at least one of $u$ and $v$ a unit of $j[i]$.
+It's hard to come somewhere straight from the definition.
 
 \end{document}
