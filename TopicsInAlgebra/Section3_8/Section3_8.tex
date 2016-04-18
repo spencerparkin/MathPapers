@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Section 3.8 Exercises\\Herstein's Topics In Algebra}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+%\newcommand{\gcd}{\mbox{gcd}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cl}{\mbox{Cl}}
+\newcommand{\aut}{\mbox{Aut}}
+
+\begin{document}
+\maketitle
+
+\section*{Thoughts}
+
+I had some trouble with a part of the proof of Theorem 3.8.1.
+For integers $a$ and $n$, the division algorithm can give us integers
+$t$ and $r$ such that $a=tn+r$ with $|r|<|n|$, but Herstein asserts
+that such can be found where $|r|\leq |n|/2$.  Well, what about $a=40$
+and $n=7$?  Here, $t=5$ and $r=5$, and clearly $5\leq 7/2$ does not hold.
+
+\section*{Problem 1}
+
+Find all the units in $J[i]$.
+
+In the field of complex numbers $\C$, multiplicative inverses are unique.
+That is, letting $a+bi\in\C$, we have
+\begin{equation*}
+(a+bi)^{-1}=\frac{a-bi}{a^2+b^2}.
+\end{equation*}
+Now since $\C$ contains $J[i]$, this too must hold true.  Thus, if $x=a+bi\in J[i]$ is a unit,
+we must have $d(x)|\Re(x)$ and $d(x)|\Im(x)$.  But this is only possible for $x=1,-1,i,-i$.
+
+\section*{Problem 2}
+
+If $a+bi$ is not a unit of $J[i]$ prove that $a^2+b^2>1$.
+
+Perhaps Herstein forgot to exclude $0+0i$.
+
+If $a$ and $b$ are non-zero, then by Problem 1, they're not units, and $d(a+bi)>1$.
+If $a=0$, then by Problem 1, $|b|>1$.  Similarly, if $b=0$, then $|a|>1$.
+
+\section*{Problem 3}
+
+Find the greatest common divisor in $J[i]$ of $3+4i$ and $4-3i$, then $11+7i$ and $18-i$.
+
+Let's consider for a moment the general problem of finding $\gcd(a+bi,c+di)$.
+Since $J[i]$ is a Euclidean ring with unit element, we know by Theorem 3.7.1 that it is a principle ideal ring.
+Then by Lemma 3.7.1, we know that any greatest common divisor of $a+bi$ and $c+di$ is a generator
+of the ideal $A$ given by
+\begin{equation*}
+A=\{u(a+bi)+v(c+di)|u,v\in\Z\}.
+\end{equation*}
+That generator being $x+yi$, we must have
+\begin{equation*}
+A=\{(x+yi)(u+vi)|u,v\in\Z\}.
+\end{equation*}
+But I'm not sure how to formulate $x$ and $y$ as a
+function of $a,b,c,d$, if that is even possible.
+
+\end{document}
