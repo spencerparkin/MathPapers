@@ -4,6 +4,12 @@
 %\usepackage{newcent}   % uses new century schoolbook postscript font 
 \setlength{\textwidth}{5.1in} % set width of text portion
 
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=blue,
+}
+
 \begin{document}
 
 % Center the name over the entire width of resume:
@@ -80,14 +86,24 @@
 		
 		\end{itemize}
 
-\section{DEMOS}
-		Put links to demos here \\
+\section{PERSONAL PROJECTS}
+		The following are computer programs I've written out of personal interest.  Source code for all of these projects can be found here: \url{https://github.com/spencerparkin?tab=repositories}
+		\begin{itemize}\itemsep -2pt %reduce space between items
+		\item \textbf{CalcLib} -- A static library providing numeric and symbolic calculation support.  Unlike most calculators, this one understands geometric algebra.  It also utilizes a BSP-tree to do real-time alpha sorting.
+		\item \textbf{GAVisTool} -- Built upon CalcLib, this is a tool for exploring and experimenting with conformal geometric algebra.
+		\item \textbf{GALua} -- A Lua module that exposes the capabilities of CalcLib.
+		\item \textbf{CSharpMaze} -- A rectangular and circular maze generator written in C\#.
+		\item \textbf{ChineseCheckers} -- A wxWidgets-based application utilizing OpenGL's selection mechanism.  It is also multi-player as it can host and connect to a game session.
+		\item \textbf{RubiksCube} -- Another wxWidgets-based application utilizing OpenGL's selection mechanism.  Any Rubik's Cube of degree 3 or higher can be simulated.  An algorithm is provided that can find a solution to any such scrambled cube.  The solution sequence is animated.
+		\item \textbf{ImageGenerator} -- A multi-threaded image generator that can generate fractals and ray-trace scenes specified in XML.  It can also render video clips.
+		\end{itemize}
 
 \section{EXTRA-CURRICULAR \\ ACTIVITIES}
 		\begin{itemize}\itemsep -2pt %reduce space between items
 		\item Served an LDS mission in Los Angleles from 2002 to 2003.
 		\item Long Day-hikes to big peaks such as Salt Lake Twin Peaks, Dromodary Peak, Mt. Superior, Lone Peak, Ben Lomond Peak.
-		\item Cubing!  Rubik's Cube, Square-1, Curvey-Copter, Rex-Cube, various cuboids, etc.
+		\item Trail running!
+		\item Cubing!  Rubik's Cube, Square-1, Curvey-Copter, Rex-Cube, various cuboids, etc.  (Give link.)
 		\end{itemize}
 
 \end{resume}
