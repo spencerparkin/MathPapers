@@ -19,48 +19,6 @@
 \begin{document}
 \maketitle
 
-Given a group $G=\langle S\rangle$ and any element $g\in G$, it is often desirable to
-find a factorization of $g$ in terms of the elements in $S$.
-If we were to generate all elements of $G$ and store them in terms of their
-factorizations using $S$, then $G$ becomes a search space for the factorization
-of any given element $g\in G$.  For all but the smallest of groups, however, this is completely impractical.
-
-If we have a subnormal series of $G$, namely
-\begin{equation*}
-\{e\}=H_1\triangleleft  H_2\triangleleft\dots\triangleleft H_n=G,
-\end{equation*}
-then it may be practical to store the coset representatives of each
-factor group $H_i/H_{i-1}$.  These become a search space at each tier
-in the subgroup chain.  We let $k$ be the smallest integer
-for which $g\in H_k$, then let $h_1\in H_k$ be the stored coset representative
-such that $gH_{k-1}=h_1H_{k-1}$.  We then find that $h_1^{-1}g\in H_{k-1}$,
-and repeat this process until we find
-\begin{equation*}
-h_r^{-1}\dots h_1^{-1}g\in H_1,
-\end{equation*}
-at which point we can conclude that
-\begin{equation*}
-g = h_1\dots h_r,
-\end{equation*}
-which can be rewritten in terms of the elements in $S$, provided brought them along at
-each level in the chain.
-
-Note that the generators for $H_i/H_{i-1}$ can be found in terms of the
-generators $S_i$ for $H_i$ as
-\begin{equation*}
-H_i/H_{i-1} = \{s_1\dots s_jH_{i-1}|s_k\in S_i\} = \{(s_1H_{i-1})\dots(s_jH_{i-1})|s_k\in S_i\}.
-\end{equation*}
-Once the factor group $H_i/H_{i-1}$ is generated in terms of a sequence of
-coset representatives, these can also be used as a transversal in Schreier's lemma
-to find generators $S_{i-1}$ for $H_{i-1}$.
-
-This approach to factorization has its own set of diffulties as well, however; not the least of
-which being the difficulty in producing the subnormal chain.  Factorizations found this way
-grow exponentially as the chain is descended.
-
-So we turn now to what might be
-a more practical method in circumstances where more about the group is known up front.
-
 \begin{definition}
 For any group $G$, let an element $m\in G$ be a \textbf{master element} if for
 every $g\in G$, there exists a sequence $\{r_i\}_{i=1}^k\subset G$ such that
@@ -69,18 +27,14 @@ g = \prod_{i=1}^k r_imr_i^{-1}.
 \end{equation}
 \end{definition}
 
-A master element is often known for groups of interest, and the set of all
-possible $r_i$ becomes the search space.  In the context of permutation groups,
-each $r_i$ found may help us descend a stabilizer chain we needn't generate.
-
 Calling a group \textbf{mastered} if it has a non-empty subset of master elements,
-we give our first lemma.
+we give the following lemma.
 
 \begin{lemma}[Gallian]
 The cyclic groups are the only mastered Abelian groups.
 \end{lemma}
 \begin{proof}
-Notice that equation \eqref{equ_master_ele} immediately reduces to
+Notice that equation \eqref{equ_master_ele_factorization} immediately reduces to
 \begin{equation*}
 g = m^k.
 \end{equation*}
@@ -89,13 +43,87 @@ form, and so every master element is a generator of the group.
 This is not the case, however, for any non-cyclic Abelian group.
 \end{proof}
 
-This factorization method, therefore, cannot generally help us with Abelian groups.
-This isn't too desparaging, however, since the factoring problem may be generally
-harder in the non-Abelian cases anyway.
+We now describe a class of permutation groups that are all mastered.
+Our convention for composition is that, for permutations $a$ and $b$, the
+composition $ab$ maps domain elements through $a$ first, then $b$.
+Similarly, products of cycles are evaluated from left to right.
+The notation $x^a=y$ is used instead of $a(x)=y$ to avoid
+the idea that $a(x)$ is a composition of the permutation $a$
+with the $1$-cycle $(x)$.
 
-%How do we generate the search space?  How do we find a master element?
-%If $G$ is a group of permutations on a set $S$, then maybe we must require that for all $s\in S$,
-%$\mbox{orb}_G(s)=S$?  Doesn't sound right.
-% I'm not sure I can prove anything about this idea.  Maybe it's dumb.
+\begin{lemma}
+Let $p_i=(p_{i,1},\dots,p_{i,n})$ be one of $m$ permutations, each an $n$-cycle
+of elements in a domain $\Omega$,
+and let $G=\langle\{p_i\}_{i=1}^m\rangle$.
+If there exists $1\leq j\leq m$ such that for any $1\leq k\leq m$,
+we can find $r\in G$ in the form
+\begin{equation*}
+r = (p_{k,1},p_{j,1})\dots(p_{k,n},p_{j,n})q,
+\end{equation*}
+where $q$ is a permutation that, for all $1\leq i\leq m$, has $p_{j,i}^q=p_{j,i}$,
+then $G$ is a mastered group.
+\end{lemma}
+\begin{proof}
+Since every element of $G$ is a product of the generators, it suffices to
+show that every generator factors as shown in equation \eqref{equ_master_ele_factorization}.
+By hypothesis, it is easy to see that
+\begin{equation*}
+p_k = rp_jr^{-1},
+\end{equation*}
+showing that $p_j$ is a master element of $G$.
+\end{proof}
+\begin{corollary}\label{cor_sym_grp_mastered}
+The symmetric group on a domain $\Omega$ of size $n$ is a mastered group.
+\end{corollary}
+\begin{proof}
+Note that $S_n=\{(1,2)(2,3)\dots(n-1,n)\}$.  Now choose, arbitrarily,
+$m=(1,2)$ to be our master element.  Then, for any generator,
+we have $(x,x+1)=rmr^{-1}$, where
+\begin{equation*}
+r = \prod_{j=1}^{x-2}(x-i,x-i-1)(x-i+1,x-i).
+\end{equation*}
+\end{proof}
+The distinction between an idealy master group and one that is merely mastered comes
+into play when we consider exploiting the mastered property of a group for the
+purpose of factoring its elements in terms of a set of generators for the group.
+\begin{definition}
+Call a group $G$ \textbf{ideally} mastered if for every $g\in G$, there
+exists $r\in G$ such that
+\begin{equation*}
+|A(grmr^{-1})|<|A(g)|,
+\end{equation*}
+where $A:G\to\Omega$ is a function defined as
+\begin{equation*}
+A(g) = \{i\in\Omega|i^g\neq i\}.
+\end{equation*}
+\end{definition}
+\begin{lemma}\label{lem_sym_grp_ideally_mastered}
+The symmetric group on a domain $\Omega$ of size $n$ is an ideally mastered group.
+\end{lemma}
+\begin{proof}
+Note that $S_n=\langle\{(x,y)|\mbox{$x,y\in\Omega$ and $x\neq y$}\}\rangle$.  We now again choose,
+arbitrarily, $m=(1,2)$ to be our master element.  Then, for any generator, we have
+$(x,y)=rmr^{-1}$, where
+\begin{equation*}
+r = \prod_{i=0}^{x-2}(x-i,x-i-1)\prod_{j=0}^{y-3}(y-i,y-i-1).
+\end{equation*}
+\end{proof}
+
+For any $g\in S_n$, finding a factorization of $g$ in terms of the
+generators found in lemma \ref{lem_sym_grp_ideally_mastered}, or even those of corollary \ref{cor_sym_grp_mastered},
+is trivial.  For other
+mastered groups, however, finding a factorization in terms of the
+generators may not be so easy.  So we consider the following algorithm
+for factoring an element $g$ in an ideally mastered group $G$.
+
+Let $g_1=g$, and then, while $g_k\neq e$, let $g_{k>1}=g_{k-1}r_kmr_k^{-1}$ where
+$|A(g_k)|<|A(g_{k-1})|$.  The idea here is that if we can factor each $r_k$ in terms
+of the generators, and we know the factorization of $m$ in terms of the generators,
+then we've deduced a factorization of $g$.  At each iteration, the crux is finding $r_k$.
+
+Can we find a test for a mastered group being ideal?  Can we find a test for a group being mastered for
+that matter?  Can we prove something about finding $r_k$?  Clearly we can go down the generator
+tree, but can we show an upper-bound on how far we'd have to go?
+
 
 \end{document}
