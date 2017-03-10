@@ -75,7 +75,7 @@ a better way.  Enter the subgroup chain!
 Suppose we have a nested sequence of subgroups $\{G_k\}_{k=1}^n$
 such that
 \begin{equation*}
-G = G_1\leq G_2\leq\dots\leq G_n = \{e\}.
+G = G_1> G_2>\dots> G_n = \{e\}.
 \end{equation*}
 Suppose further, for each subgroup, we have $G_k=\langle S_k\rangle$
 with $T_k$, a set of elements taken from $G$ such that
@@ -123,26 +123,44 @@ will be denoted by $G^\omega$, and given by
 \begin{equation*}
 G^\omega = \{g\in G|\omega^g=\omega\}.
 \end{equation*}
-Letting $T$ be a transversal of $G^\omega$ in $G$, and $g\in G$, we will find it convenient
-to define $\bar{g}$ as the element in $T$ such that $G^\omega\bar{g}=G^\omega g$.
 
-That said, we now establish a bijection between $T$ and the $\omega^G$.
+That said, we now establish a bijection between $T$ and $\omega^G$.
 Map $t\in T$ to $\alpha\in\omega^G$, where $\omega^t=\alpha$.
-Go on...
+Let $a,b\in T$ such that $\omega^a=\omega^b=\alpha$.
+Then $\omega^{ab^{-1}}=\omega\implies ab^{-1}\in G^{\omega}\implies G^{\omega}a=G^{\omega}b$.
+It follows now that since $|T|=|\omega^G|$, we have
+\begin{equation*}
+|G|=|\omega^G||G^{\omega}|.
+\end{equation*}
+This is the orbit-stabilizer theorem, but what we're really interested in
+is the proof; for it tells us that the problem of generating the transversal $T$ of $G^{\omega}$ in $G$ is
+related to the problem of generating the orbits of $\omega$ in $G$.
+For every new orbit we find, we also find a new coset representative in $T$.
 
-It's this established bijection that tells us how we can generate the transversal
-of $G^\omega$ in $G$ from the orbits of $\omega$ over $G$.
-
-% Give orbit algorithm
+At this point we can return to the idea of traversing the Cayley graph of $G$,
+but instead of needing to traverse until we find $g$, we just need to run until,
+for every $\alpha\in\omega^G$,
+we've encountered an element $t$ in $G$ taking $\omega$ to $\alpha$.
 
 Having a transversal $T$ of $G^\omega$ in $G$, the last piece of the
 puzzle is a way to generate generators for $G^\omega$ in terms
-of $S$ and $T$, and this is where Schreier's lemma comes into play.
+of $S$ and $T$, and this is where Schreier's lemma \ref{} comes into play.
+His lemma states
+\begin{equation*}
+G^{\omega} = \langle\{st\overline{st}^{-1}|\mbox{$s\in S$ and $t\in T$}\}\rangle,
+\end{equation*}
+where here, for any $g\in G$, we're using the notation $\bar{g}$ to
+mean the element in $T$ such that $G^\omega\bar{g}=G^\omega g$.
+These are called Schreier generators, and the union of all generators in
+a stabilizer chain form what's called a strong generating set for $G$.
+It's strong, because that union, when restricted to any subgroup in
+the chain, still generates that subgroup.
 
-State and give proof here.
+Give proof here.  Give credit for proof source.
 
-Now with Streier's lemma and the orbit-stabilizer theorem, we have everything
-we need to recursively construct the stabilizer chain!
+Now that we have Streier's lemma, and the orbit-stabilizer theorem, we have everything
+we need to recursively construct the stabilizer chain!  Generate $T_k$ from
+$S_k$ and our characterization of $G_{k+1}$, then $S_{k+1}$ from $S_k$ and $T_k$.
 
 \section{A Drawback To The Solution}
 
