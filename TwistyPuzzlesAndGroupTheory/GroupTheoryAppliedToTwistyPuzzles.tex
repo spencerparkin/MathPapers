@@ -92,11 +92,11 @@ to solve our problem.  Given any $g\in G$, our procedure is as follows.  Let $f=
 Find $k$ such that $g\in G_{k-1}$, but $g\not\in G_k$.  If there is no such $k$,
 then $g\in G_n\implies g=e$, and we're done.  Otherwise, we make the observation
 that there exists $t\in T_k$ such that $G_kt=G_kg$, and therefore, $gt^{-1}\in G_k$.
-Assign $gt^{-1}$ to $g$, and $ft^{-1}$ to $f$, and repeat.  When we're done,
+Assign $gt^{-1}$ to $g$, and $ft^{-1}$ to $f$, and repeat at the point where we find $k$.  When we're done,
 $f^{-1}$ is the desired factorization, and $f$ itself is the solution to the puzzle!
 
 Of course, for this to work, we need there to be a known way of
-writing every element in $T_k$ and $S_k$ in terms of the generators in $S_{k+1}$.
+writing every element in $T_k$ and $S_k$ in terms of the generators in $S_{k-1}$.
 This will naturally fall out of our process of generating the subgroup chain.
 
 To that end, let's consider now the construction of a subgroup chain for
@@ -113,7 +113,8 @@ we have the orbit-stabilizer theorem!  But first, let's introduce a few definiti
 notation.
 
 For any $\omega\in\Omega$, and any $g\in G$, we will let $\omega^g$ denote
-the image of $\omega$ under the permutatoin $g$.  The set of all possible
+the image of $\omega$ under the permutation $g$.\footnote{We avoid the
+notation $g(\omega)$ so as not to confuse it with the convenient cycle-notation.}  The set of all possible
 images of $\omega$ over $G$ will be denoted by $\omega^G$ and given by
 \begin{equation*}
 \omega^G = \{\omega^g|g\in G\}.
@@ -126,8 +127,9 @@ G^\omega = \{g\in G|\omega^g=\omega\}.
 
 That said, we now establish a bijection between $T$ and $\omega^G$.
 Map $t\in T$ to $\alpha\in\omega^G$, where $\omega^t=\alpha$.
-Let $a,b\in T$ such that $\omega^a=\omega^b=\alpha$.
-Then $\omega^{ab^{-1}}=\omega\implies ab^{-1}\in G^{\omega}\implies G^{\omega}a=G^{\omega}b$.
+Let $a,b\in T$ such that $\omega^a=\omega^b$.
+Then $\omega^{ab^{-1}}=\omega\implies ab^{-1}\in G^{\omega}\implies G^{\omega}a=G^{\omega}b\implies a=b$,
+since $T$ contains one and only one representative for each right coset of $G^\omega$ in $G$.
 It follows now that since $|T|=|\omega^G|$, we have
 \begin{equation*}
 |G|=|\omega^G||G^{\omega}|.
