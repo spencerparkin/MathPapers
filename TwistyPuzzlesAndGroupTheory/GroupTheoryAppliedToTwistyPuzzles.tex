@@ -159,22 +159,7 @@ a stabilizer chain form what's called a strong generating set for $G$.
 It's strong, because that union, when restricted to any subgroup in
 the chain, still generates that subgroup.
 
-To prove Schreier's lemma, we first make the observation that for all $g\in G$,
-we have $g\bar{g}^{-1}\in H$.  This shows that $S_H\subseteq H\implies \langle S_H\rangle\leq H$.
-We now must show that $H\subseteq\langle S_H\rangle$.  To do this, let $h\in H$, and so
-$h=s_1s_2\dots s_m$, a product of $m$ generators taken from $S$.  If $m=1$,
-then clearly
-\begin{equation*}
-h=s_1=s_1e=s_1\overline{s_1}^{-1}=s_1e\overline{s_1e}^{-1}\in\langle S_H\rangle.
-\end{equation*}
-We now make the inductive hypothesis that $h\in\langle S_H\rangle$ for some $m=k\geq 1$,
-and proceed to show that $h\in\langle S_H\rangle$ for $m=k+1$.  Consider the following equation.
-\begin{equation*}
-h = (s_1s_2\dots s_k)s_{k+1} = (s_1s_2\dots s_k)s_{k+1}e\overline{s_{k+1}e}^{-1}\in\langle S_H\rangle
-\end{equation*}
-By our inductive hypothesis, the parenthesized portion is in $\langle S_H\rangle\leq H$,
-and therefore, we must have $s_{k+1}\in H$.  We then use the same trick we used
-at the start, and this completes our proof by induction.
+A proof of Schreier's lemma can be found in \ref{}.
 
 Now that we have Schreier's lemma, and the orbit-stabilizer theorem, we have everything
 we need to recursively construct a stabilizer chain!  Generate $T_k$ from
