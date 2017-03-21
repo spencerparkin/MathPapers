@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{centernot}
+
+\title{The Orbit-Shuffler Theorem}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+We work here to prove a generalization of the Orbit-Stabilizer Theorem.
+Let $G$ be a finite permutation group with each $g\in G$ defined over the set $\Omega$.
+We say that $G$ is a subgroup of the symmetric group of $\Omega$.
+Given a non-trivial subset $P$ of $\Omega$, we define, for any $g\in G$,
+\begin{equation*}
+P^g = \{p^g|p\in P\}.
+\end{equation*}
+We also define
+\begin{equation*}
+G^P = \{g\in G|P^g=P\},
+\end{equation*}
+and call this the shuffler of $P$ in $G$.  Of course, when $P$ is a singleton set,
+this is the stabilizer of the sole member of $P$ in $G$.
+
+\begin{lemma}
+$G^P$ is a subgroup of $G$.
+\end{lemma}
+\begin{proof}
+Closure being trivial, we need only show that for any $a\in G^P$, we also have
+$a^{-1}\in G^P$.  To do this, we must convince ourselves that since $a$ is a bijection,
+we must have $P^a=P$ if and only if $P=P^{a^{-1}}$.
+\end{proof}
+
+\begin{lemma}
+For any pair of elements $a,b\in G$, we have
+\begin{equation*}
+P^a=P^b\implies P^{ab^{-1}}=P.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+If $p\in P$, then $p^b\in P^b=P^a$ means there exists $q\in P$
+such that $p^b=q^a$.  Then $q^{ab^{-1}}=p\implies p\in P^{ab^{-1}}$.
+On the other hand, let $p\in P^{ab^{-1}}$.  So there exists $q\in P$ such
+that $q^{ab^{-1}}=p$.  Now $q^a\in P^a=P^b\implies p^b\in P^b$.
+So there is $r\in P$ such that $p^b=r^b\implies p=r\in P$.
+\end{proof}
+
+We now define
+\begin{equation*}
+P^G = \{P^g|g\in G\},
+\end{equation*}
+and say that $P^G$ is the orbit of $P$ in $G$.
+We can now prove the following theorem.
+\begin{theorem}[Orbit-Shuffler Theorem]
+A relationship between $|G|$, $|G^P|$ and $|P^G|$ is given by
+\begin{equation*}
+|G|=|G^P||P^G|.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Letting $T$ be a right-transversal of $G^P$ in $G$, we simply find a bijection
+between $T$ and $P^G$.  Map $t\in T$ to $P^t$.  Let $a,b\in T$ such that
+$P^a=P^b$.  It follows that $P^{ab^{-1}}=P$, and therefore, $ab^{-1}\in G^P$.
+In turn, we have $G^Pa=G^Pb\implies a=b$, since $a$ and $b$ are taken from $T$.
+\end{proof}
+
+Defining
+\begin{equation*}
+G^{[P]}=\{g\in G|\mbox{$p^g=p$ for all $p\in P$}\},
+\end{equation*}
+it is worth noting where the proof of our theorem would fail
+if we replaced $G^P$ with $G^{[P]}$.  Where we run in to trouble
+is the implication
+\begin{equation*}
+P^{ab^{-1}}=P\centernot\implies ab^{-1}\in G^{[P]}.
+\end{equation*}
+
+% Can we say that G^P = G^{Omega-P}?  Is this helpful?
+%Thoughts...  Would it be useful to build a shuffler chain--the analog of a stabilizer chain?
+%In some cases, G^[P] set is a normal subgroup, and I was hoping to find a transversal
+%for it.  The idea is that I already have a stabilizer chain for the associated homomorphic image.
+%A stabilizer for the kernel would then complete all the information we need to say we have
+%a stabilizer chain for the entire group.
+
+\end{document}
