@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Conjugates and Commutators}
+\author{Spencer T. Parkin}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{identity}{Identity}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+
+\begin{document}
+\maketitle
+
+This note gives some insight into why useful sequences for twisty puzzles so often take
+the form of conjugates and commutators.  We begin with a permutation group $G\leq S(\Omega)$,
+and for all $g\in G$, let
+\begin{equation*}
+\phi(g)=\{\omega\in\Omega|\omega^g\neq\omega\}.
+\end{equation*}
+We then establish, for all $a,b\in G$, the following relations.
+\begin{align*}
+|\phi(bab^{-1})|&=|\phi(a)|\\
+|\phi(aba^{-1}b^{-1})|&=|\phi(a)\cap\phi(b)|\\
+ &\leq\mbox{min}(|\phi(a)|,|\phi(b)|)
+\end{align*}
+The first of these is a consequence of the fact that for any $\omega\in\Omega$, we
+have $\omega^a=\omega$ if and only if $\omega^{bab^{-1}}=\omega$.
+For the second of these, the relation clearly holds when $a$ and $b$ commute.
+If they do not commute, then for any $\omega\in\phi(a)\cup\phi(b)$,
+we consider the following three cases.
+\begin{align*}
+\mbox{case 1:}\; & \omega\in\phi(a)-\phi(b)\\
+\mbox{case 2:}\; & \omega\in\phi(b)-\phi(a)\\
+\mbox{case 3:}\; & \omega\in\phi(a)\cap\phi(b)
+\end{align*}
+Clearly, $\omega^{aba^{-1}b^{-1}}=\omega$ for cases 1 and 2, but not case 3.
+
+What we learn here is that conjugates translate a useful sequence into another useful
+sequence acting on a different subset of $\Omega$ of the same size in a similar way.
+We also learn that the total action performed by a commutator is less than the minimum
+action performed by either permutation taken in the commutator product.  This is
+essential to descending a stabilizer chain, where getting from one subgroup to a
+smaller subgroup requires stabilizing more points of $\Omega$.
+
+\end{document}
