@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Prime Formula}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+Considering the prime number sieve, it is natural to ask: is there an expression in the first $n-1$ primes for the $n$th prime?
+Everything that follows is an attempt to answer that question, and is a result of Mark Tiefenbruck.
+
+We begin with the well-known zeta function.
+\begin{equation}\label{equ_euler}
+\zeta(s) = \sum_{m=1}^\infty\frac{1}{m^s} = \prod_{i=1}^\infty\frac{1}{1-p_i^{-s}}
+\end{equation}
+Focusing on all but the first $n-1$ factors, we write
+\begin{equation}\label{equ_mark}
+\zeta(s)\prod_{i=1}^{n-1}(1-p_i^{-s}) = \prod_{i=n}^\infty\frac{1}{1-p_i^{-s}} = 1 + \sum_{q\in Q}\frac{1}{q^s},
+\end{equation}
+where the set $Q$ is given by
+\begin{equation*}
+Q = \{q\geq p_n|\mbox{$p_i\nmid q$ for all $1\leq i<n$}\}.
+\end{equation*}
+We're now going to leave equation \eqref{equ_mark} for a moment and return to it later.
+
+Let $r_i$ be an infinite sequence of real numbers with every $r_i>1$.  We now wish to find the
+following limit.
+\begin{equation*}
+\lim_{s\to\infty}\left[\sum_{i=1}^\infty\frac{1}{r_i^s}\right]^{-1/s} = R
+\end{equation*}
+By rearrangement, this becomes
+\begin{equation*}
+\lim_{s\to\infty}\left[\left(\frac{R}{r_j}\right)^s+\sum_{i\neq j}\left(\frac{R}{r_i}\right)^s\right]^{-1/s} = 1.
+\end{equation*}
+From this it can be seen that $R=r_j=\mbox{min}\{r_i\}$.
+
+Returning to equation \eqref{equ_mark}, we now see that
+\begin{equation*}
+\lim_{s\to\infty}\left[-1+\zeta(s)\prod_{i=1}^{n-1}(1-p_i^{-s})\right]^{-1/s} = \mbox{min}\,Q = p_n.
+\end{equation*}
+We now have a formula for $p_n$ in terms of each $p_1$ through $p_{n-1}$.
+One of the unsatisfactory things about this, however, is that we're still dependent upon the zeta function,
+which in turn depends on all the primes.  Nevertheless, we can expression $\zeta(2s)$, for example,
+in terms of $\pi$ and ther Bernoulli numbers; so it's arguable that we have still as yet found a formula
+of the desired form.
+
+\end{document}
