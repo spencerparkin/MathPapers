@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Rubik's Cube Algorithms Compilation}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+\section*{Explanation}
+
+This document is a compilation of algorithms for the 3x3 Rubik's Cube, most notably those
+for solving the last layer (LL) using the advanced method.  I take no credit for any algorithm; this
+is just a compilation.
+
+\section*{2-Look OLL Algs}
+
+Note that the first and second looks must be done in the given order.
+
+\subsection*{First Look (Orient Edges)}
+
+Bar: $F\,(R\,U\,R'\,U')\,F'$
+
+\noindent
+Corner: $f\,(R\,U\,R'\,U')\,f'$
+
+\noindent
+None: $[F\,(R\,U\,R'\,U')\,F'][f\,(R\,U\,R'\,U'\,)\,f']$
+
+\subsection*{Second Look (Orient Corners)}
+
+Fish UL: $(R'\,U'\,R)\,U'\,(R'\,U2\,R)$
+
+\noindent
+Fish LL: $(R\,U\,R'\,U')\,U(R\,U2\,R')$
+
+\noindent
+Double Head-lights: $F\,(R\,U\,R'\,U')3\,F'$
+
+\noindent
+Head-lights/Camilian: $(R\,U2)(R2\,U')(R2\,U')(R2\,U2\,R)$
+
+\noindent
+Head-lights: $(R2'\,D)(R'\,U2)(R\,D')(R'\,U2\,R')$
+
+\noindent
+Camilian: $(r\,U\,R'\,U')(r'\,F\,R\,F')$
+
+\noindent
+Bow-tie: $F'\,(r\,U\,R'\,U')(r'\,F\,R)$
+
+\section*{2-Look PLL Algs}
+
+Note that the first and second looks can be done in either order.
+
+\subsection*{First Look (Permute Edges)}
+
+H-Perm: $M2\,U\,M2\,U2\,M2\,U\,M2$
+
+\noindent
+U Perm (a): $R2\,U'\,R'\,U'\,R\,U\,R\,U\,R\,U'\,R$
+
+\noindent
+U Perm (b): $R'\,U\,R'\,U'\,R'\,U'\,R'\,U\,R\,U\,R2$
+
+\noindent
+Z Perm: $(M2\,U)2\,M'\,(U2\,M2\,U2)\,M'\,U2$
+
+\subsection*{Second Look (Permute Corners)}
+
+\noindent
+A Perm (a): $R'\,F\,R'\,B2\,R\,F'\,R'\,B2\,R2$
+
+\noindent
+A Perm (b): $R\,B'\,R\,F2\,R'\,B\,R\,F2\,R2$
+
+\noindent
+E Perm: $L\,R'\,U'\,R\,U\,L'\,U'\,R'\,U\,R\,r\,U\,R'\,U'\,r'\,F\,R\,F'$
+
+\section*{1-Look OLL Algs}
+
+Note that we do not repeat here algorithms already appearing for 2-look.
+\linebreak
+
+TODO: Add them here.
+
+\section*{1-Look PLL Algs}
+
+Note that we do not repeat here algorithms already appearing for 2-look.
+\linebreak
+
+\noindent
+F Perm: $(R'\,U\,R\,U')\,R2\,(F'\,U'\,F\,U)(R\,F\,R'\,F')\,R2\,U'$
+
+\noindent
+G Perm (a):
+
+\noindent
+G Perm (b):
+
+\noindent
+G Perm (c):
+
+\noindent
+G Perm (d):
+
+\noindent
+J Perm (a):
+
+\noindent
+J Perm (b):
+
+\noindent
+N Perm (a):
+
+\noindent
+N Perm (b):
+
+\noindent
+R Perm (a):
+
+\noindent
+R Perm (b):
+
+\noindent
+T Perm:
+
+\noindent
+V Perm:
+
+\noindent
+Y Perm:
+
+\end{document}
