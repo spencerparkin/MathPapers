@@ -1,0 +1,25 @@
+
+Notes on Compiler Design
+========================
+
+Writing a made-up language that compiles into executable byte-codes has been a bucket-list item for me for quite some time, and I'm close to knowing just how to do it, but there are enough unknowns left about it that, in any case, it is too strenuous an undertaking to seriously consider right now, especially with virtually no time for side-projected.
+
+So what must suffice for now is just to put down my thoughts about it.
+
+First, it should be noted that tokenizing and then parsing into a syntax tree is easy.  I've done this before, and then one can easily execute the syntax tree.  A recursive algorithm simply passes to each node a run-time context to hold program variable state and the like.  This is an easy way to impliment your own interpreted programming language, but it is not entirely satisfactory.  I suppose the main reason is because it doesn't have the potential to be as fast as an executable consisting of byte-code instructions.  There are also possibly some language features that just can't easily be implimented with this approach.
+
+On the other hand, it is also very easy to write your own virtual machine that simply deciphers and dispatches instructions that operate on registers and a stack.  The machine is very simple, and needs only support instructions for branching (conditional and unconditional), pushing and popping, logical operations, mathematical operations, comparison operations, and maybe a few more instructions I'm forgetting.  In any case, with a small instruction set, there is quite a bit of potential for what the machine can do.  Also, since it's a VM, you're not limited to a fixed number of registers, or to simple data-types.  You could support aggregate types that can nest other types, aggregate or atomic, etc.  The VM can manage memory so that languages with compilers targeting the VM need not burden their programmers with memory management considerations.
+
+Now all that said, bridging the gap between the syntax tree and the VM code is the meat of the problem, and it's not at all easy, but here are a few ideas I've had.
+
+First, binary/unary expression trees are easily written in terms of instructions that use a stack.  Each instruction just pops it's operands, does its operation, then pushes its result.  This idea can be used to evaluate expression trees, and it's not hard to see how one would generate a sequence of instructions that would match a given expression tree.
+
+Second, I think there should be an intermediate phase between the syntax tree and the final executable.  This phase would flatten the tree into a sequence of code block fragments.  This sequence would be laid down to generate the final executable, but in multiple passes.  One pass is needed just to get the physical sizes of the binary code blocks figured out.  Another pass would be needed to resolve jump instructions, which would always be to the start of one of the other code blocks, so before this resolution, jumps could just point to code-blocks instead of offsets from the start of the binary file.  Another pass might be needed to figure out how to allocate and deallocate registers.  I'm quite fuzzy here as this is no a trivial task when you also consider what might need to be done to impliment, for example, a calling convention in a produral language.
+
+Anyhow, I think this intermediate phase would be quite helpful, but it still doesn't trivialize the complicated task of implimenting the syntax tree as a sequence of instructions that knows what registers to use, and where to jump within the executable, and how to use the stack.  It's a very interesting problem, but not one to which I have time to dedicate, unfortunately.
+
+Or, fortunately, since I'm sure that even if I could push through a solution, it would be slow and the language would be completely useless.  It's only use would be as an academic exercise.  Still, I find the problem fun and interesting.
+
+That brings up another difficult point: even if you know how to write a compiler and impliment the VM, how do you design the language/syntax itself?  And what would make this language any better than any other language out there?  That really doesn't matter, though, of course, if you only care about writing a compiler for the sake of the exercise, but it's hard to justify the effort without considering what use, if any, the result would have beyond that.
+
+So, one way to reduce the amount of work needed, and to feel somewhat like I've entered the realm of a true compiler is to go just one step beyond executing the syntax tree and just execute the code-block sequence that is the flattening of that tree.  Further, we don't need to write a VM or write out an executable file.  Every time the program is to run, we just recompile just in time to run it.  This isn't that bad of an idea, because we still have to do all the important things needed to generate a binary executable, but just at a higher level without finer details.  I still wouldn't be motivated to try this, though, until I felt like I had a language made up that was worth trying to impliment.
