@@ -53,7 +53,7 @@ The angle $\theta$ is the viewing angle, $n$ is our distance along the $+Y$ axis
 \caption{A point $q$, the projection of $p$ from camera space into projection space; the space having width in the range $[-1,1]$, and depth in the range $[0,1]$.}
 \label{fig2}
 \end{figure}
-One will see right away, however, that these are not linear transformations.  Consequently, we can't encode this type of transformation in a $2\times 2$ matrix.  Further, we'll find that the equation for $q_y$, although ideal, will have to be substituded with an alternative way of mapping the point $P$'s depth along the $Y$ axis in the range $[n,f]$ to $[0,1]$.
+One will see right away, however, that these are not both linear transformations.  Consequently, we can't encode these transformations collectively in a $2\times 2$ matrix.  Further, we'll find that the equation for $q_y$, although ideal, will have to be substituded with an alternative way of mapping the point $P$'s depth along the $Y$ axis in the range $[n,f]$ to $[0,1]$.
 
 The answer, then, (as discovered by August Ferdinand Mobius), is to work in higher dimensions in conjunction with the notion of homogenous coordinates.  In this system, a point $P$ is extended to 3D space as the point $P=(p_x,p_y,1)$, and we say that any point $R=(r_x,r_y,r_z)$ is equivilent to $P$ if and only if $r_x/r_z=p_x$ and $r_y/r_z=p_y$.  This creates an equivilance relation in 3D space, and we say that $P$ is the homogenized form of $R$.
 
