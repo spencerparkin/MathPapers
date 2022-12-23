@@ -119,7 +119,7 @@ Naturally, to extend what we have to 3D space, we'll need a $4\times 4$ matrix, 
 \frac{1}{\tan\theta/2} & 0 & 0 & 0 \\
 0 & \frac{1}{\tan\phi/2} & 0 & 0 \\
 0 & 0 & \frac{-f}{f-n} & \frac{fn}{f-n} \\
-0 & 0 & 1 & 0
+0 & 0 & -1 & 0
 \end{array}
 \right]\left[
 \begin{array}{c}
@@ -131,7 +131,7 @@ p_z \\
 \right]
 \end{equation*}
 
-Here we can see that $\theta$ is our horizontal field of vision, while $\phi$ is the vertical field of vision.  Aside from being of higher dimension, you'll also notice that the signs of the entries involving the near and far clipping distance have flipped from our earlier version.  It's not hard to see why if you go through the derivision again as earlier, but instead of targeting the range $[0,1]$ for our depth values, target the range $[-1,0]$.
+Here we can see that $\theta$ is our horizontal field of vision, while $\phi$ is the vertical field of vision.  Aside from being of higher dimension, you'll also notice that the signs of the entries involving the near and far clipping distance have flipped from our earlier version.  It's not hard to see why if you go through the derivision again as earlier, but instead of targeting the range $[0,1]$ for our depth values, target the range $[-1,0]$.  Also, the unit in the last row has been negated as well.  This is because our frustum is now facing down a negative axis (the $-Z$-axis) rather than a positive axis (the $+Y$-axis.)
 
 An interesting observation to be made at this point is the effect of our choice of $\theta$ and $\phi$, especially when
 $\theta\neq\phi$.  This is another type of distortion of our objects as they pass from camera space to projection space.
