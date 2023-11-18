@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Generalizing the Dot Product}
+\author{Spencer T. Parkin}
+
+\begin{document}
+\maketitle
+
+Hello, Paul.  Consider $a\cdot B$ where $a$ is a vector and $B$ is an $n$-dimensional blade (or $n$-blade) with $n\geq 1$.  We are very familiar with the case of $n=1$, and we really just take it as a definition to understand the meaning of $a\cdot B$ when $B$ is a vector.  But how do we generalize this idea to higher dimensions?  To do that, I like to take a step back and consider $a\wedge B$.  The outer product is used to build up blades.  You can think of the vector $a$ in this case as being used to extrude $B$ into a new dimension, provided $a$ really does go into a dimension $B$ does not.  If this is not the case, then $a\wedge B$ collapses to zero.  So to intuitively grasp $a\cdot B$, we simply think of it as doing the opposite of $a\wedge B$.  That is, $a\cdot B$ is taking $B$ and collapsing it down by one dimension.  The part of $a$ that is perpendicular to $B$, if any, is the only part of $a$ that extrudes $B$ to get $a\wedge B$ non-zero.  Similarly, the only part of $a$ that is parallel to $B$, if any, is the only part of $a$ that collapses $B$ to get $a\cdot B$ non-zero.
+
+So let's look at $a\cdot B$ when $B$ is a 2-blade.  Like you said, we can write $a\cdot B = a\cdot (b\wedge c)$ with $b$ perpendicular to $c$, without loss of generality, but we don't need to introduce the geometric product here.  Furthermore, if we let $a_{\bot}$ be the part of $a$ perpendicular to $B$, and $a_{\parallel}$ be the part of $a$ parallel to $B$, then we can choose $b$ such that $b=a_{\parallel}$, and write...
+
+\begin{equation*}
+  a\cdot B = (a_{\bot} + a_{\parallel})\cdot (b\wedge c) = a_{\parallel}.(b\wedge c) \equiv (a_{\parallel}\cdot b)c = |a_{\parallel}|^2 c
+\end{equation*}
+  
+...where here I have used the symbol $\equiv$ to denote an equality that follows by definition.  (Again, instead of extruding a blade into a new dimension, if we collapse $B$ down into a lower dimensional blade using the direction of $a_{\parallel}$, we get a vector in the direction of $c$.)
+
+Note that up to now, getting $a\cdot B$ into pure vector form ($|a_{\parallel}|^2 c$) was all about our clever choices for how to factor $B$ into vectors $b$ and $c$.  But if we chose any vector $b$ and $c$ such that $B=b\wedge c$, then how do we arrive at...
+
+\begin{equation*}
+  a\cdot (b\wedge c) = (a\cdot b)c - (a\cdot c)b
+\end{equation*}
+  
+Well, going back to the vectors $b$ and $c$ we had chosen before, let's play with what we had.  We can write...
+
+\begin{equation*}
+  a\cdot B = (a_{\parallel}\cdot b)c = (a_{\parallel}\cdot b)c - (a_{\parallel}\cdot c)b
+\end{equation*}
+  
+...because $a_{\parallel}\cdot c=0$.  Now replace $a_{\parallel}$ with $a-a_{\bot}$ to get...
+
+\begin{equation*}
+  a\cdot B = (a\cdot b)c - (a\cdot c)b
+\end{equation*}
+  
+But this is still working under the assumption of our original choice of vectors for $b$ and $c$.  To generalize here, I think we have to look at...
+
+\begin{equation*}
+  b\wedge c = (b + \gamma c)\wedge c = b\wedge (c + \beta b)
+\end{equation*}
+  
+...for any scalars $\beta$ and $\gamma$, and then try to convince ourselves that the original formula will continue to hold.  For example, let's replace $b$ with $b + \gamma c$, and then see what happens to our formula.  We get...
+\begin{align*}
+a\cdot B &= (a\cdot b)c - (a\cdot c)b \\
+ &= (a\cdot(b + \gamma c))c - (a\cdot c)(b + \gamma c) \\
+ &= (a\cdot b)c + \gamma(a\cdot c)c - (a\cdot c)b - \gamma (a\cdot c)c \\
+ &= (a\cdot b)c - (a\cdot c)b
+\end{align*}
+
+As we can see, the formula was not modified by the replacement.  Similiarly, replacing $c$ with $c + \beta b$ should give the same result.  This shows that the formula holds for any factorization of $B$, because any one factorization can be reached from any other factorization by a sequence of such replacements.
+
+Anyhow, that's my attempt to generalize the dot product after years of not doing any GA.  I can't promise I didn't make a mistake, but it seems sound.  A further generalization, by the way, would be to consider $A\cdot B$ where $A$ is an $m$-blade and $B$ is an $n$-blade.  The result will be of grade $|m-n|$.
+
+\end{document}
