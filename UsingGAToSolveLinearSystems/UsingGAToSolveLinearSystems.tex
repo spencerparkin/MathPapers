@@ -13,6 +13,8 @@
 \newcommand{\V}{\mathbb{V}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\grade}{\mbox{grade}}
+\newcommand{\prl}{\parallel}
+\newcommand{\prp}{\perp}
 
 \begin{document}
 \maketitle
@@ -46,19 +48,19 @@ m_n\cdot x &= y\cdot e_n
 Yes, this is now looking like geometric algebra; and no, it doesn't look as nice as matrix algebra,
 but bare with me.  Note that $\{e_i\}_{i=1}^n$ are an orthonormal set of basis vectors for $\V$.
 
-For a vector $a\in\V$ and a blade $B$ of grade $k\leq n$, we will now make use of the following identity.
-\begin{equation}
-a\cdot B = -\sum_{i=1}^k(-1)^i (a\cdot b_i) \bigwedge_{j=1,j\neq i}^k b_i,
+For a vector $a\in\V$ and a blade $B$ of grade $k\leq n$, we will now make use of the following identity.  (This identity is justified in the appendix.)
+\begin{equation}\label{equ_useful_identity}
+a\cdot B = -\sum_{i=1}^k(-1)^i (a\cdot b_i) \bigwedge_{j=1,j\neq i}^k b_j,
 \end{equation}
 where $B=\bigwedge_{i=1}^k b_i$, each $b_i\in\V$.  With this in hand, we may return to our
 system of linear equations, and write
 \begin{equation}
-x\cdot\bigwedge_{i=1}^n m_i = -\sum_{i=1}^n (-1)^i (x\cdot m_i)\bigwedge_{j=1,j\neq i}^n m_i.
+x\cdot\bigwedge_{i=1}^n m_i = -\sum_{i=1}^n (-1)^i (x\cdot m_i)\bigwedge_{j=1,j\neq i}^n m_j.
 \end{equation}
 Interestingly, although our unknown vector $x$ is used on both sides of the equation here, the right-hand side
 is completely known.  To illustrate this, let's rewrite it with each equation in \eqref{equ_linear_system} substituted.
 \begin{equation}\label{equ_substituted}
-x\cdot\bigwedge_{i=1}^n m_i = -\sum_{i=1}^n (-1)^i (y\cdot e_i)\bigwedge_{j=1,j\neq i}^n m_i
+x\cdot\bigwedge_{i=1}^n m_i = -\sum_{i=1}^n (-1)^i (y\cdot e_i)\bigwedge_{j=1,j\neq i}^n m_j
 \end{equation}
 What's more, realize that
 \begin{equation}
@@ -68,11 +70,11 @@ since clearly in $(n+1)$-blade formed from $\V$ is necessarily zero.  Thus, the 
 can be changed to a geometric product.  This allows us to isolate $x$ on the left-hand side by multiplying both sides
 by an inverse as follows.
 \begin{equation}
-x = \left(-\sum_{i=1}^n (-1)^i (y\cdot e_i)\bigwedge_{j=1,j\neq i}^n m_i\right)\left(\bigwedge_{i=1}^n m_i\right)^{-1}
+x = \left(-\sum_{i=1}^n (-1)^i (y\cdot e_i)\bigwedge_{j=1,j\neq i}^n m_j\right)\left(\bigwedge_{i=1}^n m_i\right)^{-1}
 \end{equation}
 Some notation now might help to clean this up.  We'll let $M=\bigwedge_{i=1}^n m_i$, and
 \begin{equation}
-M_j=\bigwedge_{i=1,i\neq j}^n m_i,
+M_i=\bigwedge_{j=1,j\neq i}^n m_j,
 \end{equation}
 as well as $y_i=y\cdot e_i$.  Our equation then becomes
 \begin{equation}
@@ -107,14 +109,74 @@ then we may write
 f^{-1}(x)=\sum_{i=1}^n (x\cdot e_i)a_i.
 \end{equation}
 Here, we almost have the inverse function in the same form as the original function.
-To get it there, let $A$ be a matrix with each row being $a_i$, and then $B$ be a
-matrix with each column being $b_i$.  Now let $B$ be the transpose of $A$.
-We then have
+To get it there, let $A$ be a matrix with each row being $a_i$.  If we let $a_i'$ denote
+each column of $A$, we can then write
 \begin{equation}
-f^{-1}(x)=\sum_{i=1}^n (b_i\cdot x)e_i.
+f^{-1}(x)=\sum_{i=1}^n (a_i'\cdot x)e_i.
 \end{equation}
 And there we have it.  This is still not quite satisfactory, though, because we still had to use some
 matrix trickery to get the result, but it's at least directly computable with minimal need for algorithms
 beyond basic arithmatic.
+
+\subsection{Appendix}
+
+Here we are going to derive the identity in equation \eqref{equ_useful_identity}.
+Let $B=\bigwedge_{i=1}^k b_i$ be a $k$-vector, each $b_i\in\V$, and let $a\in\V$ as well.
+We want to calculate $a\cdot B$.  Without loss of generality, we will assume that the set
+of vectors $\{b_i\}_{i=1}^k$ forms an orthogonal basis.  That is, for every $i\neq j$, we
+have $b_i\cdot b_j=0$.
+
+We begin by realizing that
+\begin{equation}
+a\cdot B = (a_{\prp}+a_{\prl})\cdot B = a_{\prl}\cdot B,
+\end{equation}
+which is to say that only the part of $a$ in the space of $B$ contributes to the result.
+And indeed, since $a_{\prl}\wedge B=0$, we may expression $a_{\prl}$ in terms
+of the basis of $B$ as follows.
+\begin{equation}
+a_{\prl}=\sum_{i=1}^k (a_{\prl}\cdot b_i)b_i
+\end{equation}
+Putting all this together, we now have
+\begin{equation}
+a\cdot B = \sum_{i=1}^k (a_{\prl}\cdot b_i)b_i\cdot\bigwedge_{j=1}^k b_j
+\end{equation}
+With a bit of rearrangement, it is now easy to see that
+\begin{equation}
+a\cdot B = \sum_{i=1}^k (a_{\prl}\cdot b_i)b_i\cdot (-1)^{i-1}b_i\wedge\bigwedge_{j=1,j\neq i}^k b_j.
+\end{equation}
+And this simplifes to
+\begin{equation}
+a\cdot B = -\sum_{i=1}^k (-1)^i(a_{\prl}\cdot b_i)\bigwedge_{j=1,j\neq i}^k b_j.
+\end{equation}
+Lastly, simply realize that for all $i$, we have $a_{\prl}\cdot b_i=a\cdot b_i$, since $a_{\prp}\cdot b_i=0$,
+and there we have it.
+
+To be extra thorough here, let's examine the case that $B$ is not factored into an orthogonal basis.
+Does the identity \eqref{equ_useful_identity} still hold?  We begin with the left-hand side, and
+let $r\neq s$ when we write
+\begin{equation}
+a\cdot(b_1\wedge\dots\wedge(b_r+\lambda b_s)\wedge\dots\wedge b_k)=a\cdot B.
+\end{equation}
+Here, $\lambda$ is a scalar, and we see that replacing $b_r$ in $B$ with $b_r+\lambda b_s$ does not alter
+the left-hand side of equation \eqref{equ_useful_identity}.  The idea is that any basis for $B$ can be reached from an orthogonal basis through
+a sequence of shears after perhaps an initial rotation.  (Think of reversing the Grahm-Schmidt orthogonalization
+process.)
+
+Is the right-hand side preserved in a shear?
+For some pair of integers $r\neq s$, let $B_i=\bigwedge_{j=1,j\neq i}^k b_i$, and then let $B_i'$ be $B_i$ with $b_r$ replaced with $b_r+\lambda b_s$.
+Having done so, we see that $B_i=B_i'$ in all cases $i\neq s$.  We then must examine the following expression.
+\begin{equation}
+(a\cdot(b_r+\lambda b_s))B_r+(-1)^{|r-s|}(a\cdot b_s)B_s'
+\end{equation}
+Note that the sign of the first term is chosen arbitrarily to be positive, while the sign of the other term must differ by $(-1)^{|r-s|}$.
+This expression becomes
+\begin{equation}
+(a\cdot b_r)B_r + \lambda (a\cdot b_s)B_r + (-1)^{|r-s|}[(a\cdot b_s)B_s-\lambda(-1)^{|r-s|}(a\cdot b_s)B_r].
+\end{equation}
+Finally, we get some cancelation, and the expression becomes
+\begin{equation}
+(a\cdot b_r)B_r+(-1)^{|r-s|}(a\cdot b_s)B_s,
+\end{equation}
+showing that the right-hand side of equation \eqref{equ_useful_identity} is not alterned by a shear either.
 
 \end{document}
